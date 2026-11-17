@@ -16,12 +16,15 @@ Class ImageFormat from Object
 	Heif
 	Webp
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		return self
+
+	Func New_1 P1
 		nHandle = dnCreate('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',[P1])
 		return self
 

@@ -334,7 +334,8 @@ aDotNetManifest = [
 	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
 	  :desktop = true,
 	  :uses = ["System.Drawing"],
-	  :all = true ],
+	  :all = true,
+	  :types = [ ["System.Drawing.Imaging.ImageFormat","ImageFormat",0] ] ],
 
 	[ :namespace = "System.Drawing.Text",
 	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
