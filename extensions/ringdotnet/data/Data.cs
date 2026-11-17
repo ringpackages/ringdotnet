@@ -50,6 +50,14 @@ namespace RingDotNet
 		}
 
 		internal string SchemaKey = "";
+		private string provider = "sqlite";
+
+		private bool IsSqlite { get { return provider == "sqlite"; } }
+
+		private void RequireSqlite(string what)
+		{
+			if (!IsSqlite) throw new NotSupportedException(what + " needs the sqlite provider (this database uses " + provider + ")");
+		}
 		private readonly List<Table> tables = new List<Table>();
 		private string connection;
 
@@ -63,7 +71,14 @@ namespace RingDotNet
 		*/
 		public static RingDb Create(string connection, object[] schema)
 		{
-			RingDb db = new RingDb { connection = connection, SchemaKey = Describe(schema) };
+			return CreateWith("sqlite", connection, schema);
+		}
+
+		/* provider: sqlite, inmemory, sqlserver, postgres, mysql (the last three need their EF Core provider package next to the other DLLs) */
+		public static RingDb CreateWith(string provider, string connection, object[] schema)
+		{
+			provider = string.IsNullOrEmpty(provider) ? "sqlite" : provider.ToLowerInvariant();
+			RingDb db = new RingDb { connection = connection, provider = provider, SchemaKey = provider + "|" + Describe(schema) };
 			foreach (object item in schema)
 			{
 				object[] def = (object[])item;
@@ -82,7 +97,7 @@ namespace RingDotNet
 				}
 				db.tables.Add(table);
 			}
-			if (connection.IndexOf(":memory:", StringComparison.OrdinalIgnoreCase) >= 0)
+			if (db.IsSqlite && connection.IndexOf(":memory:", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
 				/* an in-memory database lives as long as its connection: keep it open */
 				db.Database.OpenConnection();
@@ -128,6 +143,47 @@ namespace RingDotNet
 			}
 		}
 
+		private void UseProvider(DbContextOptionsBuilder options)
+		{
+			switch (provider)
+			{
+				case "sqlite": options.UseSqlite(connection); return;
+				case "inmemory": options.UseInMemoryDatabase(connection); return;
+				case "sqlserver": UseByName(options, "Microsoft.EntityFrameworkCore.SqlServer", "Microsoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions", "UseSqlServer"); return;
+				case "postgres": UseByName(options, "Npgsql.EntityFrameworkCore.PostgreSQL", "Microsoft.EntityFrameworkCore.NpgsqlDbContextOptionsBuilderExtensions", "UseNpgsql"); return;
+				case "mysql": UseByName(options, "Pomelo.EntityFrameworkCore.MySql", "Microsoft.EntityFrameworkCore.MySqlDbContextOptionsExtensions", "UseMySql"); return;
+				default: throw new ArgumentException("Unknown provider: " + provider + " (sqlite, inmemory, sqlserver, postgres, mysql)");
+			}
+		}
+
+		/* a provider whose package is not bundled: call its UseXxx(options, connection) extension method by reflection */
+		private void UseByName(DbContextOptionsBuilder options, string assemblyName, string typeName, string methodName)
+		{
+			System.Reflection.Assembly assembly;
+			try { assembly = System.Reflection.Assembly.Load(assemblyName); }
+			catch (Exception e) { throw new InvalidOperationException("The provider " + provider + " needs the package " + assemblyName + " (copy its DLLs next to RingDotNet.Data.dll): " + e.Message); }
+			Type type = assembly.GetType(typeName, true);
+			foreach (System.Reflection.MethodInfo method in type.GetMethods())
+			{
+				System.Reflection.ParameterInfo[] ps = method.GetParameters();
+				if (method.Name != methodName || ps.Length < 2 || ps[0].ParameterType != typeof(DbContextOptionsBuilder) || ps[1].ParameterType != typeof(string)) continue;
+				bool simple = true;
+				object[] args = new object[ps.Length];
+				args[0] = options;
+				args[1] = connection;
+				for (int i = 2; i < ps.Length; i++)
+				{
+					if (ps[i].IsOptional) args[i] = Type.Missing;
+					else if (ps[i].ParameterType.Name == "ServerVersion") args[i] = ps[i].ParameterType.GetMethod("AutoDetect", new[] { typeof(string) }).Invoke(null, new object[] { connection });
+					else simple = false;
+				}
+				if (!simple) continue;
+				method.Invoke(null, args);
+				return;
+			}
+			throw new InvalidOperationException("No " + methodName + "(options, connection) method in " + typeName);
+		}
+
 		private static string Describe(object[] items)
 		{
 			System.Text.StringBuilder text = new System.Text.StringBuilder();
@@ -158,7 +214,7 @@ namespace RingDotNet
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			options.UseSqlite(connection);
+			UseProvider(options);
 			/* the model depends on the schema: do not share the cached model between contexts with different schemas */
 			options.ReplaceService<Microsoft.EntityFrameworkCore.Infrastructure.IModelCacheKeyFactory, SchemaCacheKeyFactory>();
 		}
@@ -334,6 +390,7 @@ namespace RingDotNet
 		/* Rows that match a SQL condition: Where("Customers", "Age > {0} AND City = {1}", [30, "Cairo"]) */
 		public List<object> Where(string entity, string condition, object[] parameters)
 		{
+			RequireSqlite("Where with a SQL condition");
 			Table table = Find(entity);
 			string sql = "SELECT * FROM \"" + table.Name + "\" WHERE " + condition;
 			return Rows(table, SetOf(table).FromSqlRaw(sql, parameters).AsNoTracking().ToList());
@@ -368,12 +425,14 @@ namespace RingDotNet
 		/* A SQL statement that changes data: returns the number of rows */
 		public int Execute(string sql, object[] parameters)
 		{
+			if (provider == "inmemory") throw new NotSupportedException("The inmemory provider cannot run SQL");
 			return Database.ExecuteSqlRaw(sql, parameters);
 		}
 
 		/* The first value of the first row of a SQL query */
 		public object Scalar(string sql)
 		{
+			if (provider == "inmemory") throw new NotSupportedException("The inmemory provider cannot run SQL");
 			DbConnection connection = Database.GetDbConnection();
 			bool wasClosed = connection.State != System.Data.ConnectionState.Open;
 			if (wasClosed) connection.Open();
@@ -570,6 +629,7 @@ namespace RingDotNet
 		*/
 		public List<object> Migrate()
 		{
+			RequireSqlite("Migrate");
 			List<object> changes = new List<object>();
 			List<string> existingTables = Names("SELECT name AS Value FROM sqlite_master WHERE type = 'table'");
 			string script = Database.GenerateCreateScript();
@@ -626,6 +686,7 @@ namespace RingDotNet
 		*/
 		public bool Apply(string name, string sql)
 		{
+			RequireSqlite("Apply");
 			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
 			if (Names("SELECT Name AS Value FROM RingMigrations").Contains(name)) return false;
 			using (var tx = Database.BeginTransaction())
@@ -640,6 +701,7 @@ namespace RingDotNet
 		/* The names of the changes applied so far */
 		public List<object> Applied()
 		{
+			RequireSqlite("Applied");
 			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
 			return Names("SELECT Name AS Value FROM RingMigrations ORDER BY AppliedAt, Name").Cast<object>().ToList();
 		}

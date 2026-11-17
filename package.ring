@@ -4867,6 +4867,7 @@ aPackageInfo = [
 		"tests/test_data.ring",
 		"tests/test_data_ef.ring",
 		"tests/test_data_migrations.ring",
+		"tests/test_data_providers.ring",
 		"tests/test_data_relations.ring",
 		"tests/test_data_schema.ring",
 		"tests/test_data_transactions.ring",
@@ -4909,6 +4910,7 @@ aPackageInfo = [
 	:windowsringfolderfiles = 	[
 		"bin/Microsoft.Data.Sqlite.dll",
 		"bin/Microsoft.EntityFrameworkCore.Abstractions.dll",
+		"bin/Microsoft.EntityFrameworkCore.InMemory.dll",
 		"bin/Microsoft.EntityFrameworkCore.Relational.dll",
 		"bin/Microsoft.EntityFrameworkCore.Sqlite.dll",
 		"bin/Microsoft.EntityFrameworkCore.dll",
