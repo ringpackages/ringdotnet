@@ -39,6 +39,11 @@ func dbValue  aRow, cColumn
 	next
 	return ""
 
+# wait for a Task of the async methods and return its result
+func dbWait  oTask
+	oTask.Wait()
+	return oTask.getProp("Result")
+
 class RingDatabase
 
 	db_oContext = ""
@@ -103,6 +108,42 @@ class RingDatabase
 			ok
 		next
 		return db_aList
+
+	# transactions: begin() ... commit() or rollback(); an error in commit() undoes everything
+	func begin
+		dnRequest("call",[db_oContext,"Begin"])
+
+	func commit
+		dnRequest("call",[db_oContext,"Commit"])
+
+	func rollback
+		dnRequest("call",[db_oContext,"Rollback"])
+
+	func inTransaction
+		return dnRequest("get",[db_oContext,"InTransaction"])
+
+	# async versions return a .NET Task: dbWait(oTask) waits and returns the result
+	func insertAsync  cTable, aValues
+		return dnRequest("call",[db_oContext,"InsertAsync",cTable,aValues])
+
+	func allAsync  cTable
+		return dnRequest("call",[db_oContext,"AllAsync",cTable])
+
+	func whereAsync  cTable, cCondition, aParameters
+		return dnRequest("call",[db_oContext,"WhereAsync",cTable,cCondition,aParameters])
+
+	func countAsync  cTable
+		return dnRequest("call",[db_oContext,"CountAsync",cTable])
+
+	func saveAsync
+		return dnRequest("call",[db_oContext,"SaveAsync"])
+
+	# autoSave(false): changes are written when save() is called (one batch)
+	func autoSave  lAuto
+		dnRequest("set",[db_oContext,"AutoSave",lAuto])
+
+	func save
+		dnRequest("call",[db_oContext,"Save"])
 
 	# forget the changes that were not saved (a failed save does this by itself)
 	func discard

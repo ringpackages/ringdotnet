@@ -4868,6 +4868,7 @@ aPackageInfo = [
 		"tests/test_data_ef.ring",
 		"tests/test_data_relations.ring",
 		"tests/test_data_schema.ring",
+		"tests/test_data_transactions.ring",
 		"tests/test_desktop.ring",
 		"tests/test_foundation.ring",
 		"tests/test_io.ring",

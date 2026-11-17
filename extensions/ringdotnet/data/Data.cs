@@ -442,6 +442,82 @@ namespace RingDotNet
 			return result;
 		}
 
+		private Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction transaction;
+
+		/* Start a transaction: the changes are saved when Commit is called, or undone by Rollback */
+		public void Begin()
+		{
+			if (transaction != null) throw new InvalidOperationException("A transaction is already active");
+			transaction = Database.BeginTransaction();
+		}
+
+		public void Commit()
+		{
+			if (transaction == null) throw new InvalidOperationException("There is no active transaction");
+			try
+			{
+				SaveChanges();
+				transaction.Commit();
+			}
+			catch
+			{
+				ChangeTracker.Clear();
+				transaction.Rollback();
+				throw;
+			}
+			finally
+			{
+				transaction.Dispose();
+				transaction = null;
+			}
+		}
+
+		public void Rollback()
+		{
+			if (transaction == null) throw new InvalidOperationException("There is no active transaction");
+			ChangeTracker.Clear();
+			try
+			{
+				transaction.Rollback();
+			}
+			finally
+			{
+				transaction.Dispose();
+				transaction = null;
+			}
+		}
+
+		public bool InTransaction { get { return transaction != null; } }
+
+		/* Async versions: they return a Task, call Wait() and read Result in Ring */
+		public System.Threading.Tasks.Task<object> InsertAsync(string entity, object[] pairs)
+		{
+			return System.Threading.Tasks.Task.Run(() => Insert(entity, pairs));
+		}
+
+		public System.Threading.Tasks.Task<List<object>> AllAsync(string entity)
+		{
+			Table table = Find(entity);
+			return SetOf(table).AsNoTracking().ToListAsync().ContinueWith(t => Rows(table, t.Result));
+		}
+
+		public System.Threading.Tasks.Task<List<object>> WhereAsync(string entity, string condition, object[] parameters)
+		{
+			Table table = Find(entity);
+			string sql = "SELECT * FROM \"" + table.Name + "\" WHERE " + condition;
+			return SetOf(table).FromSqlRaw(sql, parameters).AsNoTracking().ToListAsync().ContinueWith(t => Rows(table, t.Result));
+		}
+
+		public System.Threading.Tasks.Task<long> CountAsync(string entity)
+		{
+			return SetOf(Find(entity)).LongCountAsync();
+		}
+
+		public System.Threading.Tasks.Task<int> SaveAsync()
+		{
+			return SaveChangesAsync();
+		}
+
 		public void Save()
 		{
 			try
