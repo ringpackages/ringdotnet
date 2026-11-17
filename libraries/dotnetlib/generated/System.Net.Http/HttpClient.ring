@@ -5,7 +5,7 @@ Func DotNetWrap_HttpClient xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new HttpClient(0)
+	return new HttpClient()
 
 Class HttpClient from DotNetObject
 
@@ -17,17 +17,17 @@ Class HttpClient from DotNetObject
 	MaxResponseContentBufferSize
 	DefaultProxy
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		nHandle = dnCreate('System.Net.Http.HttpClient',[P1])
+		nHandle = dnCreate('System.Net.Http.HttpClient',[])
 		return self
 
-	Func New_0 
-		nHandle = dnCreate('System.Net.Http.HttpClient',[])
+	Func New_1 P1
+		nHandle = dnCreate('System.Net.Http.HttpClient',[P1])
 		return self
 
 	Func New_2 P1,P2
@@ -112,32 +112,32 @@ Class HttpClient from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getDefaultRequestHeaders
 		return dnRequest("get",[self,"DefaultRequestHeaders"])
@@ -146,11 +146,11 @@ Class HttpClient from DotNetObject
 		raise("DotNet Error: DefaultRequestHeaders is a read-only property")
 
 	Func getDefaultRequestVersion
-		xResult = dnRequest("get",[self,"DefaultRequestVersion"])
+		dn_xResult = dnRequest("get",[self,"DefaultRequestVersion"])
 		if isfunction('DotNetWrap_Version')
-			return DotNetWrap_Version(xResult)
+			return DotNetWrap_Version(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDefaultRequestVersion P1
 		dnRequest("set",[self,"DefaultRequestVersion",P1])
@@ -164,33 +164,33 @@ Class HttpClient from DotNetObject
 		return self
 
 	Func getBaseAddress
-		xResult = dnRequest("get",[self,"BaseAddress"])
+		dn_xResult = dnRequest("get",[self,"BaseAddress"])
 		if isfunction('DotNetWrap_Uri')
-			return DotNetWrap_Uri(xResult)
+			return DotNetWrap_Uri(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBaseAddress P1
 		dnRequest("set",[self,"BaseAddress",P1])
 		return self
 
 	Func getTimeout
-		xResult = dnRequest("get",[self,"Timeout"])
+		dn_xResult = dnRequest("get",[self,"Timeout"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTimeout P1
 		dnRequest("set",[self,"Timeout",P1])
 		return self
 
 	Func getMaxResponseContentBufferSize
-		xResult = dnRequest("get",[self,"MaxResponseContentBufferSize"])
+		dn_xResult = dnRequest("get",[self,"MaxResponseContentBufferSize"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxResponseContentBufferSize P1
 		dnRequest("set",[self,"MaxResponseContentBufferSize",P1])

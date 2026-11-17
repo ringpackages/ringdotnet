@@ -25,67 +25,67 @@ Class StringComparer from DotNetObject
 		return self
 
 	Func Compare P1,P2
-		xResult = dnRequest("call",[self,"Compare",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Compare",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Equals P1,P2
-		xResult = dnRequest("call",[self,"Equals",P1,P2])
+	Func Equals_2 P1,P2
+		dn_xResult = dnRequest("call",[self,"Equals",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode P1
-		xResult = dnRequest("call",[self,"GetHashCode",P1])
+		dn_xResult = dnRequest("call",[self,"GetHashCode",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Equals_1 P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+	Func Equals P1
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode_0 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromComparison P1
-		xResult = dnRequest("call",[dnTypeCached('System.StringComparer'),"FromComparison",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.StringComparer'),"FromComparison",P1])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Create P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.StringComparer'),"Create",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.StringComparer'),"Create",P1,P2])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWellKnownOrdinalComparer P1
 		return dnRequest("call",[dnTypeCached('System.StringComparer'),"IsWellKnownOrdinalComparer",P1])
@@ -94,61 +94,61 @@ Class StringComparer from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.StringComparer'),"IsWellKnownCultureAwareComparer",P1])
 
 	Func getInvariantCulture
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"InvariantCulture"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"InvariantCulture"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setInvariantCulture P1
 		raise("DotNet Error: InvariantCulture is a read-only property")
 
 	Func getInvariantCultureIgnoreCase
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"InvariantCultureIgnoreCase"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"InvariantCultureIgnoreCase"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setInvariantCultureIgnoreCase P1
 		raise("DotNet Error: InvariantCultureIgnoreCase is a read-only property")
 
 	Func getCurrentCulture
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"CurrentCulture"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"CurrentCulture"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCurrentCulture P1
 		raise("DotNet Error: CurrentCulture is a read-only property")
 
 	Func getCurrentCultureIgnoreCase
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"CurrentCultureIgnoreCase"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"CurrentCultureIgnoreCase"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCurrentCultureIgnoreCase P1
 		raise("DotNet Error: CurrentCultureIgnoreCase is a read-only property")
 
 	Func getOrdinal
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"Ordinal"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"Ordinal"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOrdinal P1
 		raise("DotNet Error: Ordinal is a read-only property")
 
 	Func getOrdinalIgnoreCase
-		xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"OrdinalIgnoreCase"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.StringComparer'),"OrdinalIgnoreCase"])
 		if isfunction('DotNetWrap_StringComparer')
-			return DotNetWrap_StringComparer(xResult)
+			return DotNetWrap_StringComparer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOrdinalIgnoreCase P1
 		raise("DotNet Error: OrdinalIgnoreCase is a read-only property")

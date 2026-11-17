@@ -7,7 +7,7 @@ dnAssert("Math.Max",oMath.Max(3,9),9)
 dnAssert("Math.Pow",oMath.Pow(2,10),1024)
 dnAssert("Math.Abs",oMath.Abs(-5),5)
 dnAssert("Math.PI",oMath.PI,3.14159265358979)
-dnAssert("Math.Round",oMath.Round(2.567,2),2.57)
+dnAssert("Math.Round",oMath.Round_2(2.567,2),2.57)
 
 oConvert = new Convert()
 dnAssert("Convert.ToInt32",oConvert.ToInt32("42"),42)

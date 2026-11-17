@@ -29,74 +29,74 @@ Class Int128 from DotNetObject
 		return self
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Int128'),"TryParse",P1])
@@ -108,187 +108,187 @@ Class Int128 from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Int128'),"DivRem",P1,P2])
 
 	Func LeadingZeroCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"LeadingZeroCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"LeadingZeroCount",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func PopCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"PopCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"PopCount",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RotateLeft P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"RotateLeft",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"RotateLeft",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RotateRight P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"RotateRight",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"RotateRight",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TrailingZeroCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"TrailingZeroCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"TrailingZeroCount",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPow2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsPow2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsPow2",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Log2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Log2",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clamp P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Clamp",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Clamp",P1,P2,P3])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopySign P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"CopySign",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"CopySign",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Max P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Max",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Max",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Min P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Min",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Min",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sign P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Sign",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Sign",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Abs P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Abs",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"Abs",P1])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEvenInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsEvenInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsEvenInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNegative P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsNegative",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsNegative",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOddInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsOddInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsOddInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPositive P1
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsPositive",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"IsPositive",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"MaxMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"MaxMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Int128'),"MinMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Int128'),"MinMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int128'),"TryParse",P1,P2])
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.Int128'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Int128'),"MinValue"])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.Int128'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Int128'),"MaxValue"])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getOne
-		xResult = dnRequest("get",[dnTypeCached('System.Int128'),"One"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Int128'),"One"])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getZero
-		xResult = dnRequest("get",[dnTypeCached('System.Int128'),"Zero"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Int128'),"Zero"])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getNegativeOne
-		xResult = dnRequest("get",[dnTypeCached('System.Int128'),"NegativeOne"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Int128'),"NegativeOne"])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNegativeOne P1
 		raise("DotNet Error: NegativeOne is a read-only property")

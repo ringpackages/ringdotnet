@@ -22,112 +22,112 @@ Class ModuleHandle from DotNetObject
 		return self
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetRuntimeTypeHandleFromMetadataToken P1
-		xResult = dnRequest("call",[self,"GetRuntimeTypeHandleFromMetadataToken",P1])
+		dn_xResult = dnRequest("call",[self,"GetRuntimeTypeHandleFromMetadataToken",P1])
 		if isfunction('DotNetWrap_RuntimeTypeHandle')
-			return DotNetWrap_RuntimeTypeHandle(xResult)
+			return DotNetWrap_RuntimeTypeHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveTypeHandle P1
-		xResult = dnRequest("call",[self,"ResolveTypeHandle",P1])
+		dn_xResult = dnRequest("call",[self,"ResolveTypeHandle",P1])
 		if isfunction('DotNetWrap_RuntimeTypeHandle')
-			return DotNetWrap_RuntimeTypeHandle(xResult)
+			return DotNetWrap_RuntimeTypeHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveTypeHandle_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"ResolveTypeHandle",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"ResolveTypeHandle",P1,P2,P3])
 		if isfunction('DotNetWrap_RuntimeTypeHandle')
-			return DotNetWrap_RuntimeTypeHandle(xResult)
+			return DotNetWrap_RuntimeTypeHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetRuntimeMethodHandleFromMetadataToken P1
-		xResult = dnRequest("call",[self,"GetRuntimeMethodHandleFromMetadataToken",P1])
+		dn_xResult = dnRequest("call",[self,"GetRuntimeMethodHandleFromMetadataToken",P1])
 		if isfunction('DotNetWrap_RuntimeMethodHandle')
-			return DotNetWrap_RuntimeMethodHandle(xResult)
+			return DotNetWrap_RuntimeMethodHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveMethodHandle P1
-		xResult = dnRequest("call",[self,"ResolveMethodHandle",P1])
+		dn_xResult = dnRequest("call",[self,"ResolveMethodHandle",P1])
 		if isfunction('DotNetWrap_RuntimeMethodHandle')
-			return DotNetWrap_RuntimeMethodHandle(xResult)
+			return DotNetWrap_RuntimeMethodHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveMethodHandle_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"ResolveMethodHandle",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"ResolveMethodHandle",P1,P2,P3])
 		if isfunction('DotNetWrap_RuntimeMethodHandle')
-			return DotNetWrap_RuntimeMethodHandle(xResult)
+			return DotNetWrap_RuntimeMethodHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetRuntimeFieldHandleFromMetadataToken P1
-		xResult = dnRequest("call",[self,"GetRuntimeFieldHandleFromMetadataToken",P1])
+		dn_xResult = dnRequest("call",[self,"GetRuntimeFieldHandleFromMetadataToken",P1])
 		if isfunction('DotNetWrap_RuntimeFieldHandle')
-			return DotNetWrap_RuntimeFieldHandle(xResult)
+			return DotNetWrap_RuntimeFieldHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveFieldHandle P1
-		xResult = dnRequest("call",[self,"ResolveFieldHandle",P1])
+		dn_xResult = dnRequest("call",[self,"ResolveFieldHandle",P1])
 		if isfunction('DotNetWrap_RuntimeFieldHandle')
-			return DotNetWrap_RuntimeFieldHandle(xResult)
+			return DotNetWrap_RuntimeFieldHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResolveFieldHandle_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"ResolveFieldHandle",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"ResolveFieldHandle",P1,P2,P3])
 		if isfunction('DotNetWrap_RuntimeFieldHandle')
-			return DotNetWrap_RuntimeFieldHandle(xResult)
+			return DotNetWrap_RuntimeFieldHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMDStreamVersion
-		xResult = dnRequest("get",[self,"MDStreamVersion"])
+		dn_xResult = dnRequest("get",[self,"MDStreamVersion"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMDStreamVersion P1
 		raise("DotNet Error: MDStreamVersion is a read-only property")
 
 	Func getEmptyHandle
-		xResult = dnRequest("get",[dnTypeCached('System.ModuleHandle'),"EmptyHandle"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.ModuleHandle'),"EmptyHandle"])
 		if isfunction('DotNetWrap_ModuleHandle')
-			return DotNetWrap_ModuleHandle(xResult)
+			return DotNetWrap_ModuleHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setEmptyHandle P1
 		raise("DotNet Error: EmptyHandle is a read-only property")

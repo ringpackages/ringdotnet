@@ -5,7 +5,7 @@ Func DotNetWrap_UriBuilder xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new UriBuilder(0)
+	return new UriBuilder()
 
 Class UriBuilder from DotNetObject
 
@@ -19,17 +19,17 @@ Class UriBuilder from DotNetObject
 	Fragment
 	Uri
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		nHandle = dnCreate('System.UriBuilder',[P1])
+		nHandle = dnCreate('System.UriBuilder',[])
 		return self
 
-	Func New_0 
-		nHandle = dnCreate('System.UriBuilder',[])
+	Func New_1 P1
+		nHandle = dnCreate('System.UriBuilder',[P1])
 		return self
 
 	Func New_2 P1,P2
@@ -49,127 +49,127 @@ Class UriBuilder from DotNetObject
 		return self
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getScheme
-		xResult = dnRequest("get",[self,"Scheme"])
+		dn_xResult = dnRequest("get",[self,"Scheme"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setScheme P1
 		dnRequest("set",[self,"Scheme",P1])
 		return self
 
 	Func getUserName
-		xResult = dnRequest("get",[self,"UserName"])
+		dn_xResult = dnRequest("get",[self,"UserName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUserName P1
 		dnRequest("set",[self,"UserName",P1])
 		return self
 
 	Func getPassword
-		xResult = dnRequest("get",[self,"Password"])
+		dn_xResult = dnRequest("get",[self,"Password"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPassword P1
 		dnRequest("set",[self,"Password",P1])
 		return self
 
 	Func getHost
-		xResult = dnRequest("get",[self,"Host"])
+		dn_xResult = dnRequest("get",[self,"Host"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHost P1
 		dnRequest("set",[self,"Host",P1])
 		return self
 
 	Func getPort
-		xResult = dnRequest("get",[self,"Port"])
+		dn_xResult = dnRequest("get",[self,"Port"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPort P1
 		dnRequest("set",[self,"Port",P1])
 		return self
 
 	Func getPath
-		xResult = dnRequest("get",[self,"Path"])
+		dn_xResult = dnRequest("get",[self,"Path"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPath P1
 		dnRequest("set",[self,"Path",P1])
 		return self
 
 	Func getQuery
-		xResult = dnRequest("get",[self,"Query"])
+		dn_xResult = dnRequest("get",[self,"Query"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setQuery P1
 		dnRequest("set",[self,"Query",P1])
 		return self
 
 	Func getFragment
-		xResult = dnRequest("get",[self,"Fragment"])
+		dn_xResult = dnRequest("get",[self,"Fragment"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFragment P1
 		dnRequest("set",[self,"Fragment",P1])
 		return self
 
 	Func getUri
-		xResult = dnRequest("get",[self,"Uri"])
+		dn_xResult = dnRequest("get",[self,"Uri"])
 		if isfunction('DotNetWrap_Uri')
-			return DotNetWrap_Uri(xResult)
+			return DotNetWrap_Uri(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUri P1
 		raise("DotNet Error: Uri is a read-only property")

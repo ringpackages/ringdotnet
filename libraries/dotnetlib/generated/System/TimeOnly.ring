@@ -49,147 +49,147 @@ Class TimeOnly from DotNetObject
 		return self
 
 	Func Add P1
-		xResult = dnRequest("call",[self,"Add",P1])
+		dn_xResult = dnRequest("call",[self,"Add",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddHours P1
-		xResult = dnRequest("call",[self,"AddHours",P1])
+		dn_xResult = dnRequest("call",[self,"AddHours",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMinutes P1
-		xResult = dnRequest("call",[self,"AddMinutes",P1])
+		dn_xResult = dnRequest("call",[self,"AddMinutes",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsBetween P1,P2
-		xResult = dnRequest("call",[self,"IsBetween",P1,P2])
+		dn_xResult = dnRequest("call",[self,"IsBetween",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
 	Func ToTimeSpan 
-		xResult = dnRequest("call",[self,"ToTimeSpan"])
+		dn_xResult = dnRequest("call",[self,"ToTimeSpan"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToLongTimeString 
-		xResult = dnRequest("call",[self,"ToLongTimeString"])
+		dn_xResult = dnRequest("call",[self,"ToLongTimeString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToShortTimeString 
-		xResult = dnRequest("call",[self,"ToShortTimeString"])
+		dn_xResult = dnRequest("call",[self,"ToShortTimeString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromTimeSpan P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"FromTimeSpan",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"FromTimeSpan",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromDateTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"FromDateTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"FromDateTime",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ParseExact P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"ParseExact",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"ParseExact",P1,P2])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ParseExact_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"ParseExact",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"ParseExact",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.TimeOnly'),"TryParse",P1])
@@ -204,101 +204,101 @@ Class TimeOnly from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.TimeOnly'),"TryParseExact",P1,P2,P3,P4])
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeOnly'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeOnly'),"TryParse",P1,P2])
 
 	Func getHour
-		xResult = dnRequest("get",[self,"Hour"])
+		dn_xResult = dnRequest("get",[self,"Hour"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getMinute
-		xResult = dnRequest("get",[self,"Minute"])
+		dn_xResult = dnRequest("get",[self,"Minute"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getSecond
-		xResult = dnRequest("get",[self,"Second"])
+		dn_xResult = dnRequest("get",[self,"Second"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getMillisecond
-		xResult = dnRequest("get",[self,"Millisecond"])
+		dn_xResult = dnRequest("get",[self,"Millisecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		xResult = dnRequest("get",[self,"Microsecond"])
+		dn_xResult = dnRequest("get",[self,"Microsecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		xResult = dnRequest("get",[self,"Nanosecond"])
+		dn_xResult = dnRequest("get",[self,"Nanosecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getTicks
-		xResult = dnRequest("get",[self,"Ticks"])
+		dn_xResult = dnRequest("get",[self,"Ticks"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.TimeOnly'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.TimeOnly'),"MinValue"])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.TimeOnly'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.TimeOnly'),"MaxValue"])
 		if isfunction('DotNetWrap_TimeOnly')
-			return DotNetWrap_TimeOnly(xResult)
+			return DotNetWrap_TimeOnly(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")

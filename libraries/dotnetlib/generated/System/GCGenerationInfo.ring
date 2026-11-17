@@ -24,69 +24,69 @@ Class GCGenerationInfo from DotNetObject
 		return self
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getSizeBeforeBytes
-		xResult = dnRequest("get",[self,"SizeBeforeBytes"])
+		dn_xResult = dnRequest("get",[self,"SizeBeforeBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSizeBeforeBytes P1
 		raise("DotNet Error: SizeBeforeBytes is a read-only property")
 
 	Func getFragmentationBeforeBytes
-		xResult = dnRequest("get",[self,"FragmentationBeforeBytes"])
+		dn_xResult = dnRequest("get",[self,"FragmentationBeforeBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFragmentationBeforeBytes P1
 		raise("DotNet Error: FragmentationBeforeBytes is a read-only property")
 
 	Func getSizeAfterBytes
-		xResult = dnRequest("get",[self,"SizeAfterBytes"])
+		dn_xResult = dnRequest("get",[self,"SizeAfterBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSizeAfterBytes P1
 		raise("DotNet Error: SizeAfterBytes is a read-only property")
 
 	Func getFragmentationAfterBytes
-		xResult = dnRequest("get",[self,"FragmentationAfterBytes"])
+		dn_xResult = dnRequest("get",[self,"FragmentationAfterBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFragmentationAfterBytes P1
 		raise("DotNet Error: FragmentationAfterBytes is a read-only property")

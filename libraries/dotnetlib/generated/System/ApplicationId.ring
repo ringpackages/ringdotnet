@@ -25,76 +25,76 @@ Class ApplicationId from DotNetObject
 		return self
 
 	Func Copy 
-		xResult = dnRequest("call",[self,"Copy"])
+		dn_xResult = dnRequest("call",[self,"Copy"])
 		if isfunction('DotNetWrap_ApplicationId')
-			return DotNetWrap_ApplicationId(xResult)
+			return DotNetWrap_ApplicationId(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getCulture
-		xResult = dnRequest("get",[self,"Culture"])
+		dn_xResult = dnRequest("get",[self,"Culture"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCulture P1
 		raise("DotNet Error: Culture is a read-only property")
 
 	Func getName
-		xResult = dnRequest("get",[self,"Name"])
+		dn_xResult = dnRequest("get",[self,"Name"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getProcessorArchitecture
-		xResult = dnRequest("get",[self,"ProcessorArchitecture"])
+		dn_xResult = dnRequest("get",[self,"ProcessorArchitecture"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setProcessorArchitecture P1
 		raise("DotNet Error: ProcessorArchitecture is a read-only property")
 
 	Func getVersion
-		xResult = dnRequest("get",[self,"Version"])
+		dn_xResult = dnRequest("get",[self,"Version"])
 		if isfunction('DotNetWrap_Version')
-			return DotNetWrap_Version(xResult)
+			return DotNetWrap_Version(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

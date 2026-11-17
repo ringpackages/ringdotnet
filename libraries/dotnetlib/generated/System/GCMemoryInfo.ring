@@ -36,159 +36,159 @@ Class GCMemoryInfo from DotNetObject
 		return self
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getHighMemoryLoadThresholdBytes
-		xResult = dnRequest("get",[self,"HighMemoryLoadThresholdBytes"])
+		dn_xResult = dnRequest("get",[self,"HighMemoryLoadThresholdBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHighMemoryLoadThresholdBytes P1
 		raise("DotNet Error: HighMemoryLoadThresholdBytes is a read-only property")
 
 	Func getMemoryLoadBytes
-		xResult = dnRequest("get",[self,"MemoryLoadBytes"])
+		dn_xResult = dnRequest("get",[self,"MemoryLoadBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMemoryLoadBytes P1
 		raise("DotNet Error: MemoryLoadBytes is a read-only property")
 
 	Func getTotalAvailableMemoryBytes
-		xResult = dnRequest("get",[self,"TotalAvailableMemoryBytes"])
+		dn_xResult = dnRequest("get",[self,"TotalAvailableMemoryBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTotalAvailableMemoryBytes P1
 		raise("DotNet Error: TotalAvailableMemoryBytes is a read-only property")
 
 	Func getHeapSizeBytes
-		xResult = dnRequest("get",[self,"HeapSizeBytes"])
+		dn_xResult = dnRequest("get",[self,"HeapSizeBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHeapSizeBytes P1
 		raise("DotNet Error: HeapSizeBytes is a read-only property")
 
 	Func getFragmentedBytes
-		xResult = dnRequest("get",[self,"FragmentedBytes"])
+		dn_xResult = dnRequest("get",[self,"FragmentedBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFragmentedBytes P1
 		raise("DotNet Error: FragmentedBytes is a read-only property")
 
 	Func getIndex
-		xResult = dnRequest("get",[self,"Index"])
+		dn_xResult = dnRequest("get",[self,"Index"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIndex P1
 		raise("DotNet Error: Index is a read-only property")
 
 	Func getGeneration
-		xResult = dnRequest("get",[self,"Generation"])
+		dn_xResult = dnRequest("get",[self,"Generation"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setGeneration P1
 		raise("DotNet Error: Generation is a read-only property")
 
 	Func getCompacted
-		xResult = dnRequest("get",[self,"Compacted"])
+		dn_xResult = dnRequest("get",[self,"Compacted"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCompacted P1
 		raise("DotNet Error: Compacted is a read-only property")
 
 	Func getConcurrent
-		xResult = dnRequest("get",[self,"Concurrent"])
+		dn_xResult = dnRequest("get",[self,"Concurrent"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setConcurrent P1
 		raise("DotNet Error: Concurrent is a read-only property")
 
 	Func getTotalCommittedBytes
-		xResult = dnRequest("get",[self,"TotalCommittedBytes"])
+		dn_xResult = dnRequest("get",[self,"TotalCommittedBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTotalCommittedBytes P1
 		raise("DotNet Error: TotalCommittedBytes is a read-only property")
 
 	Func getPromotedBytes
-		xResult = dnRequest("get",[self,"PromotedBytes"])
+		dn_xResult = dnRequest("get",[self,"PromotedBytes"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPromotedBytes P1
 		raise("DotNet Error: PromotedBytes is a read-only property")
 
 	Func getPinnedObjectsCount
-		xResult = dnRequest("get",[self,"PinnedObjectsCount"])
+		dn_xResult = dnRequest("get",[self,"PinnedObjectsCount"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPinnedObjectsCount P1
 		raise("DotNet Error: PinnedObjectsCount is a read-only property")
 
 	Func getFinalizationPendingCount
-		xResult = dnRequest("get",[self,"FinalizationPendingCount"])
+		dn_xResult = dnRequest("get",[self,"FinalizationPendingCount"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFinalizationPendingCount P1
 		raise("DotNet Error: FinalizationPendingCount is a read-only property")
@@ -200,11 +200,11 @@ Class GCMemoryInfo from DotNetObject
 		raise("DotNet Error: PauseDurations is a read-only property")
 
 	Func getPauseTimePercentage
-		xResult = dnRequest("get",[self,"PauseTimePercentage"])
+		dn_xResult = dnRequest("get",[self,"PauseTimePercentage"])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPauseTimePercentage P1
 		raise("DotNet Error: PauseTimePercentage is a read-only property")

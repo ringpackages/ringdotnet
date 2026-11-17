@@ -25,99 +25,99 @@ Class Random from DotNetObject
 		return self
 
 	Func Next_0 
-		xResult = dnRequest("call",[self,"Next"])
+		dn_xResult = dnRequest("call",[self,"Next"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Next_ P1
-		xResult = dnRequest("call",[self,"Next",P1])
+		dn_xResult = dnRequest("call",[self,"Next",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Next_2 P1,P2
-		xResult = dnRequest("call",[self,"Next",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Next",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextInt64_0 
-		xResult = dnRequest("call",[self,"NextInt64"])
+		dn_xResult = dnRequest("call",[self,"NextInt64"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextInt64 P1
-		xResult = dnRequest("call",[self,"NextInt64",P1])
+		dn_xResult = dnRequest("call",[self,"NextInt64",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextInt64_2 P1,P2
-		xResult = dnRequest("call",[self,"NextInt64",P1,P2])
+		dn_xResult = dnRequest("call",[self,"NextInt64",P1,P2])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextSingle 
-		xResult = dnRequest("call",[self,"NextSingle"])
+		dn_xResult = dnRequest("call",[self,"NextSingle"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextDouble 
-		xResult = dnRequest("call",[self,"NextDouble"])
+		dn_xResult = dnRequest("call",[self,"NextDouble"])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func NextBytes P1
 		dnRequest("call",[self,"NextBytes",P1])
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getShared
-		xResult = dnRequest("get",[dnTypeCached('System.Random'),"Shared"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Random'),"Shared"])
 		if isfunction('DotNetWrap_Random')
-			return DotNetWrap_Random(xResult)
+			return DotNetWrap_Random(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setShared P1
 		raise("DotNet Error: Shared is a read-only property")

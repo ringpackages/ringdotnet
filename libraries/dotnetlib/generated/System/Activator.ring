@@ -18,60 +18,60 @@ Class Activator from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstance_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func CreateInstance P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2])
+	Func CreateInstance_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstance_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func CreateInstance_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1])
+	Func CreateInstance P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFrom P1,P2
 		return dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstanceFrom",P1,P2])
@@ -83,11 +83,11 @@ Class Activator from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstanceFrom",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func CreateInstance_6 P1,P2,P3,P4,P5,P6
-		xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3,P4,P5,P6])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3,P4,P5,P6])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.Activator'),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])

@@ -5,7 +5,7 @@ Func DotNetWrap_UTF7Encoding xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new UTF7Encoding(0)
+	return new UTF7Encoding()
 
 Class UTF7Encoding from DotNetObject
 
@@ -25,112 +25,112 @@ Class UTF7Encoding from DotNetObject
 	IsReadOnly
 	CodePage
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		nHandle = dnCreate('System.Text.UTF7Encoding',[P1])
-		return self
-
-	Func New_0 
 		nHandle = dnCreate('System.Text.UTF7Encoding',[])
 		return self
 
+	Func New_1 P1
+		nHandle = dnCreate('System.Text.UTF7Encoding',[P1])
+		return self
+
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetByteCount_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"GetByteCount",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"GetByteCount",P1,P2,P3])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetByteCount P1
-		xResult = dnRequest("call",[self,"GetByteCount",P1])
+		dn_xResult = dnRequest("call",[self,"GetByteCount",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetBytes_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[self,"GetBytes",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[self,"GetBytes",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetCharCount_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"GetCharCount",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"GetCharCount",P1,P2,P3])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetChars_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[self,"GetChars",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[self,"GetChars",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetString_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"GetString",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"GetString",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetDecoder 
-		xResult = dnRequest("call",[self,"GetDecoder"])
+		dn_xResult = dnRequest("call",[self,"GetDecoder"])
 		if isfunction('DotNetWrap_Decoder')
-			return DotNetWrap_Decoder(xResult)
+			return DotNetWrap_Decoder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEncoder 
-		xResult = dnRequest("call",[self,"GetEncoder"])
+		dn_xResult = dnRequest("call",[self,"GetEncoder"])
 		if isfunction('DotNetWrap_Encoder')
-			return DotNetWrap_Encoder(xResult)
+			return DotNetWrap_Encoder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetMaxByteCount P1
-		xResult = dnRequest("call",[self,"GetMaxByteCount",P1])
+		dn_xResult = dnRequest("call",[self,"GetMaxByteCount",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetMaxCharCount P1
-		xResult = dnRequest("call",[self,"GetMaxCharCount",P1])
+		dn_xResult = dnRequest("call",[self,"GetMaxCharCount",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetPreamble 
 		return dnRequest("call",[self,"GetPreamble"])
 
 	Func Clone 
-		xResult = dnRequest("call",[self,"Clone"])
+		dn_xResult = dnRequest("call",[self,"Clone"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetBytes P1
 		return dnRequest("call",[self,"GetBytes",P1])
@@ -139,11 +139,11 @@ Class UTF7Encoding from DotNetObject
 		return dnRequest("call",[self,"GetBytes",P1,P2,P3])
 
 	Func GetCharCount P1
-		xResult = dnRequest("call",[self,"GetCharCount",P1])
+		dn_xResult = dnRequest("call",[self,"GetCharCount",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetChars P1
 		return dnRequest("call",[self,"GetChars",P1])
@@ -152,181 +152,181 @@ Class UTF7Encoding from DotNetObject
 		return dnRequest("call",[self,"GetChars",P1,P2,P3])
 
 	Func IsAlwaysNormalized_0 
-		xResult = dnRequest("call",[self,"IsAlwaysNormalized"])
+		dn_xResult = dnRequest("call",[self,"IsAlwaysNormalized"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAlwaysNormalized P1
-		xResult = dnRequest("call",[self,"IsAlwaysNormalized",P1])
+		dn_xResult = dnRequest("call",[self,"IsAlwaysNormalized",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetString P1
-		xResult = dnRequest("call",[self,"GetString",P1])
+		dn_xResult = dnRequest("call",[self,"GetString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")
 
 	Func getBodyName
-		xResult = dnRequest("get",[self,"BodyName"])
+		dn_xResult = dnRequest("get",[self,"BodyName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBodyName P1
 		raise("DotNet Error: BodyName is a read-only property")
 
 	Func getEncodingName
-		xResult = dnRequest("get",[self,"EncodingName"])
+		dn_xResult = dnRequest("get",[self,"EncodingName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setEncodingName P1
 		raise("DotNet Error: EncodingName is a read-only property")
 
 	Func getHeaderName
-		xResult = dnRequest("get",[self,"HeaderName"])
+		dn_xResult = dnRequest("get",[self,"HeaderName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHeaderName P1
 		raise("DotNet Error: HeaderName is a read-only property")
 
 	Func getWebName
-		xResult = dnRequest("get",[self,"WebName"])
+		dn_xResult = dnRequest("get",[self,"WebName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWebName P1
 		raise("DotNet Error: WebName is a read-only property")
 
 	Func getWindowsCodePage
-		xResult = dnRequest("get",[self,"WindowsCodePage"])
+		dn_xResult = dnRequest("get",[self,"WindowsCodePage"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWindowsCodePage P1
 		raise("DotNet Error: WindowsCodePage is a read-only property")
 
 	Func getIsBrowserDisplay
-		xResult = dnRequest("get",[self,"IsBrowserDisplay"])
+		dn_xResult = dnRequest("get",[self,"IsBrowserDisplay"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsBrowserDisplay P1
 		raise("DotNet Error: IsBrowserDisplay is a read-only property")
 
 	Func getIsBrowserSave
-		xResult = dnRequest("get",[self,"IsBrowserSave"])
+		dn_xResult = dnRequest("get",[self,"IsBrowserSave"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsBrowserSave P1
 		raise("DotNet Error: IsBrowserSave is a read-only property")
 
 	Func getIsMailNewsDisplay
-		xResult = dnRequest("get",[self,"IsMailNewsDisplay"])
+		dn_xResult = dnRequest("get",[self,"IsMailNewsDisplay"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsMailNewsDisplay P1
 		raise("DotNet Error: IsMailNewsDisplay is a read-only property")
 
 	Func getIsMailNewsSave
-		xResult = dnRequest("get",[self,"IsMailNewsSave"])
+		dn_xResult = dnRequest("get",[self,"IsMailNewsSave"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsMailNewsSave P1
 		raise("DotNet Error: IsMailNewsSave is a read-only property")
 
 	Func getIsSingleByte
-		xResult = dnRequest("get",[self,"IsSingleByte"])
+		dn_xResult = dnRequest("get",[self,"IsSingleByte"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSingleByte P1
 		raise("DotNet Error: IsSingleByte is a read-only property")
 
 	Func getEncoderFallback
-		xResult = dnRequest("get",[self,"EncoderFallback"])
+		dn_xResult = dnRequest("get",[self,"EncoderFallback"])
 		if isfunction('DotNetWrap_EncoderFallback')
-			return DotNetWrap_EncoderFallback(xResult)
+			return DotNetWrap_EncoderFallback(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setEncoderFallback P1
 		dnRequest("set",[self,"EncoderFallback",P1])
 		return self
 
 	Func getDecoderFallback
-		xResult = dnRequest("get",[self,"DecoderFallback"])
+		dn_xResult = dnRequest("get",[self,"DecoderFallback"])
 		if isfunction('DotNetWrap_DecoderFallback')
-			return DotNetWrap_DecoderFallback(xResult)
+			return DotNetWrap_DecoderFallback(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDecoderFallback P1
 		dnRequest("set",[self,"DecoderFallback",P1])
 		return self
 
 	Func getIsReadOnly
-		xResult = dnRequest("get",[self,"IsReadOnly"])
+		dn_xResult = dnRequest("get",[self,"IsReadOnly"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCodePage
-		xResult = dnRequest("get",[self,"CodePage"])
+		dn_xResult = dnRequest("get",[self,"CodePage"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")

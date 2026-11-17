@@ -98,33 +98,33 @@ Class Type from DotNetObject
 		ok
 		return self
 
-	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+	Func GetType_0 
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetElementType 
-		xResult = dnRequest("call",[self,"GetElementType"])
+		dn_xResult = dnRequest("call",[self,"GetElementType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetArrayRank 
-		xResult = dnRequest("call",[self,"GetArrayRank"])
+		dn_xResult = dnRequest("call",[self,"GetArrayRank"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetGenericTypeDefinition 
-		xResult = dnRequest("call",[self,"GetGenericTypeDefinition"])
+		dn_xResult = dnRequest("call",[self,"GetGenericTypeDefinition"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetGenericArguments 
 		return dnRequest("call",[self,"GetGenericArguments"])
@@ -139,11 +139,11 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetGenericParameterConstraints"])
 
 	Func IsAssignableTo P1
-		xResult = dnRequest("call",[self,"IsAssignableTo",P1])
+		dn_xResult = dnRequest("call",[self,"IsAssignableTo",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetConstructor P1
 		return dnRequest("call",[self,"GetConstructor",P1])
@@ -191,11 +191,11 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetFunctionPointerCallingConventions"])
 
 	Func GetFunctionPointerReturnType 
-		xResult = dnRequest("call",[self,"GetFunctionPointerReturnType"])
+		dn_xResult = dnRequest("call",[self,"GetFunctionPointerReturnType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetFunctionPointerParameterTypes 
 		return dnRequest("call",[self,"GetFunctionPointerParameterTypes"])
@@ -246,18 +246,18 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetNestedType P1
-		xResult = dnRequest("call",[self,"GetNestedType",P1])
+		dn_xResult = dnRequest("call",[self,"GetNestedType",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetNestedType_2 P1,P2
-		xResult = dnRequest("call",[self,"GetNestedType",P1,P2])
+		dn_xResult = dnRequest("call",[self,"GetNestedType",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetNestedTypes_0 
 		return dnRequest("call",[self,"GetNestedTypes"])
@@ -265,10 +265,10 @@ Class Type from DotNetObject
 	Func GetNestedTypes P1
 		return dnRequest("call",[self,"GetNestedTypes",P1])
 
-	Func GetProperty_1 P1
+	Func GetProperty P1
 		return dnRequest("call",[self,"GetProperty",P1])
 
-	Func GetProperty P1,P2
+	Func GetProperty_2 P1,P2
 		return dnRequest("call",[self,"GetProperty",P1,P2])
 
 	Func GetProperty_3 P1,P2,P3
@@ -290,39 +290,39 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetDefaultMembers"])
 
 	Func InvokeMember P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func InvokeMember_6 P1,P2,P3,P4,P5,P6
-		xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6])
+		dn_xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func InvokeMember_8 P1,P2,P3,P4,P5,P6,P7,P8
-		xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
+		dn_xResult = dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetInterface P1
-		xResult = dnRequest("call",[self,"GetInterface",P1])
+		dn_xResult = dnRequest("call",[self,"GetInterface",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetInterface_2 P1,P2
-		xResult = dnRequest("call",[self,"GetInterface",P1,P2])
+		dn_xResult = dnRequest("call",[self,"GetInterface",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetInterfaces 
 		return dnRequest("call",[self,"GetInterfaces"])
@@ -331,109 +331,109 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetInterfaceMap",P1])
 
 	Func IsInstanceOfType P1
-		xResult = dnRequest("call",[self,"IsInstanceOfType",P1])
+		dn_xResult = dnRequest("call",[self,"IsInstanceOfType",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEquivalentTo P1
-		xResult = dnRequest("call",[self,"IsEquivalentTo",P1])
+		dn_xResult = dnRequest("call",[self,"IsEquivalentTo",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumUnderlyingType 
-		xResult = dnRequest("call",[self,"GetEnumUnderlyingType"])
+		dn_xResult = dnRequest("call",[self,"GetEnumUnderlyingType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumValues 
-		xResult = dnRequest("call",[self,"GetEnumValues"])
+		dn_xResult = dnRequest("call",[self,"GetEnumValues"])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumValuesAsUnderlyingType 
-		xResult = dnRequest("call",[self,"GetEnumValuesAsUnderlyingType"])
+		dn_xResult = dnRequest("call",[self,"GetEnumValuesAsUnderlyingType"])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeArrayType_0 
-		xResult = dnRequest("call",[self,"MakeArrayType"])
+		dn_xResult = dnRequest("call",[self,"MakeArrayType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeArrayType P1
-		xResult = dnRequest("call",[self,"MakeArrayType",P1])
+		dn_xResult = dnRequest("call",[self,"MakeArrayType",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeByRefType 
-		xResult = dnRequest("call",[self,"MakeByRefType"])
+		dn_xResult = dnRequest("call",[self,"MakeByRefType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeGenericType P1
-		xResult = dnRequest("call",[self,"MakeGenericType",P1])
+		dn_xResult = dnRequest("call",[self,"MakeGenericType",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakePointerType 
-		xResult = dnRequest("call",[self,"MakePointerType"])
+		dn_xResult = dnRequest("call",[self,"MakePointerType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEnumDefined P1
-		xResult = dnRequest("call",[self,"IsEnumDefined",P1])
+		dn_xResult = dnRequest("call",[self,"IsEnumDefined",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumName P1
-		xResult = dnRequest("call",[self,"GetEnumName",P1])
+		dn_xResult = dnRequest("call",[self,"GetEnumName",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumNames 
 		return dnRequest("call",[self,"GetEnumNames"])
@@ -445,32 +445,32 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"FindMembers",P1,P2,P3,P4])
 
 	Func IsSubclassOf P1
-		xResult = dnRequest("call",[self,"IsSubclassOf",P1])
+		dn_xResult = dnRequest("call",[self,"IsSubclassOf",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAssignableFrom P1
-		xResult = dnRequest("call",[self,"IsAssignableFrom",P1])
+		dn_xResult = dnRequest("call",[self,"IsAssignableFrom",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func HasSameMetadataDefinitionAs P1
-		xResult = dnRequest("call",[self,"HasSameMetadataDefinitionAs",P1])
+		dn_xResult = dnRequest("call",[self,"HasSameMetadataDefinitionAs",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsDefined P1,P2
-		xResult = dnRequest("call",[self,"IsDefined",P1,P2])
+		dn_xResult = dnRequest("call",[self,"IsDefined",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetCustomAttributes P1
 		return dnRequest("call",[self,"GetCustomAttributes",P1])
@@ -482,53 +482,53 @@ Class Type from DotNetObject
 		return dnRequest("call",[self,"GetCustomAttributesData"])
 
 	Func GetType_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func GetType_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1])
+	Func GetType P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetType",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeFromHandle P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromHandle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromHandle",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeHandle P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeHandle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeHandle",P1])
 		if isfunction('DotNetWrap_RuntimeTypeHandle')
-			return DotNetWrap_RuntimeTypeHandle(xResult)
+			return DotNetWrap_RuntimeTypeHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeArray P1
 		return dnRequest("call",[dnTypeCached('System.Type'),"GetTypeArray",P1])
@@ -536,68 +536,68 @@ Class Type from DotNetObject
 	Func GetTypeCode P1
 		return dnRequest("call",[dnTypeCached('System.Type'),"GetTypeCode",P1])
 
-	Func GetTypeFromCLSID_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1])
+	Func GetTypeFromCLSID P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func GetTypeFromCLSID P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1,P2])
+	Func GetTypeFromCLSID_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeFromCLSID_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromCLSID",P1,P2,P3])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func GetTypeFromProgID_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1])
+	Func GetTypeFromProgID P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func GetTypeFromProgID P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1,P2])
+	Func GetTypeFromProgID_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeFromProgID_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"GetTypeFromProgID",P1,P2,P3])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeGenericSignatureType P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"MakeGenericSignatureType",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"MakeGenericSignatureType",P1,P2])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MakeGenericMethodParameter P1
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"MakeGenericMethodParameter",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"MakeGenericMethodParameter",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReflectionOnlyGetType P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Type'),"ReflectionOnlyGetType",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Type'),"ReflectionOnlyGetType",P1,P2,P3])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
@@ -606,31 +606,31 @@ Class Type from DotNetObject
 		raise("DotNet Error: MemberType is a read-only property")
 
 	Func getNamespace
-		xResult = dnRequest("get",[self,"Namespace"])
+		dn_xResult = dnRequest("get",[self,"Namespace"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNamespace P1
 		raise("DotNet Error: Namespace is a read-only property")
 
 	Func getAssemblyQualifiedName
-		xResult = dnRequest("get",[self,"AssemblyQualifiedName"])
+		dn_xResult = dnRequest("get",[self,"AssemblyQualifiedName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setAssemblyQualifiedName P1
 		raise("DotNet Error: AssemblyQualifiedName is a read-only property")
 
 	Func getFullName
-		xResult = dnRequest("get",[self,"FullName"])
+		dn_xResult = dnRequest("get",[self,"FullName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFullName P1
 		raise("DotNet Error: FullName is a read-only property")
@@ -648,31 +648,31 @@ Class Type from DotNetObject
 		raise("DotNet Error: Module is a read-only property")
 
 	Func getIsInterface
-		xResult = dnRequest("get",[self,"IsInterface"])
+		dn_xResult = dnRequest("get",[self,"IsInterface"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsInterface P1
 		raise("DotNet Error: IsInterface is a read-only property")
 
 	Func getIsNested
-		xResult = dnRequest("get",[self,"IsNested"])
+		dn_xResult = dnRequest("get",[self,"IsNested"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNested P1
 		raise("DotNet Error: IsNested is a read-only property")
 
 	Func getDeclaringType
-		xResult = dnRequest("get",[self,"DeclaringType"])
+		dn_xResult = dnRequest("get",[self,"DeclaringType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDeclaringType P1
 		raise("DotNet Error: DeclaringType is a read-only property")
@@ -684,181 +684,181 @@ Class Type from DotNetObject
 		raise("DotNet Error: DeclaringMethod is a read-only property")
 
 	Func getReflectedType
-		xResult = dnRequest("get",[self,"ReflectedType"])
+		dn_xResult = dnRequest("get",[self,"ReflectedType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setReflectedType P1
 		raise("DotNet Error: ReflectedType is a read-only property")
 
 	Func getUnderlyingSystemType
-		xResult = dnRequest("get",[self,"UnderlyingSystemType"])
+		dn_xResult = dnRequest("get",[self,"UnderlyingSystemType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUnderlyingSystemType P1
 		raise("DotNet Error: UnderlyingSystemType is a read-only property")
 
 	Func getIsTypeDefinition
-		xResult = dnRequest("get",[self,"IsTypeDefinition"])
+		dn_xResult = dnRequest("get",[self,"IsTypeDefinition"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsTypeDefinition P1
 		raise("DotNet Error: IsTypeDefinition is a read-only property")
 
 	Func getIsArray
-		xResult = dnRequest("get",[self,"IsArray"])
+		dn_xResult = dnRequest("get",[self,"IsArray"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsArray P1
 		raise("DotNet Error: IsArray is a read-only property")
 
 	Func getIsByRef
-		xResult = dnRequest("get",[self,"IsByRef"])
+		dn_xResult = dnRequest("get",[self,"IsByRef"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsByRef P1
 		raise("DotNet Error: IsByRef is a read-only property")
 
 	Func getIsPointer
-		xResult = dnRequest("get",[self,"IsPointer"])
+		dn_xResult = dnRequest("get",[self,"IsPointer"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsPointer P1
 		raise("DotNet Error: IsPointer is a read-only property")
 
 	Func getIsConstructedGenericType
-		xResult = dnRequest("get",[self,"IsConstructedGenericType"])
+		dn_xResult = dnRequest("get",[self,"IsConstructedGenericType"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsConstructedGenericType P1
 		raise("DotNet Error: IsConstructedGenericType is a read-only property")
 
 	Func getIsGenericParameter
-		xResult = dnRequest("get",[self,"IsGenericParameter"])
+		dn_xResult = dnRequest("get",[self,"IsGenericParameter"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsGenericParameter P1
 		raise("DotNet Error: IsGenericParameter is a read-only property")
 
 	Func getIsGenericTypeParameter
-		xResult = dnRequest("get",[self,"IsGenericTypeParameter"])
+		dn_xResult = dnRequest("get",[self,"IsGenericTypeParameter"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsGenericTypeParameter P1
 		raise("DotNet Error: IsGenericTypeParameter is a read-only property")
 
 	Func getIsGenericMethodParameter
-		xResult = dnRequest("get",[self,"IsGenericMethodParameter"])
+		dn_xResult = dnRequest("get",[self,"IsGenericMethodParameter"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsGenericMethodParameter P1
 		raise("DotNet Error: IsGenericMethodParameter is a read-only property")
 
 	Func getIsGenericType
-		xResult = dnRequest("get",[self,"IsGenericType"])
+		dn_xResult = dnRequest("get",[self,"IsGenericType"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsGenericType P1
 		raise("DotNet Error: IsGenericType is a read-only property")
 
 	Func getIsGenericTypeDefinition
-		xResult = dnRequest("get",[self,"IsGenericTypeDefinition"])
+		dn_xResult = dnRequest("get",[self,"IsGenericTypeDefinition"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsGenericTypeDefinition P1
 		raise("DotNet Error: IsGenericTypeDefinition is a read-only property")
 
 	Func getIsSZArray
-		xResult = dnRequest("get",[self,"IsSZArray"])
+		dn_xResult = dnRequest("get",[self,"IsSZArray"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSZArray P1
 		raise("DotNet Error: IsSZArray is a read-only property")
 
 	Func getIsVariableBoundArray
-		xResult = dnRequest("get",[self,"IsVariableBoundArray"])
+		dn_xResult = dnRequest("get",[self,"IsVariableBoundArray"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsVariableBoundArray P1
 		raise("DotNet Error: IsVariableBoundArray is a read-only property")
 
 	Func getIsByRefLike
-		xResult = dnRequest("get",[self,"IsByRefLike"])
+		dn_xResult = dnRequest("get",[self,"IsByRefLike"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsByRefLike P1
 		raise("DotNet Error: IsByRefLike is a read-only property")
 
 	Func getIsFunctionPointer
-		xResult = dnRequest("get",[self,"IsFunctionPointer"])
+		dn_xResult = dnRequest("get",[self,"IsFunctionPointer"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsFunctionPointer P1
 		raise("DotNet Error: IsFunctionPointer is a read-only property")
 
 	Func getIsUnmanagedFunctionPointer
-		xResult = dnRequest("get",[self,"IsUnmanagedFunctionPointer"])
+		dn_xResult = dnRequest("get",[self,"IsUnmanagedFunctionPointer"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsUnmanagedFunctionPointer P1
 		raise("DotNet Error: IsUnmanagedFunctionPointer is a read-only property")
 
 	Func getHasElementType
-		xResult = dnRequest("get",[self,"HasElementType"])
+		dn_xResult = dnRequest("get",[self,"HasElementType"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHasElementType P1
 		raise("DotNet Error: HasElementType is a read-only property")
@@ -870,11 +870,11 @@ Class Type from DotNetObject
 		raise("DotNet Error: GenericTypeArguments is a read-only property")
 
 	Func getGenericParameterPosition
-		xResult = dnRequest("get",[self,"GenericParameterPosition"])
+		dn_xResult = dnRequest("get",[self,"GenericParameterPosition"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setGenericParameterPosition P1
 		raise("DotNet Error: GenericParameterPosition is a read-only property")
@@ -892,291 +892,291 @@ Class Type from DotNetObject
 		raise("DotNet Error: Attributes is a read-only property")
 
 	Func getIsAbstract
-		xResult = dnRequest("get",[self,"IsAbstract"])
+		dn_xResult = dnRequest("get",[self,"IsAbstract"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsAbstract P1
 		raise("DotNet Error: IsAbstract is a read-only property")
 
 	Func getIsImport
-		xResult = dnRequest("get",[self,"IsImport"])
+		dn_xResult = dnRequest("get",[self,"IsImport"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsImport P1
 		raise("DotNet Error: IsImport is a read-only property")
 
 	Func getIsSealed
-		xResult = dnRequest("get",[self,"IsSealed"])
+		dn_xResult = dnRequest("get",[self,"IsSealed"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSealed P1
 		raise("DotNet Error: IsSealed is a read-only property")
 
 	Func getIsSpecialName
-		xResult = dnRequest("get",[self,"IsSpecialName"])
+		dn_xResult = dnRequest("get",[self,"IsSpecialName"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
 	Func getIsClass
-		xResult = dnRequest("get",[self,"IsClass"])
+		dn_xResult = dnRequest("get",[self,"IsClass"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsClass P1
 		raise("DotNet Error: IsClass is a read-only property")
 
 	Func getIsNestedAssembly
-		xResult = dnRequest("get",[self,"IsNestedAssembly"])
+		dn_xResult = dnRequest("get",[self,"IsNestedAssembly"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedAssembly P1
 		raise("DotNet Error: IsNestedAssembly is a read-only property")
 
 	Func getIsNestedFamANDAssem
-		xResult = dnRequest("get",[self,"IsNestedFamANDAssem"])
+		dn_xResult = dnRequest("get",[self,"IsNestedFamANDAssem"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedFamANDAssem P1
 		raise("DotNet Error: IsNestedFamANDAssem is a read-only property")
 
 	Func getIsNestedFamily
-		xResult = dnRequest("get",[self,"IsNestedFamily"])
+		dn_xResult = dnRequest("get",[self,"IsNestedFamily"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedFamily P1
 		raise("DotNet Error: IsNestedFamily is a read-only property")
 
 	Func getIsNestedFamORAssem
-		xResult = dnRequest("get",[self,"IsNestedFamORAssem"])
+		dn_xResult = dnRequest("get",[self,"IsNestedFamORAssem"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedFamORAssem P1
 		raise("DotNet Error: IsNestedFamORAssem is a read-only property")
 
 	Func getIsNestedPrivate
-		xResult = dnRequest("get",[self,"IsNestedPrivate"])
+		dn_xResult = dnRequest("get",[self,"IsNestedPrivate"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedPrivate P1
 		raise("DotNet Error: IsNestedPrivate is a read-only property")
 
 	Func getIsNestedPublic
-		xResult = dnRequest("get",[self,"IsNestedPublic"])
+		dn_xResult = dnRequest("get",[self,"IsNestedPublic"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNestedPublic P1
 		raise("DotNet Error: IsNestedPublic is a read-only property")
 
 	Func getIsNotPublic
-		xResult = dnRequest("get",[self,"IsNotPublic"])
+		dn_xResult = dnRequest("get",[self,"IsNotPublic"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsNotPublic P1
 		raise("DotNet Error: IsNotPublic is a read-only property")
 
 	Func getIsPublic
-		xResult = dnRequest("get",[self,"IsPublic"])
+		dn_xResult = dnRequest("get",[self,"IsPublic"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsPublic P1
 		raise("DotNet Error: IsPublic is a read-only property")
 
 	Func getIsAutoLayout
-		xResult = dnRequest("get",[self,"IsAutoLayout"])
+		dn_xResult = dnRequest("get",[self,"IsAutoLayout"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsAutoLayout P1
 		raise("DotNet Error: IsAutoLayout is a read-only property")
 
 	Func getIsExplicitLayout
-		xResult = dnRequest("get",[self,"IsExplicitLayout"])
+		dn_xResult = dnRequest("get",[self,"IsExplicitLayout"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsExplicitLayout P1
 		raise("DotNet Error: IsExplicitLayout is a read-only property")
 
 	Func getIsLayoutSequential
-		xResult = dnRequest("get",[self,"IsLayoutSequential"])
+		dn_xResult = dnRequest("get",[self,"IsLayoutSequential"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsLayoutSequential P1
 		raise("DotNet Error: IsLayoutSequential is a read-only property")
 
 	Func getIsAnsiClass
-		xResult = dnRequest("get",[self,"IsAnsiClass"])
+		dn_xResult = dnRequest("get",[self,"IsAnsiClass"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsAnsiClass P1
 		raise("DotNet Error: IsAnsiClass is a read-only property")
 
 	Func getIsAutoClass
-		xResult = dnRequest("get",[self,"IsAutoClass"])
+		dn_xResult = dnRequest("get",[self,"IsAutoClass"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsAutoClass P1
 		raise("DotNet Error: IsAutoClass is a read-only property")
 
 	Func getIsUnicodeClass
-		xResult = dnRequest("get",[self,"IsUnicodeClass"])
+		dn_xResult = dnRequest("get",[self,"IsUnicodeClass"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsUnicodeClass P1
 		raise("DotNet Error: IsUnicodeClass is a read-only property")
 
 	Func getIsCOMObject
-		xResult = dnRequest("get",[self,"IsCOMObject"])
+		dn_xResult = dnRequest("get",[self,"IsCOMObject"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsCOMObject P1
 		raise("DotNet Error: IsCOMObject is a read-only property")
 
 	Func getIsContextful
-		xResult = dnRequest("get",[self,"IsContextful"])
+		dn_xResult = dnRequest("get",[self,"IsContextful"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsContextful P1
 		raise("DotNet Error: IsContextful is a read-only property")
 
 	Func getIsEnum
-		xResult = dnRequest("get",[self,"IsEnum"])
+		dn_xResult = dnRequest("get",[self,"IsEnum"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsEnum P1
 		raise("DotNet Error: IsEnum is a read-only property")
 
 	Func getIsMarshalByRef
-		xResult = dnRequest("get",[self,"IsMarshalByRef"])
+		dn_xResult = dnRequest("get",[self,"IsMarshalByRef"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsMarshalByRef P1
 		raise("DotNet Error: IsMarshalByRef is a read-only property")
 
 	Func getIsPrimitive
-		xResult = dnRequest("get",[self,"IsPrimitive"])
+		dn_xResult = dnRequest("get",[self,"IsPrimitive"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsPrimitive P1
 		raise("DotNet Error: IsPrimitive is a read-only property")
 
 	Func getIsValueType
-		xResult = dnRequest("get",[self,"IsValueType"])
+		dn_xResult = dnRequest("get",[self,"IsValueType"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsValueType P1
 		raise("DotNet Error: IsValueType is a read-only property")
 
 	Func getIsSignatureType
-		xResult = dnRequest("get",[self,"IsSignatureType"])
+		dn_xResult = dnRequest("get",[self,"IsSignatureType"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSignatureType P1
 		raise("DotNet Error: IsSignatureType is a read-only property")
 
 	Func getIsSecurityCritical
-		xResult = dnRequest("get",[self,"IsSecurityCritical"])
+		dn_xResult = dnRequest("get",[self,"IsSecurityCritical"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSecurityCritical P1
 		raise("DotNet Error: IsSecurityCritical is a read-only property")
 
 	Func getIsSecuritySafeCritical
-		xResult = dnRequest("get",[self,"IsSecuritySafeCritical"])
+		dn_xResult = dnRequest("get",[self,"IsSecuritySafeCritical"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSecuritySafeCritical P1
 		raise("DotNet Error: IsSecuritySafeCritical is a read-only property")
 
 	Func getIsSecurityTransparent
-		xResult = dnRequest("get",[self,"IsSecurityTransparent"])
+		dn_xResult = dnRequest("get",[self,"IsSecurityTransparent"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSecurityTransparent P1
 		raise("DotNet Error: IsSecurityTransparent is a read-only property")
@@ -1197,61 +1197,61 @@ Class Type from DotNetObject
 		raise("DotNet Error: TypeHandle is a read-only property")
 
 	Func getGUID
-		xResult = dnRequest("get",[self,"GUID"])
+		dn_xResult = dnRequest("get",[self,"GUID"])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setGUID P1
 		raise("DotNet Error: GUID is a read-only property")
 
 	Func getBaseType
-		xResult = dnRequest("get",[self,"BaseType"])
+		dn_xResult = dnRequest("get",[self,"BaseType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBaseType P1
 		raise("DotNet Error: BaseType is a read-only property")
 
 	Func getIsSerializable
-		xResult = dnRequest("get",[self,"IsSerializable"])
+		dn_xResult = dnRequest("get",[self,"IsSerializable"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSerializable P1
 		raise("DotNet Error: IsSerializable is a read-only property")
 
 	Func getContainsGenericParameters
-		xResult = dnRequest("get",[self,"ContainsGenericParameters"])
+		dn_xResult = dnRequest("get",[self,"ContainsGenericParameters"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setContainsGenericParameters P1
 		raise("DotNet Error: ContainsGenericParameters is a read-only property")
 
 	Func getIsVisible
-		xResult = dnRequest("get",[self,"IsVisible"])
+		dn_xResult = dnRequest("get",[self,"IsVisible"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsVisible P1
 		raise("DotNet Error: IsVisible is a read-only property")
 
 	Func getName
-		xResult = dnRequest("get",[self,"Name"])
+		dn_xResult = dnRequest("get",[self,"Name"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
@@ -1260,21 +1260,21 @@ Class Type from DotNetObject
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
 	Func getIsCollectible
-		xResult = dnRequest("get",[self,"IsCollectible"])
+		dn_xResult = dnRequest("get",[self,"IsCollectible"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsCollectible P1
 		raise("DotNet Error: IsCollectible is a read-only property")
 
 	Func getMetadataToken
-		xResult = dnRequest("get",[self,"MetadataToken"])
+		dn_xResult = dnRequest("get",[self,"MetadataToken"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMetadataToken P1
 		raise("DotNet Error: MetadataToken is a read-only property")
@@ -1286,11 +1286,11 @@ Class Type from DotNetObject
 		raise("DotNet Error: DefaultBinder is a read-only property")
 
 	Func getDelimiter
-		xResult = dnRequest("get",[dnTypeCached('System.Type'),"Delimiter"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Type'),"Delimiter"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDelimiter P1
 		raise("DotNet Error: Delimiter is a read-only property")
@@ -1302,11 +1302,11 @@ Class Type from DotNetObject
 		raise("DotNet Error: EmptyTypes is a read-only property")
 
 	Func getMissing
-		xResult = dnRequest("get",[dnTypeCached('System.Type'),"Missing"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Type'),"Missing"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMissing P1
 		raise("DotNet Error: Missing is a read-only property")

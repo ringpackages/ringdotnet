@@ -42,141 +42,141 @@ Class Guid from DotNetObject
 		return dnRequest("call",[self,"ToByteArray",P1])
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateVersion7_0 
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"CreateVersion7"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"CreateVersion7"])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateVersion7 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"CreateVersion7",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"CreateVersion7",P1])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"Parse",P1])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Guid'),"TryParse",P1])
 
 	Func ParseExact P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"ParseExact",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"ParseExact",P1,P2])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParseExact P1,P2
 		return dnRequest("call",[dnTypeCached('System.Guid'),"TryParseExact",P1,P2])
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Guid'),"TryParse",P1,P2])
 
 	Func NewGuid 
-		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"NewGuid"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Guid'),"NewGuid"])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getVariant
-		xResult = dnRequest("get",[self,"Variant"])
+		dn_xResult = dnRequest("get",[self,"Variant"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVariant P1
 		raise("DotNet Error: Variant is a read-only property")
 
 	Func getVersion
-		xResult = dnRequest("get",[self,"Version"])
+		dn_xResult = dnRequest("get",[self,"Version"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getAllBitsSet
-		xResult = dnRequest("get",[dnTypeCached('System.Guid'),"AllBitsSet"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Guid'),"AllBitsSet"])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setAllBitsSet P1
 		raise("DotNet Error: AllBitsSet is a read-only property")
 
 	Func getEmpty
-		xResult = dnRequest("get",[dnTypeCached('System.Guid'),"Empty"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Guid'),"Empty"])
 		if isfunction('DotNetWrap_Guid')
-			return DotNetWrap_Guid(xResult)
+			return DotNetWrap_Guid(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setEmpty P1
 		raise("DotNet Error: Empty is a read-only property")

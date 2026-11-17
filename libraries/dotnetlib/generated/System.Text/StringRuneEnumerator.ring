@@ -21,53 +21,53 @@ Class StringRuneEnumerator from DotNetObject
 		return self
 
 	Func GetEnumerator 
-		xResult = dnRequest("call",[self,"GetEnumerator"])
+		dn_xResult = dnRequest("call",[self,"GetEnumerator"])
 		if isfunction('DotNetWrap_StringRuneEnumerator')
-			return DotNetWrap_StringRuneEnumerator(xResult)
+			return DotNetWrap_StringRuneEnumerator(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MoveNext 
-		xResult = dnRequest("call",[self,"MoveNext"])
+		dn_xResult = dnRequest("call",[self,"MoveNext"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getCurrent
-		xResult = dnRequest("get",[self,"Current"])
+		dn_xResult = dnRequest("get",[self,"Current"])
 		if isfunction('DotNetWrap_Rune')
-			return DotNetWrap_Rune(xResult)
+			return DotNetWrap_Rune(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCurrent P1
 		raise("DotNet Error: Current is a read-only property")

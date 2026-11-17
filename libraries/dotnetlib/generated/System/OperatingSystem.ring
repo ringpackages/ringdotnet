@@ -28,186 +28,186 @@ Class OperatingSystem from DotNetObject
 		return self
 
 	Func Clone 
-		xResult = dnRequest("call",[self,"Clone"])
+		dn_xResult = dnRequest("call",[self,"Clone"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOSPlatform P1
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsOSPlatform",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsOSPlatform",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOSPlatformVersionAtLeast P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsBrowser 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsBrowser"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsBrowser"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWasi 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWasi"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWasi"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLinux 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsLinux"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsLinux"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsFreeBSD 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsFreeBSD"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsFreeBSD"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsFreeBSDVersionAtLeast P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsFreeBSDVersionAtLeast",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsFreeBSDVersionAtLeast",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAndroid 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsAndroid"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsAndroid"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAndroidVersionAtLeast P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsAndroidVersionAtLeast",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsAndroidVersionAtLeast",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsIOS 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsIOS"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsIOS"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsIOSVersionAtLeast P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsIOSVersionAtLeast",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsIOSVersionAtLeast",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsMacOS 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacOS"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacOS"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsMacOSVersionAtLeast P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacOSVersionAtLeast",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacOSVersionAtLeast",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsMacCatalyst 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacCatalyst"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacCatalyst"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsMacCatalystVersionAtLeast P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacCatalystVersionAtLeast",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsMacCatalystVersionAtLeast",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsTvOS 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsTvOS"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsTvOS"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsTvOSVersionAtLeast P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsTvOSVersionAtLeast",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsTvOSVersionAtLeast",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWatchOS 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWatchOS"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWatchOS"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWatchOSVersionAtLeast P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWatchOSVersionAtLeast",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWatchOSVersionAtLeast",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWindows 
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWindows"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWindows"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWindowsVersionAtLeast P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWindowsVersionAtLeast",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.OperatingSystem'),"IsWindowsVersionAtLeast",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getPlatform
 		return dnRequest("get",[self,"Platform"])
@@ -216,31 +216,31 @@ Class OperatingSystem from DotNetObject
 		raise("DotNet Error: Platform is a read-only property")
 
 	Func getServicePack
-		xResult = dnRequest("get",[self,"ServicePack"])
+		dn_xResult = dnRequest("get",[self,"ServicePack"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setServicePack P1
 		raise("DotNet Error: ServicePack is a read-only property")
 
 	Func getVersion
-		xResult = dnRequest("get",[self,"Version"])
+		dn_xResult = dnRequest("get",[self,"Version"])
 		if isfunction('DotNetWrap_Version')
-			return DotNetWrap_Version(xResult)
+			return DotNetWrap_Version(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")
 
 	Func getVersionString
-		xResult = dnRequest("get",[self,"VersionString"])
+		dn_xResult = dnRequest("get",[self,"VersionString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVersionString P1
 		raise("DotNet Error: VersionString is a read-only property")

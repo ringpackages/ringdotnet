@@ -18,51 +18,67 @@ Class Directory from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetParent P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetParent",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetParent",P1])
+		if isfunction('DotNetWrap_DirectoryInfo')
+			return DotNetWrap_DirectoryInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func CreateDirectory P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateDirectory",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateDirectory",P1])
+		if isfunction('DotNetWrap_DirectoryInfo')
+			return DotNetWrap_DirectoryInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func CreateDirectory_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateDirectory",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateDirectory",P1,P2])
+		if isfunction('DotNetWrap_DirectoryInfo')
+			return DotNetWrap_DirectoryInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func CreateTempSubdirectory P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateTempSubdirectory",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateTempSubdirectory",P1])
+		if isfunction('DotNetWrap_DirectoryInfo')
+			return DotNetWrap_DirectoryInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Exists P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"Exists",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"Exists",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetCreationTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetCreationTime",P1,P2])
@@ -73,18 +89,18 @@ Class Directory from DotNetObject
 		return self
 
 	Func GetCreationTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCreationTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCreationTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetCreationTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCreationTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCreationTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetLastWriteTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetLastWriteTime",P1,P2])
@@ -95,18 +111,18 @@ Class Directory from DotNetObject
 		return self
 
 	Func GetLastWriteTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastWriteTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastWriteTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLastWriteTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastWriteTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastWriteTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetLastAccessTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetLastAccessTime",P1,P2])
@@ -117,86 +133,86 @@ Class Directory from DotNetObject
 		return self
 
 	Func GetLastAccessTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastAccessTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastAccessTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLastAccessTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastAccessTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLastAccessTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func GetFiles_1 P1
+	Func GetFiles P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFiles",P1])
 
 	Func GetFiles_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFiles",P1,P2])
 
-	Func GetFiles P1,P2,P3
+	Func GetFiles_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFiles",P1,P2,P3])
 
-	Func GetDirectories_1 P1
+	Func GetDirectories P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectories",P1])
 
 	Func GetDirectories_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectories",P1,P2])
 
-	Func GetDirectories P1,P2,P3
+	Func GetDirectories_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectories",P1,P2,P3])
 
-	Func GetFileSystemEntries_1 P1
+	Func GetFileSystemEntries P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFileSystemEntries",P1])
 
 	Func GetFileSystemEntries_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFileSystemEntries",P1,P2])
 
-	Func GetFileSystemEntries P1,P2,P3
+	Func GetFileSystemEntries_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetFileSystemEntries",P1,P2,P3])
 
-	Func EnumerateDirectories_1 P1
+	Func EnumerateDirectories P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateDirectories",P1])
 
 	Func EnumerateDirectories_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateDirectories",P1,P2])
 
-	Func EnumerateDirectories P1,P2,P3
+	Func EnumerateDirectories_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateDirectories",P1,P2,P3])
 
-	Func EnumerateFiles_1 P1
+	Func EnumerateFiles P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFiles",P1])
 
 	Func EnumerateFiles_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFiles",P1,P2])
 
-	Func EnumerateFiles P1,P2,P3
+	Func EnumerateFiles_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFiles",P1,P2,P3])
 
-	Func EnumerateFileSystemEntries_1 P1
+	Func EnumerateFileSystemEntries P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFileSystemEntries",P1])
 
 	Func EnumerateFileSystemEntries_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFileSystemEntries",P1,P2])
 
-	Func EnumerateFileSystemEntries P1,P2,P3
+	Func EnumerateFileSystemEntries_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFileSystemEntries",P1,P2,P3])
 
 	Func GetDirectoryRoot P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectoryRoot",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectoryRoot",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetCurrentDirectory 
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCurrentDirectory"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCurrentDirectory"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetCurrentDirectory P1
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetCurrentDirectory",P1])
@@ -218,8 +234,16 @@ Class Directory from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetLogicalDrives"])
 
 	Func CreateSymbolicLink P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateSymbolicLink",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateSymbolicLink",P1,P2])
+		if isfunction('DotNetWrap_FileSystemInfo')
+			return DotNetWrap_FileSystemInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func ResolveLinkTarget P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"ResolveLinkTarget",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"ResolveLinkTarget",P1,P2])
+		if isfunction('DotNetWrap_FileSystemInfo')
+			return DotNetWrap_FileSystemInfo(dn_xResult)
+		ok
+		return dn_xResult
 

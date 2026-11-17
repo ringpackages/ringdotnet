@@ -4,84 +4,84 @@
 */
 
 # Pack one Ring value as a wire item
-func dnPackItem  xValue
-	if isstring(xValue)
-		return C_DOTNET_STRING + len(xValue) + ":" + xValue
+func dnPackItem  dn_xValue
+	if isstring(dn_xValue)
+		return C_DOTNET_STRING + len(dn_xValue) + ":" + dn_xValue
 	ok
-	if isnumber(xValue)
-		cNumber = string(xValue)
-		return C_DOTNET_NUMBER + len(cNumber) + ":" + cNumber
+	if isnumber(dn_xValue)
+		dn_cNumber = string(dn_xValue)
+		return C_DOTNET_NUMBER + len(dn_cNumber) + ":" + dn_cNumber
 	ok
-	if islist(xValue)
-		cData = dnPack(xValue)
-		return C_DOTNET_LIST + len(cData) + ":" + cData
+	if islist(dn_xValue)
+		dn_cData = dnPack(dn_xValue)
+		return C_DOTNET_LIST + len(dn_cData) + ":" + dn_cData
 	ok
-	if isobject(xValue) and isattribute(xValue,"cCode")
-		return C_DOTNET_CALLBACK + len(xValue.cCode) + ":" + xValue.cCode
+	if isobject(dn_xValue) and isattribute(dn_xValue,"cCode")
+		return C_DOTNET_CALLBACK + len(dn_xValue.cCode) + ":" + dn_xValue.cCode
 	ok
-	if isobject(xValue) and isattribute(xValue,"nHandle")
-		if xValue.nHandle = 0
+	if isobject(dn_xValue) and isattribute(dn_xValue,"nHandle")
+		if dn_xValue.nHandle = 0
 			return C_DOTNET_NULL + "0:"
 		ok
-		cHandle = string(xValue.nHandle)
-		return C_DOTNET_OBJECT + len(cHandle) + ":" + cHandle
+		dn_cHandle = string(dn_xValue.nHandle)
+		return C_DOTNET_OBJECT + len(dn_cHandle) + ":" + dn_cHandle
 	ok
 	raise("DotNet Error: Unsupported parameter type (use strings, numbers, lists and .NET objects)")
 
 # Pack a list of Ring values
 func dnPack  aValues
-	cData = ""
-	for xValue in aValues
-		cData += dnPackItem(xValue)
+	dn_cData = ""
+	for dn_xValue in aValues
+		dn_cData += dnPackItem(dn_xValue)
 	next
-	return cData
+	return dn_cData
 
 # Unpack wire items to a Ring list
-func dnUnpack  cData
-	aItems = []
-	nPos = 1
-	nSize = len(cData)
-	while nPos <= nSize
-		cTag = cData[nPos]
-		nPos++
-		nLen = 0
-		while cData[nPos] != ":"
-			nLen = nLen * 10 + (ascii(cData[nPos]) - 48)
-			nPos++
+func dnUnpack  dn_cData
+	dn_aItems = []
+	dn_nPos = 1
+	dn_nSize = len(dn_cData)
+	while dn_nPos <= dn_nSize
+		dn_cTag = dn_cData[dn_nPos]
+		dn_nPos++
+		dn_nLen = 0
+		while dn_cData[dn_nPos] != ":"
+			dn_nLen = dn_nLen * 10 + (ascii(dn_cData[dn_nPos]) - 48)
+			dn_nPos++
 		end
-		nPos++
-		if nLen > 0
-			cBody = substr(cData,nPos,nLen)
+		dn_nPos++
+		if dn_nLen > 0
+			dn_cBody = substr(dn_cData,dn_nPos,dn_nLen)
 		else
-			cBody = ""
+			dn_cBody = ""
 		ok
-		nPos += nLen
-		switch cTag
+		dn_nPos += dn_nLen
+		switch dn_cTag
 		on C_DOTNET_STRING
-			aItems + cBody
+			dn_aItems + dn_cBody
 		on C_DOTNET_NUMBER
-			aItems + number(cBody)
+			dn_aItems + number(dn_cBody)
 		on C_DOTNET_BOOL
-			aItems + (cBody = "1")
+			dn_aItems + (dn_cBody = "1")
 		on C_DOTNET_NULL
-			aItems + new DotNetObject(0)
+			dn_aItems + new DotNetObject(0)
 		on C_DOTNET_OBJECT
-			aItems + new DotNetObject(number(cBody))
+			dn_aItems + new DotNetObject(number(dn_cBody))
 		on C_DOTNET_LIST
-			aItems + dnUnpack(cBody)
+			dn_aItems + dnUnpack(dn_cBody)
 		on C_DOTNET_ERROR
-			raise("DotNet Error: " + cBody)
+			raise("DotNet Error: " + dn_cBody)
 		other
-			raise("DotNet Error: Unknown response item '" + cTag + "'")
+			raise("DotNet Error: Unknown response item '" + dn_cTag + "'")
 		off
 	end
-	return aItems
+	return dn_aItems
 
 # Send a request to the bridge: dnRequest("call", [oTarget, "Method", arg1, ...]), returns one value
 func dnRequest  cOperation, aParameters
-	cResponse = dotnet_invoke(C_DOTNET_STRING + len(cOperation) + ":" + cOperation + dnPack(aParameters))
-	aItems = dnUnpack(cResponse)
-	return aItems[1]
+	dn_cResponse = dotnet_invoke(C_DOTNET_STRING + len(cOperation) + ":" + cOperation + dnPack(aParameters))
+	dn_aItems = dnUnpack(dn_cResponse)
+	return dn_aItems[1]
 
 # Version of the .NET runtime that is hosted in this process
 func dnVersion
@@ -92,8 +92,8 @@ func dnLoad  cPath
 	return dnRequest("load",[cPath])
 
 # Load an assembly by name (for example "System.Xml")
-func dnLoadName  cName
-	return dnRequest("loadname",[cName])
+func dnLoadName  dn_cName
+	return dnRequest("loadname",[dn_cName])
 
 # Get a type (to call its static members), for example dnType("System.Math")
 func dnType  cTypeName
@@ -115,26 +115,26 @@ func dnStatic  cTypeName, cMethod, aParameters
 
 # Append the items of one list to another (in Ring, list + list adds a nested list)
 func dnJoin  aFirst, aRest
-	for xItem in aRest
-		aFirst + xItem
+	for dn_xItem in aRest
+		aFirst + dn_xItem
 	next
 	return aFirst
 
 # Type object for static members, cached per type name
 func dnTypeCached  cTypeName
-	nPos = find(aDotNetTypes,cTypeName,1)
-	if nPos > 0
-		return aDotNetTypes[nPos][2]
+	dn_nPos = find(aDotNetTypes,cTypeName,1)
+	if dn_nPos > 0
+		return aDotNetTypes[dn_nPos][2]
 	ok
-	oType = dnType(cTypeName)
-	aDotNetTypes + [cTypeName,oType]
-	return oType
+	dn_oType = dnType(cTypeName)
+	aDotNetTypes + [cTypeName,dn_oType]
+	return dn_oType
 
 # Create a .NET object and return its handle (used by the generated classes)
 func dnCreate  cTypeName, aParameters
-	xNew = dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters))
-	if isobject(xNew)
-		return xNew.nHandle
+	dn_xNew = dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters))
+	if isobject(dn_xNew)
+		return dn_xNew.nHandle
 	ok
 	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
 
@@ -149,34 +149,34 @@ func dnCallback  cCode
 
 # Runs one Ring callback requested by .NET (called by the extension, don't call it directly)
 func dnDispatchCallback
-	aItems = dnUnpack(dotnet_callbackrequest())
+	dn_aItems = dnUnpack(dotnet_callbackrequest())
 	aDotNetArgs = []
-	for x = 2 to len(aItems)
-		aDotNetArgs + aItems[x]
+	for dn_x = 2 to len(dn_aItems)
+		aDotNetArgs + dn_aItems[dn_x]
 	next
 	try
 		xDotNetResult = ""
-		if dnIsIdentifier(aItems[1])
-			eval("xDotNetResult = " + aItems[1] + "(aDotNetArgs)")
+		if dnIsIdentifier(dn_aItems[1])
+			eval("xDotNetResult = " + dn_aItems[1] + "(aDotNetArgs)")
 		else
-			eval(aItems[1])
+			eval(dn_aItems[1])
 		ok
-		cOut = dnPackItem(xDotNetResult)
+		dn_cOut = dnPackItem(xDotNetResult)
 	catch
-		cOut = C_DOTNET_ERROR + len(cCatchError) + ":" + cCatchError
+		dn_cOut = C_DOTNET_ERROR + len(cCatchError) + ":" + cCatchError
 	done
-	dotnet_callbackresult(cOut)
+	dotnet_callbackresult(dn_cOut)
 
 # True when the text is only a name (letters, digits, _), i.e. a function name and not Ring code
 func dnIsIdentifier  cText
 	if cText = ""
 		return false
 	ok
-	for x = 1 to len(cText)
-		n = ascii(cText[x])
-		lLetter = (n >= 65 and n <= 90) or (n >= 97 and n <= 122) or n = 95
-		lDigit = (n >= 48 and n <= 57)
-		if not (lLetter or (x > 1 and lDigit))
+	for dn_x = 1 to len(cText)
+		dn_n = ascii(cText[dn_x])
+		dn_lLetter = (dn_n >= 65 and dn_n <= 90) or (dn_n >= 97 and dn_n <= 122) or dn_n = 95
+		dn_lDigit = (dn_n >= 48 and dn_n <= 57)
+		if not (dn_lLetter or (dn_x > 1 and dn_lDigit))
 			return false
 		ok
 	next
@@ -188,9 +188,9 @@ func dnUseDesktop
 
 # Folder (with a trailing "/") of a file path
 func dnFolderOf  cPath
-	for x = len(cPath) to 1 step -1
-		if cPath[x] = "/" or cPath[x] = "\\"
-			return left(cPath,x)
+	for dn_x = len(cPath) to 1 step -1
+		if cPath[dn_x] = "/" or cPath[dn_x] = "\\"
+			return left(cPath,dn_x)
 		ok
 	next
 	return ""
@@ -200,41 +200,41 @@ func dnImport  cNamespace
 	if find(aDotNetImported,cNamespace) > 0
 		return true
 	ok
-	cFile = cDotNetLibFolder + "generated/" + cNamespace + ".ring"
-	if not fexists(cFile)
+	dn_cFile = cDotNetLibFolder + "generated/" + cNamespace + ".ring"
+	if not fexists(dn_cFile)
 		raise("DotNet Error: No generated classes for the namespace " + cNamespace + " (see tools/dotnetmanifest.ring)")
 	ok
 	aDotNetImported + cNamespace
-	eval('load "' + cFile + '"')
+	eval('load "' + dn_cFile + '"')
 	return true
 
 # Name of a closed generic type: dnGenericName("System.Collections.Generic.List",["System.Int32"])
 func dnGenericName  cType, aArguments
-	cName = cType + "`" + len(aArguments) + "["
-	for x = 1 to len(aArguments)
-		if x > 1 cName += "," ok
-		cName += "[" + aArguments[x] + "]"
+	dn_cName = cType + "`" + len(aArguments) + "["
+	for dn_x = 1 to len(aArguments)
+		if dn_x > 1 dn_cName += "," ok
+		dn_cName += "[" + aArguments[dn_x] + "]"
 	next
-	return cName + "]"
+	return dn_cName + "]"
 
 # Create an object of a generic type without a generated class (a DotNetObject: use callMethod/getProp)
 func dnNewGeneric  cType, aArguments, aParameters
 	return dnNew(dnGenericName(cType,aArguments),aParameters)
 
 # Simple test helpers: dnAssert("name",actual,expected) ... dnTestSummary()
-func dnAssert  cName, xActual, xExpected
+func dnAssert  dn_cName, xActual, xExpected
 	if (isnumber(xActual) and isnumber(xExpected) and fabs(xActual - xExpected) < 0.000001) or (isstring(xActual) and isstring(xExpected) and xActual = xExpected)
 		nDotNetPass++
 	else
 		nDotNetFail++
-		? "FAIL: " + cName + " expected <" + dnShow(xExpected) + "> got <" + dnShow(xActual) + ">"
+		? "FAIL: " + dn_cName + " expected <" + dnShow(xExpected) + "> got <" + dnShow(xActual) + ">"
 	ok
 
-func dnShow  xValue
-	if isstring(xValue) or isnumber(xValue)
-		return "" + xValue
+func dnShow  dn_xValue
+	if isstring(dn_xValue) or isnumber(dn_xValue)
+		return "" + dn_xValue
 	ok
-	return "(" + type(xValue) + ")"
+	return "(" + type(dn_xValue) + ")"
 
 func dnTestSummary
 	? "TESTS: " + nDotNetPass + " passed, " + nDotNetFail + " failed"

@@ -20,71 +20,71 @@ Class EncoderFallbackBuffer from DotNetObject
 		return self
 
 	Func Fallback P1,P2
-		xResult = dnRequest("call",[self,"Fallback",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Fallback",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Fallback_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"Fallback",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"Fallback",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetNextChar 
-		xResult = dnRequest("call",[self,"GetNextChar"])
+		dn_xResult = dnRequest("call",[self,"GetNextChar"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MovePrevious 
-		xResult = dnRequest("call",[self,"MovePrevious"])
+		dn_xResult = dnRequest("call",[self,"MovePrevious"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Reset 
 		dnRequest("call",[self,"Reset"])
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getRemaining
-		xResult = dnRequest("get",[self,"Remaining"])
+		dn_xResult = dnRequest("get",[self,"Remaining"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")

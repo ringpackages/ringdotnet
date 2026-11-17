@@ -35,18 +35,18 @@ Class StringSet from DotNetObject
 		return self
 
 	Func Contains P1
-		xResult = dnRequest("call",[self,"Contains",P1])
+		dn_xResult = dnRequest("call",[self,"Contains",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Remove P1
-		xResult = dnRequest("call",[self,"Remove",P1])
+		dn_xResult = dnRequest("call",[self,"Remove",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
@@ -60,11 +60,11 @@ Class StringSet from DotNetObject
 		return self
 
 	Func Add P1
-		xResult = dnRequest("call",[self,"Add",P1])
+		dn_xResult = dnRequest("call",[self,"Add",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
@@ -86,46 +86,46 @@ Class StringSet from DotNetObject
 		return self
 
 	Func IsSubsetOf P1
-		xResult = dnRequest("call",[self,"IsSubsetOf",P1])
+		dn_xResult = dnRequest("call",[self,"IsSubsetOf",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsProperSubsetOf P1
-		xResult = dnRequest("call",[self,"IsProperSubsetOf",P1])
+		dn_xResult = dnRequest("call",[self,"IsProperSubsetOf",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSupersetOf P1
-		xResult = dnRequest("call",[self,"IsSupersetOf",P1])
+		dn_xResult = dnRequest("call",[self,"IsSupersetOf",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsProperSupersetOf P1
-		xResult = dnRequest("call",[self,"IsProperSupersetOf",P1])
+		dn_xResult = dnRequest("call",[self,"IsProperSupersetOf",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Overlaps P1
-		xResult = dnRequest("call",[self,"Overlaps",P1])
+		dn_xResult = dnRequest("call",[self,"Overlaps",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetEquals P1
-		xResult = dnRequest("call",[self,"SetEquals",P1])
+		dn_xResult = dnRequest("call",[self,"SetEquals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopyTo P1
 		dnRequest("call",[self,"CopyTo",P1])
@@ -140,18 +140,18 @@ Class StringSet from DotNetObject
 		return self
 
 	Func RemoveWhere P1
-		xResult = dnRequest("call",[self,"RemoveWhere",P1])
+		dn_xResult = dnRequest("call",[self,"RemoveWhere",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func EnsureCapacity P1
-		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		dn_xResult = dnRequest("call",[self,"EnsureCapacity",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TrimExcess_0 
 		dnRequest("call",[self,"TrimExcess"])
@@ -162,52 +162,52 @@ Class StringSet from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.String]]'),"CreateSetComparer"])
 
 	Func getCount
-		xResult = dnRequest("get",[self,"Count"])
+		dn_xResult = dnRequest("get",[self,"Count"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		xResult = dnRequest("get",[self,"Capacity"])
+		dn_xResult = dnRequest("get",[self,"Capacity"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

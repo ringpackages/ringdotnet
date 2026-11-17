@@ -25,60 +25,60 @@ Class RuntimeMethodHandle from DotNetObject
 		return self
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetFunctionPointer 
-		xResult = dnRequest("call",[self,"GetFunctionPointer"])
+		dn_xResult = dnRequest("call",[self,"GetFunctionPointer"])
 		if isfunction('DotNetWrap_IntPtr')
-			return DotNetWrap_IntPtr(xResult)
+			return DotNetWrap_IntPtr(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromIntPtr P1
-		xResult = dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle'),"FromIntPtr",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle'),"FromIntPtr",P1])
 		if isfunction('DotNetWrap_RuntimeMethodHandle')
-			return DotNetWrap_RuntimeMethodHandle(xResult)
+			return DotNetWrap_RuntimeMethodHandle(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToIntPtr P1
-		xResult = dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle'),"ToIntPtr",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle'),"ToIntPtr",P1])
 		if isfunction('DotNetWrap_IntPtr')
-			return DotNetWrap_IntPtr(xResult)
+			return DotNetWrap_IntPtr(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getValue
-		xResult = dnRequest("get",[self,"Value"])
+		dn_xResult = dnRequest("get",[self,"Value"])
 		if isfunction('DotNetWrap_IntPtr')
-			return DotNetWrap_IntPtr(xResult)
+			return DotNetWrap_IntPtr(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

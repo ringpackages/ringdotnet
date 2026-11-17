@@ -18,41 +18,53 @@ Class File from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func OpenText P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenText",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"OpenText",P1])
+		if isfunction('DotNetWrap_StreamReader')
+			return DotNetWrap_StreamReader(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func CreateText P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"CreateText",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"CreateText",P1])
+		if isfunction('DotNetWrap_StreamWriter')
+			return DotNetWrap_StreamWriter(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func AppendText P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"AppendText",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"AppendText",P1])
+		if isfunction('DotNetWrap_StreamWriter')
+			return DotNetWrap_StreamWriter(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Copy P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File'),"Copy",P1,P2])
@@ -63,33 +75,57 @@ Class File from DotNetObject
 		return self
 
 	Func Create P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1,P2])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Create",P1,P2,P3])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Delete P1
 		dnRequest("call",[dnTypeCached('System.IO.File'),"Delete",P1])
 		return self
 
 	Func Exists P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Exists",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Exists",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Open P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Open_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2,P3])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func Open_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2,P3,P4])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenHandle P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenHandle",P1,P2,P3,P4,P5,P6])
@@ -103,18 +139,18 @@ Class File from DotNetObject
 		return self
 
 	Func GetCreationTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetCreationTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetCreationTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetCreationTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetCreationTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetCreationTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetLastAccessTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File'),"SetLastAccessTime",P1,P2])
@@ -125,18 +161,18 @@ Class File from DotNetObject
 		return self
 
 	Func GetLastAccessTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastAccessTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastAccessTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLastAccessTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastAccessTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastAccessTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetLastWriteTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File'),"SetLastWriteTime",P1,P2])
@@ -147,18 +183,18 @@ Class File from DotNetObject
 		return self
 
 	Func GetLastWriteTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastWriteTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastWriteTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLastWriteTimeUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastWriteTimeUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"GetLastWriteTimeUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetAttributes P1
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"GetAttributes",P1])
@@ -175,24 +211,32 @@ Class File from DotNetObject
 		return self
 
 	Func OpenRead P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenRead",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"OpenRead",P1])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenWrite P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenWrite",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"OpenWrite",P1])
+		if isfunction('DotNetWrap_FileStream')
+			return DotNetWrap_FileStream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func ReadAllText P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReadAllText_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func WriteAllText P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File'),"WriteAllText",P1,P2])
@@ -325,8 +369,16 @@ Class File from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"AppendAllLinesAsync",P1,P2,P3,P4])
 
 	Func CreateSymbolicLink P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"CreateSymbolicLink",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"CreateSymbolicLink",P1,P2])
+		if isfunction('DotNetWrap_FileSystemInfo')
+			return DotNetWrap_FileSystemInfo(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func ResolveLinkTarget P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"ResolveLinkTarget",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ResolveLinkTarget",P1,P2])
+		if isfunction('DotNetWrap_FileSystemInfo')
+			return DotNetWrap_FileSystemInfo(dn_xResult)
+		ok
+		return dn_xResult
 

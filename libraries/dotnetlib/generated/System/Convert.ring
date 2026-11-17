@@ -20,308 +20,308 @@ Class Convert from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode P1
 		return dnRequest("call",[dnTypeCached('System.Convert'),"GetTypeCode",P1])
 
 	Func IsDBNull P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"IsDBNull",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"IsDBNull",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ChangeType P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ChangeType",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ChangeType",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ChangeType_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ChangeType",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ChangeType",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBoolean P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBoolean",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBoolean",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBoolean_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBoolean",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBoolean",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToChar P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToChar",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToChar",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToChar_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToChar",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToChar",P1,P2])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSByte P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSByte",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSByte",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSByte_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSByte",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSByte",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToByte P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToByte",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToByte",P1])
 		if isfunction('DotNetWrap_Byte')
-			return DotNetWrap_Byte(xResult)
+			return DotNetWrap_Byte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToByte_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToByte",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToByte",P1,P2])
 		if isfunction('DotNetWrap_Byte')
-			return DotNetWrap_Byte(xResult)
+			return DotNetWrap_Byte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt16 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt16",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt16",P1])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt16_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt16",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt16",P1,P2])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt16 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt16",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt16",P1])
 		if isfunction('DotNetWrap_UInt16')
-			return DotNetWrap_UInt16(xResult)
+			return DotNetWrap_UInt16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt16_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt16",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt16",P1,P2])
 		if isfunction('DotNetWrap_UInt16')
-			return DotNetWrap_UInt16(xResult)
+			return DotNetWrap_UInt16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt32 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt32",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt32",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt32_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt32",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt32",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt32 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt32",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt32",P1])
 		if isfunction('DotNetWrap_UInt32')
-			return DotNetWrap_UInt32(xResult)
+			return DotNetWrap_UInt32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt32_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt32",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt32",P1,P2])
 		if isfunction('DotNetWrap_UInt32')
-			return DotNetWrap_UInt32(xResult)
+			return DotNetWrap_UInt32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt64 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt64",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt64",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt64_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt64",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToInt64",P1,P2])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt64 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt64",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt64",P1])
 		if isfunction('DotNetWrap_UInt64')
-			return DotNetWrap_UInt64(xResult)
+			return DotNetWrap_UInt64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt64_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt64",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToUInt64",P1,P2])
 		if isfunction('DotNetWrap_UInt64')
-			return DotNetWrap_UInt64(xResult)
+			return DotNetWrap_UInt64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSingle P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSingle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSingle",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSingle_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSingle",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToSingle",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDouble P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDouble",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDouble",P1])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDouble_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDouble",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDouble",P1,P2])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDecimal P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDecimal",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDecimal",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDecimal_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDecimal",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDecimal",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDateTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDateTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDateTime",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDateTime_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDateTime",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToDateTime",P1,P2])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToString",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64String P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64String_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64String_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64String_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64String",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64CharArray P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64CharArray",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64CharArray",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBase64CharArray_6 P1,P2,P3,P4,P5,P6
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64CharArray",P1,P2,P3,P4,P5,P6])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToBase64CharArray",P1,P2,P3,P4,P5,P6])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromBase64String P1
 		return dnRequest("call",[dnTypeCached('System.Convert'),"FromBase64String",P1])
@@ -333,39 +333,39 @@ Class Convert from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Convert'),"FromHexString",P1])
 
 	Func ToHexString P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexString",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToHexString_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexString",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexString",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToHexStringLower P1
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexStringLower",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexStringLower",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToHexStringLower_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexStringLower",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Convert'),"ToHexStringLower",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getDBNull
-		xResult = dnRequest("get",[dnTypeCached('System.Convert'),"DBNull"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Convert'),"DBNull"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDBNull P1
 		raise("DotNet Error: DBNull is a read-only property")

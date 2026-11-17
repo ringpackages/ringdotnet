@@ -24,172 +24,172 @@ Class Path from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ChangeExtension P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"ChangeExtension",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"ChangeExtension",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exists P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Exists",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Exists",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetDirectoryName P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetDirectoryName",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetDirectoryName",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetExtension P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetExtension",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetExtension",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetFileName P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileName",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileName",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetFileNameWithoutExtension P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileNameWithoutExtension",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileNameWithoutExtension",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetRandomFileName 
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRandomFileName"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRandomFileName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPathFullyQualified P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathFullyQualified",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathFullyQualified",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func HasExtension P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"HasExtension",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"HasExtension",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Combine P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Combine_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Combine_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Combine_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Join P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Join_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Join_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Join_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetRelativePath P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRelativePath",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRelativePath",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TrimEndingDirectorySeparator P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"TrimEndingDirectorySeparator",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"TrimEndingDirectorySeparator",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func EndsInDirectorySeparator P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"EndsInDirectorySeparator",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"EndsInDirectorySeparator",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetInvalidFileNameChars 
 		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetInvalidFileNameChars"])
@@ -198,83 +198,83 @@ Class Path from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetInvalidPathChars"])
 
 	Func GetFullPath P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetFullPath_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTempPath 
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempPath"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempPath"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTempFileName 
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempFileName"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempFileName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPathRooted P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathRooted",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathRooted",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetPathRoot P1
-		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetPathRoot",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetPathRoot",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getDirectorySeparatorChar
-		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"DirectorySeparatorChar"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"DirectorySeparatorChar"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDirectorySeparatorChar P1
 		raise("DotNet Error: DirectorySeparatorChar is a read-only property")
 
 	Func getAltDirectorySeparatorChar
-		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"AltDirectorySeparatorChar"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"AltDirectorySeparatorChar"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setAltDirectorySeparatorChar P1
 		raise("DotNet Error: AltDirectorySeparatorChar is a read-only property")
 
 	Func getVolumeSeparatorChar
-		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"VolumeSeparatorChar"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"VolumeSeparatorChar"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setVolumeSeparatorChar P1
 		raise("DotNet Error: VolumeSeparatorChar is a read-only property")
 
 	Func getPathSeparator
-		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"PathSeparator"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"PathSeparator"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPathSeparator P1
 		raise("DotNet Error: PathSeparator is a read-only property")

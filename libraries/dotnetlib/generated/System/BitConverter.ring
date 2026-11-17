@@ -20,238 +20,238 @@ Class BitConverter from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetBytes P1
 		return dnRequest("call",[dnTypeCached('System.BitConverter'),"GetBytes",P1])
 
 	Func ToChar P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToChar",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToChar",P1,P2])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt16 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt16",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt16",P1,P2])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt32 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt32",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt32",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt64 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt64",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt64",P1,P2])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt128 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt128",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToInt128",P1,P2])
 		if isfunction('DotNetWrap_Int128')
-			return DotNetWrap_Int128(xResult)
+			return DotNetWrap_Int128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt16 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt16",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt16",P1,P2])
 		if isfunction('DotNetWrap_UInt16')
-			return DotNetWrap_UInt16(xResult)
+			return DotNetWrap_UInt16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt32 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt32",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt32",P1,P2])
 		if isfunction('DotNetWrap_UInt32')
-			return DotNetWrap_UInt32(xResult)
+			return DotNetWrap_UInt32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt64 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt64",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt64",P1,P2])
 		if isfunction('DotNetWrap_UInt64')
-			return DotNetWrap_UInt64(xResult)
+			return DotNetWrap_UInt64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt128 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt128",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToUInt128",P1,P2])
 		if isfunction('DotNetWrap_UInt128')
-			return DotNetWrap_UInt128(xResult)
+			return DotNetWrap_UInt128(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToHalf P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToHalf",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToHalf",P1,P2])
 		if isfunction('DotNetWrap_Half')
-			return DotNetWrap_Half(xResult)
+			return DotNetWrap_Half(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSingle P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToSingle",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToSingle",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDouble P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToDouble",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToDouble",P1,P2])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToBoolean P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToBoolean",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"ToBoolean",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func DoubleToInt64Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"DoubleToInt64Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"DoubleToInt64Bits",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Int64BitsToDouble P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int64BitsToDouble",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int64BitsToDouble",P1])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SingleToInt32Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"SingleToInt32Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"SingleToInt32Bits",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Int32BitsToSingle P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int32BitsToSingle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int32BitsToSingle",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func HalfToInt16Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"HalfToInt16Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"HalfToInt16Bits",P1])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Int16BitsToHalf P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int16BitsToHalf",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"Int16BitsToHalf",P1])
 		if isfunction('DotNetWrap_Half')
-			return DotNetWrap_Half(xResult)
+			return DotNetWrap_Half(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func DoubleToUInt64Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"DoubleToUInt64Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"DoubleToUInt64Bits",P1])
 		if isfunction('DotNetWrap_UInt64')
-			return DotNetWrap_UInt64(xResult)
+			return DotNetWrap_UInt64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func UInt64BitsToDouble P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt64BitsToDouble",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt64BitsToDouble",P1])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SingleToUInt32Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"SingleToUInt32Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"SingleToUInt32Bits",P1])
 		if isfunction('DotNetWrap_UInt32')
-			return DotNetWrap_UInt32(xResult)
+			return DotNetWrap_UInt32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func UInt32BitsToSingle P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt32BitsToSingle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt32BitsToSingle",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func HalfToUInt16Bits P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"HalfToUInt16Bits",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"HalfToUInt16Bits",P1])
 		if isfunction('DotNetWrap_UInt16')
-			return DotNetWrap_UInt16(xResult)
+			return DotNetWrap_UInt16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func UInt16BitsToHalf P1
-		xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt16BitsToHalf",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.BitConverter'),"UInt16BitsToHalf",P1])
 		if isfunction('DotNetWrap_Half')
-			return DotNetWrap_Half(xResult)
+			return DotNetWrap_Half(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getIsLittleEndian
-		xResult = dnRequest("get",[dnTypeCached('System.BitConverter'),"IsLittleEndian"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.BitConverter'),"IsLittleEndian"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsLittleEndian P1
 		raise("DotNet Error: IsLittleEndian is a read-only property")

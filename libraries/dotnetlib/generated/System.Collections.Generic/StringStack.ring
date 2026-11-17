@@ -30,11 +30,11 @@ Class StringStack from DotNetObject
 		return self
 
 	Func Contains P1
-		xResult = dnRequest("call",[self,"Contains",P1])
+		dn_xResult = dnRequest("call",[self,"Contains",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopyTo P1,P2
 		dnRequest("call",[self,"CopyTo",P1,P2])
@@ -52,21 +52,21 @@ Class StringStack from DotNetObject
 		return self
 
 	Func Peek 
-		xResult = dnRequest("call",[self,"Peek"])
+		dn_xResult = dnRequest("call",[self,"Peek"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryPeek 
 		return dnRequest("call",[self,"TryPeek"])
 
 	Func Pop 
-		xResult = dnRequest("call",[self,"Pop"])
+		dn_xResult = dnRequest("call",[self,"Pop"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryPop 
 		return dnRequest("call",[self,"TryPop"])
@@ -76,59 +76,59 @@ Class StringStack from DotNetObject
 		return self
 
 	Func EnsureCapacity P1
-		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		dn_xResult = dnRequest("call",[self,"EnsureCapacity",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getCount
-		xResult = dnRequest("get",[self,"Count"])
+		dn_xResult = dnRequest("get",[self,"Count"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		xResult = dnRequest("get",[self,"Capacity"])
+		dn_xResult = dnRequest("get",[self,"Capacity"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

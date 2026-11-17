@@ -20,46 +20,46 @@ Class GC from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetGCMemoryInfo_0 
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGCMemoryInfo"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGCMemoryInfo"])
 		if isfunction('DotNetWrap_GCMemoryInfo')
-			return DotNetWrap_GCMemoryInfo(xResult)
+			return DotNetWrap_GCMemoryInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetGCMemoryInfo P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGCMemoryInfo",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGCMemoryInfo",P1])
 		if isfunction('DotNetWrap_GCMemoryInfo')
-			return DotNetWrap_GCMemoryInfo(xResult)
+			return DotNetWrap_GCMemoryInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMemoryPressure P1
 		dnRequest("call",[dnTypeCached('System.GC'),"AddMemoryPressure",P1])
@@ -70,11 +70,11 @@ Class GC from DotNetObject
 		return self
 
 	Func GetGeneration P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGeneration",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetGeneration",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Collect P1
 		dnRequest("call",[dnTypeCached('System.GC'),"Collect",P1])
@@ -97,11 +97,11 @@ Class GC from DotNetObject
 		return self
 
 	Func CollectionCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"CollectionCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"CollectionCount",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func KeepAlive P1
 		dnRequest("call",[dnTypeCached('System.GC'),"KeepAlive",P1])
@@ -120,25 +120,25 @@ Class GC from DotNetObject
 		return self
 
 	Func GetTotalMemory P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalMemory",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalMemory",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetAllocatedBytesForCurrentThread 
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetAllocatedBytesForCurrentThread"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetAllocatedBytesForCurrentThread"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTotalAllocatedBytes P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalAllocatedBytes",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalAllocatedBytes",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RegisterForFullGCNotification P1,P2
 		dnRequest("call",[dnTypeCached('System.GC'),"RegisterForFullGCNotification",P1,P2])
@@ -160,26 +160,26 @@ Class GC from DotNetObject
 	Func WaitForFullGCComplete P1
 		return dnRequest("call",[dnTypeCached('System.GC'),"WaitForFullGCComplete",P1])
 
-	Func TryStartNoGCRegion_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1])
+	Func TryStartNoGCRegion P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func TryStartNoGCRegion P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1,P2])
+	Func TryStartNoGCRegion_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryStartNoGCRegion_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"TryStartNoGCRegion",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func EndNoGCRegion 
 		dnRequest("call",[dnTypeCached('System.GC'),"EndNoGCRegion"])
@@ -190,11 +190,11 @@ Class GC from DotNetObject
 		return self
 
 	Func GetTotalPauseDuration 
-		xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalPauseDuration"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.GC'),"GetTotalPauseDuration"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetConfigurationVariables 
 		return dnRequest("call",[dnTypeCached('System.GC'),"GetConfigurationVariables"])
@@ -204,11 +204,11 @@ Class GC from DotNetObject
 		return self
 
 	Func getMaxGeneration
-		xResult = dnRequest("get",[dnTypeCached('System.GC'),"MaxGeneration"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.GC'),"MaxGeneration"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxGeneration P1
 		raise("DotNet Error: MaxGeneration is a read-only property")

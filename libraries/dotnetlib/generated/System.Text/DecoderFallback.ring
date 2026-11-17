@@ -22,66 +22,66 @@ Class DecoderFallback from DotNetObject
 		return self
 
 	Func CreateFallbackBuffer 
-		xResult = dnRequest("call",[self,"CreateFallbackBuffer"])
+		dn_xResult = dnRequest("call",[self,"CreateFallbackBuffer"])
 		if isfunction('DotNetWrap_DecoderFallbackBuffer')
-			return DotNetWrap_DecoderFallbackBuffer(xResult)
+			return DotNetWrap_DecoderFallbackBuffer(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMaxCharCount
-		xResult = dnRequest("get",[self,"MaxCharCount"])
+		dn_xResult = dnRequest("get",[self,"MaxCharCount"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxCharCount P1
 		raise("DotNet Error: MaxCharCount is a read-only property")
 
 	Func getReplacementFallback
-		xResult = dnRequest("get",[dnTypeCached('System.Text.DecoderFallback'),"ReplacementFallback"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Text.DecoderFallback'),"ReplacementFallback"])
 		if isfunction('DotNetWrap_DecoderFallback')
-			return DotNetWrap_DecoderFallback(xResult)
+			return DotNetWrap_DecoderFallback(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setReplacementFallback P1
 		raise("DotNet Error: ReplacementFallback is a read-only property")
 
 	Func getExceptionFallback
-		xResult = dnRequest("get",[dnTypeCached('System.Text.DecoderFallback'),"ExceptionFallback"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Text.DecoderFallback'),"ExceptionFallback"])
 		if isfunction('DotNetWrap_DecoderFallback')
-			return DotNetWrap_DecoderFallback(xResult)
+			return DotNetWrap_DecoderFallback(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setExceptionFallback P1
 		raise("DotNet Error: ExceptionFallback is a read-only property")

@@ -41,7 +41,7 @@ new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
 
-Ring has no overloading, so for each name the overload arity with the most overloads gets the plain name (`Append`, `WriteLine`) and the others get `Name_N` (`Next_2(1,10)`); constructors work the same way (`init` plus `New_N`). Names that are Ring keywords get a trailing `_` (`Exit_`). The bridge still picks the real overload from the argument types.
+Ring has no overloading, so the plain name of a method is its shortest overload that has parameters (`Append`, `WriteLine`, `Join`); the other arities are `Name_N` (`Next_2(1,10)`, `Round_2(x,2)`). Overloads whose parameters are arrays (except `byte[]`/`char[]`), delegates, comparers or spans never decide the plain name. `ToString()` and methods that only have a parameterless form keep it. Constructors work the same way: `init()` is parameterless when the type has such a constructor (structs always do), otherwise the shortest one, and the other constructors are `New_N` (`new MemoryStream().New_1(bytes)`); `tools/dotnetmanifest.ring` can choose another `init` size per type. Names that are Ring keywords get a trailing `_` (`ForEach_`, `Exit_`). The bridge still picks the real overload from the argument types (whole numbers prefer `int`). Binary data (`byte[]`) travels as Ring strings.
 
 Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 

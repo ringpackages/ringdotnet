@@ -30,133 +30,133 @@ Class Single from DotNetObject
 		return self
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsFinite P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsFinite",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsFinite",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsInfinity P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsInfinity",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsInfinity",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNaN P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNaN",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNaN",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNegative P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNegative",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNegative",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNegativeInfinity P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNegativeInfinity",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNegativeInfinity",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNormal P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNormal",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsNormal",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPositiveInfinity P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPositiveInfinity",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPositiveInfinity",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSubnormal P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsSubnormal",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsSubnormal",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Single'),"TryParse",P1])
@@ -165,504 +165,504 @@ Class Single from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Single'),"TryParse",P1,P2,P3])
 
 	Func IsPow2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPow2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPow2",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log2",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exp P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExpM1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"ExpM1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"ExpM1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exp2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp2",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exp2M1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp2M1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp2M1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exp10 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp10",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp10",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Exp10M1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp10M1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Exp10M1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Ceiling P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Ceiling",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Ceiling",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Floor P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Floor",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Floor",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Round_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1])
+	Func Round P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Round P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1,P2])
+	Func Round_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Round_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Round",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Truncate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Truncate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Truncate",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Atan2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan2",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan2",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Atan2Pi P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan2Pi",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan2Pi",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func BitDecrement P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"BitDecrement",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"BitDecrement",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func BitIncrement P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"BitIncrement",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"BitIncrement",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FusedMultiplyAdd P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"FusedMultiplyAdd",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"FusedMultiplyAdd",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Ieee754Remainder P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Ieee754Remainder",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Ieee754Remainder",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ILogB P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"ILogB",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"ILogB",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Lerp P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Lerp",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Lerp",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReciprocalEstimate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"ReciprocalEstimate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"ReciprocalEstimate",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReciprocalSqrtEstimate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"ReciprocalSqrtEstimate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"ReciprocalSqrtEstimate",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ScaleB P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"ScaleB",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"ScaleB",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Acosh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Acosh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Acosh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Asinh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Asinh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Asinh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Atanh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atanh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atanh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Cosh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cosh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cosh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sinh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sinh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sinh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Tanh P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Tanh",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Tanh",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func LogP1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"LogP1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"LogP1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log10 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log10",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log10",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log2P1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log2P1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log2P1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log10P1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log10P1",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Log10P1",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clamp P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Clamp",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Clamp",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopySign P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"CopySign",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"CopySign",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Max P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Max",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Max",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxNumber P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxNumber",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxNumber",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Min P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Min",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Min",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinNumber P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinNumber",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinNumber",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sign P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sign",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sign",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Abs P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Abs",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Abs",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEvenInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsEvenInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsEvenInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOddInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsOddInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsOddInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPositive P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPositive",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsPositive",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsRealNumber P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsRealNumber",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"IsRealNumber",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxMagnitudeNumber P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxMagnitudeNumber",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MaxMagnitudeNumber",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinMagnitudeNumber P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinMagnitudeNumber",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MinMagnitudeNumber",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MultiplyAddEstimate P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"MultiplyAddEstimate",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"MultiplyAddEstimate",P1,P2,P3])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Single'),"TryParse",P1,P2])
 
 	Func Pow P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Pow",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Pow",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Cbrt P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cbrt",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cbrt",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Hypot P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Hypot",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Hypot",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RootN P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"RootN",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"RootN",P1,P2])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sqrt P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sqrt",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sqrt",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Acos P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Acos",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Acos",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AcosPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"AcosPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"AcosPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Asin P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Asin",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Asin",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AsinPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"AsinPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"AsinPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Atan P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Atan",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AtanPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"AtanPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"AtanPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Cos P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cos",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Cos",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CosPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"CosPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"CosPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func DegreesToRadians P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"DegreesToRadians",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"DegreesToRadians",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RadiansToDegrees P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"RadiansToDegrees",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"RadiansToDegrees",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sin P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sin",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Sin",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SinCos P1
 		return dnRequest("call",[dnTypeCached('System.Single'),"SinCos",P1])
@@ -671,122 +671,122 @@ Class Single from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Single'),"SinCosPi",P1])
 
 	Func SinPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"SinPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"SinPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Tan P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"Tan",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"Tan",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TanPi P1
-		xResult = dnRequest("call",[dnTypeCached('System.Single'),"TanPi",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Single'),"TanPi",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"MinValue"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"MaxValue"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getEpsilon
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"Epsilon"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"Epsilon"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setEpsilon P1
 		raise("DotNet Error: Epsilon is a read-only property")
 
 	Func getNegativeInfinity
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"NegativeInfinity"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"NegativeInfinity"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNegativeInfinity P1
 		raise("DotNet Error: NegativeInfinity is a read-only property")
 
 	Func getPositiveInfinity
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"PositiveInfinity"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"PositiveInfinity"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPositiveInfinity P1
 		raise("DotNet Error: PositiveInfinity is a read-only property")
 
 	Func getNaN
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"NaN"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"NaN"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNaN P1
 		raise("DotNet Error: NaN is a read-only property")
 
 	Func getNegativeZero
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"NegativeZero"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"NegativeZero"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNegativeZero P1
 		raise("DotNet Error: NegativeZero is a read-only property")
 
 	Func getE
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"E"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"E"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPi
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"Pi"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"Pi"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setPi P1
 		raise("DotNet Error: Pi is a read-only property")
 
 	Func getTau
-		xResult = dnRequest("get",[dnTypeCached('System.Single'),"Tau"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Single'),"Tau"])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")

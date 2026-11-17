@@ -35,214 +35,214 @@ Class StringBuilder from DotNetObject
 		return self
 
 	Func EnsureCapacity P1
-		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		dn_xResult = dnRequest("call",[self,"EnsureCapacity",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clear 
-		xResult = dnRequest("call",[self,"Clear"])
+		dn_xResult = dnRequest("call",[self,"Clear"])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetChunks 
 		return dnRequest("call",[self,"GetChunks"])
 
 	Func Append_2 P1,P2
-		xResult = dnRequest("call",[self,"Append",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Append",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Append_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"Append",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"Append",P1,P2,P3])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Append P1
-		xResult = dnRequest("call",[self,"Append",P1])
+		dn_xResult = dnRequest("call",[self,"Append",P1])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendLine_0 
-		xResult = dnRequest("call",[self,"AppendLine"])
+		dn_xResult = dnRequest("call",[self,"AppendLine"])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendLine P1
-		xResult = dnRequest("call",[self,"AppendLine",P1])
+		dn_xResult = dnRequest("call",[self,"AppendLine",P1])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopyTo P1,P2,P3,P4
 		dnRequest("call",[self,"CopyTo",P1,P2,P3,P4])
 		return self
 
 	Func Insert_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"Insert",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"Insert",P1,P2,P3])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Remove P1,P2
-		xResult = dnRequest("call",[self,"Remove",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Remove",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendLine_2 P1,P2
 		return dnRequest("call",[self,"AppendLine",P1,P2])
 
 	Func AppendJoin P1,P2
-		xResult = dnRequest("call",[self,"AppendJoin",P1,P2])
+		dn_xResult = dnRequest("call",[self,"AppendJoin",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Insert P1,P2
-		xResult = dnRequest("call",[self,"Insert",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Insert",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Insert_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[self,"Insert",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[self,"Insert",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendFormat P1,P2
-		xResult = dnRequest("call",[self,"AppendFormat",P1,P2])
+		dn_xResult = dnRequest("call",[self,"AppendFormat",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendFormat_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendFormat_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AppendFormat_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[self,"AppendFormat",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Replace P1,P2
-		xResult = dnRequest("call",[self,"Replace",P1,P2])
+		dn_xResult = dnRequest("call",[self,"Replace",P1,P2])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Replace_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[self,"Replace",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[self,"Replace",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_StringBuilder')
-			return DotNetWrap_StringBuilder(xResult)
+			return DotNetWrap_StringBuilder(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Item P1
-		xResult = dnRequest("call",[self,"get_Item",P1])
+		dn_xResult = dnRequest("call",[self,"get_Item",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetItem P1,P2
 		dnRequest("call",[self,"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
-		xResult = dnRequest("get",[self,"Capacity"])
+		dn_xResult = dnRequest("get",[self,"Capacity"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCapacity P1
 		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getMaxCapacity
-		xResult = dnRequest("get",[self,"MaxCapacity"])
+		dn_xResult = dnRequest("get",[self,"MaxCapacity"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		xResult = dnRequest("get",[self,"Length"])
+		dn_xResult = dnRequest("get",[self,"Length"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setLength P1
 		dnRequest("set",[self,"Length",P1])

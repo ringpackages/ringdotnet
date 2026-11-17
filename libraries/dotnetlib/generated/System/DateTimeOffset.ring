@@ -73,252 +73,252 @@ Class DateTimeOffset from DotNetObject
 		return self
 
 	Func ToOffset P1
-		xResult = dnRequest("call",[self,"ToOffset",P1])
+		dn_xResult = dnRequest("call",[self,"ToOffset",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Add P1
-		xResult = dnRequest("call",[self,"Add",P1])
+		dn_xResult = dnRequest("call",[self,"Add",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddDays P1
-		xResult = dnRequest("call",[self,"AddDays",P1])
+		dn_xResult = dnRequest("call",[self,"AddDays",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddHours P1
-		xResult = dnRequest("call",[self,"AddHours",P1])
+		dn_xResult = dnRequest("call",[self,"AddHours",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMilliseconds P1
-		xResult = dnRequest("call",[self,"AddMilliseconds",P1])
+		dn_xResult = dnRequest("call",[self,"AddMilliseconds",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMicroseconds P1
-		xResult = dnRequest("call",[self,"AddMicroseconds",P1])
+		dn_xResult = dnRequest("call",[self,"AddMicroseconds",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMinutes P1
-		xResult = dnRequest("call",[self,"AddMinutes",P1])
+		dn_xResult = dnRequest("call",[self,"AddMinutes",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddMonths P1
-		xResult = dnRequest("call",[self,"AddMonths",P1])
+		dn_xResult = dnRequest("call",[self,"AddMonths",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddSeconds P1
-		xResult = dnRequest("call",[self,"AddSeconds",P1])
+		dn_xResult = dnRequest("call",[self,"AddSeconds",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddTicks P1
-		xResult = dnRequest("call",[self,"AddTicks",P1])
+		dn_xResult = dnRequest("call",[self,"AddTicks",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func AddYears P1
-		xResult = dnRequest("call",[self,"AddYears",P1])
+		dn_xResult = dnRequest("call",[self,"AddYears",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func EqualsExact P1
-		xResult = dnRequest("call",[self,"EqualsExact",P1])
+		dn_xResult = dnRequest("call",[self,"EqualsExact",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Subtract P1
-		xResult = dnRequest("call",[self,"Subtract",P1])
+		dn_xResult = dnRequest("call",[self,"Subtract",P1])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToFileTime 
-		xResult = dnRequest("call",[self,"ToFileTime"])
+		dn_xResult = dnRequest("call",[self,"ToFileTime"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUnixTimeSeconds 
-		xResult = dnRequest("call",[self,"ToUnixTimeSeconds"])
+		dn_xResult = dnRequest("call",[self,"ToUnixTimeSeconds"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUnixTimeMilliseconds 
-		xResult = dnRequest("call",[self,"ToUnixTimeMilliseconds"])
+		dn_xResult = dnRequest("call",[self,"ToUnixTimeMilliseconds"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToLocalTime 
-		xResult = dnRequest("call",[self,"ToLocalTime"])
+		dn_xResult = dnRequest("call",[self,"ToLocalTime"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUniversalTime 
-		xResult = dnRequest("call",[self,"ToUniversalTime"])
+		dn_xResult = dnRequest("call",[self,"ToUniversalTime"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Compare P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Compare",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Compare",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Equals",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Equals",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromFileTime P1
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromFileTime",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromFileTime",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromUnixTimeSeconds P1
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromUnixTimeSeconds",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromUnixTimeSeconds",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromUnixTimeMilliseconds P1
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromUnixTimeMilliseconds",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"FromUnixTimeMilliseconds",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ParseExact P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"ParseExact",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"ParseExact",P1,P2,P3])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ParseExact_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"ParseExact",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"ParseExact",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"TryParse",P1])
@@ -333,51 +333,51 @@ Class DateTimeOffset from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset'),"TryParse",P1,P2])
 
 	Func getDateTime
-		xResult = dnRequest("get",[self,"DateTime"])
+		dn_xResult = dnRequest("get",[self,"DateTime"])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDateTime P1
 		raise("DotNet Error: DateTime is a read-only property")
 
 	Func getUtcDateTime
-		xResult = dnRequest("get",[self,"UtcDateTime"])
+		dn_xResult = dnRequest("get",[self,"UtcDateTime"])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUtcDateTime P1
 		raise("DotNet Error: UtcDateTime is a read-only property")
 
 	Func getLocalDateTime
-		xResult = dnRequest("get",[self,"LocalDateTime"])
+		dn_xResult = dnRequest("get",[self,"LocalDateTime"])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setLocalDateTime P1
 		raise("DotNet Error: LocalDateTime is a read-only property")
 
 	Func getDate
-		xResult = dnRequest("get",[self,"Date"])
+		dn_xResult = dnRequest("get",[self,"Date"])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDate P1
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		xResult = dnRequest("get",[self,"Day"])
+		dn_xResult = dnRequest("get",[self,"Day"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
@@ -389,191 +389,191 @@ Class DateTimeOffset from DotNetObject
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		xResult = dnRequest("get",[self,"DayOfYear"])
+		dn_xResult = dnRequest("get",[self,"DayOfYear"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		xResult = dnRequest("get",[self,"Hour"])
+		dn_xResult = dnRequest("get",[self,"Hour"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
 
 	Func getMillisecond
-		xResult = dnRequest("get",[self,"Millisecond"])
+		dn_xResult = dnRequest("get",[self,"Millisecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		xResult = dnRequest("get",[self,"Microsecond"])
+		dn_xResult = dnRequest("get",[self,"Microsecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		xResult = dnRequest("get",[self,"Nanosecond"])
+		dn_xResult = dnRequest("get",[self,"Nanosecond"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		xResult = dnRequest("get",[self,"Minute"])
+		dn_xResult = dnRequest("get",[self,"Minute"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		xResult = dnRequest("get",[self,"Month"])
+		dn_xResult = dnRequest("get",[self,"Month"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getOffset
-		xResult = dnRequest("get",[self,"Offset"])
+		dn_xResult = dnRequest("get",[self,"Offset"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOffset P1
 		raise("DotNet Error: Offset is a read-only property")
 
 	Func getTotalOffsetMinutes
-		xResult = dnRequest("get",[self,"TotalOffsetMinutes"])
+		dn_xResult = dnRequest("get",[self,"TotalOffsetMinutes"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTotalOffsetMinutes P1
 		raise("DotNet Error: TotalOffsetMinutes is a read-only property")
 
 	Func getSecond
-		xResult = dnRequest("get",[self,"Second"])
+		dn_xResult = dnRequest("get",[self,"Second"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		xResult = dnRequest("get",[self,"Ticks"])
+		dn_xResult = dnRequest("get",[self,"Ticks"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
 
 	Func getUtcTicks
-		xResult = dnRequest("get",[self,"UtcTicks"])
+		dn_xResult = dnRequest("get",[self,"UtcTicks"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUtcTicks P1
 		raise("DotNet Error: UtcTicks is a read-only property")
 
 	Func getTimeOfDay
-		xResult = dnRequest("get",[self,"TimeOfDay"])
+		dn_xResult = dnRequest("get",[self,"TimeOfDay"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTimeOfDay P1
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		xResult = dnRequest("get",[self,"Year"])
+		dn_xResult = dnRequest("get",[self,"Year"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")
 
 	Func getUtcNow
-		xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"UtcNow"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"UtcNow"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUtcNow P1
 		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getNow
-		xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"Now"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"Now"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNow P1
 		raise("DotNet Error: Now is a read-only property")
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"MinValue"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"MaxValue"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getUnixEpoch
-		xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"UnixEpoch"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.DateTimeOffset'),"UnixEpoch"])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUnixEpoch P1
 		raise("DotNet Error: UnixEpoch is a read-only property")

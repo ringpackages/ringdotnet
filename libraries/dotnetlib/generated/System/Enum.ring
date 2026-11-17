@@ -18,115 +18,115 @@ Class Enum from DotNetObject
 		return self
 
 	Func HasFlag P1
-		xResult = dnRequest("call",[self,"HasFlag",P1])
+		dn_xResult = dnRequest("call",[self,"HasFlag",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetName P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetName",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetName",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetNames P1
 		return dnRequest("call",[dnTypeCached('System.Enum'),"GetNames",P1])
 
 	Func GetUnderlyingType P1
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetUnderlyingType",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetUnderlyingType",P1])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetValues P1
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetValues",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetValues",P1])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetValuesAsUnderlyingType P1
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetValuesAsUnderlyingType",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"GetValuesAsUnderlyingType",P1])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsDefined P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"IsDefined",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"IsDefined",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum'),"TryParse",P1,P2])
@@ -135,16 +135,16 @@ Class Enum from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Enum'),"TryParse",P1,P2,P3])
 
 	Func Format P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Format",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"Format",P1,P2,P3])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToObject P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Enum'),"ToObject",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Enum'),"ToObject",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 

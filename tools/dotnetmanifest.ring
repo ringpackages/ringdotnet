@@ -16,13 +16,23 @@ aDotNetManifest = [
 	[ :namespace = "System",
 	  :assemblies = ["System.Private.CoreLib","System.Private.Uri","System.Console"],
 	  :all = true,
-	  :types = [ ["System.Random","Random",1], ["System.DateTime","DateTime",3], ["System.String","String",0], ["System.Guid","Guid",0], ["System.DateOnly","DateOnly",3] ] ],
+	  :types = [ ["System.Random","Random",1], ["System.DateTime","DateTime",3], ["System.String","String",0], ["System.Guid","Guid",0], ["System.Version","Version",1], ["System.DateOnly","DateOnly",3] ] ],
 
 	[ :namespace = "System.Text",
-	  :all = true ],
+	  :all = true,
+	  :types = [ ["System.Text.StringBuilder","StringBuilder",1] ] ],
 
 	[ :namespace = "System.IO",
-	  :types = [ ["System.IO.File"], ["System.IO.Directory"], ["System.IO.Path"] ] ],
+	  :assemblies = ["System.Private.CoreLib","System.IO.FileSystem.Watcher","System.Runtime"],
+	  :all = true ],
+
+	[ :namespace = "System.IO.Compression",
+	  :assemblies = ["System.IO.Compression","System.IO.Compression.ZipFile","System.IO.Compression.Brotli"],
+	  :all = true ],
+
+	[ :namespace = "System.Text.RegularExpressions",
+	  :assemblies = ["System.Text.RegularExpressions"],
+	  :all = true ],
 
 	[ :namespace = "System.Diagnostics",
 	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib"],

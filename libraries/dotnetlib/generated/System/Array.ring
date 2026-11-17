@@ -27,50 +27,50 @@ Class Array from DotNetObject
 		return self
 
 	Func GetLength P1
-		xResult = dnRequest("call",[self,"GetLength",P1])
+		dn_xResult = dnRequest("call",[self,"GetLength",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetUpperBound P1
-		xResult = dnRequest("call",[self,"GetUpperBound",P1])
+		dn_xResult = dnRequest("call",[self,"GetUpperBound",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLowerBound P1
-		xResult = dnRequest("call",[self,"GetLowerBound",P1])
+		dn_xResult = dnRequest("call",[self,"GetLowerBound",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Initialize 
 		dnRequest("call",[self,"Initialize"])
 		return self
 
 	Func GetValue P1
-		xResult = dnRequest("call",[self,"GetValue",P1])
+		dn_xResult = dnRequest("call",[self,"GetValue",P1])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetValue_2 P1,P2
-		xResult = dnRequest("call",[self,"GetValue",P1,P2])
+		dn_xResult = dnRequest("call",[self,"GetValue",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetValue_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"GetValue",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"GetValue",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetValue P1,P2
 		dnRequest("call",[self,"SetValue",P1,P2])
@@ -85,18 +85,18 @@ Class Array from DotNetObject
 		return self
 
 	Func GetLongLength P1
-		xResult = dnRequest("call",[self,"GetLongLength",P1])
+		dn_xResult = dnRequest("call",[self,"GetLongLength",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clone 
-		xResult = dnRequest("call",[self,"Clone"])
+		dn_xResult = dnRequest("call",[self,"Clone"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopyTo P1,P2
 		dnRequest("call",[self,"CopyTo",P1,P2])
@@ -106,32 +106,32 @@ Class Array from DotNetObject
 		return dnRequest("call",[self,"GetEnumerator"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConstrainedCopy P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('System.Array'),"ConstrainedCopy",P1,P2,P3,P4,P5])
@@ -146,39 +146,39 @@ Class Array from DotNetObject
 		return self
 
 	Func CreateInstance P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstance_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2,P3])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstance_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstance",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFromArrayType P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstanceFromArrayType",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstanceFromArrayType",P1,P2])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFromArrayType_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstanceFromArrayType",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"CreateInstanceFromArrayType",P1,P2,P3])
 		if isfunction('DotNetWrap_Array')
-			return DotNetWrap_Array(xResult)
+			return DotNetWrap_Array(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Copy P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Array'),"Copy",P1,P2,P3])
@@ -189,74 +189,74 @@ Class Array from DotNetObject
 		return self
 
 	Func BinarySearch P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func BinarySearch_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func BinarySearch_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func BinarySearch_5 P1,P2,P3,P4,P5
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3,P4,P5])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"BinarySearch",P1,P2,P3,P4,P5])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IndexOf P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IndexOf_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2,P3])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IndexOf_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"IndexOf",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func LastIndexOf P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func LastIndexOf_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2,P3])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func LastIndexOf_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Array'),"LastIndexOf",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Reverse P1
 		dnRequest("call",[dnTypeCached('System.Array'),"Reverse",P1])
@@ -293,61 +293,61 @@ Class Array from DotNetObject
 		raise("DotNet Error: LongLength is a read-only property")
 
 	Func getRank
-		xResult = dnRequest("get",[self,"Rank"])
+		dn_xResult = dnRequest("get",[self,"Rank"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setRank P1
 		raise("DotNet Error: Rank is a read-only property")
 
 	Func getSyncRoot
-		xResult = dnRequest("get",[self,"SyncRoot"])
+		dn_xResult = dnRequest("get",[self,"SyncRoot"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSyncRoot P1
 		raise("DotNet Error: SyncRoot is a read-only property")
 
 	Func getIsReadOnly
-		xResult = dnRequest("get",[self,"IsReadOnly"])
+		dn_xResult = dnRequest("get",[self,"IsReadOnly"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getIsFixedSize
-		xResult = dnRequest("get",[self,"IsFixedSize"])
+		dn_xResult = dnRequest("get",[self,"IsFixedSize"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsFixedSize P1
 		raise("DotNet Error: IsFixedSize is a read-only property")
 
 	Func getIsSynchronized
-		xResult = dnRequest("get",[self,"IsSynchronized"])
+		dn_xResult = dnRequest("get",[self,"IsSynchronized"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsSynchronized P1
 		raise("DotNet Error: IsSynchronized is a read-only property")
 
 	Func getMaxLength
-		xResult = dnRequest("get",[dnTypeCached('System.Array'),"MaxLength"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Array'),"MaxLength"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxLength P1
 		raise("DotNet Error: MaxLength is a read-only property")

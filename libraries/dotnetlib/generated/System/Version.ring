@@ -42,120 +42,120 @@ Class Version from DotNetObject
 		return self
 
 	Func Clone 
-		xResult = dnRequest("call",[self,"Clone"])
+		dn_xResult = dnRequest("call",[self,"Clone"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Version'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Version'),"Parse",P1])
 		if isfunction('DotNetWrap_Version')
-			return DotNetWrap_Version(xResult)
+			return DotNetWrap_Version(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Version'),"TryParse",P1])
 
 	Func getMajor
-		xResult = dnRequest("get",[self,"Major"])
+		dn_xResult = dnRequest("get",[self,"Major"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMajor P1
 		raise("DotNet Error: Major is a read-only property")
 
 	Func getMinor
-		xResult = dnRequest("get",[self,"Minor"])
+		dn_xResult = dnRequest("get",[self,"Minor"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinor P1
 		raise("DotNet Error: Minor is a read-only property")
 
 	Func getBuild
-		xResult = dnRequest("get",[self,"Build"])
+		dn_xResult = dnRequest("get",[self,"Build"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBuild P1
 		raise("DotNet Error: Build is a read-only property")
 
 	Func getRevision
-		xResult = dnRequest("get",[self,"Revision"])
+		dn_xResult = dnRequest("get",[self,"Revision"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setRevision P1
 		raise("DotNet Error: Revision is a read-only property")
 
 	Func getMajorRevision
-		xResult = dnRequest("get",[self,"MajorRevision"])
+		dn_xResult = dnRequest("get",[self,"MajorRevision"])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMajorRevision P1
 		raise("DotNet Error: MajorRevision is a read-only property")
 
 	Func getMinorRevision
-		xResult = dnRequest("get",[self,"MinorRevision"])
+		dn_xResult = dnRequest("get",[self,"MinorRevision"])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinorRevision P1
 		raise("DotNet Error: MinorRevision is a read-only property")

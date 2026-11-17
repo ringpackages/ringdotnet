@@ -31,147 +31,147 @@ Class TimeZoneInfo from DotNetObject
 		return dnRequest("call",[self,"GetAmbiguousTimeOffsets",P1])
 
 	Func GetUtcOffset P1
-		xResult = dnRequest("call",[self,"GetUtcOffset",P1])
+		dn_xResult = dnRequest("call",[self,"GetUtcOffset",P1])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAmbiguousTime P1
-		xResult = dnRequest("call",[self,"IsAmbiguousTime",P1])
+		dn_xResult = dnRequest("call",[self,"IsAmbiguousTime",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsDaylightSavingTime P1
-		xResult = dnRequest("call",[self,"IsDaylightSavingTime",P1])
+		dn_xResult = dnRequest("call",[self,"IsDaylightSavingTime",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsInvalidTime P1
-		xResult = dnRequest("call",[self,"IsInvalidTime",P1])
+		dn_xResult = dnRequest("call",[self,"IsInvalidTime",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func HasSameRules P1
-		xResult = dnRequest("call",[self,"HasSameRules",P1])
+		dn_xResult = dnRequest("call",[self,"HasSameRules",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSerializedString 
-		xResult = dnRequest("call",[self,"ToSerializedString"])
+		dn_xResult = dnRequest("call",[self,"ToSerializedString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetAdjustmentRules 
 		return dnRequest("call",[self,"GetAdjustmentRules"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ClearCachedData 
 		dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ClearCachedData"])
 		return self
 
 	Func ConvertTimeBySystemTimeZoneId P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeBySystemTimeZoneId",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeBySystemTimeZoneId",P1,P2])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FindSystemTimeZoneById P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"FindSystemTimeZoneById",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"FindSystemTimeZoneById",P1])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryFindSystemTimeZoneById P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"TryFindSystemTimeZoneById",P1])
 
 	Func ConvertTimeBySystemTimeZoneId_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeBySystemTimeZoneId",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeBySystemTimeZoneId",P1,P2,P3])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertTime P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTime",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTime",P1,P2])
 		if isfunction('DotNetWrap_DateTimeOffset')
-			return DotNetWrap_DateTimeOffset(xResult)
+			return DotNetWrap_DateTimeOffset(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertTime_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTime",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTime",P1,P2,P3])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertTimeFromUtc P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeFromUtc",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeFromUtc",P1,P2])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertTimeToUtc P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeToUtc",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeToUtc",P1])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertTimeToUtc_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeToUtc",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"ConvertTimeToUtc",P1,P2])
 		if isfunction('DotNetWrap_DateTime')
-			return DotNetWrap_DateTime(xResult)
+			return DotNetWrap_DateTime(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromSerializedString P1
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"FromSerializedString",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"FromSerializedString",P1])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetSystemTimeZones_0 
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"GetSystemTimeZones"])
@@ -180,25 +180,25 @@ Class TimeZoneInfo from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"GetSystemTimeZones",P1])
 
 	Func CreateCustomTimeZone P1,P2,P3,P4
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateCustomTimeZone_6 P1,P2,P3,P4,P5,P6
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateCustomTimeZone_7 P1,P2,P3,P4,P5,P6,P7
-		xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6,P7])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6,P7])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryConvertIanaIdToWindowsId P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"TryConvertIanaIdToWindowsId",P1])
@@ -210,91 +210,91 @@ Class TimeZoneInfo from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo'),"TryConvertWindowsIdToIanaId",P1,P2])
 
 	Func getId
-		xResult = dnRequest("get",[self,"Id"])
+		dn_xResult = dnRequest("get",[self,"Id"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getHasIanaId
-		xResult = dnRequest("get",[self,"HasIanaId"])
+		dn_xResult = dnRequest("get",[self,"HasIanaId"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setHasIanaId P1
 		raise("DotNet Error: HasIanaId is a read-only property")
 
 	Func getDisplayName
-		xResult = dnRequest("get",[self,"DisplayName"])
+		dn_xResult = dnRequest("get",[self,"DisplayName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")
 
 	Func getStandardName
-		xResult = dnRequest("get",[self,"StandardName"])
+		dn_xResult = dnRequest("get",[self,"StandardName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setStandardName P1
 		raise("DotNet Error: StandardName is a read-only property")
 
 	Func getDaylightName
-		xResult = dnRequest("get",[self,"DaylightName"])
+		dn_xResult = dnRequest("get",[self,"DaylightName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDaylightName P1
 		raise("DotNet Error: DaylightName is a read-only property")
 
 	Func getBaseUtcOffset
-		xResult = dnRequest("get",[self,"BaseUtcOffset"])
+		dn_xResult = dnRequest("get",[self,"BaseUtcOffset"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBaseUtcOffset P1
 		raise("DotNet Error: BaseUtcOffset is a read-only property")
 
 	Func getSupportsDaylightSavingTime
-		xResult = dnRequest("get",[self,"SupportsDaylightSavingTime"])
+		dn_xResult = dnRequest("get",[self,"SupportsDaylightSavingTime"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSupportsDaylightSavingTime P1
 		raise("DotNet Error: SupportsDaylightSavingTime is a read-only property")
 
 	Func getLocal
-		xResult = dnRequest("get",[dnTypeCached('System.TimeZoneInfo'),"Local"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.TimeZoneInfo'),"Local"])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setLocal P1
 		raise("DotNet Error: Local is a read-only property")
 
 	Func getUtc
-		xResult = dnRequest("get",[dnTypeCached('System.TimeZoneInfo'),"Utc"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.TimeZoneInfo'),"Utc"])
 		if isfunction('DotNetWrap_TimeZoneInfo')
-			return DotNetWrap_TimeZoneInfo(xResult)
+			return DotNetWrap_TimeZoneInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUtc P1
 		raise("DotNet Error: Utc is a read-only property")

@@ -45,46 +45,46 @@ Class Console from DotNetObject
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReadKey_0 
-		xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadKey"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadKey"])
 		if isfunction('DotNetWrap_ConsoleKeyInfo')
-			return DotNetWrap_ConsoleKeyInfo(xResult)
+			return DotNetWrap_ConsoleKeyInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReadKey P1
-		xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadKey",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadKey",P1])
 		if isfunction('DotNetWrap_ConsoleKeyInfo')
-			return DotNetWrap_ConsoleKeyInfo(xResult)
+			return DotNetWrap_ConsoleKeyInfo(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ResetColor 
 		dnRequest("call",[dnTypeCached('System.Console'),"ResetColor"])
@@ -130,22 +130,46 @@ Class Console from DotNetObject
 		return self
 
 	Func OpenStandardInput_0 
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardInput"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardInput"])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenStandardInput P1
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardInput",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardInput",P1])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenStandardOutput_0 
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardOutput"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardOutput"])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenStandardOutput P1
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardOutput",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardOutput",P1])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenStandardError_0 
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardError"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardError"])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func OpenStandardError P1
-		return dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardError",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"OpenStandardError",P1])
+		if isfunction('DotNetWrap_Stream')
+			return DotNetWrap_Stream(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func SetIn P1
 		dnRequest("call",[dnTypeCached('System.Console'),"SetIn",P1])
@@ -160,18 +184,18 @@ Class Console from DotNetObject
 		return self
 
 	Func Read 
-		xResult = dnRequest("call",[dnTypeCached('System.Console'),"Read"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"Read"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ReadLine 
-		xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadLine"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Console'),"ReadLine"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func WriteLine_0 
 		dnRequest("call",[dnTypeCached('System.Console'),"WriteLine"])
@@ -218,103 +242,115 @@ Class Console from DotNetObject
 		return self
 
 	Func getIn
-		return dnRequest("get",[dnTypeCached('System.Console'),"In"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"In"])
+		if isfunction('DotNetWrap_TextReader')
+			return DotNetWrap_TextReader(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func getInputEncoding
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"InputEncoding"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"InputEncoding"])
 		if isfunction('DotNetWrap_Encoding')
-			return DotNetWrap_Encoding(xResult)
+			return DotNetWrap_Encoding(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setInputEncoding P1
 		dnRequest("set",[dnTypeCached('System.Console'),"InputEncoding",P1])
 		return self
 
 	Func getOutputEncoding
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"OutputEncoding"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"OutputEncoding"])
 		if isfunction('DotNetWrap_Encoding')
-			return DotNetWrap_Encoding(xResult)
+			return DotNetWrap_Encoding(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOutputEncoding P1
 		dnRequest("set",[dnTypeCached('System.Console'),"OutputEncoding",P1])
 		return self
 
 	Func getKeyAvailable
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"KeyAvailable"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"KeyAvailable"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setKeyAvailable P1
 		raise("DotNet Error: KeyAvailable is a read-only property")
 
 	Func getOut
-		return dnRequest("get",[dnTypeCached('System.Console'),"Out"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"Out"])
+		if isfunction('DotNetWrap_TextWriter')
+			return DotNetWrap_TextWriter(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func getError
-		return dnRequest("get",[dnTypeCached('System.Console'),"Error"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"Error"])
+		if isfunction('DotNetWrap_TextWriter')
+			return DotNetWrap_TextWriter(dn_xResult)
+		ok
+		return dn_xResult
 
 	Func getIsInputRedirected
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsInputRedirected"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsInputRedirected"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsInputRedirected P1
 		raise("DotNet Error: IsInputRedirected is a read-only property")
 
 	Func getIsOutputRedirected
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsOutputRedirected"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsOutputRedirected"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsOutputRedirected P1
 		raise("DotNet Error: IsOutputRedirected is a read-only property")
 
 	Func getIsErrorRedirected
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsErrorRedirected"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"IsErrorRedirected"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsErrorRedirected P1
 		raise("DotNet Error: IsErrorRedirected is a read-only property")
 
 	Func getCursorSize
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorSize"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorSize"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCursorSize P1
 		dnRequest("set",[dnTypeCached('System.Console'),"CursorSize",P1])
 		return self
 
 	Func getNumberLock
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"NumberLock"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"NumberLock"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setNumberLock P1
 		raise("DotNet Error: NumberLock is a read-only property")
 
 	Func getCapsLock
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"CapsLock"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"CapsLock"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCapsLock P1
 		raise("DotNet Error: CapsLock is a read-only property")
@@ -334,141 +370,141 @@ Class Console from DotNetObject
 		return self
 
 	Func getBufferWidth
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"BufferWidth"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"BufferWidth"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBufferWidth P1
 		dnRequest("set",[dnTypeCached('System.Console'),"BufferWidth",P1])
 		return self
 
 	Func getBufferHeight
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"BufferHeight"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"BufferHeight"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBufferHeight P1
 		dnRequest("set",[dnTypeCached('System.Console'),"BufferHeight",P1])
 		return self
 
 	Func getWindowLeft
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowLeft"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowLeft"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWindowLeft P1
 		dnRequest("set",[dnTypeCached('System.Console'),"WindowLeft",P1])
 		return self
 
 	Func getWindowTop
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowTop"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowTop"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWindowTop P1
 		dnRequest("set",[dnTypeCached('System.Console'),"WindowTop",P1])
 		return self
 
 	Func getWindowWidth
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowWidth"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowWidth"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWindowWidth P1
 		dnRequest("set",[dnTypeCached('System.Console'),"WindowWidth",P1])
 		return self
 
 	Func getWindowHeight
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowHeight"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"WindowHeight"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setWindowHeight P1
 		dnRequest("set",[dnTypeCached('System.Console'),"WindowHeight",P1])
 		return self
 
 	Func getLargestWindowWidth
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowWidth"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowWidth"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setLargestWindowWidth P1
 		raise("DotNet Error: LargestWindowWidth is a read-only property")
 
 	Func getLargestWindowHeight
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowHeight"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowHeight"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setLargestWindowHeight P1
 		raise("DotNet Error: LargestWindowHeight is a read-only property")
 
 	Func getCursorVisible
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorVisible"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorVisible"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCursorVisible P1
 		dnRequest("set",[dnTypeCached('System.Console'),"CursorVisible",P1])
 		return self
 
 	Func getCursorLeft
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorLeft"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorLeft"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCursorLeft P1
 		dnRequest("set",[dnTypeCached('System.Console'),"CursorLeft",P1])
 		return self
 
 	Func getCursorTop
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorTop"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"CursorTop"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCursorTop P1
 		dnRequest("set",[dnTypeCached('System.Console'),"CursorTop",P1])
 		return self
 
 	Func getTitle
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"Title"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"Title"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTitle P1
 		dnRequest("set",[dnTypeCached('System.Console'),"Title",P1])
 		return self
 
 	Func getTreatControlCAsInput
-		xResult = dnRequest("get",[dnTypeCached('System.Console'),"TreatControlCAsInput"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Console'),"TreatControlCAsInput"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setTreatControlCAsInput P1
 		dnRequest("set",[dnTypeCached('System.Console'),"TreatControlCAsInput",P1])

@@ -39,53 +39,53 @@ Class AppDomain from DotNetObject
 		return self
 
 	Func ApplyPolicy P1
-		xResult = dnRequest("call",[self,"ApplyPolicy",P1])
+		dn_xResult = dnRequest("call",[self,"ApplyPolicy",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExecuteAssembly P1
-		xResult = dnRequest("call",[self,"ExecuteAssembly",P1])
+		dn_xResult = dnRequest("call",[self,"ExecuteAssembly",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExecuteAssembly_2 P1,P2
-		xResult = dnRequest("call",[self,"ExecuteAssembly",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ExecuteAssembly",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExecuteAssembly_4 P1,P2,P3,P4
-		xResult = dnRequest("call",[self,"ExecuteAssembly",P1,P2,P3,P4])
+		dn_xResult = dnRequest("call",[self,"ExecuteAssembly",P1,P2,P3,P4])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExecuteAssemblyByName_2 P1,P2
-		xResult = dnRequest("call",[self,"ExecuteAssemblyByName",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ExecuteAssemblyByName",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ExecuteAssemblyByName P1
-		xResult = dnRequest("call",[self,"ExecuteAssemblyByName",P1])
+		dn_xResult = dnRequest("call",[self,"ExecuteAssemblyByName",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetData P1
-		xResult = dnRequest("call",[self,"GetData",P1])
+		dn_xResult = dnRequest("call",[self,"GetData",P1])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetData P1,P2
 		dnRequest("call",[self,"SetData",P1,P2])
@@ -95,25 +95,25 @@ Class AppDomain from DotNetObject
 		return dnRequest("call",[self,"IsCompatibilitySwitchSet",P1])
 
 	Func IsDefaultAppDomain 
-		xResult = dnRequest("call",[self,"IsDefaultAppDomain"])
+		dn_xResult = dnRequest("call",[self,"IsDefaultAppDomain"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsFinalizingForUnload 
-		xResult = dnRequest("call",[self,"IsFinalizingForUnload"])
+		dn_xResult = dnRequest("call",[self,"IsFinalizingForUnload"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Load_ P1
 		return dnRequest("call",[self,"Load",P1])
@@ -169,25 +169,25 @@ Class AppDomain from DotNetObject
 		return dnRequest("call",[self,"CreateInstance",P1,P2,P3])
 
 	Func CreateInstanceAndUnwrap P1,P2
-		xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceAndUnwrap_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceAndUnwrap",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFrom P1,P2
 		return dnRequest("call",[self,"CreateInstanceFrom",P1,P2])
@@ -199,78 +199,78 @@ Class AppDomain from DotNetObject
 		return dnRequest("call",[self,"CreateInstanceFrom",P1,P2,P3])
 
 	Func CreateInstanceFromAndUnwrap P1,P2
-		xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFromAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateInstanceFromAndUnwrap_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"CreateInstanceFromAndUnwrap",P1,P2,P3])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetLifetimeService 
-		xResult = dnRequest("call",[self,"GetLifetimeService"])
+		dn_xResult = dnRequest("call",[self,"GetLifetimeService"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func InitializeLifetimeService 
-		xResult = dnRequest("call",[self,"InitializeLifetimeService"])
+		dn_xResult = dnRequest("call",[self,"InitializeLifetimeService"])
 		if isfunction('DotNetWrap_Object')
-			return DotNetWrap_Object(xResult)
+			return DotNetWrap_Object(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CreateDomain P1
-		xResult = dnRequest("call",[dnTypeCached('System.AppDomain'),"CreateDomain",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.AppDomain'),"CreateDomain",P1])
 		if isfunction('DotNetWrap_AppDomain')
-			return DotNetWrap_AppDomain(xResult)
+			return DotNetWrap_AppDomain(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Unload P1
 		dnRequest("call",[dnTypeCached('System.AppDomain'),"Unload",P1])
 		return self
 
 	Func GetCurrentThreadId 
-		xResult = dnRequest("call",[dnTypeCached('System.AppDomain'),"GetCurrentThreadId"])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.AppDomain'),"GetCurrentThreadId"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setUnhandledExceptionEvent P1
 		dnRequest("setevent",[self,"UnhandledException",dnCallback(P1)])
@@ -345,31 +345,31 @@ Class AppDomain from DotNetObject
 		return self
 
 	Func getBaseDirectory
-		xResult = dnRequest("get",[self,"BaseDirectory"])
+		dn_xResult = dnRequest("get",[self,"BaseDirectory"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setBaseDirectory P1
 		raise("DotNet Error: BaseDirectory is a read-only property")
 
 	Func getRelativeSearchPath
-		xResult = dnRequest("get",[self,"RelativeSearchPath"])
+		dn_xResult = dnRequest("get",[self,"RelativeSearchPath"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setRelativeSearchPath P1
 		raise("DotNet Error: RelativeSearchPath is a read-only property")
 
 	Func getSetupInformation
-		xResult = dnRequest("get",[self,"SetupInformation"])
+		dn_xResult = dnRequest("get",[self,"SetupInformation"])
 		if isfunction('DotNetWrap_AppDomainSetup')
-			return DotNetWrap_AppDomainSetup(xResult)
+			return DotNetWrap_AppDomainSetup(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setSetupInformation P1
 		raise("DotNet Error: SetupInformation is a read-only property")
@@ -381,119 +381,119 @@ Class AppDomain from DotNetObject
 		raise("DotNet Error: PermissionSet is a read-only property")
 
 	Func getDynamicDirectory
-		xResult = dnRequest("get",[self,"DynamicDirectory"])
+		dn_xResult = dnRequest("get",[self,"DynamicDirectory"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setDynamicDirectory P1
 		raise("DotNet Error: DynamicDirectory is a read-only property")
 
 	Func getFriendlyName
-		xResult = dnRequest("get",[self,"FriendlyName"])
+		dn_xResult = dnRequest("get",[self,"FriendlyName"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setFriendlyName P1
 		raise("DotNet Error: FriendlyName is a read-only property")
 
 	Func getId
-		xResult = dnRequest("get",[self,"Id"])
+		dn_xResult = dnRequest("get",[self,"Id"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setId P1
 		raise("DotNet Error: Id is a read-only property")
 
 	Func getIsFullyTrusted
-		xResult = dnRequest("get",[self,"IsFullyTrusted"])
+		dn_xResult = dnRequest("get",[self,"IsFullyTrusted"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
 	Func getIsHomogenous
-		xResult = dnRequest("get",[self,"IsHomogenous"])
+		dn_xResult = dnRequest("get",[self,"IsHomogenous"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setIsHomogenous P1
 		raise("DotNet Error: IsHomogenous is a read-only property")
 
 	Func getMonitoringSurvivedMemorySize
-		xResult = dnRequest("get",[self,"MonitoringSurvivedMemorySize"])
+		dn_xResult = dnRequest("get",[self,"MonitoringSurvivedMemorySize"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonitoringSurvivedMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedMemorySize is a read-only property")
 
 	Func getMonitoringTotalAllocatedMemorySize
-		xResult = dnRequest("get",[self,"MonitoringTotalAllocatedMemorySize"])
+		dn_xResult = dnRequest("get",[self,"MonitoringTotalAllocatedMemorySize"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonitoringTotalAllocatedMemorySize P1
 		raise("DotNet Error: MonitoringTotalAllocatedMemorySize is a read-only property")
 
 	Func getShadowCopyFiles
-		xResult = dnRequest("get",[self,"ShadowCopyFiles"])
+		dn_xResult = dnRequest("get",[self,"ShadowCopyFiles"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMonitoringTotalProcessorTime
-		xResult = dnRequest("get",[self,"MonitoringTotalProcessorTime"])
+		dn_xResult = dnRequest("get",[self,"MonitoringTotalProcessorTime"])
 		if isfunction('DotNetWrap_TimeSpan')
-			return DotNetWrap_TimeSpan(xResult)
+			return DotNetWrap_TimeSpan(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonitoringTotalProcessorTime P1
 		raise("DotNet Error: MonitoringTotalProcessorTime is a read-only property")
 
 	Func getCurrentDomain
-		xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"CurrentDomain"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"CurrentDomain"])
 		if isfunction('DotNetWrap_AppDomain')
-			return DotNetWrap_AppDomain(xResult)
+			return DotNetWrap_AppDomain(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCurrentDomain P1
 		raise("DotNet Error: CurrentDomain is a read-only property")
 
 	Func getMonitoringIsEnabled
-		xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"MonitoringIsEnabled"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"MonitoringIsEnabled"])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonitoringIsEnabled P1
 		dnRequest("set",[dnTypeCached('System.AppDomain'),"MonitoringIsEnabled",P1])
 		return self
 
 	Func getMonitoringSurvivedProcessMemorySize
-		xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"MonitoringSurvivedProcessMemorySize"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.AppDomain'),"MonitoringSurvivedProcessMemorySize"])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMonitoringSurvivedProcessMemorySize P1
 		raise("DotNet Error: MonitoringSurvivedProcessMemorySize is a read-only property")

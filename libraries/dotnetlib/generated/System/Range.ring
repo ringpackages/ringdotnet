@@ -26,73 +26,73 @@ Class Range from DotNetObject
 		return self
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetOffsetAndLength P1
 		return dnRequest("call",[self,"GetOffsetAndLength",P1])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func StartAt P1
-		xResult = dnRequest("call",[dnTypeCached('System.Range'),"StartAt",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Range'),"StartAt",P1])
 		if isfunction('DotNetWrap_Range')
-			return DotNetWrap_Range(xResult)
+			return DotNetWrap_Range(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func EndAt P1
-		xResult = dnRequest("call",[dnTypeCached('System.Range'),"EndAt",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Range'),"EndAt",P1])
 		if isfunction('DotNetWrap_Range')
-			return DotNetWrap_Range(xResult)
+			return DotNetWrap_Range(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getStart
-		xResult = dnRequest("get",[self,"Start"])
+		dn_xResult = dnRequest("get",[self,"Start"])
 		if isfunction('DotNetWrap_Index')
-			return DotNetWrap_Index(xResult)
+			return DotNetWrap_Index(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setStart P1
 		raise("DotNet Error: Start is a read-only property")
 
 	Func getEnd
-		xResult = dnRequest("get",[self,"End"])
+		dn_xResult = dnRequest("get",[self,"End"])
 		if isfunction('DotNetWrap_Index')
-			return DotNetWrap_Index(xResult)
+			return DotNetWrap_Index(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getAll
-		xResult = dnRequest("get",[dnTypeCached('System.Range'),"All"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Range'),"All"])
 		if isfunction('DotNetWrap_Range')
-			return DotNetWrap_Range(xResult)
+			return DotNetWrap_Range(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setAll P1
 		raise("DotNet Error: All is a read-only property")

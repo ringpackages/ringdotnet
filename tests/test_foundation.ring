@@ -64,4 +64,9 @@ oObs.setCollectionChangedEvent("nEvents++")
 oObs.Add("x")  oObs.Add("y")
 dnAssert("events",nEvents,2)
 
+# The library must not change user globals that have common names
+cData = "mine"  aItems = [1,2]  nPos = 5  x = 9  xResult = "keep"
+new StringBuilder("q").Append("r").ToString()
+dnAssert("user globals untouched",cData + aItems[2] + nPos + x + xResult,"mine259keep")
+
 nFail = dnTestSummary()

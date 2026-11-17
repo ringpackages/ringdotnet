@@ -22,339 +22,339 @@ Class Char from DotNetObject
 		return self
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAscii P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAscii",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAscii",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"Parse",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Char'),"TryParse",P1])
 
 	Func IsAsciiLetter P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetter",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetter",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiLetterLower P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterLower",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterLower",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiLetterUpper P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterUpper",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterUpper",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiDigit P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiDigit",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiDigit",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiLetterOrDigit P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterOrDigit",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiLetterOrDigit",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiHexDigit P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigit",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigit",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiHexDigitUpper P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigitUpper",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigitUpper",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsAsciiHexDigitLower P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigitLower",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsAsciiHexDigitLower",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsDigit P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsDigit",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsDigit",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsBetween P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsBetween",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsBetween",P1,P2,P3])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLetter P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetter",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetter",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWhiteSpace P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsWhiteSpace",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsWhiteSpace",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsUpper P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsUpper",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsUpper",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLower P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLower",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLower",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPunctuation P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsPunctuation",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsPunctuation",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLetterOrDigit P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetterOrDigit",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetterOrDigit",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUpper_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpper",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpper",P1,P2])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUpper P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpper",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpper",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUpperInvariant P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpperInvariant",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToUpperInvariant",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToLower_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLower",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLower",P1,P2])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToLower P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLower",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLower",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToLowerInvariant P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLowerInvariant",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ToLowerInvariant",P1])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsControl P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsControl",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsControl",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsControl_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsControl",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsControl",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsDigit_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsDigit",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsDigit",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLetter_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetter",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetter",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLetterOrDigit_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetterOrDigit",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLetterOrDigit",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLower_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLower",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLower",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNumber P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsNumber",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsNumber",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNumber_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsNumber",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsNumber",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPunctuation_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsPunctuation",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsPunctuation",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSeparator P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSeparator",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSeparator",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSeparator_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSeparator",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSeparator",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSurrogate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogate",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSurrogate_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogate",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogate",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSymbol P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSymbol",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSymbol",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSymbol_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSymbol",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSymbol",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsUpper_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsUpper",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsUpper",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsWhiteSpace_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsWhiteSpace",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsWhiteSpace",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetUnicodeCategory P1
 		return dnRequest("call",[dnTypeCached('System.Char'),"GetUnicodeCategory",P1])
@@ -363,84 +363,84 @@ Class Char from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Char'),"GetUnicodeCategory",P1,P2])
 
 	Func GetNumericValue P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"GetNumericValue",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"GetNumericValue",P1])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetNumericValue_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"GetNumericValue",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"GetNumericValue",P1,P2])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsHighSurrogate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsHighSurrogate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsHighSurrogate",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsHighSurrogate_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsHighSurrogate",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsHighSurrogate",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLowSurrogate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLowSurrogate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLowSurrogate",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsLowSurrogate_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLowSurrogate",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsLowSurrogate",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsSurrogatePair P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogatePair",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"IsSurrogatePair",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertFromUtf32 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ConvertFromUtf32",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ConvertFromUtf32",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ConvertToUtf32 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Char'),"ConvertToUtf32",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Char'),"ConvertToUtf32",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.Char'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Char'),"MaxValue"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.Char'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Char'),"MinValue"])
 		if isfunction('DotNetWrap_Char')
-			return DotNetWrap_Char(xResult)
+			return DotNetWrap_Char(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")

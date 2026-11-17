@@ -41,71 +41,71 @@ Class ObservableStringList from DotNetObject
 		return self
 
 	Func Contains P1
-		xResult = dnRequest("call",[self,"Contains",P1])
+		dn_xResult = dnRequest("call",[self,"Contains",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
 	Func IndexOf P1
-		xResult = dnRequest("call",[self,"IndexOf",P1])
+		dn_xResult = dnRequest("call",[self,"IndexOf",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Insert P1,P2
 		dnRequest("call",[self,"Insert",P1,P2])
 		return self
 
 	Func Remove P1
-		xResult = dnRequest("call",[self,"Remove",P1])
+		dn_xResult = dnRequest("call",[self,"Remove",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RemoveAt P1
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Item P1
-		xResult = dnRequest("call",[self,"get_Item",P1])
+		dn_xResult = dnRequest("call",[self,"get_Item",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func SetItem P1,P2
 		dnRequest("call",[self,"set_Item",P1,P2])
@@ -120,11 +120,11 @@ Class ObservableStringList from DotNetObject
 		return self
 
 	Func getCount
-		xResult = dnRequest("get",[self,"Count"])
+		dn_xResult = dnRequest("get",[self,"Count"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

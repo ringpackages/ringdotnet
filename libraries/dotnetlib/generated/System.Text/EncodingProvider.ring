@@ -18,47 +18,47 @@ Class EncodingProvider from DotNetObject
 		return self
 
 	Func GetEncoding P1
-		xResult = dnRequest("call",[self,"GetEncoding",P1])
+		dn_xResult = dnRequest("call",[self,"GetEncoding",P1])
 		if isfunction('DotNetWrap_Encoding')
-			return DotNetWrap_Encoding(xResult)
+			return DotNetWrap_Encoding(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEncoding_3 P1,P2,P3
-		xResult = dnRequest("call",[self,"GetEncoding",P1,P2,P3])
+		dn_xResult = dnRequest("call",[self,"GetEncoding",P1,P2,P3])
 		if isfunction('DotNetWrap_Encoding')
-			return DotNetWrap_Encoding(xResult)
+			return DotNetWrap_Encoding(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetEncodings 
 		return dnRequest("call",[self,"GetEncodings"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 

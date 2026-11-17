@@ -125,7 +125,7 @@ namespace RingDotNet
 				pos += len;
 				switch (tag)
 				{
-					case 's': items.Add(Encoding.UTF8.GetString(body)); break;
+					case 's': items.Add(DecodeString(body)); break;
 					case 'n': items.Add(double.Parse(Encoding.ASCII.GetString(body), NumberStyles.Float, Inv)); break;
 					case 'b': items.Add(body.Length > 0 && body[0] == (byte)'1'); break;
 					case 'z': items.Add(null); break;
@@ -137,6 +137,21 @@ namespace RingDotNet
 				}
 			}
 			return items;
+		}
+
+		private static readonly UTF8Encoding StrictUtf8 = new UTF8Encoding(false, true);
+
+		/* Valid UTF-8 text becomes a string; anything else (binary data) stays a byte[] */
+		private static object DecodeString(ReadOnlySpan<byte> body)
+		{
+			try
+			{
+				return StrictUtf8.GetString(body);
+			}
+			catch (ArgumentException)
+			{
+				return body.ToArray();
+			}
 		}
 
 		private static void WriteItem(MemoryStream ms, char tag, byte[] body)
@@ -697,6 +712,30 @@ namespace RingDotNet
 				}
 				return false;
 			}
+			if (v is double num && IsNumeric(ut))
+			{
+				/* Ring numbers are doubles: prefer int for whole numbers (Write(7) is Write(int), not Write(double)) */
+				bool whole = num == Math.Floor(num);
+				if (IsIntegral(ut) && !whole)
+				{
+					return false;
+				}
+				try
+				{
+					result = Convert.ChangeType(num, ut, Inv);
+				}
+				catch (Exception) { return false; }
+				switch (Type.GetTypeCode(ut))
+				{
+					case TypeCode.Int32: score = whole ? 6 : 1; break;
+					case TypeCode.Int64: score = whole ? 5 : 1; break;
+					case TypeCode.Double: score = whole ? 2 : 6; break;
+					case TypeCode.Single: score = whole ? 1 : 5; break;
+					case TypeCode.Decimal: score = whole ? 1 : 4; break;
+					default: score = whole ? 3 : 1; break;
+				}
+				return true;
+			}
 			if (ut.IsInstanceOfType(v))
 			{
 				result = v;
@@ -754,7 +793,7 @@ namespace RingDotNet
 				}
 				if (ut == typeof(byte[]))
 				{
-					result = Encoding.Latin1.GetBytes(s);
+					result = Encoding.UTF8.GetBytes(s);
 					score = 1;
 					return true;
 				}

@@ -34,133 +34,133 @@ Class Decimal from DotNetObject
 		return self
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func FromOACurrency P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"FromOACurrency",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"FromOACurrency",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToOACurrency P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToOACurrency",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToOACurrency",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Add P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Add",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Add",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Ceiling P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Ceiling",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Ceiling",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Compare P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Compare",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Compare",P1,P2])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Divide P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Divide",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Divide",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Equals",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Equals",P1,P2])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Floor P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Floor",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Floor",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Decimal'),"TryParse",P1])
@@ -172,288 +172,288 @@ Class Decimal from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Decimal'),"GetBits",P1])
 
 	Func Remainder P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Remainder",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Remainder",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Multiply P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Multiply",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Multiply",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Negate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Negate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Negate",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Round_1 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1])
+	Func Round P1
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
-	Func Round P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1,P2])
+	Func Round_2 P1,P2
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Round_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Round",P1,P2,P3])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Subtract P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Subtract",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Subtract",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToByte P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToByte",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToByte",P1])
 		if isfunction('DotNetWrap_Byte')
-			return DotNetWrap_Byte(xResult)
+			return DotNetWrap_Byte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSByte P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToSByte",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToSByte",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt16 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt16",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt16",P1])
 		if isfunction('DotNetWrap_Int16')
-			return DotNetWrap_Int16(xResult)
+			return DotNetWrap_Int16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToDouble P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToDouble",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToDouble",P1])
 		if isfunction('DotNetWrap_Double')
-			return DotNetWrap_Double(xResult)
+			return DotNetWrap_Double(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt32 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt32",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt32",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToInt64 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt64",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToInt64",P1])
 		if isfunction('DotNetWrap_Int64')
-			return DotNetWrap_Int64(xResult)
+			return DotNetWrap_Int64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt16 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt16",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt16",P1])
 		if isfunction('DotNetWrap_UInt16')
-			return DotNetWrap_UInt16(xResult)
+			return DotNetWrap_UInt16(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt32 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt32",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt32",P1])
 		if isfunction('DotNetWrap_UInt32')
-			return DotNetWrap_UInt32(xResult)
+			return DotNetWrap_UInt32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToUInt64 P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt64",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToUInt64",P1])
 		if isfunction('DotNetWrap_UInt64')
-			return DotNetWrap_UInt64(xResult)
+			return DotNetWrap_UInt64(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToSingle P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToSingle",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"ToSingle",P1])
 		if isfunction('DotNetWrap_Single')
-			return DotNetWrap_Single(xResult)
+			return DotNetWrap_Single(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Truncate P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Truncate",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Truncate",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clamp P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Clamp",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Clamp",P1,P2,P3])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopySign P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"CopySign",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"CopySign",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Max P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Max",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Max",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Min P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Min",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Min",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sign P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Sign",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Sign",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Abs P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Abs",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"Abs",P1])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsCanonical P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsCanonical",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsCanonical",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEvenInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsEvenInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsEvenInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNegative P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsNegative",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsNegative",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOddInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsOddInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsOddInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPositive P1
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsPositive",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"IsPositive",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"MaxMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"MaxMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"MinMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.Decimal'),"MinMagnitude",P1,P2])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal'),"TryParse",P1,P2])
 
 	Func getScale
-		xResult = dnRequest("get",[self,"Scale"])
+		dn_xResult = dnRequest("get",[self,"Scale"])
 		if isfunction('DotNetWrap_Byte')
-			return DotNetWrap_Byte(xResult)
+			return DotNetWrap_Byte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setScale P1
 		raise("DotNet Error: Scale is a read-only property")
 
 	Func getZero
-		xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"Zero"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"Zero"])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setZero P1
 		raise("DotNet Error: Zero is a read-only property")
 
 	Func getOne
-		xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"One"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"One"])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setOne P1
 		raise("DotNet Error: One is a read-only property")
 
 	Func getMinusOne
-		xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MinusOne"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MinusOne"])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinusOne P1
 		raise("DotNet Error: MinusOne is a read-only property")
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MaxValue"])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.Decimal'),"MinValue"])
 		if isfunction('DotNetWrap_Decimal')
-			return DotNetWrap_Decimal(xResult)
+			return DotNetWrap_Decimal(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")

@@ -22,77 +22,77 @@ Class SByte from DotNetObject
 		return self
 
 	Func CompareTo P1
-		xResult = dnRequest("call",[self,"CompareTo",P1])
+		dn_xResult = dnRequest("call",[self,"CompareTo",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Equals P1
-		xResult = dnRequest("call",[self,"Equals",P1])
+		dn_xResult = dnRequest("call",[self,"Equals",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetHashCode 
-		xResult = dnRequest("call",[self,"GetHashCode"])
+		dn_xResult = dnRequest("call",[self,"GetHashCode"])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString 
-		xResult = dnRequest("call",[self,"ToString"])
+		dn_xResult = dnRequest("call",[self,"ToString"])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_1 P1
-		xResult = dnRequest("call",[self,"ToString",P1])
+		dn_xResult = dnRequest("call",[self,"ToString",P1])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func ToString_2 P1,P2
-		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		dn_xResult = dnRequest("call",[self,"ToString",P1,P2])
 		if isfunction('DotNetWrap_String')
-			return DotNetWrap_String(xResult)
+			return DotNetWrap_String(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		xResult = dnRequest("call",[self,"GetType"])
+		dn_xResult = dnRequest("call",[self,"GetType"])
 		if isfunction('DotNetWrap_Type')
-			return DotNetWrap_Type(xResult)
+			return DotNetWrap_Type(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_2 P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Parse_3 P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Parse",P1,P2,P3])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.SByte'),"TryParse",P1])
@@ -104,157 +104,157 @@ Class SByte from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.SByte'),"DivRem",P1,P2])
 
 	Func LeadingZeroCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"LeadingZeroCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"LeadingZeroCount",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func PopCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"PopCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"PopCount",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RotateLeft P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"RotateLeft",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"RotateLeft",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func RotateRight P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"RotateRight",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"RotateRight",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TrailingZeroCount P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"TrailingZeroCount",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"TrailingZeroCount",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPow2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsPow2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsPow2",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Log2 P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Log2",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Log2",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Clamp P1,P2,P3
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Clamp",P1,P2,P3])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Clamp",P1,P2,P3])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func CopySign P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"CopySign",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"CopySign",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Max P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Max",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Max",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Min P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Min",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Min",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Sign P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Sign",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Sign",P1])
 		if isfunction('DotNetWrap_Int32')
-			return DotNetWrap_Int32(xResult)
+			return DotNetWrap_Int32(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func Abs P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Abs",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"Abs",P1])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsEvenInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsEvenInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsEvenInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsNegative P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsNegative",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsNegative",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsOddInteger P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsOddInteger",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsOddInteger",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func IsPositive P1
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsPositive",P1])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"IsPositive",P1])
 		if isfunction('DotNetWrap_Boolean')
-			return DotNetWrap_Boolean(xResult)
+			return DotNetWrap_Boolean(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MaxMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"MaxMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"MaxMagnitude",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func MinMagnitude P1,P2
-		xResult = dnRequest("call",[dnTypeCached('System.SByte'),"MinMagnitude",P1,P2])
+		dn_xResult = dnRequest("call",[dnTypeCached('System.SByte'),"MinMagnitude",P1,P2])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.SByte'),"TryParse",P1,P2])
 
 	Func getMaxValue
-		xResult = dnRequest("get",[dnTypeCached('System.SByte'),"MaxValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.SByte'),"MaxValue"])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMaxValue P1
 		raise("DotNet Error: MaxValue is a read-only property")
 
 	Func getMinValue
-		xResult = dnRequest("get",[dnTypeCached('System.SByte'),"MinValue"])
+		dn_xResult = dnRequest("get",[dnTypeCached('System.SByte'),"MinValue"])
 		if isfunction('DotNetWrap_SByte')
-			return DotNetWrap_SByte(xResult)
+			return DotNetWrap_SByte(dn_xResult)
 		ok
-		return xResult
+		return dn_xResult
 
 	Func setMinValue P1
 		raise("DotNet Error: MinValue is a read-only property")
