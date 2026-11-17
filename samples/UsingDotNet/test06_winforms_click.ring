@@ -1,8 +1,9 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
+dnUseDesktop()                      # must be the first .NET call
+dnImport("System.Windows.Forms")
 
 # Windows Forms: the Ring thread runs the message loop, so event code runs on it.
 # This sample closes itself: the Shown event "clicks" the button, whose Click event updates the label and closes the form.
-dnUseDesktop()                      # must be the first .NET call
 
 oApp = new Application()
 oApp.EnableVisualStyles()

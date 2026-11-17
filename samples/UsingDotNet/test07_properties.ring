@@ -1,4 +1,9 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System")
+dnImport("System.Text")
+dnImport("System.IO")
+dnImport("System.Collections.Generic")
+dnImport("System.Diagnostics")
 
 # .NET properties and fields are Ring attributes: read and write them directly
 oSB = new StringBuilder("Hello")

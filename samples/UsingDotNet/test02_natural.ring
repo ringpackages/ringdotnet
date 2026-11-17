@@ -1,4 +1,8 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System")
+dnImport("System.Text")
+dnImport("System.IO")
+dnImport("System.Diagnostics")
 
 oConsole = new Console()
 oConsole.WriteLine("Hello from .NET")

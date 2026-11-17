@@ -157,7 +157,7 @@ namespace RingDotNet
 				case char c: WriteItem(ms, 's', Encoding.UTF8.GetBytes(c.ToString())); return;
 				case bool b: WriteItem(ms, 'b', new[] { (byte)(b ? '1' : '0') }); return;
 				case byte[] raw: WriteItem(ms, 's', raw); return;
-				case Enum e: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(Convert.ToInt64(e, Inv).ToString(Inv))); return;
+				case Enum e: WriteItem(ms, 's', Encoding.UTF8.GetBytes(e.ToString())); return;
 				case decimal m: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(((double)m).ToString("R", Inv))); return;
 				case double d: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(d.ToString("R", Inv))); return;
 				case float f: WriteItem(ms, 'n', Encoding.ASCII.GetBytes(((double)f).ToString("R", Inv))); return;
@@ -260,6 +260,10 @@ namespace RingDotNet
 				case "clearevent":
 					SetEvent(a[0], Str(a, 1), null);
 					return null;
+				case "listtypes":
+					return ListTypes(Str(a, 0), Rest(a, 1));
+				case "enumnames":
+					return new List<object>(Enum.GetNames(TypeOf(a, 0)));
 				case "describe":
 					return Describe(TypeOf(a, 0));
 				case "isnull":
@@ -474,6 +478,45 @@ namespace RingDotNet
 			return converted;
 		}
 
+		/* Public classes and structs of a namespace that are worth wrapping in Ring */
+		private static List<object> ListTypes(string ns, object[] assemblyNames)
+		{
+			List<string> found = new List<string>();
+			List<Assembly> assemblies = new List<Assembly>();
+			foreach (object n in assemblyNames)
+			{
+				if (n is string an)
+				{
+					try { assemblies.Add(Assembly.Load(an)); } catch (Exception) { }
+				}
+			}
+			foreach (Assembly asm in assemblies)
+			{
+				Type[] types;
+				try { types = asm.GetExportedTypes(); }
+				catch (ReflectionTypeLoadException ex) { types = Array.FindAll(ex.Types, x => x != null); }
+				catch (Exception) { continue; }
+				foreach (Type t in types)
+				{
+					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsInterface || t.IsGenericTypeDefinition || t.IsByRefLike)
+					{
+						continue;
+					}
+					if (typeof(Delegate).IsAssignableFrom(t) || typeof(Attribute).IsAssignableFrom(t) || typeof(Exception).IsAssignableFrom(t))
+					{
+						continue;
+					}
+					if (t.IsDefined(typeof(ObsoleteAttribute), false) || t.FullName == null || found.Contains(t.FullName))
+					{
+						continue;
+					}
+					found.Add(t.FullName);
+				}
+			}
+			found.Sort(StringComparer.Ordinal);
+			return new List<object>(found);
+		}
+
 		private static string TName(Type t)
 		{
 			return t.FullName ?? t.Name;
@@ -487,7 +530,8 @@ namespace RingDotNet
 			}
 			foreach (ParameterInfo p in m.GetParameters())
 			{
-				if (p.ParameterType.IsByRef || p.ParameterType.IsPointer || p.ParameterType.IsByRefLike)
+				Type pt = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType;
+				if (pt.IsPointer || pt.IsByRefLike || pt.IsByRef)
 				{
 					return false;
 				}
@@ -495,12 +539,28 @@ namespace RingDotNet
 			return true;
 		}
 
+		private static bool IsOutOnly(ParameterInfo p)
+		{
+			return p.ParameterType.IsByRef && p.IsOut && !p.IsIn;
+		}
+
+		private static int ByRefCount(MethodBase m)
+		{
+			int n = 0;
+			foreach (ParameterInfo p in m.GetParameters())
+			{
+				if (p.ParameterType.IsByRef) n++;
+			}
+			return n;
+		}
+
 		private static List<object> ParamTypes(MethodBase m)
 		{
 			List<object> list = new List<object>();
 			foreach (ParameterInfo p in m.GetParameters())
 			{
-				list.Add(TName(p.ParameterType));
+				if (IsOutOnly(p)) continue;
+				list.Add(TName(p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType));
 			}
 			return list;
 		}
@@ -524,7 +584,7 @@ namespace RingDotNet
 				foreach (MethodInfo m in t.GetMethods(f))
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
-					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m) });
+					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m) });
 				}
 			}
 			List<object> members = new List<object>();
@@ -753,23 +813,30 @@ namespace RingDotNet
 					continue;
 				}
 				ParameterInfo[] ps = m.GetParameters();
-				int required = 0;
+				int required = 0, inputs = 0;
 				foreach (ParameterInfo p in ps)
 				{
+					if (IsOutOnly(p)) continue;
+					inputs++;
 					if (!p.IsOptional) required++;
 				}
-				if (args.Length < required || args.Length > ps.Length)
+				if (args.Length < required || args.Length > inputs)
 				{
 					continue;
 				}
 				object[] conv = new object[ps.Length];
-				int total = 0;
+				int total = 0, next = 0;
 				bool ok = true;
 				for (int i = 0; i < ps.Length && ok; i++)
 				{
-					if (i < args.Length)
+					Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
+					if (IsOutOnly(ps[i]))
 					{
-						ok = TryConvert(args[i], ps[i].ParameterType, out conv[i], out int sc);
+						conv[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
+					}
+					else if (next < args.Length)
+					{
+						ok = TryConvert(args[next++], pt, out conv[i], out int sc);
 						total += sc;
 					}
 					else
@@ -848,7 +915,23 @@ namespace RingDotNet
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
 			}
-			return m.Invoke(instance, conv);
+			object returned = m.Invoke(instance, conv);
+			if (ByRefCount(m) == 0)
+			{
+				return returned;
+			}
+			/* Methods with out/ref parameters return a list: [return value (if any), out/ref values...] */
+			List<object> results = new List<object>();
+			if (m.ReturnType != typeof(void))
+			{
+				results.Add(returned);
+			}
+			ParameterInfo[] mps = m.GetParameters();
+			for (int i = 0; i < mps.Length; i++)
+			{
+				if (mps[i].ParameterType.IsByRef) results.Add(conv[i]);
+			}
+			return results;
 		}
 
 		private static object GetMember(object target, string name)

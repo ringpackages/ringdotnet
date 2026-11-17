@@ -181,3 +181,57 @@ func dnIsIdentifier  cText
 # Use Windows Forms / WPF (adds the Windows Desktop runtime). Call it before any other .NET call.
 func dnUseDesktop
 	return dotnet_start("desktop")
+
+# Folder (with a trailing "/") of a file path
+func dnFolderOf  cPath
+	for x = len(cPath) to 1 step -1
+		if cPath[x] = "/" or cPath[x] = "\\"
+			return left(cPath,x)
+		ok
+	next
+	return ""
+
+# Load the generated Ring classes of a .NET namespace: dnImport("System.IO")
+func dnImport  cNamespace
+	if find(aDotNetImported,cNamespace) > 0
+		return true
+	ok
+	cFile = cDotNetLibFolder + "generated/" + cNamespace + ".ring"
+	if not fexists(cFile)
+		raise("DotNet Error: No generated classes for the namespace " + cNamespace + " (see tools/dotnetmanifest.ring)")
+	ok
+	aDotNetImported + cNamespace
+	eval('load "' + cFile + '"')
+	return true
+
+# Name of a closed generic type: dnGenericName("System.Collections.Generic.List",["System.Int32"])
+func dnGenericName  cType, aArguments
+	cName = cType + "`" + len(aArguments) + "["
+	for x = 1 to len(aArguments)
+		if x > 1 cName += "," ok
+		cName += "[" + aArguments[x] + "]"
+	next
+	return cName + "]"
+
+# Create an object of a generic type without a generated class (a DotNetObject: use callMethod/getProp)
+func dnNewGeneric  cType, aArguments, aParameters
+	return dnNew(dnGenericName(cType,aArguments),aParameters)
+
+# Simple test helpers: dnAssert("name",actual,expected) ... dnTestSummary()
+func dnAssert  cName, xActual, xExpected
+	if (isnumber(xActual) and isnumber(xExpected) and fabs(xActual - xExpected) < 0.000001) or (isstring(xActual) and isstring(xExpected) and xActual = xExpected)
+		nDotNetPass++
+	else
+		nDotNetFail++
+		? "FAIL: " + cName + " expected <" + dnShow(xExpected) + "> got <" + dnShow(xActual) + ">"
+	ok
+
+func dnShow  xValue
+	if isstring(xValue) or isnumber(xValue)
+		return "" + xValue
+	ok
+	return "(" + type(xValue) + ")"
+
+func dnTestSummary
+	? "TESTS: " + nDotNetPass + " passed, " + nDotNetFail + " failed"
+	return nDotNetFail

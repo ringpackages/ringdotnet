@@ -18,3 +18,8 @@ aDotNetTypes = []
 # callback code can read aDotNetArgs and set xDotNetResult
 aDotNetArgs = []
 xDotNetResult = ""
+
+# Namespaces loaded by dnImport() and test counters
+aDotNetImported = []
+nDotNetPass = 0
+nDotNetFail = 0

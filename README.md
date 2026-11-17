@@ -17,12 +17,21 @@ oSB.callMethod("Append",[", Ring!"])
 ? oSB.getProp("Length")                         # 12
 ```
 
+## Namespaces
+
+The wrapped namespaces are listed in `tools/dotnetmanifest.ring` (a whole namespace with `:all = true`, or explicit types, closed generics and nested types). `tools/gendotnet.ring [namespace ...]` generates `libraries/dotnetlib/generated/<Namespace>.ring` plus one file per class, and `dnImport("Namespace")` loads them on demand, so a program only pays for what it uses. Class names are the short .NET names; when two namespaces have the same name, the later one gets the namespace as a prefix (`TimersTimer`). A method returns a generated class only if its namespace was imported, otherwise a plain `DotNetObject` (use `callMethod`/`getProp`).
+
+Other rules: enums are strings in both directions (`oForm.WindowState = "Maximized"`, `oDate.DayOfWeek` returns `"Thursday"`); methods with `out`/`ref` parameters return a list `[result, out values...]` (`aR = oDict.TryGetValue("k")`); closed generic types without a class can be created with `dnNewGeneric("System.Collections.Generic.List",["System.Int32"],[])`.
+
+Run `tests/run.sh` (it needs `ring.dll` on the PATH) to execute the tests and samples.
+
 ## Natural syntax (generated classes)
 
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
 
 ```ring
 load "dotnetlib.ring"
+dnImport("System.Text")                 # load the generated classes of a namespace
 
 oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
 oSB.Append(", Ring").Append("!")        # methods that return a generated class return that class
@@ -34,7 +43,7 @@ new Console().WriteLine("Hi")
 
 Ring has no overloading, so for each name the overload arity with the most overloads gets the plain name (`Append`, `WriteLine`) and the others get `Name_N` (`Next_2(1,10)`); constructors work the same way (`init` plus `New_N`). Names that are Ring keywords get a trailing `_` (`Exit_`). The bridge still picks the real overload from the argument types.
 
-Generated types: Console, Math, Environment, Random, Guid, DateTime, TimeSpan, StringBuilder, File, Directory, Path, Stopwatch, HttpClient, and the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
+Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 
 ```ring
 oList = new StringList()

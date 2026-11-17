@@ -1,4 +1,5 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System.Collections.ObjectModel")
 
 # .NET events: setXXXEvent(cRingCode) like RingQt, the code reads aDotNetArgs = [sender, eventArgs]
 oList = new ObservableStringList()
