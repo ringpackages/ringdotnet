@@ -24,7 +24,7 @@ oPicture = uiPictureBox(oForm,0,30,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",8,6,300,20)
 oInfo.Font = uiFont("Segoe UI",11,true)
-oForm.setKeyDownEvent("keyPressed(aDotNetArgs[2].KeyCode)")
+uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 oTimer = uiTimer(130,"tick()")
 newGame()
 
@@ -147,6 +147,13 @@ func selfTest
 	keyPressed("Space")
 	dnAssert("space starts again",lAlive,1)
 	oTimer.Stop()
+	cDirection = "Right"
+	cNextDirection = "Right"
+	if uiSendKeys(oForm,"{DOWN}")
+		dnAssert("the down arrow key reaches the game",cNextDirection,"Down")
+		uiSendKeys(oForm,"{UP}")
+		dnAssert("the up arrow key reaches the game",cNextDirection,"Up")
+	ok
 	# hit itself
 	aSnake = [[5,5],[5,6],[6,6],[6,5],[6,4]]
 	cDirection = "Up"

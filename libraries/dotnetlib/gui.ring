@@ -136,6 +136,50 @@ func uiMenu  oForm, aMenus
 	oForm.Controls.Add(ui_oStrip)
 	return ui_oStrip
 
+# ---------------------------------------------------------------- keyboard
+
+/*
+	Keys in games. A button (or any control that can take the focus) steals the arrow keys, Space and Enter for
+	itself: the form's KeyDown event never sees the arrows, and Space "presses" the button. uiGameKeys() fixes that:
+	every control reports the arrow keys as normal input keys and the keys that cCode handles are marked as handled.
+
+	uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")	# call it after the controls were added
+*/
+func uiGameKeys  oForm, cCode
+	oForm.KeyPreview = 1
+	uiInputKeys(oForm)
+	oForm.setKeyDownEvent(cCode + nl + "aDotNetArgs[2].Handled = 1")
+
+# Make the arrow keys (and Enter, Escape) arrive as KeyDown events on every control of the container
+func uiInputKeys  oParent
+	for ui_oControl in oParent.Controls.toList()
+		ui_oControl.setPreviewKeyDownEvent("aDotNetArgs[2].IsInputKey = 1")
+		uiInputKeys(ui_oControl)
+	next
+
+# Type keys into the form like a user does, for tests: "12{+}30{ENTER}", "{LEFT}", " " (SendKeys syntax: {LEFT} {RIGHT} {UP} {DOWN}
+# {ENTER} {ESC} {BACKSPACE} {TAB} {DELETE}, {+} for a plus sign). The keys are posted to the focused control of THIS form, so they
+# go through the real Windows Forms key processing and can never reach another program (SendKeys would).
+func uiSendKeys  oForm, cKeys
+	ui_oTarget = oForm.ActiveControl
+	if not isobject(ui_oTarget) or ui_oTarget.nHandle = 0
+		ui_oTarget = oForm
+	ok
+	for ui_cToken in dnRequest("keytokens",[cKeys])
+		# the focus may move with a key (Tab, an arrow on a button): the target is looked up again for every key
+		ui_oTarget = oForm.ActiveControl
+		if not isobject(ui_oTarget) or ui_oTarget.nHandle = 0
+			ui_oTarget = oForm
+		ok
+		dnRequest("postkey",[ui_oTarget,ui_cToken])
+		# the form processes the key (and the character message the message loop makes of it)
+		for ui_nTry = 1 to 3
+			new Application().DoEvents()
+			dnStatic("System.Threading.Thread","Sleep",[5])
+		next
+	next
+	return true
+
 # ---------------------------------------------------------------- colors, fonts, dialogs
 
 func uiRGB  nRed, nGreen, nBlue

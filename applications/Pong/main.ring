@@ -19,6 +19,7 @@ nBallDY = 3
 nPlayerScore = 0
 nComputerScore = 0
 nPlayerMove = 0		# -1, 0 or 1 while a key is held
+nKeyEvents = 0		# key events seen (for the test)
 
 oForm = uiForm("Pong",C_WIDTH,C_HEIGHT + 30)
 oForm.KeyPreview = 1
@@ -28,7 +29,7 @@ oPicture = uiPictureBox(oForm,0,30,C_WIDTH,C_HEIGHT)
 oCanvas = new UiCanvas(oPicture)
 oScore = uiLabel(oForm,"",10,6,400,22)
 oScore.Font = uiFont("Segoe UI",12,true)
-oForm.setKeyDownEvent("keyChanged(aDotNetArgs[2].KeyCode,true)")
+uiGameKeys(oForm,"keyChanged(aDotNetArgs[2].KeyCode,true)")
 oForm.setKeyUpEvent("keyChanged(aDotNetArgs[2].KeyCode,false)")
 oTimer = uiTimer(20,"tick()")
 oTimer.Start()
@@ -41,6 +42,7 @@ uiEnd()
 # --------------------------------------------------------------------------
 
 func keyChanged cKey, lDown
+	nKeyEvents++
 	if cKey = "Up" or cKey = "W"
 		if lDown
 			nPlayerMove = -1
@@ -129,6 +131,10 @@ func selfTest
 	tick()
 	dnAssert("paddle stays inside the field",nPlayerY,0)
 	keyChanged("Up",false)
+	nKeyEvents = 0
+	if uiSendKeys(oForm,"{DOWN}{UP}")
+		dnAssert("real arrow keys reach the game (down and up, and their releases)",nKeyEvents,4)
+	ok
 	# the ball bounces on the top
 	nBallX = 300
 	nBallY = 8

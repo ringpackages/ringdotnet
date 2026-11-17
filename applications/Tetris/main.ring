@@ -38,8 +38,8 @@ oPicture = uiPictureBox(oForm,0,0,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",C_COLUMNS * C_CELL + 10,10,130,120)
 oInfo.Font = uiFont("Segoe UI",11,true)
-uiButton(oForm,"New game",C_COLUMNS * C_CELL + 10,140,120,30,"newGame()")
-oForm.setKeyDownEvent("keyPressed(aDotNetArgs[2].KeyCode)")
+oNewGame = uiButton(oForm,"New game",C_COLUMNS * C_CELL + 10,140,120,30,"newGame()")
+uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 oTimer = uiTimer(500,"tick()")
 newGame()
 
@@ -228,6 +228,26 @@ func selfTest
 	dnAssert("a row was cleared",nLines,1)
 	dnAssert("score for one row",nScore,100)
 	dnAssert("the cleared row is replaced",aBoard[cellOf(0,C_ROWS - 1)],0)
+	# real key presses with the New game button focused (it used to take the arrow keys and Space)
+	oNewGame.Focus()
+	aBoard = list(C_COLUMNS * C_ROWS)
+	lGameOver = false
+	nPiece = 3
+	aCurrent = aPieces[3]
+	nPieceX = 4
+	nPieceY = 2
+	if uiSendKeys(oForm,"{LEFT}")
+		dnAssert("the left arrow key moves the piece",nPieceX,3)
+		uiSendKeys(oForm,"{RIGHT}{RIGHT}")
+		dnAssert("the right arrow key moves the piece",nPieceX,5)
+		uiSendKeys(oForm,"{UP}")
+		dnAssert("the up arrow key rotates the piece",aCurrent[2][1],0)
+		uiSendKeys(oForm,"{DOWN}")
+		dnAssert("the down arrow key drops one row",nPieceY,3)
+		nScoreBefore = nScore
+		uiSendKeys(oForm," ")
+		dnAssert("Space drops the piece to the bottom",aBoard[cellOf(5,C_ROWS - 1)] > 0 or aBoard[cellOf(5,C_ROWS - 2)] > 0,1)
+	ok
 	# the walls stop the piece
 	nPieceX = 0
 	aCurrent = aPieces[2]
@@ -236,6 +256,7 @@ func selfTest
 	# the board fills up
 	aBoard = list(C_COLUMNS * C_ROWS)
 	for nColumn = 0 to C_COLUMNS - 1
+		aBoard[cellOf(nColumn,0)] = 3
 		aBoard[cellOf(nColumn,1)] = 3
 	next
 	newPiece()

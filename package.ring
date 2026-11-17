@@ -1955,6 +1955,7 @@ aPackageInfo = [
 		"tests/test_desktop.ring",
 		"tests/test_foundation.ring",
 		"tests/test_io.ring",
+		"tests/test_keyboard.ring",
 		"tests/test_linq.ring",
 		"tests/test_net.ring",
 		"tests/test_runtime.ring",

@@ -19,7 +19,7 @@ oForm.BackColor = uiRGB(187,173,160)
 oScore = uiLabel(oForm,"Score: 0",10,8,200,28)
 oScore.Font = uiFont("Segoe UI",14,true)
 oScore.BackColor = uiRGB(187,173,160)
-uiButton(oForm,"New game",230,8,100,28,"newGame()")
+oNewGame = uiButton(oForm,"New game",230,8,100,28,"newGame()")
 for nCell = 1 to C_SIZE * C_SIZE
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE
@@ -28,7 +28,7 @@ for nCell = 1 to C_SIZE * C_SIZE
 	oTile.Font = uiFont("Segoe UI",20,true)
 	aTileLabels + oTile
 next
-oForm.setKeyDownEvent("keyPressed(aDotNetArgs[2].KeyCode)")
+uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 newGame()
 
 uiTest(oForm,"selfTest()")
@@ -209,6 +209,28 @@ func selfTest
 	keyPressed("Left")
 	keyPressed("Up")
 	dnAssert("game goes on",lGameOver,0)
+	# real key presses, with the New game button focused (it used to take the arrow keys)
+	oNewGame.Focus()
+	aBoard = list(16)
+	aBoard[1] = 2
+	aBoard[2] = 2
+	aBoard[16] = 4
+	nScore = 0
+	lGameOver = false
+	if uiSendKeys(oForm,"{LEFT}")
+		dnAssert("the left arrow key reaches the game",aBoard[1],4)
+		aBoard = list(16)
+		aBoard[1] = 8
+		aBoard[5] = 8
+		uiSendKeys(oForm,"{DOWN}")
+		dnAssert("the down arrow key reaches the game",aBoard[13],16)
+		aBoard = list(16)
+		aBoard[13] = 16
+		uiSendKeys(oForm,"{UP}")
+		dnAssert("the up arrow key reaches the game",aBoard[1],16)
+		uiSendKeys(oForm," ")
+		dnAssert("Space does not press the New game button",nScore > 0,1)
+	ok
 	# a full board without equal neighbours is game over
 	aBoard = [2,4,2,4, 4,2,4,2, 2,4,2,4, 4,2,4,2]
 	dnAssert("no moves left",canMove(),0)

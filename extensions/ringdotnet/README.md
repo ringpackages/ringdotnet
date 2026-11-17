@@ -110,6 +110,10 @@ oForm { Height = 300  Text += "!" }
 * Define the functions after the main code (a `func` at the top would swallow the rest of the file).
 * `dnNull()` is the .NET null (`oPictureBox.Image = dnNull()`).
 
+## Keyboard in games
+
+A button (or any control that takes the focus) steals the arrow keys, Space and Enter from the form: the form's `KeyDown` never sees the arrows and Space/Enter "press" the button. Use `uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")` after the controls were added: every control then reports the arrows as normal keys and the form handles them (Tetris, 2048, Sokoban, Snake and Pong do). In tests, `uiSendKeys(oForm,"{LEFT}12{+}30{ENTER}")` types into the focused control of the form through the real key processing (it posts window messages to your own form, so unlike `SendKeys` it can never type into another program). `tests/test_keyboard.ring` shows the problem and the fix.
+
 ## Calling Ring code from .NET (callbacks)
 
 Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type. When .NET invokes it, the Ring code runs, as in RingQt events: it can read `aDotNetArgs` (the list of delegate arguments) and set `xDotNetResult` (converted to the delegate's return type).

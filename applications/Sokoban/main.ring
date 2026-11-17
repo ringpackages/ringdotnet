@@ -42,9 +42,9 @@ oPicture = uiPictureBox(oForm,0,36,400,264)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",10,8,250,22)
 oInfo.Font = uiFont("Segoe UI",11,true)
-uiButton(oForm,"Restart",270,5,60,26,"loadLevel(nLevel)")
+oRestart = uiButton(oForm,"Restart",270,5,60,26,"loadLevel(nLevel)")
 uiButton(oForm,"Next",335,5,55,26,"nextLevel()")
-oForm.setKeyDownEvent("keyPressed(aDotNetArgs[2].KeyCode)")
+uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 loadLevel(1)
 
 uiTest(oForm,"selfTest()")
@@ -179,6 +179,16 @@ func draw
 	oCanvas.show()
 
 func selfTest
+	# real key presses with the Restart button focused
+	loadLevel(1)
+	oRestart.Focus()
+	if uiSendKeys(oForm,"{LEFT}")
+		dnAssert("the arrow key moves the player",nPlayerColumn,2)
+		uiSendKeys(oForm,"{RIGHT}")
+		dnAssert("the right arrow key too",nPlayerColumn,3)
+		uiSendKeys(oForm," ")
+		dnAssert("Space does not press the Restart button",nMoves,2)
+	ok
 	loadLevel(1)
 	dnAssert("player found",nPlayerColumn,3)
 	keyPressed("Left")

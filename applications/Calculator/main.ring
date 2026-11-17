@@ -44,8 +44,11 @@ for nRow = 1 to len(aKeys)
 	next
 next
 
-# typing on the keyboard works too
-oForm.setKeyPressEvent("keyTyped(aDotNetArgs[2].KeyChar)")
+# typing on the keyboard works too: characters arrive in KeyPress, Enter / Escape / Backspace in KeyDown
+# (uiInputKeys: a focused button would take Enter and press itself again)
+uiInputKeys(oForm)
+oForm.setKeyPressEvent("keyTyped(aDotNetArgs[2])")
+oForm.setKeyDownEvent("specialKey(aDotNetArgs[2])")
 
 uiTest(oForm,"selfTest()")
 uiRun(oForm)
@@ -53,13 +56,41 @@ uiEnd()
 
 # --------------------------------------------------------------------------
 
-func keyTyped cChar
+func keyTyped oArgs
+	cChar = oArgs.KeyChar
 	if find(["0","1","2","3","4","5","6","7","8","9",".","+","-","*","/","%"],cChar) > 0
 		press(cChar)
-	but cChar = "=" or cChar = chr(13)
+		oArgs.Handled = 1
+	but cChar = "="
 		press("=")
-	but cChar = "c" or cChar = "C" or cChar = chr(27)
+		oArgs.Handled = 1
+	but cChar = "c" or cChar = "C"
 		press("C")
+		oArgs.Handled = 1
+	ok
+
+func specialKey oArgs
+	cKey = oArgs.KeyCode
+	if cKey = "Return" or cKey = "Enter"
+		press("=")
+	but cKey = "Escape"
+		press("C")
+	but cKey = "Back"
+		backspace()
+	else
+		return
+	ok
+	oArgs.Handled = 1
+	oArgs.SuppressKeyPress = 1
+
+func backspace
+	if not lFresh and len(cDisplay) > 0
+		cDisplay = left(cDisplay,len(cDisplay) - 1)
+		if cDisplay = "" or cDisplay = "-"
+			cDisplay = "0"
+			lFresh = true
+		ok
+		oScreen.Text = cDisplay
 	ok
 
 func press cKey
@@ -191,3 +222,21 @@ func selfTest
 		ok
 	next
 	dnAssert("button click",oScreen.Text,"7")
+	press("C")
+	# real key presses while a button has the focus (Enter used to press that button again)
+	oFocused = ""
+	for oControl in oForm.Controls.toList()
+		if classname(oControl) = "button" and oControl.Text = "7"
+			oFocused = oControl
+		ok
+	next
+	oFocused.Focus()
+	if uiSendKeys(oForm,"12{+}30{ENTER}")
+		dnAssert("typing 12+30 and Enter",oScreen.Text,"42")
+		uiSendKeys(oForm,"{ESC}")
+		dnAssert("Escape clears",oScreen.Text,"0")
+		uiSendKeys(oForm,"123{BACKSPACE}")
+		dnAssert("Backspace removes a digit",oScreen.Text,"12")
+		uiSendKeys(oForm,"{ESC}9{/}3{ENTER}")
+		dnAssert("division with the keyboard",oScreen.Text,"3")
+	ok
