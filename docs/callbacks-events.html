@@ -68,7 +68,7 @@ oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span cla
 <h3 id="good-to-know">Good to know<a class="anchor" href="#good-to-know">#</a></h3>
 <ul><li>The code is compiled <strong>once</strong> into a function (<code>dncallbackN</code>); the same text reuses it, so a callback in a loop or timer costs nothing extra.</li><li>An error raised by the Ring code reaches the .NET caller as an exception, and then your Ring <code>try</code> / <code>catch</code>.</li><li>Callbacks run <strong>synchronously on the Ring thread during a call</strong>. A callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.</li></ul>
 <details class="src"><summary>samples/UsingDotNet/test04_callbacks.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test04_callbacks.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
-<span class="f">dnImport</span>(<span class="s">"System.Collections.Generic"</span>)
+using { <span class="s">"System.Collections.Generic"</span> }
 
 oList = <span class="k">new</span> <span class="t">StringList</span>()
 oList.<span class="f">Add</span>(<span class="s">"pear"</span>)  oList.<span class="f">Add</span>(<span class="s">"apple"</span>)  oList.<span class="f">Add</span>(<span class="s">"fig"</span>)  oList.<span class="f">Add</span>(<span class="s">"avocado"</span>)
@@ -137,7 +137,7 @@ Even numbers: 2
 Caught: DotNet Error: System.InvalidOperationException: Ring error: callback failed on purpose</code></pre></div>
 <h2 id="events">Events<a class="anchor" href="#events">#</a></h2>
 <p>Every public .NET event gets two methods, as in RingQt: <code>setXXXEvent(code)</code> and <code>clearXXXEvent()</code>. The code runs when the event is raised and can read <code>aDotNetArgs</code>, which is <code>[sender, eventArgs]</code> (both .NET objects). Each event has one handler; setting it again replaces it.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Collections.ObjectModel"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Collections.ObjectModel"</span> }
 
 oList = <span class="k">new</span> <span class="t">ObservableStringList</span>()
 oList.<span class="f">setCollectionChangedEvent</span>(<span class="s">"? 'changed: ' + aDotNetArgs[2].getProp('Action')"</span>)
@@ -171,8 +171,10 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"keyPressed(aDotNet
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Mouse"</span>,<span class="n">320</span>,<span class="n">160</span>)

@@ -1,10 +1,12 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System")
-dnImport("System.Reflection")
-dnImport("System.Numerics")
-dnImport("System.Text.Encodings.Web")
-dnImport("System.Collections.Concurrent")
-dnImport("System.Runtime.InteropServices")
+using {
+	"System"
+	"System.Reflection"
+	"System.Numerics"
+	"System.Text.Encodings.Web"
+	"System.Collections.Concurrent"
+	"System.Runtime.InteropServices"
+}
 
 # Big integers: factorial of 40
 oBig = new BigInteger()

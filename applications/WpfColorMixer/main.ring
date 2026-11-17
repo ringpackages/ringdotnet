@@ -2,14 +2,16 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.IO")
-dnImport("System.Drawing")
-dnImport("System.Windows")
-dnImport("System.Windows.Controls")
-dnImport("System.Windows.Media")
-dnImport("System.Windows.Media.Imaging")
-dnImport("System.Windows.Shapes")
+using {
+	"System"
+	"System.IO"
+	"System.Drawing"
+	"System.Windows"
+	"System.Windows.Controls"
+	"System.Windows.Media"
+	"System.Windows.Media.Imaging"
+	"System.Windows.Shapes"
+}
 
 oWindow = ""
 aSliders = []

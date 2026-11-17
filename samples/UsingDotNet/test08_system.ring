@@ -1,5 +1,5 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System")
+using { "System" }
 
 # Dates and times
 oNow = new DateTime(2024,12,25).AddHours(18.5)

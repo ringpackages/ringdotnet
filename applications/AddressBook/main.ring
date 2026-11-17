@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.IO")
-dnImport("System.Data")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.IO"
+	"System.Data"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 cFile = ""
 if uiSelfTest()

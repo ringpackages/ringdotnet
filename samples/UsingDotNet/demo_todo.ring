@@ -1,7 +1,9 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 # Interactive to-do window (run it with: ring demo_todo.ring)
 oForm = new Form()

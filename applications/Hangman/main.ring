@@ -2,8 +2,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 aWords = ["RING","PROGRAMMING","LANGUAGE","WINDOWS","FORMS","EXTENSION","CALCULATOR","KEYBOARD","DEVELOPER","FUNCTION"]
 cWord = ""

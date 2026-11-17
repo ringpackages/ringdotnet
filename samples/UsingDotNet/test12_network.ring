@@ -1,9 +1,11 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System")
-dnImport("System.Text")
-dnImport("System.Net")
-dnImport("System.Net.Http")
-dnImport("System.Threading.Tasks")
+using {
+	"System"
+	"System.Text"
+	"System.Net"
+	"System.Net.Http"
+	"System.Threading.Tasks"
+}
 
 # A tiny web server and client in one Ring program: .NET runs the requests on its thread pool,
 # Ring waits for the tasks and answers

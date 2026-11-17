@@ -2,9 +2,11 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 C_CENTER = 150
 C_PI = 3.14159265358979

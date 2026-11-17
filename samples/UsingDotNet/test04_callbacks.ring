@@ -1,5 +1,5 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System.Collections.Generic")
+using { "System.Collections.Generic" }
 
 oList = new StringList()
 oList.Add("pear")  oList.Add("apple")  oList.Add("fig")  oList.Add("avocado")

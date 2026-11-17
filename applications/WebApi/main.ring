@@ -4,9 +4,11 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseWeb()
-dnImport("System")
-dnImport("System.Net.Http")
-dnImport("System.Threading.Tasks")
+using {
+	"System"
+	"System.Net.Http"
+	"System.Threading.Tasks"
+}
 
 aTodos = []		# [id, text]
 nNextId = 1

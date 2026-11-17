@@ -1,7 +1,9 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System.Xml")
-dnImport("System.Text.Json")
-dnImport("System.Data")
+using {
+	"System.Xml"
+	"System.Text.Json"
+	"System.Data"
+}
 
 # XML with XPath
 oDoc = new XmlDocument()

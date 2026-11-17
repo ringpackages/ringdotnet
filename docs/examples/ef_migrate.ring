@@ -1,7 +1,7 @@
 # Entity Framework Core: migrations of an existing database file
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseData()
-dnImport("System.IO")
+using { "System.IO" }
 
 func main
 	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_docs_migrate.db")

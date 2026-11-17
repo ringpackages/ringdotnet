@@ -40,7 +40,7 @@ func show aArgs
 Every public .NET event gets two methods, as in RingQt: `setXXXEvent(code)` and `clearXXXEvent()`. The code runs when the event is raised and can read `aDotNetArgs`, which is `[sender, eventArgs]` (both .NET objects). Each event has one handler; setting it again replaces it.
 
 ```ring
-dnImport("System.Collections.ObjectModel")
+using { "System.Collections.ObjectModel" }
 
 oList = new ObservableStringList()
 oList.setCollectionChangedEvent("? 'changed: ' + aDotNetArgs[2].getProp('Action')")

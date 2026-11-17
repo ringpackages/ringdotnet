@@ -1,8 +1,10 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System")
-dnImport("System.IO")
-dnImport("System.IO.Compression")
-dnImport("System.Text.RegularExpressions")
+using {
+	"System"
+	"System.IO"
+	"System.IO.Compression"
+	"System.Text.RegularExpressions"
+}
 
 oPath = new Path()
 oFile = new File()

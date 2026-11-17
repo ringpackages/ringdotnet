@@ -2,8 +2,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 cDisplay = "0"		# the number being typed or the result
 nAccumulator = 0	# the left operand

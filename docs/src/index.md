@@ -15,8 +15,10 @@ lead: Use .NET classes and methods from Ring programs
 
 ```ring
 load "dotnetlib.ring"
-dnImport("System")
-dnImport("System.Text")
+using {
+	"System"
+	"System.Text"
+}
 
 oSB = new StringBuilder("Hello")
 oSB.Append(", ").Append("Ring!")

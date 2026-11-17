@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Text")
-dnImport("System.Security.Cryptography")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Text"
+	"System.Security.Cryptography"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 # the "database": user name -> SHA-256 hash of the password
 aUsers = []

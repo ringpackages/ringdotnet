@@ -2,8 +2,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 aPuzzle = "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
 lLoading = false	# true while the program fills the boxes (the TextChanged events are ignored)

@@ -116,8 +116,10 @@ Caught: DotNet Error: System.FormatException: The input string 'abc' was not in 
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 nClicks = <span class="n">0</span>

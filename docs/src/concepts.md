@@ -8,7 +8,7 @@ lead: How .NET looks from Ring — class and method names, overloads, properties
 After `dnImport("Namespace")` every public type of that namespace is a Ring class with the **same short name** and the same members:
 
 ```ring
-dnImport("System.Text")
+using { "System.Text" }
 
 oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
 oSB.Append(", Ring").Append("!")        # methods that return a wrapped class return that class

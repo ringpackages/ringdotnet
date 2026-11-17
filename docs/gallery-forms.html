@@ -58,8 +58,10 @@
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Hello"</span>,<span class="n">300</span>,<span class="n">120</span>)
@@ -72,8 +74,10 @@ oLabel.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<s
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 nClicks = <span class="n">0</span>
@@ -99,8 +103,10 @@ oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Echo"</span>,<span class="n">320</span>,<span class="n">120</span>)
@@ -114,8 +120,10 @@ oEdit.<span class="f">setTextChangedEvent</span>(<span class="s">"oEcho.Text = '
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Check box"</span>,<span class="n">300</span>,<span class="n">120</span>)
@@ -145,8 +153,10 @@ oState = <span class="f">uiLabel</span>(oForm,<span class="s">"Notifications are
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Radio buttons"</span>,<span class="n">300</span>,<span class="n">200</span>)
@@ -191,8 +201,10 @@ aRadios[<span class="n">2</span>].Checked = <span class="n">1</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"List box"</span>,<span class="n">320</span>,<span class="n">260</span>)
@@ -233,8 +245,10 @@ oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oSele
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Combo box"</span>,<span class="n">300</span>,<span class="n">130</span>)
@@ -248,8 +262,10 @@ oCombo.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oCho
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Slider"</span>,<span class="n">320</span>,<span class="n">130</span>)
@@ -272,8 +288,10 @@ oNumber.<span class="f">setValueChangedEvent</span>(<span class="s">"oBar.Value 
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 nPercent = <span class="n">0</span>
@@ -311,8 +329,10 @@ oTimer.<span class="f">Start</span>()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Date picker"</span>,<span class="n">330</span>,<span class="n">120</span>)
@@ -340,8 +360,10 @@ oPicker.<span class="f">setValueChangedEvent</span>(<span class="s">"showDay()"<
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Menu"</span>,<span class="n">360</span>,<span class="n">200</span>)
@@ -372,8 +394,10 @@ oForm.Controls.<span class="f">Add</span>(oStatus)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tabs"</span>,<span class="n">360</span>,<span class="n">220</span>)
@@ -394,8 +418,10 @@ oTabs.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oForm
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tree"</span>,<span class="n">320</span>,<span class="n">260</span>)
@@ -427,8 +453,10 @@ oTree.<span class="f">setAfterSelectEvent</span>(<span class="s">"oForm.Text = '
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Rich text"</span>,<span class="n">420</span>,<span class="n">200</span>)
@@ -458,8 +486,10 @@ oRich.Text = <span class="s">"Ring and .NET make a good team"</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Drawing"</span>,<span class="n">320</span>,<span class="n">240</span>)
@@ -479,8 +509,10 @@ oCanvas.<span class="f">show</span>()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Mouse"</span>,<span class="n">320</span>,<span class="n">160</span>)
@@ -511,8 +543,10 @@ oArea.<span class="f">setMouseDownEvent</span>(<span class="s">"pressed(aDotNetA
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Keyboard"</span>,<span class="n">340</span>,<span class="n">140</span>)
@@ -544,8 +578,10 @@ oForm.<span class="f">setKeyPressEvent</span>(<span class="s">"keyPress(aDotNetA
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Clock"</span>,<span class="n">260</span>,<span class="n">100</span>)
@@ -568,8 +604,10 @@ oTimer.<span class="f">Start</span>()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Split"</span>,<span class="n">420</span>,<span class="n">240</span>)
@@ -594,8 +632,10 @@ oList.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"oText
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Flow layout"</span>,<span class="n">300</span>,<span class="n">200</span>)
@@ -621,8 +661,10 @@ addButtons()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Table layout"</span>,<span class="n">300</span>,<span class="n">200</span>)
@@ -647,8 +689,10 @@ oForm.Controls.<span class="f">Add</span>(oTable)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Toolbar"</span>,<span class="n">360</span>,<span class="n">160</span>)
@@ -668,8 +712,10 @@ oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Context menu"</span>,<span class="n">300</span>,<span class="n">140</span>)
@@ -690,8 +736,10 @@ oPanel.ContextMenuStrip = oMenu
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tooltip and link"</span>,<span class="n">320</span>,<span class="n">140</span>)
@@ -722,8 +770,10 @@ oOpened = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Masked input"</span>,<span class="n">300</span>,<span class="n">130</span>)
@@ -746,11 +796,13 @@ oForm.Controls.<span class="f">Add</span>(oDate)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
-<span class="f">dnImport</span>(<span class="s">"System.Data"</span>)
+using { <span class="s">"System.Data"</span> }
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
 oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Name"</span>,<span class="s">"System.String"</span>)
 oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Age"</span>,<span class="s">"System.Int32"</span>)
@@ -780,8 +832,10 @@ oForm.Controls.<span class="f">Add</span>(oGrid)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 aLog = []
@@ -806,8 +860,10 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"aLog + 'FormCl
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oDialog = <span class="s">""</span>	<span class="c"># globals of the dialog (the code of its events runs outside the function that builds it)</span>
@@ -854,8 +910,10 @@ oResult = <span class="f">uiLabel</span>(oForm,<span class="s">"No name yet"</sp
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Clipboard"</span>,<span class="n">320</span>,<span class="n">130</span>)
@@ -888,8 +946,10 @@ oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Scroll bars"</span>,<span class="n">320</span>,<span class="n">200</span>)
@@ -918,8 +978,10 @@ oV.<span class="f">setValueChangedEvent</span>(<span class="s">"show()"</span>)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Anchoring"</span>,<span class="n">360</span>,<span class="n">220</span>)
@@ -948,8 +1010,10 @@ oOk.Anchor = <span class="s">"Bottom, Right"</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Fonts and colors"</span>,<span class="n">360</span>,<span class="n">230</span>)

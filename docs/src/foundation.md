@@ -76,8 +76,10 @@ Hashes (`SHA256`, `MD5`), HMAC, random bytes, AES, culture-aware formatting:
 ## Processes and threads
 
 ```ring
-dnImport("System.Diagnostics")
-dnImport("System.Threading.Tasks")
+using {
+	"System.Diagnostics"
+	"System.Threading.Tasks"
+}
 
 oInfo = new ProcessStartInfo()
 oInfo.FileName = "cmd"

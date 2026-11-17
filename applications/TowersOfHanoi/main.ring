@@ -3,8 +3,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 nDisks = 4
 aPegs = [[],[],[]]	# each peg is a list of disk sizes, the bottom disk first

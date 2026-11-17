@@ -100,9 +100,11 @@ oServer.<span class="f">run</span>()                                  <span clas
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseWeb</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Net.Http"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Threading.Tasks"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Net.Http"</span>
+	<span class="s">"System.Threading.Tasks"</span>
+}
 
 aTodos = []		<span class="c"># [id, text]</span>
 nNextId = <span class="n">1</span>
@@ -224,7 +226,7 @@ cUrl = <span class="s">""</span>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SELFTEST OK (7 checks)</code></pre></div>
 <h2 id="all-of-aspnet-core">All of ASP.NET Core<a class="anchor" href="#all-of-aspnet-core">#</a></h2>
 <p>The ASP.NET Core classes are wrapped too: <code>Microsoft.AspNetCore.*</code> (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), <code>Microsoft.Extensions.*</code> (DependencyInjection, Configuration, Logging, Hosting, Caching...) and <code>Microsoft.Net.Http.Headers</code>. Class names that clash with other namespaces start with <code>Asp</code>.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"Microsoft.AspNetCore.Http"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"Microsoft.AspNetCore.Http"</span> }
 
 oPath = <span class="k">new</span> <span class="t">PathString</span>().<span class="f">New_1</span>(<span class="s">"/api/items"</span>)
 ? oPath.Value                                   <span class="c"># /api/items</span>

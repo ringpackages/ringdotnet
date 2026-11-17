@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 
-dnImport("System.Data")
+using { "System.Data" }
 oTable = new DataTable()
 oTable.Columns.Add_2("Name","System.String")
 oTable.Columns.Add_2("Age","System.Int32")

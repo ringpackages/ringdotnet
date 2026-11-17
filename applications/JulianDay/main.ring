@@ -2,9 +2,11 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 oForm = uiForm("Julian day",400,230)
 oForm.FormBorderStyle = "FixedDialog"

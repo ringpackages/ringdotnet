@@ -2,8 +2,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 aBoard = list(9)	# 0 = empty, 1 = X (you), 2 = O (computer)
 aButtons = []

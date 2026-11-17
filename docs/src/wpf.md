@@ -8,8 +8,10 @@ lead: Windows Presentation Foundation from Ring — windows, panels, controls, X
 ```ring
 load "dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Windows")
-dnImport("System.Windows.Controls")
+using {
+	"System.Windows"
+	"System.Windows.Controls"
+}
 
 oWindow = wpfWindow("Hello",300,200)
 oPanel = new StackPanel()

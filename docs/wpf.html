@@ -56,8 +56,10 @@
 <h2 id="a-first-wpf-window">A first WPF window<a class="anchor" href="#a-first-wpf-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Windows"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Controls"</span>)
+using {
+	<span class="s">"System.Windows"</span>
+	<span class="s">"System.Windows.Controls"</span>
+}
 
 oWindow = <span class="f">wpfWindow</span>(<span class="s">"Hello"</span>,<span class="n">300</span>,<span class="n">200</span>)
 oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()

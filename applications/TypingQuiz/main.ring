@@ -2,10 +2,12 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Diagnostics")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Diagnostics"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 aSentences = [
 	"The quick brown fox jumps over the lazy dog",

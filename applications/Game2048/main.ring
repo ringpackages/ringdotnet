@@ -2,8 +2,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 C_SIZE = 4
 aBoard = list(C_SIZE * C_SIZE)	# 0 = empty

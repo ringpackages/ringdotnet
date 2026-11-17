@@ -3,8 +3,10 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 C_SIZE = 8
 aQueens = list(C_SIZE)	# aQueens[column] = the row of the queen of that column (0 = none)

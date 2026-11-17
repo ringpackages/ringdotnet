@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Diagnostics")
-dnImport("System.Threading")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Diagnostics"
+	"System.Threading"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 nTotal = 0		# seconds when the countdown started
 nLeft = 0		# seconds left

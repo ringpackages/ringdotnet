@@ -56,7 +56,7 @@
 <h2 id="typed-collections">Typed collections<a class="anchor" href="#typed-collections">#</a></h2>
 <p>The common closed generic collections have ready-made classes (<code>dnImport("System.Collections.Generic")</code>):</p>
 <div class="tablewrap"><table><thead><tr><th>Class</th><th>.NET type</th></tr></thead><tbody><tr><td><code>StringList</code>, <code>NumberList</code>, <code>ObjectList</code></td><td><code>List&lt;string&gt;</code>, <code>List&lt;double&gt;</code>, <code>List&lt;object&gt;</code></td></tr><tr><td><code>StringDictionary</code>, <code>NumberDictionary</code>, <code>ObjectDictionary</code></td><td><code>Dictionary&lt;string, T&gt;</code></td></tr><tr><td><code>StringSet</code></td><td><code>HashSet&lt;string&gt;</code></td></tr><tr><td><code>StringQueue</code>, <code>StringStack</code></td><td><code>Queue&lt;string&gt;</code>, <code>Stack&lt;string&gt;</code></td></tr></tbody></table></div>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Collections.Generic"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Collections.Generic"</span> }
 
 oList = <span class="k">new</span> <span class="t">StringList</span>()
 oList.<span class="f">Add</span>(<span class="s">"banana"</span>) oList.<span class="f">Add</span>(<span class="s">"apple"</span>) oList.<span class="f">Add</span>(<span class="s">"cherry"</span>)
@@ -72,7 +72,7 @@ oDict.<span class="f">SetItem</span>(<span class="s">"two"</span>,<span class="s
 aResult = oDict.<span class="f">TryGetValue</span>(<span class="s">"three"</span>)   <span class="c"># out parameters come back as a list</span>
 ? aResult[<span class="n">1</span>]                           <span class="c"># 0</span></code></pre></div>
 <details class="src"><summary>samples/UsingDotNet/test03_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test03_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
-<span class="f">dnImport</span>(<span class="s">"System.Collections.Generic"</span>)
+using { <span class="s">"System.Collections.Generic"</span> }
 
 <span class="c"># List&lt;string&gt;</span>
 oList = <span class="k">new</span> <span class="t">StringList</span>()
@@ -144,9 +144,11 @@ Pop = top</code></pre></div>
 <h2 id="other-collection-classes">Other collection classes<a class="anchor" href="#other-collection-classes">#</a></h2>
 <p><code>System.Collections</code>, <code>System.Collections.Specialized</code>, <code>System.Collections.Concurrent</code> and <code>System.Collections.ObjectModel</code> are wrapped completely: <code>ArrayList</code>, <code>Hashtable</code>, <code>SortedList</code>, <code>Stack</code>, <code>Queue</code>, <code>BitArray</code>, <code>NameValueCollection</code>, <code>ObservableCollection</code> and so on.</p>
 <details class="src"><summary>samples/UsingDotNet/test10_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test10_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
-<span class="f">dnImport</span>(<span class="s">"System.Collections"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Collections.Specialized"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Collections.Generic"</span>)
+using {
+	<span class="s">"System.Collections"</span>
+	<span class="s">"System.Collections.Specialized"</span>
+	<span class="s">"System.Collections.Generic"</span>
+}
 
 <span class="c"># Word frequency with Dictionary&lt;string,double&gt; (entries are wrapped KeyValuePair objects)</span>
 oCount = <span class="k">new</span> <span class="t">NumberDictionary</span>()
@@ -201,7 +203,7 @@ oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span cl
 <p>See <a href="callbacks-events.html">Callbacks &amp; events</a>.</p>
 <h2 id="linq">LINQ<a class="anchor" href="#linq">#</a></h2>
 <p><code>dnImport("System.Linq")</code> loads <code>Enumerable</code> and a fluent wrapper, <code>dnQuery(...)</code>, that works on a <strong>Ring list or any .NET collection</strong>. The lambda is Ring code: it reads <code>aDotNetArgs[1]</code> and writes <code>xDotNetResult</code>.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Linq"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Linq"</span> }
 
 aSales = [<span class="n">120</span>, <span class="n">45</span>, <span class="n">300</span>, <span class="n">15</span>, <span class="n">210</span>, <span class="n">99</span>, <span class="n">81</span>]
 
@@ -212,7 +214,7 @@ aTop = <span class="f">dnQuery</span>(aSales).<span class="f">Where</span>(<span
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Average</span>(<span class="s">""</span>)
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Max</span>(<span class="s">""</span>)</code></pre></div>
 <details class="src"><summary>samples/UsingDotNet/test11_linq.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test11_linq.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
-<span class="f">dnImport</span>(<span class="s">"System.Linq"</span>)
+using { <span class="s">"System.Linq"</span> }
 
 <span class="c"># LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)</span>
 aSales = [<span class="n">120</span>, <span class="n">45.5</span>, <span class="n">300</span>, <span class="n">80</span>, <span class="n">15</span>, <span class="n">210</span>, <span class="n">99.9</span>]

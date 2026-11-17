@@ -2,10 +2,12 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Globalization")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Globalization"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 C_FORMAT = "yyyy-MM-dd HH:mm:ss"
 

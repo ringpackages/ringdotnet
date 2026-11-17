@@ -61,8 +61,10 @@
 <div class="stats"><div class="stat"><b>112</b><span>Namespaces</span></div><div class="stat"><b>4,588</b><span>Wrapped classes</span></div><div class="stat"><b>32</b><span>Forms samples</span></div><div class="stat"><b>10</b><span>WPF samples</span></div><div class="stat"><b>45</b><span>Applications</span></div><div class="stat"><b>24</b><span>Test files</span></div></div>
 <h2 id="a-first-taste">A first taste<a class="anchor" href="#a-first-taste">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Text"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Text"</span>
+}
 
 oSB = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)
 oSB.<span class="f">Append</span>(<span class="s">", "</span>).<span class="f">Append</span>(<span class="s">"Ring!"</span>)

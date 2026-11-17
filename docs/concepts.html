@@ -55,7 +55,7 @@
 <h1>Core concepts</h1><p class="lead">How .NET looks from Ring — class and method names, overloads, properties, enums, struct values, generics, out parameters and errors.</p>
 <h2 id="classes-with-the-same-names-as-net">Classes with the same names as .NET<a class="anchor" href="#classes-with-the-same-names-as-net">#</a></h2>
 <p>After <code>dnImport("Namespace")</code> every public type of that namespace is a Ring class with the <strong>same short name</strong> and the same members:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Text"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Text"</span> }
 
 oSB = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)        <span class="c"># use parentheses: Ring calls init() only with them</span>
 oSB.<span class="f">Append</span>(<span class="s">", Ring"</span>).<span class="f">Append</span>(<span class="s">"!"</span>)        <span class="c"># methods that return a wrapped class return that class</span>

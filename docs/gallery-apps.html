@@ -60,11 +60,13 @@
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Data"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Data"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cFile = <span class="s">""</span>
 <span class="k">if</span> <span class="f">uiSelfTest</span>()
@@ -209,9 +211,11 @@ showCount()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_CENTER = <span class="n">150</span>
 C_PI = <span class="n">3.14159265358979</span>
@@ -289,8 +293,10 @@ oTimer.<span class="f">Start</span>()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aNames = [<span class="s">"NUL"</span>,<span class="s">"SOH"</span>,<span class="s">"STX"</span>,<span class="s">"ETX"</span>,<span class="s">"EOT"</span>,<span class="s">"ENQ"</span>,<span class="s">"ACK"</span>,<span class="s">"BEL"</span>,<span class="s">"BS"</span>,<span class="s">"TAB"</span>,<span class="s">"LF"</span>,<span class="s">"VT"</span>,<span class="s">"FF"</span>,<span class="s">"CR"</span>,<span class="s">"SO"</span>,<span class="s">"SI"</span>,<span class="s">"DLE"</span>,<span class="s">"DC1"</span>,<span class="s">"DC2"</span>,<span class="s">"DC3"</span>,<span class="s">"DC4"</span>,<span class="s">"NAK"</span>,<span class="s">"SYN"</span>,<span class="s">"ETB"</span>,<span class="s">"CAN"</span>,<span class="s">"EM"</span>,<span class="s">"SUB"</span>,<span class="s">"ESC"</span>,<span class="s">"FS"</span>,<span class="s">"GS"</span>,<span class="s">"RS"</span>,<span class="s">"US"</span>]
 
@@ -379,8 +385,10 @@ fillTable()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aHistory = []
 
@@ -475,8 +483,10 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cDisplay = <span class="s">"0"</span>		<span class="c"># the number being typed or the result</span>
 nAccumulator = <span class="n">0</span>	<span class="c"># the left operand</span>
@@ -716,10 +726,12 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"specialKey(aDotNet
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Globalization"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Globalization"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Calendar"</span>,<span class="n">470</span>,<span class="n">260</span>)
 oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
@@ -774,8 +786,10 @@ showFacts()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aBars = []
 aValues = []
@@ -861,11 +875,13 @@ aBars[<span class="n">3</span>].Value = <span class="n">40</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Threading"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Diagnostics"</span>
+	<span class="s">"System.Threading"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 nTotal = <span class="n">0</span>		<span class="c"># seconds when the countdown started</span>
 nLeft = <span class="n">0</span>		<span class="c"># seconds left</span>
@@ -992,8 +1008,10 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_DICE = <span class="n">5</span>
 aDice = [<span class="n">1</span>,<span class="n">1</span>,<span class="n">1</span>,<span class="n">1</span>,<span class="n">1</span>]
@@ -1105,8 +1123,10 @@ draw()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_SIZE = <span class="n">8</span>
 aQueens = list(C_SIZE)	<span class="c"># aQueens[column] = the row of the queen of that column (0 = none)</span>
@@ -1275,10 +1295,12 @@ showBoard()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Globalization"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Globalization"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_FORMAT = <span class="s">"yyyy-MM-dd HH:mm:ss"</span>
 
@@ -1360,8 +1382,10 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_SIZE = <span class="n">4</span>
 aTiles = []		<span class="c"># aTiles[cell] = tile number (0 = the empty cell)</span>
@@ -1487,10 +1511,12 @@ shuffleBoard()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cRoot = <span class="s">""</span>
 oForm = <span class="f">uiForm</span>(<span class="s">"File explorer"</span>,<span class="n">760</span>,<span class="n">460</span>)
@@ -1616,8 +1642,10 @@ oTree.<span class="f">setBeforeExpandEvent</span>(<span class="s">"expandNode(aD
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_SIZE = <span class="n">4</span>
 aBoard = list(C_SIZE * C_SIZE)	<span class="c"># 0 = empty</span>
@@ -1852,8 +1880,10 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_COLUMNS = <span class="n">40</span>
 C_ROWS = <span class="n">28</span>
@@ -2003,8 +2033,10 @@ glider()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aWords = [<span class="s">"RING"</span>,<span class="s">"PROGRAMMING"</span>,<span class="s">"LANGUAGE"</span>,<span class="s">"WINDOWS"</span>,<span class="s">"FORMS"</span>,<span class="s">"EXTENSION"</span>,<span class="s">"CALCULATOR"</span>,<span class="s">"KEYBOARD"</span>,<span class="s">"DEVELOPER"</span>,<span class="s">"FUNCTION"</span>]
 cWord = <span class="s">""</span>
@@ -2127,11 +2159,13 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing.Imaging"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Drawing.Imaging"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oImage = <span class="s">""</span>		<span class="c"># the picture being shown (a Bitmap)</span>
 nZoom = <span class="n">100</span>
@@ -2273,9 +2307,11 @@ oBox.<span class="f">BringToFront</span>()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Julian day"</span>,<span class="n">400</span>,<span class="n">230</span>)
 oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
@@ -2349,8 +2385,10 @@ fromDate()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_SIZE = <span class="n">5</span>
 aLights = list(C_SIZE * C_SIZE)
@@ -2441,8 +2479,10 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Loan calculator"</span>,<span class="n">520</span>,<span class="n">420</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Loan amount"</span>,<span class="n">15</span>,<span class="n">18</span>,<span class="n">100</span>,<span class="n">22</span>)
@@ -2538,11 +2578,13 @@ calculate()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Text"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Security.Cryptography"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Text"</span>
+	<span class="s">"System.Security.Cryptography"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 <span class="c"># the "database": user name -&gt; SHA-256 hash of the password</span>
 aUsers = []
@@ -2672,11 +2714,13 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Threading"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Diagnostics"</span>
+	<span class="s">"System.Threading"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_CARDS = <span class="n">16</span>
 aSymbols = []		<span class="c"># the symbol hidden behind each card</span>
@@ -2810,8 +2854,10 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_COLUMNS = <span class="n">9</span>
 C_ROWS = <span class="n">9</span>
@@ -3017,10 +3063,12 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cFileName = <span class="s">""</span>		<span class="c"># the file being edited ("" = untitled)</span>
 lModified = <span class="k">false</span>
@@ -3239,8 +3287,10 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 nSecret = <span class="n">0</span>
 nAttempts = <span class="n">0</span>
@@ -3318,11 +3368,13 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing.Imaging"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Drawing.Imaging"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cColor = <span class="s">"Black"</span>
 nPenSize = <span class="n">4</span>
@@ -3420,10 +3472,12 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Security.Cryptography"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Security.Cryptography"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Password generator"</span>,<span class="n">380</span>,<span class="n">260</span>)
 oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
@@ -3552,8 +3606,10 @@ generate()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_WIDTH = <span class="n">600</span>
 C_HEIGHT = <span class="n">400</span>
@@ -3712,8 +3768,10 @@ draw()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aNames = [<span class="s">"Rock"</span>,<span class="s">"Paper"</span>,<span class="s">"Scissors"</span>]
 nWins = <span class="n">0</span>
@@ -3796,8 +3854,10 @@ showScore()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_COLUMNS = <span class="n">24</span>
 C_ROWS = <span class="n">18</span>
@@ -3958,8 +4018,10 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_CELL = <span class="n">40</span>
 
@@ -4205,11 +4267,13 @@ loadLevel(<span class="n">1</span>)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Threading"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Diagnostics"</span>
+	<span class="s">"System.Threading"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oWatch = <span class="k">new</span> <span class="t">Stopwatch</span>()
 nLastLap = <span class="n">0</span>
@@ -4299,8 +4363,10 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aPuzzle = <span class="s">"530070000600195000098000060800060003400803001700020006060000280000419005000080079"</span>
 lLoading = <span class="k">false</span>	<span class="c"># true while the program fills the boxes (the TextChanged events are ignored)</span>
@@ -4489,8 +4555,10 @@ loadPuzzle(aPuzzle)
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 lUpdating = <span class="k">false</span>
 
@@ -4570,8 +4638,10 @@ oCelsius.Text = <span class="s">"20"</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 C_COLUMNS = <span class="n">10</span>
 C_ROWS = <span class="n">20</span>
@@ -4835,8 +4905,10 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aBoard = list(<span class="n">9</span>)	<span class="c"># 0 = empty, 1 = X (you), 2 = O (computer)</span>
 aButtons = []
@@ -4982,10 +5054,12 @@ showScore()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo.txt"</span>)
 <span class="k">if</span> <span class="f">uiSelfTest</span>()
@@ -5091,8 +5165,10 @@ loadTasks()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 nDisks = <span class="n">4</span>
 aPegs = [[],[],[]]	<span class="c"># each peg is a list of disk sizes, the bottom disk first</span>
@@ -5259,10 +5335,12 @@ newGame()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Diagnostics"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 aSentences = [
 	<span class="s">"The quick brown fox jumps over the lazy dog"</span>,
@@ -5378,8 +5456,10 @@ newSentence()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 <span class="c"># each category: [name, [[unit, factor to the base unit], ...]] (temperature is handled separately)</span>
 aCategories = [
@@ -5510,11 +5590,13 @@ oValue.Text = <span class="s">"1"</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Text.RegularExpressions"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Collections.Generic"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Linq"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)
+using {
+	<span class="s">"System.Text.RegularExpressions"</span>
+	<span class="s">"System.Collections.Generic"</span>
+	<span class="s">"System.Linq"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
+}
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Word counter"</span>,<span class="n">620</span>,<span class="n">420</span>)
 oText = <span class="f">uiMemo</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">380</span>,<span class="n">400</span>)
@@ -5598,10 +5680,12 @@ update()
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System.Windows"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Controls"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Controls.Primitives"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Media"</span>)
+using {
+	<span class="s">"System.Windows"</span>
+	<span class="s">"System.Windows.Controls"</span>
+	<span class="s">"System.Windows.Controls.Primitives"</span>
+	<span class="s">"System.Windows.Media"</span>
+}
 
 cDisplay = <span class="s">"0"</span>
 nAccumulator = <span class="n">0</span>
@@ -5754,14 +5838,16 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Controls"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Media"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Media.Imaging"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Shapes"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.IO"</span>
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows"</span>
+	<span class="s">"System.Windows.Controls"</span>
+	<span class="s">"System.Windows.Media"</span>
+	<span class="s">"System.Windows.Media.Imaging"</span>
+	<span class="s">"System.Windows.Shapes"</span>
+}
 
 oWindow = <span class="s">""</span>
 aSliders = []

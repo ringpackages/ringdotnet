@@ -2,14 +2,16 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Windows")
-dnImport("System.Windows.Controls")
-dnImport("System.Windows.Controls.Primitives")
-dnImport("System.Windows.Media")
-dnImport("System.Windows.Shapes")
-dnImport("System.Windows.Data")
-dnImport("System.Windows.Threading")
-dnImport("System")
+using {
+	"System.Windows"
+	"System.Windows.Controls"
+	"System.Windows.Controls.Primitives"
+	"System.Windows.Media"
+	"System.Windows.Shapes"
+	"System.Windows.Data"
+	"System.Windows.Threading"
+	"System"
+}
 
 
 oWindow = wpfWindow("Binding",320,150)

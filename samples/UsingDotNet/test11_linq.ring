@@ -1,5 +1,5 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System.Linq")
+using { "System.Linq" }
 
 # LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)
 aSales = [120, 45.5, 300, 80, 15, 210, 99.9]

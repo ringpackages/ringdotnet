@@ -102,7 +102,7 @@ end
 The ASP.NET Core classes are wrapped too: `Microsoft.AspNetCore.*` (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), `Microsoft.Extensions.*` (DependencyInjection, Configuration, Logging, Hosting, Caching...) and `Microsoft.Net.Http.Headers`. Class names that clash with other namespaces start with `Asp`.
 
 ```ring
-dnImport("Microsoft.AspNetCore.Http")
+using { "Microsoft.AspNetCore.Http" }
 
 oPath = new PathString().New_1("/api/items")
 ? oPath.Value                                   # /api/items

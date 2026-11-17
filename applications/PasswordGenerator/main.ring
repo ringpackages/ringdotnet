@@ -2,10 +2,12 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.Security.Cryptography")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.Security.Cryptography"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 oForm = uiForm("Password generator",380,260)
 oForm.FormBorderStyle = "FixedDialog"

@@ -1,7 +1,9 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System.Collections")
-dnImport("System.Collections.Specialized")
-dnImport("System.Collections.Generic")
+using {
+	"System.Collections"
+	"System.Collections.Specialized"
+	"System.Collections.Generic"
+}
 
 # Word frequency with Dictionary<string,double> (entries are wrapped KeyValuePair objects)
 oCount = new NumberDictionary()

@@ -2,10 +2,12 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.IO")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.IO"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 cFileName = ""		# the file being edited ("" = untitled)
 lModified = false

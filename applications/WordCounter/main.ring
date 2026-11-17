@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Text.RegularExpressions")
-dnImport("System.Collections.Generic")
-dnImport("System.Linq")
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Text.RegularExpressions"
+	"System.Collections.Generic"
+	"System.Linq"
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 
 oForm = uiForm("Word counter",620,420)
 oText = uiMemo(oForm,10,10,380,400)

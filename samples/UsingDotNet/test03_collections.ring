@@ -1,5 +1,5 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System.Collections.Generic")
+using { "System.Collections.Generic" }
 
 # List<string>
 oList = new StringList()

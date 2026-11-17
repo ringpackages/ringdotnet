@@ -2,10 +2,12 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System.Windows")
-dnImport("System.Windows.Controls")
-dnImport("System.Windows.Controls.Primitives")
-dnImport("System.Windows.Media")
+using {
+	"System.Windows"
+	"System.Windows.Controls"
+	"System.Windows.Controls.Primitives"
+	"System.Windows.Media"
+}
 
 cDisplay = "0"
 nAccumulator = 0

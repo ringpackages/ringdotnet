@@ -15,7 +15,7 @@ The common closed generic collections have ready-made classes (`dnImport("System
 | `StringQueue`, `StringStack` | `Queue<string>`, `Stack<string>` |
 
 ```ring
-dnImport("System.Collections.Generic")
+using { "System.Collections.Generic" }
 
 oList = new StringList()
 oList.Add("banana") oList.Add("apple") oList.Add("cherry")
@@ -63,7 +63,7 @@ See [Callbacks & events](callbacks-events.html).
 `dnImport("System.Linq")` loads `Enumerable` and a fluent wrapper, `dnQuery(...)`, that works on a **Ring list or any .NET collection**. The lambda is Ring code: it reads `aDotNetArgs[1]` and writes `xDotNetResult`.
 
 ```ring
-dnImport("System.Linq")
+using { "System.Linq" }
 
 aSales = [120, 45, 300, 15, 210, 99, 81]
 

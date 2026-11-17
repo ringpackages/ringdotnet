@@ -2,11 +2,13 @@
 
 load "../../libraries/dotnetlib/dotnetlib.ring"
 dnUseDesktop()
-dnImport("System")
-dnImport("System.IO")
-dnImport("System.Drawing")
-dnImport("System.Drawing.Imaging")
-dnImport("System.Windows.Forms")
+using {
+	"System"
+	"System.IO"
+	"System.Drawing"
+	"System.Drawing.Imaging"
+	"System.Windows.Forms"
+}
 
 cColor = "Black"
 nPenSize = 4

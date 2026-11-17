@@ -1,8 +1,10 @@
 load "../../libraries/dotnetlib/dotnetlib.ring"
-dnImport("System")
-dnImport("System.Globalization")
-dnImport("System.Security.Cryptography")
-dnImport("System.Diagnostics")
+using {
+	"System"
+	"System.Globalization"
+	"System.Security.Cryptography"
+	"System.Diagnostics"
+}
 
 # Hashes and HMAC
 oConvert = new Convert()
