@@ -109,6 +109,19 @@ class RingDatabase
 		next
 		return db_aList
 
+	# migrations: bring an existing database in line with the model (creates the missing tables, columns and indexes);
+	# returns the list of changes, for example ["add column Users.Email"]
+	func migrate
+		return dnRequest("call",[db_oContext,"Migrate"])
+
+	# a named change (SQL) that is applied once: returns 1 when it was applied now, 0 when it had been applied before
+	func apply  cName, cSql
+		return dnRequest("call",[db_oContext,"Apply",cName,cSql])
+
+	# the names of the applied changes
+	func applied
+		return dnRequest("call",[db_oContext,"Applied"])
+
 	# transactions: begin() ... commit() or rollback(); an error in commit() undoes everything
 	func begin
 		dnRequest("call",[db_oContext,"Begin"])

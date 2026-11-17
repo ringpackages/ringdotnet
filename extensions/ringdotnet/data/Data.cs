@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.EntityFrameworkCore;
 
 namespace RingDotNet
@@ -40,6 +41,15 @@ namespace RingDotNet
 			public Column KeyColumn { get { return Keys[0]; } }
 		}
 
+		private sealed class SchemaCacheKeyFactory : Microsoft.EntityFrameworkCore.Infrastructure.IModelCacheKeyFactory
+		{
+			public object Create(DbContext context, bool designTime)
+			{
+				return ((RingDb)context).SchemaKey + "|" + designTime;
+			}
+		}
+
+		internal string SchemaKey = "";
 		private readonly List<Table> tables = new List<Table>();
 		private string connection;
 
@@ -53,7 +63,7 @@ namespace RingDotNet
 		*/
 		public static RingDb Create(string connection, object[] schema)
 		{
-			RingDb db = new RingDb { connection = connection };
+			RingDb db = new RingDb { connection = connection, SchemaKey = Describe(schema) };
 			foreach (object item in schema)
 			{
 				object[] def = (object[])item;
@@ -118,6 +128,18 @@ namespace RingDotNet
 			}
 		}
 
+		private static string Describe(object[] items)
+		{
+			System.Text.StringBuilder text = new System.Text.StringBuilder();
+			foreach (object item in items)
+			{
+				if (item is object[] list) { text.Append('['); text.Append(Describe(list)); text.Append(']'); }
+				else if (item is List<object> l) { text.Append('['); text.Append(Describe(l.ToArray())); text.Append(']'); }
+				else text.Append(Convert.ToString(item, CultureInfo.InvariantCulture)).Append(',');
+			}
+			return text.ToString();
+		}
+
 		private static Type ClrType(string name)
 		{
 			switch (name.ToLowerInvariant())
@@ -137,6 +159,8 @@ namespace RingDotNet
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
 			options.UseSqlite(connection);
+			/* the model depends on the schema: do not share the cached model between contexts with different schemas */
+			options.ReplaceService<Microsoft.EntityFrameworkCore.Infrastructure.IModelCacheKeyFactory, SchemaCacheKeyFactory>();
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,6 +540,108 @@ namespace RingDotNet
 		public System.Threading.Tasks.Task<int> SaveAsync()
 		{
 			return SaveChangesAsync();
+		}
+
+		private List<string> Names(string sql)
+		{
+			return Database.SqlQueryRaw<string>(sql).ToList();
+		}
+
+		private static string SqlType(Type type)
+		{
+			type = Nullable.GetUnderlyingType(type) ?? type;
+			if (type == typeof(int) || type == typeof(long) || type == typeof(bool)) return "INTEGER";
+			if (type == typeof(double)) return "REAL";
+			if (type == typeof(byte[])) return "BLOB";
+			return "TEXT";
+		}
+
+		private static string SqlLiteral(object value, Type type)
+		{
+			value = Coerce(value, type);
+			if (value is bool b) return b ? "1" : "0";
+			if (value is string || value is DateTime) return "'" + Convert.ToString(value, CultureInfo.InvariantCulture).Replace("'", "''") + "'";
+			return Convert.ToString(value, CultureInfo.InvariantCulture);
+		}
+
+		/*
+		**  Bring an existing database in line with the model: creates the missing tables, adds the missing columns and indexes.
+		**  Returns the list of changes. (Columns are never dropped or changed: use Execute for that.)
+		*/
+		public List<object> Migrate()
+		{
+			List<object> changes = new List<object>();
+			List<string> existingTables = Names("SELECT name AS Value FROM sqlite_master WHERE type = 'table'");
+			string script = Database.GenerateCreateScript();
+			List<string> statements = script.Split(';').Select(x => x.Trim()).Where(x => x.Length > 0).ToList();
+			foreach (Table table in tables)
+			{
+				if (!existingTables.Any(n => string.Equals(n, table.Name, StringComparison.OrdinalIgnoreCase)))
+				{
+					string create = statements.FirstOrDefault(x => x.StartsWith("CREATE TABLE \"" + table.Name + "\"", StringComparison.OrdinalIgnoreCase));
+					if (create == null) throw new InvalidOperationException("No create statement for " + table.Name + " in: " + script);
+					Database.ExecuteSqlRaw(create.Replace("{", "{{").Replace("}", "}}"));
+					changes.Add("create table " + table.Name);
+					continue;
+				}
+				List<string> columns = Names("SELECT name AS Value FROM pragma_table_info('" + table.Name.Replace("'", "''") + "')");
+				foreach (Column column in table.Columns)
+				{
+					if (columns.Any(n => string.Equals(n, column.Name, StringComparison.OrdinalIgnoreCase))) continue;
+					string definition = "\"" + column.Name + "\" " + SqlType(column.Type);
+					if (column.References != null)
+					{
+						Table principal = Find(column.References);
+						definition += " REFERENCES \"" + principal.Name + "\" (\"" + principal.KeyColumn.Name + "\")";
+					}
+					else if (column.HasDefault)
+					{
+						definition += " DEFAULT " + SqlLiteral(column.Default, column.Type);
+						if (!column.Nullable) definition += " NOT NULL";
+					}
+					else if (!column.Nullable && (column.Required || column.Type.IsValueType))
+					{
+						definition += " NOT NULL DEFAULT " + (SqlType(column.Type) == "TEXT" ? "''" : "0");
+					}
+					Database.ExecuteSqlRaw("ALTER TABLE \"" + table.Name + "\" ADD COLUMN " + definition);
+					changes.Add("add column " + table.Name + "." + column.Name);
+				}
+			}
+			List<string> indexes = Names("SELECT name AS Value FROM sqlite_master WHERE type = 'index'");
+			foreach (string statement in statements)
+			{
+				Match m = Regex.Match(statement, "^CREATE (UNIQUE )?INDEX \"([^\"]+)\"", RegexOptions.IgnoreCase);
+				if (m.Success && !indexes.Contains(m.Groups[2].Value))
+				{
+					Database.ExecuteSqlRaw(statement.Replace("{", "{{").Replace("}", "}}"));
+					changes.Add("create index " + m.Groups[2].Value);
+				}
+			}
+			return changes;
+		}
+
+		/*
+		**  A named change that is applied once (the names are kept in the table RingMigrations): Apply("001-prices", "UPDATE ...")
+		**  returns true when it was applied now, false when it had been applied before
+		*/
+		public bool Apply(string name, string sql)
+		{
+			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
+			if (Names("SELECT Name AS Value FROM RingMigrations").Contains(name)) return false;
+			using (var tx = Database.BeginTransaction())
+			{
+				Database.ExecuteSqlRaw(sql.Replace("{", "{{").Replace("}", "}}"));
+				Database.ExecuteSqlRaw("INSERT INTO \"RingMigrations\" (\"Name\", \"AppliedAt\") VALUES ({0}, {1})", name, DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+				tx.Commit();
+			}
+			return true;
+		}
+
+		/* The names of the changes applied so far */
+		public List<object> Applied()
+		{
+			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
+			return Names("SELECT Name AS Value FROM RingMigrations ORDER BY AppliedAt, Name").Cast<object>().ToList();
 		}
 
 		public void Save()
