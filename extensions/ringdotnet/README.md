@@ -115,6 +115,25 @@ oForm { Height = 300  Text += "!" }
 
 `dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`, `samples/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
 
+## ASP.NET Core
+
+`dnUseWeb()` (before any other .NET call) adds the ASP.NET Core runtime. `web.ring` then gives a Kestrel web server whose requests are handled by Ring functions:
+
+```ring
+dnUseWeb()
+oServer = new WebServer("http://localhost:5080")
+oServer.onGet("/","home")
+oServer.onPost("/api/echo","echo")
+oServer.run()                                  # serves until stop(); or call serveOne(100) in your own loop
+
+func home oRequest
+	return "<h1>Hello</h1>" + oRequest.path()
+func echo oRequest
+	return [201,"text/plain","you sent " + oRequest.body()]     # or webJson(list)
+```
+
+A handler gets a request (`method()`, `path()`, `query("q")`, `body()`, `header()`, `form()`, `context()` = the ASP.NET `HttpContext`) and returns a text, `[status, contentType, text]` or `webJson(...)`. Kestrel runs on .NET threads and Ring code may only run on the Ring thread, so the requests are queued and `serveOne()` / `run()` handle them on the Ring thread. The ASP.NET classes (`Microsoft.AspNetCore.*`, `Microsoft.Extensions.*`, `Microsoft.Net.Http.Headers`; clashing names start with `Asp`) are wrapped too. `dnUseAll()` starts Windows Forms/WPF and ASP.NET together. Example: `applications/WebApi` (JSON to-do API and web page), tests: `tests/test_web.ring`. Not supported: MVC controllers/Razor written in C# (the web server is the Ring one), and handlers that run in parallel (one Ring thread).
+
 ## Keyboard in games
 
 A button (or any control that takes the focus) steals the arrow keys, Space and Enter from the form: the form's `KeyDown` never sees the arrows and Space/Enter "press" the button. Use `uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")` after the controls were added: every control then reports the arrows as normal keys and the form handles them (Tetris, 2048, Sokoban, Snake and Pong do). In tests, `uiSendKeys(oForm,"{LEFT}12{+}30{ENTER}")` types into the focused control of the form through the real key processing (it posts window messages to your own form, so unlike `SendKeys` it can never type into another program). `tests/test_keyboard.ring` shows the problem and the fix.

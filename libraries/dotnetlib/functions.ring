@@ -317,3 +317,15 @@ func dnWrapObject  cInfo
 # The .NET null: oPictureBox.Image = dnNull()
 func dnNull
 	return new DotNetObject(0)
+
+# Use ASP.NET Core (adds the ASP.NET runtime and loads the web server of RingDotNet). Call it before any other .NET call.
+func dnUseWeb
+	dotnet_start("web")
+	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
+	return 1
+
+# Windows Forms / WPF and ASP.NET Core together (used by the class generator)
+func dnUseAll
+	dotnet_start("all")
+	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
+	return 1

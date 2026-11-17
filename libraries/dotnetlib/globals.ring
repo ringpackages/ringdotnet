@@ -36,3 +36,7 @@ aDotNetCallbacks = []
 
 # The object made by the DotNetNew_<Class> function of the class that wraps a returned .NET object
 oDotNetNew = ""
+
+# The request being handled by a web handler and the response it produced (see web.ring)
+oWebRequest = ""
+xWebResponse = ""

@@ -35,6 +35,8 @@
 #define DN_BRIDGE_ASSEMBLY  "RingDotNet.Bridge.dll"
 #define DN_BRIDGE_CONFIG    "RingDotNet.Bridge.runtimeconfig.json"
 #define DN_DESKTOP_CONFIG   "RingDotNet.Desktop.runtimeconfig.json"
+#define DN_WEB_CONFIG       "RingDotNet.Web.runtimeconfig.json"
+#define DN_ALL_CONFIG       "RingDotNet.All.runtimeconfig.json"
 #define DN_BRIDGE_TYPE      "RingDotNet.Bridge, RingDotNet.Bridge"
 #define DN_PATHSIZE         2048
 #define DN_HDT_LOAD_ASSEMBLY_AND_GET_FUNCTION_POINTER 5
@@ -304,12 +306,14 @@ static int ringdotnet_startruntime ( const char *cMode )
 		ringdotnet_seterror("hostfxr does not export the hosting API",g_cHostFxr);
 		return 0 ;
 	}
-	if ( cMode && (strcmp(cMode,"desktop") == 0) ) {
-		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_DESKTOP_CONFIG);
+	if ( cMode && ((strcmp(cMode,"desktop") == 0) || (strcmp(cMode,"all") == 0)) ) {
+		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,(strcmp(cMode,"all") == 0) ? DN_ALL_CONFIG : DN_DESKTOP_CONFIG);
 	#ifdef _WIN32
 		/* Windows Forms needs the thread that runs the UI to be an STA thread */
 		CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
 	#endif
+	} else if ( cMode && (strcmp(cMode,"web") == 0) ) {
+		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_WEB_CONFIG);
 	} else {
 		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_CONFIG);
 	}
@@ -357,7 +361,7 @@ static int ringdotnet_startruntime ( const char *cMode )
 	}
 	((void (DN_CALLTYPE *)(void *)) pFn)((void *) ringdotnet_callback);
 	g_nStarted = 1 ;
-	g_nDesktop = (cMode && (strcmp(cMode,"desktop") == 0)) ;
+	g_nDesktop = (cMode && ((strcmp(cMode,"desktop") == 0) || (strcmp(cMode,"web") == 0) || (strcmp(cMode,"all") == 0))) ;
 	return 1 ;
 }
 
@@ -375,8 +379,8 @@ RING_FUNC(ring_dotnet_start)
 			return ;
 		}
 		cMode = RING_API_GETSTRING(1);
-		if ( g_nStarted && (strcmp(cMode,"desktop") == 0) && (! g_nDesktop) ) {
-			RING_API_ERROR("dnUseDesktop() must be called before any other .NET call");
+		if ( g_nStarted && ((strcmp(cMode,"desktop") == 0) || (strcmp(cMode,"web") == 0) || (strcmp(cMode,"all") == 0)) && (! g_nDesktop) ) {
+			RING_API_ERROR("dnUseDesktop() and dnUseWeb() must be called before any other .NET call");
 			return ;
 		}
 	}

@@ -230,7 +230,7 @@ namespace RingDotNet
 		private static byte[] EncodeError(Exception ex)
 		{
 			MemoryStream ms = new MemoryStream();
-			WriteItem(ms, 'e', Encoding.UTF8.GetBytes(ex.GetType().FullName + ": " + ex.Message));
+			WriteItem(ms, 'e', Encoding.UTF8.GetBytes(ex.GetType().FullName + ": " + ex.Message + (Environment.GetEnvironmentVariable("RINGDOTNET_TRACE") == "1" ? Environment.NewLine + ex.StackTrace : "")));
 			return ms.ToArray();
 		}
 
@@ -306,6 +306,8 @@ namespace RingDotNet
 					return null;
 				case "listtypes":
 					return ListTypes(Str(a, 0), Rest(a, 1));
+				case "bridgefolder":
+					return Path.GetDirectoryName(typeof(Bridge).Assembly.Location);
 				case "keytokens":
 					return KeyTokens(Str(a, 0));
 				case "postkey":

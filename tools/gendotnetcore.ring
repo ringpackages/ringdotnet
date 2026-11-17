@@ -624,12 +624,21 @@ func isExoticType cType
 # Generate the namespaces of aDotNetManifest (all of them when aWanted is empty) into C_OUTDIR
 func genAll aWanted
 	# Windows Forms / WPF types need the desktop runtime, it must be selected before any other .NET call
+	lDesktop = false
+	lWeb = false
 	for aEntry in aDotNetManifest
-		if (len(aWanted) = 0 or find(aWanted,aEntry[:namespace]) > 0) and optValue(aEntry,"desktop",false)
-			dnUseDesktop()
-			exit
+		if len(aWanted) = 0 or find(aWanted,aEntry[:namespace]) > 0
+			if optValue(aEntry,"desktop",false) lDesktop = true ok
+			if optValue(aEntry,"web",false) lWeb = true ok
 		ok
 	next
+	if lDesktop and lWeb
+		dnUseAll()
+	but lDesktop
+		dnUseDesktop()
+	but lWeb
+		dnUseWeb()
+	ok
 	# Pass 1: resolve the types of every namespace and choose the Ring class names (global, so names never clash)
 	# explicit Ring class names are reserved first, so an automatic name never takes one of them
 	for aEntry in aDotNetManifest
