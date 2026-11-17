@@ -45,6 +45,18 @@ oCalc = new Calculator()
 
 `tests/UserLib` is a complete example (`tests/test_userassembly.ring`). Without generated classes any assembly is usable through `dnType("Namespace.Type")`, `dnNew()` and `callMethod()`.
 
+## using
+
+`using { }` imports namespaces like C# (same as `dnImport` for each text; anything that is not a text is an error):
+
+```ring
+load "dotnetlib.ring"
+using {
+	"System"
+	"System.Text"
+}
+```
+
 ## Natural syntax (generated classes)
 
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:

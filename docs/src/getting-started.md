@@ -83,6 +83,16 @@ dnImport("System.Text.RegularExpressions")
 dnImport("System.Windows.Forms")    # also loads the GUI helpers (uiForm, uiButton ...)
 ```
 
+Or, like C#, with `using` — the same thing, shorter. Each item must be a text; anything else is an error:
+
+```ring
+using {
+	"System"
+	"System.Text"
+	"System.IO"
+}
+```
+
 If a method returns an object whose class belongs to a namespace you did not import, that namespace is imported automatically, so chains like `oProcess.StandardOutput.ReadToEnd()` just work.
 
 ## Your first window

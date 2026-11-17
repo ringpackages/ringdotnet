@@ -23,6 +23,7 @@ Select the runtime mode before the first .NET call. See [Getting started](gettin
 | Function | What it does |
 |---|---|
 | `dnImport("System.IO")` | Loads the generated wrapper classes of a namespace (once). Returns true. Raises an error when no classes were generated for the name. |
+| `using { "System" "System.Text" }` | The same as `dnImport` for each text, written like C#'s `using`. A value that is not a text raises an error. |
 | `dnImportFrom("myclasses/","MyCompany.Tools")` | Loads classes generated for **your own assembly** with `wrapassembly.ring`. See [Your own assemblies](own-assemblies.html). |
 | `dnRegisterClass(type, class, nInit)` | Used by the generated files: registers a Ring class for a .NET type. |
 

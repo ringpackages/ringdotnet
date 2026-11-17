@@ -104,6 +104,12 @@ Caught: DotNet Error: System.FormatException: The input string 'abc' was not in 
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.IO"</span>)               <span class="c"># File, Directory, Path, StreamReader ...</span>
 <span class="f">dnImport</span>(<span class="s">"System.Text.RegularExpressions"</span>)
 <span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)    <span class="c"># also loads the GUI helpers (uiForm, uiButton ...)</span></code></pre></div>
+<p>Or, like C#, with <code>using</code> — the same thing, shorter. Each item must be a text; anything else is an error:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Text"</span>
+	<span class="s">"System.IO"</span>
+}</code></pre></div>
 <p>If a method returns an object whose class belongs to a namespace you did not import, that namespace is imported automatically, so chains like <code>oProcess.StandardOutput.ReadToEnd()</code> just work.</p>
 <h2 id="your-first-window">Your first window<a class="anchor" href="#your-first-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
