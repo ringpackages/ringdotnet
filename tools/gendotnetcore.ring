@@ -10,6 +10,7 @@ aKeywords = split("if to or and not for foreach new func from next load else see
 
 aClassMap = []	# [canonical .NET name, Ring class name]
 aTaken = []	# [lowercase Ring class name, .NET name]
+cClassPrefix = ""	# :prefix of the namespace being resolved (used for names that are already taken)
 cLastRegister = ""
 aPlanCache = []	# [.NET type name, plan] (see buildPlan)
 aPrefer = []	# "Type.Method=arity" choices collected from the manifest
@@ -25,6 +26,7 @@ func optValue aEntry, cKey, xDefault
 # Types of a namespace: [namespace, [[.NET name, Ring class, init parameters (-1 = automatic)], ...]]
 func resolveNamespace aEntry
 	cNs = aEntry[:namespace]
+	cClassPrefix = optValue(aEntry,"prefix","")
 	aAssemblies = optValue(aEntry,"assemblies",["System.Private.CoreLib"])
 	aExclude = optValue(aEntry,"exclude",[])
 	aOut = []
@@ -100,6 +102,9 @@ func uniqueClassName cRing, cCanonical, cNs
 				exit
 			ok
 		next
+		if cClassPrefix != ""
+			cPrefix = cClassPrefix
+		ok
 		cRing = cPrefix + cRing
 		nPos = find(aTaken,lower(cRing),1)
 		if nPos > 0 and aTaken[nPos][2] != cCanonical

@@ -11,6 +11,7 @@
 		:prefer      ["Namespace.Type.Method=arity", ...]: the overload that gets the plain method name (the others are Name_N)
 		:uses        namespaces to import together with this one (their classes are returned by its methods)
 		:extra       Ring files (relative to the generated folder) that the namespace loader also loads
+		:prefix      prefix of the class names that clash with a class of another namespace (default: the last part of the namespace)
 		:desktop     true when the namespace needs the Windows Desktop runtime (dnUseDesktop())
 */
 
@@ -384,6 +385,123 @@ aDotNetManifest = [
 	  :assemblies = ["System.Windows.Forms","System.Windows.Forms.Primitives"],
 	  :desktop = true,
 	  :uses = ["System.Windows.Forms"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows.Media","System.Windows.Input","System.Collections"],
+	  :extra = ["../wpf.ring"],
+	  :prefer = ["System.Windows.Application.Run=1","System.Windows.MessageBox.Show=1"],
+	  :types = [ ["System.Windows.Size","WpfSize",2], ["System.Windows.Point","WpfPoint",2], ["System.Windows.Rect","Rect",4],
+		["System.Windows.Thickness","Thickness",4], ["System.Windows.Vector","WpfVector",2], ["System.Windows.CornerRadius","CornerRadius",4],
+		["System.Windows.GridLength","GridLength",1], ["System.Windows.Window","Window",0] ],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Controls",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Controls.Primitives","System.Windows.Media","System.Windows.Documents"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Controls.Primitives",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Controls"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Shapes",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Media"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Media",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Media.Imaging"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Media.Imaging",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows.Media","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Media.Animation",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Media"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Input",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Data",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Documents",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Media"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Markup",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.IO","System.Xml"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Threading",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Navigation",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows","System.Windows.Controls"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Media.Effects",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows.Media"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Media.Media3D",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows.Media"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Ink",
+	  :assemblies = ["PresentationFramework","PresentationCore","WindowsBase","System.Xaml"],
+	  :desktop = true,
+	  :prefix = "Wpf",
+	  :uses = ["System.Windows.Media","System.Windows.Input"],
 	  :all = true ]
 
 ]

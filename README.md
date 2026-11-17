@@ -110,6 +110,10 @@ oForm { Height = 300  Text += "!" }
 * Define the functions after the main code (a `func` at the top would swallow the rest of the file).
 * `dnNull()` is the .NET null (`oPictureBox.Image = dnNull()`).
 
+## WPF
+
+`dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
+
 ## Keyboard in games
 
 A button (or any control that takes the focus) steals the arrow keys, Space and Enter from the form: the form's `KeyDown` never sees the arrows and Space/Enter "press" the button. Use `uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")` after the controls were added: every control then reports the arrows as normal keys and the form handles them (Tetris, 2048, Sokoban, Snake and Pong do). In tests, `uiSendKeys(oForm,"{LEFT}12{+}30{ENTER}")` types into the focused control of the form through the real key processing (it posts window messages to your own form, so unlike `SendKeys` it can never type into another program). `tests/test_keyboard.ring` shows the problem and the fix.
