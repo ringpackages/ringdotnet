@@ -19,8 +19,14 @@ Class IDatabaseCreator from DotNetObject
 	Func EnsureDeletedAsync_1 P1
 		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
 
-	Func EnsureDeletedAsync 
-		return dnRequest("call",[self,"EnsureDeletedAsync"])
+	Func EnsureDeletedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnsureDeletedAsync"])
+		ok
+		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
 
 	Func EnsureCreated 
 		return dnRequest("call",[self,"EnsureCreated"])
@@ -28,8 +34,14 @@ Class IDatabaseCreator from DotNetObject
 	Func EnsureCreatedAsync_1 P1
 		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
 
-	Func EnsureCreatedAsync 
-		return dnRequest("call",[self,"EnsureCreatedAsync"])
+	Func EnsureCreatedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnsureCreatedAsync"])
+		ok
+		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
 
 	Func CanConnect 
 		return dnRequest("call",[self,"CanConnect"])
@@ -37,15 +49,12 @@ Class IDatabaseCreator from DotNetObject
 	Func CanConnectAsync_1 P1
 		return dnRequest("call",[self,"CanConnectAsync",P1])
 
-	Func CanConnectAsync 
-		return dnRequest("call",[self,"CanConnectAsync"])
-
-	Func EnsureDeletedAsync@ P1
-		return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
-
-	Func EnsureCreatedAsync@ P1
-		return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
-
-	Func CanConnectAsync@ P1
-		return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+	Func CanConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CanConnectAsync"])
+		ok
+		return dnRequest("call",[self,"CanConnectAsync",P1])
 

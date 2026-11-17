@@ -17,6 +17,9 @@ Class HostDefaults from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getApplicationKey
 		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Hosting.HostDefaults, Microsoft.Extensions.Hosting.Abstractions'),"ApplicationKey"])
 

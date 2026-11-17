@@ -24,8 +24,14 @@ Class PropertyInfo from MemberInfo
 	Func GetIndexParameters 
 		return dnRequest("call",[self,"GetIndexParameters"])
 
-	Func GetAccessors 
-		return dnRequest("call",[self,"GetAccessors"])
+	Func GetAccessors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAccessors",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetAccessors"])
+		ok
+		return dnRequest("call",[self,"GetAccessors",P1])
 
 	Func GetAccessors_1 P1
 		return dnRequest("call",[self,"GetAccessors",P1])
@@ -52,6 +58,9 @@ Class PropertyInfo from MemberInfo
 		return dnRequest("call",[self,"GetRequiredCustomModifiers"])
 
 	Func GetValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetValue",P1])
+		ok
 		return dnRequest("call",[self,"GetValue",P1])
 
 	Func GetValue_2 P1,P2
@@ -76,22 +85,6 @@ Class PropertyInfo from MemberInfo
 
 	Func SetValue_6 P1,P2,P3,P4,P5,P6
 		dnRequest("call",[self,"SetValue",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func GetAccessors@ P1
-		return dnRequest("callnamed",[self,"GetAccessors",P1])
-
-	Func GetGetMethod@ P1
-		return dnRequest("callnamed",[self,"GetGetMethod",P1])
-
-	Func GetSetMethod@ P1
-		return dnRequest("callnamed",[self,"GetSetMethod",P1])
-
-	Func GetValue@ P1
-		return dnRequest("callnamed",[self,"GetValue",P1])
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[self,"SetValue",P1])
 		return self
 
 	Func getPropertyType

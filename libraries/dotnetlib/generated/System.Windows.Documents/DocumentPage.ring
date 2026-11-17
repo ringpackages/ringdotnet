@@ -28,6 +28,9 @@ Class DocumentPage from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setPageDestroyedEvent P1
 		dnRequest("setevent",[self,"PageDestroyed",dnCallback(P1)])
 		return self

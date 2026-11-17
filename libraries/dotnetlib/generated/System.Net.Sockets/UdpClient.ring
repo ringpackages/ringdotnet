@@ -57,6 +57,10 @@ Class UdpClient from Object
 		return dnRequest("call",[self,"EndReceive",P1,P2])
 
 	Func JoinMulticastGroup P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"JoinMulticastGroup",P1])
+			return self
+		ok
 		dnRequest("call",[self,"JoinMulticastGroup",P1])
 		return self
 
@@ -65,6 +69,10 @@ Class UdpClient from Object
 		return self
 
 	Func DropMulticastGroup P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"DropMulticastGroup",P1])
+			return self
+		ok
 		dnRequest("call",[self,"DropMulticastGroup",P1])
 		return self
 
@@ -84,8 +92,14 @@ Class UdpClient from Object
 	Func SendAsync_3 P1,P2,P3
 		return dnRequest("call",[self,"SendAsync",P1,P2,P3])
 
-	Func ReceiveAsync 
-		return dnRequest("call",[self,"ReceiveAsync"])
+	Func ReceiveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReceiveAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReceiveAsync"])
+		ok
+		return dnRequest("call",[self,"ReceiveAsync",P1])
 
 	Func ReceiveAsync_1 P1
 		return dnRequest("call",[self,"ReceiveAsync",P1])
@@ -114,29 +128,8 @@ Class UdpClient from Object
 	Func Send P1,P2
 		return dnRequest("call",[self,"Send",P1,P2])
 
-	Func BeginSend@ P1
-		return dnRequest("callnamed",[self,"BeginSend",P1])
-
-	Func JoinMulticastGroup@ P1
-		dnRequest("callnamed",[self,"JoinMulticastGroup",P1])
-		return self
-
-	Func DropMulticastGroup@ P1
-		dnRequest("callnamed",[self,"DropMulticastGroup",P1])
-		return self
-
-	Func SendAsync@ P1
-		return dnRequest("callnamed",[self,"SendAsync",P1])
-
-	Func ReceiveAsync@ P1
-		return dnRequest("callnamed",[self,"ReceiveAsync",P1])
-
-	Func Connect@ P1
-		dnRequest("callnamed",[self,"Connect",P1])
-		return self
-
-	Func Send@ P1
-		return dnRequest("callnamed",[self,"Send",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getAvailable
 		return dnRequest("get",[self,"Available"])

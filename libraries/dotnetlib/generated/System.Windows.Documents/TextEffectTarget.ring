@@ -25,6 +25,9 @@ Class TextEffectTarget from Object
 		dnRequest("call",[self,"Disable"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getElement
 		return dnRequest("get",[self,"Element"])
 

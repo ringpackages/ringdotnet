@@ -19,6 +19,9 @@ Class FlatButtonAppearance from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBorderSize
 		return dnRequest("get",[self,"BorderSize"])
 

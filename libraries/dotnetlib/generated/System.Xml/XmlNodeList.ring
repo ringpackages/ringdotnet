@@ -21,6 +21,9 @@ Class XmlNodeList from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

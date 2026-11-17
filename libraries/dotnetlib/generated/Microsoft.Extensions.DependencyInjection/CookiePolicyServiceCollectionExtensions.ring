@@ -13,9 +13,9 @@ Class CookiePolicyServiceCollectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddCookiePolicy P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy'),"AddCookiePolicy",P1,P2])
-
-	Func AddCookiePolicy@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookiePolicyServiceCollectionExtensions, Microsoft.AspNetCore.CookiePolicy'),"AddCookiePolicy",P1])
 

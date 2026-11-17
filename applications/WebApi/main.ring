@@ -76,7 +76,7 @@ func deleteTodo oRequest
 # ---------------------------------------------------------------- self test: a .NET client talks to the server
 
 func request cMethod, cPath, cBody
-	oMessage = dnNew@("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = dnNew("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
 	ok
@@ -87,10 +87,10 @@ func request cMethod, cPath, cBody
 			exit
 		ok
 	next
-	oTask.Wait()
+	oTask.Wait(NULL)
 	oResponse = oTask.getProp("Result")
-	oBody = oResponse.Content.ReadAsStringAsync()
-	oBody.Wait()
+	oBody = oResponse.Content.ReadAsStringAsync(NULL)
+	oBody.Wait(NULL)
 	return [statusNumber(oResponse.StatusCode),oBody.getProp("Result")]
 
 # enums are strings: the status names the example uses

@@ -15,6 +15,9 @@ Class XamlReader from Object
 		return self
 
 	Func LoadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LoadAsync",P1])
+		ok
 		return dnRequest("call",[self,"LoadAsync",P1])
 
 	Func LoadAsync_2 P1,P2
@@ -27,7 +30,13 @@ Class XamlReader from Object
 		dnRequest("call",[self,"CancelAsync"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -37,6 +46,9 @@ Class XamlReader from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1,P2,P3])
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
 
 	Func Load_2 P1,P2
@@ -47,15 +59,6 @@ Class XamlReader from Object
 
 	Func GetWpfSchemaContext 
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"GetWpfSchemaContext"])
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[self,"LoadAsync",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
 
 	Func setLoadCompletedEvent P1
 		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])

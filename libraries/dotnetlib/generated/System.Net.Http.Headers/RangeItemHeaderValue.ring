@@ -14,6 +14,9 @@ Class RangeItemHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.RangeItemHeaderValue, System.Net.Http',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFrom
 		return dnRequest("get",[self,"From"])
 

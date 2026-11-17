@@ -74,6 +74,9 @@ Class GraphicsPath from MarshalByRefObject
 		return dnRequest("call",[self,"IsVisible",P1,P2])
 
 	Func IsVisible P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsVisible",P1])
+		ok
 		return dnRequest("call",[self,"IsVisible",P1])
 
 	Func IsVisible_3 P1,P2,P3
@@ -121,6 +124,10 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddCurve P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddCurve",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddCurve",P1])
 		return self
 
@@ -133,6 +140,10 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddClosedCurve P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddClosedCurve",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddClosedCurve",P1])
 		return self
 
@@ -153,6 +164,10 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func AddEllipse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddEllipse",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddEllipse",P1])
 		return self
 
@@ -184,8 +199,14 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[self,"Transform",P1])
 		return self
 
-	Func GetBounds 
-		return dnRequest("call",[self,"GetBounds"])
+	Func GetBounds P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetBounds",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetBounds"])
+		ok
+		return dnRequest("call",[self,"GetBounds",P1])
 
 	Func GetBounds_1 P1
 		return dnRequest("call",[self,"GetBounds",P1])
@@ -193,8 +214,16 @@ Class GraphicsPath from MarshalByRefObject
 	Func GetBounds_2 P1,P2
 		return dnRequest("call",[self,"GetBounds",P1,P2])
 
-	Func Flatten 
-		dnRequest("call",[self,"Flatten"])
+	Func Flatten P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Flatten",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Flatten"])
+		return self
+		ok
+		dnRequest("call",[self,"Flatten",P1])
 		return self
 
 	Func Flatten_1 P1
@@ -206,6 +235,10 @@ Class GraphicsPath from MarshalByRefObject
 		return self
 
 	Func Widen P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Widen",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Widen",P1])
 		return self
 
@@ -231,83 +264,6 @@ Class GraphicsPath from MarshalByRefObject
 
 	Func Warp_5 P1,P2,P3,P4,P5
 		dnRequest("call",[self,"Warp",P1,P2,P3,P4,P5])
-		return self
-
-	Func IsVisible@ P1
-		return dnRequest("callnamed",[self,"IsVisible",P1])
-
-	Func IsOutlineVisible@ P1
-		return dnRequest("callnamed",[self,"IsOutlineVisible",P1])
-
-	Func AddLine@ P1
-		dnRequest("callnamed",[self,"AddLine",P1])
-		return self
-
-	Func AddLines@ P1
-		dnRequest("callnamed",[self,"AddLines",P1])
-		return self
-
-	Func AddArc@ P1
-		dnRequest("callnamed",[self,"AddArc",P1])
-		return self
-
-	Func AddBezier@ P1
-		dnRequest("callnamed",[self,"AddBezier",P1])
-		return self
-
-	Func AddBeziers@ P1
-		dnRequest("callnamed",[self,"AddBeziers",P1])
-		return self
-
-	Func AddCurve@ P1
-		dnRequest("callnamed",[self,"AddCurve",P1])
-		return self
-
-	Func AddClosedCurve@ P1
-		dnRequest("callnamed",[self,"AddClosedCurve",P1])
-		return self
-
-	Func AddRectangle@ P1
-		dnRequest("callnamed",[self,"AddRectangle",P1])
-		return self
-
-	Func AddRectangles@ P1
-		dnRequest("callnamed",[self,"AddRectangles",P1])
-		return self
-
-	Func AddRoundedRectangle@ P1
-		dnRequest("callnamed",[self,"AddRoundedRectangle",P1])
-		return self
-
-	Func AddEllipse@ P1
-		dnRequest("callnamed",[self,"AddEllipse",P1])
-		return self
-
-	Func AddPie@ P1
-		dnRequest("callnamed",[self,"AddPie",P1])
-		return self
-
-	Func AddPolygon@ P1
-		dnRequest("callnamed",[self,"AddPolygon",P1])
-		return self
-
-	Func AddString@ P1
-		dnRequest("callnamed",[self,"AddString",P1])
-		return self
-
-	Func GetBounds@ P1
-		return dnRequest("callnamed",[self,"GetBounds",P1])
-
-	Func Flatten@ P1
-		dnRequest("callnamed",[self,"Flatten",P1])
-		return self
-
-	Func Widen@ P1
-		dnRequest("callnamed",[self,"Widen",P1])
-		return self
-
-	Func Warp@ P1
-		dnRequest("callnamed",[self,"Warp",P1])
 		return self
 
 	Func getFillMode

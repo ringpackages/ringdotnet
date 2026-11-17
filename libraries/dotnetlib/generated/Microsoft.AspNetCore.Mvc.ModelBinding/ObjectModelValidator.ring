@@ -28,7 +28,6 @@ Class ObjectModelValidator from Object
 	Func GetValidationVisitor P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetValidationVisitor",P1,P2,P3,P4,P5])
 
-	Func Validate@ P1
-		dnRequest("callnamed",[self,"Validate",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

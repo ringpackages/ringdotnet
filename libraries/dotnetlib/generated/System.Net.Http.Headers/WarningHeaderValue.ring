@@ -23,6 +23,9 @@ Class WarningHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http'),"Parse",P1])
 

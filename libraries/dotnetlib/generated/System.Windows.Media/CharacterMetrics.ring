@@ -27,6 +27,9 @@ Class CharacterMetrics from Object
 		nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMetrics
 		return dnRequest("get",[self,"Metrics"])
 

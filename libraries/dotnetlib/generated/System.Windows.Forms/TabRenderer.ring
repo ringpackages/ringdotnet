@@ -15,6 +15,9 @@ Class TabRenderer from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DrawTabItem P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3])
 		return self
@@ -45,10 +48,6 @@ Class TabRenderer from Object
 
 	Func DrawTabPage P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabPage",P1,P2])
-		return self
-
-	Func DrawTabItem@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1])
 		return self
 
 	Func getIsSupported

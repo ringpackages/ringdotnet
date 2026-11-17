@@ -34,6 +34,15 @@ Class WpfColor from ValueType
 	Func GetNativeColorValues 
 		return dnRequest("call",[self,"GetNativeColorValues"])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromAValues P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"FromAValues",P1,P2,P3])
 
@@ -63,15 +72,6 @@ Class WpfColor from ValueType
 
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1,P2])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getColorContext
 		return dnRequest("get",[self,"ColorContext"])

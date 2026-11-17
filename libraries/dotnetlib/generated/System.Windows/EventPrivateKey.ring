@@ -14,3 +14,6 @@ Class EventPrivateKey from Object
 		nHandle = dnCreate('System.Windows.EventPrivateKey, PresentationCore',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

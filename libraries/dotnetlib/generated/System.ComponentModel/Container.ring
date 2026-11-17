@@ -17,6 +17,10 @@ Class Container from Object
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -32,9 +36,8 @@ Class Container from Object
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getComponents
 		return dnRequest("get",[self,"Components"])

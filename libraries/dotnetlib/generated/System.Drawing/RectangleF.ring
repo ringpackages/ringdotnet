@@ -42,6 +42,9 @@ Class RectangleF from ValueType
 		return dnRequest("call",[self,"Contains",P1,P2])
 
 	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Contains",P1])
+		ok
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func Inflate_2 P1,P2
@@ -49,10 +52,22 @@ Class RectangleF from ValueType
 		return self
 
 	Func Inflate P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Inflate",P1])
+			ok
+			return dnRequest("callnamed",[self,"Inflate",P1])
+		ok
 		dnRequest("call",[self,"Inflate",P1])
 		return self
 
 	Func Intersect P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Intersect",P1])
+			ok
+			return dnRequest("callnamed",[self,"Intersect",P1])
+		ok
 		dnRequest("call",[self,"Intersect",P1])
 		return self
 
@@ -60,6 +75,10 @@ Class RectangleF from ValueType
 		return dnRequest("call",[self,"IntersectsWith",P1])
 
 	Func Offset P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Offset",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Offset",P1])
 		return self
 
@@ -78,28 +97,6 @@ Class RectangleF from ValueType
 
 	Func Union P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Union",P1,P2])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Inflate@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Inflate",P1])
-		ok
-		return dnRequest("callnamed",[self,"Inflate",P1])
-
-	Func Intersect@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Drawing.RectangleF, System.Drawing.Primitives'),"Intersect",P1])
-		ok
-		return dnRequest("callnamed",[self,"Intersect",P1])
-
-	Func Offset@ P1
-		dnRequest("callnamed",[self,"Offset",P1])
-		return self
 
 	Func getLocation
 		return dnRequest("get",[self,"Location"])

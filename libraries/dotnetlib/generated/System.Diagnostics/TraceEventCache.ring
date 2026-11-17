@@ -21,6 +21,9 @@ Class TraceEventCache from Object
 		nHandle = dnCreate('System.Diagnostics.TraceEventCache, System.Diagnostics.TraceSource',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDateTime
 		return dnRequest("get",[self,"DateTime"])
 

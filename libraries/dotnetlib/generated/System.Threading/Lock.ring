@@ -23,8 +23,14 @@ Class Lock from Object
 	Func EnterScope 
 		return dnRequest("call",[self,"EnterScope"])
 
-	Func TryEnter 
-		return dnRequest("call",[self,"TryEnter"])
+	Func TryEnter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryEnter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryEnter"])
+		ok
+		return dnRequest("call",[self,"TryEnter",P1])
 
 	Func TryEnter_1 P1
 		return dnRequest("call",[self,"TryEnter",P1])
@@ -33,8 +39,8 @@ Class Lock from Object
 		dnRequest("call",[self,"Exit"])
 		return self
 
-	Func TryEnter@ P1
-		return dnRequest("callnamed",[self,"TryEnter",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIsHeldByCurrentThread
 		return dnRequest("get",[self,"IsHeldByCurrentThread"])

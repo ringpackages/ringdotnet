@@ -22,6 +22,9 @@ Class X500RelativeDistinguishedName from Object
 	Func GetSingleElementValue 
 		return dnRequest("call",[self,"GetSingleElementValue"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRawData
 		return dnRequest("get",[self,"RawData"])
 

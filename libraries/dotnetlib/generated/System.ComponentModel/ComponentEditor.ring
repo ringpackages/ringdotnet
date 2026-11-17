@@ -14,11 +14,14 @@ Class ComponentEditor from Object
 		return self
 
 	Func EditComponent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EditComponent",P1])
+		ok
 		return dnRequest("call",[self,"EditComponent",P1])
 
 	Func EditComponent_2 P1,P2
 		return dnRequest("call",[self,"EditComponent",P1,P2])
 
-	Func EditComponent@ P1
-		return dnRequest("callnamed",[self,"EditComponent",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

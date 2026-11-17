@@ -17,6 +17,9 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		return dnRequest("call",[self,"PushInput",P1,P2])
 
 	Func PushInput P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PushInput",P1])
+		ok
 		return dnRequest("call",[self,"PushInput",P1])
 
 	Func PopInput 
@@ -24,7 +27,4 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 
 	Func PeekInput 
 		return dnRequest("call",[self,"PeekInput"])
-
-	Func PushInput@ P1
-		return dnRequest("callnamed",[self,"PushInput",P1])
 

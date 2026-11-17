@@ -24,14 +24,26 @@ Class CertificateRequest from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1,P2,P3,P4])
 		return self
 
-	Func CreateSigningRequest 
-		return dnRequest("call",[self,"CreateSigningRequest"])
+	Func CreateSigningRequest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSigningRequest",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateSigningRequest"])
+		ok
+		return dnRequest("call",[self,"CreateSigningRequest",P1])
 
 	Func CreateSigningRequest_1 P1
 		return dnRequest("call",[self,"CreateSigningRequest",P1])
 
-	Func CreateSigningRequestPem 
-		return dnRequest("call",[self,"CreateSigningRequestPem"])
+	Func CreateSigningRequestPem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSigningRequestPem",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateSigningRequestPem"])
+		ok
+		return dnRequest("call",[self,"CreateSigningRequestPem",P1])
 
 	Func CreateSigningRequestPem_1 P1
 		return dnRequest("call",[self,"CreateSigningRequestPem",P1])
@@ -44,6 +56,9 @@ Class CertificateRequest from Object
 
 	Func Create_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"Create",P1,P2,P3,P4,P5])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func LoadSigningRequestPem_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1,P2,P3,P4])
@@ -62,21 +77,6 @@ Class CertificateRequest from Object
 
 	Func LoadSigningRequest P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2])
-
-	Func CreateSigningRequest@ P1
-		return dnRequest("callnamed",[self,"CreateSigningRequest",P1])
-
-	Func CreateSigningRequestPem@ P1
-		return dnRequest("callnamed",[self,"CreateSigningRequestPem",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[self,"Create",P1])
-
-	Func LoadSigningRequestPem@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1])
-
-	Func LoadSigningRequest@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1])
 
 	Func getSubjectName
 		return dnRequest("get",[self,"SubjectName"])

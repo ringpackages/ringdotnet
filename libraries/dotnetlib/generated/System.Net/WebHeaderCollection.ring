@@ -19,6 +19,10 @@ Class WebHeaderCollection from NameValueCollection
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -26,19 +30,11 @@ Class WebHeaderCollection from NameValueCollection
 		return dnRequest("call",[self,"ToByteArray"])
 
 	Func IsRestricted P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1])
 
 	Func IsRestricted_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1,P2])
-
-	Func Set@ P1
-		dnRequest("callnamed",[self,"Set",P1])
-		return self
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
-
-	Func IsRestricted@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1])
 

@@ -17,6 +17,9 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func GetAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAttribute",P1])
+		ok
 		return dnRequest("call",[self,"GetAttribute",P1])
 
 	Func SetAttribute P1,P2
@@ -24,19 +27,35 @@ Class XmlElement from XmlLinkedNode
 		return self
 
 	Func RemoveAttribute P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"RemoveAttribute",P1])
+			return self
+		ok
 		dnRequest("call",[self,"RemoveAttribute",P1])
 		return self
 
 	Func GetAttributeNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAttributeNode",P1])
+		ok
 		return dnRequest("call",[self,"GetAttributeNode",P1])
 
 	Func SetAttributeNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetAttributeNode",P1])
+		ok
 		return dnRequest("call",[self,"SetAttributeNode",P1])
 
 	Func RemoveAttributeNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveAttributeNode",P1])
+		ok
 		return dnRequest("call",[self,"RemoveAttributeNode",P1])
 
 	Func GetElementsByTagName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
+		ok
 		return dnRequest("call",[self,"GetElementsByTagName",P1])
 
 	Func GetAttribute_2 P1,P2
@@ -62,6 +81,9 @@ Class XmlElement from XmlLinkedNode
 		return dnRequest("call",[self,"GetElementsByTagName",P1,P2])
 
 	Func HasAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasAttribute",P1])
+		ok
 		return dnRequest("call",[self,"HasAttribute",P1])
 
 	Func HasAttribute_2 P1,P2
@@ -73,31 +95,6 @@ Class XmlElement from XmlLinkedNode
 	Func RemoveAllAttributes 
 		dnRequest("call",[self,"RemoveAllAttributes"])
 		return self
-
-	Func GetAttribute@ P1
-		return dnRequest("callnamed",[self,"GetAttribute",P1])
-
-	Func SetAttribute@ P1
-		return dnRequest("callnamed",[self,"SetAttribute",P1])
-
-	Func RemoveAttribute@ P1
-		dnRequest("callnamed",[self,"RemoveAttribute",P1])
-		return self
-
-	Func GetAttributeNode@ P1
-		return dnRequest("callnamed",[self,"GetAttributeNode",P1])
-
-	Func SetAttributeNode@ P1
-		return dnRequest("callnamed",[self,"SetAttributeNode",P1])
-
-	Func RemoveAttributeNode@ P1
-		return dnRequest("callnamed",[self,"RemoveAttributeNode",P1])
-
-	Func GetElementsByTagName@ P1
-		return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
-
-	Func HasAttribute@ P1
-		return dnRequest("callnamed",[self,"HasAttribute",P1])
 
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])

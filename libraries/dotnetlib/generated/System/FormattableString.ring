@@ -25,14 +25,14 @@ Class FormattableString from Object
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Invariant P1
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"Invariant",P1])
 
 	Func CurrentCulture P1
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"CurrentCulture",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getFormat
 		return dnRequest("get",[self,"Format"])

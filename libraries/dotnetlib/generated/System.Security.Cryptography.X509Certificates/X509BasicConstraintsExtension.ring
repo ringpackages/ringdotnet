@@ -29,20 +29,26 @@ Class X509BasicConstraintsExtension from X509Extension
 	Func CreateForCertificateAuthority_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
 
-	Func CreateForCertificateAuthority 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority"])
+	Func CreateForCertificateAuthority P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
 
 	Func CreateForEndEntity_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
 
-	Func CreateForEndEntity 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity"])
-
-	Func CreateForCertificateAuthority@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
-
-	Func CreateForEndEntity@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
+	Func CreateForEndEntity P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
 
 	Func getCertificateAuthority
 		return dnRequest("get",[self,"CertificateAuthority"])

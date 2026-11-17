@@ -16,6 +16,9 @@ Class ApiDescriptionActionData from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ApiDescriptionActionData, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getGroupName
 		return dnRequest("get",[self,"GroupName"])
 

@@ -28,6 +28,10 @@ Class BlockingObjectCollection from Object
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -36,6 +40,9 @@ Class BlockingObjectCollection from Object
 		return self
 
 	Func TryAdd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAdd",P1])
+		ok
 		return dnRequest("call",[self,"TryAdd",P1])
 
 	Func TryAdd_2 P1,P2
@@ -44,14 +51,26 @@ Class BlockingObjectCollection from Object
 	Func TryAdd_3 P1,P2,P3
 		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
 
-	Func Take 
-		return dnRequest("call",[self,"Take"])
+	Func Take P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Take",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Take"])
+		ok
+		return dnRequest("call",[self,"Take",P1])
 
 	Func Take_1 P1
 		return dnRequest("call",[self,"Take",P1])
 
-	Func TryTake 
-		return dnRequest("call",[self,"TryTake"])
+	Func TryTake P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryTake",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryTake"])
+		ok
+		return dnRequest("call",[self,"TryTake",P1])
 
 	Func TryTake_1 P1
 		return dnRequest("call",[self,"TryTake",P1])
@@ -74,11 +93,20 @@ Class BlockingObjectCollection from Object
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
-	Func GetConsumingEnumerable 
-		return dnRequest("call",[self,"GetConsumingEnumerable"])
+	Func GetConsumingEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetConsumingEnumerable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetConsumingEnumerable"])
+		ok
+		return dnRequest("call",[self,"GetConsumingEnumerable",P1])
 
 	Func GetConsumingEnumerable_1 P1
 		return dnRequest("call",[self,"GetConsumingEnumerable",P1])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func AddToAny P1,P2
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1,P2])
@@ -96,12 +124,18 @@ Class BlockingObjectCollection from Object
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1,P2,P3,P4])
 
 	Func TakeFromAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1])
 
 	Func TakeFromAny_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1,P2])
 
 	Func TryTakeFromAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
 
 	Func TryTakeFromAny_2 P1,P2
@@ -109,34 +143,6 @@ Class BlockingObjectCollection from Object
 
 	Func TryTakeFromAny_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2,P3])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func TryAdd@ P1
-		return dnRequest("callnamed",[self,"TryAdd",P1])
-
-	Func Take@ P1
-		return dnRequest("callnamed",[self,"Take",P1])
-
-	Func TryTake@ P1
-		return dnRequest("callnamed",[self,"TryTake",P1])
-
-	Func GetConsumingEnumerable@ P1
-		return dnRequest("callnamed",[self,"GetConsumingEnumerable",P1])
-
-	Func AddToAny@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1])
-
-	Func TryAddToAny@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1])
-
-	Func TakeFromAny@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1])
-
-	Func TryTakeFromAny@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
 
 	Func getBoundedCapacity
 		return dnRequest("get",[self,"BoundedCapacity"])

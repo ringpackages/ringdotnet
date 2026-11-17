@@ -13,7 +13,13 @@ Class ExceptionHandlerExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseExceptionHandler P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
 
 	Func UseExceptionHandler_2 P1,P2
@@ -21,7 +27,4 @@ Class ExceptionHandlerExtensions from Object
 
 	Func UseExceptionHandler_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1,P2,P3])
-
-	Func UseExceptionHandler@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
 

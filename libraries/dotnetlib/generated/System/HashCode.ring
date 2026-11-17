@@ -15,6 +15,10 @@ Class HashCode from ValueType
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -26,6 +30,9 @@ Class HashCode from ValueType
 		return dnRequest("call",[self,"ToHashCode"])
 
 	Func Combine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
 
 	Func Combine_2 P1,P2
@@ -48,11 +55,4 @@ Class HashCode from ValueType
 
 	Func Combine_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func Combine@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
 

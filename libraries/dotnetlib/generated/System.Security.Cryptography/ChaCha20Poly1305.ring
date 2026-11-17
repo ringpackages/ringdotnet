@@ -36,13 +36,8 @@ Class ChaCha20Poly1305 from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Encrypt@ P1
-		dnRequest("callnamed",[self,"Encrypt",P1])
-		return self
-
-	Func Decrypt@ P1
-		dnRequest("callnamed",[self,"Decrypt",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography'),"IsSupported"])

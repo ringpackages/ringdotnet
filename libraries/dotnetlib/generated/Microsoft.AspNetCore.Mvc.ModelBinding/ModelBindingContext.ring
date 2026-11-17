@@ -33,11 +33,17 @@ Class ModelBindingContext from Object
 	Func EnterNestedScope_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"EnterNestedScope",P1,P2,P3,P4])
 
-	Func EnterNestedScope 
-		return dnRequest("call",[self,"EnterNestedScope"])
+	Func EnterNestedScope P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnterNestedScope",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnterNestedScope"])
+		ok
+		raise("DotNet Error: EnterNestedScope does not take one argument: use EnterNestedScope(NULL), EnterNestedScope_N(...) or named arguments")
 
-	Func EnterNestedScope@ P1
-		return dnRequest("callnamed",[self,"EnterNestedScope",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])

@@ -13,6 +13,9 @@ Class WebHostExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func StopAsync P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"StopAsync",P1,P2])
 
@@ -24,6 +27,9 @@ Class WebHostExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1,P2])
 
 	Func WaitForShutdownAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
 
 	Func Run P1
@@ -34,11 +40,8 @@ Class WebHostExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1,P2])
 
 	Func RunAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
-
-	Func WaitForShutdownAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
-
-	Func RunAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
 

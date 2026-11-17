@@ -49,3 +49,6 @@ Class AuthenticationSchemeProvider from Object
 	Func GetAllSchemesAsync 
 		return dnRequest("call",[self,"GetAllSchemesAsync"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

@@ -13,7 +13,13 @@ Class MvcLocalizationMvcCoreBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddViewLocalization P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
 
 	Func AddViewLocalization_2 P1,P2
@@ -23,6 +29,9 @@ Class MvcLocalizationMvcCoreBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1,P2,P3])
 
 	Func AddMvcLocalization P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
 
 	Func AddMvcLocalization_2 P1,P2
@@ -33,10 +42,4 @@ Class MvcLocalizationMvcCoreBuilderExtensions from Object
 
 	Func AddMvcLocalization_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1,P2,P3,P4])
-
-	Func AddViewLocalization@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
-
-	Func AddMvcLocalization@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
 

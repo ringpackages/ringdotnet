@@ -19,6 +19,9 @@ Class WebSocketDeflateOptions from Object
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketDeflateOptions, System.Net.WebSockets',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getClientMaxWindowBits
 		return dnRequest("get",[self,"ClientMaxWindowBits"])
 

@@ -13,10 +13,16 @@ Class ServiceCollectionServiceExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddTransient_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1,P2,P3])
 
 	Func AddTransient P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1])
 
 	Func AddTransient_2 P1,P2
@@ -26,6 +32,9 @@ Class ServiceCollectionServiceExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1,P2,P3])
 
 	Func AddScoped P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1])
 
 	Func AddScoped_2 P1,P2
@@ -35,6 +44,9 @@ Class ServiceCollectionServiceExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1,P2,P3])
 
 	Func AddSingleton P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1])
 
 	Func AddSingleton_2 P1,P2
@@ -66,22 +78,4 @@ Class ServiceCollectionServiceExtensions from Object
 
 	Func AddKeyedSingleton_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedSingleton",P1,P2,P3])
-
-	Func AddTransient@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddTransient",P1])
-
-	Func AddScoped@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddScoped",P1])
-
-	Func AddSingleton@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddSingleton",P1])
-
-	Func AddKeyedTransient@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedTransient",P1])
-
-	Func AddKeyedScoped@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedScoped",P1])
-
-	Func AddKeyedSingleton@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"AddKeyedSingleton",P1])
 

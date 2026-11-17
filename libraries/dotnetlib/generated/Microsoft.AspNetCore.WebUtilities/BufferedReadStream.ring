@@ -20,10 +20,19 @@ Class BufferedReadStream from Stream
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
 		return self
 
-	Func EnsureBuffered 
-		return dnRequest("call",[self,"EnsureBuffered"])
+	Func EnsureBuffered P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureBuffered",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnsureBuffered"])
+		ok
+		return dnRequest("call",[self,"EnsureBuffered",P1])
 
 	Func EnsureBufferedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureBufferedAsync",P1])
+		ok
 		return dnRequest("call",[self,"EnsureBufferedAsync",P1])
 
 	Func EnsureBuffered_1 P1
@@ -37,12 +46,6 @@ Class BufferedReadStream from Stream
 
 	Func ReadLineAsync P1,P2
 		return dnRequest("call",[self,"ReadLineAsync",P1,P2])
-
-	Func EnsureBuffered@ P1
-		return dnRequest("callnamed",[self,"EnsureBuffered",P1])
-
-	Func EnsureBufferedAsync@ P1
-		return dnRequest("callnamed",[self,"EnsureBufferedAsync",P1])
 
 	Func getBufferedData
 		return dnRequest("get",[self,"BufferedData"])

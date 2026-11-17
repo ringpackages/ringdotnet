@@ -84,6 +84,15 @@ Class TimeSpan from ValueType
 	Func Duration 
 		return dnRequest("call",[self,"Duration"])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Negate 
 		return dnRequest("call",[self,"Negate"])
 
@@ -106,6 +115,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Compare",P1,P2])
 
 	Func FromDays P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
 
 	Func Equals_2 P1,P2
@@ -127,6 +139,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2])
 
 	Func FromHours P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
 
 	Func FromHours_5 P1,P2,P3,P4,P5
@@ -142,6 +157,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2])
 
 	Func FromMinutes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
 
 	Func FromMinutes_4 P1,P2,P3,P4
@@ -154,6 +172,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2])
 
 	Func FromSeconds P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
 
 	Func FromSeconds_3 P1,P2,P3
@@ -166,6 +187,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1,P2])
 
 	Func FromMilliseconds P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
 
 	Func FromMicroseconds P1
@@ -175,6 +199,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromTicks",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -187,6 +214,9 @@ Class TimeSpan from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_2 P1,P2
@@ -197,51 +227,6 @@ Class TimeSpan from ValueType
 
 	Func TryParseExact_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Divide@ P1
-		return dnRequest("callnamed",[self,"Divide",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func FromDays@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
-
-	Func FromHours@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
-
-	Func FromMinutes@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
-
-	Func FromSeconds@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
-
-	Func FromMilliseconds@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
-
-	Func FromMicroseconds@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMicroseconds",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
-
-	Func ParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1])
 
 	Func getTicks
 		return dnRequest("get",[self,"Ticks"])

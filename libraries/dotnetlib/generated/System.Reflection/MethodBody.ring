@@ -22,6 +22,9 @@ Class MethodBody from Object
 	Func GetILAsByteArray 
 		return dnRequest("call",[self,"GetILAsByteArray"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLocalSignatureMetadataToken
 		return dnRequest("get",[self,"LocalSignatureMetadataToken"])
 

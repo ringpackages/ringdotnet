@@ -18,6 +18,9 @@ Class RouteValuesAddress from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValuesAddress, Microsoft.AspNetCore.Routing',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
 

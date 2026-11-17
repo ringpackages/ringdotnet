@@ -17,6 +17,9 @@ Class ServiceProviderOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.DependencyInjection.ServiceProviderOptions, Microsoft.Extensions.DependencyInjection',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getValidateScopes
 		return dnRequest("get",[self,"ValidateScopes"])
 

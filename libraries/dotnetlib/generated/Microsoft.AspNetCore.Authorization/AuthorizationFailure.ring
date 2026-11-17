@@ -17,14 +17,14 @@ Class AuthorizationFailure from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ExplicitFail 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"ExplicitFail"])
 
 	Func Failed P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"Failed",P1])
-
-	Func Failed@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationFailure, Microsoft.AspNetCore.Authorization'),"Failed",P1])
 
 	Func getFailCalled
 		return dnRequest("get",[self,"FailCalled"])

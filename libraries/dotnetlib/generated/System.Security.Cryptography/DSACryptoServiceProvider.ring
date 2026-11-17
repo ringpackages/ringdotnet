@@ -35,6 +35,9 @@ Class DSACryptoServiceProvider from DSA
 		return self
 
 	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignData",P1])
+		ok
 		return dnRequest("call",[self,"SignData",P1])
 
 	Func VerifyData P1,P2

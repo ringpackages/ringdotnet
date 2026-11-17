@@ -19,8 +19,14 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func ExistsAsync_1 P1
 		return dnRequest("call",[self,"ExistsAsync",P1])
 
-	Func ExistsAsync 
-		return dnRequest("call",[self,"ExistsAsync"])
+	Func ExistsAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExistsAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExistsAsync"])
+		ok
+		return dnRequest("call",[self,"ExistsAsync",P1])
 
 	Func HasTables 
 		return dnRequest("call",[self,"HasTables"])
@@ -28,8 +34,14 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func HasTablesAsync_1 P1
 		return dnRequest("call",[self,"HasTablesAsync",P1])
 
-	Func HasTablesAsync 
-		return dnRequest("call",[self,"HasTablesAsync"])
+	Func HasTablesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasTablesAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasTablesAsync"])
+		ok
+		return dnRequest("call",[self,"HasTablesAsync",P1])
 
 	Func Create 
 		dnRequest("call",[self,"Create"])
@@ -38,8 +50,14 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func CreateAsync_1 P1
 		return dnRequest("call",[self,"CreateAsync",P1])
 
-	Func CreateAsync 
-		return dnRequest("call",[self,"CreateAsync"])
+	Func CreateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateAsync"])
+		ok
+		return dnRequest("call",[self,"CreateAsync",P1])
 
 	Func Delete 
 		dnRequest("call",[self,"Delete"])
@@ -48,8 +66,14 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func DeleteAsync_1 P1
 		return dnRequest("call",[self,"DeleteAsync",P1])
 
-	Func DeleteAsync 
-		return dnRequest("call",[self,"DeleteAsync"])
+	Func DeleteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DeleteAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"DeleteAsync"])
+		ok
+		return dnRequest("call",[self,"DeleteAsync",P1])
 
 	Func CreateTables 
 		dnRequest("call",[self,"CreateTables"])
@@ -58,24 +82,15 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func CreateTablesAsync_1 P1
 		return dnRequest("call",[self,"CreateTablesAsync",P1])
 
-	Func CreateTablesAsync 
-		return dnRequest("call",[self,"CreateTablesAsync"])
+	Func CreateTablesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateTablesAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateTablesAsync"])
+		ok
+		return dnRequest("call",[self,"CreateTablesAsync",P1])
 
 	Func GenerateCreateScript 
 		return dnRequest("call",[self,"GenerateCreateScript"])
-
-	Func ExistsAsync@ P1
-		return dnRequest("callnamed",[self,"ExistsAsync",P1])
-
-	Func HasTablesAsync@ P1
-		return dnRequest("callnamed",[self,"HasTablesAsync",P1])
-
-	Func CreateAsync@ P1
-		return dnRequest("callnamed",[self,"CreateAsync",P1])
-
-	Func DeleteAsync@ P1
-		return dnRequest("callnamed",[self,"DeleteAsync",P1])
-
-	Func CreateTablesAsync@ P1
-		return dnRequest("callnamed",[self,"CreateTablesAsync",P1])
 

@@ -13,39 +13,42 @@ Class CharUnicodeInfo from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDecimalDigitValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
 
 	Func GetDecimalDigitValue_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1,P2])
 
 	Func GetDigitValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
 
 	Func GetDigitValue_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1,P2])
 
 	Func GetNumericValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
 
 	Func GetNumericValue_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1,P2])
 
 	Func GetUnicodeCategory P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
 
 	Func GetUnicodeCategory_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1,P2])
-
-	Func GetDecimalDigitValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
-
-	Func GetDigitValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
-
-	Func GetNumericValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
-
-	Func GetUnicodeCategory@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
 

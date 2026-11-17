@@ -14,3 +14,6 @@ Class PathList from Object
 		nHandle = dnCreate('System.Net.PathList, System.Net.Primitives',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

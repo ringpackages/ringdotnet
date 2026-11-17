@@ -13,7 +13,13 @@ Class MvcRazorMvcCoreBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddRazorViewEngine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
 
 	Func AddRazorViewEngine_2 P1,P2
@@ -24,7 +30,4 @@ Class MvcRazorMvcCoreBuilderExtensions from Object
 
 	Func InitializeTagHelper P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"InitializeTagHelper",P1,P2])
-
-	Func AddRazorViewEngine@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
 

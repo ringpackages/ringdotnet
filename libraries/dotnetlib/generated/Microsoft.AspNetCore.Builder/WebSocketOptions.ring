@@ -19,6 +19,9 @@ Class WebSocketOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebSocketOptions, Microsoft.AspNetCore.WebSockets',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getKeepAliveInterval
 		return dnRequest("get",[self,"KeepAliveInterval"])
 

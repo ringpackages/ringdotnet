@@ -24,3 +24,6 @@ Class HostExecutionContextManager from Object
 		dnRequest("call",[self,"Revert",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

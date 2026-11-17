@@ -13,6 +13,9 @@ Class AspBase64UrlTextEncoder from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Encode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.Base64UrlTextEncoder, Microsoft.AspNetCore.WebUtilities'),"Encode",P1])
 

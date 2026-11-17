@@ -54,17 +54,23 @@ Class HttpListenerResponse from Object
 		dnRequest("call",[self,"Abort"])
 		return self
 
-	Func Close 
-		dnRequest("call",[self,"Close"])
+	Func Close P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Close",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Close"])
 		return self
+		ok
+		raise("DotNet Error: Close does not take one argument: use Close(NULL), Close_N(...) or named arguments")
 
 	Func Close_2 P1,P2
 		dnRequest("call",[self,"Close",P1,P2])
 		return self
 
-	Func Close@ P1
-		dnRequest("callnamed",[self,"Close",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHeaders
 		return dnRequest("get",[self,"Headers"])

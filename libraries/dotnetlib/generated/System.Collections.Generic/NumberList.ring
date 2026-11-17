@@ -36,6 +36,9 @@ Class NumberList from Object
 		return dnRequest("call",[self,"BinarySearch",P1,P2,P3,P4])
 
 	Func BinarySearch P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BinarySearch",P1])
+		ok
 		return dnRequest("call",[self,"BinarySearch",P1])
 
 	Func BinarySearch_2 P1,P2
@@ -52,6 +55,10 @@ Class NumberList from Object
 		return dnRequest("call",[self,"ConvertAll",P1])
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -76,6 +83,9 @@ Class NumberList from Object
 		return dnRequest("call",[self,"FindAll",P1])
 
 	Func FindIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindIndex",P1])
+		ok
 		return dnRequest("call",[self,"FindIndex",P1])
 
 	Func FindIndex_2 P1,P2
@@ -88,6 +98,9 @@ Class NumberList from Object
 		return dnRequest("call",[self,"FindLast",P1])
 
 	Func FindLastIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindLastIndex",P1])
+		ok
 		return dnRequest("call",[self,"FindLastIndex",P1])
 
 	Func FindLastIndex_2 P1,P2
@@ -110,6 +123,9 @@ Class NumberList from Object
 		return dnRequest("call",[self,"Slice",P1,P2])
 
 	Func IndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOf",P1])
+		ok
 		return dnRequest("call",[self,"IndexOf",P1])
 
 	Func IndexOf_2 P1,P2
@@ -127,6 +143,9 @@ Class NumberList from Object
 		return self
 
 	Func LastIndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LastIndexOf",P1])
+		ok
 		return dnRequest("call",[self,"LastIndexOf",P1])
 
 	Func LastIndexOf_2 P1,P2
@@ -149,16 +168,31 @@ Class NumberList from Object
 		dnRequest("call",[self,"RemoveRange",P1,P2])
 		return self
 
-	Func Reverse 
-		dnRequest("call",[self,"Reverse"])
+	Func Reverse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Reverse",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Reverse"])
 		return self
+		ok
+		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
 
 	Func Reverse_2 P1,P2
 		dnRequest("call",[self,"Reverse",P1,P2])
 		return self
 
-	Func Sort 
-		dnRequest("call",[self,"Sort"])
+	Func Sort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Sort",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Sort"])
+		return self
+		ok
+		dnRequest("call",[self,"Sort",P1])
 		return self
 
 	Func Sort_1 P1
@@ -179,32 +213,8 @@ Class NumberList from Object
 	Func TrueForAll P1
 		return dnRequest("call",[self,"TrueForAll",P1])
 
-	Func BinarySearch@ P1
-		return dnRequest("callnamed",[self,"BinarySearch",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[self,"FindIndex",P1])
-
-	Func FindLastIndex@ P1
-		return dnRequest("callnamed",[self,"FindLastIndex",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func LastIndexOf@ P1
-		return dnRequest("callnamed",[self,"LastIndexOf",P1])
-
-	Func Reverse@ P1
-		dnRequest("callnamed",[self,"Reverse",P1])
-		return self
-
-	Func Sort@ P1
-		dnRequest("callnamed",[self,"Sort",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

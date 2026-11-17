@@ -22,6 +22,10 @@ Class DocumentPaginator from Object
 		return dnRequest("call",[self,"GetPage",P1])
 
 	Func GetPageAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"GetPageAsync",P1])
+			return self
+		ok
 		dnRequest("call",[self,"GetPageAsync",P1])
 		return self
 
@@ -33,8 +37,16 @@ Class DocumentPaginator from Object
 		dnRequest("call",[self,"ComputePageCount"])
 		return self
 
-	Func ComputePageCountAsync 
-		dnRequest("call",[self,"ComputePageCountAsync"])
+	Func ComputePageCountAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ComputePageCountAsync",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ComputePageCountAsync"])
+		return self
+		ok
+		dnRequest("call",[self,"ComputePageCountAsync",P1])
 		return self
 
 	Func ComputePageCountAsync_1 P1
@@ -45,13 +57,8 @@ Class DocumentPaginator from Object
 		dnRequest("call",[self,"CancelAsync",P1])
 		return self
 
-	Func GetPageAsync@ P1
-		dnRequest("callnamed",[self,"GetPageAsync",P1])
-		return self
-
-	Func ComputePageCountAsync@ P1
-		dnRequest("callnamed",[self,"ComputePageCountAsync",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setGetPageCompletedEvent P1
 		dnRequest("setevent",[self,"GetPageCompleted",dnCallback(P1)])

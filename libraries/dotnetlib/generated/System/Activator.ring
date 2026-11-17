@@ -13,6 +13,9 @@ Class Activator from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateInstance_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5])
 
@@ -40,12 +43,12 @@ Class Activator from Object
 	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
 
-	Func CreateInstance 
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
-
-	Func CreateInstance@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
-
-	Func CreateInstanceFrom@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1])
+	Func CreateInstance P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
 

@@ -22,6 +22,9 @@ Class DispatcherObject from Object
 		dnRequest("call",[self,"VerifyAccess"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDispatcher
 		return dnRequest("get",[self,"Dispatcher"])
 

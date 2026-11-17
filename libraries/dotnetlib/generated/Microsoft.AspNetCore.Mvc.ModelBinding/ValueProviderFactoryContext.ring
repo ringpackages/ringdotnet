@@ -17,6 +17,9 @@ Class ValueProviderFactoryContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
 

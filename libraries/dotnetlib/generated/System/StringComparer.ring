@@ -29,6 +29,21 @@ Class StringComparer from Object
 	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func GetHashCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHashCode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHashCode"])
+		ok
+		return dnRequest("call",[self,"GetHashCode",P1])
+
 	Func FromComparison P1
 		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"FromComparison",P1])
 
@@ -40,18 +55,6 @@ Class StringComparer from Object
 
 	Func IsWellKnownCultureAwareComparer P1
 		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"IsWellKnownCultureAwareComparer",P1])
-
-	Func Compare@ P1
-		return dnRequest("callnamed",[self,"Compare",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func GetHashCode@ P1
-		return dnRequest("callnamed",[self,"GetHashCode",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"Create",P1])
 
 	Func getInvariantCulture
 		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"InvariantCulture"])

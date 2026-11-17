@@ -35,26 +35,20 @@ Class ShapedQueryCompilingExpressionVisitor from DotNetObject
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1,P2])
 
 	Func SingleAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
 
 	Func SingleOrDefaultAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1,P2])
 
 	Func SingleOrDefaultAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
 
 	Func CreateNullKeyValueInNoTrackingQuery P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"CreateNullKeyValueInNoTrackingQuery",P1,P2,P3])
-
-	Func Visit@ P1
-		return dnRequest("callnamed",[self,"Visit",P1])
-
-	Func VisitAndConvert@ P1
-		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
-
-	Func SingleAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
-
-	Func SingleOrDefaultAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
 

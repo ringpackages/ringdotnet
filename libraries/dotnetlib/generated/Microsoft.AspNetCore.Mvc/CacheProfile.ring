@@ -20,6 +20,9 @@ Class CacheProfile from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CacheProfile, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDuration
 		return dnRequest("get",[self,"Duration"])
 

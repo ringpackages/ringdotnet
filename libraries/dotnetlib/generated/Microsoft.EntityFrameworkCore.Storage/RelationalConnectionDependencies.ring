@@ -22,8 +22,8 @@ Class RelationalConnectionDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalConnectionDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getContextOptions
 		return dnRequest("get",[self,"ContextOptions"])

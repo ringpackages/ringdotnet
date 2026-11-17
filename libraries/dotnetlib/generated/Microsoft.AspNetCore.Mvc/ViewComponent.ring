@@ -30,8 +30,14 @@ Class ViewComponent from Object
 	Func Content P1
 		return dnRequest("call",[self,"Content",P1])
 
-	Func View 
-		return dnRequest("call",[self,"View"])
+	Func View P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"View",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"View"])
+		ok
+		return dnRequest("call",[self,"View",P1])
 
 	Func View_1 P1
 		return dnRequest("call",[self,"View",P1])
@@ -39,8 +45,8 @@ Class ViewComponent from Object
 	Func View_2 P1,P2
 		return dnRequest("call",[self,"View",P1,P2])
 
-	Func View@ P1
-		return dnRequest("callnamed",[self,"View",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])

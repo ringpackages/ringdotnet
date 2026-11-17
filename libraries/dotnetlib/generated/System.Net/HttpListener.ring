@@ -55,6 +55,9 @@ Class HttpListener from Object
 	Func EndGetContext P1
 		return dnRequest("call",[self,"EndGetContext",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAuthenticationSchemeSelectorDelegate
 		return dnRequest("get",[self,"AuthenticationSchemeSelectorDelegate"])
 

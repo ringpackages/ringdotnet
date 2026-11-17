@@ -155,6 +155,9 @@ Class Pens from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTransparent
 		return dnRequest("get",[dnTypeCached('System.Drawing.Pens, System.Drawing.Common'),"Transparent"])
 

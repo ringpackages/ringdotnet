@@ -24,6 +24,9 @@ Class DependencyObjectType from Object
 	Func IsSubclassOf P1
 		return dnRequest("call",[self,"IsSubclassOf",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromSystemType P1
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyObjectType, WindowsBase'),"FromSystemType",P1])
 

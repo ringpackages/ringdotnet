@@ -25,9 +25,6 @@ Class GridLength from ValueType
 		nHandle = dnCreate('System.Windows.GridLength, PresentationFramework',[P1,P2])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getIsAbsolute
 		return dnRequest("get",[self,"IsAbsolute"])
 

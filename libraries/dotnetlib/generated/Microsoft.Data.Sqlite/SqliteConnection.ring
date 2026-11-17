@@ -64,8 +64,16 @@ Class SqliteConnection from DbConnection
 		dnRequest("call",[self,"EnableExtensions",P1])
 		return self
 
-	Func EnableExtensions 
-		dnRequest("call",[self,"EnableExtensions"])
+	Func EnableExtensions P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"EnableExtensions",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"EnableExtensions"])
+		return self
+		ok
+		dnRequest("call",[self,"EnableExtensions",P1])
 		return self
 
 	Func LoadExtension_2 P1,P2
@@ -73,10 +81,18 @@ Class SqliteConnection from DbConnection
 		return self
 
 	Func LoadExtension P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"LoadExtension",P1])
+			return self
+		ok
 		dnRequest("call",[self,"LoadExtension",P1])
 		return self
 
 	Func BackupDatabase P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"BackupDatabase",P1])
+			return self
+		ok
 		dnRequest("call",[self,"BackupDatabase",P1])
 		return self
 
@@ -90,33 +106,6 @@ Class SqliteConnection from DbConnection
 
 	Func ClearPool P1
 		dnRequest("call",[dnTypeCached('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite'),"ClearPool",P1])
-		return self
-
-	Func CreateAggregate@ P1
-		dnRequest("callnamed",[self,"CreateAggregate",P1])
-		return self
-
-	Func CreateFunction@ P1
-		dnRequest("callnamed",[self,"CreateFunction",P1])
-		return self
-
-	Func CreateCommand@ P1
-		return dnRequest("callnamed",[self,"CreateCommand",P1])
-
-	Func CreateCollation@ P1
-		dnRequest("callnamed",[self,"CreateCollation",P1])
-		return self
-
-	Func EnableExtensions@ P1
-		dnRequest("callnamed",[self,"EnableExtensions",P1])
-		return self
-
-	Func LoadExtension@ P1
-		dnRequest("callnamed",[self,"LoadExtension",P1])
-		return self
-
-	Func BackupDatabase@ P1
-		dnRequest("callnamed",[self,"BackupDatabase",P1])
 		return self
 
 	Func getHandle

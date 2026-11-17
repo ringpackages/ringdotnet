@@ -21,6 +21,9 @@ Class EncodingInfo from Object
 	Func GetEncoding 
 		return dnRequest("call",[self,"GetEncoding"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCodePage
 		return dnRequest("get",[self,"CodePage"])
 

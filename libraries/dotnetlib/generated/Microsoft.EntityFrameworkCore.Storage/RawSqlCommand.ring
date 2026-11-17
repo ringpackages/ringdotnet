@@ -17,6 +17,9 @@ Class RawSqlCommand from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RawSqlCommand, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRelationalCommand
 		return dnRequest("get",[self,"RelationalCommand"])
 

@@ -16,6 +16,9 @@ Class RequestBodyPipeFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RequestBodyPipeFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getReader
 		return dnRequest("get",[self,"Reader"])
 

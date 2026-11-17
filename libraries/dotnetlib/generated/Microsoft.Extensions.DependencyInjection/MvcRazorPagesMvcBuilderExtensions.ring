@@ -13,6 +13,9 @@ Class MvcRazorPagesMvcBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddRazorPagesOptions P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPagesOptions",P1,P2])
 

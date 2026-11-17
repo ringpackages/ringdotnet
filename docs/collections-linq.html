@@ -60,7 +60,7 @@
 
 oList = <span class="k">new</span> <span class="t">StringList</span>()
 oList.<span class="f">Add</span>(<span class="s">"banana"</span>) oList.<span class="f">Add</span>(<span class="s">"apple"</span>) oList.<span class="f">Add</span>(<span class="s">"cherry"</span>)
-oList.<span class="f">Sort</span>()
+oList.<span class="f">Sort</span>(<span class="k">NULL</span>)
 ? oList.Count
 <span class="k">for</span> cItem <span class="k">in</span> oList.<span class="f">toList</span>()            <span class="c"># toList() copies the collection to a Ring list</span>
 	? cItem
@@ -80,7 +80,7 @@ oList = <span class="k">new</span> <span class="t">StringList</span>() {
 	Add(<span class="s">"apple"</span>)
 	Add(<span class="s">"cherry"</span>)
 }
-oList.<span class="f">Sort</span>()
+oList.<span class="f">Sort</span>(<span class="k">NULL</span>)
 ? <span class="s">"Count = "</span> + oList.<span class="f">getCount</span>()
 ? <span class="s">"First = "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>)
 oList.<span class="f">SetItem</span>(<span class="n">0</span>,<span class="s">"avocado"</span>)
@@ -177,7 +177,7 @@ oTasks.<span class="f">Enqueue</span>(<span class="s">"write docs"</span>,<span 
 <span class="c"># Non-generic and specialized collections</span>
 oList = <span class="k">new</span> <span class="t">ArrayList</span>()
 oList.<span class="f">Add</span>(<span class="n">3</span>)  oList.<span class="f">Add</span>(<span class="n">1</span>)  oList.<span class="f">Add</span>(<span class="n">2</span>)
-oList.<span class="f">Sort</span>()
+oList.<span class="f">Sort</span>(<span class="k">NULL</span>)
 ? <span class="s">"ArrayList      : "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>) + oList.<span class="f">Item</span>(<span class="n">1</span>) + oList.<span class="f">Item</span>(<span class="n">2</span>)
 oQuery = <span class="k">new</span> <span class="t">NameValueCollection</span>()
 oQuery.<span class="f">Add</span>(<span class="s">"tag"</span>,<span class="s">"ring"</span>)  oQuery.<span class="f">Add</span>(<span class="s">"tag"</span>,<span class="s">"dotnet"</span>)  oQuery.<span class="f">Add</span>(<span class="s">"page"</span>,<span class="s">"2"</span>)
@@ -199,7 +199,7 @@ Query values   : ring,dotnet | 2</code></pre></div>
 <h2 id="sorting-and-searching-with-ring-code">Sorting and searching with Ring code<a class="anchor" href="#sorting-and-searching-with-ring-code">#</a></h2>
 <p>Methods that take a delegate (<code>Predicate</code>, <code>Comparison</code>, <code>Action</code>) accept <code>dnCallback(...)</code>. The Ring code reads <code>aDotNetArgs</code> and sets <code>xDotNetResult</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span class="s">"xDotNetResult = left(aDotNetArgs[1],1) = 'a'"</span>))
-oList.Sort@([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
+oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"? aDotNetArgs[1]"</span>))</code></pre></div>
 <p>See <a href="callbacks-events.html">Callbacks &amp; events</a>.</p>
 <h2 id="linq">LINQ<a class="anchor" href="#linq">#</a></h2>

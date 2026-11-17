@@ -89,6 +89,9 @@ Class CoreEventId from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSaveChangesFailed
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreEventId, Microsoft.EntityFrameworkCore'),"SaveChangesFailed"])
 

@@ -77,7 +77,7 @@ oCalc.<span class="f">Add</span>(<span class="n">10</span>).<span class="f">Mult
 ? oCalc.Total                                         <span class="c"># 30</span>
 oCalc.Name = <span class="s">"mine"</span>                                   <span class="c"># a property</span>
 ? <span class="k">new</span> <span class="t">Calculator</span>().<span class="f">Square</span>(<span class="n">7</span>)                          <span class="c"># a static method</span>
-? oCalc.Describe@([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ])                      <span class="c"># an enum as a string, an optional parameter</span>
+? oCalc.<span class="f">Describe</span>([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ])                      <span class="c"># an enum as a string, an optional parameter</span>
 aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)                          <span class="c"># out parameters come back in a list</span>
 ? aDivide[<span class="n">2</span>]</code></pre></div>
 <p>The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, <code>setXXXEvent()</code> for events, enums as strings, overload naming (<code>Name</code>, <code>Name_N</code>), optional parameters and <code>out</code> / <code>ref</code> results.</p>

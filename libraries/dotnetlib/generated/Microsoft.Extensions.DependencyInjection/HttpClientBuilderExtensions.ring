@@ -13,6 +13,9 @@ Class HttpClientBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ConfigureHttpClient P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureHttpClient",P1,P2])
 
@@ -20,12 +23,18 @@ Class HttpClientBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1,P2])
 
 	Func AddHttpMessageHandler P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
 
 	Func ConfigurePrimaryHttpMessageHandler_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1,P2])
 
 	Func ConfigurePrimaryHttpMessageHandler P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
 
 	Func ConfigureHttpMessageHandlerBuilder P1,P2
@@ -35,9 +44,15 @@ Class HttpClientBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1,P2])
 
 	Func UseSocketsHttpHandler P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
 
 	Func AddTypedClient P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
 
 	Func AddTypedClient_2 P1,P2
@@ -56,6 +71,9 @@ Class HttpClientBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1,P2])
 
 	Func AddAsKeyed P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
 
 	Func RemoveAsKeyed P1
@@ -68,6 +86,9 @@ Class HttpClientBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1,P2])
 
 	Func AddLogger P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
 
 	Func RemoveAllLoggers P1
@@ -75,28 +96,4 @@ Class HttpClientBuilderExtensions from Object
 
 	Func AddDefaultLogger P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddDefaultLogger",P1])
-
-	Func ConfigureHttpClient@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureHttpClient",P1])
-
-	Func AddHttpMessageHandler@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
-
-	Func ConfigurePrimaryHttpMessageHandler@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
-
-	Func UseSocketsHttpHandler@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
-
-	Func AddTypedClient@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
-
-	Func RedactLoggedHeaders@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"RedactLoggedHeaders",P1])
-
-	Func AddAsKeyed@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
-
-	Func AddLogger@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
 

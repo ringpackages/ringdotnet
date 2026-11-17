@@ -25,12 +25,6 @@ Class MemberIdentity from ValueType
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore'),"Create",P1])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.MemberIdentity, Microsoft.EntityFrameworkCore'),"Create",P1])
-
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

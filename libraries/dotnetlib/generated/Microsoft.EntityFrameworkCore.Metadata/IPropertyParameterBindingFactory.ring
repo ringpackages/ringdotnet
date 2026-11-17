@@ -16,6 +16,3 @@ Class IPropertyParameterBindingFactory from DotNetObject
 	Func FindParameter P1,P2,P3
 		return dnRequest("call",[self,"FindParameter",P1,P2,P3])
 
-	Func FindParameter@ P1
-		return dnRequest("callnamed",[self,"FindParameter",P1])
-

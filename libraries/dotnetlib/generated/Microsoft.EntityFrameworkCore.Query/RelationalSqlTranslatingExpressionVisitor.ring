@@ -20,12 +20,18 @@ Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
 		return dnRequest("call",[self,"Translate",P1,P2])
 
 	Func Translate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Translate",P1])
+		ok
 		return dnRequest("call",[self,"Translate",P1])
 
 	Func TranslateProjection_2 P1,P2
 		return dnRequest("call",[self,"TranslateProjection",P1,P2])
 
 	Func TranslateProjection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TranslateProjection",P1])
+		ok
 		return dnRequest("call",[self,"TranslateProjection",P1])
 
 	Func TryBindMember P1,P2
@@ -60,18 +66,6 @@ Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
 
 	Func ParameterListValueExtractor P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"ParameterListValueExtractor",P1,P2,P3])
-
-	Func Translate@ P1
-		return dnRequest("callnamed",[self,"Translate",P1])
-
-	Func TranslateProjection@ P1
-		return dnRequest("callnamed",[self,"TranslateProjection",P1])
-
-	Func Visit@ P1
-		return dnRequest("callnamed",[self,"Visit",P1])
-
-	Func VisitAndConvert@ P1
-		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
 
 	Func getTranslationErrorDetails
 		return dnRequest("get",[self,"TranslationErrorDetails"])

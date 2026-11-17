@@ -19,6 +19,9 @@ Class ColorContext from Object
 	Func OpenProfileStream 
 		return dnRequest("call",[self,"OpenProfileStream"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getProfileUri
 		return dnRequest("get",[self,"ProfileUri"])
 

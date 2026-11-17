@@ -28,7 +28,7 @@ func copyText
 func pasteText
 	# (a method call on a new object can't be on the right side of an attribute assignment: use a variable)
 	oClipboard = new Clipboard()
-	cText = oClipboard.GetText()
+	cText = oClipboard.GetText(NULL)
 	oPasted.Text = cText
 
 func selfTest

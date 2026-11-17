@@ -17,6 +17,9 @@ Class AuthorizationFailureReason from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationFailureReason, Microsoft.AspNetCore.Authorization',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMessage
 		return dnRequest("get",[self,"Message"])
 

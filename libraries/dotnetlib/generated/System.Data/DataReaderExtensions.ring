@@ -13,6 +13,9 @@ Class DataReaderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetBoolean P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetBoolean",P1,P2])
 
@@ -96,10 +99,4 @@ Class DataReaderExtensions from Object
 
 	Func IsDBNullAsync P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNullAsync",P1,P2])
-
-	Func GetFieldValueAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFieldValueAsync",P1])
-
-	Func IsDBNullAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNullAsync",P1])
 

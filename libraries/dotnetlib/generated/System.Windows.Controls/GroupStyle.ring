@@ -25,6 +25,9 @@ Class GroupStyle from Object
 		nHandle = dnCreate('System.Windows.Controls.GroupStyle, PresentationFramework',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPanel
 		return dnRequest("get",[self,"Panel"])
 

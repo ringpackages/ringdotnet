@@ -23,13 +23,13 @@ Class IConventionCheckConstraint from DotNetObject
 		return dnRequest("call",[self,"SetName",P1,P2])
 
 	Func SetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetName",P1])
+		ok
 		return dnRequest("call",[self,"SetName",P1])
 
 	Func GetNameConfigurationSource 
 		return dnRequest("call",[self,"GetNameConfigurationSource"])
-
-	Func SetName@ P1
-		return dnRequest("callnamed",[self,"SetName",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

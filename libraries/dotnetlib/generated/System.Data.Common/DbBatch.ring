@@ -21,14 +21,26 @@ Class DbBatch from Object
 	Func ExecuteReader_1 P1
 		return dnRequest("call",[self,"ExecuteReader",P1])
 
-	Func ExecuteReader 
-		return dnRequest("call",[self,"ExecuteReader"])
+	Func ExecuteReader P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteReader",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExecuteReader"])
+		ok
+		return dnRequest("call",[self,"ExecuteReader",P1])
 
 	Func ExecuteReaderAsync_1 P1
 		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
 
-	Func ExecuteReaderAsync 
-		return dnRequest("call",[self,"ExecuteReaderAsync"])
+	Func ExecuteReaderAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExecuteReaderAsync"])
+		ok
+		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
 
 	Func ExecuteReaderAsync_2 P1,P2
 		return dnRequest("call",[self,"ExecuteReaderAsync",P1,P2])
@@ -39,8 +51,14 @@ Class DbBatch from Object
 	Func ExecuteNonQueryAsync_1 P1
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
 
-	Func ExecuteNonQueryAsync 
-		return dnRequest("call",[self,"ExecuteNonQueryAsync"])
+	Func ExecuteNonQueryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExecuteNonQueryAsync"])
+		ok
+		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteScalar 
 		return dnRequest("call",[self,"ExecuteScalar"])
@@ -48,8 +66,14 @@ Class DbBatch from Object
 	Func ExecuteScalarAsync_1 P1
 		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
 
-	Func ExecuteScalarAsync 
-		return dnRequest("call",[self,"ExecuteScalarAsync"])
+	Func ExecuteScalarAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExecuteScalarAsync"])
+		ok
+		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
 
 	Func Prepare 
 		dnRequest("call",[self,"Prepare"])
@@ -58,8 +82,14 @@ Class DbBatch from Object
 	Func PrepareAsync_1 P1
 		return dnRequest("call",[self,"PrepareAsync",P1])
 
-	Func PrepareAsync 
-		return dnRequest("call",[self,"PrepareAsync"])
+	Func PrepareAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrepareAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"PrepareAsync"])
+		ok
+		return dnRequest("call",[self,"PrepareAsync",P1])
 
 	Func Cancel 
 		dnRequest("call",[self,"Cancel"])
@@ -75,20 +105,8 @@ Class DbBatch from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func ExecuteReader@ P1
-		return dnRequest("callnamed",[self,"ExecuteReader",P1])
-
-	Func ExecuteReaderAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
-
-	Func ExecuteNonQueryAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
-
-	Func ExecuteScalarAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
-
-	Func PrepareAsync@ P1
-		return dnRequest("callnamed",[self,"PrepareAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getBatchCommands
 		return dnRequest("get",[self,"BatchCommands"])

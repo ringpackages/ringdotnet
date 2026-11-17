@@ -25,6 +25,9 @@ Class GCHandle from ValueType
 		return dnRequest("call",[self,"AddrOfPinnedObject"])
 
 	Func Alloc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"Alloc",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"Alloc",P1])
 
 	Func Alloc_2 P1,P2
@@ -35,12 +38,6 @@ Class GCHandle from ValueType
 
 	Func ToIntPtr P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"ToIntPtr",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Alloc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"Alloc",P1])
 
 	Func getTarget
 		return dnRequest("get",[self,"Target"])

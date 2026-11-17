@@ -19,10 +19,6 @@ Class IRelationalParameter from DotNetObject
 		dnRequest("call",[self,"AddDbParameter",P1,P2])
 		return self
 
-	Func AddDbParameter@ P1
-		dnRequest("callnamed",[self,"AddDbParameter",P1])
-		return self
-
 	Func getInvariantName
 		return dnRequest("get",[self,"InvariantName"])
 

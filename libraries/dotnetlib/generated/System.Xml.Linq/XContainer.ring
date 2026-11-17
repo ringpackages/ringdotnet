@@ -30,8 +30,14 @@ Class XContainer from XNode
 	Func DescendantNodes 
 		return dnRequest("call",[self,"DescendantNodes"])
 
-	Func Descendants 
-		return dnRequest("call",[self,"Descendants"])
+	Func Descendants P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Descendants",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Descendants"])
+		ok
+		return dnRequest("call",[self,"Descendants",P1])
 
 	Func Descendants_1 P1
 		return dnRequest("call",[self,"Descendants",P1])
@@ -39,8 +45,14 @@ Class XContainer from XNode
 	Func Element P1
 		return dnRequest("call",[self,"Element",P1])
 
-	Func Elements 
-		return dnRequest("call",[self,"Elements"])
+	Func Elements P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Elements",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Elements"])
+		ok
+		return dnRequest("call",[self,"Elements",P1])
 
 	Func Elements_1 P1
 		return dnRequest("call",[self,"Elements",P1])
@@ -54,24 +66,6 @@ Class XContainer from XNode
 
 	Func ReplaceNodes P1
 		dnRequest("call",[self,"ReplaceNodes",P1])
-		return self
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func AddFirst@ P1
-		dnRequest("callnamed",[self,"AddFirst",P1])
-		return self
-
-	Func Descendants@ P1
-		return dnRequest("callnamed",[self,"Descendants",P1])
-
-	Func Elements@ P1
-		return dnRequest("callnamed",[self,"Elements",P1])
-
-	Func ReplaceNodes@ P1
-		dnRequest("callnamed",[self,"ReplaceNodes",P1])
 		return self
 
 	Func getFirstNode

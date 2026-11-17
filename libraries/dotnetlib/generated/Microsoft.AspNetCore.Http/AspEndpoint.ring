@@ -18,6 +18,9 @@ Class AspEndpoint from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Endpoint, Microsoft.AspNetCore.Http.Abstractions',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDisplayName
 		return dnRequest("get",[self,"DisplayName"])
 

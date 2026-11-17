@@ -34,6 +34,9 @@ Class DbContextOptionsBuilder from Object
 		return dnRequest("call",[self,"LogTo",P1,P2])
 
 	Func LogTo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LogTo",P1])
+		ok
 		return dnRequest("call",[self,"LogTo",P1])
 
 	Func LogTo_4 P1,P2,P3,P4
@@ -42,14 +45,26 @@ Class DbContextOptionsBuilder from Object
 	Func EnableThreadSafetyChecks_1 P1
 		return dnRequest("call",[self,"EnableThreadSafetyChecks",P1])
 
-	Func EnableThreadSafetyChecks 
-		return dnRequest("call",[self,"EnableThreadSafetyChecks"])
+	Func EnableThreadSafetyChecks P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableThreadSafetyChecks",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnableThreadSafetyChecks"])
+		ok
+		return dnRequest("call",[self,"EnableThreadSafetyChecks",P1])
 
 	Func EnableDetailedErrors_1 P1
 		return dnRequest("call",[self,"EnableDetailedErrors",P1])
 
-	Func EnableDetailedErrors 
-		return dnRequest("call",[self,"EnableDetailedErrors"])
+	Func EnableDetailedErrors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableDetailedErrors",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnableDetailedErrors"])
+		ok
+		return dnRequest("call",[self,"EnableDetailedErrors",P1])
 
 	Func UseMemoryCache P1
 		return dnRequest("call",[self,"UseMemoryCache",P1])
@@ -63,20 +78,38 @@ Class DbContextOptionsBuilder from Object
 	Func UseRootApplicationServiceProvider_1 P1
 		return dnRequest("call",[self,"UseRootApplicationServiceProvider",P1])
 
-	Func UseRootApplicationServiceProvider 
-		return dnRequest("call",[self,"UseRootApplicationServiceProvider"])
+	Func UseRootApplicationServiceProvider P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UseRootApplicationServiceProvider",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"UseRootApplicationServiceProvider"])
+		ok
+		return dnRequest("call",[self,"UseRootApplicationServiceProvider",P1])
 
 	Func EnableSensitiveDataLogging_1 P1
 		return dnRequest("call",[self,"EnableSensitiveDataLogging",P1])
 
-	Func EnableSensitiveDataLogging 
-		return dnRequest("call",[self,"EnableSensitiveDataLogging"])
+	Func EnableSensitiveDataLogging P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableSensitiveDataLogging",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnableSensitiveDataLogging"])
+		ok
+		return dnRequest("call",[self,"EnableSensitiveDataLogging",P1])
 
 	Func EnableServiceProviderCaching_1 P1
 		return dnRequest("call",[self,"EnableServiceProviderCaching",P1])
 
-	Func EnableServiceProviderCaching 
-		return dnRequest("call",[self,"EnableServiceProviderCaching"])
+	Func EnableServiceProviderCaching P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableServiceProviderCaching",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnableServiceProviderCaching"])
+		ok
+		return dnRequest("call",[self,"EnableServiceProviderCaching",P1])
 
 	Func UseQueryTrackingBehavior P1
 		return dnRequest("call",[self,"UseQueryTrackingBehavior",P1])
@@ -99,29 +132,8 @@ Class DbContextOptionsBuilder from Object
 	Func UseAsyncSeeding P1
 		return dnRequest("call",[self,"UseAsyncSeeding",P1])
 
-	Func LogTo@ P1
-		return dnRequest("callnamed",[self,"LogTo",P1])
-
-	Func EnableThreadSafetyChecks@ P1
-		return dnRequest("callnamed",[self,"EnableThreadSafetyChecks",P1])
-
-	Func EnableDetailedErrors@ P1
-		return dnRequest("callnamed",[self,"EnableDetailedErrors",P1])
-
-	Func UseRootApplicationServiceProvider@ P1
-		return dnRequest("callnamed",[self,"UseRootApplicationServiceProvider",P1])
-
-	Func EnableSensitiveDataLogging@ P1
-		return dnRequest("callnamed",[self,"EnableSensitiveDataLogging",P1])
-
-	Func EnableServiceProviderCaching@ P1
-		return dnRequest("callnamed",[self,"EnableServiceProviderCaching",P1])
-
-	Func ReplaceService@ P1
-		return dnRequest("callnamed",[self,"ReplaceService",P1])
-
-	Func AddInterceptors@ P1
-		return dnRequest("callnamed",[self,"AddInterceptors",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getOptions
 		return dnRequest("get",[self,"Options"])

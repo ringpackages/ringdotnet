@@ -19,55 +19,55 @@ Class IConventionNavigationBuilder from DotNetObject
 		return dnRequest("call",[self,"AutoInclude",P1,P2])
 
 	Func AutoInclude P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AutoInclude",P1])
+		ok
 		return dnRequest("call",[self,"AutoInclude",P1])
 
 	Func CanSetAutoInclude_2 P1,P2
 		return dnRequest("call",[self,"CanSetAutoInclude",P1,P2])
 
 	Func CanSetAutoInclude P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetAutoInclude",P1])
+		ok
 		return dnRequest("call",[self,"CanSetAutoInclude",P1])
 
 	Func EnableLazyLoading_2 P1,P2
 		return dnRequest("call",[self,"EnableLazyLoading",P1,P2])
 
 	Func EnableLazyLoading P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
+		ok
 		return dnRequest("call",[self,"EnableLazyLoading",P1])
 
 	Func CanSetLazyLoadingEnabled_2 P1,P2
 		return dnRequest("call",[self,"CanSetLazyLoadingEnabled",P1,P2])
 
 	Func CanSetLazyLoadingEnabled P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetLazyLoadingEnabled",P1])
+		ok
 		return dnRequest("call",[self,"CanSetLazyLoadingEnabled",P1])
 
 	Func IsRequired_2 P1,P2
 		return dnRequest("call",[self,"IsRequired",P1,P2])
 
 	Func IsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsRequired",P1])
+		ok
 		return dnRequest("call",[self,"IsRequired",P1])
 
 	Func CanSetIsRequired_2 P1,P2
 		return dnRequest("call",[self,"CanSetIsRequired",P1,P2])
 
 	Func CanSetIsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
+		ok
 		return dnRequest("call",[self,"CanSetIsRequired",P1])
-
-	Func AutoInclude@ P1
-		return dnRequest("callnamed",[self,"AutoInclude",P1])
-
-	Func CanSetAutoInclude@ P1
-		return dnRequest("callnamed",[self,"CanSetAutoInclude",P1])
-
-	Func EnableLazyLoading@ P1
-		return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
-
-	Func CanSetLazyLoadingEnabled@ P1
-		return dnRequest("callnamed",[self,"CanSetLazyLoadingEnabled",P1])
-
-	Func IsRequired@ P1
-		return dnRequest("callnamed",[self,"IsRequired",P1])
-
-	Func CanSetIsRequired@ P1
-		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

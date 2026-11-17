@@ -20,6 +20,9 @@ Class CancellationChangeToken from Object
 	Func RegisterChangeCallback P1,P2
 		return dnRequest("call",[self,"RegisterChangeCallback",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActiveChangeCallbacks
 		return dnRequest("get",[self,"ActiveChangeCallbacks"])
 

@@ -24,3 +24,6 @@ Class NavigationExpansionExtensibilityHelper from Object
 	Func AreQueryRootsCompatible P1,P2
 		return dnRequest("call",[self,"AreQueryRootsCompatible",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

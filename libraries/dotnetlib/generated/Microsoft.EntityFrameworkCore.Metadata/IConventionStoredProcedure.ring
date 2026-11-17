@@ -25,6 +25,9 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnRequest("call",[self,"SetName",P1,P2])
 
 	Func SetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetName",P1])
+		ok
 		return dnRequest("call",[self,"SetName",P1])
 
 	Func GetNameConfigurationSource 
@@ -34,6 +37,9 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnRequest("call",[self,"SetSchema",P1,P2])
 
 	Func SetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetSchema",P1])
+		ok
 		return dnRequest("call",[self,"SetSchema",P1])
 
 	Func GetSchemaConfigurationSource 
@@ -46,6 +52,9 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnRequest("call",[self,"AddParameter",P1,P2])
 
 	Func AddParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddParameter",P1])
+		ok
 		return dnRequest("call",[self,"AddParameter",P1])
 
 	Func FindOriginalValueParameter P1
@@ -55,6 +64,9 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnRequest("call",[self,"AddOriginalValueParameter",P1,P2])
 
 	Func AddOriginalValueParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddOriginalValueParameter",P1])
+		ok
 		return dnRequest("call",[self,"AddOriginalValueParameter",P1])
 
 	Func FindRowsAffectedParameter 
@@ -63,8 +75,14 @@ Class IConventionStoredProcedure from DotNetObject
 	Func AddRowsAffectedParameter_1 P1
 		return dnRequest("call",[self,"AddRowsAffectedParameter",P1])
 
-	Func AddRowsAffectedParameter 
-		return dnRequest("call",[self,"AddRowsAffectedParameter"])
+	Func AddRowsAffectedParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddRowsAffectedParameter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AddRowsAffectedParameter"])
+		ok
+		return dnRequest("call",[self,"AddRowsAffectedParameter",P1])
 
 	Func FindResultColumn P1
 		return dnRequest("call",[self,"FindResultColumn",P1])
@@ -73,6 +91,9 @@ Class IConventionStoredProcedure from DotNetObject
 		return dnRequest("call",[self,"AddResultColumn",P1,P2])
 
 	Func AddResultColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddResultColumn",P1])
+		ok
 		return dnRequest("call",[self,"AddResultColumn",P1])
 
 	Func FindRowsAffectedResultColumn 
@@ -81,38 +102,23 @@ Class IConventionStoredProcedure from DotNetObject
 	Func AddRowsAffectedResultColumn_1 P1
 		return dnRequest("call",[self,"AddRowsAffectedResultColumn",P1])
 
-	Func AddRowsAffectedResultColumn 
-		return dnRequest("call",[self,"AddRowsAffectedResultColumn"])
+	Func AddRowsAffectedResultColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddRowsAffectedResultColumn",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AddRowsAffectedResultColumn"])
+		ok
+		return dnRequest("call",[self,"AddRowsAffectedResultColumn",P1])
 
 	Func SetIsRowsAffectedReturned_2 P1,P2
 		return dnRequest("call",[self,"SetIsRowsAffectedReturned",P1,P2])
 
 	Func SetIsRowsAffectedReturned P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsRowsAffectedReturned",P1])
+		ok
 		return dnRequest("call",[self,"SetIsRowsAffectedReturned",P1])
-
-	Func SetName@ P1
-		return dnRequest("callnamed",[self,"SetName",P1])
-
-	Func SetSchema@ P1
-		return dnRequest("callnamed",[self,"SetSchema",P1])
-
-	Func AddParameter@ P1
-		return dnRequest("callnamed",[self,"AddParameter",P1])
-
-	Func AddOriginalValueParameter@ P1
-		return dnRequest("callnamed",[self,"AddOriginalValueParameter",P1])
-
-	Func AddRowsAffectedParameter@ P1
-		return dnRequest("callnamed",[self,"AddRowsAffectedParameter",P1])
-
-	Func AddResultColumn@ P1
-		return dnRequest("callnamed",[self,"AddResultColumn",P1])
-
-	Func AddRowsAffectedResultColumn@ P1
-		return dnRequest("callnamed",[self,"AddRowsAffectedResultColumn",P1])
-
-	Func SetIsRowsAffectedReturned@ P1
-		return dnRequest("callnamed",[self,"SetIsRowsAffectedReturned",P1])
 
 	Func getEntityType
 		return dnRequest("get",[self,"EntityType"])

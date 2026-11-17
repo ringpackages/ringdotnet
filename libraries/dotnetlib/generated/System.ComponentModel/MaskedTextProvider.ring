@@ -100,6 +100,9 @@ Class MaskedTextProvider from Object
 		return dnRequest("call",[self,"Remove"])
 
 	Func RemoveAt P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveAt",P1])
+		ok
 		return dnRequest("call",[self,"RemoveAt",P1])
 
 	Func RemoveAt_2 P1,P2
@@ -141,6 +144,9 @@ Class MaskedTextProvider from Object
 	Func VerifyString P1
 		return dnRequest("call",[self,"VerifyString",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetOperationResultFromHint P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"GetOperationResultFromHint",P1])
 
@@ -152,33 +158,6 @@ Class MaskedTextProvider from Object
 
 	Func IsValidPasswordChar P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"IsValidPasswordChar",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Clear@ P1
-		return dnRequest("callnamed",[self,"Clear",P1])
-
-	Func InsertAt@ P1
-		return dnRequest("callnamed",[self,"InsertAt",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
-
-	Func RemoveAt@ P1
-		return dnRequest("callnamed",[self,"RemoveAt",P1])
-
-	Func Replace@ P1
-		return dnRequest("callnamed",[self,"Replace",P1])
-
-	Func Set@ P1
-		return dnRequest("callnamed",[self,"Set",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func VerifyString@ P1
-		return dnRequest("callnamed",[self,"VerifyString",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

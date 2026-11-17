@@ -183,6 +183,9 @@ Class Color from ValueType
 		return dnRequest("call",[self,"ToKnownColor"])
 
 	Func FromArgb P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromArgb",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromArgb",P1])
 
 	Func FromArgb_4 P1,P2,P3,P4
@@ -199,12 +202,6 @@ Class Color from ValueType
 
 	Func FromName P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromName",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func FromArgb@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromArgb",P1])
 
 	Func getR
 		return dnRequest("get",[self,"R"])

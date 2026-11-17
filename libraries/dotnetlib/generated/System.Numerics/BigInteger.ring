@@ -30,8 +30,14 @@ Class BigInteger from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
-	Func ToByteArray 
-		return dnRequest("call",[self,"ToByteArray"])
+	Func ToByteArray P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToByteArray",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToByteArray"])
+		ok
+		return dnRequest("call",[self,"ToByteArray",P1])
 
 	Func ToByteArray_2 P1,P2
 		return dnRequest("call",[self,"ToByteArray",P1,P2])
@@ -42,8 +48,14 @@ Class BigInteger from ValueType
 	Func GetByteCount_1 P1
 		return dnRequest("call",[self,"GetByteCount",P1])
 
-	Func GetByteCount 
-		return dnRequest("call",[self,"GetByteCount"])
+	Func GetByteCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetByteCount",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetByteCount"])
+		ok
+		return dnRequest("call",[self,"GetByteCount",P1])
 
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
@@ -55,6 +67,9 @@ Class BigInteger from ValueType
 		return dnRequest("call",[self,"GetBitLength"])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -64,6 +79,9 @@ Class BigInteger from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -97,6 +115,9 @@ Class BigInteger from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Negate",P1])
 
 	Func Log P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
 
 	Func Log_2 P1,P2
@@ -176,33 +197,6 @@ Class BigInteger from ValueType
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func ToByteArray@ P1
-		return dnRequest("callnamed",[self,"ToByteArray",P1])
-
-	Func GetByteCount@ P1
-		return dnRequest("callnamed",[self,"GetByteCount",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
-
-	Func DivRem@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"DivRem",P1])
-
-	Func Log@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
 
 	Func getIsPowerOfTwo
 		return dnRequest("get",[self,"IsPowerOfTwo"])

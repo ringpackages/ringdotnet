@@ -63,9 +63,8 @@ oSB.setProp("Capacity",64)
 | Function | Returns |
 |---|---|
 | `dnType("Namespace.Type")` | a type object: use `callMethod` / `getProp` for static members |
-| `dnNew("Namespace.Type", [args])` | a new object (the arguments are optional) |
+| `dnNew("Namespace.Type", [args])` | a new object (the arguments are optional). The arguments may be **named**: `dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25 ])` (see [Named arguments](concepts.html#named-arguments)); the type is a .NET type name or a Ring class name |
 | `dnStatic("Namespace.Type", "Method", [args])` | the result of a static method |
-| `dnNew@("Class", [ :param = value ])` | a new object with **named arguments**; the constructor is chosen by the parameter names (see [Named arguments](concepts.html#named-arguments)) |
 | `dnNewGeneric("System.Collections.Generic.List", ["System.Int32"], [args])` | an object of a closed generic type |
 | `dnGenericName(type, [typeArguments])` | the .NET name of a closed generic type |
 | `dnDescribe("Namespace.Type")` | the public API of a type (used by the generator) |

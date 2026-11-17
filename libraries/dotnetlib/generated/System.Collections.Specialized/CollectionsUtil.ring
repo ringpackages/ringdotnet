@@ -14,15 +14,21 @@ Class CollectionsUtil from Object
 		nHandle = dnCreate('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric',[])
 		return self
 
-	Func CreateCaseInsensitiveHashtable 
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func CreateCaseInsensitiveHashtable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 
 	Func CreateCaseInsensitiveHashtable_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 
 	Func CreateCaseInsensitiveSortedList 
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveSortedList"])
-
-	Func CreateCaseInsensitiveHashtable@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 

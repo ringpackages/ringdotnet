@@ -28,6 +28,9 @@ Class SchemaTableOptionalColumn from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getProviderSpecificDataType
 		return dnRequest("get",[dnTypeCached('System.Data.Common.SchemaTableOptionalColumn, System.Data.Common'),"ProviderSpecificDataType"])
 

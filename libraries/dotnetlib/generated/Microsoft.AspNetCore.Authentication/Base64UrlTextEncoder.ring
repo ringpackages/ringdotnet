@@ -13,6 +13,9 @@ Class Base64UrlTextEncoder from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Encode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.Base64UrlTextEncoder, Microsoft.AspNetCore.Authentication'),"Encode",P1])
 

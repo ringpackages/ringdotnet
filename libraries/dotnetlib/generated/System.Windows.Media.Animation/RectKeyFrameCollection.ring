@@ -53,9 +53,6 @@ Class RectKeyFrameCollection from Freezable
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func Clone@ P1
-		return dnRequest("callnamed",[self,"Clone",P1])
-
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

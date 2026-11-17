@@ -13,6 +13,9 @@ Class ZipFileExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateEntryFromFile P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1,P2,P3])
 
@@ -33,16 +36,5 @@ Class ZipFileExtensions from Object
 
 	Func ExtractToFile_3 P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1,P2,P3])
-		return self
-
-	Func CreateEntryFromFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1])
-
-	Func ExtractToDirectory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
-		return self
-
-	Func ExtractToFile@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1])
 		return self
 

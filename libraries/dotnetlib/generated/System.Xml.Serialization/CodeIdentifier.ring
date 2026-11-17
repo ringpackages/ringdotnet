@@ -14,6 +14,9 @@ Class CodeIdentifier from Object
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifier, System.Private.Xml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MakePascal P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.CodeIdentifier, System.Private.Xml'),"MakePascal",P1])
 

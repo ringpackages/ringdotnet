@@ -17,6 +17,9 @@ Class ColorMap from Object
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMap, System.Drawing.Common',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOldColor
 		return dnRequest("get",[self,"OldColor"])
 

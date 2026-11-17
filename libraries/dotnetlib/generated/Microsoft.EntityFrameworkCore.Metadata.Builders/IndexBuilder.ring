@@ -22,14 +22,20 @@ Class IndexBuilder from Object
 	Func IsUnique_1 P1
 		return dnRequest("call",[self,"IsUnique",P1])
 
-	Func IsUnique 
-		return dnRequest("call",[self,"IsUnique"])
+	Func IsUnique P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsUnique",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsUnique"])
+		ok
+		return dnRequest("call",[self,"IsUnique",P1])
 
 	Func IsDescending P1
 		return dnRequest("call",[self,"IsDescending",P1])
 
-	Func IsUnique@ P1
-		return dnRequest("callnamed",[self,"IsUnique",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

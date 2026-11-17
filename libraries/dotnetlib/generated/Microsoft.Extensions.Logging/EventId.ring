@@ -25,9 +25,6 @@ Class EventId from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Logging.EventId, Microsoft.Extensions.Logging.Abstractions',[P1])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getId
 		return dnRequest("get",[self,"Id"])
 

@@ -26,8 +26,16 @@ Class TcpListener from Object
 		dnRequest("call",[self,"AllowNatTraversal",P1])
 		return self
 
-	Func Start 
-		dnRequest("call",[self,"Start"])
+	Func Start P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Start",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Start"])
+		return self
+		ok
+		dnRequest("call",[self,"Start",P1])
 		return self
 
 	Func Start_1 P1
@@ -63,30 +71,35 @@ Class TcpListener from Object
 	Func EndAcceptTcpClient P1
 		return dnRequest("call",[self,"EndAcceptTcpClient",P1])
 
-	Func AcceptSocketAsync 
-		return dnRequest("call",[self,"AcceptSocketAsync"])
+	Func AcceptSocketAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptSocketAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcceptSocketAsync"])
+		ok
+		return dnRequest("call",[self,"AcceptSocketAsync",P1])
 
 	Func AcceptSocketAsync_1 P1
 		return dnRequest("call",[self,"AcceptSocketAsync",P1])
 
-	Func AcceptTcpClientAsync 
-		return dnRequest("call",[self,"AcceptTcpClientAsync"])
+	Func AcceptTcpClientAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptTcpClientAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcceptTcpClientAsync"])
+		ok
+		return dnRequest("call",[self,"AcceptTcpClientAsync",P1])
 
 	Func AcceptTcpClientAsync_1 P1
 		return dnRequest("call",[self,"AcceptTcpClientAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
-
-	Func Start@ P1
-		dnRequest("callnamed",[self,"Start",P1])
-		return self
-
-	Func AcceptSocketAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptSocketAsync",P1])
-
-	Func AcceptTcpClientAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptTcpClientAsync",P1])
 
 	Func getServer
 		return dnRequest("get",[self,"Server"])

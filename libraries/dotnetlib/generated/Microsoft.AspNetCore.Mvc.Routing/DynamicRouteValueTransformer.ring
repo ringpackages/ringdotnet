@@ -21,6 +21,9 @@ Class DynamicRouteValueTransformer from Object
 	Func FilterAsync P1,P2,P3
 		return dnRequest("call",[self,"FilterAsync",P1,P2,P3])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getState
 		return dnRequest("get",[self,"State"])
 

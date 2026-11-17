@@ -13,6 +13,9 @@ Class HostingAbstractionsWebHostBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseConfiguration P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting.Abstractions'),"UseConfiguration",P1,P2])
 

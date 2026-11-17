@@ -87,6 +87,9 @@ Class Region from MarshalByRefObject
 		return dnRequest("call",[self,"IsVisible",P1,P2])
 
 	Func IsVisible P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsVisible",P1])
+		ok
 		return dnRequest("call",[self,"IsVisible",P1])
 
 	Func IsVisible_3 P1,P2,P3
@@ -101,36 +104,12 @@ Class Region from MarshalByRefObject
 	Func GetRegionScans P1
 		return dnRequest("call",[self,"GetRegionScans",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromHrgn P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Region, System.Drawing.Common'),"FromHrgn",P1])
-
-	Func Intersect@ P1
-		dnRequest("callnamed",[self,"Intersect",P1])
-		return self
-
-	Func Union@ P1
-		dnRequest("callnamed",[self,"Union",P1])
-		return self
-
-	Func Xor@ P1
-		dnRequest("callnamed",[self,"Xor",P1])
-		return self
-
-	Func Exclude@ P1
-		dnRequest("callnamed",[self,"Exclude",P1])
-		return self
-
-	Func Complement@ P1
-		dnRequest("callnamed",[self,"Complement",P1])
-		return self
-
-	Func Translate@ P1
-		dnRequest("callnamed",[self,"Translate",P1])
-		return self
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func IsVisible@ P1
-		return dnRequest("callnamed",[self,"IsVisible",P1])
 

@@ -18,6 +18,12 @@ Class RandomNumberGenerator from Object
 		return self
 
 	Func GetBytes P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
+			ok
+			return dnRequest("callnamed",[self,"GetBytes",P1])
+		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
 		ok
@@ -32,8 +38,17 @@ Class RandomNumberGenerator from Object
 		dnRequest("call",[self,"GetNonZeroBytes",P1])
 		return self
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
@@ -42,26 +57,17 @@ Class RandomNumberGenerator from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1,P2])
 
 	Func GetInt32 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
 
 	Func GetHexString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1,P2])
 
 	Func GetHexString P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
-
-	Func GetBytes@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
 		ok
-		return dnRequest("callnamed",[self,"GetBytes",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
-
-	Func GetInt32@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
-
-	Func GetHexString@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
 

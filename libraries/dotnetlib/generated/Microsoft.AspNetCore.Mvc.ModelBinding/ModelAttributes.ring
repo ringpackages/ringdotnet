@@ -18,6 +18,9 @@ Class ModelAttributes from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetAttributesForProperty P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1,P2])
 
@@ -28,16 +31,13 @@ Class ModelAttributes from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForType",P1])
 
 	Func GetAttributesForParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1])
 
 	Func GetAttributesForParameter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1,P2])
-
-	Func GetAttributesForProperty@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1])
-
-	Func GetAttributesForParameter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1])
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])

@@ -22,10 +22,10 @@ Class EventDefinition from EventDefinitionBase
 		return self
 
 	Func Log P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Log",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Log",P1])
-		return self
-
-	Func Log@ P1
-		dnRequest("callnamed",[self,"Log",P1])
 		return self
 

@@ -20,13 +20,16 @@ Class AsymmetricKeyExchangeFormatter from Object
 		return self
 
 	Func CreateKeyExchange P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateKeyExchange",P1])
+		ok
 		return dnRequest("call",[self,"CreateKeyExchange",P1])
 
 	Func CreateKeyExchange_2 P1,P2
 		return dnRequest("call",[self,"CreateKeyExchange",P1,P2])
 
-	Func CreateKeyExchange@ P1
-		return dnRequest("callnamed",[self,"CreateKeyExchange",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getParameters
 		return dnRequest("get",[self,"Parameters"])

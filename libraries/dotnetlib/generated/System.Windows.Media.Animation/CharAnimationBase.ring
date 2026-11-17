@@ -13,6 +13,3 @@ Class CharAnimationBase from AnimationTimeline
 		ok
 		return self
 
-	Func GetCurrentValue@ P1
-		return dnRequest("callnamed",[self,"GetCurrentValue",P1])
-

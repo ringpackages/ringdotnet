@@ -13,10 +13,16 @@ Class DataTableExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AsEnumerable P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsEnumerable",P1])
 
 	Func CopyToDataTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1])
 
 	Func CopyToDataTable_3 P1,P2,P3
@@ -29,10 +35,4 @@ Class DataTableExtensions from Object
 
 	Func AsDataView P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsDataView",P1])
-
-	Func CopyToDataTable@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1])
-
-	Func AsDataView@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsDataView",P1])
 

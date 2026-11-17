@@ -19,14 +19,26 @@ Class DbContext from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContext, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func Set_ 
-		return dnRequest("call",[self,"Set"])
+	Func Set_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Set",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Set"])
+		ok
+		return dnRequest("call",[self,"Set",P1])
 
 	Func Set_1 P1
 		return dnRequest("call",[self,"Set",P1])
 
-	Func SaveChanges 
-		return dnRequest("call",[self,"SaveChanges"])
+	Func SaveChanges P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveChanges",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"SaveChanges"])
+		ok
+		return dnRequest("call",[self,"SaveChanges",P1])
 
 	Func SaveChanges_1 P1
 		return dnRequest("call",[self,"SaveChanges",P1])
@@ -34,8 +46,14 @@ Class DbContext from Object
 	Func SaveChangesAsync_1 P1
 		return dnRequest("call",[self,"SaveChangesAsync",P1])
 
-	Func SaveChangesAsync 
-		return dnRequest("call",[self,"SaveChangesAsync"])
+	Func SaveChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"SaveChangesAsync"])
+		ok
+		return dnRequest("call",[self,"SaveChangesAsync",P1])
 
 	Func SaveChangesAsync_2 P1,P2
 		return dnRequest("call",[self,"SaveChangesAsync",P1,P2])
@@ -57,6 +75,9 @@ Class DbContext from Object
 		return dnRequest("call",[self,"AddAsync",P1,P2])
 
 	Func AddAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddAsync",P1])
+		ok
 		return dnRequest("call",[self,"AddAsync",P1])
 
 	Func Attach P1
@@ -73,6 +94,9 @@ Class DbContext from Object
 		return self
 
 	Func AddRangeAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddRangeAsync",P1])
+		ok
 		return dnRequest("call",[self,"AddRangeAsync",P1])
 
 	Func AttachRange P1
@@ -100,65 +124,22 @@ Class DbContext from Object
 		return dnRequest("call",[self,"FindAsync",P1,P2,P3])
 
 	Func Find P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Find",P1])
+		ok
 		return dnRequest("call",[self,"Find",P1])
 
 	Func FindAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindAsync",P1])
+		ok
 		return dnRequest("call",[self,"FindAsync",P1])
 
 	Func FromExpression P1
 		return dnRequest("call",[self,"FromExpression",P1])
 
-	Func Set@ P1
-		return dnRequest("callnamed",[self,"Set",P1])
-
-	Func SaveChanges@ P1
-		return dnRequest("callnamed",[self,"SaveChanges",P1])
-
-	Func SaveChangesAsync@ P1
-		return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
-
-	Func Entry@ P1
-		return dnRequest("callnamed",[self,"Entry",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddAsync@ P1
-		return dnRequest("callnamed",[self,"AddAsync",P1])
-
-	Func Attach@ P1
-		return dnRequest("callnamed",[self,"Attach",P1])
-
-	Func Update@ P1
-		return dnRequest("callnamed",[self,"Update",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
-		return self
-
-	Func AddRangeAsync@ P1
-		return dnRequest("callnamed",[self,"AddRangeAsync",P1])
-
-	Func AttachRange@ P1
-		dnRequest("callnamed",[self,"AttachRange",P1])
-		return self
-
-	Func UpdateRange@ P1
-		dnRequest("callnamed",[self,"UpdateRange",P1])
-		return self
-
-	Func RemoveRange@ P1
-		dnRequest("callnamed",[self,"RemoveRange",P1])
-		return self
-
-	Func Find@ P1
-		return dnRequest("callnamed",[self,"Find",P1])
-
-	Func FindAsync@ P1
-		return dnRequest("callnamed",[self,"FindAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setSavingChangesEvent P1
 		dnRequest("setevent",[self,"SavingChanges",dnCallback(P1)])

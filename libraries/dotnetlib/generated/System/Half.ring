@@ -63,6 +63,9 @@ Class Half from ValueType
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsSubnormal",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -72,6 +75,9 @@ Class Half from ValueType
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -114,6 +120,9 @@ Class Half from ValueType
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Floor",P1])
 
 	Func Round P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
 
 	Func Round_2 P1,P2
@@ -177,6 +186,9 @@ Class Half from ValueType
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Tanh",P1])
 
 	Func Log P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
 
 	Func Log_2 P1,P2
@@ -322,27 +334,6 @@ Class Half from ValueType
 
 	Func TanPi P1
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TanPi",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
-
-	Func Round@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
-
-	Func Log@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
 
 	Func getEpsilon
 		return dnRequest("get",[dnTypeCached('System.Half, System.Private.CoreLib'),"Epsilon"])

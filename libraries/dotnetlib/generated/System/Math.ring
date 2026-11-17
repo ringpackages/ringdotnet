@@ -17,6 +17,9 @@ Class Math from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Acos P1
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Acos",P1])
 
@@ -60,6 +63,9 @@ Class Math from Object
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
 
 	Func Log P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
 
 	Func Log2 P1
@@ -138,6 +144,9 @@ Class Math from Object
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
 
 	Func Round P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
 
 	Func Round_2 P1,P2
@@ -154,42 +163,6 @@ Class Math from Object
 
 	Func ScaleB P1,P2
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ScaleB",P1,P2])
-
-	Func Ceiling@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Ceiling",P1])
-
-	Func Floor@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Floor",P1])
-
-	Func Log@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
-
-	Func Abs@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Abs",P1])
-
-	Func BigMul@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"BigMul",P1])
-
-	Func DivRem@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"DivRem",P1])
-
-	Func Clamp@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Clamp",P1])
-
-	Func Max@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Max",P1])
-
-	Func Min@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Min",P1])
-
-	Func Round@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
-
-	Func Sign@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sign",P1])
-
-	Func Truncate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Truncate",P1])
 
 	Func getE
 		return dnRequest("get",[dnTypeCached('System.Math, System.Private.CoreLib'),"E"])

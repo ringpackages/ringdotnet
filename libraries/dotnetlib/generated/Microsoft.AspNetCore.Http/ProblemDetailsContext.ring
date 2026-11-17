@@ -19,6 +19,9 @@ Class ProblemDetailsContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsContext, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
 

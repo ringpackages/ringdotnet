@@ -13,12 +13,12 @@ Class LazyLoaderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Load_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1,P2,P3,P4])
 
 	Func Load_ P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1,P2,P3])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1])
 

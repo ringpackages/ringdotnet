@@ -13,6 +13,9 @@ Class RelationalModelExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDefaultSchema P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultSchema",P1])
 
@@ -96,37 +99,4 @@ Class RelationalModelExtensions from Object
 
 	Func GetCollationConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollationConfigurationSource",P1])
-
-	Func SetDefaultSchema@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultSchema",P1])
-
-	Func SetMaxIdentifierLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMaxIdentifierLength",P1])
-
-	Func FindSequence@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSequence",P1])
-
-	Func AddSequence@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddSequence",P1])
-
-	Func RemoveSequence@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveSequence",P1])
-
-	Func GetSequences@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetSequences",P1])
-
-	Func FindDbFunction@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindDbFunction",P1])
-
-	Func AddDbFunction@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddDbFunction",P1])
-
-	Func RemoveDbFunction@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveDbFunction",P1])
-
-	Func GetDbFunctions@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDbFunctions",P1])
-
-	Func SetCollation@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1])
 

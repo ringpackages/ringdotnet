@@ -85,14 +85,32 @@ Class XPathNavigator from XPathItem
 	Func MoveToNextNamespace_1 P1
 		return dnRequest("call",[self,"MoveToNextNamespace",P1])
 
-	Func MoveToFirstNamespace 
-		return dnRequest("call",[self,"MoveToFirstNamespace"])
+	Func MoveToFirstNamespace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToFirstNamespace",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MoveToFirstNamespace"])
+		ok
+		return dnRequest("call",[self,"MoveToFirstNamespace",P1])
 
-	Func MoveToNextNamespace 
-		return dnRequest("call",[self,"MoveToNextNamespace"])
+	Func MoveToNextNamespace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToNextNamespace",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MoveToNextNamespace"])
+		ok
+		return dnRequest("call",[self,"MoveToNextNamespace",P1])
 
-	Func MoveToNext 
-		return dnRequest("call",[self,"MoveToNext"])
+	Func MoveToNext P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToNext",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MoveToNext"])
+		ok
+		return dnRequest("call",[self,"MoveToNext",P1])
 
 	Func MoveToPrevious 
 		return dnRequest("call",[self,"MoveToPrevious"])
@@ -120,6 +138,9 @@ Class XPathNavigator from XPathItem
 		return dnRequest("call",[self,"MoveToChild",P1,P2])
 
 	Func MoveToChild P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToChild",P1])
+		ok
 		return dnRequest("call",[self,"MoveToChild",P1])
 
 	Func MoveToFollowing_2 P1,P2
@@ -129,6 +150,9 @@ Class XPathNavigator from XPathItem
 		return dnRequest("call",[self,"MoveToFollowing",P1,P2,P3])
 
 	Func MoveToFollowing P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToFollowing",P1])
+		ok
 		return dnRequest("call",[self,"MoveToFollowing",P1])
 
 	Func MoveToNext_2 P1,P2
@@ -153,18 +177,27 @@ Class XPathNavigator from XPathItem
 		return dnRequest("call",[self,"Compile",P1])
 
 	Func SelectSingleNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SelectSingleNode",P1])
+		ok
 		return dnRequest("call",[self,"SelectSingleNode",P1])
 
 	Func SelectSingleNode_2 P1,P2
 		return dnRequest("call",[self,"SelectSingleNode",P1,P2])
 
 	Func Select P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Select",P1])
+		ok
 		return dnRequest("call",[self,"Select",P1])
 
 	Func Select_2 P1,P2
 		return dnRequest("call",[self,"Select",P1,P2])
 
 	Func Evaluate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Evaluate",P1])
+		ok
 		return dnRequest("call",[self,"Evaluate",P1])
 
 	Func Evaluate_2 P1,P2
@@ -174,6 +207,9 @@ Class XPathNavigator from XPathItem
 		return dnRequest("call",[self,"Matches",P1])
 
 	Func SelectChildren P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SelectChildren",P1])
+		ok
 		return dnRequest("call",[self,"SelectChildren",P1])
 
 	Func SelectChildren_2 P1,P2
@@ -191,17 +227,45 @@ Class XPathNavigator from XPathItem
 	Func SelectDescendants_3 P1,P2,P3
 		return dnRequest("call",[self,"SelectDescendants",P1,P2,P3])
 
-	Func PrependChild 
-		return dnRequest("call",[self,"PrependChild"])
+	Func PrependChild P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrependChild",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"PrependChild"])
+		ok
+		dnRequest("call",[self,"PrependChild",P1])
+		return self
 
-	Func AppendChild 
-		return dnRequest("call",[self,"AppendChild"])
+	Func AppendChild P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendChild",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AppendChild"])
+		ok
+		dnRequest("call",[self,"AppendChild",P1])
+		return self
 
-	Func InsertAfter 
-		return dnRequest("call",[self,"InsertAfter"])
+	Func InsertAfter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InsertAfter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"InsertAfter"])
+		ok
+		dnRequest("call",[self,"InsertAfter",P1])
+		return self
 
-	Func InsertBefore 
-		return dnRequest("call",[self,"InsertBefore"])
+	Func InsertBefore P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InsertBefore",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"InsertBefore"])
+		ok
+		dnRequest("call",[self,"InsertBefore",P1])
+		return self
 
 	Func CreateAttributes 
 		return dnRequest("call",[self,"CreateAttributes"])
@@ -255,58 +319,6 @@ Class XPathNavigator from XPathItem
 
 	Func CreateAttribute P1,P2,P3,P4
 		dnRequest("call",[self,"CreateAttribute",P1,P2,P3,P4])
-		return self
-
-	Func MoveToFirstNamespace@ P1
-		return dnRequest("callnamed",[self,"MoveToFirstNamespace",P1])
-
-	Func MoveToNextNamespace@ P1
-		return dnRequest("callnamed",[self,"MoveToNextNamespace",P1])
-
-	Func MoveToNext@ P1
-		return dnRequest("callnamed",[self,"MoveToNext",P1])
-
-	Func MoveToChild@ P1
-		return dnRequest("callnamed",[self,"MoveToChild",P1])
-
-	Func MoveToFollowing@ P1
-		return dnRequest("callnamed",[self,"MoveToFollowing",P1])
-
-	Func SelectSingleNode@ P1
-		return dnRequest("callnamed",[self,"SelectSingleNode",P1])
-
-	Func Select@ P1
-		return dnRequest("callnamed",[self,"Select",P1])
-
-	Func Evaluate@ P1
-		return dnRequest("callnamed",[self,"Evaluate",P1])
-
-	Func Matches@ P1
-		return dnRequest("callnamed",[self,"Matches",P1])
-
-	Func SelectChildren@ P1
-		return dnRequest("callnamed",[self,"SelectChildren",P1])
-
-	Func SelectAncestors@ P1
-		return dnRequest("callnamed",[self,"SelectAncestors",P1])
-
-	Func SelectDescendants@ P1
-		return dnRequest("callnamed",[self,"SelectDescendants",P1])
-
-	Func PrependChild@ P1
-		return dnRequest("callnamed",[self,"PrependChild",P1])
-
-	Func AppendChild@ P1
-		return dnRequest("callnamed",[self,"AppendChild",P1])
-
-	Func InsertAfter@ P1
-		return dnRequest("callnamed",[self,"InsertAfter",P1])
-
-	Func InsertBefore@ P1
-		return dnRequest("callnamed",[self,"InsertBefore",P1])
-
-	Func ReplaceSelf@ P1
-		dnRequest("callnamed",[self,"ReplaceSelf",P1])
 		return self
 
 	Func getNameTable

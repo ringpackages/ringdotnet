@@ -16,23 +16,26 @@ Class Fonts from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetFontFamilies P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1])
 
 	Func GetFontFamilies_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1,P2])
 
 	Func GetTypefaces P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
 
 	Func GetTypefaces_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1,P2])
-
-	Func GetFontFamilies@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1])
-
-	Func GetTypefaces@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
 
 	Func getSystemFontFamilies
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"SystemFontFamilies"])

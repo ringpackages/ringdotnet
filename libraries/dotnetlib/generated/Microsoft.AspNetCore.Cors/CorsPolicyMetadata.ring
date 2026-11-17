@@ -16,6 +16,9 @@ Class CorsPolicyMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Cors.CorsPolicyMetadata, Microsoft.AspNetCore.Cors',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPolicy
 		return dnRequest("get",[self,"Policy"])
 

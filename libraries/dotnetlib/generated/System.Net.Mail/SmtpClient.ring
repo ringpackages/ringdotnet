@@ -40,6 +40,10 @@ Class SmtpClient from Object
 		return self
 
 	Func Send P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Send",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Send",P1])
 		return self
 
@@ -59,6 +63,9 @@ Class SmtpClient from Object
 		return dnRequest("call",[self,"SendMailAsync",P1,P2,P3,P4])
 
 	Func SendMailAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendMailAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendMailAsync",P1])
 
 	Func SendMailAsync_5 P1,P2,P3,P4,P5
@@ -71,16 +78,8 @@ Class SmtpClient from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Send@ P1
-		dnRequest("callnamed",[self,"Send",P1])
-		return self
-
-	Func SendAsync@ P1
-		dnRequest("callnamed",[self,"SendAsync",P1])
-		return self
-
-	Func SendMailAsync@ P1
-		return dnRequest("callnamed",[self,"SendMailAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setSendCompletedEvent P1
 		dnRequest("setevent",[self,"SendCompleted",dnCallback(P1)])

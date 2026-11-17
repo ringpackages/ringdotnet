@@ -18,6 +18,9 @@ Class MvcViewOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.MvcViewOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHtmlHelperOptions
 		return dnRequest("get",[self,"HtmlHelperOptions"])
 

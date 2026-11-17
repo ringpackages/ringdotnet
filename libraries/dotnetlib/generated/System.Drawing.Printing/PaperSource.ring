@@ -18,6 +18,9 @@ Class PaperSource from Object
 		nHandle = dnCreate('System.Drawing.Printing.PaperSource, System.Drawing.Common',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getKind
 		return dnRequest("get",[self,"Kind"])
 

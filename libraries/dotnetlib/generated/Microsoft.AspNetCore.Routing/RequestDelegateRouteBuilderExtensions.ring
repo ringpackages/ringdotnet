@@ -13,6 +13,9 @@ Class RequestDelegateRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapRoute P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapRoute",P1,P2,P3])
 
@@ -48,19 +51,4 @@ Class RequestDelegateRouteBuilderExtensions from Object
 
 	Func MapMiddlewareVerb P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapMiddlewareVerb",P1,P2,P3,P4])
-
-	Func MapDelete@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapDelete",P1])
-
-	Func MapGet@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGet",P1])
-
-	Func MapPost@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPost",P1])
-
-	Func MapPut@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPut",P1])
-
-	Func MapVerb@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapVerb",P1])
 

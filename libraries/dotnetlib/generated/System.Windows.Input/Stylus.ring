@@ -43,6 +43,9 @@ Class Stylus from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddPreviewStylusDownHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"AddPreviewStylusDownHandler",P1,P2])
 		return self
@@ -248,6 +251,9 @@ Class Stylus from Object
 		return self
 
 	Func Capture P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
 
 	Func Capture_2 P1,P2
@@ -256,9 +262,6 @@ Class Stylus from Object
 	Func Synchronize 
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Synchronize"])
 		return self
-
-	Func Capture@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
 
 	Func getDirectlyOver
 		return dnRequest("get",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"DirectlyOver"])

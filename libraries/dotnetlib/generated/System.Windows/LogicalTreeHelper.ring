@@ -13,6 +13,9 @@ Class LogicalTreeHelper from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FindLogicalNode P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework'),"FindLogicalNode",P1,P2])
 
@@ -25,7 +28,4 @@ Class LogicalTreeHelper from Object
 	Func BringIntoView P1
 		dnRequest("call",[dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework'),"BringIntoView",P1])
 		return self
-
-	Func GetChildren@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework'),"GetChildren",P1])
 

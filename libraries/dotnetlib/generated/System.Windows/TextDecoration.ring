@@ -29,9 +29,6 @@ Class TextDecoration from Animatable
 		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[P1,P2,P3,P4,P5])
 		return self
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getPen
 		return dnRequest("get",[self,"Pen"])
 

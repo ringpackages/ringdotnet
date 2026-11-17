@@ -19,8 +19,14 @@ Class DataGridViewRowCollection from Object
 	Func SharedRow P1
 		return dnRequest("call",[self,"SharedRow",P1])
 
-	Func Add 
-		return dnRequest("call",[self,"Add"])
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Add"])
+		ok
+		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_1 P1
 		return dnRequest("call",[self,"Add",P1])
@@ -47,6 +53,9 @@ Class DataGridViewRowCollection from Object
 		return self
 
 	Func GetFirstRow P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFirstRow",P1])
+		ok
 		return dnRequest("call",[self,"GetFirstRow",P1])
 
 	Func GetFirstRow_2 P1,P2
@@ -103,21 +112,8 @@ Class DataGridViewRowCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func GetFirstRow@ P1
-		return dnRequest("callnamed",[self,"GetFirstRow",P1])
-
-	Func GetNextRow@ P1
-		return dnRequest("callnamed",[self,"GetNextRow",P1])
-
-	Func GetPreviousRow@ P1
-		return dnRequest("callnamed",[self,"GetPreviousRow",P1])
-
-	Func Insert@ P1
-		dnRequest("callnamed",[self,"Insert",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

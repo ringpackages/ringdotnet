@@ -41,5 +41,5 @@ func newForm lFixed
 		oForm.KeyPreview = 1
 		oForm.setKeyDownEvent("aLog + aDotNetArgs[2].KeyCode")
 	ok
-	oForm.Show()
+	oForm.Show(NULL)
 	oButton.Focus()

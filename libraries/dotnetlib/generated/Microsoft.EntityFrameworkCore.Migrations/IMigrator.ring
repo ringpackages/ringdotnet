@@ -17,8 +17,16 @@ Class IMigrator from DotNetObject
 		dnRequest("call",[self,"Migrate",P1])
 		return self
 
-	Func Migrate 
-		dnRequest("call",[self,"Migrate"])
+	Func Migrate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Migrate",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Migrate"])
+		return self
+		ok
+		dnRequest("call",[self,"Migrate",P1])
 		return self
 
 	Func MigrateAsync_2 P1,P2
@@ -27,8 +35,14 @@ Class IMigrator from DotNetObject
 	Func MigrateAsync_1 P1
 		return dnRequest("call",[self,"MigrateAsync",P1])
 
-	Func MigrateAsync 
-		return dnRequest("call",[self,"MigrateAsync"])
+	Func MigrateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MigrateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MigrateAsync"])
+		ok
+		return dnRequest("call",[self,"MigrateAsync",P1])
 
 	Func GenerateScript_3 P1,P2,P3
 		return dnRequest("call",[self,"GenerateScript",P1,P2,P3])
@@ -39,19 +53,15 @@ Class IMigrator from DotNetObject
 	Func GenerateScript_1 P1
 		return dnRequest("call",[self,"GenerateScript",P1])
 
-	Func GenerateScript 
-		return dnRequest("call",[self,"GenerateScript"])
+	Func GenerateScript P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GenerateScript",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GenerateScript"])
+		ok
+		return dnRequest("call",[self,"GenerateScript",P1])
 
 	Func HasPendingModelChanges 
 		return dnRequest("call",[self,"HasPendingModelChanges"])
-
-	Func Migrate@ P1
-		dnRequest("callnamed",[self,"Migrate",P1])
-		return self
-
-	Func MigrateAsync@ P1
-		return dnRequest("callnamed",[self,"MigrateAsync",P1])
-
-	Func GenerateScript@ P1
-		return dnRequest("callnamed",[self,"GenerateScript",P1])
 

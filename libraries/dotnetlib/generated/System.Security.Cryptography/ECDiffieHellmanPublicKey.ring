@@ -32,3 +32,6 @@ Class ECDiffieHellmanPublicKey from Object
 	Func ExportSubjectPublicKeyInfo 
 		return dnRequest("call",[self,"ExportSubjectPublicKeyInfo"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

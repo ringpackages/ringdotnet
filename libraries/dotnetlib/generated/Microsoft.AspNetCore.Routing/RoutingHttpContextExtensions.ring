@@ -13,6 +13,9 @@ Class RoutingHttpContextExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetRouteData P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RoutingHttpContextExtensions, Microsoft.AspNetCore.Routing.Abstractions'),"GetRouteData",P1])
 

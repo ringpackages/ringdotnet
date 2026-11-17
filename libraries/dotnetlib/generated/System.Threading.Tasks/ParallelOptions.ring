@@ -18,6 +18,9 @@ Class ParallelOptions from Object
 		nHandle = dnCreate('System.Threading.Tasks.ParallelOptions, System.Threading.Tasks.Parallel',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTaskScheduler
 		return dnRequest("get",[self,"TaskScheduler"])
 

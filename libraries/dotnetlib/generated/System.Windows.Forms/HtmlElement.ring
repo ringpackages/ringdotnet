@@ -63,6 +63,9 @@ Class HtmlElement from Object
 		return dnRequest("call",[self,"InsertAdjacentElement",P1,P2])
 
 	Func InvokeMember P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InvokeMember",P1])
+		ok
 		return dnRequest("call",[self,"InvokeMember",P1])
 
 	Func InvokeMember_2 P1,P2
@@ -84,8 +87,8 @@ Class HtmlElement from Object
 		dnRequest("call",[self,"SetAttribute",P1,P2])
 		return self
 
-	Func InvokeMember@ P1
-		return dnRequest("callnamed",[self,"InvokeMember",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setClickEvent P1
 		dnRequest("setevent",[self,"Click",dnCallback(P1)])

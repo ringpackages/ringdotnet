@@ -22,8 +22,16 @@ Class AuthorizationHandlerContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext, Microsoft.AspNetCore.Authorization',[P1,P2,P3])
 		return self
 
-	Func Fail 
-		dnRequest("call",[self,"Fail"])
+	Func Fail P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Fail",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Fail"])
+		return self
+		ok
+		dnRequest("call",[self,"Fail",P1])
 		return self
 
 	Func Fail_1 P1
@@ -34,9 +42,8 @@ Class AuthorizationHandlerContext from Object
 		dnRequest("call",[self,"Succeed",P1])
 		return self
 
-	Func Fail@ P1
-		dnRequest("callnamed",[self,"Fail",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])

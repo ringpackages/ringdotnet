@@ -13,24 +13,27 @@ Class NativeMemory from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Alloc_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"Alloc",P1,P2])
 
 	Func AllocZeroed P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1])
 
 	Func AlignedAlloc P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AlignedAlloc",P1,P2])
 
 	Func Alloc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"Alloc",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"Alloc",P1])
 
 	Func AllocZeroed_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1,P2])
-
-	Func Alloc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"Alloc",P1])
-
-	Func AllocZeroed@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1])
 

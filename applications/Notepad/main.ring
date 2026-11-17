@@ -172,7 +172,7 @@ func findNext
 		oFound.Text = "Not found"
 	else
 		oFound.Text = ""
-		oEditor.Select@([ :start = nIndex, :length = len(cWhat) ])
+		oEditor.Select([ :start = nIndex, :length = len(cWhat) ])
 		oEditor.ScrollToCaret()
 		oEditor.Focus()
 	ok

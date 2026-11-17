@@ -21,6 +21,9 @@ Class HostApplicationBuilderSettings from Object
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilderSettings, Microsoft.Extensions.Hosting',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDisableDefaults
 		return dnRequest("get",[self,"DisableDefaults"])
 

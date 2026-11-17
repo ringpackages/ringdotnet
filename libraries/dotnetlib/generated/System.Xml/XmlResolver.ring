@@ -29,6 +29,9 @@ Class XmlResolver from Object
 	Func SupportsType P1,P2
 		return dnRequest("call",[self,"SupportsType",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setCredentials P1
 		dnRequest("set",[self,"Credentials",P1])
 		return self

@@ -18,6 +18,9 @@ Class PbeParameters from Object
 		nHandle = dnCreate('System.Security.Cryptography.PbeParameters, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEncryptionAlgorithm
 		return dnRequest("get",[self,"EncryptionAlgorithm"])
 

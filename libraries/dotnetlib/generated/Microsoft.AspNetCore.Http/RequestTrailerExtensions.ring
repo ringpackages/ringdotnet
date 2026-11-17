@@ -13,6 +13,9 @@ Class RequestTrailerExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDeclaredTrailers P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestTrailerExtensions, Microsoft.AspNetCore.Http.Abstractions'),"GetDeclaredTrailers",P1])
 

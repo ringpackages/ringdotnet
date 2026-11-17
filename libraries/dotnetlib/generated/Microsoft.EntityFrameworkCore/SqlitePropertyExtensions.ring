@@ -13,7 +13,13 @@ Class SqlitePropertyExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetSrid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSrid",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSrid",P1])
 
 	Func GetSrid_2 P1,P2
@@ -28,10 +34,4 @@ Class SqlitePropertyExtensions from Object
 
 	Func GetSridConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSridConfigurationSource",P1])
-
-	Func GetSrid@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSrid",P1])
-
-	Func SetSrid@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"SetSrid",P1])
 

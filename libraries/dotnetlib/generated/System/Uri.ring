@@ -65,6 +65,9 @@ Class Uri from Object
 	Func GetLeftPart P1
 		return dnRequest("call",[self,"GetLeftPart",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MakeRelativeUri P1
 		return dnRequest("call",[self,"MakeRelativeUri",P1])
 
@@ -118,12 +121,6 @@ Class Uri from Object
 
 	Func EscapeDataString P1
 		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"EscapeDataString",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func TryCreate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Uri, System.Private.Uri'),"TryCreate",P1])
 
 	Func getAbsolutePath
 		return dnRequest("get",[self,"AbsolutePath"])

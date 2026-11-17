@@ -16,6 +16,9 @@ Class ErrorWrapper from Object
 		nHandle = dnCreate('System.Runtime.InteropServices.ErrorWrapper, System.Private.CoreLib',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getErrorCode
 		return dnRequest("get",[self,"ErrorCode"])
 

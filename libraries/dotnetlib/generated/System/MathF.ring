@@ -17,6 +17,9 @@ Class MathF from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Acos P1
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Acos",P1])
 
@@ -60,6 +63,9 @@ Class MathF from Object
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"FusedMultiplyAdd",P1,P2,P3])
 
 	Func Log P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
 
 	Func Log2 P1
@@ -129,6 +135,9 @@ Class MathF from Object
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ReciprocalSqrtEstimate",P1])
 
 	Func Round P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
 
 	Func Round_2 P1,P2
@@ -145,12 +154,6 @@ Class MathF from Object
 
 	Func ScaleB P1,P2
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ScaleB",P1,P2])
-
-	Func Log@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
-
-	Func Round@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
 
 	Func getE
 		return dnRequest("get",[dnTypeCached('System.MathF, System.Private.CoreLib'),"E"])

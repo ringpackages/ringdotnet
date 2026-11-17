@@ -25,23 +25,29 @@ Class ContainerControl from ScrollableControl
 		dnRequest("call",[self,"PerformAutoScale"])
 		return self
 
-	Func Validate 
-		return dnRequest("call",[self,"Validate"])
+	Func Validate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Validate",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Validate"])
+		ok
+		return dnRequest("call",[self,"Validate",P1])
 
 	Func Validate_1 P1
 		return dnRequest("call",[self,"Validate",P1])
 
-	Func ValidateChildren 
-		return dnRequest("call",[self,"ValidateChildren"])
+	Func ValidateChildren P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ValidateChildren",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ValidateChildren"])
+		ok
+		return dnRequest("call",[self,"ValidateChildren",P1])
 
 	Func ValidateChildren_1 P1
 		return dnRequest("call",[self,"ValidateChildren",P1])
-
-	Func Validate@ P1
-		return dnRequest("callnamed",[self,"Validate",P1])
-
-	Func ValidateChildren@ P1
-		return dnRequest("callnamed",[self,"ValidateChildren",P1])
 
 	Func setAutoValidateChangedEvent P1
 		dnRequest("setevent",[self,"AutoValidateChanged",dnCallback(P1)])

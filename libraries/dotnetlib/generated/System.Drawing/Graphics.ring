@@ -48,12 +48,28 @@ Class Graphics from MarshalByRefObject
 		dnRequest("call",[self,"ReleaseHdc",P1])
 		return self
 
-	Func ReleaseHdc 
-		dnRequest("call",[self,"ReleaseHdc"])
+	Func ReleaseHdc P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ReleaseHdc",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ReleaseHdc"])
+		return self
+		ok
+		dnRequest("call",[self,"ReleaseHdc",P1])
 		return self
 
-	Func Flush 
-		dnRequest("call",[self,"Flush"])
+	Func Flush P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Flush",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Flush"])
+		return self
+		ok
+		dnRequest("call",[self,"Flush",P1])
 		return self
 
 	Func Flush_1 P1
@@ -88,6 +104,9 @@ Class Graphics from MarshalByRefObject
 		return dnRequest("call",[self,"IsVisible",P1,P2])
 
 	Func IsVisible P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsVisible",P1])
+		ok
 		return dnRequest("call",[self,"IsVisible",P1])
 
 	Func IsVisible_4 P1,P2,P3,P4
@@ -98,6 +117,10 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func MultiplyTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			return self
+		ok
 		dnRequest("call",[self,"MultiplyTransform",P1])
 		return self
 
@@ -122,6 +145,10 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func RotateTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"RotateTransform",P1])
+			return self
+		ok
 		dnRequest("call",[self,"RotateTransform",P1])
 		return self
 
@@ -433,8 +460,14 @@ Class Graphics from MarshalByRefObject
 	Func BeginContainer_3 P1,P2,P3
 		return dnRequest("call",[self,"BeginContainer",P1,P2,P3])
 
-	Func BeginContainer 
-		return dnRequest("call",[self,"BeginContainer"])
+	Func BeginContainer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginContainer",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginContainer"])
+		ok
+		raise("DotNet Error: BeginContainer does not take one argument: use BeginContainer(NULL), BeginContainer_N(...) or named arguments")
 
 	Func EndContainer P1
 		dnRequest("call",[self,"EndContainer",P1])
@@ -449,6 +482,9 @@ Class Graphics from MarshalByRefObject
 		return self
 
 	Func FromHdc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"FromHdc",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"FromHdc",P1])
 
 	Func FromHdcInternal P1
@@ -468,169 +504,6 @@ Class Graphics from MarshalByRefObject
 
 	Func GetHalftonePalette 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"GetHalftonePalette"])
-
-	Func ReleaseHdc@ P1
-		dnRequest("callnamed",[self,"ReleaseHdc",P1])
-		return self
-
-	Func Flush@ P1
-		dnRequest("callnamed",[self,"Flush",P1])
-		return self
-
-	Func SetClip@ P1
-		dnRequest("callnamed",[self,"SetClip",P1])
-		return self
-
-	Func IntersectClip@ P1
-		dnRequest("callnamed",[self,"IntersectClip",P1])
-		return self
-
-	Func ExcludeClip@ P1
-		dnRequest("callnamed",[self,"ExcludeClip",P1])
-		return self
-
-	Func TranslateClip@ P1
-		dnRequest("callnamed",[self,"TranslateClip",P1])
-		return self
-
-	Func IsVisible@ P1
-		return dnRequest("callnamed",[self,"IsVisible",P1])
-
-	Func MultiplyTransform@ P1
-		dnRequest("callnamed",[self,"MultiplyTransform",P1])
-		return self
-
-	Func TranslateTransform@ P1
-		dnRequest("callnamed",[self,"TranslateTransform",P1])
-		return self
-
-	Func ScaleTransform@ P1
-		dnRequest("callnamed",[self,"ScaleTransform",P1])
-		return self
-
-	Func RotateTransform@ P1
-		dnRequest("callnamed",[self,"RotateTransform",P1])
-		return self
-
-	Func DrawArc@ P1
-		dnRequest("callnamed",[self,"DrawArc",P1])
-		return self
-
-	Func DrawBezier@ P1
-		dnRequest("callnamed",[self,"DrawBezier",P1])
-		return self
-
-	Func DrawRectangle@ P1
-		dnRequest("callnamed",[self,"DrawRectangle",P1])
-		return self
-
-	Func DrawRoundedRectangle@ P1
-		dnRequest("callnamed",[self,"DrawRoundedRectangle",P1])
-		return self
-
-	Func DrawRectangles@ P1
-		dnRequest("callnamed",[self,"DrawRectangles",P1])
-		return self
-
-	Func DrawEllipse@ P1
-		dnRequest("callnamed",[self,"DrawEllipse",P1])
-		return self
-
-	Func DrawPie@ P1
-		dnRequest("callnamed",[self,"DrawPie",P1])
-		return self
-
-	Func DrawPolygon@ P1
-		dnRequest("callnamed",[self,"DrawPolygon",P1])
-		return self
-
-	Func DrawCurve@ P1
-		dnRequest("callnamed",[self,"DrawCurve",P1])
-		return self
-
-	Func DrawClosedCurve@ P1
-		dnRequest("callnamed",[self,"DrawClosedCurve",P1])
-		return self
-
-	Func FillRoundedRectangle@ P1
-		dnRequest("callnamed",[self,"FillRoundedRectangle",P1])
-		return self
-
-	Func FillRectangle@ P1
-		dnRequest("callnamed",[self,"FillRectangle",P1])
-		return self
-
-	Func FillRectangles@ P1
-		dnRequest("callnamed",[self,"FillRectangles",P1])
-		return self
-
-	Func FillPolygon@ P1
-		dnRequest("callnamed",[self,"FillPolygon",P1])
-		return self
-
-	Func FillEllipse@ P1
-		dnRequest("callnamed",[self,"FillEllipse",P1])
-		return self
-
-	Func FillPie@ P1
-		dnRequest("callnamed",[self,"FillPie",P1])
-		return self
-
-	Func FillClosedCurve@ P1
-		dnRequest("callnamed",[self,"FillClosedCurve",P1])
-		return self
-
-	Func DrawString@ P1
-		dnRequest("callnamed",[self,"DrawString",P1])
-		return self
-
-	Func MeasureString@ P1
-		return dnRequest("callnamed",[self,"MeasureString",P1])
-
-	Func DrawImage@ P1
-		dnRequest("callnamed",[self,"DrawImage",P1])
-		return self
-
-	Func DrawImageUnscaled@ P1
-		dnRequest("callnamed",[self,"DrawImageUnscaled",P1])
-		return self
-
-	Func DrawLine@ P1
-		dnRequest("callnamed",[self,"DrawLine",P1])
-		return self
-
-	Func DrawLines@ P1
-		dnRequest("callnamed",[self,"DrawLines",P1])
-		return self
-
-	Func CopyFromScreen@ P1
-		dnRequest("callnamed",[self,"CopyFromScreen",P1])
-		return self
-
-	Func EnumerateMetafile@ P1
-		dnRequest("callnamed",[self,"EnumerateMetafile",P1])
-		return self
-
-	Func TransformPoints@ P1
-		dnRequest("callnamed",[self,"TransformPoints",P1])
-		return self
-
-	Func DrawBeziers@ P1
-		dnRequest("callnamed",[self,"DrawBeziers",P1])
-		return self
-
-	Func DrawIcon@ P1
-		dnRequest("callnamed",[self,"DrawIcon",P1])
-		return self
-
-	Func GetContextInfo@ P1
-		return dnRequest("callnamed",[self,"GetContextInfo",P1])
-
-	Func BeginContainer@ P1
-		return dnRequest("callnamed",[self,"BeginContainer",P1])
-
-	Func FromHdc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"FromHdc",P1])
 
 	Func getClip
 		return dnRequest("get",[self,"Clip"])

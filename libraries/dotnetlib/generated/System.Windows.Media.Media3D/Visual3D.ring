@@ -51,17 +51,6 @@ Class Visual3D from DependencyObject
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[self,"GetAnimationBaseValue",P1])
 
-	Func TransformToAncestor@ P1
-		return dnRequest("callnamed",[self,"TransformToAncestor",P1])
-
-	Func ApplyAnimationClock@ P1
-		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
-		return self
-
-	Func BeginAnimation@ P1
-		dnRequest("callnamed",[self,"BeginAnimation",P1])
-		return self
-
 	Func getTransform
 		return dnRequest("get",[self,"Transform"])
 

@@ -23,6 +23,9 @@ Class FontEmbeddingManager from Object
 	Func GetUsedGlyphs P1
 		return dnRequest("call",[self,"GetUsedGlyphs",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getGlyphTypefaceUris
 		return dnRequest("get",[self,"GlyphTypefaceUris"])
 

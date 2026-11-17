@@ -36,6 +36,9 @@ Class TaskDialogPage from Object
 		dnRequest("call",[self,"Navigate",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setCreatedEvent P1
 		dnRequest("setevent",[self,"Created",dnCallback(P1)])
 		return self

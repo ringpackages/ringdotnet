@@ -20,6 +20,9 @@ Class UIntTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func GetDataReaderMethod 
+		return dnRequest("call",[self,"GetDataReaderMethod"])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"Default"])
 

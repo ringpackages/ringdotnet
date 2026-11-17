@@ -22,6 +22,9 @@ Class XmlSchemaObjectEnumerator from Object
 	Func MoveNext 
 		return dnRequest("call",[self,"MoveNext"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCurrent
 		return dnRequest("get",[self,"Current"])
 

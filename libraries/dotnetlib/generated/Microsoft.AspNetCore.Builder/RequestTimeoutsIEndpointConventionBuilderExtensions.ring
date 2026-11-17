@@ -13,12 +13,12 @@ Class RequestTimeoutsIEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func WithRequestTimeout P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"WithRequestTimeout",P1,P2])
 
 	Func DisableRequestTimeout P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"DisableRequestTimeout",P1])
-
-	Func WithRequestTimeout@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"WithRequestTimeout",P1])
 

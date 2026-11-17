@@ -30,6 +30,9 @@ Class ToolTipService from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetToolTip P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolTipService, PresentationFramework'),"GetToolTip",P1])
 

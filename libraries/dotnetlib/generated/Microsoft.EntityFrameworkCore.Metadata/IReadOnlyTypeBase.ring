@@ -23,8 +23,14 @@ Class IReadOnlyTypeBase from DotNetObject
 	Func IsAbstract 
 		return dnRequest("call",[self,"IsAbstract"])
 
-	Func DisplayName 
-		return dnRequest("call",[self,"DisplayName"])
+	Func DisplayName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DisplayName",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"DisplayName"])
+		ok
+		return dnRequest("call",[self,"DisplayName",P1])
 
 	Func DisplayName_1 P1
 		return dnRequest("call",[self,"DisplayName",P1])
@@ -94,15 +100,6 @@ Class IReadOnlyTypeBase from DotNetObject
 
 	Func FindIndexerPropertyInfo 
 		return dnRequest("call",[self,"FindIndexerPropertyInfo"])
-
-	Func DisplayName@ P1
-		return dnRequest("callnamed",[self,"DisplayName",P1])
-
-	Func FindProperty@ P1
-		return dnRequest("callnamed",[self,"FindProperty",P1])
-
-	Func FindComplexProperty@ P1
-		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])

@@ -13,6 +13,12 @@ Class SqliteParameterCollection from DbParameterCollection
 		ok
 		return self
 
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
+		return dnRequest("call",[self,"Add",P1])
+
 	Func Add_2 P1,P2
 		return dnRequest("call",[self,"Add",P1,P2])
 
@@ -24,23 +30,4 @@ Class SqliteParameterCollection from DbParameterCollection
 
 	Func AddWithValue P1,P2
 		return dnRequest("call",[self,"AddWithValue",P1,P2])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
-		return self
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func Insert@ P1
-		dnRequest("callnamed",[self,"Insert",P1])
-		return self
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
 

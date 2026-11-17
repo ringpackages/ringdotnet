@@ -19,6 +19,9 @@ Class MemoryCacheStatistics from Object
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCurrentEntryCount
 		return dnRequest("get",[self,"CurrentEntryCount"])
 

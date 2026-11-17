@@ -23,9 +23,6 @@ Class DashStyle from Animatable
 		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[P1,P2])
 		return self
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getOffset
 		return dnRequest("get",[self,"Offset"])
 

@@ -28,6 +28,10 @@ Class XElement from XContainer
 		return self
 
 	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Save",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Save",P1])
 		return self
 
@@ -35,8 +39,14 @@ Class XElement from XContainer
 		dnRequest("call",[self,"Save",P1,P2])
 		return self
 
-	Func AncestorsAndSelf 
-		return dnRequest("call",[self,"AncestorsAndSelf"])
+	Func AncestorsAndSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AncestorsAndSelf",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AncestorsAndSelf"])
+		ok
+		return dnRequest("call",[self,"AncestorsAndSelf",P1])
 
 	Func AncestorsAndSelf_1 P1
 		return dnRequest("call",[self,"AncestorsAndSelf",P1])
@@ -44,8 +54,14 @@ Class XElement from XContainer
 	Func Attribute P1
 		return dnRequest("call",[self,"Attribute",P1])
 
-	Func Attributes 
-		return dnRequest("call",[self,"Attributes"])
+	Func Attributes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Attributes",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Attributes"])
+		ok
+		return dnRequest("call",[self,"Attributes",P1])
 
 	Func Attributes_1 P1
 		return dnRequest("call",[self,"Attributes",P1])
@@ -53,8 +69,14 @@ Class XElement from XContainer
 	Func DescendantNodesAndSelf 
 		return dnRequest("call",[self,"DescendantNodesAndSelf"])
 
-	Func DescendantsAndSelf 
-		return dnRequest("call",[self,"DescendantsAndSelf"])
+	Func DescendantsAndSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DescendantsAndSelf",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"DescendantsAndSelf"])
+		ok
+		return dnRequest("call",[self,"DescendantsAndSelf",P1])
 
 	Func DescendantsAndSelf_1 P1
 		return dnRequest("call",[self,"DescendantsAndSelf",P1])
@@ -103,6 +125,9 @@ Class XElement from XContainer
 		return self
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1])
 
 	Func Load_2 P1,P2
@@ -112,43 +137,13 @@ Class XElement from XContainer
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"LoadAsync",P1,P2,P3])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
 
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1,P2])
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func AncestorsAndSelf@ P1
-		return dnRequest("callnamed",[self,"AncestorsAndSelf",P1])
-
-	Func Attributes@ P1
-		return dnRequest("callnamed",[self,"Attributes",P1])
-
-	Func DescendantsAndSelf@ P1
-		return dnRequest("callnamed",[self,"DescendantsAndSelf",P1])
-
-	Func ReplaceAll@ P1
-		dnRequest("callnamed",[self,"ReplaceAll",P1])
-		return self
-
-	Func ReplaceAttributes@ P1
-		dnRequest("callnamed",[self,"ReplaceAttributes",P1])
-		return self
-
-	Func SaveAsync@ P1
-		return dnRequest("callnamed",[self,"SaveAsync",P1])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1])
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"LoadAsync",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
 
 	Func getFirstAttribute
 		return dnRequest("get",[self,"FirstAttribute"])

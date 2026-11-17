@@ -18,6 +18,9 @@ Class DataGridViewColumnCollection from BaseCollection
 		return dnRequest("call",[self,"Add",P1,P2])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func AddRange P1
@@ -38,6 +41,9 @@ Class DataGridViewColumnCollection from BaseCollection
 		return dnRequest("call",[self,"GetColumnsWidth",P1])
 
 	Func GetFirstColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFirstColumn",P1])
+		ok
 		return dnRequest("call",[self,"GetFirstColumn",P1])
 
 	Func GetFirstColumn_2 P1,P2
@@ -65,23 +71,6 @@ Class DataGridViewColumnCollection from BaseCollection
 
 	Func RemoveAt P1
 		dnRequest("call",[self,"RemoveAt",P1])
-		return self
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func GetFirstColumn@ P1
-		return dnRequest("callnamed",[self,"GetFirstColumn",P1])
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 
 	Func Item P1

@@ -41,6 +41,10 @@ Class SortedStringSet from Object
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -101,18 +105,20 @@ Class SortedStringSet from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
-	Func CreateSetComparer 
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func CreateSetComparer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
 	Func CreateSetComparer_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func CreateSetComparer@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

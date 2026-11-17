@@ -16,6 +16,9 @@ Class LoggerFactoryOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFactoryOptions, Microsoft.Extensions.Logging',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActivityTrackingOptions
 		return dnRequest("get",[self,"ActivityTrackingOptions"])
 

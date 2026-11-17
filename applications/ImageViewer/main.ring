@@ -69,7 +69,7 @@ func saveDialog
 	ok
 
 func saveTo cFile
-	oImage.Save@([ :filename = cFile, :format = new ImageFormat().Png ])
+	oImage.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 
 func rotate
 	if isobject(oImage)
@@ -125,7 +125,7 @@ func selfTest
 		next
 	next
 	cFile = new Path().Combine(new Path().GetTempPath(),"imageviewer_selftest.png")
-	oSample.Save@([ :filename = cFile, :format = new ImageFormat().Png ])
+	oSample.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 	loadFile(cFile)
 	dnAssert("loaded size",oInfoText.Text,"40 x 20   zoom 100%")
 	dnAssert("title",oForm.Text,"imageviewer_selftest.png - Image viewer")

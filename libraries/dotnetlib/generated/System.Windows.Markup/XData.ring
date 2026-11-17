@@ -17,6 +17,9 @@ Class XData from Object
 		nHandle = dnCreate('System.Windows.Markup.XData, System.Xaml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getText
 		return dnRequest("get",[self,"Text"])
 

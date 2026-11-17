@@ -43,6 +43,10 @@ Class NameScope from Object
 		return dnRequest("call",[self,"Remove",P1])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -59,19 +63,15 @@ Class NameScope from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetNameScope P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.NameScope, WindowsBase'),"SetNameScope",P1,P2])
 		return self
 
 	Func GetNameScope P1
 		return dnRequest("call",[dnTypeCached('System.Windows.NameScope, WindowsBase'),"GetNameScope",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

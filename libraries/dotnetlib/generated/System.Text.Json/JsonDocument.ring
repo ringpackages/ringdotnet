@@ -23,10 +23,16 @@ Class JsonDocument from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1,P2])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
 
 	Func ParseAsync_3 P1,P2,P3
@@ -36,13 +42,10 @@ Class JsonDocument from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1,P2])
 
 	Func ParseAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
-
-	Func ParseAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
 
 	Func getRootElement
 		return dnRequest("get",[self,"RootElement"])

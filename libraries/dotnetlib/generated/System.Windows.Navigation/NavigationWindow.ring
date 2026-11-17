@@ -32,6 +32,9 @@ Class NavigationWindow from Window
 		return self
 
 	Func Navigate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Navigate",P1])
+		ok
 		return dnRequest("call",[self,"Navigate",P1])
 
 	Func Navigate_2 P1,P2
@@ -59,9 +62,6 @@ Class NavigationWindow from Window
 
 	Func RemoveBackEntry 
 		return dnRequest("call",[self,"RemoveBackEntry"])
-
-	Func Navigate@ P1
-		return dnRequest("callnamed",[self,"Navigate",P1])
 
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])

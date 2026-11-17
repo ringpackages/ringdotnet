@@ -44,6 +44,9 @@ Class DrawingAttributes from Object
 	Func ContainsPropertyData P1
 		return dnRequest("call",[self,"ContainsPropertyData",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 

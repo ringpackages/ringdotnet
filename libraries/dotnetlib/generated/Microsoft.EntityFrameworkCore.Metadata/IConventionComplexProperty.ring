@@ -20,13 +20,13 @@ Class IConventionComplexProperty from DotNetObject
 		return dnRequest("call",[self,"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+		ok
 		return dnRequest("call",[self,"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
 		return dnRequest("call",[self,"GetIsNullableConfigurationSource"])
-
-	Func SetIsNullable@ P1
-		return dnRequest("callnamed",[self,"SetIsNullable",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

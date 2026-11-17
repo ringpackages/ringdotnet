@@ -17,3 +17,6 @@ Class DefaultInlineConstraintResolver from Object
 	Func ResolveConstraint P1
 		return dnRequest("call",[self,"ResolveConstraint",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

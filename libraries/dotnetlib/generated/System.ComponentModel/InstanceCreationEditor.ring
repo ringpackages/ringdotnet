@@ -18,6 +18,9 @@ Class InstanceCreationEditor from Object
 	Func CreateInstance P1,P2
 		return dnRequest("call",[self,"CreateInstance",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getText
 		return dnRequest("get",[self,"Text"])
 

@@ -24,6 +24,9 @@ Class NotFoundFileInfo from Object
 	Func CreateReadStream 
 		return dnRequest("call",[self,"CreateReadStream"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getExists
 		return dnRequest("get",[self,"Exists"])
 

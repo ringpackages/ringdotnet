@@ -26,6 +26,9 @@ Class ECDsaCng from ECDsa
 		return self
 
 	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignData",P1])
+		ok
 		return dnRequest("call",[self,"SignData",P1])
 
 	Func VerifyData P1,P2
@@ -37,12 +40,13 @@ Class ECDsaCng from ECDsa
 	Func VerifyData_3 P1,P2,P3
 		return dnRequest("call",[self,"VerifyData",P1,P2,P3])
 
-	Func FromXmlString@ P1
-		dnRequest("callnamed",[self,"FromXmlString",P1])
+	Func FromXmlString P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"FromXmlString",P1])
+			return self
+		ok
+		dnRequest("call",[self,"FromXmlString",P1])
 		return self
-
-	Func ToXmlString@ P1
-		return dnRequest("callnamed",[self,"ToXmlString",P1])
 
 	Func getHashAlgorithm
 		return dnRequest("get",[self,"HashAlgorithm"])

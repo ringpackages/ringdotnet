@@ -26,28 +26,36 @@ Class PictureBox from Control
 		dnRequest("call",[self,"CancelAsync"])
 		return self
 
-	Func Load_ 
-		dnRequest("call",[self,"Load"])
+	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Load",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Load"])
+		return self
+		ok
+		dnRequest("call",[self,"Load",P1])
 		return self
 
 	Func Load_1 P1
 		dnRequest("call",[self,"Load",P1])
 		return self
 
-	Func LoadAsync 
-		dnRequest("call",[self,"LoadAsync"])
+	Func LoadAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"LoadAsync",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"LoadAsync"])
+		return self
+		ok
+		dnRequest("call",[self,"LoadAsync",P1])
 		return self
 
 	Func LoadAsync_1 P1
 		dnRequest("call",[self,"LoadAsync",P1])
-		return self
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func LoadAsync@ P1
-		dnRequest("callnamed",[self,"LoadAsync",P1])
 		return self
 
 	Func setLoadCompletedEvent P1

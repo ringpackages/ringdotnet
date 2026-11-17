@@ -16,6 +16,9 @@ Class CookieTempDataProviderOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CookieTempDataProviderOptions, Microsoft.AspNetCore.Mvc.ViewFeatures',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCookie
 		return dnRequest("get",[self,"Cookie"])
 

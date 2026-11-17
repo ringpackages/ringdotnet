@@ -38,6 +38,10 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func Fail P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Fail",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Fail",P1])
 		return self
 
@@ -46,6 +50,10 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Write",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Write",P1])
 		return self
 
@@ -54,6 +62,10 @@ Class TraceListener from MarshalByRefObject
 		return self
 
 	Func WriteLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteLine",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteLine",P1])
 		return self
 
@@ -75,26 +87,6 @@ Class TraceListener from MarshalByRefObject
 
 	Func TraceEvent_6 P1,P2,P3,P4,P5,P6
 		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func Fail@ P1
-		dnRequest("callnamed",[self,"Fail",P1])
-		return self
-
-	Func Write@ P1
-		dnRequest("callnamed",[self,"Write",P1])
-		return self
-
-	Func WriteLine@ P1
-		dnRequest("callnamed",[self,"WriteLine",P1])
-		return self
-
-	Func TraceData@ P1
-		dnRequest("callnamed",[self,"TraceData",P1])
-		return self
-
-	Func TraceEvent@ P1
-		dnRequest("callnamed",[self,"TraceEvent",P1])
 		return self
 
 	Func getAttributes

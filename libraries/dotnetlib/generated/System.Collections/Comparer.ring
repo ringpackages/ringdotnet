@@ -24,6 +24,9 @@ Class Comparer from Object
 	Func Compare P1,P2
 		return dnRequest("call",[self,"Compare",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('System.Collections.Comparer, System.Private.CoreLib'),"Default"])
 

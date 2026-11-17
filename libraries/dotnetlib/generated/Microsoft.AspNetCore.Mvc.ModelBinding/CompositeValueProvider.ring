@@ -32,8 +32,14 @@ Class CompositeValueProvider from DotNetObject
 	Func Filter_1 P1
 		return dnRequest("call",[self,"Filter",P1])
 
-	Func Filter 
-		return dnRequest("call",[self,"Filter"])
+	Func Filter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Filter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Filter"])
+		ok
+		return dnRequest("call",[self,"Filter",P1])
 
 	Func Add P1
 		dnRequest("call",[self,"Add",P1])
@@ -80,16 +86,13 @@ Class CompositeValueProvider from DotNetObject
 		return dnRequest("call",[self,"GetHashCode"])
 
 	Func CreateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1])
 
 	Func CreateAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1,P2])
-
-	Func Filter@ P1
-		return dnRequest("callnamed",[self,"Filter",P1])
-
-	Func CreateAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

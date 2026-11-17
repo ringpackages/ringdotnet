@@ -36,6 +36,10 @@ Class Image from MarshalByRefObject
 		return dnRequest("call",[self,"Clone"])
 
 	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Save",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Save",P1])
 		return self
 
@@ -48,6 +52,10 @@ Class Image from MarshalByRefObject
 		return self
 
 	Func SaveAdd P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SaveAdd",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SaveAdd",P1])
 		return self
 
@@ -86,12 +94,18 @@ Class Image from MarshalByRefObject
 		return dnRequest("call",[self,"GetEncoderParameterList",P1])
 
 	Func FromFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromFile",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromFile",P1])
 
 	Func FromFile_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromFile",P1,P2])
 
 	Func FromStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromStream",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromStream",P1])
 
 	Func FromStream_2 P1,P2
@@ -101,6 +115,9 @@ Class Image from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromStream",P1,P2,P3])
 
 	Func FromHbitmap P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromHbitmap",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromHbitmap",P1])
 
 	Func FromHbitmap_2 P1,P2
@@ -117,23 +134,6 @@ Class Image from MarshalByRefObject
 
 	Func IsAlphaPixelFormat P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"IsAlphaPixelFormat",P1])
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func SaveAdd@ P1
-		dnRequest("callnamed",[self,"SaveAdd",P1])
-		return self
-
-	Func FromFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromFile",P1])
-
-	Func FromStream@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromStream",P1])
-
-	Func FromHbitmap@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromHbitmap",P1])
 
 	Func getTag
 		return dnRequest("get",[self,"Tag"])

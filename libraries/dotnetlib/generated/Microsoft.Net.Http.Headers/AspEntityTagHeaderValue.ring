@@ -22,6 +22,9 @@ Class AspEntityTagHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Compare P1,P2
 		return dnRequest("call",[self,"Compare",P1,P2])
 

@@ -13,6 +13,9 @@ Class RegexRunner from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CharInClass P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.RegexRunner, System.Text.RegularExpressions'),"CharInClass",P1,P2])
 

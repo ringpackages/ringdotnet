@@ -17,6 +17,9 @@ Class NumericUpDownAcceleration from Object
 		nHandle = dnCreate('System.Windows.Forms.NumericUpDownAcceleration, System.Windows.Forms',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSeconds
 		return dnRequest("get",[self,"Seconds"])
 

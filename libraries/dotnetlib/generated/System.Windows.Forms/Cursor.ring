@@ -41,6 +41,9 @@ Class Cursor from Object
 		dnRequest("call",[self,"DrawStretched",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Hide 
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Cursor, System.Windows.Forms'),"Hide"])
 		return self

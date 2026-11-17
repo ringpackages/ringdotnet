@@ -16,6 +16,9 @@ Class RouteNameMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteNameMetadata, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
 

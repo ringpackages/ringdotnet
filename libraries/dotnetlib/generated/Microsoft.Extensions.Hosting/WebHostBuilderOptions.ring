@@ -16,6 +16,9 @@ Class WebHostBuilderOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.WebHostBuilderOptions, Microsoft.AspNetCore.Hosting',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSuppressEnvironmentConfiguration
 		return dnRequest("get",[self,"SuppressEnvironmentConfiguration"])
 

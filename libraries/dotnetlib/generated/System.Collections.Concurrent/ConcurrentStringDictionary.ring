@@ -75,14 +75,8 @@ Class ConcurrentStringDictionary from Object
 	Func AddOrUpdate P1,P2,P3
 		return dnRequest("call",[self,"AddOrUpdate",P1,P2,P3])
 
-	Func TryRemove@ P1
-		return dnRequest("callnamed",[self,"TryRemove",P1])
-
-	Func GetOrAdd@ P1
-		return dnRequest("callnamed",[self,"GetOrAdd",P1])
-
-	Func AddOrUpdate@ P1
-		return dnRequest("callnamed",[self,"AddOrUpdate",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

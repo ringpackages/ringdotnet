@@ -22,6 +22,9 @@ Class CngKeyCreationParameters from Object
 		nHandle = dnCreate('System.Security.Cryptography.CngKeyCreationParameters, System.Security.Cryptography',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getExportPolicy
 		return dnRequest("get",[self,"ExportPolicy"])
 

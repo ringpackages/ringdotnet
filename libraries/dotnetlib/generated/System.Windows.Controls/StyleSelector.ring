@@ -17,3 +17,6 @@ Class StyleSelector from Object
 	Func SelectStyle P1,P2
 		return dnRequest("call",[self,"SelectStyle",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

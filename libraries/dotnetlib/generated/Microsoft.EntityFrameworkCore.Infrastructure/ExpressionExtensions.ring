@@ -15,10 +15,16 @@ Class ExpressionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Print_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1,P2])
 
 	Func Print P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1])
 
 	Func MakeMemberAccess P1,P2
@@ -68,18 +74,6 @@ Class ExpressionExtensions from Object
 
 	Func CreateEqualsExpression P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1,P2])
-
-	Func Print@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1])
-
-	Func CreateKeyValuesExpression@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateKeyValuesExpression",P1])
-
-	Func CreateEFPropertyExpression@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1])
-
-	Func CreateEqualsExpression@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1])
 
 	Func getValueBufferTryReadValueMethod
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"ValueBufferTryReadValueMethod"])

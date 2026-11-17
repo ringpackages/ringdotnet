@@ -32,6 +32,9 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func CreateSubKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSubKey",P1])
+		ok
 		return dnRequest("call",[self,"CreateSubKey",P1])
 
 	Func CreateSubKey_2 P1,P2
@@ -44,6 +47,10 @@ Class RegistryKey from MarshalByRefObject
 		return dnRequest("call",[self,"CreateSubKey",P1,P2,P3,P4])
 
 	Func DeleteSubKey P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"DeleteSubKey",P1])
+			return self
+		ok
 		dnRequest("call",[self,"DeleteSubKey",P1])
 		return self
 
@@ -52,6 +59,10 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func DeleteSubKeyTree P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"DeleteSubKeyTree",P1])
+			return self
+		ok
 		dnRequest("call",[self,"DeleteSubKeyTree",P1])
 		return self
 
@@ -60,6 +71,10 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func DeleteValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"DeleteValue",P1])
+			return self
+		ok
 		dnRequest("call",[self,"DeleteValue",P1])
 		return self
 
@@ -68,6 +83,9 @@ Class RegistryKey from MarshalByRefObject
 		return self
 
 	Func OpenSubKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"OpenSubKey",P1])
+		ok
 		return dnRequest("call",[self,"OpenSubKey",P1])
 
 	Func OpenSubKey_2 P1,P2
@@ -76,8 +94,14 @@ Class RegistryKey from MarshalByRefObject
 	Func OpenSubKey_3 P1,P2,P3
 		return dnRequest("call",[self,"OpenSubKey",P1,P2,P3])
 
-	Func GetAccessControl 
-		return dnRequest("call",[self,"GetAccessControl"])
+	Func GetAccessControl P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAccessControl",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetAccessControl"])
+		ok
+		return dnRequest("call",[self,"GetAccessControl",P1])
 
 	Func GetAccessControl_1 P1
 		return dnRequest("call",[self,"GetAccessControl",P1])
@@ -93,6 +117,9 @@ Class RegistryKey from MarshalByRefObject
 		return dnRequest("call",[self,"GetValueNames"])
 
 	Func GetValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetValue",P1])
+		ok
 		return dnRequest("call",[self,"GetValue",P1])
 
 	Func GetValue_2 P1,P2
@@ -122,44 +149,13 @@ Class RegistryKey from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1,P2,P3])
 
 	Func FromHandle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
 
 	Func FromHandle_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1,P2])
-
-	Func CreateSubKey@ P1
-		return dnRequest("callnamed",[self,"CreateSubKey",P1])
-
-	Func DeleteSubKey@ P1
-		dnRequest("callnamed",[self,"DeleteSubKey",P1])
-		return self
-
-	Func DeleteSubKeyTree@ P1
-		dnRequest("callnamed",[self,"DeleteSubKeyTree",P1])
-		return self
-
-	Func DeleteValue@ P1
-		dnRequest("callnamed",[self,"DeleteValue",P1])
-		return self
-
-	Func OpenSubKey@ P1
-		return dnRequest("callnamed",[self,"OpenSubKey",P1])
-
-	Func GetAccessControl@ P1
-		return dnRequest("callnamed",[self,"GetAccessControl",P1])
-
-	Func GetValue@ P1
-		return dnRequest("callnamed",[self,"GetValue",P1])
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[self,"SetValue",P1])
-		return self
-
-	Func OpenRemoteBaseKey@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1])
-
-	Func FromHandle@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
 
 	Func getSubKeyCount
 		return dnRequest("get",[self,"SubKeyCount"])

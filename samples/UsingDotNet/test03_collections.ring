@@ -7,7 +7,7 @@ oList = new StringList() {
 	Add("apple")
 	Add("cherry")
 }
-oList.Sort()
+oList.Sort(NULL)
 ? "Count = " + oList.getCount()
 ? "First = " + oList.Item(0)
 oList.SetItem(0,"avocado")

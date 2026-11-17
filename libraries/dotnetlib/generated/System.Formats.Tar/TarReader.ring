@@ -28,8 +28,14 @@ Class TarReader from Object
 	Func GetNextEntry_1 P1
 		return dnRequest("call",[self,"GetNextEntry",P1])
 
-	Func GetNextEntry 
-		return dnRequest("call",[self,"GetNextEntry"])
+	Func GetNextEntry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNextEntry",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetNextEntry"])
+		ok
+		return dnRequest("call",[self,"GetNextEntry",P1])
 
 	Func GetNextEntryAsync_2 P1,P2
 		return dnRequest("call",[self,"GetNextEntryAsync",P1,P2])
@@ -37,12 +43,15 @@ Class TarReader from Object
 	Func GetNextEntryAsync_1 P1
 		return dnRequest("call",[self,"GetNextEntryAsync",P1])
 
-	Func GetNextEntryAsync 
-		return dnRequest("call",[self,"GetNextEntryAsync"])
+	Func GetNextEntryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNextEntryAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetNextEntryAsync"])
+		ok
+		return dnRequest("call",[self,"GetNextEntryAsync",P1])
 
-	Func GetNextEntry@ P1
-		return dnRequest("callnamed",[self,"GetNextEntry",P1])
-
-	Func GetNextEntryAsync@ P1
-		return dnRequest("callnamed",[self,"GetNextEntryAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

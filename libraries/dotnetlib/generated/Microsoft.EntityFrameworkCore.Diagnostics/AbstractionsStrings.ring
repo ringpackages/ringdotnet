@@ -15,6 +15,9 @@ Class AbstractionsStrings from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ArgumentIsEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.AbstractionsStrings, Microsoft.EntityFrameworkCore.Abstractions'),"ArgumentIsEmpty",P1])
 

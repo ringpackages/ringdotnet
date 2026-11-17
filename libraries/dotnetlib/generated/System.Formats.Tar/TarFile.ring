@@ -13,6 +13,9 @@ Class TarFile from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateFromDirectory P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1,P2,P3])
 		return self
@@ -32,18 +35,4 @@ Class TarFile from Object
 
 	Func ExtractToDirectoryAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1,P2,P3])
-
-	Func CreateFromDirectory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1])
-		return self
-
-	Func CreateFromDirectoryAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1])
-
-	Func ExtractToDirectory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectory",P1])
-		return self
-
-	Func ExtractToDirectoryAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1])
 

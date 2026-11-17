@@ -54,18 +54,27 @@ Class DataRow from Object
 		return dnRequest("call",[self,"GetColumnsInError"])
 
 	Func GetChildRows P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetChildRows",P1])
+		ok
 		return dnRequest("call",[self,"GetChildRows",P1])
 
 	Func GetChildRows_2 P1,P2
 		return dnRequest("call",[self,"GetChildRows",P1,P2])
 
 	Func GetParentRow P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetParentRow",P1])
+		ok
 		return dnRequest("call",[self,"GetParentRow",P1])
 
 	Func GetParentRow_2 P1,P2
 		return dnRequest("call",[self,"GetParentRow",P1,P2])
 
 	Func GetParentRows P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetParentRows",P1])
+		ok
 		return dnRequest("call",[self,"GetParentRows",P1])
 
 	Func GetParentRows_2 P1,P2
@@ -79,6 +88,10 @@ Class DataRow from Object
 		return self
 
 	Func SetParentRow P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetParentRow",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetParentRow",P1])
 		return self
 
@@ -94,25 +107,8 @@ Class DataRow from Object
 		dnRequest("call",[self,"SetModified"])
 		return self
 
-	Func SetColumnError@ P1
-		dnRequest("callnamed",[self,"SetColumnError",P1])
-		return self
-
-	Func GetColumnError@ P1
-		return dnRequest("callnamed",[self,"GetColumnError",P1])
-
-	Func GetChildRows@ P1
-		return dnRequest("callnamed",[self,"GetChildRows",P1])
-
-	Func GetParentRow@ P1
-		return dnRequest("callnamed",[self,"GetParentRow",P1])
-
-	Func GetParentRows@ P1
-		return dnRequest("callnamed",[self,"GetParentRows",P1])
-
-	Func SetParentRow@ P1
-		dnRequest("callnamed",[self,"SetParentRow",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -20,9 +20,12 @@ Class IResettableService from DotNetObject
 	Func ResetStateAsync_1 P1
 		return dnRequest("call",[self,"ResetStateAsync",P1])
 
-	Func ResetStateAsync 
-		return dnRequest("call",[self,"ResetStateAsync"])
-
-	Func ResetStateAsync@ P1
-		return dnRequest("callnamed",[self,"ResetStateAsync",P1])
+	Func ResetStateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ResetStateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ResetStateAsync"])
+		ok
+		return dnRequest("call",[self,"ResetStateAsync",P1])
 

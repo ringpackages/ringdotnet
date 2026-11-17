@@ -13,6 +13,9 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddAdditionalAssemblies P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddAdditionalAssemblies",P1,P2])
 
@@ -20,8 +23,8 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1,P2])
 
 	Func WithStaticAssets P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
-
-	Func WithStaticAssets@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
 

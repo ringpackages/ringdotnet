@@ -74,12 +74,3 @@ Class IDbConnectionInterceptor from DotNetObject
 	Func ConnectionFailedAsync P1,P2
 		return dnRequest("call",[self,"ConnectionFailedAsync",P1,P2])
 
-	Func ConnectionOpeningAsync@ P1
-		return dnRequest("callnamed",[self,"ConnectionOpeningAsync",P1])
-
-	Func ConnectionOpenedAsync@ P1
-		return dnRequest("callnamed",[self,"ConnectionOpenedAsync",P1])
-
-	Func ConnectionFailedAsync@ P1
-		return dnRequest("callnamed",[self,"ConnectionFailedAsync",P1])
-

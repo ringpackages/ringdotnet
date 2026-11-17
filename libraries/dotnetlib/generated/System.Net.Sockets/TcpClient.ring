@@ -45,6 +45,9 @@ Class TcpClient from Object
 		return dnRequest("call",[self,"ConnectAsync",P1,P2])
 
 	Func ConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConnectAsync",P1])
+		ok
 		return dnRequest("call",[self,"ConnectAsync",P1])
 
 	Func ConnectAsync_3 P1,P2,P3
@@ -68,15 +71,8 @@ Class TcpClient from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Connect@ P1
-		dnRequest("callnamed",[self,"Connect",P1])
-		return self
-
-	Func ConnectAsync@ P1
-		return dnRequest("callnamed",[self,"ConnectAsync",P1])
-
-	Func BeginConnect@ P1
-		return dnRequest("callnamed",[self,"BeginConnect",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getAvailable
 		return dnRequest("get",[self,"Available"])

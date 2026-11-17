@@ -28,6 +28,9 @@ Class StylusDevice from InputDevice
 		return dnRequest("call",[self,"Capture",P1,P2])
 
 	Func Capture P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Capture",P1])
+		ok
 		return dnRequest("call",[self,"Capture",P1])
 
 	Func Synchronize 
@@ -35,6 +38,9 @@ Class StylusDevice from InputDevice
 		return self
 
 	Func GetStylusPoints P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStylusPoints",P1])
+		ok
 		return dnRequest("call",[self,"GetStylusPoints",P1])
 
 	Func GetStylusPoints_2 P1,P2
@@ -42,12 +48,6 @@ Class StylusDevice from InputDevice
 
 	Func GetPosition P1
 		return dnRequest("call",[self,"GetPosition",P1])
-
-	Func Capture@ P1
-		return dnRequest("callnamed",[self,"Capture",P1])
-
-	Func GetStylusPoints@ P1
-		return dnRequest("callnamed",[self,"GetStylusPoints",P1])
 
 	Func getIsValid
 		return dnRequest("get",[self,"IsValid"])

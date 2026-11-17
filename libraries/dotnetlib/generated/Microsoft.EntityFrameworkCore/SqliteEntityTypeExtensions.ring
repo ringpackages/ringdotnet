@@ -13,7 +13,13 @@ Class SqliteEntityTypeExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsSqlReturningClauseUsed P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
 
 	Func UseSqlReturningClause P1,P2
@@ -24,6 +30,9 @@ Class SqliteEntityTypeExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3])
 
 	Func GetUseSqlReturningClauseConfigurationSource P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
 
 	Func GetUseSqlReturningClauseConfigurationSource_2 P1,P2
@@ -34,13 +43,4 @@ Class SqliteEntityTypeExtensions from Object
 
 	Func UseSqlReturningClause_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3,P4])
-
-	Func IsSqlReturningClauseUsed@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
-
-	Func UseSqlReturningClause@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
-
-	Func GetUseSqlReturningClauseConfigurationSource@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
 

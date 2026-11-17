@@ -16,6 +16,9 @@ Class WelcomePageOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WelcomePageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPath
 		return dnRequest("get",[self,"Path"])
 

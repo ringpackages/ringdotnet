@@ -17,6 +17,9 @@ Class UnicodeRange from Object
 		nHandle = dnCreate('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Unicode.UnicodeRange, System.Text.Encodings.Web'),"Create",P1,P2])
 

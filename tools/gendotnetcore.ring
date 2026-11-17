@@ -440,6 +440,18 @@ func buildPlan cTypeName, nForceInit
 			loop
 		ok
 		aNames + lower(cRing)
+		# A method with overloads of different arities whose plain form takes 0 or 1 parameter becomes a dispatcher:
+		# Name(NULL) calls the parameterless overload, Name([ :param = value ]) chooses the overload by the parameter names,
+		# Name(value) calls the overload with one parameter
+		nPlainArity = aMin[find(aMin,cLower,1)][2]
+		# (names that DotNetObject already has - ToString, ToList... - keep their plain form)
+		if cRing = ringName(cName) and nArity = nPlainArity and nPlainArity <= 1 and find(["tostring","tolist","release","isnull","typename","getprop","setprop","callmethod"],cLower) = 0
+			aFamily = familyInfo(aMethods,cLower)
+			if len(aFamily[1]) >= 2
+				aBlocks + [lower(cRing),dispatcherBlock(cRing,cName,cTypeName,aMethods,aFamily)]
+				loop
+			ok
+		ok
 		if aMethod[2]
 			cTarget = "dnTypeCached('" + cTypeName + "')"
 		else
@@ -481,69 +493,6 @@ func buildPlan cTypeName, nForceInit
 		ok
 		cB += "		" + returnCode(cReq,aMethod[3],aMethod[5]) + nl
 		aBlocks + [lower(cRing),cB]
-	next
-
-	# Named arguments: Name@([ :param = value, ... ]) for every method that has overloads or optional parameters.
-	# The bridge picks the overload by the names of the parameters; the order does not matter and optional parameters can be left out.
-	aWithSeen = []
-	for aMethod in aMethods
-		cName = aMethod[1]
-		cLower = lower(cName)
-		if find(aWithSeen,cLower) > 0
-			loop
-		ok
-		aWithSeen + cLower
-		nFamily = 0
-		lOptional = false
-		lAllVoid = true
-		lAnyStatic = false
-		lAnyInstance = false
-		for aRec in aMethods
-			if lower(aRec[1]) = cLower
-				nFamily++
-				if aRec[6] < len(aRec[4])
-					lOptional = true
-				ok
-				if aRec[3] != "System.Void" or aRec[5] > 0
-					lAllVoid = false
-				ok
-				if aRec[2]
-					lAnyStatic = true
-				else
-					lAnyInstance = true
-				ok
-			ok
-		next
-		if nFamily < 2 and not lOptional
-			loop
-		ok
-		if substr(cReserved,"|" + cLower + "|")
-			loop
-		ok
-		cWith = cName + "@"
-		if find(aNames,lower(cWith)) > 0 or find(aAccessors,lower(cWith)) > 0
-			loop
-		ok
-		aNames + lower(cWith)
-		cB = "	Func " + cWith + " P1" + nl
-		cStaticTarget = "dnTypeCached('" + cTypeName + "')"
-		if lAnyStatic and lAnyInstance
-			cB += "		if nHandle = 0" + nl
-			cB += '			return dnRequest("callnamed",[' + cStaticTarget + ',"' + cName + '",P1])' + nl
-			cB += "		ok" + nl
-			cTarget = "self"
-		but lAnyStatic
-			cTarget = cStaticTarget
-		else
-			cTarget = "self"
-		ok
-		cReqNamed = '"callnamed",[' + cTarget + ',"' + cName + '",P1]'
-		if lAllVoid
-			cB += "		dnRequest(" + cReqNamed + ")" + nl + "		return self" + nl + nl
-		else
-			cB += "		return dnRequest(" + cReqNamed + ")" + nl + nl
-		ok
-		aBlocks + [lower(cWith),cB]
 	next
 
 	# Indexer: Item(index) / SetItem(index,value)
@@ -620,6 +569,125 @@ func buildPlan cTypeName, nForceInit
 	ok
 	return aPlan
 
+
+# The overloads of a method name: [available arities (optional parameters count), any static, any instance]
+func familyInfo aFiMethods, cFiLower
+	aFiArities = []
+	lFiStatic = false
+	lFiInstance = false
+	for aFiRec in aFiMethods
+		if lower(aFiRec[1]) = cFiLower
+			for nFiA = aFiRec[6] to len(aFiRec[4])
+				if find(aFiArities,nFiA) = 0
+					aFiArities + nFiA
+				ok
+			next
+			if aFiRec[2]
+				lFiStatic = true
+			else
+				lFiInstance = true
+			ok
+		ok
+	next
+	return [aFiArities,lFiStatic,lFiInstance]
+
+# Ring code that calls the overload of a family with nFiArity parameters (static, instance, or the one that fits the object)
+func arityCall aFiMethods, cFiName, cFiType, nFiArity, cFiOperation, cFiIndent
+	cFiLower = lower(cFiName)
+	lFiStatic = false
+	lFiInstance = false
+	aFiFirst = []
+	aFiStaticRec = []
+	aFiInstanceRec = []
+	for aFiRec in aFiMethods
+		if lower(aFiRec[1]) = cFiLower and nFiArity >= aFiRec[6] and nFiArity <= len(aFiRec[4])
+			if len(aFiFirst) = 0
+				aFiFirst = aFiRec
+			ok
+			if aFiRec[2]
+				lFiStatic = true
+				if len(aFiStaticRec) = 0
+					aFiStaticRec = aFiRec
+				ok
+			else
+				lFiInstance = true
+				if len(aFiInstanceRec) = 0
+					aFiInstanceRec = aFiRec
+				ok
+			ok
+		ok
+	next
+	if len(aFiFirst) = 0
+		return ""
+	ok
+	if len(aFiStaticRec) = 0
+		aFiStaticRec = aFiFirst
+	ok
+	if len(aFiInstanceRec) = 0
+		aFiInstanceRec = aFiFirst
+	ok
+	cFiArgs = ""
+	if nFiArity > 0
+		cFiArgs = ",P1"
+	ok
+	cFiStaticTarget = "dnTypeCached('" + cFiType + "')"
+	cFiCode = ""
+	if lFiStatic and lFiInstance
+		cFiCode += cFiIndent + "if nHandle = 0" + nl
+		cFiCode += cFiIndent + "	" + returnCode('"' + cFiOperation + '",[' + cFiStaticTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
+		cFiCode += cFiIndent + "ok" + nl
+		cFiTarget = "self"
+	but lFiStatic
+		cFiTarget = cFiStaticTarget
+	else
+		cFiTarget = "self"
+	ok
+	if lFiInstance
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiInstanceRec[3],aFiInstanceRec[5])
+	else
+		cFiCode += cFiIndent + returnCode('"' + cFiOperation + '",[' + cFiTarget + ',"' + cFiName + '"' + cFiArgs + ']',aFiStaticRec[3],aFiStaticRec[5])
+	ok
+	return cFiCode
+
+# The plain method of an overloaded family
+func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
+	aDiArities = aDiFamily[1]
+	cDiB = "	Func " + cDiRing + " P1" + nl
+	cDiB += "		if dnIsNamed(P1)" + nl
+	# the named form: the bridge chooses the overload by the parameter names; static methods are reachable from an object
+	lDiVoid = true
+	for aDiRec in aDiMethods
+		if lower(aDiRec[1]) = lower(cDiName) and (aDiRec[3] != "System.Void" or aDiRec[5] > 0)
+			lDiVoid = false
+		ok
+	next
+	if aDiFamily[2] and not aDiFamily[3]
+		cDiTarget = "dnTypeCached('" + cDiType + "')"
+	else
+		cDiTarget = "self"
+	ok
+	if aDiFamily[2] and aDiFamily[3]
+		cDiB += "			if nHandle = 0" + nl
+		cDiB += '				return dnRequest("callnamed",[dnTypeCached(' + "'" + cDiType + "'" + '),"' + cDiName + '",P1])' + nl
+		cDiB += "			ok" + nl
+	ok
+	if lDiVoid
+		cDiB += '			dnRequest("callnamed",[' + cDiTarget + ',"' + cDiName + '",P1])' + nl + "			return self" + nl
+	else
+		cDiB += '			return dnRequest("callnamed",[' + cDiTarget + ',"' + cDiName + '",P1])' + nl
+	ok
+	cDiB += "		ok" + nl
+	if find(aDiArities,0) > 0
+		cDiB += "		if isstring(P1) and P1 = " + '""' + nl
+		cDiB += arityCall(aDiMethods,cDiName,cDiType,0,"call","			")
+		cDiB += "		ok" + nl
+	ok
+	if find(aDiArities,1) > 0
+		cDiB += arityCall(aDiMethods,cDiName,cDiType,1,"call","		") + nl
+	else
+		cDiB += '		raise("DotNet Error: ' + cDiName + ' does not take one argument: use ' + cDiName + '(NULL), ' + cDiName + '_N(...) or named arguments")' + nl + nl
+	ok
+	return cDiB
 
 # The Ring source of a class: members that the generated base class already has are inherited
 func genClass cTypeName, cClass, nForceInit

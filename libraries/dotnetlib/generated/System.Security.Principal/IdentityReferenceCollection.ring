@@ -42,13 +42,16 @@ Class IdentityReferenceCollection from Object
 		return dnRequest("call",[self,"GetEnumerator"])
 
 	Func Translate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Translate",P1])
+		ok
 		return dnRequest("call",[self,"Translate",P1])
 
 	Func Translate_2 P1,P2
 		return dnRequest("call",[self,"Translate",P1,P2])
 
-	Func Translate@ P1
-		return dnRequest("callnamed",[self,"Translate",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

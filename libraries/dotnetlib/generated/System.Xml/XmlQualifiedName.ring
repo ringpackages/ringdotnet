@@ -27,14 +27,11 @@ Class XmlQualifiedName from Object
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1,P2])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getNamespace
 		return dnRequest("get",[self,"Namespace"])

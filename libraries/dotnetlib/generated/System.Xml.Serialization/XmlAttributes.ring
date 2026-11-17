@@ -33,6 +33,9 @@ Class XmlAttributes from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getXmlElements
 		return dnRequest("get",[self,"XmlElements"])
 

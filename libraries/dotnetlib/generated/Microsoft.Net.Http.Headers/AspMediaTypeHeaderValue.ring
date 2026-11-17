@@ -46,6 +46,9 @@ Class AspMediaTypeHeaderValue from Object
 	Func MatchesMediaType P1
 		return dnRequest("call",[self,"MatchesMediaType",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 

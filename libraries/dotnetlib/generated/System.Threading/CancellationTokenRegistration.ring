@@ -26,9 +26,6 @@ Class CancellationTokenRegistration from ValueType
 	Func Unregister 
 		return dnRequest("call",[self,"Unregister"])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getToken
 		return dnRequest("get",[self,"Token"])
 

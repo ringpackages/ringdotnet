@@ -30,13 +30,22 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 		return dnRequest("call",[self,"MigrationsHistoryTable",P1,P2])
 
 	Func MigrationsHistoryTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MigrationsHistoryTable",P1])
+		ok
 		return dnRequest("call",[self,"MigrationsHistoryTable",P1])
 
 	Func UseRelationalNulls_1 P1
 		return dnRequest("call",[self,"UseRelationalNulls",P1])
 
-	Func UseRelationalNulls 
-		return dnRequest("call",[self,"UseRelationalNulls"])
+	Func UseRelationalNulls P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UseRelationalNulls",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"UseRelationalNulls"])
+		ok
+		return dnRequest("call",[self,"UseRelationalNulls",P1])
 
 	Func UseQuerySplittingBehavior P1
 		return dnRequest("call",[self,"UseQuerySplittingBehavior",P1])
@@ -61,13 +70,4 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
-
-	Func MigrationsAssembly@ P1
-		return dnRequest("callnamed",[self,"MigrationsAssembly",P1])
-
-	Func MigrationsHistoryTable@ P1
-		return dnRequest("callnamed",[self,"MigrationsHistoryTable",P1])
-
-	Func UseRelationalNulls@ P1
-		return dnRequest("callnamed",[self,"UseRelationalNulls",P1])
 

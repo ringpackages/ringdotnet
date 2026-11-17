@@ -22,6 +22,9 @@ Class FileStreamOptions from Object
 		nHandle = dnCreate('System.IO.FileStreamOptions, System.Private.CoreLib',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMode
 		return dnRequest("get",[self,"Mode"])
 

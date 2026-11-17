@@ -23,6 +23,9 @@ Class ApplicationId from Object
 	Func Copy 
 		return dnRequest("call",[self,"Copy"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCulture
 		return dnRequest("get",[self,"Culture"])
 

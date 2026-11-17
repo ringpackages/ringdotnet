@@ -69,10 +69,6 @@ Class ToolTip from Component
 		dnRequest("call",[self,"Hide",P1])
 		return self
 
-	Func Show@ P1
-		dnRequest("callnamed",[self,"Show",P1])
-		return self
-
 	Func setDrawEvent P1
 		dnRequest("setevent",[self,"Draw",dnCallback(P1)])
 		return self

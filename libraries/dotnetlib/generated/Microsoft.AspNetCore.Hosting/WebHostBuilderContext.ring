@@ -17,6 +17,9 @@ Class WebHostBuilderContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Hosting.WebHostBuilderContext, Microsoft.AspNetCore.Hosting.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHostingEnvironment
 		return dnRequest("get",[self,"HostingEnvironment"])
 

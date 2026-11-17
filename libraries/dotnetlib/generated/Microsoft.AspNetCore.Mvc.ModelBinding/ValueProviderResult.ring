@@ -31,9 +31,6 @@ Class ValueProviderResult from ValueType
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getCulture
 		return dnRequest("get",[self,"Culture"])
 

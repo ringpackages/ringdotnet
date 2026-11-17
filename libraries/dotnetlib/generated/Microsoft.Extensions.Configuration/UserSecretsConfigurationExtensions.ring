@@ -13,7 +13,13 @@ Class UserSecretsConfigurationExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddUserSecrets P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
 
 	Func AddUserSecrets_2 P1,P2
@@ -24,7 +30,4 @@ Class UserSecretsConfigurationExtensions from Object
 
 	Func AddUserSecrets_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1,P2,P3,P4])
-
-	Func AddUserSecrets@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
 

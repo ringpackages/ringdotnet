@@ -14,6 +14,9 @@ Class NetworkChange from Object
 		nHandle = dnCreate('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RegisterNetworkChange P1
 		dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkChange, System.Net.NetworkInformation'),"RegisterNetworkChange",P1])
 		return self

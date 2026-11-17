@@ -20,6 +20,9 @@ Class IRelationalCommand from DotNetObject
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteScalar P1
@@ -29,6 +32,9 @@ Class IRelationalCommand from DotNetObject
 		return dnRequest("call",[self,"ExecuteScalarAsync",P1,P2])
 
 	Func ExecuteScalarAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteScalarAsync",P1])
 
 	Func ExecuteReader P1
@@ -38,18 +44,12 @@ Class IRelationalCommand from DotNetObject
 		return dnRequest("call",[self,"ExecuteReaderAsync",P1,P2])
 
 	Func ExecuteReaderAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteReaderAsync",P1])
 
 	Func PopulateFrom P1
 		dnRequest("call",[self,"PopulateFrom",P1])
 		return self
-
-	Func ExecuteNonQueryAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
-
-	Func ExecuteScalarAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
-
-	Func ExecuteReaderAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
 

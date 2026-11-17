@@ -44,6 +44,9 @@ Class UriBuilder from Object
 		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1,P2,P3,P4,P5])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getScheme
 		return dnRequest("get",[self,"Scheme"])
 

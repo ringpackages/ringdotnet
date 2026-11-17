@@ -16,6 +16,9 @@ Class GestureRecognitionResult from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRecognitionConfidence
 		return dnRequest("get",[self,"RecognitionConfidence"])
 

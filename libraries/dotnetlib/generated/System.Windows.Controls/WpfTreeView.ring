@@ -22,6 +22,9 @@ Class WpfTreeView from ItemsControl
 		nHandle = dnCreate('System.Windows.Controls.TreeView, PresentationFramework',[])
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+
 	Func setSelectedItemChangedEvent P1
 		dnRequest("setevent",[self,"SelectedItemChanged",dnCallback(P1)])
 		return self

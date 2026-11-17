@@ -13,24 +13,33 @@ Class Host from Object
 		ok
 		return self
 
-	Func CreateDefaultBuilder 
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func CreateDefaultBuilder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
 
 	Func CreateDefaultBuilder_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
 
-	Func CreateApplicationBuilder 
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder"])
+	Func CreateApplicationBuilder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
 
 	Func CreateApplicationBuilder_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
 
 	Func CreateEmptyApplicationBuilder P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateEmptyApplicationBuilder",P1])
-
-	Func CreateDefaultBuilder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
-
-	Func CreateApplicationBuilder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
 

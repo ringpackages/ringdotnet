@@ -67,9 +67,6 @@ Class DataGridColumn from DependencyObject
 		dnRequest("call",[self,"OnPastingCellClipboardContent",P1,P2])
 		return self
 
-	Func GetCellContent@ P1
-		return dnRequest("callnamed",[self,"GetCellContent",P1])
-
 	Func setCopyingCellClipboardContentEvent P1
 		dnRequest("setevent",[self,"CopyingCellClipboardContent",dnCallback(P1)])
 		return self

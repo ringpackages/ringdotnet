@@ -29,3 +29,6 @@ Class ServiceProvider from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

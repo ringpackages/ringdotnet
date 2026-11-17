@@ -21,8 +21,14 @@ Class OwnedNavigationTableBuilder from Object
 	Func ExcludeFromMigrations_1 P1
 		return dnRequest("call",[self,"ExcludeFromMigrations",P1])
 
-	Func ExcludeFromMigrations 
-		return dnRequest("call",[self,"ExcludeFromMigrations"])
+	Func ExcludeFromMigrations P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExcludeFromMigrations",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExcludeFromMigrations"])
+		ok
+		return dnRequest("call",[self,"ExcludeFromMigrations",P1])
 
 	Func HasTrigger P1
 		return dnRequest("call",[self,"HasTrigger",P1])
@@ -36,11 +42,8 @@ Class OwnedNavigationTableBuilder from Object
 	Func Property P1
 		return dnRequest("call",[self,"Property",P1])
 
-	Func ExcludeFromMigrations@ P1
-		return dnRequest("callnamed",[self,"ExcludeFromMigrations",P1])
-
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])

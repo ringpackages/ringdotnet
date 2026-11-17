@@ -13,7 +13,13 @@ Class MvcRazorPagesMvcCoreBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddRazorPages P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
 
 	Func AddRazorPages_2 P1,P2
@@ -21,7 +27,4 @@ Class MvcRazorPagesMvcCoreBuilderExtensions from Object
 
 	Func WithRazorPagesRoot P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithRazorPagesRoot",P1,P2])
-
-	Func AddRazorPages@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
 

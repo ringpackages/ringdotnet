@@ -13,8 +13,14 @@ Class DES from SymmetricAlgorithm
 		ok
 		return self
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
@@ -24,7 +30,4 @@ Class DES from SymmetricAlgorithm
 
 	Func IsSemiWeakKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"IsSemiWeakKey",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
 

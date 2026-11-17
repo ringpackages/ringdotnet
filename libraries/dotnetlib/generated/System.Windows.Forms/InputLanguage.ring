@@ -20,6 +20,9 @@ Class InputLanguage from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromCulture P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.InputLanguage, System.Windows.Forms'),"FromCulture",P1])
 

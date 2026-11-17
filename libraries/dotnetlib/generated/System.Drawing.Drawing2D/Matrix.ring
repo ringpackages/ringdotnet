@@ -45,6 +45,10 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Multiply P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Multiply",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Multiply",P1])
 		return self
 
@@ -69,6 +73,10 @@ Class Matrix from MarshalByRefObject
 		return self
 
 	Func Rotate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Rotate",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Rotate",P1])
 		return self
 
@@ -106,38 +114,6 @@ Class Matrix from MarshalByRefObject
 
 	Func VectorTransformPoints P1
 		dnRequest("call",[self,"VectorTransformPoints",P1])
-		return self
-
-	Func Multiply@ P1
-		dnRequest("callnamed",[self,"Multiply",P1])
-		return self
-
-	Func Translate@ P1
-		dnRequest("callnamed",[self,"Translate",P1])
-		return self
-
-	Func Scale@ P1
-		dnRequest("callnamed",[self,"Scale",P1])
-		return self
-
-	Func Rotate@ P1
-		dnRequest("callnamed",[self,"Rotate",P1])
-		return self
-
-	Func RotateAt@ P1
-		dnRequest("callnamed",[self,"RotateAt",P1])
-		return self
-
-	Func Shear@ P1
-		dnRequest("callnamed",[self,"Shear",P1])
-		return self
-
-	Func TransformPoints@ P1
-		dnRequest("callnamed",[self,"TransformPoints",P1])
-		return self
-
-	Func TransformVectors@ P1
-		dnRequest("callnamed",[self,"TransformVectors",P1])
 		return self
 
 	Func getElements

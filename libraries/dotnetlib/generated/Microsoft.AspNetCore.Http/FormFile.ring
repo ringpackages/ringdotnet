@@ -32,10 +32,13 @@ Class FormFile from Object
 		return dnRequest("call",[self,"CopyToAsync",P1,P2])
 
 	Func CopyToAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CopyToAsync",P1])
+		ok
 		return dnRequest("call",[self,"CopyToAsync",P1])
 
-	Func CopyToAsync@ P1
-		return dnRequest("callnamed",[self,"CopyToAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getContentDisposition
 		return dnRequest("get",[self,"ContentDisposition"])

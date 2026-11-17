@@ -31,3 +31,6 @@ Class EventRoute from Object
 	Func PeekBranchSource 
 		return dnRequest("call",[self,"PeekBranchSource"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

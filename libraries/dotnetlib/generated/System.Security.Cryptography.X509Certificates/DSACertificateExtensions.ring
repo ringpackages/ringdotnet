@@ -13,6 +13,9 @@ Class DSACertificateExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDSAPublicKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.DSACertificateExtensions, System.Security.Cryptography'),"GetDSAPublicKey",P1])
 

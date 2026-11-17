@@ -13,6 +13,9 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddKeyPerFile P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1,P2])
 
@@ -21,7 +24,4 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 
 	Func AddKeyPerFile_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1,P2,P3,P4])
-
-	Func AddKeyPerFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1])
 

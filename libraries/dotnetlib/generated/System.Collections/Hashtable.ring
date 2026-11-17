@@ -77,6 +77,9 @@ Class Hashtable from Object
 		dnRequest("call",[self,"OnDeserialization",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Hashtable, System.Private.CoreLib'),"Synchronized",P1])
 

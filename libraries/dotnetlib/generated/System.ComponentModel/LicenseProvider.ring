@@ -16,3 +16,6 @@ Class LicenseProvider from Object
 	Func GetLicense P1,P2,P3,P4
 		return dnRequest("call",[self,"GetLicense",P1,P2,P3,P4])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

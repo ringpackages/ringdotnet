@@ -18,3 +18,6 @@ Class IgnoringIdentityResolutionInterceptor from Object
 		dnRequest("call",[self,"UpdateTrackedInstance",P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

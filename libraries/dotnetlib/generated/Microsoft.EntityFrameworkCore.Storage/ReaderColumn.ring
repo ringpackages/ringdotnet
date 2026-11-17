@@ -22,6 +22,9 @@ Class ReaderColumn from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ReaderColumn, Microsoft.EntityFrameworkCore.Relational'),"Create",P1,P2,P3,P4,P5])
 

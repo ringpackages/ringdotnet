@@ -32,9 +32,6 @@ Class IForeignKey from DotNetObject
 	Func GetDependentKeyValueFactory 
 		return dnRequest("call",[self,"GetDependentKeyValueFactory"])
 
-	Func GetDependentKeyValueFactory@ P1
-		return dnRequest("callnamed",[self,"GetDependentKeyValueFactory",P1])
-
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
 

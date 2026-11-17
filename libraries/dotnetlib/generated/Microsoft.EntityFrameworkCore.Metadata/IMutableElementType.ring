@@ -52,14 +52,6 @@ Class IMutableElementType from DotNetObject
 		dnRequest("call",[self,"SetJsonValueReaderWriterType",P1])
 		return self
 
-	Func SetValueConverter@ P1
-		dnRequest("callnamed",[self,"SetValueConverter",P1])
-		return self
-
-	Func SetValueComparer@ P1
-		dnRequest("callnamed",[self,"SetValueComparer",P1])
-		return self
-
 	Func getCollectionProperty
 		return dnRequest("get",[self,"CollectionProperty"])
 

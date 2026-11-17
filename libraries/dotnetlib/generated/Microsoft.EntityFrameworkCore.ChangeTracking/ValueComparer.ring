@@ -41,6 +41,21 @@ Class ValueComparer from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func GetHashCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHashCode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHashCode"])
+		ok
+		return dnRequest("call",[self,"GetHashCode",P1])
+
 	Func GetGenericSnapshotMethod P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"GetGenericSnapshotMethod",P1])
 
@@ -51,16 +66,10 @@ Class ValueComparer from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1,P2])
 
 	Func CreateDefault P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func GetHashCode@ P1
-		return dnRequest("callnamed",[self,"GetHashCode",P1])
-
-	Func CreateDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1])
 
 	Func getType
 		return dnRequest("get",[self,"Type"])

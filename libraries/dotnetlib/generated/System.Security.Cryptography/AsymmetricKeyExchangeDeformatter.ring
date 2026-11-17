@@ -22,6 +22,9 @@ Class AsymmetricKeyExchangeDeformatter from Object
 	Func DecryptKeyExchange P1
 		return dnRequest("call",[self,"DecryptKeyExchange",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getParameters
 		return dnRequest("get",[self,"Parameters"])
 

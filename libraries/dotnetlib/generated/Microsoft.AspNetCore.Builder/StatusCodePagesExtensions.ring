@@ -13,10 +13,16 @@ Class StatusCodePagesExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseStatusCodePages_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1,P2])
 
 	Func UseStatusCodePages P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
 
 	Func UseStatusCodePages_3 P1,P2,P3
@@ -30,10 +36,4 @@ Class StatusCodePagesExtensions from Object
 
 	Func UseStatusCodePagesWithReExecute P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithReExecute",P1,P2])
-
-	Func UseStatusCodePages@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
-
-	Func UseStatusCodePagesWithReExecute@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithReExecute",P1])
 

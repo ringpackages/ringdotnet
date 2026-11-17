@@ -13,9 +13,9 @@ Class SqliteComplexTypePropertyBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func HasSrid P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1,P2])
-
-	Func HasSrid@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1])
 

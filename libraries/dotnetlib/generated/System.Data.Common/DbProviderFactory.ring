@@ -48,6 +48,9 @@ Class DbProviderFactory from Object
 	Func CreateDataSource P1
 		return dnRequest("call",[self,"CreateDataSource",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCanCreateBatch
 		return dnRequest("get",[self,"CanCreateBatch"])
 

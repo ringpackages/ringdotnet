@@ -35,12 +35,18 @@ Class Matrix3x2 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Add",P1,P2])
 
 	Func CreateRotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1])
 
 	Func CreateRotation_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1,P2])
 
 	Func CreateScale P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
 
 	Func CreateScale_2 P1,P2
@@ -56,6 +62,9 @@ Class Matrix3x2 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1,P2,P3])
 
 	Func CreateTranslation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
 
 	Func CreateTranslation_2 P1,P2
@@ -75,24 +84,6 @@ Class Matrix3x2 from ValueType
 
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Subtract",P1,P2])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CreateRotation@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1])
-
-	Func CreateScale@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
-
-	Func CreateSkew@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1])
-
-	Func CreateTranslation@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
-
-	Func Multiply@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Multiply",P1])
 
 	Func getIsIdentity
 		return dnRequest("get",[self,"IsIdentity"])

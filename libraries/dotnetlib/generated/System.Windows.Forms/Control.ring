@@ -120,6 +120,9 @@ Class Control from Component
 		return dnRequest("call",[self,"GetPreferredSize",P1])
 
 	Func BeginInvoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginInvoke",P1])
+		ok
 		return dnRequest("call",[self,"BeginInvoke",P1])
 
 	Func BeginInvoke_2 P1,P2
@@ -162,6 +165,9 @@ Class Control from Component
 		return dnRequest("call",[self,"GetChildAtPoint",P1,P2])
 
 	Func GetChildAtPoint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetChildAtPoint",P1])
+		ok
 		return dnRequest("call",[self,"GetChildAtPoint",P1])
 
 	Func GetContainerControl 
@@ -182,11 +188,22 @@ Class Control from Component
 		dnRequest("call",[self,"Invalidate",P1,P2])
 		return self
 
-	Func Invalidate 
-		dnRequest("call",[self,"Invalidate"])
+	Func Invalidate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Invalidate",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Invalidate"])
+		return self
+		ok
+		dnRequest("call",[self,"Invalidate",P1])
 		return self
 
 	Func Invoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Invoke",P1])
+		ok
 		dnRequest("call",[self,"Invoke",P1])
 		return self
 
@@ -199,9 +216,16 @@ Class Control from Component
 	Func ScaleBitmapLogicalToDevice P1
 		return dnRequest("call",[self,"ScaleBitmapLogicalToDevice",P1])
 
-	Func PerformLayout 
-		dnRequest("call",[self,"PerformLayout"])
+	Func PerformLayout P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"PerformLayout",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"PerformLayout"])
 		return self
+		ok
+		raise("DotNet Error: PerformLayout does not take one argument: use PerformLayout(NULL), PerformLayout_N(...) or named arguments")
 
 	Func PerformLayout_2 P1,P2
 		dnRequest("call",[self,"PerformLayout",P1,P2])
@@ -253,8 +277,16 @@ Class Control from Component
 		dnRequest("call",[self,"ResetText"])
 		return self
 
-	Func ResumeLayout 
-		dnRequest("call",[self,"ResumeLayout"])
+	Func ResumeLayout P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ResumeLayout",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ResumeLayout"])
+		return self
+		ok
+		dnRequest("call",[self,"ResumeLayout",P1])
 		return self
 
 	Func ResumeLayout_1 P1
@@ -262,6 +294,10 @@ Class Control from Component
 		return self
 
 	Func Scale P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Scale",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Scale",P1])
 		return self
 
@@ -308,6 +344,9 @@ Class Control from Component
 		return dnRequest("call",[self,"InvokeAsync",P1,P2])
 
 	Func InvokeAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InvokeAsync",P1])
+		ok
 		return dnRequest("call",[self,"InvokeAsync",P1])
 
 	Func FromChildHandle P1
@@ -321,44 +360,6 @@ Class Control from Component
 
 	Func IsMnemonic P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms'),"IsMnemonic",P1,P2])
-
-	Func BeginInvoke@ P1
-		return dnRequest("callnamed",[self,"BeginInvoke",P1])
-
-	Func DoDragDrop@ P1
-		return dnRequest("callnamed",[self,"DoDragDrop",P1])
-
-	Func GetChildAtPoint@ P1
-		return dnRequest("callnamed",[self,"GetChildAtPoint",P1])
-
-	Func Invalidate@ P1
-		dnRequest("callnamed",[self,"Invalidate",P1])
-		return self
-
-	Func Invoke@ P1
-		return dnRequest("callnamed",[self,"Invoke",P1])
-
-	Func LogicalToDeviceUnits@ P1
-		return dnRequest("callnamed",[self,"LogicalToDeviceUnits",P1])
-
-	Func PerformLayout@ P1
-		dnRequest("callnamed",[self,"PerformLayout",P1])
-		return self
-
-	Func ResumeLayout@ P1
-		dnRequest("callnamed",[self,"ResumeLayout",P1])
-		return self
-
-	Func Scale@ P1
-		dnRequest("callnamed",[self,"Scale",P1])
-		return self
-
-	Func SetBounds@ P1
-		dnRequest("callnamed",[self,"SetBounds",P1])
-		return self
-
-	Func InvokeAsync@ P1
-		return dnRequest("callnamed",[self,"InvokeAsync",P1])
 
 	Func setAutoSizeChangedEvent P1
 		dnRequest("setevent",[self,"AutoSizeChanged",dnCallback(P1)])

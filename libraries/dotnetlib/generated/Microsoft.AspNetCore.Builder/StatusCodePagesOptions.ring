@@ -16,6 +16,9 @@ Class StatusCodePagesOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.StatusCodePagesOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHandleAsync
 		return dnRequest("get",[self,"HandleAsync"])
 

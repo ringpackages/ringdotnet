@@ -21,6 +21,9 @@ Class UrlActionContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAction
 		return dnRequest("get",[self,"Action"])
 

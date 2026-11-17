@@ -40,8 +40,16 @@ Class NegotiateStream from AuthenticatedStream
 		dnRequest("call",[self,"EndAuthenticateAsClient",P1])
 		return self
 
-	Func AuthenticateAsServer 
-		dnRequest("call",[self,"AuthenticateAsServer"])
+	Func AuthenticateAsServer P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AuthenticateAsServer"])
+		return self
+		ok
+		dnRequest("call",[self,"AuthenticateAsServer",P1])
 		return self
 
 	Func AuthenticateAsServer_1 P1
@@ -72,9 +80,16 @@ Class NegotiateStream from AuthenticatedStream
 		dnRequest("call",[self,"EndAuthenticateAsServer",P1])
 		return self
 
-	Func AuthenticateAsClient 
-		dnRequest("call",[self,"AuthenticateAsClient"])
+	Func AuthenticateAsClient P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AuthenticateAsClient"])
 		return self
+		ok
+		raise("DotNet Error: AuthenticateAsClient does not take one argument: use AuthenticateAsClient(NULL), AuthenticateAsClient_N(...) or named arguments")
 
 	Func AuthenticateAsClient_2 P1,P2
 		dnRequest("call",[self,"AuthenticateAsClient",P1,P2])
@@ -92,8 +107,14 @@ Class NegotiateStream from AuthenticatedStream
 		dnRequest("call",[self,"AuthenticateAsClient",P1,P2,P3,P4,P5])
 		return self
 
-	Func AuthenticateAsClientAsync 
-		return dnRequest("call",[self,"AuthenticateAsClientAsync"])
+	Func AuthenticateAsClientAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AuthenticateAsClientAsync"])
+		ok
+		raise("DotNet Error: AuthenticateAsClientAsync does not take one argument: use AuthenticateAsClientAsync(NULL), AuthenticateAsClientAsync_N(...) or named arguments")
 
 	Func AuthenticateAsClientAsync_2 P1,P2
 		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2])
@@ -107,8 +128,14 @@ Class NegotiateStream from AuthenticatedStream
 	Func AuthenticateAsClientAsync_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2,P3,P4,P5])
 
-	Func AuthenticateAsServerAsync 
-		return dnRequest("call",[self,"AuthenticateAsServerAsync"])
+	Func AuthenticateAsServerAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AuthenticateAsServerAsync"])
+		ok
+		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
 
 	Func AuthenticateAsServerAsync_1 P1
 		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
@@ -118,26 +145,6 @@ Class NegotiateStream from AuthenticatedStream
 
 	Func AuthenticateAsServerAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3,P4])
-
-	Func BeginAuthenticateAsClient@ P1
-		return dnRequest("callnamed",[self,"BeginAuthenticateAsClient",P1])
-
-	Func AuthenticateAsServer@ P1
-		dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
-		return self
-
-	Func BeginAuthenticateAsServer@ P1
-		return dnRequest("callnamed",[self,"BeginAuthenticateAsServer",P1])
-
-	Func AuthenticateAsClient@ P1
-		dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
-		return self
-
-	Func AuthenticateAsClientAsync@ P1
-		return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
-
-	Func AuthenticateAsServerAsync@ P1
-		return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
 
 	Func getImpersonationLevel
 		return dnRequest("get",[self,"ImpersonationLevel"])

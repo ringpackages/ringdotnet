@@ -13,6 +13,9 @@ Class RelationalCommandBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AppendLine P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLine",P1,P2])
 
@@ -39,10 +42,4 @@ Class RelationalCommandBuilderExtensions from Object
 
 	Func AddRawParameter P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddRawParameter",P1,P2,P3])
-
-	Func AppendLines@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLines",P1])
-
-	Func AddParameter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddParameter",P1])
 

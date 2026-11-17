@@ -18,8 +18,14 @@ Class IReadOnlyCheckConstraint from DotNetObject
 		ok
 		return self
 
-	Func GetDefaultName 
-		return dnRequest("call",[self,"GetDefaultName"])
+	Func GetDefaultName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDefaultName",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDefaultName"])
+		ok
+		return dnRequest("call",[self,"GetDefaultName",P1])
 
 	Func GetName_1 P1
 		return dnRequest("call",[self,"GetName",P1])
@@ -33,14 +39,14 @@ Class IReadOnlyCheckConstraint from DotNetObject
 	Func ToDebugString_1 P1
 		return dnRequest("call",[self,"ToDebugString",P1])
 
-	Func ToDebugString 
-		return dnRequest("call",[self,"ToDebugString"])
-
-	Func GetDefaultName@ P1
-		return dnRequest("callnamed",[self,"GetDefaultName",P1])
-
-	Func ToDebugString@ P1
-		return dnRequest("callnamed",[self,"ToDebugString",P1])
+	Func ToDebugString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToDebugString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToDebugString"])
+		ok
+		return dnRequest("call",[self,"ToDebugString",P1])
 
 	Func getModelName
 		return dnRequest("get",[self,"ModelName"])

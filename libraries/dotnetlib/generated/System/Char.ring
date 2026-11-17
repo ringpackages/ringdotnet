@@ -63,33 +63,57 @@ Class Char from ValueType
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsAsciiHexDigitLower",P1])
 
 	Func IsDigit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1])
 
 	Func IsBetween P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsBetween",P1,P2,P3])
 
 	Func IsLetter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1])
 
 	Func IsWhiteSpace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1])
 
 	Func IsUpper P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1])
 
 	Func IsLower P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1])
 
 	Func IsPunctuation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1])
 
 	Func IsLetterOrDigit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
 
 	Func ToUpper_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1,P2])
 
 	Func ToUpper P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
 
 	Func ToUpperInvariant P1
@@ -99,12 +123,18 @@ Class Char from ValueType
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1,P2])
 
 	Func ToLower P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1])
 
 	Func ToLowerInvariant P1
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLowerInvariant",P1])
 
 	Func IsControl P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
 
 	Func IsControl_2 P1,P2
@@ -123,6 +153,9 @@ Class Char from ValueType
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1,P2])
 
 	Func IsNumber P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
 
 	Func IsNumber_2 P1,P2
@@ -132,18 +165,27 @@ Class Char from ValueType
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1,P2])
 
 	Func IsSeparator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
 
 	Func IsSeparator_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1,P2])
 
 	Func IsSurrogate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
 
 	Func IsSurrogate_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1,P2])
 
 	Func IsSymbol P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
 
 	Func IsSymbol_2 P1,P2
@@ -156,24 +198,36 @@ Class Char from ValueType
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1,P2])
 
 	Func GetUnicodeCategory P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
 
 	Func GetUnicodeCategory_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1,P2])
 
 	Func GetNumericValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
 
 	Func GetNumericValue_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1,P2])
 
 	Func IsHighSurrogate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
 
 	Func IsHighSurrogate_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1,P2])
 
 	Func IsLowSurrogate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
 
 	Func IsLowSurrogate_2 P1,P2
@@ -187,78 +241,6 @@ Class Char from ValueType
 
 	Func ConvertToUtf32 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ConvertToUtf32",P1,P2])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func IsDigit@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1])
-
-	Func IsLetter@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1])
-
-	Func IsWhiteSpace@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1])
-
-	Func IsUpper@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1])
-
-	Func IsLower@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1])
-
-	Func IsPunctuation@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1])
-
-	Func IsLetterOrDigit@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
-
-	Func ToUpper@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
-
-	Func ToLower@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1])
-
-	Func IsControl@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
-
-	Func IsNumber@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
-
-	Func IsSeparator@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
-
-	Func IsSurrogate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
-
-	Func IsSymbol@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
-
-	Func GetUnicodeCategory@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
-
-	Func GetNumericValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
-
-	Func IsHighSurrogate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
-
-	Func IsLowSurrogate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
-
-	Func IsSurrogatePair@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogatePair",P1])
-
-	Func ConvertToUtf32@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ConvertToUtf32",P1])
 
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Char, System.Private.CoreLib'),"MaxValue"])

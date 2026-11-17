@@ -25,11 +25,11 @@ Class IHostApplicationBuilder from DotNetObject
 		return self
 
 	Func ConfigureContainer P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ConfigureContainer",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ConfigureContainer",P1])
-		return self
-
-	Func ConfigureContainer@ P1
-		dnRequest("callnamed",[self,"ConfigureContainer",P1])
 		return self
 
 	Func getProperties

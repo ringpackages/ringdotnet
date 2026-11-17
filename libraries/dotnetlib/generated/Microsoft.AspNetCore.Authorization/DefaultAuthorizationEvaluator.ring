@@ -17,3 +17,6 @@ Class DefaultAuthorizationEvaluator from Object
 	Func Evaluate P1
 		return dnRequest("call",[self,"Evaluate",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

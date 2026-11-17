@@ -13,6 +13,9 @@ Class HstsServicesExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddHsts P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HstsServicesExtensions, Microsoft.AspNetCore.HttpsPolicy'),"AddHsts",P1,P2])
 

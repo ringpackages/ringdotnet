@@ -21,6 +21,9 @@ Class IdentityReference from Object
 	Func Translate P1
 		return dnRequest("call",[self,"Translate",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getValue
 		return dnRequest("get",[self,"Value"])
 

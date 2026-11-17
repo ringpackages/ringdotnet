@@ -21,6 +21,9 @@ Class CalendarBlackoutDatesCollection from DotNetObject
 		return self
 
 	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Contains",P1])
+		ok
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func Contains_2 P1,P2
@@ -73,9 +76,6 @@ Class CalendarBlackoutDatesCollection from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

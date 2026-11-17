@@ -27,13 +27,22 @@ Class IRelationalConnection from DotNetObject
 	Func Open_1 P1
 		return dnRequest("call",[self,"Open",P1])
 
-	Func Open 
-		return dnRequest("call",[self,"Open"])
+	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Open",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Open"])
+		ok
+		return dnRequest("call",[self,"Open",P1])
 
 	Func OpenAsync_2 P1,P2
 		return dnRequest("call",[self,"OpenAsync",P1,P2])
 
 	Func OpenAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"OpenAsync",P1])
+		ok
 		return dnRequest("call",[self,"OpenAsync",P1])
 
 	Func Close 
@@ -48,12 +57,6 @@ Class IRelationalConnection from DotNetObject
 	Func ReturnCommand P1
 		dnRequest("call",[self,"ReturnCommand",P1])
 		return self
-
-	Func Open@ P1
-		return dnRequest("callnamed",[self,"Open",P1])
-
-	Func OpenAsync@ P1
-		return dnRequest("callnamed",[self,"OpenAsync",P1])
 
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])

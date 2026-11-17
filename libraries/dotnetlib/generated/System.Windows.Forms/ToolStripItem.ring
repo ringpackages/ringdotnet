@@ -83,8 +83,16 @@ Class ToolStripItem from BindableComponent
 	Func GetPreferredSize P1
 		return dnRequest("call",[self,"GetPreferredSize",P1])
 
-	Func Invalidate 
-		dnRequest("call",[self,"Invalidate"])
+	Func Invalidate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Invalidate",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Invalidate"])
+		return self
+		ok
+		dnRequest("call",[self,"Invalidate",P1])
 		return self
 
 	Func Invalidate_1 P1
@@ -133,13 +141,6 @@ Class ToolStripItem from BindableComponent
 
 	Func ResetTextDirection 
 		dnRequest("call",[self,"ResetTextDirection"])
-		return self
-
-	Func DoDragDrop@ P1
-		return dnRequest("callnamed",[self,"DoDragDrop",P1])
-
-	Func Invalidate@ P1
-		dnRequest("callnamed",[self,"Invalidate",P1])
 		return self
 
 	Func setAvailableChangedEvent P1

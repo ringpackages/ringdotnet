@@ -30,6 +30,9 @@ Class AuthorizationPolicyBuilder from Object
 		return dnRequest("call",[self,"RequireClaim",P1,P2])
 
 	Func RequireClaim P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RequireClaim",P1])
+		ok
 		return dnRequest("call",[self,"RequireClaim",P1])
 
 	Func RequireRole P1
@@ -47,14 +50,8 @@ Class AuthorizationPolicyBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func RequireClaim@ P1
-		return dnRequest("callnamed",[self,"RequireClaim",P1])
-
-	Func RequireRole@ P1
-		return dnRequest("callnamed",[self,"RequireRole",P1])
-
-	Func RequireAssertion@ P1
-		return dnRequest("callnamed",[self,"RequireAssertion",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])

@@ -23,6 +23,12 @@ Class DbDataAdapter from DataAdapter
 	Func FillSchema_3 P1,P2,P3
 		return dnRequest("call",[self,"FillSchema",P1,P2,P3])
 
+	Func Fill P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Fill",P1])
+		ok
+		return dnRequest("call",[self,"Fill",P1])
+
 	Func Fill_2 P1,P2
 		return dnRequest("call",[self,"Fill",P1,P2])
 
@@ -32,17 +38,14 @@ Class DbDataAdapter from DataAdapter
 	Func Fill_3 P1,P2,P3
 		return dnRequest("call",[self,"Fill",P1,P2,P3])
 
+	Func Update P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Update",P1])
+		ok
+		return dnRequest("call",[self,"Update",P1])
+
 	Func Update_2 P1,P2
 		return dnRequest("call",[self,"Update",P1,P2])
-
-	Func FillSchema@ P1
-		return dnRequest("callnamed",[self,"FillSchema",P1])
-
-	Func Fill@ P1
-		return dnRequest("callnamed",[self,"Fill",P1])
-
-	Func Update@ P1
-		return dnRequest("callnamed",[self,"Update",P1])
 
 	Func getDeleteCommand
 		return dnRequest("get",[self,"DeleteCommand"])

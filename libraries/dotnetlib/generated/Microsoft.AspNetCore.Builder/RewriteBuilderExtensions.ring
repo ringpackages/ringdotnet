@@ -13,12 +13,15 @@ Class RewriteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseRewriter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
 
 	Func UseRewriter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1,P2])
-
-	Func UseRewriter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
 

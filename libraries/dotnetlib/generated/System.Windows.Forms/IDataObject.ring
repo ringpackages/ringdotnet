@@ -17,19 +17,31 @@ Class IDataObject from DotNetObject
 		return dnRequest("call",[self,"GetData",P1,P2])
 
 	Func GetData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetData",P1])
+		ok
 		return dnRequest("call",[self,"GetData",P1])
 
 	Func GetDataPresent_2 P1,P2
 		return dnRequest("call",[self,"GetDataPresent",P1,P2])
 
 	Func GetDataPresent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDataPresent",P1])
+		ok
 		return dnRequest("call",[self,"GetDataPresent",P1])
 
 	Func GetFormats_1 P1
 		return dnRequest("call",[self,"GetFormats",P1])
 
-	Func GetFormats 
-		return dnRequest("call",[self,"GetFormats"])
+	Func GetFormats P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFormats",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFormats"])
+		ok
+		return dnRequest("call",[self,"GetFormats",P1])
 
 	Func SetData_3 P1,P2,P3
 		dnRequest("call",[self,"SetData",P1,P2,P3])
@@ -40,19 +52,10 @@ Class IDataObject from DotNetObject
 		return self
 
 	Func SetData P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetData",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetData",P1])
-		return self
-
-	Func GetData@ P1
-		return dnRequest("callnamed",[self,"GetData",P1])
-
-	Func GetDataPresent@ P1
-		return dnRequest("callnamed",[self,"GetDataPresent",P1])
-
-	Func GetFormats@ P1
-		return dnRequest("callnamed",[self,"GetFormats",P1])
-
-	Func SetData@ P1
-		dnRequest("callnamed",[self,"SetData",P1])
 		return self
 

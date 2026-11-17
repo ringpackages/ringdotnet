@@ -47,6 +47,9 @@ Class XmlNamespaceManager from Object
 	Func HasNamespace P1
 		return dnRequest("call",[self,"HasNamespace",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getNameTable
 		return dnRequest("get",[self,"NameTable"])
 

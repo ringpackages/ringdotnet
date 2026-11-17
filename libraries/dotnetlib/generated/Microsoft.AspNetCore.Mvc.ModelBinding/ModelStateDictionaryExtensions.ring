@@ -13,6 +13,9 @@ Class ModelStateDictionaryExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddModelError P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1,P2,P3])
 		return self
@@ -30,9 +33,5 @@ Class ModelStateDictionaryExtensions from Object
 
 	Func RemoveAll P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"RemoveAll",P1,P2])
-		return self
-
-	Func AddModelError@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1])
 		return self
 

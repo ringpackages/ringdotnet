@@ -17,3 +17,6 @@ Class CompiledQueryCacheKeyGenerator from Object
 	Func GenerateCacheKey P1,P2
 		return dnRequest("call",[self,"GenerateCacheKey",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

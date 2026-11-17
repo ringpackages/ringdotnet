@@ -23,15 +23,21 @@ Class PeriodicTimer from Object
 	Func WaitForNextTickAsync_1 P1
 		return dnRequest("call",[self,"WaitForNextTickAsync",P1])
 
-	Func WaitForNextTickAsync 
-		return dnRequest("call",[self,"WaitForNextTickAsync"])
+	Func WaitForNextTickAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitForNextTickAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WaitForNextTickAsync"])
+		ok
+		return dnRequest("call",[self,"WaitForNextTickAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func WaitForNextTickAsync@ P1
-		return dnRequest("callnamed",[self,"WaitForNextTickAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getPeriod
 		return dnRequest("get",[self,"Period"])

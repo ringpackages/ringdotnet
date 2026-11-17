@@ -19,7 +19,13 @@ Class EndpointFilterInvocationContext from Object
 	Func GetArgument P1
 		return dnRequest("call",[self,"GetArgument",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
 	Func Create_2 P1,P2
@@ -45,9 +51,6 @@ Class EndpointFilterInvocationContext from Object
 
 	Func Create_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])

@@ -20,11 +20,11 @@ dnImport("Microsoft.Win32")
 oType = new Type().GetType_1("System.Math")
 dnAssert("Type.FullName",oType.FullName,"System.Math")
 dnAssert("Type.IsAbstract static class",oType.IsAbstract,1)
-aMethods = oType.GetMethods().toList()
+aMethods = oType.GetMethods(NULL).toList()
 dnAssert("Type.GetMethods",len(aMethods) > 20,1)
 dnAssert("MethodInfo wrapped",isobject(aMethods[1]) and isattribute(aMethods[1],"Name"),1)
 oAsm = new Assembly().Load_("System.Linq")
-dnAssert("Assembly.GetName",oAsm.GetName().Name,"System.Linq")
+dnAssert("Assembly.GetName",oAsm.GetName(NULL).Name,"System.Linq")
 oProp = new Type().GetType_1("System.String").GetProperty("Length")
 dnAssert("PropertyInfo.PropertyType",oProp.PropertyType.Name,"Int32")
 dnAssert("Activator via Type",new Activator().CreateInstance_1(new Type().GetType_1("System.Text.StringBuilder")).ToString(),"")
@@ -52,15 +52,15 @@ dnAssert("Timer.Enabled default",oTimer.Enabled,0)
 # Named pipes on one thread: the server waits in a task
 cPipe = "ringdotnet_" + random(1000000)
 oServer = new NamedPipeServerStream(cPipe)
-oWaiting = oServer.WaitForConnectionAsync()
+oWaiting = oServer.WaitForConnectionAsync(NULL)
 oClient = new NamedPipeClientStream(".",cPipe)
-oClient.Connect()
-oWaiting.Wait()
-oReading = new StreamReader(oServer).ReadLineAsync()	# pipes without buffers: the reader has to be waiting before the write
+oClient.Connect(NULL)
+oWaiting.Wait(NULL)
+oReading = new StreamReader(oServer).ReadLineAsync(NULL)	# pipes without buffers: the reader has to be waiting before the write
 oWriter = new StreamWriter(oClient)
 oWriter.AutoFlush = 1
 oWriter.WriteLine("through a pipe")
-oReading.Wait()
+oReading.Wait(NULL)
 dnAssert("pipe line",oReading.getProp("Result"),"through a pipe")
 oClient.Close()  oServer.Close()
 
@@ -71,7 +71,7 @@ if iswindows()
 	dnAssert("Registry round trip",number(oKey.GetValue("answer")),42)
 	oKey.Close()
 	new Registry().CurrentUser.DeleteSubKey("RingDotNetTest")
-	dnAssert("WindowsIdentity",len(new WindowsIdentity().GetCurrent().Name) > 0,1)
+	dnAssert("WindowsIdentity",len(new WindowsIdentity().GetCurrent(NULL).Name) > 0,1)
 ok
 
 # Mail messages (no sending), encoders

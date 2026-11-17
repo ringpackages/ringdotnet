@@ -27,8 +27,8 @@ Class BufferedGraphicsContext from Object
 		dnRequest("call",[self,"Invalidate"])
 		return self
 
-	Func Allocate@ P1
-		return dnRequest("callnamed",[self,"Allocate",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMaximumBuffer
 		return dnRequest("get",[self,"MaximumBuffer"])

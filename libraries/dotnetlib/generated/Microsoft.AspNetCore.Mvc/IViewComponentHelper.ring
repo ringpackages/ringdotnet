@@ -16,6 +16,3 @@ Class IViewComponentHelper from DotNetObject
 	Func InvokeAsync P1,P2
 		return dnRequest("call",[self,"InvokeAsync",P1,P2])
 
-	Func InvokeAsync@ P1
-		return dnRequest("callnamed",[self,"InvokeAsync",P1])
-

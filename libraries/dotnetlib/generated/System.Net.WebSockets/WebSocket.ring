@@ -42,6 +42,9 @@ Class WebSocket from Object
 	Func SendAsync P1,P2,P3
 		return dnRequest("call",[self,"SendAsync",P1,P2,P3])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateClientBuffer P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientBuffer",P1,P2])
 
@@ -63,15 +66,6 @@ Class WebSocket from Object
 
 	Func CreateClientWebSocket P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateClientWebSocket",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ReceiveAsync@ P1
-		return dnRequest("callnamed",[self,"ReceiveAsync",P1])
-
-	Func SendAsync@ P1
-		return dnRequest("callnamed",[self,"SendAsync",P1])
-
-	Func CreateFromStream@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateFromStream",P1])
 
 	Func getCloseStatus
 		return dnRequest("get",[self,"CloseStatus"])

@@ -22,6 +22,9 @@ Class SystemFonts from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetFontByName P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemFonts, System.Drawing.Common'),"GetFontByName",P1])
 

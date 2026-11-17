@@ -27,6 +27,9 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func CreateAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateAttribute",P1])
+		ok
 		return dnRequest("call",[self,"CreateAttribute",P1])
 
 	Func CreateCDataSection P1
@@ -42,6 +45,9 @@ Class XmlDocument from XmlNode
 		return dnRequest("call",[self,"CreateDocumentFragment"])
 
 	Func CreateElement P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateElement",P1])
+		ok
 		return dnRequest("call",[self,"CreateElement",P1])
 
 	Func CreateEntityReference P1
@@ -63,6 +69,9 @@ Class XmlDocument from XmlNode
 		return dnRequest("call",[self,"CreateWhitespace",P1])
 
 	Func GetElementsByTagName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
+		ok
 		return dnRequest("call",[self,"GetElementsByTagName",P1])
 
 	Func CreateAttribute_2 P1,P2
@@ -108,35 +117,15 @@ Class XmlDocument from XmlNode
 		return self
 
 	Func Validate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Validate",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
 	Func Validate_2 P1,P2
 		dnRequest("call",[self,"Validate",P1,P2])
-		return self
-
-	Func CreateAttribute@ P1
-		return dnRequest("callnamed",[self,"CreateAttribute",P1])
-
-	Func CreateElement@ P1
-		return dnRequest("callnamed",[self,"CreateElement",P1])
-
-	Func GetElementsByTagName@ P1
-		return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
-
-	Func CreateNode@ P1
-		return dnRequest("callnamed",[self,"CreateNode",P1])
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func Validate@ P1
-		dnRequest("callnamed",[self,"Validate",P1])
 		return self
 
 	Func setNodeInsertingEvent P1

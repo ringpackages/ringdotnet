@@ -31,8 +31,14 @@ Class Guid from ValueType
 		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
-	Func ToByteArray 
-		return dnRequest("call",[self,"ToByteArray"])
+	Func ToByteArray P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToByteArray",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToByteArray"])
+		ok
+		return dnRequest("call",[self,"ToByteArray",P1])
 
 	Func ToByteArray_1 P1
 		return dnRequest("call",[self,"ToByteArray",P1])
@@ -46,16 +52,28 @@ Class Guid from ValueType
 	Func ToString_2 P1,P2
 		return dnRequest("call",[self,"ToString",P1,P2])
 
-	Func CreateVersion7 
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7"])
+	Func CreateVersion7 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
 
 	Func CreateVersion7_1 P1
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
 
 	Func ParseExact P1,P2
@@ -72,27 +90,6 @@ Class Guid from ValueType
 
 	Func NewGuid 
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
-
-	Func ToByteArray@ P1
-		return dnRequest("callnamed",[self,"ToByteArray",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func CreateVersion7@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getVariant
 		return dnRequest("get",[self,"Variant"])

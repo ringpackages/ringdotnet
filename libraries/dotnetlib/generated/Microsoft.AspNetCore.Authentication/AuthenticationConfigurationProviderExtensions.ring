@@ -13,6 +13,9 @@ Class AuthenticationConfigurationProviderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetSchemeConfiguration P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationConfigurationProviderExtensions, Microsoft.AspNetCore.Authentication'),"GetSchemeConfiguration",P1,P2])
 

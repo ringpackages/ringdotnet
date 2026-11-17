@@ -13,7 +13,13 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapBlazorHub P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
 
 	Func MapBlazorHub_2 P1,P2
@@ -21,7 +27,4 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 
 	Func MapBlazorHub_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1,P2,P3])
-
-	Func MapBlazorHub@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
 

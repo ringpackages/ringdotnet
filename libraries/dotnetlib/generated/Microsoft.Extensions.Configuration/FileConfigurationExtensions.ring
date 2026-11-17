@@ -13,6 +13,9 @@ Class FileConfigurationExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetFileProvider P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.FileConfigurationExtensions, Microsoft.Extensions.Configuration.FileExtensions'),"SetFileProvider",P1,P2])
 

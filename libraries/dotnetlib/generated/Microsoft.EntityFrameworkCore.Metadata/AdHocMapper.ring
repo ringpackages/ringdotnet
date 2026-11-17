@@ -20,3 +20,6 @@ Class AdHocMapper from Object
 	Func GetOrAddEntityType P1
 		return dnRequest("call",[self,"GetOrAddEntityType",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

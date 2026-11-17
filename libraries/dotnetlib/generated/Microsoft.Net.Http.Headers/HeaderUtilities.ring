@@ -13,6 +13,9 @@ Class HeaderUtilities from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func TryParseSeconds P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"TryParseSeconds",P1,P2])
 
@@ -32,6 +35,9 @@ Class HeaderUtilities from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"TryParseDate",P1])
 
 	Func FormatDate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1])
 
 	Func FormatDate_2 P1,P2
@@ -48,7 +54,4 @@ Class HeaderUtilities from Object
 
 	Func EscapeAsQuotedString P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"EscapeAsQuotedString",P1])
-
-	Func FormatDate@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1])
 

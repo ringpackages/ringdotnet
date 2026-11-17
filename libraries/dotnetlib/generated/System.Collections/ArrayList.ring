@@ -36,6 +36,9 @@ Class ArrayList from Object
 		return dnRequest("call",[self,"BinarySearch",P1,P2,P3,P4])
 
 	Func BinarySearch P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BinarySearch",P1])
+		ok
 		return dnRequest("call",[self,"BinarySearch",P1])
 
 	Func BinarySearch_2 P1,P2
@@ -52,6 +55,10 @@ Class ArrayList from Object
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -63,13 +70,22 @@ Class ArrayList from Object
 		dnRequest("call",[self,"CopyTo",P1,P2,P3,P4])
 		return self
 
-	Func GetEnumerator 
-		return dnRequest("call",[self,"GetEnumerator"])
+	Func GetEnumerator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEnumerator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetEnumerator"])
+		ok
+		raise("DotNet Error: GetEnumerator does not take one argument: use GetEnumerator(NULL), GetEnumerator_N(...) or named arguments")
 
 	Func GetEnumerator_2 P1,P2
 		return dnRequest("call",[self,"GetEnumerator",P1,P2])
 
 	Func IndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOf",P1])
+		ok
 		return dnRequest("call",[self,"IndexOf",P1])
 
 	Func IndexOf_2 P1,P2
@@ -87,6 +103,9 @@ Class ArrayList from Object
 		return self
 
 	Func LastIndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LastIndexOf",P1])
+		ok
 		return dnRequest("call",[self,"LastIndexOf",P1])
 
 	Func LastIndexOf_2 P1,P2
@@ -107,9 +126,16 @@ Class ArrayList from Object
 		dnRequest("call",[self,"RemoveRange",P1,P2])
 		return self
 
-	Func Reverse 
-		dnRequest("call",[self,"Reverse"])
+	Func Reverse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Reverse",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Reverse"])
 		return self
+		ok
+		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
 
 	Func Reverse_2 P1,P2
 		dnRequest("call",[self,"Reverse",P1,P2])
@@ -122,8 +148,16 @@ Class ArrayList from Object
 	Func GetRange P1,P2
 		return dnRequest("call",[self,"GetRange",P1,P2])
 
-	Func Sort 
-		dnRequest("call",[self,"Sort"])
+	Func Sort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Sort",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Sort"])
+		return self
+		ok
+		dnRequest("call",[self,"Sort",P1])
 		return self
 
 	Func Sort_1 P1
@@ -134,8 +168,14 @@ Class ArrayList from Object
 		dnRequest("call",[self,"Sort",P1,P2,P3])
 		return self
 
-	Func ToArray 
-		return dnRequest("call",[self,"ToArray"])
+	Func ToArray P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToArray",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToArray"])
+		ok
+		return dnRequest("call",[self,"ToArray",P1])
 
 	Func ToArray_1 P1
 		return dnRequest("call",[self,"ToArray",P1])
@@ -143,6 +183,9 @@ Class ArrayList from Object
 	Func TrimToSize 
 		dnRequest("call",[self,"TrimToSize"])
 		return self
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Adapter P1
 		return dnRequest("call",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"Adapter",P1])
@@ -158,42 +201,6 @@ Class ArrayList from Object
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"Synchronized",P1])
-
-	Func BinarySearch@ P1
-		return dnRequest("callnamed",[self,"BinarySearch",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func GetEnumerator@ P1
-		return dnRequest("callnamed",[self,"GetEnumerator",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func LastIndexOf@ P1
-		return dnRequest("callnamed",[self,"LastIndexOf",P1])
-
-	Func Reverse@ P1
-		dnRequest("callnamed",[self,"Reverse",P1])
-		return self
-
-	Func Sort@ P1
-		dnRequest("callnamed",[self,"Sort",P1])
-		return self
-
-	Func ToArray@ P1
-		return dnRequest("callnamed",[self,"ToArray",P1])
-
-	Func FixedSize@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"FixedSize",P1])
-
-	Func ReadOnly@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"ReadOnly",P1])
-
-	Func Synchronized@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"Synchronized",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -26,14 +26,26 @@ Class XNode from XObject
 		dnRequest("call",[self,"AddBeforeSelf",P1])
 		return self
 
-	Func Ancestors 
-		return dnRequest("call",[self,"Ancestors"])
+	Func Ancestors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Ancestors",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Ancestors"])
+		ok
+		return dnRequest("call",[self,"Ancestors",P1])
 
 	Func Ancestors_1 P1
 		return dnRequest("call",[self,"Ancestors",P1])
 
-	Func CreateReader 
-		return dnRequest("call",[self,"CreateReader"])
+	Func CreateReader P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateReader",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateReader"])
+		ok
+		return dnRequest("call",[self,"CreateReader",P1])
 
 	Func CreateReader_1 P1
 		return dnRequest("call",[self,"CreateReader",P1])
@@ -44,14 +56,26 @@ Class XNode from XObject
 	Func NodesBeforeSelf 
 		return dnRequest("call",[self,"NodesBeforeSelf"])
 
-	Func ElementsAfterSelf 
-		return dnRequest("call",[self,"ElementsAfterSelf"])
+	Func ElementsAfterSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ElementsAfterSelf",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ElementsAfterSelf"])
+		ok
+		return dnRequest("call",[self,"ElementsAfterSelf",P1])
 
 	Func ElementsAfterSelf_1 P1
 		return dnRequest("call",[self,"ElementsAfterSelf",P1])
 
-	Func ElementsBeforeSelf 
-		return dnRequest("call",[self,"ElementsBeforeSelf"])
+	Func ElementsBeforeSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ElementsBeforeSelf",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ElementsBeforeSelf"])
+		ok
+		return dnRequest("call",[self,"ElementsBeforeSelf",P1])
 
 	Func ElementsBeforeSelf_1 P1
 		return dnRequest("call",[self,"ElementsBeforeSelf",P1])
@@ -91,33 +115,6 @@ Class XNode from XObject
 
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"DeepEquals",P1,P2])
-
-	Func AddAfterSelf@ P1
-		dnRequest("callnamed",[self,"AddAfterSelf",P1])
-		return self
-
-	Func AddBeforeSelf@ P1
-		dnRequest("callnamed",[self,"AddBeforeSelf",P1])
-		return self
-
-	Func Ancestors@ P1
-		return dnRequest("callnamed",[self,"Ancestors",P1])
-
-	Func CreateReader@ P1
-		return dnRequest("callnamed",[self,"CreateReader",P1])
-
-	Func ElementsAfterSelf@ P1
-		return dnRequest("callnamed",[self,"ElementsAfterSelf",P1])
-
-	Func ElementsBeforeSelf@ P1
-		return dnRequest("callnamed",[self,"ElementsBeforeSelf",P1])
-
-	Func ReplaceWith@ P1
-		dnRequest("callnamed",[self,"ReplaceWith",P1])
-		return self
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getNextNode
 		return dnRequest("get",[self,"NextNode"])

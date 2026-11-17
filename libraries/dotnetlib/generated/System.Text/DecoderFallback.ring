@@ -20,6 +20,9 @@ Class DecoderFallback from Object
 	Func CreateFallbackBuffer 
 		return dnRequest("call",[self,"CreateFallbackBuffer"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMaxCharCount
 		return dnRequest("get",[self,"MaxCharCount"])
 

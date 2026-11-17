@@ -48,20 +48,20 @@ Class AxHost from Control
 		dnRequest("call",[self,"MakeDirty"])
 		return self
 
-	Func ShowPropertyPages 
-		dnRequest("call",[self,"ShowPropertyPages"])
+	Func ShowPropertyPages P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ShowPropertyPages",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ShowPropertyPages"])
+		return self
+		ok
+		dnRequest("call",[self,"ShowPropertyPages",P1])
 		return self
 
 	Func ShowPropertyPages_1 P1
 		dnRequest("call",[self,"ShowPropertyPages",P1])
-		return self
-
-	Func DrawToBitmap@ P1
-		dnRequest("callnamed",[self,"DrawToBitmap",P1])
-		return self
-
-	Func ShowPropertyPages@ P1
-		dnRequest("callnamed",[self,"ShowPropertyPages",P1])
 		return self
 
 	Func getEditMode

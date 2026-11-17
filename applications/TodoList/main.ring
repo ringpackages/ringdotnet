@@ -47,7 +47,7 @@ func updateInfo
 func addTask
 	cTask = trim(oInput.Text)
 	if cTask != ""
-		oList.Items.Add@([ :item = cTask, :isChecked = False ])
+		oList.Items.Add([ :item = cTask, :isChecked = False ])
 		oInput.Text = ""
 		updateInfo()
 	ok
@@ -79,7 +79,7 @@ func loadTasks
 		for cLine in str2list(new File().ReadAllText(cFile))
 			cLine = trim(cLine)
 			if len(cLine) > 4
-				oList.Items.Add@([ :item = substr(cLine,5), :isChecked = (left(cLine,3) = "[x]") ])
+				oList.Items.Add([ :item = substr(cLine,5), :isChecked = (left(cLine,3) = "[x]") ])
 			ok
 		next
 	ok

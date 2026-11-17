@@ -13,12 +13,12 @@ Class RequestFormReaderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ReadFormAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1,P2,P3])
 
 	Func ReadFormAsync P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1,P2])
-
-	Func ReadFormAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1])
 

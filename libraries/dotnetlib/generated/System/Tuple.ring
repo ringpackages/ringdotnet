@@ -13,7 +13,13 @@ Class Tuple from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
 
 	Func Create_2 P1,P2
@@ -36,7 +42,4 @@ Class Tuple from Object
 
 	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
 

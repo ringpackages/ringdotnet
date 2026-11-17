@@ -38,7 +38,7 @@ func askNameDialog cPreset
 		# in a test the dialog confirms itself as soon as it is shown
 		oDialog.setShownEvent("oOk.PerformClick()")
 	ok
-	if oDialog.ShowDialog() = "OK"
+	if oDialog.ShowDialog(NULL) = "OK"
 		return oBox.Text
 	ok
 	return ""

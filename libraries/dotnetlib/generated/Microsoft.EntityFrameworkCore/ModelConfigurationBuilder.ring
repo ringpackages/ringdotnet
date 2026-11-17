@@ -16,14 +16,26 @@ Class ModelConfigurationBuilder from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelConfigurationBuilder, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
-	Func IgnoreAny 
-		return dnRequest("call",[self,"IgnoreAny"])
+	Func IgnoreAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IgnoreAny",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IgnoreAny"])
+		ok
+		return dnRequest("call",[self,"IgnoreAny",P1])
 
 	Func IgnoreAny_1 P1
 		return dnRequest("call",[self,"IgnoreAny",P1])
 
-	Func Properties 
-		return dnRequest("call",[self,"Properties"])
+	Func Properties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Properties",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Properties"])
+		ok
+		return dnRequest("call",[self,"Properties",P1])
 
 	Func Properties_1 P1
 		return dnRequest("call",[self,"Properties",P1])
@@ -31,8 +43,14 @@ Class ModelConfigurationBuilder from Object
 	Func Properties_2 P1,P2
 		return dnRequest("call",[self,"Properties",P1,P2])
 
-	Func DefaultTypeMapping 
-		return dnRequest("call",[self,"DefaultTypeMapping"])
+	Func DefaultTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DefaultTypeMapping",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"DefaultTypeMapping"])
+		ok
+		return dnRequest("call",[self,"DefaultTypeMapping",P1])
 
 	Func DefaultTypeMapping_1 P1
 		return dnRequest("call",[self,"DefaultTypeMapping",P1])
@@ -40,8 +58,14 @@ Class ModelConfigurationBuilder from Object
 	Func DefaultTypeMapping_2 P1,P2
 		return dnRequest("call",[self,"DefaultTypeMapping",P1,P2])
 
-	Func ComplexProperties 
-		return dnRequest("call",[self,"ComplexProperties"])
+	Func ComplexProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComplexProperties",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ComplexProperties"])
+		ok
+		return dnRequest("call",[self,"ComplexProperties",P1])
 
 	Func ComplexProperties_1 P1
 		return dnRequest("call",[self,"ComplexProperties",P1])
@@ -49,17 +73,8 @@ Class ModelConfigurationBuilder from Object
 	Func CreateModelBuilder P1
 		return dnRequest("call",[self,"CreateModelBuilder",P1])
 
-	Func IgnoreAny@ P1
-		return dnRequest("callnamed",[self,"IgnoreAny",P1])
-
-	Func Properties@ P1
-		return dnRequest("callnamed",[self,"Properties",P1])
-
-	Func DefaultTypeMapping@ P1
-		return dnRequest("callnamed",[self,"DefaultTypeMapping",P1])
-
-	Func ComplexProperties@ P1
-		return dnRequest("callnamed",[self,"ComplexProperties",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getConventions
 		return dnRequest("get",[self,"Conventions"])

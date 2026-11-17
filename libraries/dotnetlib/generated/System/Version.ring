@@ -43,6 +43,9 @@ Class Version from Object
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
@@ -51,15 +54,6 @@ Class Version from Object
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Version, System.Private.CoreLib'),"TryParse",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getMajor
 		return dnRequest("get",[self,"Major"])

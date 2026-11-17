@@ -16,3 +16,6 @@ Class LinkParser from Object
 	Func ParsePathByAddress P1,P2
 		return dnRequest("call",[self,"ParsePathByAddress",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

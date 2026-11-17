@@ -41,6 +41,9 @@ Class SynchronizationContext from Object
 	Func CreateCopy 
 		return dnRequest("call",[self,"CreateCopy"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetSynchronizationContext P1
 		dnRequest("call",[dnTypeCached('System.Threading.SynchronizationContext, System.Private.CoreLib'),"SetSynchronizationContext",P1])
 		return self

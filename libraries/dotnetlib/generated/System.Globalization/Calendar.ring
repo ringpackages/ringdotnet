@@ -64,6 +64,9 @@ Class Calendar from Object
 		return dnRequest("call",[self,"GetDaysInMonth",P1,P2,P3])
 
 	Func GetDaysInYear P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDaysInYear",P1])
+		ok
 		return dnRequest("call",[self,"GetDaysInYear",P1])
 
 	Func GetDaysInYear_2 P1,P2
@@ -85,6 +88,9 @@ Class Calendar from Object
 		return dnRequest("call",[self,"GetMonth",P1])
 
 	Func GetMonthsInYear P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMonthsInYear",P1])
+		ok
 		return dnRequest("call",[self,"GetMonthsInYear",P1])
 
 	Func GetMonthsInYear_2 P1,P2
@@ -112,12 +118,18 @@ Class Calendar from Object
 		return dnRequest("call",[self,"IsLeapMonth",P1,P2,P3])
 
 	Func GetLeapMonth P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetLeapMonth",P1])
+		ok
 		return dnRequest("call",[self,"GetLeapMonth",P1])
 
 	Func GetLeapMonth_2 P1,P2
 		return dnRequest("call",[self,"GetLeapMonth",P1,P2])
 
 	Func IsLeapYear P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsLeapYear",P1])
+		ok
 		return dnRequest("call",[self,"IsLeapYear",P1])
 
 	Func IsLeapYear_2 P1,P2
@@ -132,32 +144,11 @@ Class Calendar from Object
 	Func ToFourDigitYear P1
 		return dnRequest("call",[self,"ToFourDigitYear",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
-
-	Func GetDaysInMonth@ P1
-		return dnRequest("callnamed",[self,"GetDaysInMonth",P1])
-
-	Func GetDaysInYear@ P1
-		return dnRequest("callnamed",[self,"GetDaysInYear",P1])
-
-	Func GetMonthsInYear@ P1
-		return dnRequest("callnamed",[self,"GetMonthsInYear",P1])
-
-	Func IsLeapDay@ P1
-		return dnRequest("callnamed",[self,"IsLeapDay",P1])
-
-	Func IsLeapMonth@ P1
-		return dnRequest("callnamed",[self,"IsLeapMonth",P1])
-
-	Func GetLeapMonth@ P1
-		return dnRequest("callnamed",[self,"GetLeapMonth",P1])
-
-	Func IsLeapYear@ P1
-		return dnRequest("callnamed",[self,"IsLeapYear",P1])
-
-	Func ToDateTime@ P1
-		return dnRequest("callnamed",[self,"ToDateTime",P1])
 
 	Func getMinSupportedDateTime
 		return dnRequest("get",[self,"MinSupportedDateTime"])

@@ -38,6 +38,9 @@ Class MediaCommands from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPlay
 		return dnRequest("get",[dnTypeCached('System.Windows.Input.MediaCommands, PresentationCore'),"Play"])
 

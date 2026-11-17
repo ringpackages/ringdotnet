@@ -32,6 +32,15 @@ Class Decimal from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
@@ -66,6 +75,9 @@ Class Decimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Floor",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -75,6 +87,9 @@ Class Decimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -93,6 +108,9 @@ Class Decimal from ValueType
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Negate",P1])
 
 	Func Round P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
 
 	Func Round_2 P1,P2
@@ -196,27 +214,6 @@ Class Decimal from ValueType
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
-
-	Func Round@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
 
 	Func getScale
 		return dnRequest("get",[self,"Scale"])

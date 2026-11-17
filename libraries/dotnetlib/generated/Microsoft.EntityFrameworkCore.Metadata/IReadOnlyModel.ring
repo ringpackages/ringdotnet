@@ -34,6 +34,9 @@ Class IReadOnlyModel from DotNetObject
 		return dnRequest("call",[self,"GetEntityTypes"])
 
 	Func FindEntityType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindEntityType",P1])
+		ok
 		return dnRequest("call",[self,"FindEntityType",P1])
 
 	Func FindEntityType_3 P1,P2,P3
@@ -46,6 +49,9 @@ Class IReadOnlyModel from DotNetObject
 		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1,P2])
 
 	Func FindLeastDerivedEntityTypes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+		ok
 		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1])
 
 	Func ToDebugString_2 P1,P2
@@ -54,17 +60,14 @@ Class IReadOnlyModel from DotNetObject
 	Func ToDebugString_1 P1
 		return dnRequest("call",[self,"ToDebugString",P1])
 
-	Func ToDebugString 
-		return dnRequest("call",[self,"ToDebugString"])
-
-	Func FindEntityType@ P1
-		return dnRequest("callnamed",[self,"FindEntityType",P1])
-
-	Func FindLeastDerivedEntityTypes@ P1
-		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
-
-	Func ToDebugString@ P1
-		return dnRequest("callnamed",[self,"ToDebugString",P1])
+	Func ToDebugString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToDebugString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToDebugString"])
+		ok
+		return dnRequest("call",[self,"ToDebugString",P1])
 
 	Func getModelId
 		return dnRequest("get",[self,"ModelId"])

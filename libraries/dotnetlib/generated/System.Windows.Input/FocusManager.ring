@@ -18,6 +18,9 @@ Class FocusManager from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddGotFocusHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.FocusManager, PresentationCore'),"AddGotFocusHandler",P1,P2])
 		return self

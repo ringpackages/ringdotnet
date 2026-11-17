@@ -34,12 +34,6 @@ Class XmlSchemaType from XmlSchemaAnnotated
 	Func IsDerivedFrom P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"IsDerivedFrom",P1,P2,P3])
 
-	Func GetBuiltInSimpleType@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"GetBuiltInSimpleType",P1])
-
-	Func GetBuiltInComplexType@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Schema.XmlSchemaType, System.Private.Xml'),"GetBuiltInComplexType",P1])
-
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

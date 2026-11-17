@@ -30,8 +30,8 @@ Class HistoryRepositoryDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.HistoryRepositoryDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getDatabaseCreator
 		return dnRequest("get",[self,"DatabaseCreator"])

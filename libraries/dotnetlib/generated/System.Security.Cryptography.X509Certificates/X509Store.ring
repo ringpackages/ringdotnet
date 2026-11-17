@@ -60,6 +60,9 @@ Class X509Store from Object
 		dnRequest("call",[self,"Close"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getStoreHandle
 		return dnRequest("get",[self,"StoreHandle"])
 

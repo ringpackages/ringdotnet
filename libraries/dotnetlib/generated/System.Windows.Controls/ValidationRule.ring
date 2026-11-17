@@ -22,8 +22,8 @@ Class ValidationRule from Object
 	Func Validate_3 P1,P2,P3
 		return dnRequest("call",[self,"Validate",P1,P2,P3])
 
-	Func Validate@ P1
-		return dnRequest("callnamed",[self,"Validate",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getValidationStep
 		return dnRequest("get",[self,"ValidationStep"])

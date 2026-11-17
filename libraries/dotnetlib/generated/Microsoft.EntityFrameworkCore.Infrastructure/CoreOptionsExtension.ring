@@ -46,8 +46,14 @@ Class CoreOptionsExtension from Object
 	Func WithRootApplicationServiceProvider_1 P1
 		return dnRequest("call",[self,"WithRootApplicationServiceProvider",P1])
 
-	Func WithRootApplicationServiceProvider 
-		return dnRequest("call",[self,"WithRootApplicationServiceProvider"])
+	Func WithRootApplicationServiceProvider P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithRootApplicationServiceProvider",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WithRootApplicationServiceProvider"])
+		ok
+		return dnRequest("call",[self,"WithRootApplicationServiceProvider",P1])
 
 	Func WithModel P1
 		return dnRequest("call",[self,"WithModel",P1])
@@ -111,11 +117,8 @@ Class CoreOptionsExtension from Object
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
-	Func WithRootApplicationServiceProvider@ P1
-		return dnRequest("callnamed",[self,"WithRootApplicationServiceProvider",P1])
-
-	Func WithReplacedService@ P1
-		return dnRequest("callnamed",[self,"WithReplacedService",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getInfo
 		return dnRequest("get",[self,"Info"])

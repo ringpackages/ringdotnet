@@ -23,6 +23,9 @@ Class SpellingError from Object
 		dnRequest("call",[self,"IgnoreAll"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSuggestions
 		return dnRequest("get",[self,"Suggestions"])
 

@@ -23,6 +23,9 @@ Class ConfigurationBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSources
 		return dnRequest("get",[self,"Sources"])
 

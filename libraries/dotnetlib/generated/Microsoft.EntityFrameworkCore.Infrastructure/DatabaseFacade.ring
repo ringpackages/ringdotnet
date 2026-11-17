@@ -26,8 +26,14 @@ Class DatabaseFacade from Object
 	Func EnsureCreatedAsync_1 P1
 		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
 
-	Func EnsureCreatedAsync 
-		return dnRequest("call",[self,"EnsureCreatedAsync"])
+	Func EnsureCreatedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnsureCreatedAsync"])
+		ok
+		return dnRequest("call",[self,"EnsureCreatedAsync",P1])
 
 	Func EnsureDeleted 
 		return dnRequest("call",[self,"EnsureDeleted"])
@@ -35,8 +41,14 @@ Class DatabaseFacade from Object
 	Func EnsureDeletedAsync_1 P1
 		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
 
-	Func EnsureDeletedAsync 
-		return dnRequest("call",[self,"EnsureDeletedAsync"])
+	Func EnsureDeletedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnsureDeletedAsync"])
+		ok
+		return dnRequest("call",[self,"EnsureDeletedAsync",P1])
 
 	Func CanConnect 
 		return dnRequest("call",[self,"CanConnect"])
@@ -44,8 +56,14 @@ Class DatabaseFacade from Object
 	Func CanConnectAsync_1 P1
 		return dnRequest("call",[self,"CanConnectAsync",P1])
 
-	Func CanConnectAsync 
-		return dnRequest("call",[self,"CanConnectAsync"])
+	Func CanConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CanConnectAsync"])
+		ok
+		return dnRequest("call",[self,"CanConnectAsync",P1])
 
 	Func BeginTransaction 
 		return dnRequest("call",[self,"BeginTransaction"])
@@ -53,8 +71,14 @@ Class DatabaseFacade from Object
 	Func BeginTransactionAsync_1 P1
 		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
-	Func BeginTransactionAsync 
-		return dnRequest("call",[self,"BeginTransactionAsync"])
+	Func BeginTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
 	Func CommitTransaction 
 		dnRequest("call",[self,"CommitTransaction"])
@@ -63,8 +87,14 @@ Class DatabaseFacade from Object
 	Func CommitTransactionAsync_1 P1
 		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
-	Func CommitTransactionAsync 
-		return dnRequest("call",[self,"CommitTransactionAsync"])
+	Func CommitTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
 	Func RollbackTransaction 
 		dnRequest("call",[self,"RollbackTransaction"])
@@ -73,29 +103,20 @@ Class DatabaseFacade from Object
 	Func RollbackTransactionAsync_1 P1
 		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
-	Func RollbackTransactionAsync 
-		return dnRequest("call",[self,"RollbackTransactionAsync"])
+	Func RollbackTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RollbackTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
 	Func CreateExecutionStrategy 
 		return dnRequest("call",[self,"CreateExecutionStrategy"])
 
-	Func EnsureCreatedAsync@ P1
-		return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
-
-	Func EnsureDeletedAsync@ P1
-		return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
-
-	Func CanConnectAsync@ P1
-		return dnRequest("callnamed",[self,"CanConnectAsync",P1])
-
-	Func BeginTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
-
-	Func CommitTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
-
-	Func RollbackTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCurrentTransaction
 		return dnRequest("get",[self,"CurrentTransaction"])

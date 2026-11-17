@@ -27,8 +27,8 @@ Class FamilyTypeface from Object
 		nHandle = dnCreate('System.Windows.Media.FamilyTypeface, PresentationCore',[])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getStyle
 		return dnRequest("get",[self,"Style"])

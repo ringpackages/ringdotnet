@@ -19,6 +19,9 @@ Class RuntimeInformation from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsOSPlatform P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.RuntimeInformation, System.Private.CoreLib'),"IsOSPlatform",P1])
 

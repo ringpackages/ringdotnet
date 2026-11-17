@@ -13,6 +13,9 @@ Class LoggerExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func LogDebug_5 P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogDebug",P1,P2,P3,P4,P5])
 		return self
@@ -99,32 +102,4 @@ Class LoggerExtensions from Object
 
 	Func BeginScope P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"BeginScope",P1,P2,P3])
-
-	Func LogDebug@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogDebug",P1])
-		return self
-
-	Func LogTrace@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogTrace",P1])
-		return self
-
-	Func LogInformation@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogInformation",P1])
-		return self
-
-	Func LogWarning@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogWarning",P1])
-		return self
-
-	Func LogError@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogError",P1])
-		return self
-
-	Func LogCritical@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"LogCritical",P1])
-		return self
-
-	Func Log@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerExtensions, Microsoft.Extensions.Logging.Abstractions'),"Log",P1])
-		return self
 

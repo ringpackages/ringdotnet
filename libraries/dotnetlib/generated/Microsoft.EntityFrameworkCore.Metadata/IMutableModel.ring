@@ -29,6 +29,9 @@ Class IMutableModel from DotNetObject
 		return self
 
 	Func AddEntityType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddEntityType",P1])
+		ok
 		return dnRequest("call",[self,"AddEntityType",P1])
 
 	Func AddEntityType_2 P1,P2
@@ -38,18 +41,27 @@ Class IMutableModel from DotNetObject
 		return dnRequest("call",[self,"AddEntityType",P1,P2,P3])
 
 	Func AddOwnedEntityType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddOwnedEntityType",P1])
+		ok
 		return dnRequest("call",[self,"AddOwnedEntityType",P1])
 
 	Func AddOwnedEntityType_2 P1,P2
 		return dnRequest("call",[self,"AddOwnedEntityType",P1,P2])
 
 	Func FindEntityType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindEntityType",P1])
+		ok
 		return dnRequest("call",[self,"FindEntityType",P1])
 
 	Func FindEntityType_3 P1,P2,P3
 		return dnRequest("call",[self,"FindEntityType",P1,P2,P3])
 
 	Func RemoveEntityType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveEntityType",P1])
+		ok
 		return dnRequest("call",[self,"RemoveEntityType",P1])
 
 	Func RemoveEntityType_3 P1,P2,P3
@@ -65,6 +77,9 @@ Class IMutableModel from DotNetObject
 		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1,P2])
 
 	Func FindLeastDerivedEntityTypes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+		ok
 		return dnRequest("call",[self,"FindLeastDerivedEntityTypes",P1])
 
 	Func AddShared P1
@@ -95,28 +110,4 @@ Class IMutableModel from DotNetObject
 
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
-
-	Func AddEntityType@ P1
-		return dnRequest("callnamed",[self,"AddEntityType",P1])
-
-	Func AddOwnedEntityType@ P1
-		return dnRequest("callnamed",[self,"AddOwnedEntityType",P1])
-
-	Func FindEntityType@ P1
-		return dnRequest("callnamed",[self,"FindEntityType",P1])
-
-	Func RemoveEntityType@ P1
-		return dnRequest("callnamed",[self,"RemoveEntityType",P1])
-
-	Func FindLeastDerivedEntityTypes@ P1
-		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
-
-	Func AddIgnored@ P1
-		return dnRequest("callnamed",[self,"AddIgnored",P1])
-
-	Func RemoveIgnored@ P1
-		return dnRequest("callnamed",[self,"RemoveIgnored",P1])
-
-	Func IsIgnored@ P1
-		return dnRequest("callnamed",[self,"IsIgnored",P1])
 

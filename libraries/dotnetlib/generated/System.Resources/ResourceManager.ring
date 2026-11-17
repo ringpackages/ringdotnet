@@ -36,34 +36,37 @@ Class ResourceManager from Object
 		return dnRequest("call",[self,"GetResourceSet",P1,P2,P3])
 
 	Func GetString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetString",P1])
+		ok
 		return dnRequest("call",[self,"GetString",P1])
 
 	Func GetString_2 P1,P2
 		return dnRequest("call",[self,"GetString",P1,P2])
 
 	Func GetObject P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetObject",P1])
+		ok
 		return dnRequest("call",[self,"GetObject",P1])
 
 	Func GetObject_2 P1,P2
 		return dnRequest("call",[self,"GetObject",P1,P2])
 
 	Func GetStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStream",P1])
+		ok
 		return dnRequest("call",[self,"GetStream",P1])
 
 	Func GetStream_2 P1,P2
 		return dnRequest("call",[self,"GetStream",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateFileBasedResourceManager P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
-
-	Func GetString@ P1
-		return dnRequest("callnamed",[self,"GetString",P1])
-
-	Func GetObject@ P1
-		return dnRequest("callnamed",[self,"GetObject",P1])
-
-	Func GetStream@ P1
-		return dnRequest("callnamed",[self,"GetStream",P1])
 
 	Func getBaseName
 		return dnRequest("get",[self,"BaseName"])

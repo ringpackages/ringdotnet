@@ -17,14 +17,17 @@ Class PixelFormat from ValueType
 		nHandle = dnCreate('System.Windows.Media.PixelFormat, PresentationCore',[])
 		return self
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore'),"Equals",P1,P2])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getBitsPerPixel
 		return dnRequest("get",[self,"BitsPerPixel"])

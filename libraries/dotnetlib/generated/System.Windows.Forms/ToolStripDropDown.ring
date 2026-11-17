@@ -22,12 +22,32 @@ Class ToolStripDropDown from ToolStrip
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDown, System.Windows.Forms',[])
 		return self
 
-	Func Close 
-		dnRequest("call",[self,"Close"])
+	Func Close P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Close",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Close"])
+		return self
+		ok
+		dnRequest("call",[self,"Close",P1])
 		return self
 
 	Func Close_1 P1
 		dnRequest("call",[self,"Close",P1])
+		return self
+
+	Func Show P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Show",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Show"])
+		return self
+		ok
+		dnRequest("call",[self,"Show",P1])
 		return self
 
 	Func Show_2 P1,P2
@@ -40,14 +60,6 @@ Class ToolStripDropDown from ToolStrip
 
 	Func Show_1 P1
 		dnRequest("call",[self,"Show",P1])
-		return self
-
-	Func Close@ P1
-		dnRequest("callnamed",[self,"Close",P1])
-		return self
-
-	Func Show@ P1
-		dnRequest("callnamed",[self,"Show",P1])
 		return self
 
 	Func setClosedEvent P1

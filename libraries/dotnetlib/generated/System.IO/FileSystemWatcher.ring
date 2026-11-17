@@ -32,6 +32,9 @@ Class FileSystemWatcher from Component
 		return self
 
 	Func WaitForChanged P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitForChanged",P1])
+		ok
 		return dnRequest("call",[self,"WaitForChanged",P1])
 
 	Func WaitForChanged_2 P1,P2
@@ -44,9 +47,6 @@ Class FileSystemWatcher from Component
 	Func EndInit 
 		dnRequest("call",[self,"EndInit"])
 		return self
-
-	Func WaitForChanged@ P1
-		return dnRequest("callnamed",[self,"WaitForChanged",P1])
 
 	Func setChangedEvent P1
 		dnRequest("setevent",[self,"Changed",dnCallback(P1)])

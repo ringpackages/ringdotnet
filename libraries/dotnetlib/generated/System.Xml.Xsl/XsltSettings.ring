@@ -23,6 +23,9 @@ Class XsltSettings from Object
 		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEnableDocumentFunction
 		return dnRequest("get",[self,"EnableDocumentFunction"])
 

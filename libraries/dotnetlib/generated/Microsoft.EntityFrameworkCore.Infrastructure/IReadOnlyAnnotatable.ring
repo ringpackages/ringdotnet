@@ -25,11 +25,14 @@ Class IReadOnlyAnnotatable from DotNetObject
 	Func AnnotationsToDebugString_1 P1
 		return dnRequest("call",[self,"AnnotationsToDebugString",P1])
 
-	Func AnnotationsToDebugString 
-		return dnRequest("call",[self,"AnnotationsToDebugString"])
-
-	Func AnnotationsToDebugString@ P1
-		return dnRequest("callnamed",[self,"AnnotationsToDebugString",P1])
+	Func AnnotationsToDebugString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AnnotationsToDebugString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AnnotationsToDebugString"])
+		ok
+		return dnRequest("call",[self,"AnnotationsToDebugString",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

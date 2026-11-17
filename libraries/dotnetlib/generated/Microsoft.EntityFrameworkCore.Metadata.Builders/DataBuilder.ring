@@ -14,3 +14,6 @@ Class DataBuilder from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.Builders.DataBuilder, Microsoft.EntityFrameworkCore',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

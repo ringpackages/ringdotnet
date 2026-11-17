@@ -19,8 +19,8 @@ Class RelationalQueryableMethodTranslatingExpressionVisitorDependencies from Obj
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRelationalSqlTranslatingExpressionVisitorFactory
 		return dnRequest("get",[self,"RelationalSqlTranslatingExpressionVisitorFactory"])

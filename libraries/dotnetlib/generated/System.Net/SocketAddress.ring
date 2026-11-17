@@ -22,11 +22,11 @@ Class SocketAddress from Object
 		nHandle = dnCreate('System.Net.SocketAddress, System.Net.Primitives',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetMaximumAddressSize P1
 		return dnRequest("call",[dnTypeCached('System.Net.SocketAddress, System.Net.Primitives'),"GetMaximumAddressSize",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

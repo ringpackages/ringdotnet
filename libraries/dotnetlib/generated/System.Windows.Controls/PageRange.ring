@@ -25,9 +25,6 @@ Class PageRange from ValueType
 		nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[P1,P2])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getPageFrom
 		return dnRequest("get",[self,"PageFrom"])
 

@@ -20,6 +20,9 @@ Class StatusBar from ItemsControl
 		nHandle = dnCreate('System.Windows.Controls.Primitives.StatusBar, PresentationFramework',[])
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+
 	Func getItemContainerTemplateSelector
 		return dnRequest("get",[self,"ItemContainerTemplateSelector"])
 

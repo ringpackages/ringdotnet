@@ -13,7 +13,13 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RequireAuthorization P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
 
 	Func RequireAuthorization_2 P1,P2
@@ -21,7 +27,4 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 
 	Func AllowAnonymous P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AllowAnonymous",P1])
-
-	Func RequireAuthorization@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
 

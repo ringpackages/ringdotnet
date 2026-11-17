@@ -13,6 +13,9 @@ Class RelationalTriggerBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func HasDatabaseName_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1,P2,P3])
 
@@ -48,22 +51,4 @@ Class RelationalTriggerBuilderExtensions from Object
 
 	Func CanSetTableSchema P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableSchema",P1,P2])
-
-	Func HasDatabaseName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1])
-
-	Func CanSetDatabaseName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1])
-
-	Func HasTableName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableName",P1])
-
-	Func CanSetTableName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableName",P1])
-
-	Func HasTableSchema@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableSchema",P1])
-
-	Func CanSetTableSchema@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableSchema",P1])
 

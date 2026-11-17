@@ -16,6 +16,9 @@ Class ListViewGroupCollection from Object
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_2 P1,P2
@@ -54,12 +57,8 @@ Class ListViewGroupCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

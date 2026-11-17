@@ -13,6 +13,9 @@ Class HttpServiceCollectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddHttpContextAccessor P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddHttpContextAccessor",P1])
 

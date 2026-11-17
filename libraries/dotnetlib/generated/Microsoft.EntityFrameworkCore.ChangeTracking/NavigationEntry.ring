@@ -15,8 +15,16 @@ Class NavigationEntry from MemberEntry
 		ok
 		return self
 
-	Func Load_ 
-		dnRequest("call",[self,"Load"])
+	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Load",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Load"])
+		return self
+		ok
+		dnRequest("call",[self,"Load",P1])
 		return self
 
 	Func Load_1 P1
@@ -26,21 +34,20 @@ Class NavigationEntry from MemberEntry
 	Func LoadAsync_1 P1
 		return dnRequest("call",[self,"LoadAsync",P1])
 
-	Func LoadAsync 
-		return dnRequest("call",[self,"LoadAsync"])
+	Func LoadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LoadAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"LoadAsync"])
+		ok
+		return dnRequest("call",[self,"LoadAsync",P1])
 
 	Func LoadAsync_2 P1,P2
 		return dnRequest("call",[self,"LoadAsync",P1,P2])
 
 	Func Query 
 		return dnRequest("call",[self,"Query"])
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[self,"LoadAsync",P1])
 
 	Func getIsLoaded
 		return dnRequest("get",[self,"IsLoaded"])

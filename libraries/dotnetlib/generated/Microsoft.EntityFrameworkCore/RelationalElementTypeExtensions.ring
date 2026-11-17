@@ -13,6 +13,9 @@ Class RelationalElementTypeExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetStoreType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetStoreType",P1])
 
@@ -27,6 +30,9 @@ Class RelationalElementTypeExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetStoreTypeConfigurationSource",P1])
 
 	Func IsFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
 	Func IsFixedLength_2 P1,P2
@@ -47,16 +53,4 @@ Class RelationalElementTypeExtensions from Object
 
 	Func FindRelationalTypeMapping P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
-
-	Func GetStoreType@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetStoreType",P1])
-
-	Func SetStoreType@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetStoreType",P1])
-
-	Func IsFixedLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
-
-	Func SetIsFixedLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1])
 

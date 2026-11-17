@@ -24,6 +24,9 @@ Class TypeMaterializationInfo from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getProviderClrType
 		return dnRequest("get",[self,"ProviderClrType"])
 

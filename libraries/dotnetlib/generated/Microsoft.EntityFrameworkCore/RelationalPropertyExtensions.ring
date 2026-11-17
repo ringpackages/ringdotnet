@@ -13,10 +13,16 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetColumnBaseName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnBaseName",P1])
 
 	Func GetColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1])
 
 	Func GetColumnName_2 P1,P2
@@ -26,6 +32,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnBaseName",P1])
 
 	Func GetDefaultColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1])
 
 	Func GetDefaultColumnName_2 P1,P2
@@ -42,12 +51,18 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1,P2,P3,P4])
 
 	Func GetColumnNameConfigurationSource P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1])
 
 	Func GetColumnNameConfigurationSource_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1,P2])
 
 	Func GetColumnOrder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
 
 	Func GetColumnOrder_2 P1,P2
@@ -64,6 +79,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrderConfigurationSource",P1])
 
 	Func GetColumnType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1])
 
 	Func GetColumnType_2 P1,P2
@@ -113,6 +131,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindColumn",P1,P2])
 
 	Func GetDefaultValueSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1])
 
 	Func GetDefaultValueSql_2 P1,P2
@@ -129,6 +150,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSqlConfigurationSource",P1])
 
 	Func GetComputedColumnSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1])
 
 	Func GetComputedColumnSql_2 P1,P2
@@ -145,6 +169,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSqlConfigurationSource",P1])
 
 	Func GetIsStored P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1])
 
 	Func GetIsStored_2 P1,P2
@@ -161,9 +188,15 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStoredConfigurationSource",P1])
 
 	Func GetDefaultValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValue",P1])
 
 	Func TryGetDefaultValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1])
 
 	Func GetDefaultValue_2 P1,P2
@@ -195,6 +228,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsUnicode",P1,P2])
 
 	Func IsFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
 	Func IsFixedLength_2 P1,P2
@@ -211,12 +247,18 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsFixedLengthConfigurationSource",P1])
 
 	Func IsColumnNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1])
 
 	Func IsColumnNullable_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1,P2])
 
 	Func GetComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
 
 	Func GetComment_2 P1,P2
@@ -233,6 +275,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCommentConfigurationSource",P1])
 
 	Func GetCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
 
 	Func GetCollation_2 P1,P2
@@ -252,6 +297,9 @@ Class RelationalPropertyExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetRelationalTypeMapping",P1])
 
 	Func FindRelationalTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
 
 	Func FindRelationalTypeMapping_2 P1,P2
@@ -293,97 +341,4 @@ Class RelationalPropertyExtensions from Object
 
 	Func GetJsonPropertyNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyNameConfigurationSource",P1])
-
-	Func GetColumnName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1])
-
-	Func GetDefaultColumnName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1])
-
-	Func SetColumnName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1])
-
-	Func GetColumnNameConfigurationSource@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1])
-
-	Func GetColumnOrder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
-
-	Func SetColumnOrder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnOrder",P1])
-
-	Func GetColumnType@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1])
-
-	Func SetColumnType@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnType",P1])
-
-	Func GetDefaultValueSql@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1])
-
-	Func SetDefaultValueSql@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValueSql",P1])
-
-	Func GetComputedColumnSql@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1])
-
-	Func SetComputedColumnSql@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComputedColumnSql",P1])
-
-	Func GetIsStored@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1])
-
-	Func SetIsStored@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsStored",P1])
-
-	Func GetDefaultValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValue",P1])
-
-	Func TryGetDefaultValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1])
-
-	Func SetDefaultValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValue",P1])
-
-	Func IsFixedLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
-
-	Func SetIsFixedLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1])
-
-	Func IsColumnNullable@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1])
-
-	Func GetComment@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
-
-	Func SetComment@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1])
-
-	Func GetCollation@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
-
-	Func SetCollation@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1])
-
-	Func FindRelationalTypeMapping@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
-
-	Func FindSharedStoreObjectRootProperty@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSharedStoreObjectRootProperty",P1])
-
-	Func GetOverrides@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOverrides",P1])
-
-	Func FindOverrides@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindOverrides",P1])
-
-	Func GetOrCreateOverrides@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateOverrides",P1])
-
-	Func RemoveOverrides@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveOverrides",P1])
-
-	Func SetJsonPropertyName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1])
 

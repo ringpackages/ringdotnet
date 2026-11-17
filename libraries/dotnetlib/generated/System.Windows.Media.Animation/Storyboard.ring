@@ -34,68 +34,136 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[self,"Begin",P1,P2,P3,P4])
 		return self
 
-	Func Begin 
-		dnRequest("call",[self,"Begin"])
+	Func Begin P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Begin",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Begin"])
+		return self
+		ok
+		dnRequest("call",[self,"Begin",P1])
 		return self
 
 	Func GetCurrentGlobalSpeed_1 P1
 		return dnRequest("call",[self,"GetCurrentGlobalSpeed",P1])
 
-	Func GetCurrentGlobalSpeed 
-		return dnRequest("call",[self,"GetCurrentGlobalSpeed"])
+	Func GetCurrentGlobalSpeed P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCurrentGlobalSpeed",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCurrentGlobalSpeed"])
+		ok
+		return dnRequest("call",[self,"GetCurrentGlobalSpeed",P1])
 
 	Func GetCurrentIteration_1 P1
 		return dnRequest("call",[self,"GetCurrentIteration",P1])
 
-	Func GetCurrentIteration 
-		return dnRequest("call",[self,"GetCurrentIteration"])
+	Func GetCurrentIteration P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCurrentIteration",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCurrentIteration"])
+		ok
+		return dnRequest("call",[self,"GetCurrentIteration",P1])
 
 	Func GetCurrentProgress_1 P1
 		return dnRequest("call",[self,"GetCurrentProgress",P1])
 
-	Func GetCurrentProgress 
-		return dnRequest("call",[self,"GetCurrentProgress"])
+	Func GetCurrentProgress P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCurrentProgress",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCurrentProgress"])
+		ok
+		return dnRequest("call",[self,"GetCurrentProgress",P1])
 
 	Func GetCurrentState_1 P1
 		return dnRequest("call",[self,"GetCurrentState",P1])
 
-	Func GetCurrentState 
-		return dnRequest("call",[self,"GetCurrentState"])
+	Func GetCurrentState P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCurrentState",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCurrentState"])
+		ok
+		return dnRequest("call",[self,"GetCurrentState",P1])
 
 	Func GetCurrentTime_1 P1
 		return dnRequest("call",[self,"GetCurrentTime",P1])
 
-	Func GetCurrentTime 
-		return dnRequest("call",[self,"GetCurrentTime"])
+	Func GetCurrentTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCurrentTime",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCurrentTime"])
+		ok
+		return dnRequest("call",[self,"GetCurrentTime",P1])
 
 	Func GetIsPaused_1 P1
 		return dnRequest("call",[self,"GetIsPaused",P1])
 
-	Func GetIsPaused 
-		return dnRequest("call",[self,"GetIsPaused"])
+	Func GetIsPaused P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetIsPaused",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetIsPaused"])
+		ok
+		return dnRequest("call",[self,"GetIsPaused",P1])
 
 	Func Pause_1 P1
 		dnRequest("call",[self,"Pause",P1])
 		return self
 
-	Func Pause 
-		dnRequest("call",[self,"Pause"])
+	Func Pause P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Pause",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Pause"])
+		return self
+		ok
+		dnRequest("call",[self,"Pause",P1])
 		return self
 
 	Func Remove_1 P1
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func Remove 
-		dnRequest("call",[self,"Remove"])
+	Func Remove P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Remove",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Remove"])
+		return self
+		ok
+		dnRequest("call",[self,"Remove",P1])
 		return self
 
 	Func Resume_1 P1
 		dnRequest("call",[self,"Resume",P1])
 		return self
 
-	Func Resume 
-		dnRequest("call",[self,"Resume"])
+	Func Resume P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Resume",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Resume"])
+		return self
+		ok
+		dnRequest("call",[self,"Resume",P1])
 		return self
 
 	Func Seek_3 P1,P2,P3
@@ -107,6 +175,10 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func Seek P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Seek",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Seek",P1])
 		return self
 
@@ -119,6 +191,10 @@ Class Storyboard from ParallelTimeline
 		return self
 
 	Func SeekAlignedToLastTick P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SeekAlignedToLastTick",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SeekAlignedToLastTick",P1])
 		return self
 
@@ -134,16 +210,32 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[self,"SkipToFill",P1])
 		return self
 
-	Func SkipToFill 
-		dnRequest("call",[self,"SkipToFill"])
+	Func SkipToFill P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SkipToFill",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"SkipToFill"])
+		return self
+		ok
+		dnRequest("call",[self,"SkipToFill",P1])
 		return self
 
 	Func Stop_1 P1
 		dnRequest("call",[self,"Stop",P1])
 		return self
 
-	Func Stop 
-		dnRequest("call",[self,"Stop"])
+	Func Stop P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Stop",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Stop"])
+		return self
+		ok
+		dnRequest("call",[self,"Stop",P1])
 		return self
 
 	Func SetTarget P1,P2
@@ -166,60 +258,6 @@ Class Storyboard from ParallelTimeline
 
 	Func GetTargetProperty_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetProperty",P1])
-
-	Func Begin@ P1
-		dnRequest("callnamed",[self,"Begin",P1])
-		return self
-
-	Func GetCurrentGlobalSpeed@ P1
-		return dnRequest("callnamed",[self,"GetCurrentGlobalSpeed",P1])
-
-	Func GetCurrentIteration@ P1
-		return dnRequest("callnamed",[self,"GetCurrentIteration",P1])
-
-	Func GetCurrentProgress@ P1
-		return dnRequest("callnamed",[self,"GetCurrentProgress",P1])
-
-	Func GetCurrentState@ P1
-		return dnRequest("callnamed",[self,"GetCurrentState",P1])
-
-	Func GetCurrentTime@ P1
-		return dnRequest("callnamed",[self,"GetCurrentTime",P1])
-
-	Func GetIsPaused@ P1
-		return dnRequest("callnamed",[self,"GetIsPaused",P1])
-
-	Func Pause@ P1
-		dnRequest("callnamed",[self,"Pause",P1])
-		return self
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
-
-	Func Resume@ P1
-		dnRequest("callnamed",[self,"Resume",P1])
-		return self
-
-	Func Seek@ P1
-		dnRequest("callnamed",[self,"Seek",P1])
-		return self
-
-	Func SeekAlignedToLastTick@ P1
-		dnRequest("callnamed",[self,"SeekAlignedToLastTick",P1])
-		return self
-
-	Func SetSpeedRatio@ P1
-		dnRequest("callnamed",[self,"SetSpeedRatio",P1])
-		return self
-
-	Func SkipToFill@ P1
-		dnRequest("callnamed",[self,"SkipToFill",P1])
-		return self
-
-	Func Stop@ P1
-		dnRequest("callnamed",[self,"Stop",P1])
-		return self
 
 	Func getTargetProperty
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"TargetProperty"])

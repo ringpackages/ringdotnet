@@ -29,8 +29,14 @@ Class StringSegment from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[P1,P2,P3])
 		return self
 
-	Func AsSpan 
-		return dnRequest("call",[self,"AsSpan"])
+	Func AsSpan P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AsSpan",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AsSpan"])
+		ok
+		return dnRequest("call",[self,"AsSpan",P1])
 
 	Func AsSpan_1 P1
 		return dnRequest("call",[self,"AsSpan",P1])
@@ -40,6 +46,15 @@ Class StringSegment from ValueType
 
 	Func AsMemory 
 		return dnRequest("call",[self,"AsMemory"])
+
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Equals_2 P1,P2
 		return dnRequest("call",[self,"Equals",P1,P2])
@@ -51,12 +66,18 @@ Class StringSegment from ValueType
 		return dnRequest("call",[self,"EndsWith",P1,P2])
 
 	Func Substring P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Substring",P1])
+		ok
 		return dnRequest("call",[self,"Substring",P1])
 
 	Func Substring_2 P1,P2
 		return dnRequest("call",[self,"Substring",P1,P2])
 
 	Func Subsegment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Subsegment",P1])
+		ok
 		return dnRequest("call",[self,"Subsegment",P1])
 
 	Func Subsegment_2 P1,P2
@@ -69,6 +90,9 @@ Class StringSegment from ValueType
 		return dnRequest("call",[self,"IndexOf",P1,P2])
 
 	Func IndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOf",P1])
+		ok
 		return dnRequest("call",[self,"IndexOf",P1])
 
 	Func IndexOfAny_3 P1,P2,P3
@@ -78,6 +102,9 @@ Class StringSegment from ValueType
 		return dnRequest("call",[self,"IndexOfAny",P1,P2])
 
 	Func IndexOfAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOfAny",P1])
+		ok
 		return dnRequest("call",[self,"IndexOfAny",P1])
 
 	Func LastIndexOf P1
@@ -103,27 +130,6 @@ Class StringSegment from ValueType
 
 	Func IsNullOrEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
-
-	Func AsSpan@ P1
-		return dnRequest("callnamed",[self,"AsSpan",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Substring@ P1
-		return dnRequest("callnamed",[self,"Substring",P1])
-
-	Func Subsegment@ P1
-		return dnRequest("callnamed",[self,"Subsegment",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func IndexOfAny@ P1
-		return dnRequest("callnamed",[self,"IndexOfAny",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -25,6 +25,10 @@ Class XStreamingElement from Object
 		return self
 
 	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Save",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Save",P1])
 		return self
 
@@ -39,16 +43,8 @@ Class XStreamingElement from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])

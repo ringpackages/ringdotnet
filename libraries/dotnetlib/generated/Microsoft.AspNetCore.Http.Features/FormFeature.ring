@@ -24,14 +24,20 @@ Class FormFeature from Object
 	Func ReadForm 
 		return dnRequest("call",[self,"ReadForm"])
 
-	Func ReadFormAsync 
-		return dnRequest("call",[self,"ReadFormAsync"])
+	Func ReadFormAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadFormAsync"])
+		ok
+		return dnRequest("call",[self,"ReadFormAsync",P1])
 
 	Func ReadFormAsync_1 P1
 		return dnRequest("call",[self,"ReadFormAsync",P1])
 
-	Func ReadFormAsync@ P1
-		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHasFormContentType
 		return dnRequest("get",[self,"HasFormContentType"])

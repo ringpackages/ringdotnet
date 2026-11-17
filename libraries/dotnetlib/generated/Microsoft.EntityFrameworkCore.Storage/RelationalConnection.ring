@@ -37,14 +37,26 @@ Class RelationalConnection from Object
 		dnRequest("call",[self,"ReturnCommand",P1])
 		return self
 
-	Func BeginTransaction 
-		return dnRequest("call",[self,"BeginTransaction"])
+	Func BeginTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransaction",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransaction"])
+		ok
+		return dnRequest("call",[self,"BeginTransaction",P1])
 
 	Func BeginTransactionAsync_1 P1
 		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
-	Func BeginTransactionAsync 
-		return dnRequest("call",[self,"BeginTransactionAsync"])
+	Func BeginTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
 	Func BeginTransaction_1 P1
 		return dnRequest("call",[self,"BeginTransaction",P1])
@@ -53,6 +65,9 @@ Class RelationalConnection from Object
 		return dnRequest("call",[self,"BeginTransactionAsync",P1,P2])
 
 	Func UseTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UseTransaction",P1])
+		ok
 		return dnRequest("call",[self,"UseTransaction",P1])
 
 	Func UseTransaction_2 P1,P2
@@ -62,6 +77,9 @@ Class RelationalConnection from Object
 		return dnRequest("call",[self,"UseTransactionAsync",P1,P2])
 
 	Func UseTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UseTransactionAsync",P1])
+		ok
 		return dnRequest("call",[self,"UseTransactionAsync",P1])
 
 	Func UseTransactionAsync_3 P1,P2,P3
@@ -74,8 +92,14 @@ Class RelationalConnection from Object
 	Func CommitTransactionAsync_1 P1
 		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
-	Func CommitTransactionAsync 
-		return dnRequest("call",[self,"CommitTransactionAsync"])
+	Func CommitTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
 	Func RollbackTransaction 
 		dnRequest("call",[self,"RollbackTransaction"])
@@ -84,19 +108,34 @@ Class RelationalConnection from Object
 	Func RollbackTransactionAsync_1 P1
 		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
-	Func RollbackTransactionAsync 
-		return dnRequest("call",[self,"RollbackTransactionAsync"])
+	Func RollbackTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RollbackTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
 	Func Open_1 P1
 		return dnRequest("call",[self,"Open",P1])
 
-	Func Open 
-		return dnRequest("call",[self,"Open"])
+	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Open",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Open"])
+		ok
+		return dnRequest("call",[self,"Open",P1])
 
 	Func OpenAsync_2 P1,P2
 		return dnRequest("call",[self,"OpenAsync",P1,P2])
 
 	Func OpenAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"OpenAsync",P1])
+		ok
 		return dnRequest("call",[self,"OpenAsync",P1])
 
 	Func Close 
@@ -112,29 +151,8 @@ Class RelationalConnection from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func BeginTransaction@ P1
-		return dnRequest("callnamed",[self,"BeginTransaction",P1])
-
-	Func BeginTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
-
-	Func UseTransaction@ P1
-		return dnRequest("callnamed",[self,"UseTransaction",P1])
-
-	Func UseTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"UseTransactionAsync",P1])
-
-	Func CommitTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
-
-	Func RollbackTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
-
-	Func Open@ P1
-		return dnRequest("callnamed",[self,"Open",P1])
-
-	Func OpenAsync@ P1
-		return dnRequest("callnamed",[self,"OpenAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getConnectionId
 		return dnRequest("get",[self,"ConnectionId"])

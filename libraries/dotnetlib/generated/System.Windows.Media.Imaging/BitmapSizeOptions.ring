@@ -18,6 +18,9 @@ Class BitmapSizeOptions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromEmptyOptions 
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSizeOptions, PresentationCore'),"FromEmptyOptions"])
 

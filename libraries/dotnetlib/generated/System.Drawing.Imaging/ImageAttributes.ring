@@ -22,6 +22,10 @@ Class ImageAttributes from Object
 		return dnRequest("call",[self,"Clone"])
 
 	Func SetColorMatrix P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetColorMatrix",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetColorMatrix",P1])
 		return self
 
@@ -33,8 +37,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetColorMatrix",P1,P2,P3])
 		return self
 
-	Func ClearColorMatrix 
-		dnRequest("call",[self,"ClearColorMatrix"])
+	Func ClearColorMatrix P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearColorMatrix",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearColorMatrix"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearColorMatrix",P1])
 		return self
 
 	Func ClearColorMatrix_1 P1
@@ -54,6 +66,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetThreshold P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetThreshold",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetThreshold",P1])
 		return self
 
@@ -61,8 +77,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetThreshold",P1,P2])
 		return self
 
-	Func ClearThreshold 
-		dnRequest("call",[self,"ClearThreshold"])
+	Func ClearThreshold P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearThreshold",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearThreshold"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearThreshold",P1])
 		return self
 
 	Func ClearThreshold_1 P1
@@ -70,6 +94,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetGamma P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetGamma",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetGamma",P1])
 		return self
 
@@ -77,24 +105,48 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetGamma",P1,P2])
 		return self
 
-	Func ClearGamma 
-		dnRequest("call",[self,"ClearGamma"])
+	Func ClearGamma P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearGamma",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearGamma"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearGamma",P1])
 		return self
 
 	Func ClearGamma_1 P1
 		dnRequest("call",[self,"ClearGamma",P1])
 		return self
 
-	Func SetNoOp 
-		dnRequest("call",[self,"SetNoOp"])
+	Func SetNoOp P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetNoOp",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"SetNoOp"])
+		return self
+		ok
+		dnRequest("call",[self,"SetNoOp",P1])
 		return self
 
 	Func SetNoOp_1 P1
 		dnRequest("call",[self,"SetNoOp",P1])
 		return self
 
-	Func ClearNoOp 
-		dnRequest("call",[self,"ClearNoOp"])
+	Func ClearNoOp P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearNoOp",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearNoOp"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearNoOp",P1])
 		return self
 
 	Func ClearNoOp_1 P1
@@ -109,8 +161,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetColorKey",P1,P2,P3])
 		return self
 
-	Func ClearColorKey 
-		dnRequest("call",[self,"ClearColorKey"])
+	Func ClearColorKey P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearColorKey",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearColorKey"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearColorKey",P1])
 		return self
 
 	Func ClearColorKey_1 P1
@@ -118,6 +178,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetOutputChannel P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetOutputChannel",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetOutputChannel",P1])
 		return self
 
@@ -125,8 +189,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetOutputChannel",P1,P2])
 		return self
 
-	Func ClearOutputChannel 
-		dnRequest("call",[self,"ClearOutputChannel"])
+	Func ClearOutputChannel P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearOutputChannel",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearOutputChannel"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearOutputChannel",P1])
 		return self
 
 	Func ClearOutputChannel_1 P1
@@ -134,6 +206,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetOutputChannelColorProfile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetOutputChannelColorProfile",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetOutputChannelColorProfile",P1])
 		return self
 
@@ -141,8 +217,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetOutputChannelColorProfile",P1,P2])
 		return self
 
-	Func ClearOutputChannelColorProfile 
-		dnRequest("call",[self,"ClearOutputChannelColorProfile"])
+	Func ClearOutputChannelColorProfile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearOutputChannelColorProfile",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearOutputChannelColorProfile"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearOutputChannelColorProfile",P1])
 		return self
 
 	Func ClearOutputChannelColorProfile_1 P1
@@ -150,6 +234,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetRemapTable P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetRemapTable",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetRemapTable",P1])
 		return self
 
@@ -157,8 +245,16 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"SetRemapTable",P1,P2])
 		return self
 
-	Func ClearRemapTable 
-		dnRequest("call",[self,"ClearRemapTable"])
+	Func ClearRemapTable P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ClearRemapTable",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ClearRemapTable"])
+		return self
+		ok
+		dnRequest("call",[self,"ClearRemapTable",P1])
 		return self
 
 	Func ClearRemapTable_1 P1
@@ -174,6 +270,10 @@ Class ImageAttributes from Object
 		return self
 
 	Func SetWrapMode P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetWrapMode",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetWrapMode",P1])
 		return self
 
@@ -189,75 +289,6 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"GetAdjustedPalette",P1,P2])
 		return self
 
-	Func SetColorMatrix@ P1
-		dnRequest("callnamed",[self,"SetColorMatrix",P1])
-		return self
-
-	Func ClearColorMatrix@ P1
-		dnRequest("callnamed",[self,"ClearColorMatrix",P1])
-		return self
-
-	Func SetColorMatrices@ P1
-		dnRequest("callnamed",[self,"SetColorMatrices",P1])
-		return self
-
-	Func SetThreshold@ P1
-		dnRequest("callnamed",[self,"SetThreshold",P1])
-		return self
-
-	Func ClearThreshold@ P1
-		dnRequest("callnamed",[self,"ClearThreshold",P1])
-		return self
-
-	Func SetGamma@ P1
-		dnRequest("callnamed",[self,"SetGamma",P1])
-		return self
-
-	Func ClearGamma@ P1
-		dnRequest("callnamed",[self,"ClearGamma",P1])
-		return self
-
-	Func SetNoOp@ P1
-		dnRequest("callnamed",[self,"SetNoOp",P1])
-		return self
-
-	Func ClearNoOp@ P1
-		dnRequest("callnamed",[self,"ClearNoOp",P1])
-		return self
-
-	Func SetColorKey@ P1
-		dnRequest("callnamed",[self,"SetColorKey",P1])
-		return self
-
-	Func ClearColorKey@ P1
-		dnRequest("callnamed",[self,"ClearColorKey",P1])
-		return self
-
-	Func SetOutputChannel@ P1
-		dnRequest("callnamed",[self,"SetOutputChannel",P1])
-		return self
-
-	Func ClearOutputChannel@ P1
-		dnRequest("callnamed",[self,"ClearOutputChannel",P1])
-		return self
-
-	Func SetOutputChannelColorProfile@ P1
-		dnRequest("callnamed",[self,"SetOutputChannelColorProfile",P1])
-		return self
-
-	Func ClearOutputChannelColorProfile@ P1
-		dnRequest("callnamed",[self,"ClearOutputChannelColorProfile",P1])
-		return self
-
-	Func SetRemapTable@ P1
-		dnRequest("callnamed",[self,"SetRemapTable",P1])
-		return self
-
-	Func ClearRemapTable@ P1
-		dnRequest("callnamed",[self,"ClearRemapTable",P1])
-		return self
-
-	Func SetWrapMode@ P1
-		dnRequest("callnamed",[self,"SetWrapMode",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

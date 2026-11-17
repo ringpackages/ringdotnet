@@ -31,16 +31,10 @@ Class IConventionKeyBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

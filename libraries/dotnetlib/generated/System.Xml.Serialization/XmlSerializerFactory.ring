@@ -21,11 +21,14 @@ Class XmlSerializerFactory from Object
 		return dnRequest("call",[self,"CreateSerializer",P1,P2])
 
 	Func CreateSerializer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSerializer",P1])
+		ok
 		return dnRequest("call",[self,"CreateSerializer",P1])
 
 	Func CreateSerializer_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"CreateSerializer",P1,P2,P3,P4,P5,P6])
 
-	Func CreateSerializer@ P1
-		return dnRequest("callnamed",[self,"CreateSerializer",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

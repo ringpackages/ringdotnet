@@ -22,6 +22,9 @@ Class VirtualPathData from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDataTokens
 		return dnRequest("get",[self,"DataTokens"])
 

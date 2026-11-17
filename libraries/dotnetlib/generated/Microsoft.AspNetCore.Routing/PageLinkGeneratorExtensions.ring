@@ -13,6 +13,9 @@ Class PageLinkGeneratorExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetPathByPage_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4,P5,P6,P7,P8])
 
@@ -60,10 +63,4 @@ Class PageLinkGeneratorExtensions from Object
 
 	Func GetUriByPage P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2])
-
-	Func GetPathByPage@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1])
-
-	Func GetUriByPage@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1])
 

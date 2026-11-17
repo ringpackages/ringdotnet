@@ -13,6 +13,9 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapRazorPages P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapRazorPages",P1])
 
@@ -38,15 +41,5 @@ Class RazorPagesEndpointRouteBuilderExtensions from Object
 
 	Func MapDynamicPageRoute_4 P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapDynamicPageRoute",P1,P2,P3,P4])
-		return self
-
-	Func MapFallbackToPage@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapFallbackToPage",P1])
-
-	Func MapFallbackToAreaPage@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapFallbackToAreaPage",P1])
-
-	Func MapDynamicPageRoute@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorPagesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"MapDynamicPageRoute",P1])
 		return self
 

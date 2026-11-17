@@ -37,17 +37,6 @@ Class Animatable from Freezable
 	Func ShouldSerializeStoredWeakReference P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Animatable, PresentationCore'),"ShouldSerializeStoredWeakReference",P1])
 
-	Func Clone@ P1
-		return dnRequest("callnamed",[self,"Clone",P1])
-
-	Func ApplyAnimationClock@ P1
-		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
-		return self
-
-	Func BeginAnimation@ P1
-		dnRequest("callnamed",[self,"BeginAnimation",P1])
-		return self
-
 	Func getHasAnimatedProperties
 		return dnRequest("get",[self,"HasAnimatedProperties"])
 

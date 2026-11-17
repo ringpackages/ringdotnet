@@ -22,3 +22,6 @@ Class ReflectionContext from Object
 	Func GetTypeForObject P1
 		return dnRequest("call",[self,"GetTypeForObject",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

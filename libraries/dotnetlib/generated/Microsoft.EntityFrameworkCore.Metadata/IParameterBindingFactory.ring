@@ -19,6 +19,3 @@ Class IParameterBindingFactory from DotNetObject
 	Func Bind P1,P2,P3
 		return dnRequest("call",[self,"Bind",P1,P2,P3])
 
-	Func Bind@ P1
-		return dnRequest("callnamed",[self,"Bind",P1])
-

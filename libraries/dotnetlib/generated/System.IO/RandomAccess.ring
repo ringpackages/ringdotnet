@@ -13,6 +13,9 @@ Class RandomAccess from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetLength P1
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"GetLength",P1])
 
@@ -42,10 +45,4 @@ Class RandomAccess from Object
 	Func FlushToDisk P1
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"FlushToDisk",P1])
 		return self
-
-	Func ReadAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1])
-
-	Func WriteAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1])
 

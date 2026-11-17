@@ -13,6 +13,9 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetPathByRouteValues_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3,P4,P5,P6,P7])
 
@@ -51,10 +54,4 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 
 	Func GetUriByRouteValues P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3])
-
-	Func GetPathByRouteValues@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1])
-
-	Func GetUriByRouteValues@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1])
 

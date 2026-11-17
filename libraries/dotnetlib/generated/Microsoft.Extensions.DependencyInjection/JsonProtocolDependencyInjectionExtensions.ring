@@ -13,12 +13,15 @@ Class JsonProtocolDependencyInjectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddJsonProtocol P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
 
 	Func AddJsonProtocol_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1,P2])
-
-	Func AddJsonProtocol@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
 

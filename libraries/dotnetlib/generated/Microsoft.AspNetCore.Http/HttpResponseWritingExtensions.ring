@@ -13,6 +13,9 @@ Class HttpResponseWritingExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func WriteAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1,P2,P3])
 
@@ -21,7 +24,4 @@ Class HttpResponseWritingExtensions from Object
 
 	Func WriteAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1,P2,P3,P4])
-
-	Func WriteAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1])
 

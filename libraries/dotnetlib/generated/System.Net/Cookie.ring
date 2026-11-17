@@ -41,6 +41,9 @@ Class Cookie from Object
 		nHandle = dnCreate('System.Net.Cookie, System.Net.Primitives',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getComment
 		return dnRequest("get",[self,"Comment"])
 

@@ -32,6 +32,10 @@ Class JsonObject from JsonNode
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -74,18 +78,10 @@ Class JsonObject from JsonNode
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1,P2])
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func SetAt@ P1
-		dnRequest("callnamed",[self,"SetAt",P1])
-		return self
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

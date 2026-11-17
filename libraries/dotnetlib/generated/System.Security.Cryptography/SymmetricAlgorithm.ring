@@ -23,14 +23,26 @@ Class SymmetricAlgorithm from Object
 		ok
 		return self
 
-	Func CreateDecryptor 
-		return dnRequest("call",[self,"CreateDecryptor"])
+	Func CreateDecryptor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateDecryptor",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateDecryptor"])
+		ok
+		raise("DotNet Error: CreateDecryptor does not take one argument: use CreateDecryptor(NULL), CreateDecryptor_N(...) or named arguments")
 
 	Func CreateDecryptor_2 P1,P2
 		return dnRequest("call",[self,"CreateDecryptor",P1,P2])
 
-	Func CreateEncryptor 
-		return dnRequest("call",[self,"CreateEncryptor"])
+	Func CreateEncryptor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateEncryptor",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateEncryptor"])
+		ok
+		raise("DotNet Error: CreateEncryptor does not take one argument: use CreateEncryptor(NULL), CreateEncryptor_N(...) or named arguments")
 
 	Func CreateEncryptor_2 P1,P2
 		return dnRequest("call",[self,"CreateEncryptor",P1,P2])
@@ -61,6 +73,9 @@ Class SymmetricAlgorithm from Object
 		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1,P2])
 
 	Func GetCiphertextLengthCbc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCiphertextLengthCbc",P1])
+		ok
 		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1])
 
 	Func GetCiphertextLengthCfb_3 P1,P2,P3
@@ -70,6 +85,9 @@ Class SymmetricAlgorithm from Object
 		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1,P2])
 
 	Func GetCiphertextLengthCfb P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCiphertextLengthCfb",P1])
+		ok
 		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1])
 
 	Func DecryptEcb P1,P2
@@ -108,38 +126,20 @@ Class SymmetricAlgorithm from Object
 	Func EncryptCfb P1,P2
 		return dnRequest("call",[self,"EncryptCfb",P1,P2])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func CreateDecryptor@ P1
-		return dnRequest("callnamed",[self,"CreateDecryptor",P1])
-
-	Func CreateEncryptor@ P1
-		return dnRequest("callnamed",[self,"CreateEncryptor",P1])
-
-	Func GetCiphertextLengthCbc@ P1
-		return dnRequest("callnamed",[self,"GetCiphertextLengthCbc",P1])
-
-	Func GetCiphertextLengthCfb@ P1
-		return dnRequest("callnamed",[self,"GetCiphertextLengthCfb",P1])
-
-	Func DecryptCbc@ P1
-		return dnRequest("callnamed",[self,"DecryptCbc",P1])
-
-	Func EncryptCbc@ P1
-		return dnRequest("callnamed",[self,"EncryptCbc",P1])
-
-	Func DecryptCfb@ P1
-		return dnRequest("callnamed",[self,"DecryptCfb",P1])
-
-	Func EncryptCfb@ P1
-		return dnRequest("callnamed",[self,"EncryptCfb",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getFeedbackSize
 		return dnRequest("get",[self,"FeedbackSize"])

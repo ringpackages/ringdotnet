@@ -21,6 +21,9 @@ Class XmlNamespaceMapping from Object
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPrefix
 		return dnRequest("get",[self,"Prefix"])
 

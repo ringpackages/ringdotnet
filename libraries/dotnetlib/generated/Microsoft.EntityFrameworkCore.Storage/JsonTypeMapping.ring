@@ -13,3 +13,6 @@ Class JsonTypeMapping from RelationalTypeMapping
 		ok
 		return self
 
+	Func GetDataReaderMethod 
+		return dnRequest("call",[self,"GetDataReaderMethod"])
+

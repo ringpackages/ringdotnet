@@ -29,8 +29,14 @@ Class PropertyDescriptor from MemberDescriptor
 	Func CanResetValue P1
 		return dnRequest("call",[self,"CanResetValue",P1])
 
-	Func GetChildProperties 
-		return dnRequest("call",[self,"GetChildProperties"])
+	Func GetChildProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetChildProperties",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetChildProperties"])
+		ok
+		return dnRequest("call",[self,"GetChildProperties",P1])
 
 	Func GetChildProperties_1 P1
 		return dnRequest("call",[self,"GetChildProperties",P1])
@@ -58,9 +64,6 @@ Class PropertyDescriptor from MemberDescriptor
 
 	Func ShouldSerializeValue P1
 		return dnRequest("call",[self,"ShouldSerializeValue",P1])
-
-	Func GetChildProperties@ P1
-		return dnRequest("callnamed",[self,"GetChildProperties",P1])
 
 	Func getComponentType
 		return dnRequest("get",[self,"ComponentType"])

@@ -39,6 +39,9 @@ Class DispatcherTimer from Object
 		dnRequest("call",[self,"Stop"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setTickEvent P1
 		dnRequest("setevent",[self,"Tick",dnCallback(P1)])
 		return self

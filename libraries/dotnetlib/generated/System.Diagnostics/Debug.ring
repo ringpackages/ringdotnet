@@ -17,6 +17,9 @@ Class Debug from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetProvider P1
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"SetProvider",P1])
 
@@ -37,6 +40,10 @@ Class Debug from Object
 		return self
 
 	Func Print P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1])
 		return self
 
@@ -45,6 +52,9 @@ Class Debug from Object
 		return self
 
 	Func Assert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
+		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
 		return self
 
@@ -61,6 +71,10 @@ Class Debug from Object
 		return self
 
 	Func Fail P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1])
 		return self
 
@@ -69,10 +83,18 @@ Class Debug from Object
 		return self
 
 	Func WriteLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLine",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLine",P1])
 		return self
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1])
 		return self
 
@@ -99,31 +121,6 @@ Class Debug from Object
 	Func WriteLineIf_3 P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1,P2,P3])
 		return self
-
-	Func Print@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1])
-		return self
-
-	Func Assert@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
-
-	Func Fail@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1])
-		return self
-
-	Func WriteLine@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLine",P1])
-		return self
-
-	Func Write@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1])
-		return self
-
-	Func WriteIf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteIf",P1])
-
-	Func WriteLineIf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1])
 
 	Func getAutoFlush
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"AutoFlush"])

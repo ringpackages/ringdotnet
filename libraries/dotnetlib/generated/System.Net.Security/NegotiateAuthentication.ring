@@ -31,6 +31,9 @@ Class NegotiateAuthentication from Object
 	Func GetOutgoingBlob P1
 		return dnRequest("call",[self,"GetOutgoingBlob",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getIsAuthenticated
 		return dnRequest("get",[self,"IsAuthenticated"])
 

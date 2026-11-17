@@ -22,6 +22,3 @@ Class IMigrationsDatabaseLock from DotNetObject
 	Func ReacquireIfNeededAsync P1,P2
 		return dnRequest("call",[self,"ReacquireIfNeededAsync",P1,P2])
 
-	Func ReacquireIfNeededAsync@ P1
-		return dnRequest("callnamed",[self,"ReacquireIfNeededAsync",P1])
-

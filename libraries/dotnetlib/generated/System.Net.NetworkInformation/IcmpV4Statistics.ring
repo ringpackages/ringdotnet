@@ -40,6 +40,9 @@ Class IcmpV4Statistics from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAddressMaskRepliesReceived
 		return dnRequest("get",[self,"AddressMaskRepliesReceived"])
 

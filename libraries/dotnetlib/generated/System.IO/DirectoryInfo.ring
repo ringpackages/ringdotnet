@@ -24,8 +24,14 @@ Class DirectoryInfo from FileSystemInfo
 		dnRequest("call",[self,"Create"])
 		return self
 
-	Func GetFiles 
-		return dnRequest("call",[self,"GetFiles"])
+	Func GetFiles P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFiles",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFiles"])
+		ok
+		return dnRequest("call",[self,"GetFiles",P1])
 
 	Func GetFiles_1 P1
 		return dnRequest("call",[self,"GetFiles",P1])
@@ -33,8 +39,14 @@ Class DirectoryInfo from FileSystemInfo
 	Func GetFiles_2 P1,P2
 		return dnRequest("call",[self,"GetFiles",P1,P2])
 
-	Func GetFileSystemInfos 
-		return dnRequest("call",[self,"GetFileSystemInfos"])
+	Func GetFileSystemInfos P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFileSystemInfos",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFileSystemInfos"])
+		ok
+		return dnRequest("call",[self,"GetFileSystemInfos",P1])
 
 	Func GetFileSystemInfos_1 P1
 		return dnRequest("call",[self,"GetFileSystemInfos",P1])
@@ -42,8 +54,14 @@ Class DirectoryInfo from FileSystemInfo
 	Func GetFileSystemInfos_2 P1,P2
 		return dnRequest("call",[self,"GetFileSystemInfos",P1,P2])
 
-	Func GetDirectories 
-		return dnRequest("call",[self,"GetDirectories"])
+	Func GetDirectories P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDirectories",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDirectories"])
+		ok
+		return dnRequest("call",[self,"GetDirectories",P1])
 
 	Func GetDirectories_1 P1
 		return dnRequest("call",[self,"GetDirectories",P1])
@@ -51,8 +69,14 @@ Class DirectoryInfo from FileSystemInfo
 	Func GetDirectories_2 P1,P2
 		return dnRequest("call",[self,"GetDirectories",P1,P2])
 
-	Func EnumerateDirectories 
-		return dnRequest("call",[self,"EnumerateDirectories"])
+	Func EnumerateDirectories P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnumerateDirectories",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnumerateDirectories"])
+		ok
+		return dnRequest("call",[self,"EnumerateDirectories",P1])
 
 	Func EnumerateDirectories_1 P1
 		return dnRequest("call",[self,"EnumerateDirectories",P1])
@@ -60,8 +84,14 @@ Class DirectoryInfo from FileSystemInfo
 	Func EnumerateDirectories_2 P1,P2
 		return dnRequest("call",[self,"EnumerateDirectories",P1,P2])
 
-	Func EnumerateFiles 
-		return dnRequest("call",[self,"EnumerateFiles"])
+	Func EnumerateFiles P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnumerateFiles",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnumerateFiles"])
+		ok
+		return dnRequest("call",[self,"EnumerateFiles",P1])
 
 	Func EnumerateFiles_1 P1
 		return dnRequest("call",[self,"EnumerateFiles",P1])
@@ -69,8 +99,14 @@ Class DirectoryInfo from FileSystemInfo
 	Func EnumerateFiles_2 P1,P2
 		return dnRequest("call",[self,"EnumerateFiles",P1,P2])
 
-	Func EnumerateFileSystemInfos 
-		return dnRequest("call",[self,"EnumerateFileSystemInfos"])
+	Func EnumerateFileSystemInfos P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnumerateFileSystemInfos",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnumerateFileSystemInfos"])
+		ok
+		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1])
 
 	Func EnumerateFileSystemInfos_1 P1
 		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1])
@@ -82,30 +118,20 @@ Class DirectoryInfo from FileSystemInfo
 		dnRequest("call",[self,"MoveTo",P1])
 		return self
 
-	Func Delete_1 P1
+	Func Delete P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Delete",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Delete"])
+		return self
+		ok
 		dnRequest("call",[self,"Delete",P1])
 		return self
 
-	Func GetFiles@ P1
-		return dnRequest("callnamed",[self,"GetFiles",P1])
-
-	Func GetFileSystemInfos@ P1
-		return dnRequest("callnamed",[self,"GetFileSystemInfos",P1])
-
-	Func GetDirectories@ P1
-		return dnRequest("callnamed",[self,"GetDirectories",P1])
-
-	Func EnumerateDirectories@ P1
-		return dnRequest("callnamed",[self,"EnumerateDirectories",P1])
-
-	Func EnumerateFiles@ P1
-		return dnRequest("callnamed",[self,"EnumerateFiles",P1])
-
-	Func EnumerateFileSystemInfos@ P1
-		return dnRequest("callnamed",[self,"EnumerateFileSystemInfos",P1])
-
-	Func Delete@ P1
-		dnRequest("callnamed",[self,"Delete",P1])
+	Func Delete_1 P1
+		dnRequest("call",[self,"Delete",P1])
 		return self
 
 	Func getParent

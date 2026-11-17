@@ -18,6 +18,9 @@ Class EventData from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.EventData, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEventId
 		return dnRequest("get",[self,"EventId"])
 

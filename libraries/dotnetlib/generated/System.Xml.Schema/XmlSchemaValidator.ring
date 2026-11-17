@@ -23,8 +23,16 @@ Class XmlSchemaValidator from Object
 		dnRequest("call",[self,"AddSchema",P1])
 		return self
 
-	Func Initialize 
-		dnRequest("call",[self,"Initialize"])
+	Func Initialize P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Initialize",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Initialize"])
+		return self
+		ok
+		dnRequest("call",[self,"Initialize",P1])
 		return self
 
 	Func Initialize_1 P1
@@ -59,6 +67,9 @@ Class XmlSchemaValidator from Object
 		return self
 
 	Func ValidateEndElement P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ValidateEndElement",P1])
+		ok
 		return dnRequest("call",[self,"ValidateEndElement",P1])
 
 	Func ValidateEndElement_2 P1,P2
@@ -78,27 +89,8 @@ Class XmlSchemaValidator from Object
 	Func GetExpectedAttributes 
 		return dnRequest("call",[self,"GetExpectedAttributes"])
 
-	Func Initialize@ P1
-		dnRequest("callnamed",[self,"Initialize",P1])
-		return self
-
-	Func ValidateElement@ P1
-		dnRequest("callnamed",[self,"ValidateElement",P1])
-		return self
-
-	Func ValidateAttribute@ P1
-		return dnRequest("callnamed",[self,"ValidateAttribute",P1])
-
-	Func ValidateText@ P1
-		dnRequest("callnamed",[self,"ValidateText",P1])
-		return self
-
-	Func ValidateWhitespace@ P1
-		dnRequest("callnamed",[self,"ValidateWhitespace",P1])
-		return self
-
-	Func ValidateEndElement@ P1
-		return dnRequest("callnamed",[self,"ValidateEndElement",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])

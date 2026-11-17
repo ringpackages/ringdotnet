@@ -17,6 +17,9 @@ Class PosixSignalContext from Object
 		nHandle = dnCreate('System.Runtime.InteropServices.PosixSignalContext, System.Private.CoreLib',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSignal
 		return dnRequest("get",[self,"Signal"])
 

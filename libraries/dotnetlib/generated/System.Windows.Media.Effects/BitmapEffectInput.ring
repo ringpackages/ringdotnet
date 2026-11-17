@@ -29,9 +29,6 @@ Class BitmapEffectInput from Animatable
 	Func ShouldSerializeInput 
 		return dnRequest("call",[self,"ShouldSerializeInput"])
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getInput
 		return dnRequest("get",[self,"Input"])
 

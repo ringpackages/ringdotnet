@@ -13,19 +13,31 @@ Class ConsoleLoggerExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddConsole P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsole",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsole",P1])
 
 	Func AddConsole_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsole",P1,P2])
 
 	Func AddSimpleConsole P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSimpleConsole",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSimpleConsole",P1])
 
 	Func AddSimpleConsole_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSimpleConsole",P1,P2])
 
 	Func AddJsonConsole P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddJsonConsole",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddJsonConsole",P1])
 
 	Func AddJsonConsole_2 P1,P2
@@ -35,9 +47,15 @@ Class ConsoleLoggerExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSystemdConsole",P1,P2])
 
 	Func AddSystemdConsole P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSystemdConsole",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSystemdConsole",P1])
 
 	Func AddConsoleFormatter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsoleFormatter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsoleFormatter",P1])
 
 	Func AddConsoleFormatter_2 P1,P2
@@ -45,19 +63,4 @@ Class ConsoleLoggerExtensions from Object
 
 	Func AddConsole_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsole",P1,P2,P3])
-
-	Func AddConsole@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsole",P1])
-
-	Func AddSimpleConsole@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSimpleConsole",P1])
-
-	Func AddJsonConsole@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddJsonConsole",P1])
-
-	Func AddSystemdConsole@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddSystemdConsole",P1])
-
-	Func AddConsoleFormatter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.ConsoleLoggerExtensions, Microsoft.Extensions.Logging.Console'),"AddConsoleFormatter",P1])
 

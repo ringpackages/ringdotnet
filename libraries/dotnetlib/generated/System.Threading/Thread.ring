@@ -57,16 +57,40 @@ Class Thread from DotNetObject
 		dnRequest("call",[self,"UnsafeStart",P1])
 		return self
 
-	Func Start 
-		dnRequest("call",[self,"Start"])
+	Func Start P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Start",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Start"])
+		return self
+		ok
+		dnRequest("call",[self,"Start",P1])
 		return self
 
-	Func UnsafeStart 
-		dnRequest("call",[self,"UnsafeStart"])
+	Func UnsafeStart P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"UnsafeStart",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"UnsafeStart"])
+		return self
+		ok
+		dnRequest("call",[self,"UnsafeStart",P1])
 		return self
 
-	Func Abort 
-		dnRequest("call",[self,"Abort"])
+	Func Abort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Abort",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Abort"])
+		return self
+		ok
+		dnRequest("call",[self,"Abort",P1])
 		return self
 
 	Func Abort_1 P1
@@ -98,9 +122,15 @@ Class Thread from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func Join 
-		dnRequest("call",[self,"Join"])
+	Func Join P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Join",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Join"])
 		return self
+		ok
+		return dnRequest("call",[self,"Join",P1])
 
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
@@ -180,31 +210,6 @@ Class Thread from DotNetObject
 
 	Func GetCurrentProcessorId 
 		return dnRequest("call",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"GetCurrentProcessorId"])
-
-	Func Join@ P1
-		return dnRequest("callnamed",[self,"Join",P1])
-
-	Func Start@ P1
-		dnRequest("callnamed",[self,"Start",P1])
-		return self
-
-	Func UnsafeStart@ P1
-		dnRequest("callnamed",[self,"UnsafeStart",P1])
-		return self
-
-	Func Abort@ P1
-		dnRequest("callnamed",[self,"Abort",P1])
-		return self
-
-	Func Sleep@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"Sleep",P1])
-		return self
-
-	Func VolatileRead@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"VolatileRead",P1])
-
-	Func VolatileWrite@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"VolatileWrite",P1])
 
 	Func getManagedThreadId
 		return dnRequest("get",[self,"ManagedThreadId"])

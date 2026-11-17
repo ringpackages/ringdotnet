@@ -117,27 +117,3 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 	Func ShouldLogDataReaderDispose P1
 		return dnRequest("call",[self,"ShouldLogDataReaderDispose",P1])
 
-	Func CommandReaderExecutingAsync@ P1
-		return dnRequest("callnamed",[self,"CommandReaderExecutingAsync",P1])
-
-	Func CommandScalarExecutingAsync@ P1
-		return dnRequest("callnamed",[self,"CommandScalarExecutingAsync",P1])
-
-	Func CommandNonQueryExecutingAsync@ P1
-		return dnRequest("callnamed",[self,"CommandNonQueryExecutingAsync",P1])
-
-	Func CommandReaderExecutedAsync@ P1
-		return dnRequest("callnamed",[self,"CommandReaderExecutedAsync",P1])
-
-	Func CommandScalarExecutedAsync@ P1
-		return dnRequest("callnamed",[self,"CommandScalarExecutedAsync",P1])
-
-	Func CommandNonQueryExecutedAsync@ P1
-		return dnRequest("callnamed",[self,"CommandNonQueryExecutedAsync",P1])
-
-	Func CommandErrorAsync@ P1
-		return dnRequest("callnamed",[self,"CommandErrorAsync",P1])
-
-	Func CommandCanceledAsync@ P1
-		return dnRequest("callnamed",[self,"CommandCanceledAsync",P1])
-

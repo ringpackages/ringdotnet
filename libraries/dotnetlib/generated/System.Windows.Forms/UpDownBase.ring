@@ -32,9 +32,16 @@ Class UpDownBase from ContainerControl
 		dnRequest("call",[self,"UpButton"])
 		return self
 
-	Func Select@ P1
-		dnRequest("callnamed",[self,"Select",P1])
+	Func Select P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Select",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Select"])
 		return self
+		ok
+		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
 
 	Func getBorderStyle
 		return dnRequest("get",[self,"BorderStyle"])

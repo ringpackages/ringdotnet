@@ -13,6 +13,9 @@ Class UriHelper from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func BuildRelative_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1,P2,P3,P4])
 
@@ -25,8 +28,14 @@ Class UriHelper from Object
 	Func BuildRelative_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
 
-	Func BuildRelative 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative"])
+	Func BuildRelative P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
 
 	Func BuildAbsolute_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2,P3,P4,P5,P6])
@@ -57,10 +66,4 @@ Class UriHelper from Object
 
 	Func GetDisplayUrl P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"GetDisplayUrl",P1])
-
-	Func BuildRelative@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
-
-	Func BuildAbsolute@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1])
 

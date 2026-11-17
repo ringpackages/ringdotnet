@@ -23,6 +23,9 @@ Class Geometry from Animatable
 		return dnRequest("call",[self,"GetRenderBounds",P1,P2,P3])
 
 	Func GetRenderBounds P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetRenderBounds",P1])
+		ok
 		return dnRequest("call",[self,"GetRenderBounds",P1])
 
 	Func ShouldSerializeTransform 
@@ -31,8 +34,14 @@ Class Geometry from Animatable
 	Func GetArea_2 P1,P2
 		return dnRequest("call",[self,"GetArea",P1,P2])
 
-	Func GetArea 
-		return dnRequest("call",[self,"GetArea"])
+	Func GetArea P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetArea",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetArea"])
+		ok
+		raise("DotNet Error: GetArea does not take one argument: use GetArea(NULL), GetArea_N(...) or named arguments")
 
 	Func IsEmpty 
 		return dnRequest("call",[self,"IsEmpty"])
@@ -44,6 +53,9 @@ Class Geometry from Animatable
 		return dnRequest("call",[self,"FillContains",P1,P2,P3])
 
 	Func FillContains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FillContains",P1])
+		ok
 		return dnRequest("call",[self,"FillContains",P1])
 
 	Func StrokeContains_4 P1,P2,P3,P4
@@ -56,6 +68,9 @@ Class Geometry from Animatable
 		return dnRequest("call",[self,"FillContainsWithDetail",P1,P2,P3])
 
 	Func FillContainsWithDetail P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FillContainsWithDetail",P1])
+		ok
 		return dnRequest("call",[self,"FillContainsWithDetail",P1])
 
 	Func StrokeContainsWithDetail_4 P1,P2,P3,P4
@@ -67,20 +82,35 @@ Class Geometry from Animatable
 	Func GetFlattenedPathGeometry_2 P1,P2
 		return dnRequest("call",[self,"GetFlattenedPathGeometry",P1,P2])
 
-	Func GetFlattenedPathGeometry 
-		return dnRequest("call",[self,"GetFlattenedPathGeometry"])
+	Func GetFlattenedPathGeometry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFlattenedPathGeometry",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFlattenedPathGeometry"])
+		ok
+		raise("DotNet Error: GetFlattenedPathGeometry does not take one argument: use GetFlattenedPathGeometry(NULL), GetFlattenedPathGeometry_N(...) or named arguments")
 
 	Func GetWidenedPathGeometry_3 P1,P2,P3
 		return dnRequest("call",[self,"GetWidenedPathGeometry",P1,P2,P3])
 
 	Func GetWidenedPathGeometry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetWidenedPathGeometry",P1])
+		ok
 		return dnRequest("call",[self,"GetWidenedPathGeometry",P1])
 
 	Func GetOutlinedPathGeometry_2 P1,P2
 		return dnRequest("call",[self,"GetOutlinedPathGeometry",P1,P2])
 
-	Func GetOutlinedPathGeometry 
-		return dnRequest("call",[self,"GetOutlinedPathGeometry"])
+	Func GetOutlinedPathGeometry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetOutlinedPathGeometry",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetOutlinedPathGeometry"])
+		ok
+		raise("DotNet Error: GetOutlinedPathGeometry does not take one argument: use GetOutlinedPathGeometry(NULL), GetOutlinedPathGeometry_N(...) or named arguments")
 
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
@@ -93,42 +123,6 @@ Class Geometry from Animatable
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Parse",P1])
-
-	Func GetRenderBounds@ P1
-		return dnRequest("callnamed",[self,"GetRenderBounds",P1])
-
-	Func GetArea@ P1
-		return dnRequest("callnamed",[self,"GetArea",P1])
-
-	Func FillContains@ P1
-		return dnRequest("callnamed",[self,"FillContains",P1])
-
-	Func StrokeContains@ P1
-		return dnRequest("callnamed",[self,"StrokeContains",P1])
-
-	Func FillContainsWithDetail@ P1
-		return dnRequest("callnamed",[self,"FillContainsWithDetail",P1])
-
-	Func StrokeContainsWithDetail@ P1
-		return dnRequest("callnamed",[self,"StrokeContainsWithDetail",P1])
-
-	Func GetFlattenedPathGeometry@ P1
-		return dnRequest("callnamed",[self,"GetFlattenedPathGeometry",P1])
-
-	Func GetWidenedPathGeometry@ P1
-		return dnRequest("callnamed",[self,"GetWidenedPathGeometry",P1])
-
-	Func GetOutlinedPathGeometry@ P1
-		return dnRequest("callnamed",[self,"GetOutlinedPathGeometry",P1])
-
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Combine@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1])
 
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])

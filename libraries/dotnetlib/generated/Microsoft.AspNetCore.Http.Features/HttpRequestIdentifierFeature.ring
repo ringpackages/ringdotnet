@@ -16,6 +16,9 @@ Class HttpRequestIdentifierFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.HttpRequestIdentifierFeature, Microsoft.AspNetCore.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTraceIdentifier
 		return dnRequest("get",[self,"TraceIdentifier"])
 

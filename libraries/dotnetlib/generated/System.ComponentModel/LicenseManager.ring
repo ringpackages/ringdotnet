@@ -16,6 +16,9 @@ Class LicenseManager from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateWithContext P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1,P2])
 
@@ -26,6 +29,9 @@ Class LicenseManager from Object
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsLicensed",P1])
 
 	Func IsValid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
 
 	Func IsValid_2 P1,P2
@@ -40,20 +46,14 @@ Class LicenseManager from Object
 		return self
 
 	Func Validate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1])
+		ok
 		dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1])
 		return self
 
 	Func Validate_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1,P2])
-
-	Func CreateWithContext@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1])
-
-	Func IsValid@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
-
-	Func Validate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1])
 
 	Func getCurrentContext
 		return dnRequest("get",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CurrentContext"])

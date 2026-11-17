@@ -45,8 +45,14 @@ Class WindowsIdentity from ClaimsIdentity
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func GetCurrent 
-		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent"])
+	Func GetCurrent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
 
 	Func GetCurrent_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
@@ -60,15 +66,6 @@ Class WindowsIdentity from ClaimsIdentity
 
 	Func RunImpersonatedAsync P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1,P2])
-
-	Func GetCurrent@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
-
-	Func RunImpersonated@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonated",P1])
-
-	Func RunImpersonatedAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1])
 
 	Func getImpersonationLevel
 		return dnRequest("get",[self,"ImpersonationLevel"])

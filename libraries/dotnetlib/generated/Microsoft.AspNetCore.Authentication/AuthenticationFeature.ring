@@ -17,6 +17,9 @@ Class AuthenticationFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationFeature, Microsoft.AspNetCore.Authentication.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOriginalPathBase
 		return dnRequest("get",[self,"OriginalPathBase"])
 

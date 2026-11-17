@@ -17,6 +17,9 @@ Class PostEvictionCallbackRegistration from Object
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEvictionCallback
 		return dnRequest("get",[self,"EvictionCallback"])
 

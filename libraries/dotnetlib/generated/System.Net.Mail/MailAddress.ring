@@ -27,7 +27,13 @@ Class MailAddress from Object
 		nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func TryCreate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
 
 	Func TryCreate_2 P1,P2
@@ -35,9 +41,6 @@ Class MailAddress from Object
 
 	Func TryCreate_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1,P2,P3])
-
-	Func TryCreate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
 
 	Func getDisplayName
 		return dnRequest("get",[self,"DisplayName"])

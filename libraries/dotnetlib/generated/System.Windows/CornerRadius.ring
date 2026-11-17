@@ -23,9 +23,6 @@ Class CornerRadius from ValueType
 		nHandle = dnCreate('System.Windows.CornerRadius, PresentationFramework',[P1])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getTopLeft
 		return dnRequest("get",[self,"TopLeft"])
 

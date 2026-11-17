@@ -57,6 +57,9 @@ Class MethodBase from MemberInfo
 		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4,P5])
 
 	Func GetMethodFromHandle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetMethodFromHandle",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetMethodFromHandle",P1])
 
 	Func GetMethodFromHandle_2 P1,P2
@@ -64,12 +67,6 @@ Class MethodBase from MemberInfo
 
 	Func GetCurrentMethod 
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetCurrentMethod"])
-
-	Func Invoke@ P1
-		return dnRequest("callnamed",[self,"Invoke",P1])
-
-	Func GetMethodFromHandle@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetMethodFromHandle",P1])
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])

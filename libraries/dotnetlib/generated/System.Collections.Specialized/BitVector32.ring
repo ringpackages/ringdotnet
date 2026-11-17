@@ -20,13 +20,22 @@ Class BitVector32 from ValueType
 		nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[P1])
 		return self
 
-	Func CreateMask 
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask"])
+	Func CreateMask P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
 
 	Func CreateMask_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
 
 	Func CreateSection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
 
 	Func CreateSection_2 P1,P2
@@ -34,21 +43,6 @@ Class BitVector32 from ValueType
 
 	Func ToString_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func CreateMask@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
-
-	Func CreateSection@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

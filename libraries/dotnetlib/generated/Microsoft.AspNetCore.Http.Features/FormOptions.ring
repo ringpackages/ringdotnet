@@ -29,6 +29,9 @@ Class FormOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormOptions, Microsoft.AspNetCore.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBufferBody
 		return dnRequest("get",[self,"BufferBody"])
 

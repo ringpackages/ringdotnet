@@ -13,12 +13,12 @@ Class ChangeToken from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func OnChange P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1,P2])
 
 	Func OnChange_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1,P2,P3])
-
-	Func OnChange@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1])
 

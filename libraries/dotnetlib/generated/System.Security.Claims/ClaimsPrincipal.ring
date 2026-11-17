@@ -55,14 +55,8 @@ Class ClaimsPrincipal from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
-	Func FindAll@ P1
-		return dnRequest("callnamed",[self,"FindAll",P1])
-
-	Func FindFirst@ P1
-		return dnRequest("callnamed",[self,"FindFirst",P1])
-
-	Func HasClaim@ P1
-		return dnRequest("callnamed",[self,"HasClaim",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getClaims
 		return dnRequest("get",[self,"Claims"])

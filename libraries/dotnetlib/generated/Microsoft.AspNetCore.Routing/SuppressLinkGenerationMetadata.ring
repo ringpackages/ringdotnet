@@ -16,6 +16,9 @@ Class SuppressLinkGenerationMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata, Microsoft.AspNetCore.Routing',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSuppressLinkGeneration
 		return dnRequest("get",[self,"SuppressLinkGeneration"])
 

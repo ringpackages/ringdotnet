@@ -52,12 +52,8 @@ Class ChangeTracker from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
-	Func Entries@ P1
-		return dnRequest("callnamed",[self,"Entries",P1])
-
-	Func TrackGraph@ P1
-		dnRequest("callnamed",[self,"TrackGraph",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setTrackingEvent P1
 		dnRequest("setevent",[self,"Tracking",dnCallback(P1)])

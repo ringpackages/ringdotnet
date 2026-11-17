@@ -26,24 +26,28 @@ Class SpinLock from ValueType
 		return dnRequest("call",[self,"Enter",P1])
 
 	Func TryEnter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryEnter",P1])
+		ok
 		return dnRequest("call",[self,"TryEnter",P1])
 
 	Func TryEnter_2 P1,P2
 		return dnRequest("call",[self,"TryEnter",P1,P2])
 
-	Func Exit_ 
-		dnRequest("call",[self,"Exit"])
+	Func Exit_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Exit",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Exit"])
+		return self
+		ok
+		dnRequest("call",[self,"Exit",P1])
 		return self
 
 	Func Exit_1 P1
 		dnRequest("call",[self,"Exit",P1])
-		return self
-
-	Func TryEnter@ P1
-		return dnRequest("callnamed",[self,"TryEnter",P1])
-
-	Func Exit@ P1
-		dnRequest("callnamed",[self,"Exit",P1])
 		return self
 
 	Func getIsHeld

@@ -17,3 +17,6 @@ Class RelationalMethodCallTranslatorProvider from Object
 	Func Translate P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"Translate",P1,P2,P3,P4,P5])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

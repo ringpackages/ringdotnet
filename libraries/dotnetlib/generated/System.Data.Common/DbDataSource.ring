@@ -24,14 +24,26 @@ Class DbDataSource from Object
 	Func OpenConnectionAsync_1 P1
 		return dnRequest("call",[self,"OpenConnectionAsync",P1])
 
-	Func OpenConnectionAsync 
-		return dnRequest("call",[self,"OpenConnectionAsync"])
+	Func OpenConnectionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"OpenConnectionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"OpenConnectionAsync"])
+		ok
+		return dnRequest("call",[self,"OpenConnectionAsync",P1])
 
 	Func CreateCommand_1 P1
 		return dnRequest("call",[self,"CreateCommand",P1])
 
-	Func CreateCommand 
-		return dnRequest("call",[self,"CreateCommand"])
+	Func CreateCommand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateCommand",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateCommand"])
+		ok
+		return dnRequest("call",[self,"CreateCommand",P1])
 
 	Func CreateBatch 
 		return dnRequest("call",[self,"CreateBatch"])
@@ -43,11 +55,8 @@ Class DbDataSource from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func OpenConnectionAsync@ P1
-		return dnRequest("callnamed",[self,"OpenConnectionAsync",P1])
-
-	Func CreateCommand@ P1
-		return dnRequest("callnamed",[self,"CreateCommand",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])

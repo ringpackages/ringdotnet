@@ -44,6 +44,9 @@ Class ColorMatrix from Object
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMatrix00
 		return dnRequest("get",[self,"Matrix00"])
 

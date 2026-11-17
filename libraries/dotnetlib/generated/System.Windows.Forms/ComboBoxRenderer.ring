@@ -15,6 +15,9 @@ Class ComboBoxRenderer from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DrawTextBox P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3])
 		return self
@@ -33,10 +36,6 @@ Class ComboBoxRenderer from Object
 
 	Func DrawDropDownButton P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawDropDownButton",P1,P2,P3])
-		return self
-
-	Func DrawTextBox@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
 		return self
 
 	Func getIsSupported

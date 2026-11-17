@@ -13,6 +13,9 @@ Class TaskToAsyncResult from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Begin P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"Begin",P1,P2,P3])
 
@@ -22,10 +25,4 @@ Class TaskToAsyncResult from Object
 
 	Func Unwrap P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"Unwrap",P1])
-
-	Func End@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"End",P1])
-
-	Func Unwrap@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskToAsyncResult, System.Private.CoreLib'),"Unwrap",P1])
 

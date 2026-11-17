@@ -45,24 +45,6 @@ Class MaskedTextBox from TextBoxBase
 	Func ValidateText 
 		return dnRequest("call",[self,"ValidateText"])
 
-	Func ClearUndo@ P1
-		dnRequest("callnamed",[self,"ClearUndo",P1])
-		return self
-
-	Func GetFirstCharIndexOfCurrentLine@ P1
-		return dnRequest("callnamed",[self,"GetFirstCharIndexOfCurrentLine",P1])
-
-	Func GetFirstCharIndexFromLine@ P1
-		return dnRequest("callnamed",[self,"GetFirstCharIndexFromLine",P1])
-
-	Func ScrollToCaret@ P1
-		dnRequest("callnamed",[self,"ScrollToCaret",P1])
-		return self
-
-	Func Undo@ P1
-		dnRequest("callnamed",[self,"Undo",P1])
-		return self
-
 	Func setIsOverwriteModeChangedEvent P1
 		dnRequest("setevent",[self,"IsOverwriteModeChanged",dnCallback(P1)])
 		return self

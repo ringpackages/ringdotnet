@@ -26,8 +26,14 @@ Class Bitmap from Image
 		nHandle = dnCreate('System.Drawing.Bitmap, System.Drawing.Common',[P1,P2,P3,P4,P5])
 		return self
 
-	Func GetHbitmap 
-		return dnRequest("call",[self,"GetHbitmap"])
+	Func GetHbitmap P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHbitmap",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHbitmap"])
+		ok
+		return dnRequest("call",[self,"GetHbitmap",P1])
 
 	Func GetHbitmap_1 P1
 		return dnRequest("call",[self,"GetHbitmap",P1])
@@ -38,8 +44,16 @@ Class Bitmap from Image
 	Func Clone_2 P1,P2
 		return dnRequest("call",[self,"Clone",P1,P2])
 
-	Func MakeTransparent 
-		dnRequest("call",[self,"MakeTransparent"])
+	Func MakeTransparent P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MakeTransparent",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"MakeTransparent"])
+		return self
+		ok
+		dnRequest("call",[self,"MakeTransparent",P1])
 		return self
 
 	Func MakeTransparent_1 P1
@@ -72,6 +86,10 @@ Class Bitmap from Image
 		return self
 
 	Func ApplyEffect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ApplyEffect",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ApplyEffect",P1])
 		return self
 
@@ -92,33 +110,25 @@ Class Bitmap from Image
 		return self
 
 	Func ConvertFormat P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ConvertFormat",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ConvertFormat",P1])
 		return self
+
+	Func Clone P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Clone",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Clone"])
+		ok
+		raise("DotNet Error: Clone does not take one argument: use Clone(NULL), Clone_N(...) or named arguments")
 
 	Func FromHicon P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Bitmap, System.Drawing.Common'),"FromHicon",P1])
 
 	Func FromResource P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.Bitmap, System.Drawing.Common'),"FromResource",P1,P2])
-
-	Func GetHbitmap@ P1
-		return dnRequest("callnamed",[self,"GetHbitmap",P1])
-
-	Func Clone@ P1
-		return dnRequest("callnamed",[self,"Clone",P1])
-
-	Func MakeTransparent@ P1
-		dnRequest("callnamed",[self,"MakeTransparent",P1])
-		return self
-
-	Func LockBits@ P1
-		return dnRequest("callnamed",[self,"LockBits",P1])
-
-	Func ApplyEffect@ P1
-		dnRequest("callnamed",[self,"ApplyEffect",P1])
-		return self
-
-	Func ConvertFormat@ P1
-		dnRequest("callnamed",[self,"ConvertFormat",P1])
-		return self
 

@@ -23,8 +23,16 @@ Class Utf8JsonWriter from Object
 		nHandle = dnCreate('System.Text.Json.Utf8JsonWriter, System.Text.Json',[P1,P2])
 		return self
 
-	Func Reset 
-		dnRequest("call",[self,"Reset"])
+	Func Reset P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Reset",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Reset"])
+		return self
+		ok
+		dnRequest("call",[self,"Reset",P1])
 		return self
 
 	Func Reset_1 P1
@@ -45,8 +53,14 @@ Class Utf8JsonWriter from Object
 	Func FlushAsync_1 P1
 		return dnRequest("call",[self,"FlushAsync",P1])
 
-	Func FlushAsync 
-		return dnRequest("call",[self,"FlushAsync"])
+	Func FlushAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FlushAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"FlushAsync"])
+		ok
+		return dnRequest("call",[self,"FlushAsync",P1])
 
 	Func WriteStartArray_0 
 		dnRequest("call",[self,"WriteStartArray"])
@@ -57,10 +71,26 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteStartArray P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteStartArray",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"WriteStartArray"])
+		return self
+		ok
 		dnRequest("call",[self,"WriteStartArray",P1])
 		return self
 
 	Func WriteStartObject P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteStartObject",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"WriteStartObject"])
+		return self
+		ok
 		dnRequest("call",[self,"WriteStartObject",P1])
 		return self
 
@@ -117,55 +147,15 @@ Class Utf8JsonWriter from Object
 		return self
 
 	Func WriteRawValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteRawValue",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteRawValue",P1])
 		return self
 
-	Func Reset@ P1
-		dnRequest("callnamed",[self,"Reset",P1])
-		return self
-
-	Func FlushAsync@ P1
-		return dnRequest("callnamed",[self,"FlushAsync",P1])
-
-	Func WriteStartArray@ P1
-		dnRequest("callnamed",[self,"WriteStartArray",P1])
-		return self
-
-	Func WriteStartObject@ P1
-		dnRequest("callnamed",[self,"WriteStartObject",P1])
-		return self
-
-	Func WriteString@ P1
-		dnRequest("callnamed",[self,"WriteString",P1])
-		return self
-
-	Func WriteNumber@ P1
-		dnRequest("callnamed",[self,"WriteNumber",P1])
-		return self
-
-	Func WriteNull@ P1
-		dnRequest("callnamed",[self,"WriteNull",P1])
-		return self
-
-	Func WriteBoolean@ P1
-		dnRequest("callnamed",[self,"WriteBoolean",P1])
-		return self
-
-	Func WritePropertyName@ P1
-		dnRequest("callnamed",[self,"WritePropertyName",P1])
-		return self
-
-	Func WriteStringValue@ P1
-		dnRequest("callnamed",[self,"WriteStringValue",P1])
-		return self
-
-	Func WriteNumberValue@ P1
-		dnRequest("callnamed",[self,"WriteNumberValue",P1])
-		return self
-
-	Func WriteRawValue@ P1
-		dnRequest("callnamed",[self,"WriteRawValue",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getBytesPending
 		return dnRequest("get",[self,"BytesPending"])

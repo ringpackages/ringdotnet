@@ -38,28 +38,19 @@ Class IConventionAnnotatableBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
 
 	Func CanRemoveAnnotation_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveAnnotation",P1,P2])
 
 	Func CanRemoveAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveAnnotation",P1])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func CanSetAnnotation@ P1
-		return dnRequest("callnamed",[self,"CanSetAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
-
-	Func CanRemoveAnnotation@ P1
-		return dnRequest("callnamed",[self,"CanRemoveAnnotation",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

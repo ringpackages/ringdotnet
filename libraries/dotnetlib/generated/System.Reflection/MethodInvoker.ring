@@ -14,6 +14,9 @@ Class MethodInvoker from Object
 		return self
 
 	Func Invoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Invoke",P1])
+		ok
 		return dnRequest("call",[self,"Invoke",P1])
 
 	Func Invoke_2 P1,P2
@@ -28,9 +31,9 @@ Class MethodInvoker from Object
 	Func Invoke_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"Invoke",P1,P2,P3,P4,P5])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodInvoker, System.Private.CoreLib'),"Create",P1])
-
-	Func Invoke@ P1
-		return dnRequest("callnamed",[self,"Invoke",P1])
 

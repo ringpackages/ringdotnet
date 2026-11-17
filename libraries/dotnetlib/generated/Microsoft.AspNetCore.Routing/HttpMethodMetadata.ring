@@ -21,6 +21,9 @@ Class HttpMethodMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAcceptCorsPreflight
 		return dnRequest("get",[self,"AcceptCorsPreflight"])
 

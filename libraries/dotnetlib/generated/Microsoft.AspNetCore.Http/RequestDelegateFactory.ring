@@ -13,10 +13,16 @@ Class RequestDelegateFactory from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func InferMetadata_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1,P2])
 
 	Func InferMetadata P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
 
 	Func Create_2 P1,P2
@@ -26,14 +32,11 @@ Class RequestDelegateFactory from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2,P3])
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
 
 	Func Create_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2,P3,P4])
-
-	Func InferMetadata@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
 

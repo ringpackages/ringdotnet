@@ -13,6 +13,9 @@ Class AuthorizationAppBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseAuthorization P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationAppBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"UseAuthorization",P1])
 

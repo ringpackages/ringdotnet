@@ -13,6 +13,9 @@ Class Interlocked from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Increment P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Increment",P1])
 
@@ -44,28 +47,4 @@ Class Interlocked from Object
 	Func MemoryBarrier 
 		dnRequest("call",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"MemoryBarrier"])
 		return self
-
-	Func Increment@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Increment",P1])
-
-	Func Decrement@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Decrement",P1])
-
-	Func Exchange@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Exchange",P1])
-
-	Func CompareExchange@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"CompareExchange",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Add",P1])
-
-	Func Read@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Read",P1])
-
-	Func And@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"And",P1])
-
-	Func Or@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Or",P1])
 

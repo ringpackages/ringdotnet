@@ -13,6 +13,9 @@ Class UriParser from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Register P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.UriParser, System.Private.Uri'),"Register",P1,P2,P3])
 		return self

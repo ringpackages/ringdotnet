@@ -16,6 +16,9 @@ Class RoutingFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RoutingFeature, Microsoft.AspNetCore.Routing',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRouteData
 		return dnRequest("get",[self,"RouteData"])
 

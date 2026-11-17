@@ -18,6 +18,9 @@ Class RouteContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteContext, Microsoft.AspNetCore.Routing.Abstractions',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHandler
 		return dnRequest("get",[self,"Handler"])
 

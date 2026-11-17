@@ -17,3 +17,6 @@ Class NoopClaimsTransformation from Object
 	Func TransformAsync P1
 		return dnRequest("call",[self,"TransformAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

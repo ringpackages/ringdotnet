@@ -20,6 +20,9 @@ Class UrlRouteContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.UrlRouteContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRouteName
 		return dnRequest("get",[self,"RouteName"])
 

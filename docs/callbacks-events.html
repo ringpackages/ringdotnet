@@ -57,7 +57,7 @@
 <p>Pass <code>dnCallback(code)</code> wherever a .NET delegate is expected: <code>Action</code>, <code>Func</code>, <code>Predicate</code>, <code>Comparison</code>, <code>EventHandler</code>, <code>Task</code> continuations... The bridge builds a delegate of the <strong>exact type</strong>. When .NET invokes it, the Ring code runs, as with events in RingQt. It can read <code>aDotNetArgs</code> (the list of the delegate arguments) and set <code>xDotNetResult</code> (converted to the delegate's return type).</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>nTotal = <span class="n">0</span>
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))                <span class="c"># ForEach is a Ring keyword: ForEach_</span>
-oList.Sort@([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
+oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
 oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span class="s">"xDotNetResult = left(aDotNetArgs[1],1) = 'a'"</span>))</code></pre></div>
 <h3 id="a-function-name-instead-of-code">A function name instead of code<a class="anchor" href="#a-function-name-instead-of-code">#</a></h3>
 <p>If the text is just a <strong>function name</strong>, that function is called with the argument list as its only parameter, and its return value is the result:</p>
@@ -77,7 +77,7 @@ oList.<span class="f">Add</span>(<span class="s">"pear"</span>)  oList.<span cla
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"printItem"</span>))
 
 ? <span class="s">"Sort by length (Comparison&lt;string&gt;):"</span>
-oList.Sort@([ :comparison = <span class="f">dnCallback</span>(<span class="s">"compareLength"</span>) ])
+oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"compareLength"</span>) ])
 <span class="k">for</span> cItem <span class="k">in</span> oList.<span class="f">toList</span>() ? <span class="s">"  "</span> + cItem <span class="k">next</span>
 
 ? <span class="s">"FindAll starting with a (Predicate&lt;string&gt;):"</span>
@@ -89,7 +89,7 @@ oFound = oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(
 nTotal = <span class="n">0</span>
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"nTotal += len(aDotNetArgs[1])"</span>))
 ? <span class="s">"Total letters (inline code): "</span> + nTotal
-oList.Sort@([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"</span>) ])
+oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"</span>) ])
 ? <span class="s">"Longest first: "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>)
 oNums = <span class="k">new</span> <span class="t">NumberList</span>()
 <span class="k">for</span> nLoop = <span class="n">1</span> <span class="k">to</span> <span class="n">6</span> oNums.<span class="f">Add</span>(nLoop) <span class="k">next</span>

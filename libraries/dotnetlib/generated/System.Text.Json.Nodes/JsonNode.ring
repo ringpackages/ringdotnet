@@ -51,16 +51,29 @@ Class JsonNode from Object
 	Func ToJsonString_1 P1
 		return dnRequest("call",[self,"ToJsonString",P1])
 
-	Func ToJsonString 
-		return dnRequest("call",[self,"ToJsonString"])
+	Func ToJsonString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToJsonString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToJsonString"])
+		ok
+		return dnRequest("call",[self,"ToJsonString",P1])
 
 	Func WriteTo_2 P1,P2
 		dnRequest("call",[self,"WriteTo",P1,P2])
 		return self
 
 	Func WriteTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"DeepEquals",P1,P2])
@@ -72,6 +85,9 @@ Class JsonNode from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1,P2])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
 
 	Func ParseAsync_4 P1,P2,P3,P4
@@ -84,20 +100,10 @@ Class JsonNode from Object
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1,P2])
 
 	Func ParseAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
-
-	Func ToJsonString@ P1
-		return dnRequest("callnamed",[self,"ToJsonString",P1])
-
-	Func WriteTo@ P1
-		dnRequest("callnamed",[self,"WriteTo",P1])
-		return self
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
-
-	Func ParseAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

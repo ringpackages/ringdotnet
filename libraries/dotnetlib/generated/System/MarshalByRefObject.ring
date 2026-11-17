@@ -19,3 +19,6 @@ Class MarshalByRefObject from Object
 	Func InitializeLifetimeService 
 		return dnRequest("call",[self,"InitializeLifetimeService"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

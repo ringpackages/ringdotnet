@@ -16,6 +16,9 @@ Class QueryFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.QueryFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getQuery
 		return dnRequest("get",[self,"Query"])
 

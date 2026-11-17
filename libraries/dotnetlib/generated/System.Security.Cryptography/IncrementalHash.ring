@@ -17,6 +17,10 @@ Class IncrementalHash from Object
 		return self
 
 	Func AppendData P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AppendData",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AppendData",P1])
 		return self
 
@@ -37,15 +41,14 @@ Class IncrementalHash from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateHash P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHash",P1])
 
 	Func CreateHMAC P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHMAC",P1,P2])
-
-	Func AppendData@ P1
-		dnRequest("callnamed",[self,"AppendData",P1])
-		return self
 
 	Func getHashLengthInBytes
 		return dnRequest("get",[self,"HashLengthInBytes"])

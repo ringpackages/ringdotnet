@@ -23,6 +23,9 @@ Class Switch_ from Object
 		dnRequest("call",[self,"Refresh"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setInitializingEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Diagnostics.Switch, System.Diagnostics.TraceSource'),"Initializing",dnCallback(P1)])
 		return self

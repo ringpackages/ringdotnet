@@ -32,6 +32,9 @@ Class String from Object
 		return dnRequest("call",[self,"CompareTo",P1])
 
 	Func EndsWith P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EndsWith",P1])
+		ok
 		return dnRequest("call",[self,"EndsWith",P1])
 
 	Func EndsWith_2 P1,P2
@@ -40,16 +43,37 @@ Class String from Object
 	Func EndsWith_3 P1,P2,P3
 		return dnRequest("call",[self,"EndsWith",P1,P2,P3])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Equals_2 P1,P2
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1,P2])
 		ok
 		return dnRequest("call",[self,"Equals",P1,P2])
 
+	Func GetHashCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHashCode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHashCode"])
+		ok
+		return dnRequest("call",[self,"GetHashCode",P1])
+
 	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
 	Func StartsWith P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartsWith",P1])
+		ok
 		return dnRequest("call",[self,"StartsWith",P1])
 
 	Func StartsWith_2 P1,P2
@@ -65,8 +89,14 @@ Class String from Object
 		dnRequest("call",[self,"CopyTo",P1,P2,P3,P4])
 		return self
 
-	Func ToCharArray 
-		return dnRequest("call",[self,"ToCharArray"])
+	Func ToCharArray P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToCharArray",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToCharArray"])
+		ok
+		raise("DotNet Error: ToCharArray does not take one argument: use ToCharArray(NULL), ToCharArray_N(...) or named arguments")
 
 	Func ToCharArray_2 P1,P2
 		return dnRequest("call",[self,"ToCharArray",P1,P2])
@@ -86,14 +116,26 @@ Class String from Object
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
-	Func IsNormalized 
-		return dnRequest("call",[self,"IsNormalized"])
+	Func IsNormalized P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsNormalized",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsNormalized"])
+		ok
+		return dnRequest("call",[self,"IsNormalized",P1])
 
 	Func IsNormalized_1 P1
 		return dnRequest("call",[self,"IsNormalized",P1])
 
-	Func Normalize 
-		return dnRequest("call",[self,"Normalize"])
+	Func Normalize P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Normalize",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Normalize"])
+		ok
+		return dnRequest("call",[self,"Normalize",P1])
 
 	Func Normalize_1 P1
 		return dnRequest("call",[self,"Normalize",P1])
@@ -102,12 +144,18 @@ Class String from Object
 		return dnRequest("call",[self,"Insert",P1,P2])
 
 	Func PadLeft P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PadLeft",P1])
+		ok
 		return dnRequest("call",[self,"PadLeft",P1])
 
 	Func PadLeft_2 P1,P2
 		return dnRequest("call",[self,"PadLeft",P1,P2])
 
 	Func PadRight P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PadRight",P1])
+		ok
 		return dnRequest("call",[self,"PadRight",P1])
 
 	Func PadRight_2 P1,P2
@@ -117,6 +165,9 @@ Class String from Object
 		return dnRequest("call",[self,"Remove",P1,P2])
 
 	Func Remove P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Remove",P1])
+		ok
 		return dnRequest("call",[self,"Remove",P1])
 
 	Func Replace_4 P1,P2,P3,P4
@@ -128,8 +179,14 @@ Class String from Object
 	Func Replace P1,P2
 		return dnRequest("call",[self,"Replace",P1,P2])
 
-	Func ReplaceLineEndings 
-		return dnRequest("call",[self,"ReplaceLineEndings"])
+	Func ReplaceLineEndings P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReplaceLineEndings",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReplaceLineEndings"])
+		ok
+		return dnRequest("call",[self,"ReplaceLineEndings",P1])
 
 	Func ReplaceLineEndings_1 P1
 		return dnRequest("call",[self,"ReplaceLineEndings",P1])
@@ -138,19 +195,31 @@ Class String from Object
 		return dnRequest("call",[self,"Split",P1,P2])
 
 	Func Split P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Split",P1])
+		ok
 		return dnRequest("call",[self,"Split",P1])
 
 	Func Split_3 P1,P2,P3
 		return dnRequest("call",[self,"Split",P1,P2,P3])
 
 	Func Substring P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Substring",P1])
+		ok
 		return dnRequest("call",[self,"Substring",P1])
 
 	Func Substring_2 P1,P2
 		return dnRequest("call",[self,"Substring",P1,P2])
 
-	Func ToLower 
-		return dnRequest("call",[self,"ToLower"])
+	Func ToLower P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToLower",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToLower"])
+		ok
+		return dnRequest("call",[self,"ToLower",P1])
 
 	Func ToLower_1 P1
 		return dnRequest("call",[self,"ToLower",P1])
@@ -158,8 +227,14 @@ Class String from Object
 	Func ToLowerInvariant 
 		return dnRequest("call",[self,"ToLowerInvariant"])
 
-	Func ToUpper 
-		return dnRequest("call",[self,"ToUpper"])
+	Func ToUpper P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToUpper",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToUpper"])
+		ok
+		return dnRequest("call",[self,"ToUpper",P1])
 
 	Func ToUpper_1 P1
 		return dnRequest("call",[self,"ToUpper",P1])
@@ -167,31 +242,55 @@ Class String from Object
 	Func ToUpperInvariant 
 		return dnRequest("call",[self,"ToUpperInvariant"])
 
-	Func Trim 
-		return dnRequest("call",[self,"Trim"])
+	Func Trim P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Trim",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Trim"])
+		ok
+		return dnRequest("call",[self,"Trim",P1])
 
 	Func Trim_1 P1
 		return dnRequest("call",[self,"Trim",P1])
 
-	Func TrimStart 
-		return dnRequest("call",[self,"TrimStart"])
+	Func TrimStart P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TrimStart",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TrimStart"])
+		ok
+		return dnRequest("call",[self,"TrimStart",P1])
 
 	Func TrimStart_1 P1
 		return dnRequest("call",[self,"TrimStart",P1])
 
-	Func TrimEnd 
-		return dnRequest("call",[self,"TrimEnd"])
+	Func TrimEnd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TrimEnd",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TrimEnd"])
+		ok
+		return dnRequest("call",[self,"TrimEnd",P1])
 
 	Func TrimEnd_1 P1
 		return dnRequest("call",[self,"TrimEnd",P1])
 
 	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Contains",P1])
+		ok
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func Contains_2 P1,P2
 		return dnRequest("call",[self,"Contains",P1,P2])
 
 	Func IndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOf",P1])
+		ok
 		return dnRequest("call",[self,"IndexOf",P1])
 
 	Func IndexOf_2 P1,P2
@@ -201,6 +300,9 @@ Class String from Object
 		return dnRequest("call",[self,"IndexOf",P1,P2,P3])
 
 	Func IndexOfAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexOfAny",P1])
+		ok
 		return dnRequest("call",[self,"IndexOfAny",P1])
 
 	Func IndexOfAny_2 P1,P2
@@ -213,6 +315,9 @@ Class String from Object
 		return dnRequest("call",[self,"IndexOf",P1,P2,P3,P4])
 
 	Func LastIndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LastIndexOf",P1])
+		ok
 		return dnRequest("call",[self,"LastIndexOf",P1])
 
 	Func LastIndexOf_2 P1,P2
@@ -222,6 +327,9 @@ Class String from Object
 		return dnRequest("call",[self,"LastIndexOf",P1,P2,P3])
 
 	Func LastIndexOfAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LastIndexOfAny",P1])
+		ok
 		return dnRequest("call",[self,"LastIndexOfAny",P1])
 
 	Func LastIndexOfAny_2 P1,P2
@@ -279,6 +387,9 @@ Class String from Object
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"IsNullOrWhiteSpace",P1])
 
 	Func Concat P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
 
 	Func Concat_2 P1,P2
@@ -307,102 +418,6 @@ Class String from Object
 
 	Func Join_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1,P2,P3,P4])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func EndsWith@ P1
-		return dnRequest("callnamed",[self,"EndsWith",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func GetHashCode@ P1
-		return dnRequest("callnamed",[self,"GetHashCode",P1])
-
-	Func StartsWith@ P1
-		return dnRequest("callnamed",[self,"StartsWith",P1])
-
-	Func ToCharArray@ P1
-		return dnRequest("callnamed",[self,"ToCharArray",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func IsNormalized@ P1
-		return dnRequest("callnamed",[self,"IsNormalized",P1])
-
-	Func Normalize@ P1
-		return dnRequest("callnamed",[self,"Normalize",P1])
-
-	Func PadLeft@ P1
-		return dnRequest("callnamed",[self,"PadLeft",P1])
-
-	Func PadRight@ P1
-		return dnRequest("callnamed",[self,"PadRight",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
-
-	Func Replace@ P1
-		return dnRequest("callnamed",[self,"Replace",P1])
-
-	Func ReplaceLineEndings@ P1
-		return dnRequest("callnamed",[self,"ReplaceLineEndings",P1])
-
-	Func Split@ P1
-		return dnRequest("callnamed",[self,"Split",P1])
-
-	Func Substring@ P1
-		return dnRequest("callnamed",[self,"Substring",P1])
-
-	Func ToLower@ P1
-		return dnRequest("callnamed",[self,"ToLower",P1])
-
-	Func ToUpper@ P1
-		return dnRequest("callnamed",[self,"ToUpper",P1])
-
-	Func Trim@ P1
-		return dnRequest("callnamed",[self,"Trim",P1])
-
-	Func TrimStart@ P1
-		return dnRequest("callnamed",[self,"TrimStart",P1])
-
-	Func TrimEnd@ P1
-		return dnRequest("callnamed",[self,"TrimEnd",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func IndexOfAny@ P1
-		return dnRequest("callnamed",[self,"IndexOfAny",P1])
-
-	Func LastIndexOf@ P1
-		return dnRequest("callnamed",[self,"LastIndexOf",P1])
-
-	Func LastIndexOfAny@ P1
-		return dnRequest("callnamed",[self,"LastIndexOfAny",P1])
-
-	Func Compare@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1])
-
-	Func CompareOrdinal@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1])
-
-	Func Concat@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
-
-	Func Format@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1])
-
-	Func Join@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

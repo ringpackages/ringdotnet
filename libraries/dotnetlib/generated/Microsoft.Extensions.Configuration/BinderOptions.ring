@@ -17,6 +17,9 @@ Class BinderOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.BinderOptions, Microsoft.Extensions.Configuration.Binder',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBindNonPublicProperties
 		return dnRequest("get",[self,"BindNonPublicProperties"])
 

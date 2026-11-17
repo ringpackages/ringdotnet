@@ -29,16 +29,32 @@ Class InputMethod from DispatcherObject
 		ok
 		return self
 
-	Func ShowConfigureUI 
-		dnRequest("call",[self,"ShowConfigureUI"])
+	Func ShowConfigureUI P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ShowConfigureUI",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ShowConfigureUI"])
+		return self
+		ok
+		dnRequest("call",[self,"ShowConfigureUI",P1])
 		return self
 
 	Func ShowConfigureUI_1 P1
 		dnRequest("call",[self,"ShowConfigureUI",P1])
 		return self
 
-	Func ShowRegisterWordUI 
-		dnRequest("call",[self,"ShowRegisterWordUI"])
+	Func ShowRegisterWordUI P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ShowRegisterWordUI",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ShowRegisterWordUI"])
+		return self
+		ok
+		dnRequest("call",[self,"ShowRegisterWordUI",P1])
 		return self
 
 	Func ShowRegisterWordUI_1 P1
@@ -90,14 +106,6 @@ Class InputMethod from DispatcherObject
 
 	Func GetInputScope P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.InputMethod, PresentationCore'),"GetInputScope",P1])
-
-	Func ShowConfigureUI@ P1
-		dnRequest("callnamed",[self,"ShowConfigureUI",P1])
-		return self
-
-	Func ShowRegisterWordUI@ P1
-		dnRequest("callnamed",[self,"ShowRegisterWordUI",P1])
-		return self
 
 	Func setStateChangedEvent P1
 		dnRequest("setevent",[self,"StateChanged",dnCallback(P1)])

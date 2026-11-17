@@ -22,6 +22,9 @@ Class ProjectionMember from Object
 	Func Prepend P1
 		return dnRequest("call",[self,"Prepend",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLast
 		return dnRequest("get",[self,"Last"])
 

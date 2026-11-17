@@ -20,3 +20,6 @@ Class AssemblyDependencyResolver from Object
 	Func ResolveUnmanagedDllToPath P1
 		return dnRequest("call",[self,"ResolveUnmanagedDllToPath",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

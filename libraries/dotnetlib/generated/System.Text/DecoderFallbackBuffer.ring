@@ -28,6 +28,9 @@ Class DecoderFallbackBuffer from Object
 		dnRequest("call",[self,"Reset"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRemaining
 		return dnRequest("get",[self,"Remaining"])
 

@@ -18,6 +18,9 @@ Class HostBuilderContext from Object
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostBuilderContext, Microsoft.Extensions.Hosting.Abstractions',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHostingEnvironment
 		return dnRequest("get",[self,"HostingEnvironment"])
 

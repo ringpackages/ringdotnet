@@ -265,6 +265,9 @@ Class SystemParameters from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setStaticPropertyChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.SystemParameters, PresentationFramework'),"StaticPropertyChanged",dnCallback(P1)])
 		return self

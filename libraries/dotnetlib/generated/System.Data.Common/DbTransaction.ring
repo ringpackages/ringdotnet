@@ -24,8 +24,14 @@ Class DbTransaction from MarshalByRefObject
 	Func CommitAsync_1 P1
 		return dnRequest("call",[self,"CommitAsync",P1])
 
-	Func CommitAsync 
-		return dnRequest("call",[self,"CommitAsync"])
+	Func CommitAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitAsync"])
+		ok
+		return dnRequest("call",[self,"CommitAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
@@ -34,20 +40,37 @@ Class DbTransaction from MarshalByRefObject
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func Rollback 
-		dnRequest("call",[self,"Rollback"])
+	Func Rollback P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Rollback",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Rollback"])
+		return self
+		ok
+		dnRequest("call",[self,"Rollback",P1])
 		return self
 
 	Func RollbackAsync_1 P1
 		return dnRequest("call",[self,"RollbackAsync",P1])
 
-	Func RollbackAsync 
-		return dnRequest("call",[self,"RollbackAsync"])
+	Func RollbackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RollbackAsync"])
+		ok
+		return dnRequest("call",[self,"RollbackAsync",P1])
 
 	Func SaveAsync_2 P1,P2
 		return dnRequest("call",[self,"SaveAsync",P1,P2])
 
 	Func SaveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveAsync",P1])
+		ok
 		return dnRequest("call",[self,"SaveAsync",P1])
 
 	Func RollbackAsync_2 P1,P2
@@ -57,6 +80,9 @@ Class DbTransaction from MarshalByRefObject
 		return dnRequest("call",[self,"ReleaseAsync",P1,P2])
 
 	Func ReleaseAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReleaseAsync",P1])
+		ok
 		return dnRequest("call",[self,"ReleaseAsync",P1])
 
 	Func Save P1
@@ -66,22 +92,6 @@ Class DbTransaction from MarshalByRefObject
 	Func Rollback_1 P1
 		dnRequest("call",[self,"Rollback",P1])
 		return self
-
-	Func CommitAsync@ P1
-		return dnRequest("callnamed",[self,"CommitAsync",P1])
-
-	Func Rollback@ P1
-		dnRequest("callnamed",[self,"Rollback",P1])
-		return self
-
-	Func RollbackAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackAsync",P1])
-
-	Func SaveAsync@ P1
-		return dnRequest("callnamed",[self,"SaveAsync",P1])
-
-	Func ReleaseAsync@ P1
-		return dnRequest("callnamed",[self,"ReleaseAsync",P1])
 
 	Func getConnection
 		return dnRequest("get",[self,"Connection"])

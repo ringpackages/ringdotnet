@@ -15,12 +15,18 @@ Class PropertiesDataFormat from DotNetObject
 		return self
 
 	Func Protect P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Protect",P1])
+		ok
 		return dnRequest("call",[self,"Protect",P1])
 
 	Func Protect_2 P1,P2
 		return dnRequest("call",[self,"Protect",P1,P2])
 
 	Func Unprotect P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Unprotect",P1])
+		ok
 		return dnRequest("call",[self,"Unprotect",P1])
 
 	Func Unprotect_2 P1,P2
@@ -37,10 +43,4 @@ Class PropertiesDataFormat from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func Protect@ P1
-		return dnRequest("callnamed",[self,"Protect",P1])
-
-	Func Unprotect@ P1
-		return dnRequest("callnamed",[self,"Unprotect",P1])
 

@@ -63,6 +63,9 @@ Class GlyphRun from Object
 	Func ComputeAlignmentBox 
 		return dnRequest("call",[self,"ComputeAlignmentBox"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPixelsPerDip
 		return dnRequest("get",[self,"PixelsPerDip"])
 

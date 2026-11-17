@@ -30,6 +30,10 @@ Class ToolStripPanel from ContainerControl
 		return self
 
 	Func Join P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Join",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Join",P1])
 		return self
 
@@ -43,10 +47,6 @@ Class ToolStripPanel from ContainerControl
 
 	Func PointToRow P1
 		return dnRequest("call",[self,"PointToRow",P1])
-
-	Func Join@ P1
-		dnRequest("callnamed",[self,"Join",P1])
-		return self
 
 	Func setRendererChangedEvent P1
 		dnRequest("setevent",[self,"RendererChanged",dnCallback(P1)])

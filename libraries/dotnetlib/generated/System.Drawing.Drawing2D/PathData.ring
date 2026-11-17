@@ -17,6 +17,9 @@ Class PathData from Object
 		nHandle = dnCreate('System.Drawing.Drawing2D.PathData, System.Drawing.Common',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPoints
 		return dnRequest("get",[self,"Points"])
 

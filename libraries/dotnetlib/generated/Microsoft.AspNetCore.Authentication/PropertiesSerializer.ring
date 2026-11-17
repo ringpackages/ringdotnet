@@ -29,6 +29,9 @@ Class PropertiesSerializer from Object
 	Func Read P1
 		return dnRequest("call",[self,"Read",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Authentication.PropertiesSerializer, Microsoft.AspNetCore.Authentication'),"Default"])
 

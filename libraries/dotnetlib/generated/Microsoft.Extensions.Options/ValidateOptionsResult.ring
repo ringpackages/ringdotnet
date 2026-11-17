@@ -22,11 +22,11 @@ Class ValidateOptionsResult from Object
 		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Fail P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
-
-	Func Fail@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
 
 	Func getSucceeded
 		return dnRequest("get",[self,"Succeeded"])

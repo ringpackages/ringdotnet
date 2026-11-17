@@ -13,6 +13,9 @@ Class CascadingValueServiceCollectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddCascadingValue P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"AddCascadingValue",P1,P2])
 
@@ -25,12 +28,5 @@ Class CascadingValueServiceCollectionExtensions from Object
 
 	Func TryAddCascadingValue_3 P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"TryAddCascadingValue",P1,P2,P3])
-		return self
-
-	Func AddCascadingValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"AddCascadingValue",P1])
-
-	Func TryAddCascadingValue@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"TryAddCascadingValue",P1])
 		return self
 

@@ -16,6 +16,9 @@ Class EndpointNameMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.EndpointNameMetadata, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEndpointName
 		return dnRequest("get",[self,"EndpointName"])
 

@@ -52,21 +52,15 @@ Class HttpWebRequest from WebRequest
 		return self
 
 	Func AddRange P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddRange",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddRange",P1])
 		return self
 
 	Func AddRange_3 P1,P2,P3
 		dnRequest("call",[self,"AddRange",P1,P2,P3])
-		return self
-
-	Func GetRequestStream@ P1
-		return dnRequest("callnamed",[self,"GetRequestStream",P1])
-
-	Func EndGetRequestStream@ P1
-		return dnRequest("callnamed",[self,"EndGetRequestStream",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
 		return self
 
 	Func getAccept

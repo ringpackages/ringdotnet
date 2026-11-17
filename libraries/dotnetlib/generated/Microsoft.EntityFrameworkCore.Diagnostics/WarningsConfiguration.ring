@@ -23,6 +23,9 @@ Class WarningsConfiguration from Object
 		return dnRequest("call",[self,"WithExplicit",P1,P2])
 
 	Func WithExplicit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithExplicit",P1])
+		ok
 		return dnRequest("call",[self,"WithExplicit",P1])
 
 	Func GetBehavior P1
@@ -40,8 +43,8 @@ Class WarningsConfiguration from Object
 	Func GetServiceProviderHashCode 
 		return dnRequest("call",[self,"GetServiceProviderHashCode"])
 
-	Func WithExplicit@ P1
-		return dnRequest("callnamed",[self,"WithExplicit",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getDefaultBehavior
 		return dnRequest("get",[self,"DefaultBehavior"])

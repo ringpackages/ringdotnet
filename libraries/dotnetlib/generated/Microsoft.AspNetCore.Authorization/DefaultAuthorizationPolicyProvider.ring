@@ -25,6 +25,9 @@ Class DefaultAuthorizationPolicyProvider from Object
 	Func GetPolicyAsync P1
 		return dnRequest("call",[self,"GetPolicyAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAllowsCachingPolicies
 		return dnRequest("get",[self,"AllowsCachingPolicies"])
 

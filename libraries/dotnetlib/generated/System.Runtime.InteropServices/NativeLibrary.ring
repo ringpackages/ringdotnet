@@ -13,10 +13,19 @@ Class NativeLibrary from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"Load",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"Load",P1])
 
 	Func TryLoad P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"TryLoad",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"TryLoad",P1])
 
 	Func Load_3 P1,P2,P3
@@ -41,10 +50,4 @@ Class NativeLibrary from Object
 
 	Func GetMainProgramHandle 
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"GetMainProgramHandle"])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"Load",P1])
-
-	Func TryLoad@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"TryLoad",P1])
 

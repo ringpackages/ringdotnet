@@ -22,6 +22,9 @@ Class JsonNamingPolicy from Object
 	Func ConvertName P1
 		return dnRequest("call",[self,"ConvertName",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCamelCase
 		return dnRequest("get",[dnTypeCached('System.Text.Json.JsonNamingPolicy, System.Text.Json'),"CamelCase"])
 

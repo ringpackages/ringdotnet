@@ -20,6 +20,9 @@ Class IDatabase from DotNetObject
 		return dnRequest("call",[self,"SaveChangesAsync",P1,P2])
 
 	Func SaveChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
+		ok
 		return dnRequest("call",[self,"SaveChangesAsync",P1])
 
 	Func CompileQuery P1,P2
@@ -27,7 +30,4 @@ Class IDatabase from DotNetObject
 
 	Func CompileQueryExpression P1,P2,P3
 		return dnRequest("call",[self,"CompileQueryExpression",P1,P2,P3])
-
-	Func SaveChangesAsync@ P1
-		return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
 

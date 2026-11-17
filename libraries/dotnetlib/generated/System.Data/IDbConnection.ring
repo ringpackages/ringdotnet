@@ -18,8 +18,14 @@ Class IDbConnection from DotNetObject
 		ok
 		return self
 
-	Func BeginTransaction 
-		return dnRequest("call",[self,"BeginTransaction"])
+	Func BeginTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransaction",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransaction"])
+		ok
+		return dnRequest("call",[self,"BeginTransaction",P1])
 
 	Func BeginTransaction_1 P1
 		return dnRequest("call",[self,"BeginTransaction",P1])
@@ -38,9 +44,6 @@ Class IDbConnection from DotNetObject
 	Func Open 
 		dnRequest("call",[self,"Open"])
 		return self
-
-	Func BeginTransaction@ P1
-		return dnRequest("callnamed",[self,"BeginTransaction",P1])
 
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])

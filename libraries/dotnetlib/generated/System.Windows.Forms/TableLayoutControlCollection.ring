@@ -20,8 +20,12 @@ Class TableLayoutControlCollection from ControlCollection
 		dnRequest("call",[self,"Add",P1,P2,P3])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
+	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
+		dnRequest("call",[self,"Add",P1])
 		return self
 
 	Func getContainer

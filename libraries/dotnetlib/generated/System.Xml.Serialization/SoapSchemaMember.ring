@@ -17,6 +17,9 @@ Class SoapSchemaMember from Object
 		nHandle = dnCreate('System.Xml.Serialization.SoapSchemaMember, System.Private.Xml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
 

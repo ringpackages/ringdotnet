@@ -106,6 +106,10 @@ Class PipeSecurity from DotNetObject
 		return dnRequest("call",[self,"GetSecurityDescriptorSddlForm",P1])
 
 	Func SetSecurityDescriptorSddlForm P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetSecurityDescriptorSddlForm",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetSecurityDescriptorSddlForm",P1])
 		return self
 
@@ -117,6 +121,10 @@ Class PipeSecurity from DotNetObject
 		return dnRequest("call",[self,"GetSecurityDescriptorBinaryForm"])
 
 	Func SetSecurityDescriptorBinaryForm P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetSecurityDescriptorBinaryForm",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetSecurityDescriptorBinaryForm",P1])
 		return self
 
@@ -141,14 +149,6 @@ Class PipeSecurity from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func SetSecurityDescriptorSddlForm@ P1
-		dnRequest("callnamed",[self,"SetSecurityDescriptorSddlForm",P1])
-		return self
-
-	Func SetSecurityDescriptorBinaryForm@ P1
-		dnRequest("callnamed",[self,"SetSecurityDescriptorBinaryForm",P1])
-		return self
 
 	Func getAccessRightType
 		return dnRequest("get",[self,"AccessRightType"])

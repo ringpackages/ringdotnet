@@ -109,6 +109,9 @@ Class HeaderNames from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAccept
 		return dnRequest("get",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderNames, Microsoft.Net.Http.Headers'),"Accept"])
 

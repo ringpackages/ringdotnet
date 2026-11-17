@@ -15,6 +15,9 @@ Class TextBoxRenderer from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DrawTextBox P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3])
 		return self
@@ -29,10 +32,6 @@ Class TextBoxRenderer from Object
 
 	Func DrawTextBox_7 P1,P2,P3,P4,P5,P6,P7
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawTextBox@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
 		return self
 
 	Func getIsSupported

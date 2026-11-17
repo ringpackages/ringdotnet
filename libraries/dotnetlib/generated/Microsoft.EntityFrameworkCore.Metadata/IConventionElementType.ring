@@ -23,6 +23,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+		ok
 		return dnRequest("call",[self,"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
@@ -32,6 +35,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetTypeMapping",P1,P2])
 
 	Func SetTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"SetTypeMapping",P1])
 
 	Func GetTypeMappingConfigurationSource 
@@ -41,6 +47,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetMaxLength",P1,P2])
 
 	Func SetMaxLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetMaxLength",P1])
+		ok
 		return dnRequest("call",[self,"SetMaxLength",P1])
 
 	Func GetMaxLengthConfigurationSource 
@@ -50,6 +59,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetPrecision",P1,P2])
 
 	Func SetPrecision P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetPrecision",P1])
+		ok
 		return dnRequest("call",[self,"SetPrecision",P1])
 
 	Func GetPrecisionConfigurationSource 
@@ -59,6 +71,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetScale",P1,P2])
 
 	Func SetScale P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetScale",P1])
+		ok
 		return dnRequest("call",[self,"SetScale",P1])
 
 	Func GetScaleConfigurationSource 
@@ -68,6 +83,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetIsUnicode",P1,P2])
 
 	Func SetIsUnicode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsUnicode",P1])
+		ok
 		return dnRequest("call",[self,"SetIsUnicode",P1])
 
 	Func GetIsUnicodeConfigurationSource 
@@ -77,6 +95,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetValueConverter",P1,P2])
 
 	Func SetValueConverter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueConverter",P1])
+		ok
 		return dnRequest("call",[self,"SetValueConverter",P1])
 
 	Func GetValueConverterConfigurationSource 
@@ -86,6 +107,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetProviderClrType",P1,P2])
 
 	Func SetProviderClrType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetProviderClrType",P1])
+		ok
 		return dnRequest("call",[self,"SetProviderClrType",P1])
 
 	Func GetProviderClrTypeConfigurationSource 
@@ -95,6 +119,9 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetValueComparer",P1,P2])
 
 	Func SetValueComparer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueComparer",P1])
+		ok
 		return dnRequest("call",[self,"SetValueComparer",P1])
 
 	Func GetValueComparerConfigurationSource 
@@ -104,40 +131,13 @@ Class IConventionElementType from DotNetObject
 		return dnRequest("call",[self,"SetJsonValueReaderWriterType",P1,P2])
 
 	Func SetJsonValueReaderWriterType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
+		ok
 		return dnRequest("call",[self,"SetJsonValueReaderWriterType",P1])
 
 	Func GetJsonValueReaderWriterTypeConfigurationSource 
 		return dnRequest("call",[self,"GetJsonValueReaderWriterTypeConfigurationSource"])
-
-	Func SetIsNullable@ P1
-		return dnRequest("callnamed",[self,"SetIsNullable",P1])
-
-	Func SetTypeMapping@ P1
-		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
-
-	Func SetMaxLength@ P1
-		return dnRequest("callnamed",[self,"SetMaxLength",P1])
-
-	Func SetPrecision@ P1
-		return dnRequest("callnamed",[self,"SetPrecision",P1])
-
-	Func SetScale@ P1
-		return dnRequest("callnamed",[self,"SetScale",P1])
-
-	Func SetIsUnicode@ P1
-		return dnRequest("callnamed",[self,"SetIsUnicode",P1])
-
-	Func SetValueConverter@ P1
-		return dnRequest("callnamed",[self,"SetValueConverter",P1])
-
-	Func SetProviderClrType@ P1
-		return dnRequest("callnamed",[self,"SetProviderClrType",P1])
-
-	Func SetValueComparer@ P1
-		return dnRequest("callnamed",[self,"SetValueComparer",P1])
-
-	Func SetJsonValueReaderWriterType@ P1
-		return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
 
 	Func getCollectionProperty
 		return dnRequest("get",[self,"CollectionProperty"])

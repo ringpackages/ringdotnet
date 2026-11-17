@@ -35,6 +35,9 @@ Class CoreTypeMapping from Object
 		return dnRequest("call",[self,"WithComposedConverter",P1,P2])
 
 	Func WithComposedConverter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithComposedConverter",P1])
+		ok
 		return dnRequest("call",[self,"WithComposedConverter",P1])
 
 	Func Clone_8 P1,P2,P3,P4,P5,P6,P7,P8
@@ -61,17 +64,20 @@ Class CoreTypeMapping from Object
 	Func Clone_1 P1
 		return dnRequest("call",[self,"Clone",P1])
 
-	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+	Func Clone P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Clone",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Clone"])
+		ok
+		return dnRequest("call",[self,"Clone",P1])
 
 	Func GenerateCodeLiteral P1
 		return dnRequest("call",[self,"GenerateCodeLiteral",P1])
 
-	Func WithComposedConverter@ P1
-		return dnRequest("callnamed",[self,"WithComposedConverter",P1])
-
-	Func Clone@ P1
-		return dnRequest("callnamed",[self,"Clone",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getClrType
 		return dnRequest("get",[self,"ClrType"])

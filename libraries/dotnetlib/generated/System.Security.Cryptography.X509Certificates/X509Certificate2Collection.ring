@@ -19,6 +19,9 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return self
 
 	Func Export P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Export",P1])
+		ok
 		return dnRequest("call",[self,"Export",P1])
 
 	Func Export_2 P1,P2
@@ -28,6 +31,10 @@ Class X509Certificate2Collection from X509CertificateCollection
 		return dnRequest("call",[self,"Find",P1,P2,P3])
 
 	Func Import_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Import",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Import",P1])
 		return self
 
@@ -52,29 +59,4 @@ Class X509Certificate2Collection from X509CertificateCollection
 
 	Func ExportCertificatePems 
 		return dnRequest("call",[self,"ExportCertificatePems"])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Export@ P1
-		return dnRequest("callnamed",[self,"Export",P1])
-
-	Func Import@ P1
-		dnRequest("callnamed",[self,"Import",P1])
-		return self
-
-	Func Insert@ P1
-		dnRequest("callnamed",[self,"Insert",P1])
-		return self
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
-
-	Func RemoveRange@ P1
-		dnRequest("callnamed",[self,"RemoveRange",P1])
-		return self
 

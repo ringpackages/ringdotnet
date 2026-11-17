@@ -27,6 +27,10 @@ Class XDocument from XContainer
 		return self
 
 	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Save",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Save",P1])
 		return self
 
@@ -41,6 +45,9 @@ Class XDocument from XContainer
 		return dnRequest("call",[self,"SaveAsync",P1,P2])
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
 
 	Func Load_2 P1,P2
@@ -50,26 +57,13 @@ Class XDocument from XContainer
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"LoadAsync",P1,P2,P3])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
 
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1,P2])
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func SaveAsync@ P1
-		return dnRequest("callnamed",[self,"SaveAsync",P1])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"LoadAsync",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
 
 	Func getDeclaration
 		return dnRequest("get",[self,"Declaration"])

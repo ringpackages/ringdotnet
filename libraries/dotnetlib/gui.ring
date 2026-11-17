@@ -215,7 +215,7 @@ func uiOpenFileName  cTitle, cFilter
 	ui_oDialog = new OpenFileDialog()
 	ui_oDialog.Title = cTitle
 	ui_oDialog.Filter = cFilter
-	if ui_oDialog.ShowDialog() = "OK"
+	if ui_oDialog.ShowDialog(NULL) = "OK"
 		return ui_oDialog.FileName
 	ok
 	return ""
@@ -224,7 +224,7 @@ func uiSaveFileName  cTitle, cFilter
 	ui_oDialog = new SaveFileDialog()
 	ui_oDialog.Title = cTitle
 	ui_oDialog.Filter = cFilter
-	if ui_oDialog.ShowDialog() = "OK"
+	if ui_oDialog.ShowDialog(NULL) = "OK"
 		return ui_oDialog.FileName
 	ok
 	return ""

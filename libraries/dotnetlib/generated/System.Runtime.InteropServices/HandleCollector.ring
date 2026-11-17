@@ -31,6 +31,9 @@ Class HandleCollector from Object
 		dnRequest("call",[self,"Remove"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

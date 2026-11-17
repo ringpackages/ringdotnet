@@ -29,6 +29,9 @@ Class IMutableTypeBase from DotNetObject
 		return dnRequest("call",[self,"GetIgnoredMembers"])
 
 	Func AddProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddProperty",P1])
+		ok
 		return dnRequest("call",[self,"AddProperty",P1])
 
 	Func AddProperty_2 P1,P2
@@ -71,6 +74,9 @@ Class IMutableTypeBase from DotNetObject
 		return dnRequest("call",[self,"AddComplexProperty",P1,P2])
 
 	Func AddComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"AddComplexProperty",P1])
 
 	Func AddComplexProperty_5 P1,P2,P3,P4,P5
@@ -128,27 +134,6 @@ Class IMutableTypeBase from DotNetObject
 	Func SetPropertyAccessMode P1
 		dnRequest("call",[self,"SetPropertyAccessMode",P1])
 		return self
-
-	Func AddProperty@ P1
-		return dnRequest("callnamed",[self,"AddProperty",P1])
-
-	Func FindProperty@ P1
-		return dnRequest("callnamed",[self,"FindProperty",P1])
-
-	Func RemoveProperty@ P1
-		return dnRequest("callnamed",[self,"RemoveProperty",P1])
-
-	Func AddComplexProperty@ P1
-		return dnRequest("callnamed",[self,"AddComplexProperty",P1])
-
-	Func AddComplexIndexerProperty@ P1
-		return dnRequest("callnamed",[self,"AddComplexIndexerProperty",P1])
-
-	Func FindComplexProperty@ P1
-		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
-
-	Func RemoveComplexProperty@ P1
-		return dnRequest("callnamed",[self,"RemoveComplexProperty",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])

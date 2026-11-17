@@ -35,6 +35,9 @@ Class TypeDescriptionProvider from Object
 		return dnRequest("call",[self,"GetFullComponentName",P1])
 
 	Func GetReflectionType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetReflectionType",P1])
+		ok
 		return dnRequest("call",[self,"GetReflectionType",P1])
 
 	Func GetReflectionType_2 P1,P2
@@ -44,12 +47,18 @@ Class TypeDescriptionProvider from Object
 		return dnRequest("call",[self,"GetRuntimeType",P1])
 
 	Func GetTypeDescriptor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetTypeDescriptor",P1])
+		ok
 		return dnRequest("call",[self,"GetTypeDescriptor",P1])
 
 	Func GetTypeDescriptor_2 P1,P2
 		return dnRequest("call",[self,"GetTypeDescriptor",P1,P2])
 
 	Func GetTypeDescriptorFromRegisteredType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetTypeDescriptorFromRegisteredType",P1])
+		ok
 		return dnRequest("call",[self,"GetTypeDescriptorFromRegisteredType",P1])
 
 	Func GetTypeDescriptorFromRegisteredType_2 P1,P2
@@ -61,14 +70,8 @@ Class TypeDescriptionProvider from Object
 	Func IsSupportedType P1
 		return dnRequest("call",[self,"IsSupportedType",P1])
 
-	Func GetReflectionType@ P1
-		return dnRequest("callnamed",[self,"GetReflectionType",P1])
-
-	Func GetTypeDescriptor@ P1
-		return dnRequest("callnamed",[self,"GetTypeDescriptor",P1])
-
-	Func GetTypeDescriptorFromRegisteredType@ P1
-		return dnRequest("callnamed",[self,"GetTypeDescriptorFromRegisteredType",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRequireRegisteredTypes
 		return dnRequest("get",[self,"RequireRegisteredTypes"])

@@ -23,6 +23,14 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartDocument P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteStartDocument",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"WriteStartDocument"])
+		return self
+		ok
 		dnRequest("call",[self,"WriteStartDocument",P1])
 		return self
 
@@ -43,6 +51,10 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartElement P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteStartElement",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteStartElement",P1])
 		return self
 
@@ -75,6 +87,10 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteStartAttribute P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteStartAttribute",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteStartAttribute",P1])
 		return self
 
@@ -123,6 +139,10 @@ Class XmlWriter from Object
 		return self
 
 	Func WriteRaw P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteRaw",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteRaw",P1])
 		return self
 
@@ -189,6 +209,12 @@ Class XmlWriter from Object
 		return dnRequest("call",[self,"WriteStartDocumentAsync"])
 
 	Func WriteStartDocumentAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WriteStartDocumentAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WriteStartDocumentAsync"])
+		ok
 		return dnRequest("call",[self,"WriteStartDocumentAsync",P1])
 
 	Func WriteEndDocumentAsync 
@@ -240,6 +266,9 @@ Class XmlWriter from Object
 		return dnRequest("call",[self,"WriteRawAsync",P1,P2,P3])
 
 	Func WriteRawAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WriteRawAsync",P1])
+		ok
 		return dnRequest("call",[self,"WriteRawAsync",P1])
 
 	Func WriteBase64Async P1,P2,P3
@@ -272,55 +301,17 @@ Class XmlWriter from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
 
 	Func Create_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1,P2])
-
-	Func WriteStartDocument@ P1
-		dnRequest("callnamed",[self,"WriteStartDocument",P1])
-		return self
-
-	Func WriteStartElement@ P1
-		dnRequest("callnamed",[self,"WriteStartElement",P1])
-		return self
-
-	Func WriteAttributeString@ P1
-		dnRequest("callnamed",[self,"WriteAttributeString",P1])
-		return self
-
-	Func WriteStartAttribute@ P1
-		dnRequest("callnamed",[self,"WriteStartAttribute",P1])
-		return self
-
-	Func WriteRaw@ P1
-		dnRequest("callnamed",[self,"WriteRaw",P1])
-		return self
-
-	Func WriteValue@ P1
-		dnRequest("callnamed",[self,"WriteValue",P1])
-		return self
-
-	Func WriteNode@ P1
-		dnRequest("callnamed",[self,"WriteNode",P1])
-		return self
-
-	Func WriteElementString@ P1
-		dnRequest("callnamed",[self,"WriteElementString",P1])
-		return self
-
-	Func WriteStartDocumentAsync@ P1
-		return dnRequest("callnamed",[self,"WriteStartDocumentAsync",P1])
-
-	Func WriteRawAsync@ P1
-		return dnRequest("callnamed",[self,"WriteRawAsync",P1])
-
-	Func WriteNodeAsync@ P1
-		return dnRequest("callnamed",[self,"WriteNodeAsync",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
 
 	Func getSettings
 		return dnRequest("get",[self,"Settings"])

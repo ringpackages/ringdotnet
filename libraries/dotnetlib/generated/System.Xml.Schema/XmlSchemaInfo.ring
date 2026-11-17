@@ -23,6 +23,9 @@ Class XmlSchemaInfo from Object
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaInfo, System.Private.Xml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getValidity
 		return dnRequest("get",[self,"Validity"])
 

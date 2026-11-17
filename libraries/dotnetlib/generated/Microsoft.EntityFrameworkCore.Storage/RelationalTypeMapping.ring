@@ -51,23 +51,23 @@ Class RelationalTypeMapping from CoreTypeMapping
 	Func GenerateProviderValueSqlLiteral P1
 		return dnRequest("call",[self,"GenerateProviderValueSqlLiteral",P1])
 
-	Func GetDataReaderMethod 
-		return dnRequest("call",[self,"GetDataReaderMethod"])
+	Func GetDataReaderMethod P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
+			ok
+			return dnRequest("callnamed",[self,"GetDataReaderMethod",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDataReaderMethod"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
 	Func CustomizeDataReaderExpression P1
 		return dnRequest("call",[self,"CustomizeDataReaderExpression",P1])
 
 	Func GetDataReaderMethod_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
-
-	Func CreateParameter@ P1
-		return dnRequest("callnamed",[self,"CreateParameter",P1])
-
-	Func GetDataReaderMethod@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
-		ok
-		return dnRequest("callnamed",[self,"GetDataReaderMethod",P1])
 
 	Func getStoreTypePostfix
 		return dnRequest("get",[self,"StoreTypePostfix"])

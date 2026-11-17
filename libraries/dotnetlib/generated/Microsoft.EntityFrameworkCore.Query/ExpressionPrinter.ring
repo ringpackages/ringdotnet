@@ -14,8 +14,14 @@ Class ExpressionPrinter from DotNetObject
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func AppendLine 
-		return dnRequest("call",[self,"AppendLine"])
+	Func AppendLine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLine",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AppendLine"])
+		ok
+		return dnRequest("call",[self,"AppendLine",P1])
 
 	Func AppendLine_1 P1
 		return dnRequest("call",[self,"AppendLine",P1])
@@ -24,6 +30,9 @@ Class ExpressionPrinter from DotNetObject
 		return dnRequest("call",[self,"AppendLines",P1,P2])
 
 	Func AppendLines P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLines",P1])
+		ok
 		return dnRequest("call",[self,"AppendLines",P1])
 
 	Func Indent 
@@ -36,6 +45,9 @@ Class ExpressionPrinter from DotNetObject
 		return dnRequest("call",[self,"PrintExpression",P1,P2])
 
 	Func PrintExpression P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrintExpression",P1])
+		ok
 		return dnRequest("call",[self,"PrintExpression",P1])
 
 	Func PrintExpressionDebug P1
@@ -52,6 +64,10 @@ Class ExpressionPrinter from DotNetObject
 		return self
 
 	Func VisitCollection P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"VisitCollection",P1])
+			return self
+		ok
 		dnRequest("call",[self,"VisitCollection",P1])
 		return self
 
@@ -75,23 +91,4 @@ Class ExpressionPrinter from DotNetObject
 
 	Func PrintDebug P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"PrintDebug",P1])
-
-	Func AppendLine@ P1
-		return dnRequest("callnamed",[self,"AppendLine",P1])
-
-	Func AppendLines@ P1
-		return dnRequest("callnamed",[self,"AppendLines",P1])
-
-	Func PrintExpression@ P1
-		return dnRequest("callnamed",[self,"PrintExpression",P1])
-
-	Func VisitCollection@ P1
-		dnRequest("callnamed",[self,"VisitCollection",P1])
-		return self
-
-	Func Visit@ P1
-		return dnRequest("callnamed",[self,"Visit",P1])
-
-	Func VisitAndConvert@ P1
-		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
 

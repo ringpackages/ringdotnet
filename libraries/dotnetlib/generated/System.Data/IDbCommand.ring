@@ -35,17 +35,20 @@ Class IDbCommand from DotNetObject
 	Func ExecuteNonQuery 
 		return dnRequest("call",[self,"ExecuteNonQuery"])
 
-	Func ExecuteReader 
-		return dnRequest("call",[self,"ExecuteReader"])
+	Func ExecuteReader P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteReader",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExecuteReader"])
+		ok
+		return dnRequest("call",[self,"ExecuteReader",P1])
 
 	Func ExecuteReader_1 P1
 		return dnRequest("call",[self,"ExecuteReader",P1])
 
 	Func ExecuteScalar 
 		return dnRequest("call",[self,"ExecuteScalar"])
-
-	Func ExecuteReader@ P1
-		return dnRequest("callnamed",[self,"ExecuteReader",P1])
 
 	Func getConnection
 		return dnRequest("get",[self,"Connection"])

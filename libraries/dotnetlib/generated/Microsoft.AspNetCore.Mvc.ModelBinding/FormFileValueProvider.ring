@@ -20,3 +20,6 @@ Class FormFileValueProvider from Object
 	Func GetValue P1
 		return dnRequest("call",[self,"GetValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

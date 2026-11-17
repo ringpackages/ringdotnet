@@ -28,6 +28,9 @@ Class SslClientAuthenticationOptions from Object
 		nHandle = dnCreate('System.Net.Security.SslClientAuthenticationOptions, System.Net.Security',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAllowRenegotiation
 		return dnRequest("get",[self,"AllowRenegotiation"])
 

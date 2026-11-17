@@ -21,6 +21,9 @@ Class EntityEntryGraphNode from Object
 	Func CreateNode P1,P2,P3
 		return dnRequest("call",[self,"CreateNode",P1,P2,P3])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSourceEntry
 		return dnRequest("get",[self,"SourceEntry"])
 

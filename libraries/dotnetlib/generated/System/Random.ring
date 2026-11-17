@@ -20,8 +20,14 @@ Class Random from Object
 		nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
 		return self
 
-	Func Next_ 
-		return dnRequest("call",[self,"Next"])
+	Func Next_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Next",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Next"])
+		ok
+		return dnRequest("call",[self,"Next",P1])
 
 	Func Next_1 P1
 		return dnRequest("call",[self,"Next",P1])
@@ -29,8 +35,14 @@ Class Random from Object
 	Func Next_2 P1,P2
 		return dnRequest("call",[self,"Next",P1,P2])
 
-	Func NextInt64 
-		return dnRequest("call",[self,"NextInt64"])
+	Func NextInt64 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NextInt64",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NextInt64"])
+		ok
+		return dnRequest("call",[self,"NextInt64",P1])
 
 	Func NextInt64_1 P1
 		return dnRequest("call",[self,"NextInt64",P1])
@@ -55,11 +67,8 @@ Class Random from Object
 		dnRequest("call",[self,"Shuffle",P1])
 		return self
 
-	Func Next@ P1
-		return dnRequest("callnamed",[self,"Next",P1])
-
-	Func NextInt64@ P1
-		return dnRequest("callnamed",[self,"NextInt64",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getShared
 		return dnRequest("get",[dnTypeCached('System.Random, System.Private.CoreLib'),"Shared"])

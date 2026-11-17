@@ -27,6 +27,9 @@ Class KestrelServer from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFeatures
 		return dnRequest("get",[self,"Features"])
 

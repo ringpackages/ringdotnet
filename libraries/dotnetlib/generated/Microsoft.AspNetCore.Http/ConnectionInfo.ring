@@ -23,15 +23,21 @@ Class ConnectionInfo from Object
 	Func GetClientCertificateAsync_1 P1
 		return dnRequest("call",[self,"GetClientCertificateAsync",P1])
 
-	Func GetClientCertificateAsync 
-		return dnRequest("call",[self,"GetClientCertificateAsync"])
+	Func GetClientCertificateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetClientCertificateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetClientCertificateAsync"])
+		ok
+		return dnRequest("call",[self,"GetClientCertificateAsync",P1])
 
 	Func RequestClose 
 		dnRequest("call",[self,"RequestClose"])
 		return self
 
-	Func GetClientCertificateAsync@ P1
-		return dnRequest("callnamed",[self,"GetClientCertificateAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getId
 		return dnRequest("get",[self,"Id"])

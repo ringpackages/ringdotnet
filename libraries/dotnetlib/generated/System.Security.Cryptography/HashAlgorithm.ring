@@ -21,6 +21,9 @@ Class HashAlgorithm from Object
 		return self
 
 	Func ComputeHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComputeHash",P1])
+		ok
 		return dnRequest("call",[self,"ComputeHash",P1])
 
 	Func ComputeHash_3 P1,P2,P3
@@ -30,6 +33,9 @@ Class HashAlgorithm from Object
 		return dnRequest("call",[self,"ComputeHashAsync",P1,P2])
 
 	Func ComputeHashAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComputeHashAsync",P1])
+		ok
 		return dnRequest("call",[self,"ComputeHashAsync",P1])
 
 	Func Dispose 
@@ -50,20 +56,20 @@ Class HashAlgorithm from Object
 		dnRequest("call",[self,"Initialize"])
 		return self
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func ComputeHash@ P1
-		return dnRequest("callnamed",[self,"ComputeHash",P1])
-
-	Func ComputeHashAsync@ P1
-		return dnRequest("callnamed",[self,"ComputeHashAsync",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getHashSize
 		return dnRequest("get",[self,"HashSize"])

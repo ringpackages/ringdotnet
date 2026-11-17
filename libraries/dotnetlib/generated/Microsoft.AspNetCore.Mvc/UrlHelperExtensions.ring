@@ -13,7 +13,13 @@ Class UrlHelperExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Action P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1])
 
 	Func Action_2 P1,P2
@@ -86,6 +92,9 @@ Class UrlHelperExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2])
 
 	Func ActionLink P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
 
 	Func PageLink_7 P1,P2,P3,P4,P5,P6,P7
@@ -107,20 +116,8 @@ Class UrlHelperExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2])
 
 	Func PageLink P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1])
-
-	Func Action@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1])
-
-	Func RouteUrl@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1])
-
-	Func Page@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1])
-
-	Func ActionLink@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
-
-	Func PageLink@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1])
 

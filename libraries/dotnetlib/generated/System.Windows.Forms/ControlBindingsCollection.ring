@@ -19,6 +19,9 @@ Class ControlBindingsCollection from BindingsCollection
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -51,9 +54,6 @@ Class ControlBindingsCollection from BindingsCollection
 	Func RemoveAt P1
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
 
 	Func getBindableComponent
 		return dnRequest("get",[self,"BindableComponent"])

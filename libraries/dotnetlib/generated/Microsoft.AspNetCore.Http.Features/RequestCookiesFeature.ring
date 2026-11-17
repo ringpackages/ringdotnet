@@ -16,6 +16,9 @@ Class RequestCookiesFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.RequestCookiesFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCookies
 		return dnRequest("get",[self,"Cookies"])
 

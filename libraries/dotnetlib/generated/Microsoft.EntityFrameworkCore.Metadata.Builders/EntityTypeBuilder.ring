@@ -32,24 +32,36 @@ Class EntityTypeBuilder from Object
 		return dnRequest("call",[self,"HasNoKey"])
 
 	Func Property P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Property",P1])
+		ok
 		return dnRequest("call",[self,"Property",P1])
 
 	Func Property_2 P1,P2
 		return dnRequest("call",[self,"Property",P1,P2])
 
 	Func PrimitiveCollection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+		ok
 		return dnRequest("call",[self,"PrimitiveCollection",P1])
 
 	Func PrimitiveCollection_2 P1,P2
 		return dnRequest("call",[self,"PrimitiveCollection",P1,P2])
 
 	Func IndexerProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexerProperty",P1])
+		ok
 		return dnRequest("call",[self,"IndexerProperty",P1])
 
 	Func IndexerProperty_2 P1,P2
 		return dnRequest("call",[self,"IndexerProperty",P1,P2])
 
 	Func ComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"ComplexProperty",P1])
 
 	Func ComplexProperty_2 P1,P2
@@ -71,6 +83,9 @@ Class EntityTypeBuilder from Object
 		return dnRequest("call",[self,"HasQueryFilter",P1])
 
 	Func HasIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasIndex",P1])
+		ok
 		return dnRequest("call",[self,"HasIndex",P1])
 
 	Func HasIndex_2 P1,P2
@@ -98,12 +113,18 @@ Class EntityTypeBuilder from Object
 		return dnRequest("call",[self,"HasOne",P1,P2])
 
 	Func HasOne P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasOne",P1])
+		ok
 		return dnRequest("call",[self,"HasOne",P1])
 
 	Func HasMany_2 P1,P2
 		return dnRequest("call",[self,"HasMany",P1,P2])
 
 	Func HasMany P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasMany",P1])
+		ok
 		return dnRequest("call",[self,"HasMany",P1])
 
 	Func HasChangeTrackingStrategy P1
@@ -115,8 +136,14 @@ Class EntityTypeBuilder from Object
 	Func HasData P1
 		return dnRequest("call",[self,"HasData",P1])
 
-	Func HasDiscriminator 
-		return dnRequest("call",[self,"HasDiscriminator"])
+	Func HasDiscriminator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasDiscriminator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasDiscriminator"])
+		ok
+		return dnRequest("call",[self,"HasDiscriminator",P1])
 
 	Func HasDiscriminator_2 P1,P2
 		return dnRequest("call",[self,"HasDiscriminator",P1,P2])
@@ -127,44 +154,11 @@ Class EntityTypeBuilder from Object
 	Func HasNoDiscriminator 
 		return dnRequest("call",[self,"HasNoDiscriminator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func HasTrigger P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore'),"HasTrigger",P1,P2])
-
-	Func HasBaseType@ P1
-		return dnRequest("callnamed",[self,"HasBaseType",P1])
-
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
-
-	Func PrimitiveCollection@ P1
-		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
-
-	Func IndexerProperty@ P1
-		return dnRequest("callnamed",[self,"IndexerProperty",P1])
-
-	Func ComplexProperty@ P1
-		return dnRequest("callnamed",[self,"ComplexProperty",P1])
-
-	Func HasIndex@ P1
-		return dnRequest("callnamed",[self,"HasIndex",P1])
-
-	Func OwnsOne@ P1
-		return dnRequest("callnamed",[self,"OwnsOne",P1])
-
-	Func OwnsMany@ P1
-		return dnRequest("callnamed",[self,"OwnsMany",P1])
-
-	Func HasOne@ P1
-		return dnRequest("callnamed",[self,"HasOne",P1])
-
-	Func HasMany@ P1
-		return dnRequest("callnamed",[self,"HasMany",P1])
-
-	Func HasData@ P1
-		return dnRequest("callnamed",[self,"HasData",P1])
-
-	Func HasDiscriminator@ P1
-		return dnRequest("callnamed",[self,"HasDiscriminator",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -13,7 +13,13 @@ Class ListBindingHelper from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetList P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1])
 
 	Func GetList_2 P1,P2
@@ -23,6 +29,9 @@ Class ListBindingHelper from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListName",P1,P2])
 
 	Func GetListItemProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1])
 
 	Func GetListItemProperties_2 P1,P2
@@ -32,17 +41,11 @@ Class ListBindingHelper from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1,P2,P3])
 
 	Func GetListItemType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
 
 	Func GetListItemType_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1,P2])
-
-	Func GetList@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1])
-
-	Func GetListItemProperties@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1])
-
-	Func GetListItemType@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
 

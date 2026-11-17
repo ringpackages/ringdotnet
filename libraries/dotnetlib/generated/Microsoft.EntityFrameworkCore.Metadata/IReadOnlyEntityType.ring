@@ -18,8 +18,14 @@ Class IReadOnlyEntityType from DotNetObject
 	Func GetSeedData_1 P1
 		return dnRequest("call",[self,"GetSeedData",P1])
 
-	Func GetSeedData 
-		return dnRequest("call",[self,"GetSeedData"])
+	Func GetSeedData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSeedData",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetSeedData"])
+		ok
+		return dnRequest("call",[self,"GetSeedData",P1])
 
 	Func GetQueryFilter 
 		return dnRequest("call",[self,"GetQueryFilter"])
@@ -198,32 +204,14 @@ Class IReadOnlyEntityType from DotNetObject
 	Func ToDebugString_1 P1
 		return dnRequest("call",[self,"ToDebugString",P1])
 
-	Func ToDebugString 
-		return dnRequest("call",[self,"ToDebugString"])
-
-	Func GetSeedData@ P1
-		return dnRequest("callnamed",[self,"GetSeedData",P1])
-
-	Func FindKey@ P1
-		return dnRequest("callnamed",[self,"FindKey",P1])
-
-	Func FindForeignKey@ P1
-		return dnRequest("callnamed",[self,"FindForeignKey",P1])
-
-	Func FindForeignKeys@ P1
-		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
-
-	Func FindNavigation@ P1
-		return dnRequest("callnamed",[self,"FindNavigation",P1])
-
-	Func FindSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[self,"FindIndex",P1])
-
-	Func ToDebugString@ P1
-		return dnRequest("callnamed",[self,"ToDebugString",P1])
+	Func ToDebugString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToDebugString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToDebugString"])
+		ok
+		return dnRequest("call",[self,"ToDebugString",P1])
 
 	Func getBaseType
 		return dnRequest("get",[self,"BaseType"])

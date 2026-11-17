@@ -19,6 +19,10 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		return dnRequest("call",[self,"GetPageNumber",P1])
 
 	Func GetPageNumberAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"GetPageNumberAsync",P1])
+			return self
+		ok
 		dnRequest("call",[self,"GetPageNumberAsync",P1])
 		return self
 
@@ -31,10 +35,6 @@ Class DynamicDocumentPaginator from DocumentPaginator
 
 	Func GetObjectPosition P1
 		return dnRequest("call",[self,"GetObjectPosition",P1])
-
-	Func GetPageNumberAsync@ P1
-		dnRequest("callnamed",[self,"GetPageNumberAsync",P1])
-		return self
 
 	Func setGetPageNumberCompletedEvent P1
 		dnRequest("setevent",[self,"GetPageNumberCompleted",dnCallback(P1)])

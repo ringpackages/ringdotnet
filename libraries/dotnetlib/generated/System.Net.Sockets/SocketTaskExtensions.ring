@@ -13,7 +13,13 @@ Class SocketTaskExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AcceptAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
 
 	Func AcceptAsync_2 P1,P2
@@ -48,16 +54,4 @@ Class SocketTaskExtensions from Object
 
 	Func SendToAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendToAsync",P1,P2,P3,P4])
-
-	Func AcceptAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
-
-	Func ConnectAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1])
-
-	Func ReceiveAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1])
-
-	Func SendAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1])
 

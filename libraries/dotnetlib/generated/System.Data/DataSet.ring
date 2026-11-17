@@ -59,8 +59,14 @@ Class DataSet from MarshalByValueComponent
 	Func Copy 
 		return dnRequest("call",[self,"Copy"])
 
-	Func GetChanges 
-		return dnRequest("call",[self,"GetChanges"])
+	Func GetChanges P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetChanges",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetChanges"])
+		ok
+		return dnRequest("call",[self,"GetChanges",P1])
 
 	Func GetChanges_1 P1
 		return dnRequest("call",[self,"GetChanges",P1])
@@ -71,8 +77,14 @@ Class DataSet from MarshalByValueComponent
 	Func GetXmlSchema 
 		return dnRequest("call",[self,"GetXmlSchema"])
 
-	Func HasChanges 
-		return dnRequest("call",[self,"HasChanges"])
+	Func HasChanges P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasChanges",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasChanges"])
+		ok
+		return dnRequest("call",[self,"HasChanges",P1])
 
 	Func HasChanges_1 P1
 		return dnRequest("call",[self,"HasChanges",P1])
@@ -86,6 +98,10 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func WriteXmlSchema P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteXmlSchema",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteXmlSchema",P1])
 		return self
 
@@ -94,12 +110,19 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func ReadXml P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadXml",P1])
+		ok
 		return dnRequest("call",[self,"ReadXml",P1])
 
 	Func ReadXml_2 P1,P2
 		return dnRequest("call",[self,"ReadXml",P1,P2])
 
 	Func WriteXml P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteXml",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteXml",P1])
 		return self
 
@@ -108,6 +131,10 @@ Class DataSet from MarshalByValueComponent
 		return self
 
 	Func Merge P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Merge",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Merge",P1])
 		return self
 
@@ -135,50 +162,20 @@ Class DataSet from MarshalByValueComponent
 		dnRequest("call",[self,"Load",P1,P2,P3])
 		return self
 
-	Func CreateDataReader 
-		return dnRequest("call",[self,"CreateDataReader"])
+	Func CreateDataReader P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateDataReader",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateDataReader"])
+		ok
+		return dnRequest("call",[self,"CreateDataReader",P1])
 
 	Func CreateDataReader_1 P1
 		return dnRequest("call",[self,"CreateDataReader",P1])
 
 	Func GetDataSetSchema P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataSet, System.Data.Common'),"GetDataSetSchema",P1])
-
-	Func GetChanges@ P1
-		return dnRequest("callnamed",[self,"GetChanges",P1])
-
-	Func HasChanges@ P1
-		return dnRequest("callnamed",[self,"HasChanges",P1])
-
-	Func InferXmlSchema@ P1
-		dnRequest("callnamed",[self,"InferXmlSchema",P1])
-		return self
-
-	Func ReadXmlSchema@ P1
-		dnRequest("callnamed",[self,"ReadXmlSchema",P1])
-		return self
-
-	Func WriteXmlSchema@ P1
-		dnRequest("callnamed",[self,"WriteXmlSchema",P1])
-		return self
-
-	Func ReadXml@ P1
-		return dnRequest("callnamed",[self,"ReadXml",P1])
-
-	Func WriteXml@ P1
-		dnRequest("callnamed",[self,"WriteXml",P1])
-		return self
-
-	Func Merge@ P1
-		dnRequest("callnamed",[self,"Merge",P1])
-		return self
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func CreateDataReader@ P1
-		return dnRequest("callnamed",[self,"CreateDataReader",P1])
 
 	Func setMergeFailedEvent P1
 		dnRequest("setevent",[self,"MergeFailed",dnCallback(P1)])

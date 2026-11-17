@@ -20,6 +20,9 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnRequest("call",[self,"SetName",P1,P2])
 
 	Func SetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetName",P1])
+		ok
 		return dnRequest("call",[self,"SetName",P1])
 
 	Func GetNameConfigurationSource 
@@ -29,16 +32,13 @@ Class IConventionStoredProcedureParameter from DotNetObject
 		return dnRequest("call",[self,"SetDirection",P1,P2])
 
 	Func SetDirection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDirection",P1])
+		ok
 		return dnRequest("call",[self,"SetDirection",P1])
 
 	Func GetDirectionConfigurationSource 
 		return dnRequest("call",[self,"GetDirectionConfigurationSource"])
-
-	Func SetName@ P1
-		return dnRequest("callnamed",[self,"SetName",P1])
-
-	Func SetDirection@ P1
-		return dnRequest("callnamed",[self,"SetDirection",P1])
 
 	Func getStoredProcedure
 		return dnRequest("get",[self,"StoredProcedure"])

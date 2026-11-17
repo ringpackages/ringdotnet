@@ -23,8 +23,14 @@ Class IDbContextTransaction from DotNetObject
 	Func CommitAsync_1 P1
 		return dnRequest("call",[self,"CommitAsync",P1])
 
-	Func CommitAsync 
-		return dnRequest("call",[self,"CommitAsync"])
+	Func CommitAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitAsync"])
+		ok
+		return dnRequest("call",[self,"CommitAsync",P1])
 
 	Func Rollback 
 		dnRequest("call",[self,"Rollback"])
@@ -33,8 +39,14 @@ Class IDbContextTransaction from DotNetObject
 	Func RollbackAsync_1 P1
 		return dnRequest("call",[self,"RollbackAsync",P1])
 
-	Func RollbackAsync 
-		return dnRequest("call",[self,"RollbackAsync"])
+	Func RollbackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RollbackAsync"])
+		ok
+		return dnRequest("call",[self,"RollbackAsync",P1])
 
 	Func CreateSavepoint P1
 		dnRequest("call",[self,"CreateSavepoint",P1])
@@ -44,6 +56,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnRequest("call",[self,"CreateSavepointAsync",P1,P2])
 
 	Func CreateSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSavepointAsync",P1])
+		ok
 		return dnRequest("call",[self,"CreateSavepointAsync",P1])
 
 	Func RollbackToSavepoint P1
@@ -54,6 +69,9 @@ Class IDbContextTransaction from DotNetObject
 		return dnRequest("call",[self,"RollbackToSavepointAsync",P1,P2])
 
 	Func RollbackToSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackToSavepointAsync",P1])
+		ok
 		return dnRequest("call",[self,"RollbackToSavepointAsync",P1])
 
 	Func ReleaseSavepoint P1
@@ -64,22 +82,10 @@ Class IDbContextTransaction from DotNetObject
 		return dnRequest("call",[self,"ReleaseSavepointAsync",P1,P2])
 
 	Func ReleaseSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReleaseSavepointAsync",P1])
+		ok
 		return dnRequest("call",[self,"ReleaseSavepointAsync",P1])
-
-	Func CommitAsync@ P1
-		return dnRequest("callnamed",[self,"CommitAsync",P1])
-
-	Func RollbackAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackAsync",P1])
-
-	Func CreateSavepointAsync@ P1
-		return dnRequest("callnamed",[self,"CreateSavepointAsync",P1])
-
-	Func RollbackToSavepointAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackToSavepointAsync",P1])
-
-	Func ReleaseSavepointAsync@ P1
-		return dnRequest("callnamed",[self,"ReleaseSavepointAsync",P1])
 
 	Func getTransactionId
 		return dnRequest("get",[self,"TransactionId"])

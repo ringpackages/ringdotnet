@@ -18,6 +18,9 @@ Class LinkOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.LinkOptions, Microsoft.AspNetCore.Routing.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLowercaseUrls
 		return dnRequest("get",[self,"LowercaseUrls"])
 

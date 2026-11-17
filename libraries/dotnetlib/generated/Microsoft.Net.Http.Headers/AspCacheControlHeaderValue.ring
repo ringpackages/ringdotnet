@@ -42,6 +42,9 @@ Class AspCacheControlHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.CacheControlHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
 

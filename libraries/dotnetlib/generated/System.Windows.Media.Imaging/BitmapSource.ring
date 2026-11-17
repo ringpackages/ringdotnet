@@ -35,13 +35,6 @@ Class BitmapSource from ImageSource
 	Func Create_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
-	Func CopyPixels@ P1
-		dnRequest("callnamed",[self,"CopyPixels",P1])
-		return self
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1])
-
 	Func setDownloadCompletedEvent P1
 		dnRequest("setevent",[self,"DownloadCompleted",dnCallback(P1)])
 		return self

@@ -73,12 +73,6 @@ Class WebRequest from MarshalByRefObject
 	Func GetSystemWebProxy 
 		return dnRequest("call",[dnTypeCached('System.Net.WebRequest, System.Net.Requests'),"GetSystemWebProxy"])
 
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.WebRequest, System.Net.Requests'),"Create",P1])
-
-	Func CreateHttp@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.WebRequest, System.Net.Requests'),"CreateHttp",P1])
-
 	Func getCachePolicy
 		return dnRequest("get",[self,"CachePolicy"])
 

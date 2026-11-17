@@ -34,6 +34,9 @@ Class DebugProvider from Object
 		dnRequest("call",[self,"OnIndentSizeChanged",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FailCore P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Diagnostics.DebugProvider, System.Private.CoreLib'),"FailCore",P1,P2,P3,P4])
 		return self

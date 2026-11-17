@@ -60,6 +60,9 @@ Class RuntimeProperty from RuntimePropertyBase
 		return dnRequest("call",[self,"SetElementType",P1,P2])
 
 	Func SetElementType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetElementType",P1])
+		ok
 		return dnRequest("call",[self,"SetElementType",P1])
 
 	Func SetValueConverter P1
@@ -86,9 +89,6 @@ Class RuntimeProperty from RuntimePropertyBase
 
 	Func GetElementType 
 		return dnRequest("call",[self,"GetElementType"])
-
-	Func SetElementType@ P1
-		return dnRequest("callnamed",[self,"SetElementType",P1])
 
 	Func getPrimaryKey
 		return dnRequest("get",[self,"PrimaryKey"])

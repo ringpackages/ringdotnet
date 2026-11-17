@@ -50,6 +50,10 @@ Class Vector4 from ValueType
 		return self
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -88,6 +92,9 @@ Class Vector4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Cos",P1])
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1])
 
 	Func Create_3 P1,P2,P3
@@ -178,6 +185,9 @@ Class Vector4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"RadiansToDegrees",P1])
 
 	Func Round P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1])
 
 	Func Round_2 P1,P2
@@ -200,34 +210,6 @@ Class Vector4 from ValueType
 
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Truncate",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1])
-
-	Func Divide@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Divide",P1])
-
-	Func Lerp@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Lerp",P1])
-
-	Func Multiply@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Multiply",P1])
-
-	Func Round@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1])
-
-	Func Transform@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Transform",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

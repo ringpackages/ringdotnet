@@ -24,6 +24,10 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -32,6 +36,9 @@ Class Stream from MarshalByRefObject
 		return self
 
 	Func CopyToAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CopyToAsync",P1])
+		ok
 		return dnRequest("call",[self,"CopyToAsync",P1])
 
 	Func CopyToAsync_2 P1,P2
@@ -55,8 +62,14 @@ Class Stream from MarshalByRefObject
 		dnRequest("call",[self,"Flush"])
 		return self
 
-	Func FlushAsync 
-		return dnRequest("call",[self,"FlushAsync"])
+	Func FlushAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FlushAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"FlushAsync"])
+		ok
+		return dnRequest("call",[self,"FlushAsync",P1])
 
 	Func FlushAsync_1 P1
 		return dnRequest("call",[self,"FlushAsync",P1])
@@ -146,28 +159,6 @@ Class Stream from MarshalByRefObject
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.Stream, System.Private.CoreLib'),"Synchronized",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func CopyToAsync@ P1
-		return dnRequest("callnamed",[self,"CopyToAsync",P1])
-
-	Func FlushAsync@ P1
-		return dnRequest("callnamed",[self,"FlushAsync",P1])
-
-	Func ReadAsync@ P1
-		return dnRequest("callnamed",[self,"ReadAsync",P1])
-
-	Func ReadExactlyAsync@ P1
-		return dnRequest("callnamed",[self,"ReadExactlyAsync",P1])
-
-	Func ReadAtLeastAsync@ P1
-		return dnRequest("callnamed",[self,"ReadAtLeastAsync",P1])
-
-	Func WriteAsync@ P1
-		return dnRequest("callnamed",[self,"WriteAsync",P1])
 
 	Func getCanRead
 		return dnRequest("get",[self,"CanRead"])

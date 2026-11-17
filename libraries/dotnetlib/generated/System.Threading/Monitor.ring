@@ -15,7 +15,13 @@ Class Monitor from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Enter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1])
+		ok
 		dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1])
 		return self
 
@@ -27,6 +33,9 @@ Class Monitor from Object
 		return self
 
 	Func TryEnter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1])
 
 	Func TryEnter_2 P1,P2
@@ -50,19 +59,13 @@ Class Monitor from Object
 		return self
 
 	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
 
 	Func Wait_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1,P2,P3])
-
-	Func Enter@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1])
-
-	Func TryEnter@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1])
-
-	Func Wait@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
 
 	Func getLockContentionCount
 		return dnRequest("get",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"LockContentionCount"])

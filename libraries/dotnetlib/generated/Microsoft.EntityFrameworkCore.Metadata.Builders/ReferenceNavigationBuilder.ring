@@ -17,18 +17,27 @@ Class ReferenceNavigationBuilder from Object
 	Func WithMany_1 P1
 		return dnRequest("call",[self,"WithMany",P1])
 
-	Func WithMany 
-		return dnRequest("call",[self,"WithMany"])
+	Func WithMany P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithMany",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WithMany"])
+		ok
+		return dnRequest("call",[self,"WithMany",P1])
 
 	Func WithOne_1 P1
 		return dnRequest("call",[self,"WithOne",P1])
 
-	Func WithOne 
-		return dnRequest("call",[self,"WithOne"])
+	Func WithOne P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithOne",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WithOne"])
+		ok
+		return dnRequest("call",[self,"WithOne",P1])
 
-	Func WithMany@ P1
-		return dnRequest("callnamed",[self,"WithMany",P1])
-
-	Func WithOne@ P1
-		return dnRequest("callnamed",[self,"WithOne",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

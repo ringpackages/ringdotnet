@@ -24,6 +24,9 @@ Class PaperSize from Object
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHeight
 		return dnRequest("get",[self,"Height"])
 

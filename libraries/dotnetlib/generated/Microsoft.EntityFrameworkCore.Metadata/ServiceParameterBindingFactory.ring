@@ -20,6 +20,6 @@ Class ServiceParameterBindingFactory from Object
 	Func Bind P1,P2,P3
 		return dnRequest("call",[self,"Bind",P1,P2,P3])
 
-	Func Bind@ P1
-		return dnRequest("callnamed",[self,"Bind",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

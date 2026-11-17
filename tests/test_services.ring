@@ -30,13 +30,13 @@ dnAssert("HMACSHA256",lower(oConvert.ToHexString(oHmac.ComputeHash("The quick br
 dnAssert("RandomNumberGenerator",len(new RandomNumberGenerator().GetBytes(16)),16)
 
 # AES round trip
-oAes = new Aes().Create()
+oAes = new Aes().Create(NULL)
 oAes.GenerateKey()
 oAes.GenerateIV()
 cPlain = "secret message for AES"
-cCipher = oAes.CreateEncryptor().TransformFinalBlock(cPlain,0,len(cPlain))
+cCipher = oAes.CreateEncryptor(NULL).TransformFinalBlock(cPlain,0,len(cPlain))
 dnAssert("AES encrypts",cCipher != cPlain,1)
-cBack = oAes.CreateDecryptor().TransformFinalBlock(cCipher,0,len(cCipher))
+cBack = oAes.CreateDecryptor(NULL).TransformFinalBlock(cCipher,0,len(cCipher))
 dnAssert("AES round trip",cBack,cPlain)
 
 # Diagnostics
@@ -53,7 +53,7 @@ oInfo.UseShellExecute = 0
 oInfo.CreateNoWindow = 1
 oProcess = new Process().Start_1(oInfo)
 cOut = oProcess.StandardOutput.ReadToEnd()
-oProcess.WaitForExit()
+oProcess.WaitForExit(NULL)
 dnAssert("Process output",left(cOut,22),"hello from a process" + left(windowsnl(),2))
 dnAssert("Process exit code",oProcess.ExitCode,0)
 dnAssert("Process.GetCurrentProcess",new Process().GetCurrentProcess().Id > 0,1)

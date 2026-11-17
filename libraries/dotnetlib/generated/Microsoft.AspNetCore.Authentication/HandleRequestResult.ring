@@ -21,6 +21,9 @@ Class HandleRequestResult from AuthenticateResult
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Success",P1])
 
 	Func Fail P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
 
 	Func Fail_2 P1,P2
@@ -34,9 +37,6 @@ Class HandleRequestResult from AuthenticateResult
 
 	Func NoResult 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"NoResult"])
-
-	Func Fail@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
 
 	Func getHandled
 		return dnRequest("get",[self,"Handled"])

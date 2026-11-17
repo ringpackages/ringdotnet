@@ -17,6 +17,9 @@ Class DataTableMappingCollection from MarshalByRefObject
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func AddRange P1
@@ -63,35 +66,6 @@ Class DataTableMappingCollection from MarshalByRefObject
 
 	Func GetTableMappingBySchemaAction P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataTableMappingCollection, System.Data.Common'),"GetTableMappingBySchemaAction",P1,P2,P3,P4])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
-		return self
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func Insert@ P1
-		dnRequest("callnamed",[self,"Insert",P1])
-		return self
-
-	Func RemoveAt@ P1
-		dnRequest("callnamed",[self,"RemoveAt",P1])
-		return self
-
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

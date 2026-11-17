@@ -22,9 +22,6 @@ Class DependencyPropertyChangedEventArgs from ValueType
 		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[P1,P2,P3])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getProperty
 		return dnRequest("get",[self,"Property"])
 

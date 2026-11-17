@@ -33,6 +33,9 @@ Class RelationalOptionsExtension from Object
 		return dnRequest("call",[self,"WithConnectionString",P1])
 
 	Func WithConnection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithConnection",P1])
+		ok
 		return dnRequest("call",[self,"WithConnection",P1])
 
 	Func WithConnection_2 P1,P2
@@ -76,17 +79,14 @@ Class RelationalOptionsExtension from Object
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Extract P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"Extract",P1])
 
 	Func WithDefaultWarningConfiguration P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"WithDefaultWarningConfiguration",P1])
-
-	Func WithConnection@ P1
-		return dnRequest("callnamed",[self,"WithConnection",P1])
-
-	Func WithMigrationsAssembly@ P1
-		return dnRequest("callnamed",[self,"WithMigrationsAssembly",P1])
 
 	Func getInfo
 		return dnRequest("get",[self,"Info"])

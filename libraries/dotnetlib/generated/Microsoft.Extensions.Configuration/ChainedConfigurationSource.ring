@@ -20,6 +20,9 @@ Class ChainedConfigurationSource from Object
 	Func Build P1
 		return dnRequest("call",[self,"Build",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getConfiguration
 		return dnRequest("get",[self,"Configuration"])
 

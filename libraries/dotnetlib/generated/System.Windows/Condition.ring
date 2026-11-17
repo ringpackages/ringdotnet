@@ -27,6 +27,9 @@ Class Condition from Object
 		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ReceiveMarkupExtension P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Condition, PresentationFramework'),"ReceiveMarkupExtension",P1,P2])
 		return self

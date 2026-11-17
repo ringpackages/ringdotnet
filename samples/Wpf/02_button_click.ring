@@ -36,7 +36,7 @@ func clicked
 	oInfo.Content = "" + nClicks + " clicks"
 
 func selfTest
-	oEvent = dnNew@("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
+	oEvent = dnNew("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
 	oButton.RaiseEvent(oEvent)
 	oButton.RaiseEvent(oEvent)
 	dnAssert("two clicks",oInfo.Content,"2 clicks")

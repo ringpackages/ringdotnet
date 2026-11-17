@@ -31,22 +31,17 @@ Class XPathExpression from Object
 		dnRequest("call",[self,"SetContext",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Compile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
 
 	Func Compile_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1,P2])
-
-	Func AddSort@ P1
-		dnRequest("callnamed",[self,"AddSort",P1])
-		return self
-
-	Func SetContext@ P1
-		dnRequest("callnamed",[self,"SetContext",P1])
-		return self
-
-	Func Compile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
 
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])

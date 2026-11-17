@@ -13,6 +13,9 @@ Class Help from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ShowHelp P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1,P2])
 		return self
@@ -31,9 +34,5 @@ Class Help from Object
 
 	Func ShowPopup P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowPopup",P1,P2,P3])
-		return self
-
-	Func ShowHelp@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1])
 		return self
 

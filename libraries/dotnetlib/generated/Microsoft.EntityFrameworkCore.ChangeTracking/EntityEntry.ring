@@ -57,8 +57,14 @@ Class EntityEntry from Object
 	Func GetDatabaseValuesAsync_1 P1
 		return dnRequest("call",[self,"GetDatabaseValuesAsync",P1])
 
-	Func GetDatabaseValuesAsync 
-		return dnRequest("call",[self,"GetDatabaseValuesAsync"])
+	Func GetDatabaseValuesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDatabaseValuesAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDatabaseValuesAsync"])
+		ok
+		return dnRequest("call",[self,"GetDatabaseValuesAsync",P1])
 
 	Func Reload 
 		dnRequest("call",[self,"Reload"])
@@ -67,32 +73,17 @@ Class EntityEntry from Object
 	Func ReloadAsync_1 P1
 		return dnRequest("call",[self,"ReloadAsync",P1])
 
-	Func ReloadAsync 
-		return dnRequest("call",[self,"ReloadAsync"])
+	Func ReloadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReloadAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReloadAsync"])
+		ok
+		return dnRequest("call",[self,"ReloadAsync",P1])
 
-	Func Member@ P1
-		return dnRequest("callnamed",[self,"Member",P1])
-
-	Func Navigation@ P1
-		return dnRequest("callnamed",[self,"Navigation",P1])
-
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
-
-	Func ComplexProperty@ P1
-		return dnRequest("callnamed",[self,"ComplexProperty",P1])
-
-	Func Reference@ P1
-		return dnRequest("callnamed",[self,"Reference",P1])
-
-	Func Collection@ P1
-		return dnRequest("callnamed",[self,"Collection",P1])
-
-	Func GetDatabaseValuesAsync@ P1
-		return dnRequest("callnamed",[self,"GetDatabaseValuesAsync",P1])
-
-	Func ReloadAsync@ P1
-		return dnRequest("callnamed",[self,"ReloadAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getEntity
 		return dnRequest("get",[self,"Entity"])

@@ -39,9 +39,6 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 	Func CreateFromCertificate P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromCertificate",P1,P2,P3])
 
-	Func CreateFromSubjectKeyIdentifier@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography'),"CreateFromSubjectKeyIdentifier",P1])
-
 	Func getKeyIdentifier
 		return dnRequest("get",[self,"KeyIdentifier"])
 

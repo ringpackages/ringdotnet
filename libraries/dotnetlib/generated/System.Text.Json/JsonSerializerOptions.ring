@@ -63,17 +63,24 @@ Class JsonSerializerOptions from Object
 		dnRequest("call",[self,"AddContext"])
 		return self
 
-	Func MakeReadOnly 
-		dnRequest("call",[self,"MakeReadOnly"])
+	Func MakeReadOnly P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MakeReadOnly",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"MakeReadOnly"])
+		return self
+		ok
+		dnRequest("call",[self,"MakeReadOnly",P1])
 		return self
 
 	Func MakeReadOnly_1 P1
 		dnRequest("call",[self,"MakeReadOnly",P1])
 		return self
 
-	Func MakeReadOnly@ P1
-		dnRequest("callnamed",[self,"MakeReadOnly",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getConverters
 		return dnRequest("get",[self,"Converters"])

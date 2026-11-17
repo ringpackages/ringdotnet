@@ -28,6 +28,10 @@ Class DataGridViewRow from DataGridViewBand
 		return dnRequest("call",[self,"AdjustRowHeaderBorderStyle",P1,P2,P3,P4,P5,P6])
 
 	Func CreateCells P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CreateCells",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CreateCells",P1])
 		return self
 
@@ -49,10 +53,6 @@ Class DataGridViewRow from DataGridViewBand
 
 	Func SetValues P1
 		return dnRequest("call",[self,"SetValues",P1])
-
-	Func CreateCells@ P1
-		dnRequest("callnamed",[self,"CreateCells",P1])
-		return self
 
 	Func getAccessibilityObject
 		return dnRequest("get",[self,"AccessibilityObject"])

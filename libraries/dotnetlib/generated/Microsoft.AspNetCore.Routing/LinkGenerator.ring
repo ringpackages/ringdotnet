@@ -52,9 +52,6 @@ Class LinkGenerator from Object
 	Func GetUriByAddress P1,P2,P3
 		return dnRequest("call",[self,"GetUriByAddress",P1,P2,P3])
 
-	Func GetPathByAddress@ P1
-		return dnRequest("callnamed",[self,"GetPathByAddress",P1])
-
-	Func GetUriByAddress@ P1
-		return dnRequest("callnamed",[self,"GetUriByAddress",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

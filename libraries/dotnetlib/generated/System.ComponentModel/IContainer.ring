@@ -16,6 +16,10 @@ Class IContainer from DotNetObject
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -25,10 +29,6 @@ Class IContainer from DotNetObject
 
 	Func Remove P1
 		dnRequest("call",[self,"Remove",P1])
-		return self
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
 		return self
 
 	Func getComponents

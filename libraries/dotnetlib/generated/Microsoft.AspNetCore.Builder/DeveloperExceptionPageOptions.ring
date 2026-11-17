@@ -17,6 +17,9 @@ Class DeveloperExceptionPageOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.DeveloperExceptionPageOptions, Microsoft.AspNetCore.Diagnostics',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSourceCodeLineCount
 		return dnRequest("get",[self,"SourceCodeLineCount"])
 

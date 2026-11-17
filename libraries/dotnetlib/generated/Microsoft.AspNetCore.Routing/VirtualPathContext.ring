@@ -23,6 +23,9 @@ Class VirtualPathContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAmbientValues
 		return dnRequest("get",[self,"AmbientValues"])
 

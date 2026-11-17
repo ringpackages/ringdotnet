@@ -13,12 +13,15 @@ Class CorsEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RequireCors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
 
 	Func RequireCors_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1,P2])
-
-	Func RequireCors@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
 

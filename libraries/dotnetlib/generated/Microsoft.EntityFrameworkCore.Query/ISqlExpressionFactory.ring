@@ -170,6 +170,9 @@ Class ISqlExpressionFactory from DotNetObject
 		return dnRequest("call",[self,"Constant",P1,P2])
 
 	Func Constant P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Constant",P1])
+		ok
 		return dnRequest("call",[self,"Constant",P1])
 
 	Func Constant_3 P1,P2,P3
@@ -177,55 +180,4 @@ Class ISqlExpressionFactory from DotNetObject
 
 	Func Fragment P1
 		return dnRequest("call",[self,"Fragment",P1])
-
-	Func MakeUnary@ P1
-		return dnRequest("callnamed",[self,"MakeUnary",P1])
-
-	Func MakeBinary@ P1
-		return dnRequest("callnamed",[self,"MakeBinary",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Subtract@ P1
-		return dnRequest("callnamed",[self,"Subtract",P1])
-
-	Func Multiply@ P1
-		return dnRequest("callnamed",[self,"Multiply",P1])
-
-	Func Divide@ P1
-		return dnRequest("callnamed",[self,"Divide",P1])
-
-	Func Modulo@ P1
-		return dnRequest("callnamed",[self,"Modulo",P1])
-
-	Func And@ P1
-		return dnRequest("callnamed",[self,"And",P1])
-
-	Func Or@ P1
-		return dnRequest("callnamed",[self,"Or",P1])
-
-	Func Coalesce@ P1
-		return dnRequest("callnamed",[self,"Coalesce",P1])
-
-	Func Convert@ P1
-		return dnRequest("callnamed",[self,"Convert",P1])
-
-	Func Case@ P1
-		return dnRequest("callnamed",[self,"Case",P1])
-
-	Func Function@ P1
-		return dnRequest("callnamed",[self,"Function",P1])
-
-	Func NiladicFunction@ P1
-		return dnRequest("callnamed",[self,"NiladicFunction",P1])
-
-	Func In@ P1
-		return dnRequest("callnamed",[self,"In",P1])
-
-	Func Like@ P1
-		return dnRequest("callnamed",[self,"Like",P1])
-
-	Func Constant@ P1
-		return dnRequest("callnamed",[self,"Constant",P1])
 

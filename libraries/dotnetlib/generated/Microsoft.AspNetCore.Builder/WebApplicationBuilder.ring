@@ -24,6 +24,9 @@ Class WebApplicationBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEnvironment
 		return dnRequest("get",[self,"Environment"])
 

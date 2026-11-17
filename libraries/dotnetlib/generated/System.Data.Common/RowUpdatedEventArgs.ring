@@ -24,15 +24,15 @@ Class RowUpdatedEventArgs from EventArgs
 		return self
 
 	Func CopyToRows P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyToRows",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyToRows",P1])
 		return self
 
 	Func CopyToRows_2 P1,P2
 		dnRequest("call",[self,"CopyToRows",P1,P2])
-		return self
-
-	Func CopyToRows@ P1
-		dnRequest("callnamed",[self,"CopyToRows",P1])
 		return self
 
 	Func getCommand

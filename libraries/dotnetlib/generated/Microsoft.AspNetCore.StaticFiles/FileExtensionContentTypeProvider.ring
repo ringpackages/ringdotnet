@@ -23,6 +23,9 @@ Class FileExtensionContentTypeProvider from Object
 	Func TryGetContentType P1
 		return dnRequest("call",[self,"TryGetContentType",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMappings
 		return dnRequest("get",[self,"Mappings"])
 

@@ -75,8 +75,16 @@ Class TreeNode from MarshalByRefObject
 		dnRequest("call",[self,"Collapse",P1])
 		return self
 
-	Func Collapse 
-		dnRequest("call",[self,"Collapse"])
+	Func Collapse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Collapse",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Collapse"])
+		return self
+		ok
+		dnRequest("call",[self,"Collapse",P1])
 		return self
 
 	Func EndEdit P1
@@ -108,10 +116,6 @@ Class TreeNode from MarshalByRefObject
 
 	Func FromHandle P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TreeNode, System.Windows.Forms'),"FromHandle",P1,P2])
-
-	Func Collapse@ P1
-		dnRequest("callnamed",[self,"Collapse",P1])
-		return self
 
 	Func getBackColor
 		return dnRequest("get",[self,"BackColor"])

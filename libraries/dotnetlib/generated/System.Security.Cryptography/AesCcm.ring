@@ -38,13 +38,8 @@ Class AesCcm from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Encrypt@ P1
-		dnRequest("callnamed",[self,"Encrypt",P1])
-		return self
-
-	Func Decrypt@ P1
-		dnRequest("callnamed",[self,"Decrypt",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getNonceByteSizes
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.AesCcm, System.Security.Cryptography'),"NonceByteSizes"])

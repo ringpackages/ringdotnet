@@ -17,6 +17,10 @@ Class RouteOptions from Object
 		return self
 
 	Func SetParameterPolicy P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetParameterPolicy",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetParameterPolicy",P1])
 		return self
 
@@ -24,9 +28,8 @@ Class RouteOptions from Object
 		dnRequest("call",[self,"SetParameterPolicy",P1,P2])
 		return self
 
-	Func SetParameterPolicy@ P1
-		dnRequest("callnamed",[self,"SetParameterPolicy",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getConstraintMap
 		return dnRequest("get",[self,"ConstraintMap"])

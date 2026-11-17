@@ -88,12 +88,12 @@ oInfo = new ProcessStartInfo() {
 	UseShellExecute = False
 	CreateNoWindow = True
 }
-oProcess = new Process().Start@([ :startInfo = oInfo ])
+oProcess = new Process().Start([ :startInfo = oInfo ])
 ? trim(oProcess.StandardOutput.ReadToEnd())
-oProcess.WaitForExit()
+oProcess.WaitForExit(NULL)
 
 oTask = new Task().Delay(30)                    # a Task: wait for it on the Ring thread
-oTask.Wait()
+oTask.Wait(NULL)
 ? oTask.IsCompleted
 
 oResult = new Task().FromResult("done")

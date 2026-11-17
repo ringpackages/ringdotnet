@@ -35,9 +35,6 @@ Class WpfPen from Animatable
 		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[P1,P2])
 		return self
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getBrush
 		return dnRequest("get",[self,"Brush"])
 

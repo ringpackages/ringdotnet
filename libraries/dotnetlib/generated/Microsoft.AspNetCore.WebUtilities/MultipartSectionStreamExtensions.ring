@@ -13,12 +13,15 @@ Class MultipartSectionStreamExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ReadAsStringAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
 
 	Func ReadAsStringAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1,P2])
-
-	Func ReadAsStringAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
 

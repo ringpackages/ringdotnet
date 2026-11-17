@@ -28,6 +28,9 @@ Class AspNameValueHeaderValue from Object
 	Func CopyAsReadOnly 
 		return dnRequest("call",[self,"CopyAsReadOnly"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetUnescapedValue 
 		return dnRequest("call",[self,"GetUnescapedValue"])
 

@@ -13,13 +13,13 @@ Class HeaderDictionaryTypeExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetTypedHeaders P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"GetTypedHeaders",P1])
 
 	Func AppendList P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"AppendList",P1,P2,P3])
 		return self
-
-	Func GetTypedHeaders@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HeaderDictionaryTypeExtensions, Microsoft.AspNetCore.Http.Extensions'),"GetTypedHeaders",P1])
 

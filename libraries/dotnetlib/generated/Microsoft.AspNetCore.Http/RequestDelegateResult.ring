@@ -17,6 +17,9 @@ Class RequestDelegateResult from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateResult, Microsoft.AspNetCore.Http.Abstractions',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRequestDelegate
 		return dnRequest("get",[self,"RequestDelegate"])
 

@@ -13,6 +13,9 @@ Class Touch from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setFrameReportedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Input.Touch, PresentationCore'),"FrameReported",dnCallback(P1)])
 		return self

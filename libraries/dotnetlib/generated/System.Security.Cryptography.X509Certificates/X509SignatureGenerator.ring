@@ -21,6 +21,9 @@ Class X509SignatureGenerator from Object
 	Func SignData P1,P2
 		return dnRequest("call",[self,"SignData",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateForECDsa P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509SignatureGenerator, System.Security.Cryptography'),"CreateForECDsa",P1])
 

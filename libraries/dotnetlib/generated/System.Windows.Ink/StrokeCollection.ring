@@ -26,6 +26,10 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Save",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Save",P1])
 		return self
 
@@ -72,6 +76,9 @@ Class StrokeCollection from DotNetObject
 		return dnRequest("call",[self,"GetBounds"])
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func HitTest_2 P1,P2
@@ -82,6 +89,10 @@ Class StrokeCollection from DotNetObject
 		return self
 
 	Func Erase P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Erase",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Erase",P1])
 		return self
 
@@ -132,35 +143,6 @@ Class StrokeCollection from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func Replace@ P1
-		dnRequest("callnamed",[self,"Replace",P1])
-		return self
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
-
-	Func Clip@ P1
-		dnRequest("callnamed",[self,"Clip",P1])
-		return self
-
-	Func Erase@ P1
-		dnRequest("callnamed",[self,"Erase",P1])
-		return self
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -30,13 +30,16 @@ Class TimeProvider from Object
 		return dnRequest("call",[self,"GetElapsedTime",P1,P2])
 
 	Func GetElapsedTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetElapsedTime",P1])
+		ok
 		return dnRequest("call",[self,"GetElapsedTime",P1])
 
 	Func CreateTimer P1,P2,P3,P4
 		return dnRequest("call",[self,"CreateTimer",P1,P2,P3,P4])
 
-	Func GetElapsedTime@ P1
-		return dnRequest("callnamed",[self,"GetElapsedTime",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getLocalTimeZone
 		return dnRequest("get",[self,"LocalTimeZone"])

@@ -32,9 +32,8 @@ Class HtmlHistory from Object
 		dnRequest("call",[self,"Go",P1])
 		return self
 
-	Func Go@ P1
-		dnRequest("callnamed",[self,"Go",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])

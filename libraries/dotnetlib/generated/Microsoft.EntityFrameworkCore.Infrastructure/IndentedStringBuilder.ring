@@ -20,8 +20,14 @@ Class IndentedStringBuilder from Object
 	Func Append P1
 		return dnRequest("call",[self,"Append",P1])
 
-	Func AppendLine 
-		return dnRequest("call",[self,"AppendLine"])
+	Func AppendLine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLine",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AppendLine"])
+		ok
+		return dnRequest("call",[self,"AppendLine",P1])
 
 	Func AppendLine_1 P1
 		return dnRequest("call",[self,"AppendLine",P1])
@@ -30,12 +36,18 @@ Class IndentedStringBuilder from Object
 		return dnRequest("call",[self,"AppendLines",P1,P2])
 
 	Func AppendLines P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLines",P1])
+		ok
 		return dnRequest("call",[self,"AppendLines",P1])
 
 	Func AppendJoin_2 P1,P2
 		return dnRequest("call",[self,"AppendJoin",P1,P2])
 
 	Func AppendJoin P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendJoin",P1])
+		ok
 		return dnRequest("call",[self,"AppendJoin",P1])
 
 	Func Clear 
@@ -53,17 +65,8 @@ Class IndentedStringBuilder from Object
 	Func SuspendIndent 
 		return dnRequest("call",[self,"SuspendIndent"])
 
-	Func Append@ P1
-		return dnRequest("callnamed",[self,"Append",P1])
-
-	Func AppendLine@ P1
-		return dnRequest("callnamed",[self,"AppendLine",P1])
-
-	Func AppendLines@ P1
-		return dnRequest("callnamed",[self,"AppendLines",P1])
-
-	Func AppendJoin@ P1
-		return dnRequest("callnamed",[self,"AppendJoin",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIndentCount
 		return dnRequest("get",[self,"IndentCount"])

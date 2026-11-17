@@ -93,6 +93,10 @@ Class DataGridView from Control
 		return dnRequest("call",[self,"AreAllCellsSelected",P1])
 
 	Func AutoResizeColumn P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeColumn",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AutoResizeColumn",P1])
 		return self
 
@@ -100,16 +104,32 @@ Class DataGridView from Control
 		dnRequest("call",[self,"AutoResizeColumn",P1,P2])
 		return self
 
-	Func AutoResizeColumnHeadersHeight 
-		dnRequest("call",[self,"AutoResizeColumnHeadersHeight"])
+	Func AutoResizeColumnHeadersHeight P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeColumnHeadersHeight",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AutoResizeColumnHeadersHeight"])
+		return self
+		ok
+		dnRequest("call",[self,"AutoResizeColumnHeadersHeight",P1])
 		return self
 
 	Func AutoResizeColumnHeadersHeight_1 P1
 		dnRequest("call",[self,"AutoResizeColumnHeadersHeight",P1])
 		return self
 
-	Func AutoResizeColumns 
-		dnRequest("call",[self,"AutoResizeColumns"])
+	Func AutoResizeColumns P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeColumns",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AutoResizeColumns"])
+		return self
+		ok
+		dnRequest("call",[self,"AutoResizeColumns",P1])
 		return self
 
 	Func AutoResizeColumns_1 P1
@@ -117,6 +137,10 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeRow P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeRow",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AutoResizeRow",P1])
 		return self
 
@@ -125,6 +149,10 @@ Class DataGridView from Control
 		return self
 
 	Func AutoResizeRowHeadersWidth P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeRowHeadersWidth",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AutoResizeRowHeadersWidth",P1])
 		return self
 
@@ -132,8 +160,16 @@ Class DataGridView from Control
 		dnRequest("call",[self,"AutoResizeRowHeadersWidth",P1,P2])
 		return self
 
-	Func AutoResizeRows 
-		dnRequest("call",[self,"AutoResizeRows"])
+	Func AutoResizeRows P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AutoResizeRows",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AutoResizeRows"])
+		return self
+		ok
+		dnRequest("call",[self,"AutoResizeRows",P1])
 		return self
 
 	Func AutoResizeRows_1 P1
@@ -159,8 +195,14 @@ Class DataGridView from Control
 	Func DisplayedRowCount P1
 		return dnRequest("call",[self,"DisplayedRowCount",P1])
 
-	Func EndEdit 
-		return dnRequest("call",[self,"EndEdit"])
+	Func EndEdit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EndEdit",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EndEdit"])
+		ok
+		return dnRequest("call",[self,"EndEdit",P1])
 
 	Func EndEdit_1 P1
 		return dnRequest("call",[self,"EndEdit",P1])
@@ -184,6 +226,10 @@ Class DataGridView from Control
 		return dnRequest("call",[self,"HitTest",P1,P2])
 
 	Func InvalidateCell P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"InvalidateCell",P1])
+			return self
+		ok
 		dnRequest("call",[self,"InvalidateCell",P1])
 		return self
 
@@ -227,6 +273,10 @@ Class DataGridView from Control
 		return self
 
 	Func UpdateRowErrorText P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"UpdateRowErrorText",P1])
+			return self
+		ok
 		dnRequest("call",[self,"UpdateRowErrorText",P1])
 		return self
 
@@ -236,45 +286,6 @@ Class DataGridView from Control
 
 	Func UpdateRowHeightInfo P1,P2
 		dnRequest("call",[self,"UpdateRowHeightInfo",P1,P2])
-		return self
-
-	Func AutoResizeColumn@ P1
-		dnRequest("callnamed",[self,"AutoResizeColumn",P1])
-		return self
-
-	Func AutoResizeColumnHeadersHeight@ P1
-		dnRequest("callnamed",[self,"AutoResizeColumnHeadersHeight",P1])
-		return self
-
-	Func AutoResizeColumns@ P1
-		dnRequest("callnamed",[self,"AutoResizeColumns",P1])
-		return self
-
-	Func AutoResizeRow@ P1
-		dnRequest("callnamed",[self,"AutoResizeRow",P1])
-		return self
-
-	Func AutoResizeRowHeadersWidth@ P1
-		dnRequest("callnamed",[self,"AutoResizeRowHeadersWidth",P1])
-		return self
-
-	Func AutoResizeRows@ P1
-		dnRequest("callnamed",[self,"AutoResizeRows",P1])
-		return self
-
-	Func EndEdit@ P1
-		return dnRequest("callnamed",[self,"EndEdit",P1])
-
-	Func InvalidateCell@ P1
-		dnRequest("callnamed",[self,"InvalidateCell",P1])
-		return self
-
-	Func Sort@ P1
-		dnRequest("callnamed",[self,"Sort",P1])
-		return self
-
-	Func UpdateRowErrorText@ P1
-		dnRequest("callnamed",[self,"UpdateRowErrorText",P1])
 		return self
 
 	Func setAllowUserToAddRowsChangedEvent P1

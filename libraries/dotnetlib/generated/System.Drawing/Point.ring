@@ -28,6 +28,10 @@ Class Point from ValueType
 		return self
 
 	Func Offset P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Offset",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Offset",P1])
 		return self
 
@@ -45,13 +49,6 @@ Class Point from ValueType
 
 	Func Round P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Point, System.Drawing.Primitives'),"Round",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Offset@ P1
-		dnRequest("callnamed",[self,"Offset",P1])
-		return self
 
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])

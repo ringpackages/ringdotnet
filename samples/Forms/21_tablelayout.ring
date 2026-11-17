@@ -21,7 +21,7 @@ for nRow = 1 to 3
 			Dock = "Fill"
 			TextAlign = "MiddleCenter"
 		}
-		oTable.Controls.Add@([ :control = oCell, :column = nColumn - 1, :row = nRow - 1 ])
+		oTable.Controls.Add([ :control = oCell, :column = nColumn - 1, :row = nRow - 1 ])
 	next
 next
 oForm.Controls.Add(oTable)

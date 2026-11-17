@@ -28,29 +28,41 @@ Class NavigationBuilder from Object
 	Func AutoInclude_1 P1
 		return dnRequest("call",[self,"AutoInclude",P1])
 
-	Func AutoInclude 
-		return dnRequest("call",[self,"AutoInclude"])
+	Func AutoInclude P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AutoInclude",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AutoInclude"])
+		ok
+		return dnRequest("call",[self,"AutoInclude",P1])
 
 	Func EnableLazyLoading_1 P1
 		return dnRequest("call",[self,"EnableLazyLoading",P1])
 
-	Func EnableLazyLoading 
-		return dnRequest("call",[self,"EnableLazyLoading"])
+	Func EnableLazyLoading P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnableLazyLoading"])
+		ok
+		return dnRequest("call",[self,"EnableLazyLoading",P1])
 
 	Func IsRequired_1 P1
 		return dnRequest("call",[self,"IsRequired",P1])
 
-	Func IsRequired 
-		return dnRequest("call",[self,"IsRequired"])
+	Func IsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsRequired",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsRequired"])
+		ok
+		return dnRequest("call",[self,"IsRequired",P1])
 
-	Func AutoInclude@ P1
-		return dnRequest("callnamed",[self,"AutoInclude",P1])
-
-	Func EnableLazyLoading@ P1
-		return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
-
-	Func IsRequired@ P1
-		return dnRequest("callnamed",[self,"IsRequired",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

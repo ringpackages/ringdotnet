@@ -25,22 +25,25 @@ Class Overlapped from Object
 		return self
 
 	Func Pack P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Pack",P1])
+		ok
 		return dnRequest("call",[self,"Pack",P1])
 
 	Func Pack_2 P1,P2
 		return dnRequest("call",[self,"Pack",P1,P2])
 
 	Func UnsafePack P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UnsafePack",P1])
+		ok
 		return dnRequest("call",[self,"UnsafePack",P1])
 
 	Func UnsafePack_2 P1,P2
 		return dnRequest("call",[self,"UnsafePack",P1,P2])
 
-	Func Pack@ P1
-		return dnRequest("callnamed",[self,"Pack",P1])
-
-	Func UnsafePack@ P1
-		return dnRequest("callnamed",[self,"UnsafePack",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getAsyncResult
 		return dnRequest("get",[self,"AsyncResult"])

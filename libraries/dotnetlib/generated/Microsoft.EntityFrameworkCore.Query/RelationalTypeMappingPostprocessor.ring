@@ -35,9 +35,3 @@ Class RelationalTypeMappingPostprocessor from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func Visit@ P1
-		return dnRequest("callnamed",[self,"Visit",P1])
-
-	Func VisitAndConvert@ P1
-		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
-

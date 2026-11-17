@@ -20,9 +20,6 @@ Class MigrationsAnnotationProvider from Object
 	Func ForRename P1
 		return dnRequest("call",[self,"ForRename",P1])
 
-	Func ForRemove@ P1
-		return dnRequest("callnamed",[self,"ForRemove",P1])
-
-	Func ForRename@ P1
-		return dnRequest("callnamed",[self,"ForRename",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

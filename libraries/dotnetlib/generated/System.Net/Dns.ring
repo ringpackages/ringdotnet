@@ -13,16 +13,25 @@ Class Dns from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetHostName 
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostName"])
 
 	Func GetHostEntry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntry",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntry",P1])
 
 	Func GetHostEntry_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntry",P1,P2])
 
 	Func GetHostEntryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntryAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntryAsync",P1])
 
 	Func GetHostEntryAsync_2 P1,P2
@@ -38,12 +47,18 @@ Class Dns from Object
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"EndGetHostEntry",P1])
 
 	Func GetHostAddresses P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddresses",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddresses",P1])
 
 	Func GetHostAddresses_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddresses",P1,P2])
 
 	Func GetHostAddressesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddressesAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddressesAsync",P1])
 
 	Func GetHostAddressesAsync_2 P1,P2
@@ -78,22 +93,4 @@ Class Dns from Object
 
 	Func EndResolve P1
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"EndResolve",P1])
-
-	Func GetHostEntry@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntry",P1])
-
-	Func GetHostEntryAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntryAsync",P1])
-
-	Func BeginGetHostEntry@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"BeginGetHostEntry",P1])
-
-	Func GetHostAddresses@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddresses",P1])
-
-	Func GetHostAddressesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddressesAsync",P1])
-
-	Func GetHostByAddress@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostByAddress",P1])
 

@@ -18,6 +18,9 @@ Class StreamConfigurationSource from Object
 	Func Build P1
 		return dnRequest("call",[self,"Build",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getStream
 		return dnRequest("get",[self,"Stream"])
 

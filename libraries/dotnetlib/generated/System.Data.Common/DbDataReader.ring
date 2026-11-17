@@ -55,14 +55,26 @@ Class DbDataReader from MarshalByRefObject
 	Func GetSchemaTableAsync_1 P1
 		return dnRequest("call",[self,"GetSchemaTableAsync",P1])
 
-	Func GetSchemaTableAsync 
-		return dnRequest("call",[self,"GetSchemaTableAsync"])
+	Func GetSchemaTableAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSchemaTableAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetSchemaTableAsync"])
+		ok
+		return dnRequest("call",[self,"GetSchemaTableAsync",P1])
 
 	Func GetColumnSchemaAsync_1 P1
 		return dnRequest("call",[self,"GetColumnSchemaAsync",P1])
 
-	Func GetColumnSchemaAsync 
-		return dnRequest("call",[self,"GetColumnSchemaAsync"])
+	Func GetColumnSchemaAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetColumnSchemaAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetColumnSchemaAsync"])
+		ok
+		return dnRequest("call",[self,"GetColumnSchemaAsync",P1])
 
 	Func GetBoolean P1
 		return dnRequest("call",[self,"GetBoolean",P1])
@@ -131,6 +143,9 @@ Class DbDataReader from MarshalByRefObject
 		return dnRequest("call",[self,"GetFieldValue",P1])
 
 	Func GetFieldValueAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFieldValueAsync",P1])
+		ok
 		return dnRequest("call",[self,"GetFieldValueAsync",P1])
 
 	Func GetFieldValueAsync_2 P1,P2
@@ -143,6 +158,9 @@ Class DbDataReader from MarshalByRefObject
 		return dnRequest("call",[self,"IsDBNull",P1])
 
 	Func IsDBNullAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsDBNullAsync",P1])
+		ok
 		return dnRequest("call",[self,"IsDBNullAsync",P1])
 
 	Func IsDBNullAsync_2 P1,P2
@@ -154,35 +172,29 @@ Class DbDataReader from MarshalByRefObject
 	Func Read 
 		return dnRequest("call",[self,"Read"])
 
-	Func ReadAsync 
-		return dnRequest("call",[self,"ReadAsync"])
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadAsync"])
+		ok
+		return dnRequest("call",[self,"ReadAsync",P1])
 
 	Func ReadAsync_1 P1
 		return dnRequest("call",[self,"ReadAsync",P1])
 
-	Func NextResultAsync 
-		return dnRequest("call",[self,"NextResultAsync"])
+	Func NextResultAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NextResultAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NextResultAsync"])
+		ok
+		return dnRequest("call",[self,"NextResultAsync",P1])
 
 	Func NextResultAsync_1 P1
 		return dnRequest("call",[self,"NextResultAsync",P1])
-
-	Func GetSchemaTableAsync@ P1
-		return dnRequest("callnamed",[self,"GetSchemaTableAsync",P1])
-
-	Func GetColumnSchemaAsync@ P1
-		return dnRequest("callnamed",[self,"GetColumnSchemaAsync",P1])
-
-	Func GetFieldValueAsync@ P1
-		return dnRequest("callnamed",[self,"GetFieldValueAsync",P1])
-
-	Func IsDBNullAsync@ P1
-		return dnRequest("callnamed",[self,"IsDBNullAsync",P1])
-
-	Func ReadAsync@ P1
-		return dnRequest("callnamed",[self,"ReadAsync",P1])
-
-	Func NextResultAsync@ P1
-		return dnRequest("callnamed",[self,"NextResultAsync",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

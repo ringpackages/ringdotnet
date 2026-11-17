@@ -26,6 +26,9 @@ Class QueryString from ValueType
 		return dnRequest("call",[self,"ToUriComponent"])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_2 P1,P2
@@ -38,19 +41,10 @@ Class QueryString from ValueType
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2])
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func FromUriComponent@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])

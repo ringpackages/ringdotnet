@@ -39,6 +39,9 @@ Class NetworkInterface from Object
 	Func Supports P1
 		return dnRequest("call",[self,"Supports",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetAllNetworkInterfaces 
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.NetworkInterface, System.Net.NetworkInformation'),"GetAllNetworkInterfaces"])
 

@@ -13,12 +13,15 @@ Class SqliteTableBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseSqlReturningClause_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteTableBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2])
 
 	Func UseSqlReturningClause P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteTableBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteTableBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
-
-	Func UseSqlReturningClause@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteTableBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
 

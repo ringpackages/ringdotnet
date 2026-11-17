@@ -19,6 +19,9 @@ Class LoggerFilterRule from Object
 		nHandle = dnCreate('Microsoft.Extensions.Logging.LoggerFilterRule, Microsoft.Extensions.Logging',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getProviderName
 		return dnRequest("get",[self,"ProviderName"])
 

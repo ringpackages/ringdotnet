@@ -32,17 +32,14 @@ Class TextInfo from Object
 	Func ToUpper P1
 		return dnRequest("call",[self,"ToUpper",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToTitleCase P1
 		return dnRequest("call",[self,"ToTitleCase",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib'),"ReadOnly",P1])
-
-	Func ToLower@ P1
-		return dnRequest("callnamed",[self,"ToLower",P1])
-
-	Func ToUpper@ P1
-		return dnRequest("callnamed",[self,"ToUpper",P1])
 
 	Func getANSICodePage
 		return dnRequest("get",[self,"ANSICodePage"])

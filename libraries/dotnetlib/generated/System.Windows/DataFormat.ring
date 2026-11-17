@@ -17,6 +17,9 @@ Class DataFormat from Object
 		nHandle = dnCreate('System.Windows.DataFormat, PresentationCore',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

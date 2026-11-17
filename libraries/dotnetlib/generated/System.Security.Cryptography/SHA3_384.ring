@@ -27,16 +27,13 @@ Class SHA3_384 from HashAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashData@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"IsSupported"])

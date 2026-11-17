@@ -41,6 +41,9 @@ Class ECDsa from ECAlgorithm
 		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4])
 
 	Func SignHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignHash",P1])
+		ok
 		return dnRequest("call",[self,"SignHash",P1])
 
 	Func VerifyHash P1,P2
@@ -52,24 +55,15 @@ Class ECDsa from ECAlgorithm
 	Func GetMaxSignatureSize P1
 		return dnRequest("call",[self,"GetMaxSignatureSize",P1])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
-
-	Func SignData@ P1
-		return dnRequest("callnamed",[self,"SignData",P1])
-
-	Func SignHash@ P1
-		return dnRequest("callnamed",[self,"SignHash",P1])
-
-	Func VerifyData@ P1
-		return dnRequest("callnamed",[self,"VerifyData",P1])
-
-	Func VerifyHash@ P1
-		return dnRequest("callnamed",[self,"VerifyHash",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
 

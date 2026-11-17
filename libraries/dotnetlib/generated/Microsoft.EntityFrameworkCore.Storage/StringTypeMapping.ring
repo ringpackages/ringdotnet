@@ -24,6 +24,9 @@ Class StringTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
+	Func GetDataReaderMethod 
+		return dnRequest("call",[self,"GetDataReaderMethod"])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"Default"])
 

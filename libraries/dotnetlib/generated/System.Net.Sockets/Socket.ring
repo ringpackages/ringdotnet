@@ -57,6 +57,10 @@ Class Socket from Object
 		return self
 
 	Func Connect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Connect",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Connect",P1])
 		return self
 
@@ -64,16 +68,32 @@ Class Socket from Object
 		dnRequest("call",[self,"Connect",P1,P2])
 		return self
 
-	Func Close 
-		dnRequest("call",[self,"Close"])
+	Func Close P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Close",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Close"])
+		return self
+		ok
+		dnRequest("call",[self,"Close",P1])
 		return self
 
 	Func Close_1 P1
 		dnRequest("call",[self,"Close",P1])
 		return self
 
-	Func Listen 
-		dnRequest("call",[self,"Listen"])
+	Func Listen P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Listen",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Listen"])
+		return self
+		ok
+		dnRequest("call",[self,"Listen",P1])
 		return self
 
 	Func Listen_1 P1
@@ -90,12 +110,19 @@ Class Socket from Object
 		return dnRequest("call",[self,"Send",P1,P2])
 
 	Func Send P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Send",P1])
+		ok
 		return dnRequest("call",[self,"Send",P1])
 
 	Func Send_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"Send",P1,P2,P3,P4])
 
 	Func SendFile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SendFile",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SendFile",P1])
 		return self
 
@@ -122,6 +149,9 @@ Class Socket from Object
 		return dnRequest("call",[self,"Receive",P1,P2])
 
 	Func Receive P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Receive",P1])
+		ok
 		return dnRequest("call",[self,"Receive",P1])
 
 	Func Receive_4 P1,P2,P3,P4
@@ -250,35 +280,65 @@ Class Socket from Object
 		return dnRequest("call",[self,"AcceptAsync",P1])
 
 	Func ConnectAsync P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"ConnectAsync",P1])
+			ok
+			return dnRequest("callnamed",[self,"ConnectAsync",P1])
+		ok
 		return dnRequest("call",[self,"ConnectAsync",P1])
 
 	Func DisconnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DisconnectAsync",P1])
+		ok
 		return dnRequest("call",[self,"DisconnectAsync",P1])
 
 	Func ReceiveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReceiveAsync",P1])
+		ok
 		return dnRequest("call",[self,"ReceiveAsync",P1])
 
 	Func ReceiveFromAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReceiveFromAsync",P1])
+		ok
 		return dnRequest("call",[self,"ReceiveFromAsync",P1])
 
 	Func ReceiveMessageFromAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReceiveMessageFromAsync",P1])
+		ok
 		return dnRequest("call",[self,"ReceiveMessageFromAsync",P1])
 
 	Func SendAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendAsync",P1])
 
 	Func SendPacketsAsync P1
 		return dnRequest("call",[self,"SendPacketsAsync",P1])
 
 	Func SendToAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendToAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendToAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func AcceptAsync 
-		return dnRequest("call",[self,"AcceptAsync"])
+	Func AcceptAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcceptAsync"])
+		ok
+		return dnRequest("call",[self,"AcceptAsync",P1])
 
 	Func AcceptAsync_2 P1,P2
 		return dnRequest("call",[self,"AcceptAsync",P1,P2])
@@ -338,6 +398,9 @@ Class Socket from Object
 		return dnRequest("call",[self,"SendFileAsync",P1,P2])
 
 	Func SendFileAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendFileAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendFileAsync",P1])
 
 	Func SendFileAsync_5 P1,P2,P3,P4,P5
@@ -349,111 +412,15 @@ Class Socket from Object
 	Func DuplicateAndClose P1
 		return dnRequest("call",[self,"DuplicateAndClose",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Select P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"Select",P1,P2,P3,P4])
 		return self
 
 	Func CancelConnectAsync P1
 		dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"CancelConnectAsync",P1])
-		return self
-
-	Func Connect@ P1
-		dnRequest("callnamed",[self,"Connect",P1])
-		return self
-
-	Func Close@ P1
-		dnRequest("callnamed",[self,"Close",P1])
-		return self
-
-	Func Listen@ P1
-		dnRequest("callnamed",[self,"Listen",P1])
-		return self
-
-	Func Send@ P1
-		return dnRequest("callnamed",[self,"Send",P1])
-
-	Func SendFile@ P1
-		dnRequest("callnamed",[self,"SendFile",P1])
-		return self
-
-	Func SendTo@ P1
-		return dnRequest("callnamed",[self,"SendTo",P1])
-
-	Func Receive@ P1
-		return dnRequest("callnamed",[self,"Receive",P1])
-
-	Func ReceiveFrom@ P1
-		return dnRequest("callnamed",[self,"ReceiveFrom",P1])
-
-	Func IOControl@ P1
-		return dnRequest("callnamed",[self,"IOControl",P1])
-
-	Func SetSocketOption@ P1
-		dnRequest("callnamed",[self,"SetSocketOption",P1])
-		return self
-
-	Func GetSocketOption@ P1
-		return dnRequest("callnamed",[self,"GetSocketOption",P1])
-
-	Func Poll@ P1
-		return dnRequest("callnamed",[self,"Poll",P1])
-
-	Func BeginConnect@ P1
-		return dnRequest("callnamed",[self,"BeginConnect",P1])
-
-	Func BeginSend@ P1
-		return dnRequest("callnamed",[self,"BeginSend",P1])
-
-	Func EndSend@ P1
-		return dnRequest("callnamed",[self,"EndSend",P1])
-
-	Func BeginSendFile@ P1
-		return dnRequest("callnamed",[self,"BeginSendFile",P1])
-
-	Func BeginReceive@ P1
-		return dnRequest("callnamed",[self,"BeginReceive",P1])
-
-	Func EndReceive@ P1
-		return dnRequest("callnamed",[self,"EndReceive",P1])
-
-	Func BeginAccept@ P1
-		return dnRequest("callnamed",[self,"BeginAccept",P1])
-
-	Func EndAccept@ P1
-		return dnRequest("callnamed",[self,"EndAccept",P1])
-
-	Func AcceptAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptAsync",P1])
-
-	Func ConnectAsync@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"ConnectAsync",P1])
-		ok
-		return dnRequest("callnamed",[self,"ConnectAsync",P1])
-
-	Func DisconnectAsync@ P1
-		return dnRequest("callnamed",[self,"DisconnectAsync",P1])
-
-	Func ReceiveAsync@ P1
-		return dnRequest("callnamed",[self,"ReceiveAsync",P1])
-
-	Func ReceiveFromAsync@ P1
-		return dnRequest("callnamed",[self,"ReceiveFromAsync",P1])
-
-	Func ReceiveMessageFromAsync@ P1
-		return dnRequest("callnamed",[self,"ReceiveMessageFromAsync",P1])
-
-	Func SendAsync@ P1
-		return dnRequest("callnamed",[self,"SendAsync",P1])
-
-	Func SendToAsync@ P1
-		return dnRequest("callnamed",[self,"SendToAsync",P1])
-
-	Func SendFileAsync@ P1
-		return dnRequest("callnamed",[self,"SendFileAsync",P1])
-
-	Func Select@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"Select",P1])
 		return self
 
 	Func getAvailable

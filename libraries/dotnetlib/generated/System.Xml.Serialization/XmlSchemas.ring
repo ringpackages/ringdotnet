@@ -20,6 +20,9 @@ Class XmlSchemas from CollectionBase
 		return dnRequest("call",[self,"GetSchemas",P1])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_2 P1,P2
@@ -56,12 +59,6 @@ Class XmlSchemas from CollectionBase
 
 	Func IsDataSet P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"IsDataSet",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

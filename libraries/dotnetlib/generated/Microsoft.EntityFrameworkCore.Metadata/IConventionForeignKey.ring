@@ -43,6 +43,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetIsUnique",P1,P2])
 
 	Func SetIsUnique P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsUnique",P1])
+		ok
 		return dnRequest("call",[self,"SetIsUnique",P1])
 
 	Func GetIsUniqueConfigurationSource 
@@ -52,6 +55,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetIsRequired",P1,P2])
 
 	Func SetIsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsRequired",P1])
+		ok
 		return dnRequest("call",[self,"SetIsRequired",P1])
 
 	Func GetIsRequiredConfigurationSource 
@@ -61,6 +67,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetIsRequiredDependent",P1,P2])
 
 	Func SetIsRequiredDependent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsRequiredDependent",P1])
+		ok
 		return dnRequest("call",[self,"SetIsRequiredDependent",P1])
 
 	Func GetIsRequiredDependentConfigurationSource 
@@ -70,6 +79,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetIsOwnership",P1,P2])
 
 	Func SetIsOwnership P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsOwnership",P1])
+		ok
 		return dnRequest("call",[self,"SetIsOwnership",P1])
 
 	Func GetIsOwnershipConfigurationSource 
@@ -79,6 +91,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetDeleteBehavior",P1,P2])
 
 	Func SetDeleteBehavior P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDeleteBehavior",P1])
+		ok
 		return dnRequest("call",[self,"SetDeleteBehavior",P1])
 
 	Func GetDeleteBehaviorConfigurationSource 
@@ -88,6 +103,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetDependentToPrincipal",P1,P2])
 
 	Func SetDependentToPrincipal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDependentToPrincipal",P1])
+		ok
 		return dnRequest("call",[self,"SetDependentToPrincipal",P1])
 
 	Func GetDependentToPrincipalConfigurationSource 
@@ -97,6 +115,9 @@ Class IConventionForeignKey from DotNetObject
 		return dnRequest("call",[self,"SetPrincipalToDependent",P1,P2])
 
 	Func SetPrincipalToDependent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetPrincipalToDependent",P1])
+		ok
 		return dnRequest("call",[self,"SetPrincipalToDependent",P1])
 
 	Func GetPrincipalToDependentConfigurationSource 
@@ -110,30 +131,6 @@ Class IConventionForeignKey from DotNetObject
 
 	Func GetNavigation P1
 		return dnRequest("call",[self,"GetNavigation",P1])
-
-	Func SetProperties@ P1
-		return dnRequest("callnamed",[self,"SetProperties",P1])
-
-	Func SetIsUnique@ P1
-		return dnRequest("callnamed",[self,"SetIsUnique",P1])
-
-	Func SetIsRequired@ P1
-		return dnRequest("callnamed",[self,"SetIsRequired",P1])
-
-	Func SetIsRequiredDependent@ P1
-		return dnRequest("callnamed",[self,"SetIsRequiredDependent",P1])
-
-	Func SetIsOwnership@ P1
-		return dnRequest("callnamed",[self,"SetIsOwnership",P1])
-
-	Func SetDeleteBehavior@ P1
-		return dnRequest("callnamed",[self,"SetDeleteBehavior",P1])
-
-	Func SetDependentToPrincipal@ P1
-		return dnRequest("callnamed",[self,"SetDependentToPrincipal",P1])
-
-	Func SetPrincipalToDependent@ P1
-		return dnRequest("callnamed",[self,"SetPrincipalToDependent",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

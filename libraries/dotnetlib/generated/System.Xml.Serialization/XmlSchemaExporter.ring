@@ -19,6 +19,10 @@ Class XmlSchemaExporter from Object
 		return self
 
 	Func ExportMembersMapping P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ExportMembersMapping",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ExportMembersMapping",P1])
 		return self
 
@@ -29,13 +33,6 @@ Class XmlSchemaExporter from Object
 	Func ExportAnyType P1
 		return dnRequest("call",[self,"ExportAnyType",P1])
 
-	Func ExportTypeMapping@ P1
-		return dnRequest("callnamed",[self,"ExportTypeMapping",P1])
-
-	Func ExportMembersMapping@ P1
-		dnRequest("callnamed",[self,"ExportMembersMapping",P1])
-		return self
-
-	Func ExportAnyType@ P1
-		return dnRequest("callnamed",[self,"ExportAnyType",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

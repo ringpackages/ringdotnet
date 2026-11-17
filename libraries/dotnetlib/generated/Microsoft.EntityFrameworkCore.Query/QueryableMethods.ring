@@ -71,6 +71,9 @@ Class QueryableMethods from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsAverageWithoutSelector P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.QueryableMethods, Microsoft.EntityFrameworkCore'),"IsAverageWithoutSelector",P1])
 

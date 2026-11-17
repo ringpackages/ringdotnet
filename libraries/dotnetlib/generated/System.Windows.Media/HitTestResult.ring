@@ -15,6 +15,9 @@ Class HitTestResult from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getVisualHit
 		return dnRequest("get",[self,"VisualHit"])
 

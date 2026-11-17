@@ -24,6 +24,9 @@ Class SelectionRange from Object
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEnd
 		return dnRequest("get",[self,"End"])
 

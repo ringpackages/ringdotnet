@@ -35,8 +35,14 @@ Class FormReader from Object
 	Func ReadNextPairAsync_1 P1
 		return dnRequest("call",[self,"ReadNextPairAsync",P1])
 
-	Func ReadNextPairAsync 
-		return dnRequest("call",[self,"ReadNextPairAsync"])
+	Func ReadNextPairAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadNextPairAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadNextPairAsync"])
+		ok
+		return dnRequest("call",[self,"ReadNextPairAsync",P1])
 
 	Func ReadForm 
 		return dnRequest("call",[self,"ReadForm"])
@@ -44,18 +50,21 @@ Class FormReader from Object
 	Func ReadFormAsync_1 P1
 		return dnRequest("call",[self,"ReadFormAsync",P1])
 
-	Func ReadFormAsync 
-		return dnRequest("call",[self,"ReadFormAsync"])
+	Func ReadFormAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadFormAsync"])
+		ok
+		return dnRequest("call",[self,"ReadFormAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func ReadNextPairAsync@ P1
-		return dnRequest("callnamed",[self,"ReadNextPairAsync",P1])
-
-	Func ReadFormAsync@ P1
-		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getValueCountLimit
 		return dnRequest("get",[self,"ValueCountLimit"])

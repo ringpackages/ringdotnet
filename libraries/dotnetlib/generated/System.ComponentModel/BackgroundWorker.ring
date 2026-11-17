@@ -24,6 +24,10 @@ Class BackgroundWorker from Component
 		return self
 
 	Func ReportProgress P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ReportProgress",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ReportProgress",P1])
 		return self
 
@@ -31,20 +35,20 @@ Class BackgroundWorker from Component
 		dnRequest("call",[self,"ReportProgress",P1,P2])
 		return self
 
-	Func RunWorkerAsync 
-		dnRequest("call",[self,"RunWorkerAsync"])
+	Func RunWorkerAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"RunWorkerAsync",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"RunWorkerAsync"])
+		return self
+		ok
+		dnRequest("call",[self,"RunWorkerAsync",P1])
 		return self
 
 	Func RunWorkerAsync_1 P1
 		dnRequest("call",[self,"RunWorkerAsync",P1])
-		return self
-
-	Func ReportProgress@ P1
-		dnRequest("callnamed",[self,"ReportProgress",P1])
-		return self
-
-	Func RunWorkerAsync@ P1
-		dnRequest("callnamed",[self,"RunWorkerAsync",P1])
 		return self
 
 	Func setDoWorkEvent P1

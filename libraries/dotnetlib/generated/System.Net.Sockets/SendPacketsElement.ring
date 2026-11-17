@@ -35,6 +35,9 @@ Class SendPacketsElement from Object
 		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFilePath
 		return dnRequest("get",[self,"FilePath"])
 

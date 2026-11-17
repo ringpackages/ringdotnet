@@ -22,6 +22,9 @@ Class AlternationConverter from Object
 	Func ConvertBack P1,P2,P3,P4
 		return dnRequest("call",[self,"ConvertBack",P1,P2,P3,P4])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getValues
 		return dnRequest("get",[self,"Values"])
 

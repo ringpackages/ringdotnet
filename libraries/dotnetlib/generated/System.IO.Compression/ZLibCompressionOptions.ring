@@ -17,6 +17,9 @@ Class ZLibCompressionOptions from Object
 		nHandle = dnCreate('System.IO.Compression.ZLibCompressionOptions, System.IO.Compression',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCompressionLevel
 		return dnRequest("get",[self,"CompressionLevel"])
 

@@ -13,7 +13,14 @@ Class Clipboard from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetDataObject P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1])
 		return self
 
@@ -44,8 +51,14 @@ Class Clipboard from Object
 	Func ContainsImage 
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsImage"])
 
-	Func ContainsText 
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText"])
+	Func ContainsText P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
 
 	Func ContainsText_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
@@ -62,8 +75,14 @@ Class Clipboard from Object
 	Func GetImage 
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetImage"])
 
-	Func GetText 
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText"])
+	Func GetText P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
 
 	Func GetText_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
@@ -85,28 +104,14 @@ Class Clipboard from Object
 		return self
 
 	Func SetText P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1])
 		return self
 
 	Func SetText_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1,P2])
-		return self
-
-	Func SetDataObject@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1])
-		return self
-
-	Func ContainsText@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
-
-	Func GetText@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
-
-	Func SetAudio@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetAudio",P1])
-		return self
-
-	Func SetText@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1])
 		return self
 

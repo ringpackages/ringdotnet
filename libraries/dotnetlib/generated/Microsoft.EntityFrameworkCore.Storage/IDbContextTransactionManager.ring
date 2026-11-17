@@ -21,8 +21,14 @@ Class IDbContextTransactionManager from DotNetObject
 	Func BeginTransactionAsync_1 P1
 		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
-	Func BeginTransactionAsync 
-		return dnRequest("call",[self,"BeginTransactionAsync"])
+	Func BeginTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
 	Func CommitTransaction 
 		dnRequest("call",[self,"CommitTransaction"])
@@ -31,8 +37,14 @@ Class IDbContextTransactionManager from DotNetObject
 	Func CommitTransactionAsync_1 P1
 		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
-	Func CommitTransactionAsync 
-		return dnRequest("call",[self,"CommitTransactionAsync"])
+	Func CommitTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"CommitTransactionAsync",P1])
 
 	Func RollbackTransaction 
 		dnRequest("call",[self,"RollbackTransaction"])
@@ -41,17 +53,14 @@ Class IDbContextTransactionManager from DotNetObject
 	Func RollbackTransactionAsync_1 P1
 		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
-	Func RollbackTransactionAsync 
-		return dnRequest("call",[self,"RollbackTransactionAsync"])
-
-	Func BeginTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
-
-	Func CommitTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
-
-	Func RollbackTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+	Func RollbackTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RollbackTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"RollbackTransactionAsync",P1])
 
 	Func getCurrentTransaction
 		return dnRequest("get",[self,"CurrentTransaction"])

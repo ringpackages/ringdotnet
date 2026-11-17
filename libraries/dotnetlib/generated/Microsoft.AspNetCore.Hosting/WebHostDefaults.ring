@@ -31,6 +31,9 @@ Class WebHostDefaults from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getApplicationKey
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostDefaults, Microsoft.AspNetCore.Hosting.Abstractions'),"ApplicationKey"])
 

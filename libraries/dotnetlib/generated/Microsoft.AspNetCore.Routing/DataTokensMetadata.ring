@@ -16,6 +16,9 @@ Class DataTokensMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.DataTokensMetadata, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDataTokens
 		return dnRequest("get",[self,"DataTokens"])
 

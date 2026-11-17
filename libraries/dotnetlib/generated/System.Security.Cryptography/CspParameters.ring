@@ -34,6 +34,9 @@ Class CspParameters from Object
 		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFlags
 		return dnRequest("get",[self,"Flags"])
 

@@ -20,6 +20,9 @@ Class FileInfo from FileSystemInfo
 		return self
 
 	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Open",P1])
+		ok
 		return dnRequest("call",[self,"Open",P1])
 
 	Func OpenText 
@@ -32,6 +35,9 @@ Class FileInfo from FileSystemInfo
 		return dnRequest("call",[self,"AppendText"])
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CopyTo",P1])
+		ok
 		return dnRequest("call",[self,"CopyTo",P1])
 
 	Func CopyTo_2 P1,P2
@@ -53,6 +59,10 @@ Class FileInfo from FileSystemInfo
 		return dnRequest("call",[self,"OpenWrite"])
 
 	Func MoveTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MoveTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"MoveTo",P1])
 		return self
 
@@ -73,19 +83,6 @@ Class FileInfo from FileSystemInfo
 	Func Encrypt 
 		dnRequest("call",[self,"Encrypt"])
 		return self
-
-	Func Open@ P1
-		return dnRequest("callnamed",[self,"Open",P1])
-
-	Func CopyTo@ P1
-		return dnRequest("callnamed",[self,"CopyTo",P1])
-
-	Func MoveTo@ P1
-		dnRequest("callnamed",[self,"MoveTo",P1])
-		return self
-
-	Func Replace@ P1
-		return dnRequest("callnamed",[self,"Replace",P1])
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])

@@ -14,3 +14,6 @@ Class DataGridColumnHeadersPresenter from ItemsControl
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridColumnHeadersPresenter, PresentationFramework',[])
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+

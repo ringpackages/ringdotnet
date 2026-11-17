@@ -22,6 +22,9 @@ Class MemoryCacheOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheOptions, Microsoft.Extensions.Caching.Memory',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getClock
 		return dnRequest("get",[self,"Clock"])
 

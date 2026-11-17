@@ -22,6 +22,9 @@ Class DbBatchCommand from Object
 	Func CreateParameter 
 		return dnRequest("call",[self,"CreateParameter"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCommandText
 		return dnRequest("get",[self,"CommandText"])
 

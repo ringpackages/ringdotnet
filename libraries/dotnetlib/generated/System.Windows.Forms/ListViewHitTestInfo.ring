@@ -18,6 +18,9 @@ Class ListViewHitTestInfo from Object
 		nHandle = dnCreate('System.Windows.Forms.ListViewHitTestInfo, System.Windows.Forms',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLocation
 		return dnRequest("get",[self,"Location"])
 

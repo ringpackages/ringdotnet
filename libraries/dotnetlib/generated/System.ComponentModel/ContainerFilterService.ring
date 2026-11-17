@@ -16,3 +16,6 @@ Class ContainerFilterService from Object
 	Func FilterComponents P1
 		return dnRequest("call",[self,"FilterComponents",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

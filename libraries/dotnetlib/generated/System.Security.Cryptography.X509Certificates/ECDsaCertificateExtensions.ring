@@ -13,6 +13,9 @@ Class ECDsaCertificateExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetECDsaPublicKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.ECDsaCertificateExtensions, System.Security.Cryptography'),"GetECDsaPublicKey",P1])
 

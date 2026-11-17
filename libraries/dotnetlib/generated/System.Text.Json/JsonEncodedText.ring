@@ -21,13 +21,10 @@ Class JsonEncodedText from ValueType
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1,P2])
 
 	Func Encode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Encode@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonEncodedText, System.Text.Json'),"Encode",P1])
 
 	Func getEncodedUtf8Bytes
 		return dnRequest("get",[self,"EncodedUtf8Bytes"])

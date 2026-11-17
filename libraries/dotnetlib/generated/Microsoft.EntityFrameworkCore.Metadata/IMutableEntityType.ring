@@ -128,6 +128,9 @@ Class IMutableEntityType from DotNetObject
 		return dnRequest("call",[self,"RemoveForeignKey",P1,P2,P3])
 
 	Func RemoveForeignKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveForeignKey",P1])
+		ok
 		return dnRequest("call",[self,"RemoveForeignKey",P1])
 
 	Func FindNavigation P1
@@ -170,6 +173,9 @@ Class IMutableEntityType from DotNetObject
 		return dnRequest("call",[self,"RemoveSkipNavigation",P1])
 
 	Func AddIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddIndex",P1])
+		ok
 		return dnRequest("call",[self,"AddIndex",P1])
 
 	Func AddIndex_2 P1,P2
@@ -194,6 +200,9 @@ Class IMutableEntityType from DotNetObject
 		return dnRequest("call",[self,"AddServiceProperty",P1,P2])
 
 	Func AddServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"AddServiceProperty",P1])
 
 	Func FindServiceProperty P1
@@ -226,54 +235,6 @@ Class IMutableEntityType from DotNetObject
 	Func SetNavigationAccessMode P1
 		dnRequest("call",[self,"SetNavigationAccessMode",P1])
 		return self
-
-	Func SetPrimaryKey@ P1
-		return dnRequest("callnamed",[self,"SetPrimaryKey",P1])
-
-	Func AddKey@ P1
-		return dnRequest("callnamed",[self,"AddKey",P1])
-
-	Func FindKey@ P1
-		return dnRequest("callnamed",[self,"FindKey",P1])
-
-	Func RemoveKey@ P1
-		return dnRequest("callnamed",[self,"RemoveKey",P1])
-
-	Func AddForeignKey@ P1
-		return dnRequest("callnamed",[self,"AddForeignKey",P1])
-
-	Func FindForeignKeys@ P1
-		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
-
-	Func FindForeignKey@ P1
-		return dnRequest("callnamed",[self,"FindForeignKey",P1])
-
-	Func RemoveForeignKey@ P1
-		return dnRequest("callnamed",[self,"RemoveForeignKey",P1])
-
-	Func FindNavigation@ P1
-		return dnRequest("callnamed",[self,"FindNavigation",P1])
-
-	Func AddSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"AddSkipNavigation",P1])
-
-	Func FindSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
-
-	Func AddIndex@ P1
-		return dnRequest("callnamed",[self,"AddIndex",P1])
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[self,"FindIndex",P1])
-
-	Func RemoveIndex@ P1
-		return dnRequest("callnamed",[self,"RemoveIndex",P1])
-
-	Func AddServiceProperty@ P1
-		return dnRequest("callnamed",[self,"AddServiceProperty",P1])
-
-	Func RemoveServiceProperty@ P1
-		return dnRequest("callnamed",[self,"RemoveServiceProperty",P1])
 
 	Func getBaseType
 		return dnRequest("get",[self,"BaseType"])

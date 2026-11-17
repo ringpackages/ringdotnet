@@ -66,6 +66,9 @@ Class HtmlDocument from Object
 		return dnRequest("call",[self,"InvokeScript",P1,P2])
 
 	Func InvokeScript P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InvokeScript",P1])
+		ok
 		return dnRequest("call",[self,"InvokeScript",P1])
 
 	Func AttachEventHandler P1,P2
@@ -76,8 +79,8 @@ Class HtmlDocument from Object
 		dnRequest("call",[self,"DetachEventHandler",P1,P2])
 		return self
 
-	Func InvokeScript@ P1
-		return dnRequest("callnamed",[self,"InvokeScript",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setClickEvent P1
 		dnRequest("setevent",[self,"Click",dnCallback(P1)])

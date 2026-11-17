@@ -13,6 +13,9 @@ Class HostingAbstractionsHostExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Start P1
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"Start",P1])
 		return self
@@ -32,17 +35,17 @@ Class HostingAbstractionsHostExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1,P2])
 
 	Func RunAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
 
 	Func WaitForShutdownAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1,P2])
 
 	Func WaitForShutdownAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1])
-
-	Func RunAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
-
-	Func WaitForShutdownAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1])
 

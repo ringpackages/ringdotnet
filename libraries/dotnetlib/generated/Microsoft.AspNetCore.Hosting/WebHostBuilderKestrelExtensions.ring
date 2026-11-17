@@ -13,10 +13,16 @@ Class WebHostBuilderKestrelExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseKestrelHttpsConfiguration P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrelHttpsConfiguration",P1])
 
 	Func UseKestrel P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
 
 	Func UseKestrelCore P1
@@ -27,10 +33,4 @@ Class WebHostBuilderKestrelExtensions from Object
 
 	Func ConfigureKestrel P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1,P2])
-
-	Func UseKestrel@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
-
-	Func ConfigureKestrel@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1])
 

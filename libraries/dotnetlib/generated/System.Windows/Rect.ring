@@ -39,10 +39,22 @@ Class Rect from ValueType
 		nHandle = dnCreate('System.Windows.Rect, WindowsBase',[P1])
 		return self
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
 	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Contains",P1])
+		ok
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func Contains_2 P1,P2
@@ -52,14 +64,32 @@ Class Rect from ValueType
 		return dnRequest("call",[self,"IntersectsWith",P1])
 
 	Func Intersect P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Intersect",P1])
+			ok
+			return dnRequest("callnamed",[self,"Intersect",P1])
+		ok
 		dnRequest("call",[self,"Intersect",P1])
 		return self
 
 	Func Union P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Union",P1])
+			ok
+			return dnRequest("callnamed",[self,"Union",P1])
+		ok
 		dnRequest("call",[self,"Union",P1])
 		return self
 
 	Func Offset P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1])
+			ok
+			return dnRequest("callnamed",[self,"Offset",P1])
+		ok
 		dnRequest("call",[self,"Offset",P1])
 		return self
 
@@ -71,6 +101,12 @@ Class Rect from ValueType
 		return self
 
 	Func Inflate P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1])
+			ok
+			return dnRequest("callnamed",[self,"Inflate",P1])
+		ok
 		dnRequest("call",[self,"Inflate",P1])
 		return self
 
@@ -82,6 +118,12 @@ Class Rect from ValueType
 		return self
 
 	Func Transform P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1])
+			ok
+			return dnRequest("callnamed",[self,"Transform",P1])
+		ok
 		dnRequest("call",[self,"Transform",P1])
 		return self
 
@@ -109,48 +151,6 @@ Class Rect from ValueType
 
 	Func Transform_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1,P2])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Intersect@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Intersect",P1])
-		ok
-		return dnRequest("callnamed",[self,"Intersect",P1])
-
-	Func Union@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Union",P1])
-		ok
-		return dnRequest("callnamed",[self,"Union",P1])
-
-	Func Offset@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1])
-		ok
-		return dnRequest("callnamed",[self,"Offset",P1])
-
-	Func Inflate@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1])
-		ok
-		return dnRequest("callnamed",[self,"Inflate",P1])
-
-	Func Transform@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1])
-		ok
-		return dnRequest("callnamed",[self,"Transform",P1])
 
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])

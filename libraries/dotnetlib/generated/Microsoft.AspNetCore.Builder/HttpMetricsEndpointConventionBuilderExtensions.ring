@@ -13,6 +13,9 @@ Class HttpMetricsEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DisableHttpMetrics P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMetricsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http.Extensions'),"DisableHttpMetrics",P1])
 

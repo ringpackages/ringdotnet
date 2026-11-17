@@ -41,12 +41,8 @@ Class HttpHeaders from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func TryAddWithoutValidation@ P1
-		return dnRequest("callnamed",[self,"TryAddWithoutValidation",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getNonValidated
 		return dnRequest("get",[self,"NonValidated"])

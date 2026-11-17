@@ -13,16 +13,25 @@ Class MemoryExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AsSpan_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2])
 
 	Func AsSpan P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
 
 	Func AsSpan_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2,P3])
 
 	Func AsMemory P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
 
 	Func AsMemory_2 P1,P2
@@ -45,26 +54,20 @@ Class MemoryExtensions from Object
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1,P2])
 
 	Func Trim P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
 
 	Func TrimStart P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
 
 	Func TrimEnd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
-
-	Func AsSpan@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
-
-	Func AsMemory@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
-
-	Func Trim@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
-
-	Func TrimStart@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
-
-	Func TrimEnd@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
 

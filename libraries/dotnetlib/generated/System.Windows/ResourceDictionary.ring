@@ -65,6 +65,9 @@ Class ResourceDictionary from Object
 		dnRequest("call",[self,"EndInit"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

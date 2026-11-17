@@ -13,6 +13,9 @@ Class ZipFile from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func OpenRead P1
 		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"OpenRead",P1])
 
@@ -44,16 +47,5 @@ Class ZipFile from Object
 
 	Func ExtractToDirectory_4 P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2,P3,P4])
-		return self
-
-	Func Open@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1])
-
-	Func CreateFromDirectory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1])
-		return self
-
-	Func ExtractToDirectory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
 		return self
 

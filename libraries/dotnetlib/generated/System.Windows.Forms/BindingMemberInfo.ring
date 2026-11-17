@@ -22,9 +22,6 @@ Class BindingMemberInfo from ValueType
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[P1])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getBindingPath
 		return dnRequest("get",[self,"BindingPath"])
 

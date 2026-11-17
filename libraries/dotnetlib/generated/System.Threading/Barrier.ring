@@ -36,8 +36,15 @@ Class Barrier from Object
 		dnRequest("call",[self,"RemoveParticipants",P1])
 		return self
 
-	Func SignalAndWait 
-		dnRequest("call",[self,"SignalAndWait"])
+	Func SignalAndWait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignalAndWait",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"SignalAndWait"])
+		return self
+		ok
+		dnRequest("call",[self,"SignalAndWait",P1])
 		return self
 
 	Func SignalAndWait_1 P1
@@ -51,8 +58,8 @@ Class Barrier from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func SignalAndWait@ P1
-		return dnRequest("callnamed",[self,"SignalAndWait",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getParticipantsRemaining
 		return dnRequest("get",[self,"ParticipantsRemaining"])

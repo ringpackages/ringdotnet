@@ -18,11 +18,14 @@ Class IHttpWebTransportFeature from DotNetObject
 	Func AcceptAsync_1 P1
 		return dnRequest("call",[self,"AcceptAsync",P1])
 
-	Func AcceptAsync 
-		return dnRequest("call",[self,"AcceptAsync"])
-
-	Func AcceptAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptAsync",P1])
+	Func AcceptAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcceptAsync"])
+		ok
+		return dnRequest("call",[self,"AcceptAsync",P1])
 
 	Func getIsWebTransportRequest
 		return dnRequest("get",[self,"IsWebTransportRequest"])

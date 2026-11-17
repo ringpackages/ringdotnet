@@ -51,6 +51,10 @@ Class WebBrowser from WebBrowserBase
 		return self
 
 	Func Navigate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Navigate",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Navigate",P1])
 		return self
 
@@ -64,6 +68,18 @@ Class WebBrowser from WebBrowserBase
 
 	Func Print 
 		dnRequest("call",[self,"Print"])
+		return self
+
+	Func Refresh P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Refresh",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Refresh"])
+		return self
+		ok
+		dnRequest("call",[self,"Refresh",P1])
 		return self
 
 	Func Refresh_1 P1
@@ -92,14 +108,6 @@ Class WebBrowser from WebBrowserBase
 
 	Func Stop 
 		dnRequest("call",[self,"Stop"])
-		return self
-
-	Func Navigate@ P1
-		dnRequest("callnamed",[self,"Navigate",P1])
-		return self
-
-	Func Refresh@ P1
-		dnRequest("callnamed",[self,"Refresh",P1])
 		return self
 
 	Func setCanGoBackChangedEvent P1

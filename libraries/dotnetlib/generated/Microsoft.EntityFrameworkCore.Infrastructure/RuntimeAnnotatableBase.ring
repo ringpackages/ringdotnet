@@ -56,13 +56,8 @@ Class RuntimeAnnotatableBase from Object
 	Func RemoveRuntimeAnnotation P1
 		return dnRequest("call",[self,"RemoveRuntimeAnnotation",P1])
 
-	Func AddAnnotations@ P1
-		dnRequest("callnamed",[self,"AddAnnotations",P1])
-		return self
-
-	Func AddRuntimeAnnotations@ P1
-		dnRequest("callnamed",[self,"AddRuntimeAnnotations",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

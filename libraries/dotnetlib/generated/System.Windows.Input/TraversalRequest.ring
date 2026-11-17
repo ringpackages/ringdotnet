@@ -17,6 +17,9 @@ Class TraversalRequest from Object
 		nHandle = dnCreate('System.Windows.Input.TraversalRequest, WindowsBase',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getWrapped
 		return dnRequest("get",[self,"Wrapped"])
 

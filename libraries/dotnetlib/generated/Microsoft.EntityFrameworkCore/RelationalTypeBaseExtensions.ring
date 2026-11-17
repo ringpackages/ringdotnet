@@ -13,6 +13,9 @@ Class RelationalTypeBaseExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetTableName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableName",P1])
 
@@ -65,6 +68,9 @@ Class RelationalTypeBaseExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetUpdateStoredProcedureMappings",P1])
 
 	Func GetMappingFragments P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
 
 	Func GetMappingFragments_2 P1,P2
@@ -87,19 +93,4 @@ Class RelationalTypeBaseExtensions from Object
 
 	Func GetJsonPropertyName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyName",P1])
-
-	Func GetDeleteStoredProcedure@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDeleteStoredProcedure",P1])
-
-	Func GetInsertStoredProcedure@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetInsertStoredProcedure",P1])
-
-	Func GetUpdateStoredProcedure@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetUpdateStoredProcedure",P1])
-
-	Func GetMappingFragments@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
-
-	Func FindMappingFragment@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindMappingFragment",P1])
 

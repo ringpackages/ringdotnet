@@ -14,6 +14,9 @@ Class IRelationalTypeMappingSource from DotNetObject
 		return self
 
 	Func FindMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindMapping",P1])
+		ok
 		return dnRequest("call",[self,"FindMapping",P1])
 
 	Func FindMapping_3 P1,P2,P3
@@ -39,7 +42,4 @@ Class IRelationalTypeMappingSource from DotNetObject
 
 	Func FindMapping_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"FindMapping",P1,P2,P3,P4])
-
-	Func FindMapping@ P1
-		return dnRequest("callnamed",[self,"FindMapping",P1])
 

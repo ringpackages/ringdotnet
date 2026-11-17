@@ -19,6 +19,9 @@ Class AuthenticationHandlerProvider from Object
 	Func GetHandlerAsync P1,P2
 		return dnRequest("call",[self,"GetHandlerAsync",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
 

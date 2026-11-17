@@ -16,12 +16,18 @@ Class XmlNamedNodeMap from Object
 		return self
 
 	Func GetNamedItem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNamedItem",P1])
+		ok
 		return dnRequest("call",[self,"GetNamedItem",P1])
 
 	Func SetNamedItem P1
 		return dnRequest("call",[self,"SetNamedItem",P1])
 
 	Func RemoveNamedItem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveNamedItem",P1])
+		ok
 		return dnRequest("call",[self,"RemoveNamedItem",P1])
 
 	Func Item P1
@@ -36,11 +42,8 @@ Class XmlNamedNodeMap from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func GetNamedItem@ P1
-		return dnRequest("callnamed",[self,"GetNamedItem",P1])
-
-	Func RemoveNamedItem@ P1
-		return dnRequest("callnamed",[self,"RemoveNamedItem",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

@@ -19,6 +19,10 @@ Class SplashScreen from Object
 		return self
 
 	Func Show P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Show",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Show",P1])
 		return self
 
@@ -30,7 +34,6 @@ Class SplashScreen from Object
 		dnRequest("call",[self,"Close",P1])
 		return self
 
-	Func Show@ P1
-		dnRequest("callnamed",[self,"Show",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

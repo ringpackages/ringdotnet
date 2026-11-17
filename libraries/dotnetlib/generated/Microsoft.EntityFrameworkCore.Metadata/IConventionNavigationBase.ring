@@ -17,6 +17,9 @@ Class IConventionNavigationBase from DotNetObject
 		return dnRequest("call",[self,"SetIsEagerLoaded",P1,P2])
 
 	Func SetIsEagerLoaded P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsEagerLoaded",P1])
+		ok
 		return dnRequest("call",[self,"SetIsEagerLoaded",P1])
 
 	Func GetIsEagerLoadedConfigurationSource 
@@ -26,14 +29,11 @@ Class IConventionNavigationBase from DotNetObject
 		return dnRequest("call",[self,"SetLazyLoadingEnabled",P1,P2])
 
 	Func SetLazyLoadingEnabled P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetLazyLoadingEnabled",P1])
+		ok
 		return dnRequest("call",[self,"SetLazyLoadingEnabled",P1])
 
 	Func GetLazyLoadingEnabledConfigurationSource 
 		return dnRequest("call",[self,"GetLazyLoadingEnabledConfigurationSource"])
-
-	Func SetIsEagerLoaded@ P1
-		return dnRequest("callnamed",[self,"SetIsEagerLoaded",P1])
-
-	Func SetLazyLoadingEnabled@ P1
-		return dnRequest("callnamed",[self,"SetLazyLoadingEnabled",P1])
 

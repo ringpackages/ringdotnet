@@ -34,8 +34,15 @@ Class ManualResetEventSlim from Object
 		dnRequest("call",[self,"Reset"])
 		return self
 
-	Func Wait 
-		dnRequest("call",[self,"Wait"])
+	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Wait",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Wait"])
+		return self
+		ok
+		dnRequest("call",[self,"Wait",P1])
 		return self
 
 	Func Wait_1 P1
@@ -49,8 +56,8 @@ Class ManualResetEventSlim from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Wait@ P1
-		return dnRequest("callnamed",[self,"Wait",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getWaitHandle
 		return dnRequest("get",[self,"WaitHandle"])

@@ -13,6 +13,9 @@ Class XmlConfigurationExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddXmlFile P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1,P2])
 
@@ -27,7 +30,4 @@ Class XmlConfigurationExtensions from Object
 
 	Func AddXmlStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlStream",P1,P2])
-
-	Func AddXmlFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1])
 

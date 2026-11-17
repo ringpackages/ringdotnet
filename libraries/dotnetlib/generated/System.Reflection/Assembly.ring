@@ -48,13 +48,22 @@ Class Assembly from Object
 		return dnRequest("call",[self,"GetManifestResourceNames"])
 
 	Func GetManifestResourceStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetManifestResourceStream",P1])
+		ok
 		return dnRequest("call",[self,"GetManifestResourceStream",P1])
 
 	Func GetManifestResourceStream_2 P1,P2
 		return dnRequest("call",[self,"GetManifestResourceStream",P1,P2])
 
-	Func GetName 
-		return dnRequest("call",[self,"GetName"])
+	Func GetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetName",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetName"])
+		ok
+		return dnRequest("call",[self,"GetName",P1])
 
 	Func GetName_1 P1
 		return dnRequest("call",[self,"GetName",P1])
@@ -81,6 +90,9 @@ Class Assembly from Object
 		return dnRequest("call",[self,"GetCustomAttributes",P1,P2])
 
 	Func CreateInstance P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateInstance",P1])
+		ok
 		return dnRequest("call",[self,"CreateInstance",P1])
 
 	Func CreateInstance_2 P1,P2
@@ -98,8 +110,14 @@ Class Assembly from Object
 	Func GetModules_1 P1
 		return dnRequest("call",[self,"GetModules",P1])
 
-	Func GetLoadedModules 
-		return dnRequest("call",[self,"GetLoadedModules"])
+	Func GetLoadedModules P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetLoadedModules",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetLoadedModules"])
+		ok
+		return dnRequest("call",[self,"GetLoadedModules",P1])
 
 	Func GetLoadedModules_1 P1
 		return dnRequest("call",[self,"GetLoadedModules",P1])
@@ -108,6 +126,9 @@ Class Assembly from Object
 		return dnRequest("call",[self,"GetReferencedAssemblies"])
 
 	Func GetSatelliteAssembly P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSatelliteAssembly",P1])
+		ok
 		return dnRequest("call",[self,"GetSatelliteAssembly",P1])
 
 	Func GetSatelliteAssembly_2 P1,P2
@@ -116,8 +137,14 @@ Class Assembly from Object
 	Func GetFile P1
 		return dnRequest("call",[self,"GetFile",P1])
 
-	Func GetFiles 
-		return dnRequest("call",[self,"GetFiles"])
+	Func GetFiles P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFiles",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFiles"])
+		ok
+		return dnRequest("call",[self,"GetFiles",P1])
 
 	Func GetFiles_1 P1
 		return dnRequest("call",[self,"GetFiles",P1])
@@ -126,13 +153,28 @@ Class Assembly from Object
 		dnRequest("call",[self,"GetObjectData",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func LoadModule P1,P2
 		return dnRequest("call",[self,"LoadModule",P1,P2])
 
 	Func LoadModule_3 P1,P2,P3
 		return dnRequest("call",[self,"LoadModule",P1,P2,P3])
 
+	Func GetType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetType",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetType"])
+		ok
+		return dnRequest("call",[self,"GetType",P1])
+
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"Load",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"Load",P1])
 
 	Func LoadWithPartialName P1
@@ -164,6 +206,9 @@ Class Assembly from Object
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"LoadFile",P1])
 
 	Func LoadFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"LoadFrom",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"LoadFrom",P1])
 
 	Func LoadFrom_3 P1,P2,P3
@@ -177,45 +222,6 @@ Class Assembly from Object
 
 	Func ReflectionOnlyLoadFrom P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoadFrom",P1])
-
-	Func GetManifestResourceStream@ P1
-		return dnRequest("callnamed",[self,"GetManifestResourceStream",P1])
-
-	Func GetName@ P1
-		return dnRequest("callnamed",[self,"GetName",P1])
-
-	Func GetType@ P1
-		return dnRequest("callnamed",[self,"GetType",P1])
-
-	Func GetCustomAttributes@ P1
-		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
-
-	Func CreateInstance@ P1
-		return dnRequest("callnamed",[self,"CreateInstance",P1])
-
-	Func GetModules@ P1
-		return dnRequest("callnamed",[self,"GetModules",P1])
-
-	Func GetLoadedModules@ P1
-		return dnRequest("callnamed",[self,"GetLoadedModules",P1])
-
-	Func GetSatelliteAssembly@ P1
-		return dnRequest("callnamed",[self,"GetSatelliteAssembly",P1])
-
-	Func GetFiles@ P1
-		return dnRequest("callnamed",[self,"GetFiles",P1])
-
-	Func LoadModule@ P1
-		return dnRequest("callnamed",[self,"LoadModule",P1])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"Load",P1])
-
-	Func LoadFrom@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"LoadFrom",P1])
-
-	Func ReflectionOnlyLoad@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoad",P1])
 
 	Func setModuleResolveEvent P1
 		dnRequest("setevent",[self,"ModuleResolve",dnCallback(P1)])

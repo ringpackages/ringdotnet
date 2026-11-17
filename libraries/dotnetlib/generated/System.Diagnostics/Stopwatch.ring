@@ -37,6 +37,9 @@ Class Stopwatch from Object
 		dnRequest("call",[self,"Restart"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func StartNew 
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"StartNew"])
 
@@ -44,13 +47,13 @@ Class Stopwatch from Object
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetTimestamp"])
 
 	Func GetElapsedTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
 
 	Func GetElapsedTime_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1,P2])
-
-	Func GetElapsedTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
 
 	Func getIsRunning
 		return dnRequest("get",[self,"IsRunning"])

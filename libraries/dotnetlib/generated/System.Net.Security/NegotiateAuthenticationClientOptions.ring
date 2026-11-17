@@ -21,6 +21,9 @@ Class NegotiateAuthenticationClientOptions from Object
 		nHandle = dnCreate('System.Net.Security.NegotiateAuthenticationClientOptions, System.Net.Security',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPackage
 		return dnRequest("get",[self,"Package"])
 

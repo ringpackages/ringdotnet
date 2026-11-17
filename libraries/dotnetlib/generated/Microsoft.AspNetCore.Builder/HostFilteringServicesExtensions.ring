@@ -13,6 +13,9 @@ Class HostFilteringServicesExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddHostFiltering P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HostFilteringServicesExtensions, Microsoft.AspNetCore.HostFiltering'),"AddHostFiltering",P1,P2])
 

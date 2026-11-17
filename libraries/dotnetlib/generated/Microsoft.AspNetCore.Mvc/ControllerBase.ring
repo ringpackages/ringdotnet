@@ -28,12 +28,18 @@ Class ControllerBase from Object
 		return self
 
 	Func StatusCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StatusCode",P1])
+		ok
 		return dnRequest("call",[self,"StatusCode",P1])
 
 	Func StatusCode_2 P1,P2
 		return dnRequest("call",[self,"StatusCode",P1,P2])
 
 	Func Content P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Content",P1])
+		ok
 		return dnRequest("call",[self,"Content",P1])
 
 	Func Content_2 P1,P2
@@ -45,8 +51,14 @@ Class ControllerBase from Object
 	Func NoContent 
 		return dnRequest("call",[self,"NoContent"])
 
-	Func Ok_ 
-		return dnRequest("call",[self,"Ok"])
+	Func Ok_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Ok",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Ok"])
+		ok
+		return dnRequest("call",[self,"Ok",P1])
 
 	Func Ok_1 P1
 		return dnRequest("call",[self,"Ok",P1])
@@ -75,8 +87,14 @@ Class ControllerBase from Object
 	Func LocalRedirectPermanentPreserveMethod P1
 		return dnRequest("call",[self,"LocalRedirectPermanentPreserveMethod",P1])
 
-	Func RedirectToAction 
-		return dnRequest("call",[self,"RedirectToAction"])
+	Func RedirectToAction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToAction",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RedirectToAction"])
+		ok
+		return dnRequest("call",[self,"RedirectToAction",P1])
 
 	Func RedirectToAction_1 P1
 		return dnRequest("call",[self,"RedirectToAction",P1])
@@ -102,10 +120,19 @@ Class ControllerBase from Object
 	Func RedirectToActionPreserveMethod_1 P1
 		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1])
 
-	Func RedirectToActionPreserveMethod 
-		return dnRequest("call",[self,"RedirectToActionPreserveMethod"])
+	Func RedirectToActionPreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToActionPreserveMethod",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RedirectToActionPreserveMethod"])
+		ok
+		return dnRequest("call",[self,"RedirectToActionPreserveMethod",P1])
 
 	Func RedirectToActionPermanent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToActionPermanent",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToActionPermanent",P1])
 
 	Func RedirectToActionPermanent_2 P1,P2
@@ -129,10 +156,19 @@ Class ControllerBase from Object
 	Func RedirectToActionPermanentPreserveMethod_1 P1
 		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1])
 
-	Func RedirectToActionPermanentPreserveMethod 
-		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod"])
+	Func RedirectToActionPermanentPreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToActionPermanentPreserveMethod",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod"])
+		ok
+		return dnRequest("call",[self,"RedirectToActionPermanentPreserveMethod",P1])
 
 	Func RedirectToRoute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToRoute",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToRoute",P1])
 
 	Func RedirectToRoute_2 P1,P2
@@ -150,10 +186,19 @@ Class ControllerBase from Object
 	Func RedirectToRoutePreserveMethod_1 P1
 		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1])
 
-	Func RedirectToRoutePreserveMethod 
-		return dnRequest("call",[self,"RedirectToRoutePreserveMethod"])
+	Func RedirectToRoutePreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToRoutePreserveMethod",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RedirectToRoutePreserveMethod"])
+		ok
+		return dnRequest("call",[self,"RedirectToRoutePreserveMethod",P1])
 
 	Func RedirectToRoutePermanent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToRoutePermanent",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToRoutePermanent",P1])
 
 	Func RedirectToRoutePermanent_2 P1,P2
@@ -171,10 +216,19 @@ Class ControllerBase from Object
 	Func RedirectToRoutePermanentPreserveMethod_1 P1
 		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1])
 
-	Func RedirectToRoutePermanentPreserveMethod 
-		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod"])
+	Func RedirectToRoutePermanentPreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToRoutePermanentPreserveMethod",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod"])
+		ok
+		return dnRequest("call",[self,"RedirectToRoutePermanentPreserveMethod",P1])
 
 	Func RedirectToPage P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToPage",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToPage",P1])
 
 	Func RedirectToPage_2 P1,P2
@@ -187,6 +241,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"RedirectToPage",P1,P2,P3,P4])
 
 	Func RedirectToPagePermanent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToPagePermanent",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToPagePermanent",P1])
 
 	Func RedirectToPagePermanent_2 P1,P2
@@ -208,6 +265,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1,P2])
 
 	Func RedirectToPagePreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToPagePreserveMethod",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToPagePreserveMethod",P1])
 
 	Func RedirectToPagePermanentPreserveMethod_4 P1,P2,P3,P4
@@ -220,6 +280,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1,P2])
 
 	Func RedirectToPagePermanentPreserveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RedirectToPagePermanentPreserveMethod",P1])
+		ok
 		return dnRequest("call",[self,"RedirectToPagePermanentPreserveMethod",P1])
 
 	Func File P1,P2
@@ -252,32 +315,62 @@ Class ControllerBase from Object
 	Func PhysicalFile_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"PhysicalFile",P1,P2,P3,P4,P5,P6])
 
-	Func Unauthorized 
-		return dnRequest("call",[self,"Unauthorized"])
+	Func Unauthorized P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Unauthorized",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Unauthorized"])
+		ok
+		return dnRequest("call",[self,"Unauthorized",P1])
 
 	Func Unauthorized_1 P1
 		return dnRequest("call",[self,"Unauthorized",P1])
 
-	Func NotFound 
-		return dnRequest("call",[self,"NotFound"])
+	Func NotFound P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NotFound",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NotFound"])
+		ok
+		return dnRequest("call",[self,"NotFound",P1])
 
 	Func NotFound_1 P1
 		return dnRequest("call",[self,"NotFound",P1])
 
-	Func BadRequest 
-		return dnRequest("call",[self,"BadRequest"])
+	Func BadRequest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BadRequest",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BadRequest"])
+		ok
+		return dnRequest("call",[self,"BadRequest",P1])
 
 	Func BadRequest_1 P1
 		return dnRequest("call",[self,"BadRequest",P1])
 
-	Func UnprocessableEntity 
-		return dnRequest("call",[self,"UnprocessableEntity"])
+	Func UnprocessableEntity P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UnprocessableEntity",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"UnprocessableEntity"])
+		ok
+		return dnRequest("call",[self,"UnprocessableEntity",P1])
 
 	Func UnprocessableEntity_1 P1
 		return dnRequest("call",[self,"UnprocessableEntity",P1])
 
-	Func Conflict 
-		return dnRequest("call",[self,"Conflict"])
+	Func Conflict P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Conflict",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Conflict"])
+		ok
+		return dnRequest("call",[self,"Conflict",P1])
 
 	Func Conflict_1 P1
 		return dnRequest("call",[self,"Conflict",P1])
@@ -300,14 +393,26 @@ Class ControllerBase from Object
 	Func Problem_1 P1
 		return dnRequest("call",[self,"Problem",P1])
 
-	Func Problem 
-		return dnRequest("call",[self,"Problem"])
+	Func Problem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Problem",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Problem"])
+		ok
+		return dnRequest("call",[self,"Problem",P1])
 
 	Func ValidationProblem_1 P1
 		return dnRequest("call",[self,"ValidationProblem",P1])
 
-	Func ValidationProblem 
-		return dnRequest("call",[self,"ValidationProblem"])
+	Func ValidationProblem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ValidationProblem",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ValidationProblem"])
+		ok
+		return dnRequest("call",[self,"ValidationProblem",P1])
 
 	Func ValidationProblem_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"ValidationProblem",P1,P2,P3,P4,P5,P6])
@@ -327,8 +432,14 @@ Class ControllerBase from Object
 	Func ValidationProblem_2 P1,P2
 		return dnRequest("call",[self,"ValidationProblem",P1,P2])
 
-	Func Created 
-		return dnRequest("call",[self,"Created"])
+	Func Created P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Created",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Created"])
+		ok
+		raise("DotNet Error: Created does not take one argument: use Created(NULL), Created_N(...) or named arguments")
 
 	Func Created_2 P1,P2
 		return dnRequest("call",[self,"Created",P1,P2])
@@ -348,8 +459,14 @@ Class ControllerBase from Object
 	Func CreatedAtRoute_3 P1,P2,P3
 		return dnRequest("call",[self,"CreatedAtRoute",P1,P2,P3])
 
-	Func Accepted 
-		return dnRequest("call",[self,"Accepted"])
+	Func Accepted P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Accepted",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Accepted"])
+		ok
+		return dnRequest("call",[self,"Accepted",P1])
 
 	Func Accepted_1 P1
 		return dnRequest("call",[self,"Accepted",P1])
@@ -358,6 +475,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"Accepted",P1,P2])
 
 	Func AcceptedAtAction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptedAtAction",P1])
+		ok
 		return dnRequest("call",[self,"AcceptedAtAction",P1])
 
 	Func AcceptedAtAction_2 P1,P2
@@ -370,6 +490,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"AcceptedAtAction",P1,P2,P3,P4])
 
 	Func AcceptedAtRoute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptedAtRoute",P1])
+		ok
 		return dnRequest("call",[self,"AcceptedAtRoute",P1])
 
 	Func AcceptedAtRoute_2 P1,P2
@@ -378,8 +501,14 @@ Class ControllerBase from Object
 	Func AcceptedAtRoute_3 P1,P2,P3
 		return dnRequest("call",[self,"AcceptedAtRoute",P1,P2,P3])
 
-	Func Challenge 
-		return dnRequest("call",[self,"Challenge"])
+	Func Challenge P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Challenge",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Challenge"])
+		ok
+		return dnRequest("call",[self,"Challenge",P1])
 
 	Func Challenge_1 P1
 		return dnRequest("call",[self,"Challenge",P1])
@@ -387,8 +516,14 @@ Class ControllerBase from Object
 	Func Challenge_2 P1,P2
 		return dnRequest("call",[self,"Challenge",P1,P2])
 
-	Func Forbid 
-		return dnRequest("call",[self,"Forbid"])
+	Func Forbid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Forbid",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Forbid"])
+		ok
+		return dnRequest("call",[self,"Forbid",P1])
 
 	Func Forbid_1 P1
 		return dnRequest("call",[self,"Forbid",P1])
@@ -397,6 +532,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"Forbid",P1,P2])
 
 	Func SignIn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignIn",P1])
+		ok
 		return dnRequest("call",[self,"SignIn",P1])
 
 	Func SignIn_2 P1,P2
@@ -405,8 +543,14 @@ Class ControllerBase from Object
 	Func SignIn_3 P1,P2,P3
 		return dnRequest("call",[self,"SignIn",P1,P2,P3])
 
-	Func SignOut 
-		return dnRequest("call",[self,"SignOut"])
+	Func SignOut P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SignOut",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"SignOut"])
+		ok
+		return dnRequest("call",[self,"SignOut",P1])
 
 	Func SignOut_1 P1
 		return dnRequest("call",[self,"SignOut",P1])
@@ -415,6 +559,9 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"SignOut",P1,P2])
 
 	Func TryUpdateModelAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryUpdateModelAsync",P1])
+		ok
 		return dnRequest("call",[self,"TryUpdateModelAsync",P1])
 
 	Func TryUpdateModelAsync_2 P1,P2
@@ -430,118 +577,16 @@ Class ControllerBase from Object
 		return dnRequest("call",[self,"TryUpdateModelAsync",P1,P2,P3,P4,P5])
 
 	Func TryValidateModel P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryValidateModel",P1])
+		ok
 		return dnRequest("call",[self,"TryValidateModel",P1])
 
 	Func TryValidateModel_2 P1,P2
 		return dnRequest("call",[self,"TryValidateModel",P1,P2])
 
-	Func StatusCode@ P1
-		return dnRequest("callnamed",[self,"StatusCode",P1])
-
-	Func Content@ P1
-		return dnRequest("callnamed",[self,"Content",P1])
-
-	Func Ok@ P1
-		return dnRequest("callnamed",[self,"Ok",P1])
-
-	Func RedirectToAction@ P1
-		return dnRequest("callnamed",[self,"RedirectToAction",P1])
-
-	Func RedirectToActionPreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToActionPreserveMethod",P1])
-
-	Func RedirectToActionPermanent@ P1
-		return dnRequest("callnamed",[self,"RedirectToActionPermanent",P1])
-
-	Func RedirectToActionPermanentPreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToActionPermanentPreserveMethod",P1])
-
-	Func RedirectToRoute@ P1
-		return dnRequest("callnamed",[self,"RedirectToRoute",P1])
-
-	Func RedirectToRoutePreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToRoutePreserveMethod",P1])
-
-	Func RedirectToRoutePermanent@ P1
-		return dnRequest("callnamed",[self,"RedirectToRoutePermanent",P1])
-
-	Func RedirectToRoutePermanentPreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToRoutePermanentPreserveMethod",P1])
-
-	Func RedirectToPage@ P1
-		return dnRequest("callnamed",[self,"RedirectToPage",P1])
-
-	Func RedirectToPagePermanent@ P1
-		return dnRequest("callnamed",[self,"RedirectToPagePermanent",P1])
-
-	Func RedirectToPagePreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToPagePreserveMethod",P1])
-
-	Func RedirectToPagePermanentPreserveMethod@ P1
-		return dnRequest("callnamed",[self,"RedirectToPagePermanentPreserveMethod",P1])
-
-	Func File@ P1
-		return dnRequest("callnamed",[self,"File",P1])
-
-	Func PhysicalFile@ P1
-		return dnRequest("callnamed",[self,"PhysicalFile",P1])
-
-	Func Unauthorized@ P1
-		return dnRequest("callnamed",[self,"Unauthorized",P1])
-
-	Func NotFound@ P1
-		return dnRequest("callnamed",[self,"NotFound",P1])
-
-	Func BadRequest@ P1
-		return dnRequest("callnamed",[self,"BadRequest",P1])
-
-	Func UnprocessableEntity@ P1
-		return dnRequest("callnamed",[self,"UnprocessableEntity",P1])
-
-	Func Conflict@ P1
-		return dnRequest("callnamed",[self,"Conflict",P1])
-
-	Func Problem@ P1
-		return dnRequest("callnamed",[self,"Problem",P1])
-
-	Func ValidationProblem@ P1
-		return dnRequest("callnamed",[self,"ValidationProblem",P1])
-
-	Func Created@ P1
-		return dnRequest("callnamed",[self,"Created",P1])
-
-	Func CreatedAtAction@ P1
-		return dnRequest("callnamed",[self,"CreatedAtAction",P1])
-
-	Func CreatedAtRoute@ P1
-		return dnRequest("callnamed",[self,"CreatedAtRoute",P1])
-
-	Func Accepted@ P1
-		return dnRequest("callnamed",[self,"Accepted",P1])
-
-	Func AcceptedAtAction@ P1
-		return dnRequest("callnamed",[self,"AcceptedAtAction",P1])
-
-	Func AcceptedAtRoute@ P1
-		return dnRequest("callnamed",[self,"AcceptedAtRoute",P1])
-
-	Func Challenge@ P1
-		return dnRequest("callnamed",[self,"Challenge",P1])
-
-	Func Forbid@ P1
-		return dnRequest("callnamed",[self,"Forbid",P1])
-
-	Func SignIn@ P1
-		return dnRequest("callnamed",[self,"SignIn",P1])
-
-	Func SignOut@ P1
-		return dnRequest("callnamed",[self,"SignOut",P1])
-
-	Func TryUpdateModelAsync@ P1
-		return dnRequest("callnamed",[self,"TryUpdateModelAsync",P1])
-
-	Func TryValidateModel@ P1
-		return dnRequest("callnamed",[self,"TryValidateModel",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])

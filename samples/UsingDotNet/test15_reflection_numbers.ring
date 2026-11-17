@@ -16,18 +16,18 @@ for nLoop = 2 to 40
 next
 ? "40!            : " + nFactorial.ToString()
 ? "2^200          : " + oBig.Pow(2,200).ToString()
-oZ = dnNew@("Complex",[ :real = 3, :imaginary = 4 ])
+oZ = dnNew("Complex",[ :real = 3, :imaginary = 4 ])
 ? "|3+4i|         : " + oZ.Magnitude
 
 # Reflection: explore a type
-oMath = new Type().GetType@([ :typeName = "System.Math" ])
+oMath = new Type().GetType([ :typeName = "System.Math" ])
 aNames = []
-for oMethod in oMath.GetMethods().toList()
+for oMethod in oMath.GetMethods(NULL).toList()
 	if find(aNames,oMethod.Name) = 0 aNames + oMethod.Name ok
 next
 ? "Math methods   : " + len(aNames) + " names, e.g. " + aNames[1] + ", " + aNames[2] + ", " + aNames[3]
 oAsm = new Assembly().Load_("System.Linq")
-? "Assembly       : " + oAsm.GetName().Name + " " + oAsm.GetName().Version.ToString()
+? "Assembly       : " + oAsm.GetName(NULL).Name + " " + oAsm.GetName(NULL).Version.ToString()
 
 # Environment and encoders
 ? "OS             : " + new RuntimeInformation().OSDescription

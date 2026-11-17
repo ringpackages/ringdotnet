@@ -23,9 +23,6 @@ Class GuidelineSet from Animatable
 		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[P1,P2])
 		return self
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getGuidelinesX
 		return dnRequest("get",[self,"GuidelinesX"])
 

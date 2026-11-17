@@ -21,8 +21,14 @@ Class DbConnection from Component
 		ok
 		return self
 
-	Func BeginTransaction 
-		return dnRequest("call",[self,"BeginTransaction"])
+	Func BeginTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransaction",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransaction"])
+		ok
+		return dnRequest("call",[self,"BeginTransaction",P1])
 
 	Func BeginTransaction_1 P1
 		return dnRequest("call",[self,"BeginTransaction",P1])
@@ -30,8 +36,14 @@ Class DbConnection from Component
 	Func BeginTransactionAsync_1 P1
 		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
-	Func BeginTransactionAsync 
-		return dnRequest("call",[self,"BeginTransactionAsync"])
+	Func BeginTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginTransactionAsync"])
+		ok
+		return dnRequest("call",[self,"BeginTransactionAsync",P1])
 
 	Func BeginTransactionAsync_2 P1,P2
 		return dnRequest("call",[self,"BeginTransactionAsync",P1,P2])
@@ -54,6 +66,9 @@ Class DbConnection from Component
 		return dnRequest("call",[self,"ChangeDatabaseAsync",P1,P2])
 
 	Func ChangeDatabaseAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ChangeDatabaseAsync",P1])
+		ok
 		return dnRequest("call",[self,"ChangeDatabaseAsync",P1])
 
 	Func CreateBatch 
@@ -66,8 +81,14 @@ Class DbConnection from Component
 		dnRequest("call",[self,"EnlistTransaction",P1])
 		return self
 
-	Func GetSchema 
-		return dnRequest("call",[self,"GetSchema"])
+	Func GetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSchema",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetSchema"])
+		ok
+		return dnRequest("call",[self,"GetSchema",P1])
 
 	Func GetSchema_1 P1
 		return dnRequest("call",[self,"GetSchema",P1])
@@ -78,8 +99,14 @@ Class DbConnection from Component
 	Func GetSchemaAsync_1 P1
 		return dnRequest("call",[self,"GetSchemaAsync",P1])
 
-	Func GetSchemaAsync 
-		return dnRequest("call",[self,"GetSchemaAsync"])
+	Func GetSchemaAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSchemaAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetSchemaAsync"])
+		ok
+		return dnRequest("call",[self,"GetSchemaAsync",P1])
 
 	Func GetSchemaAsync_2 P1,P2
 		return dnRequest("call",[self,"GetSchemaAsync",P1,P2])
@@ -91,29 +118,17 @@ Class DbConnection from Component
 		dnRequest("call",[self,"Open"])
 		return self
 
-	Func OpenAsync 
-		return dnRequest("call",[self,"OpenAsync"])
+	Func OpenAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"OpenAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"OpenAsync"])
+		ok
+		return dnRequest("call",[self,"OpenAsync",P1])
 
 	Func OpenAsync_1 P1
 		return dnRequest("call",[self,"OpenAsync",P1])
-
-	Func BeginTransaction@ P1
-		return dnRequest("callnamed",[self,"BeginTransaction",P1])
-
-	Func BeginTransactionAsync@ P1
-		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
-
-	Func ChangeDatabaseAsync@ P1
-		return dnRequest("callnamed",[self,"ChangeDatabaseAsync",P1])
-
-	Func GetSchema@ P1
-		return dnRequest("callnamed",[self,"GetSchema",P1])
-
-	Func GetSchemaAsync@ P1
-		return dnRequest("callnamed",[self,"GetSchemaAsync",P1])
-
-	Func OpenAsync@ P1
-		return dnRequest("callnamed",[self,"OpenAsync",P1])
 
 	Func setStateChangeEvent P1
 		dnRequest("setevent",[self,"StateChange",dnCallback(P1)])

@@ -19,14 +19,17 @@ Class CommonDialog from Component
 		dnRequest("call",[self,"Reset"])
 		return self
 
-	Func ShowDialog 
-		return dnRequest("call",[self,"ShowDialog"])
+	Func ShowDialog P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ShowDialog",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ShowDialog"])
+		ok
+		return dnRequest("call",[self,"ShowDialog",P1])
 
 	Func ShowDialog_1 P1
 		return dnRequest("call",[self,"ShowDialog",P1])
-
-	Func ShowDialog@ P1
-		return dnRequest("callnamed",[self,"ShowDialog",P1])
 
 	Func setHelpRequestEvent P1
 		dnRequest("setevent",[self,"HelpRequest",dnCallback(P1)])

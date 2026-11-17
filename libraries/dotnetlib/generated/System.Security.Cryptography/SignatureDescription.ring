@@ -32,6 +32,9 @@ Class SignatureDescription from Object
 	Func CreateDigest 
 		return dnRequest("call",[self,"CreateDigest"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getKeyAlgorithm
 		return dnRequest("get",[self,"KeyAlgorithm"])
 

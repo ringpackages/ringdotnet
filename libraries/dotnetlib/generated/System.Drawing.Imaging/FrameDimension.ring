@@ -19,6 +19,9 @@ Class FrameDimension from Object
 		nHandle = dnCreate('System.Drawing.Imaging.FrameDimension, System.Drawing.Common',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getGuid
 		return dnRequest("get",[self,"Guid"])
 

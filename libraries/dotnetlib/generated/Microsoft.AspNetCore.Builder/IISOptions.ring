@@ -18,6 +18,9 @@ Class IISOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISOptions, Microsoft.AspNetCore.Server.IISIntegration',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAutomaticAuthentication
 		return dnRequest("get",[self,"AutomaticAuthentication"])
 

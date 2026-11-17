@@ -19,12 +19,6 @@ Class Camera from Animatable
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
 	Func getTransform
 		return dnRequest("get",[self,"Transform"])
 

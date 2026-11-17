@@ -17,6 +17,9 @@ Class ContentEncodingMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.ContentEncodingMetadata, Microsoft.AspNetCore.Routing',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getValue
 		return dnRequest("get",[self,"Value"])
 

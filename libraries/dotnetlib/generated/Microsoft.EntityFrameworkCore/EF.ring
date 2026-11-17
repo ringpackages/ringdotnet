@@ -16,6 +16,9 @@ Class EF from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CompileAsyncQuery P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore'),"CompileAsyncQuery",P1])
 
@@ -30,12 +33,6 @@ Class EF from Object
 
 	Func Parameter P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore'),"Parameter",P1])
-
-	Func CompileAsyncQuery@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore'),"CompileAsyncQuery",P1])
-
-	Func CompileQuery@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore'),"CompileQuery",P1])
 
 	Func getIsDesignTime
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.EF, Microsoft.EntityFrameworkCore'),"IsDesignTime"])

@@ -17,6 +17,9 @@ Class ThreadPool from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RegisterWaitForSingleObject P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"RegisterWaitForSingleObject",P1,P2,P3,P4,P5])
 
@@ -24,6 +27,9 @@ Class ThreadPool from Object
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeRegisterWaitForSingleObject",P1,P2,P3,P4,P5])
 
 	Func QueueUserWorkItem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1])
 
 	Func QueueUserWorkItem_2 P1,P2
@@ -55,21 +61,6 @@ Class ThreadPool from Object
 
 	Func GetAvailableThreads 
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"GetAvailableThreads"])
-
-	Func RegisterWaitForSingleObject@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"RegisterWaitForSingleObject",P1])
-
-	Func UnsafeRegisterWaitForSingleObject@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeRegisterWaitForSingleObject",P1])
-
-	Func QueueUserWorkItem@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1])
-
-	Func UnsafeQueueUserWorkItem@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeQueueUserWorkItem",P1])
-
-	Func BindHandle@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"BindHandle",P1])
 
 	Func getPendingWorkItemCount
 		return dnRequest("get",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"PendingWorkItemCount"])

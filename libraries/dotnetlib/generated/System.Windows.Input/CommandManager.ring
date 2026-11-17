@@ -18,6 +18,9 @@ Class CommandManager from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddPreviewExecutedHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.CommandManager, PresentationCore'),"AddPreviewExecutedHandler",P1,P2])
 		return self

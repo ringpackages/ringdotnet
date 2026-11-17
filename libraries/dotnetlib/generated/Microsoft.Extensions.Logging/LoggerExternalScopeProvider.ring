@@ -21,3 +21,6 @@ Class LoggerExternalScopeProvider from Object
 	Func Push P1
 		return dnRequest("call",[self,"Push",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

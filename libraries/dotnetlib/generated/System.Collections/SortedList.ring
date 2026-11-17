@@ -92,6 +92,9 @@ Class SortedList from Object
 		dnRequest("call",[self,"TrimToSize"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.SortedList, System.Collections.NonGeneric'),"Synchronized",P1])
 

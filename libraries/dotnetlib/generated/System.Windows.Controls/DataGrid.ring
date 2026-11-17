@@ -141,6 +141,10 @@ Class DataGrid from MultiSelector
 		return self
 
 	Func ScrollIntoView P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ScrollIntoView",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ScrollIntoView",P1])
 		return self
 
@@ -148,20 +152,38 @@ Class DataGrid from MultiSelector
 		dnRequest("call",[self,"ScrollIntoView",P1,P2])
 		return self
 
-	Func BeginEdit 
-		return dnRequest("call",[self,"BeginEdit"])
+	Func BeginEdit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BeginEdit",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"BeginEdit"])
+		ok
+		return dnRequest("call",[self,"BeginEdit",P1])
 
 	Func BeginEdit_1 P1
 		return dnRequest("call",[self,"BeginEdit",P1])
 
-	Func CancelEdit 
-		return dnRequest("call",[self,"CancelEdit"])
+	Func CancelEdit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CancelEdit",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CancelEdit"])
+		ok
+		return dnRequest("call",[self,"CancelEdit",P1])
 
 	Func CancelEdit_1 P1
 		return dnRequest("call",[self,"CancelEdit",P1])
 
-	Func CommitEdit 
-		return dnRequest("call",[self,"CommitEdit"])
+	Func CommitEdit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitEdit",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitEdit"])
+		ok
+		raise("DotNet Error: CommitEdit does not take one argument: use CommitEdit(NULL), CommitEdit_N(...) or named arguments")
 
 	Func CommitEdit_2 P1,P2
 		return dnRequest("call",[self,"CommitEdit",P1,P2])
@@ -176,19 +198,6 @@ Class DataGrid from MultiSelector
 
 	Func GenerateColumns P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.DataGrid, PresentationFramework'),"GenerateColumns",P1])
-
-	Func ScrollIntoView@ P1
-		dnRequest("callnamed",[self,"ScrollIntoView",P1])
-		return self
-
-	Func BeginEdit@ P1
-		return dnRequest("callnamed",[self,"BeginEdit",P1])
-
-	Func CancelEdit@ P1
-		return dnRequest("callnamed",[self,"CancelEdit",P1])
-
-	Func CommitEdit@ P1
-		return dnRequest("callnamed",[self,"CommitEdit",P1])
 
 	Func setColumnDisplayIndexChangedEvent P1
 		dnRequest("setevent",[self,"ColumnDisplayIndexChanged",dnCallback(P1)])

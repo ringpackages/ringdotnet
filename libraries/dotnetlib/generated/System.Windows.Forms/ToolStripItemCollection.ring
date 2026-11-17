@@ -15,6 +15,9 @@ Class ToolStripItemCollection from ArrangedElementCollection
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_2 P1,P2
@@ -60,17 +63,6 @@ Class ToolStripItemCollection from ArrangedElementCollection
 
 	Func RemoveByKey P1
 		dnRequest("call",[self,"RemoveByKey",P1])
-		return self
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddRange@ P1
-		dnRequest("callnamed",[self,"AddRange",P1])
-		return self
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
 	Func Item P1

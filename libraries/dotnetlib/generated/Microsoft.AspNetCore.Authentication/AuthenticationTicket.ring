@@ -25,6 +25,9 @@ Class AuthenticationTicket from Object
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAuthenticationScheme
 		return dnRequest("get",[self,"AuthenticationScheme"])
 

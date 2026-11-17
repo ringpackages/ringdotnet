@@ -23,20 +23,26 @@ Class IWebHost from DotNetObject
 	Func StartAsync_1 P1
 		return dnRequest("call",[self,"StartAsync",P1])
 
-	Func StartAsync 
-		return dnRequest("call",[self,"StartAsync"])
+	Func StartAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"StartAsync"])
+		ok
+		return dnRequest("call",[self,"StartAsync",P1])
 
 	Func StopAsync_1 P1
 		return dnRequest("call",[self,"StopAsync",P1])
 
-	Func StopAsync 
-		return dnRequest("call",[self,"StopAsync"])
-
-	Func StartAsync@ P1
-		return dnRequest("callnamed",[self,"StartAsync",P1])
-
-	Func StopAsync@ P1
-		return dnRequest("callnamed",[self,"StopAsync",P1])
+	Func StopAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StopAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"StopAsync"])
+		ok
+		return dnRequest("call",[self,"StopAsync",P1])
 
 	Func getServerFeatures
 		return dnRequest("get",[self,"ServerFeatures"])

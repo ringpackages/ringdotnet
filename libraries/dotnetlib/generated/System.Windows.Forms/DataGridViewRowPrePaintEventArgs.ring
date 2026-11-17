@@ -45,10 +45,6 @@ Class DataGridViewRowPrePaintEventArgs from HandledEventArgs
 		dnRequest("call",[self,"PaintHeader",P1])
 		return self
 
-	Func PaintHeader@ P1
-		dnRequest("callnamed",[self,"PaintHeader",P1])
-		return self
-
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])
 

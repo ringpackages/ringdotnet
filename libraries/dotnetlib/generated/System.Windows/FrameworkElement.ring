@@ -94,6 +94,10 @@ Class FrameworkElement from UIElement
 		return self
 
 	Func BeginStoryboard P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"BeginStoryboard",P1])
+			return self
+		ok
 		dnRequest("call",[self,"BeginStoryboard",P1])
 		return self
 
@@ -127,8 +131,16 @@ Class FrameworkElement from UIElement
 	Func SetBinding P1,P2
 		return dnRequest("call",[self,"SetBinding",P1,P2])
 
-	Func BringIntoView 
-		dnRequest("call",[self,"BringIntoView"])
+	Func BringIntoView P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"BringIntoView",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"BringIntoView"])
+		return self
+		ok
+		dnRequest("call",[self,"BringIntoView",P1])
 		return self
 
 	Func BringIntoView_1 P1
@@ -163,17 +175,6 @@ Class FrameworkElement from UIElement
 
 	Func SetFlowDirection_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.FrameworkElement, PresentationFramework'),"SetFlowDirection",P1,P2])
-		return self
-
-	Func BeginStoryboard@ P1
-		dnRequest("callnamed",[self,"BeginStoryboard",P1])
-		return self
-
-	Func SetBinding@ P1
-		return dnRequest("callnamed",[self,"SetBinding",P1])
-
-	Func BringIntoView@ P1
-		dnRequest("callnamed",[self,"BringIntoView",P1])
 		return self
 
 	Func setTargetUpdatedEvent P1

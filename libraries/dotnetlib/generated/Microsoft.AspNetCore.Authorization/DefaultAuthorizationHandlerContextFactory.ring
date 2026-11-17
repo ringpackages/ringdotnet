@@ -17,3 +17,6 @@ Class DefaultAuthorizationHandlerContextFactory from Object
 	Func CreateContext P1,P2,P3
 		return dnRequest("call",[self,"CreateContext",P1,P2,P3])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

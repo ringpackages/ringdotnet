@@ -38,6 +38,9 @@ Class PublicKey from Object
 	Func GetECDiffieHellmanPublicKey 
 		return dnRequest("call",[self,"GetECDiffieHellmanPublicKey"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEncodedKeyValue
 		return dnRequest("get",[self,"EncodedKeyValue"])
 

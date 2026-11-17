@@ -13,6 +13,9 @@ Class BitOperations from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsPow2 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"IsPow2",P1])
 
@@ -39,31 +42,4 @@ Class BitOperations from Object
 
 	Func Crc32C P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"Crc32C",P1,P2])
-
-	Func IsPow2@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"IsPow2",P1])
-
-	Func RoundUpToPowerOf2@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"RoundUpToPowerOf2",P1])
-
-	Func LeadingZeroCount@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"LeadingZeroCount",P1])
-
-	Func Log2@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"Log2",P1])
-
-	Func PopCount@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"PopCount",P1])
-
-	Func TrailingZeroCount@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"TrailingZeroCount",P1])
-
-	Func RotateLeft@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"RotateLeft",P1])
-
-	Func RotateRight@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"RotateRight",P1])
-
-	Func Crc32C@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BitOperations, System.Private.CoreLib'),"Crc32C",P1])
 

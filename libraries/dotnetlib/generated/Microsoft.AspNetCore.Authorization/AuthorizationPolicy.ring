@@ -17,6 +17,9 @@ Class AuthorizationPolicy from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Combine P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
 
@@ -25,12 +28,6 @@ Class AuthorizationPolicy from Object
 
 	Func CombineAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2,P3])
-
-	Func Combine@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
-
-	Func CombineAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1])
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])

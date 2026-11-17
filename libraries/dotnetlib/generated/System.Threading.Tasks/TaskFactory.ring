@@ -32,6 +32,9 @@ Class TaskFactory from Object
 		return self
 
 	Func StartNew P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartNew",P1])
+		ok
 		return dnRequest("call",[self,"StartNew",P1])
 
 	Func StartNew_2 P1,P2
@@ -82,17 +85,8 @@ Class TaskFactory from Object
 	Func ContinueWhenAny_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"ContinueWhenAny",P1,P2,P3,P4,P5])
 
-	Func StartNew@ P1
-		return dnRequest("callnamed",[self,"StartNew",P1])
-
-	Func FromAsync@ P1
-		return dnRequest("callnamed",[self,"FromAsync",P1])
-
-	Func ContinueWhenAll@ P1
-		return dnRequest("callnamed",[self,"ContinueWhenAll",P1])
-
-	Func ContinueWhenAny@ P1
-		return dnRequest("callnamed",[self,"ContinueWhenAny",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCancellationToken
 		return dnRequest("get",[self,"CancellationToken"])

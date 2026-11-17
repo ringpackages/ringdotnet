@@ -18,6 +18,10 @@ Class TabPageCollection from Object
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -76,13 +80,8 @@ Class TabPageCollection from Object
 		dnRequest("call",[self,"RemoveByKey",P1])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func Insert@ P1
-		dnRequest("callnamed",[self,"Insert",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -24,6 +24,9 @@ Class WmfPlaceableFileHeader from Object
 		nHandle = dnCreate('System.Drawing.Imaging.WmfPlaceableFileHeader, System.Drawing.Common',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getKey
 		return dnRequest("get",[self,"Key"])
 

@@ -22,6 +22,9 @@ Class EndpointBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFilterFactories
 		return dnRequest("get",[self,"FilterFactories"])
 

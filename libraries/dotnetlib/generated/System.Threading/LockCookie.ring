@@ -14,6 +14,3 @@ Class LockCookie from ValueType
 		nHandle = dnCreate('System.Threading.LockCookie, System.Threading',[])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-

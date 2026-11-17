@@ -21,25 +21,40 @@ Class StringInfo from Object
 		nHandle = dnCreate('System.Globalization.StringInfo, System.Private.CoreLib',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SubstringByTextElements P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SubstringByTextElements",P1])
+		ok
 		return dnRequest("call",[self,"SubstringByTextElements",P1])
 
 	Func SubstringByTextElements_2 P1,P2
 		return dnRequest("call",[self,"SubstringByTextElements",P1,P2])
 
 	Func GetNextTextElement P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
 
 	Func GetNextTextElement_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1,P2])
 
 	Func GetNextTextElementLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
 
 	Func GetNextTextElementLength_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1,P2])
 
 	Func GetTextElementEnumerator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
 
 	Func GetTextElementEnumerator_2 P1,P2
@@ -47,18 +62,6 @@ Class StringInfo from Object
 
 	Func ParseCombiningCharacters P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"ParseCombiningCharacters",P1])
-
-	Func SubstringByTextElements@ P1
-		return dnRequest("callnamed",[self,"SubstringByTextElements",P1])
-
-	Func GetNextTextElement@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
-
-	Func GetNextTextElementLength@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
-
-	Func GetTextElementEnumerator@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
 
 	Func getString
 		return dnRequest("get",[self,"String"])

@@ -29,6 +29,9 @@ Class Selector from ItemsControl
 		ok
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+
 	Func AddSelectedHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.Primitives.Selector, PresentationFramework'),"AddSelectedHandler",P1,P2])
 		return self

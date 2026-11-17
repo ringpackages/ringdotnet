@@ -13,12 +13,12 @@ Class UseMiddlewareExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func UseMiddleware P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseMiddleware",P1,P2])
 
 	Func UseMiddleware_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseMiddleware",P1,P2,P3])
-
-	Func UseMiddleware@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.UseMiddlewareExtensions, Microsoft.AspNetCore.Http.Abstractions'),"UseMiddleware",P1])
 

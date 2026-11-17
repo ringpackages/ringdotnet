@@ -19,9 +19,9 @@ ok
 
 oTable = new DataTable()
 oTable.TableName = "Contacts"
-oTable.Columns.Add@([ :columnName = "Name", :type = "System.String" ])
-oTable.Columns.Add@([ :columnName = "Phone", :type = "System.String" ])
-oTable.Columns.Add@([ :columnName = "City", :type = "System.String" ])
+oTable.Columns.Add([ :columnName = "Name", :type = "System.String" ])
+oTable.Columns.Add([ :columnName = "Phone", :type = "System.String" ])
+oTable.Columns.Add([ :columnName = "City", :type = "System.String" ])
 
 oForm = uiForm("Address book",600,420)
 uiLabel(oForm,"Search",10,14,50,22)

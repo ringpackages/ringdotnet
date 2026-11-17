@@ -23,6 +23,9 @@ Class Http2Limits from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http2Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMaxStreamsPerConnection
 		return dnRequest("get",[self,"MaxStreamsPerConnection"])
 

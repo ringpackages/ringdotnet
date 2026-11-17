@@ -16,6 +16,9 @@ Class DataGridCellsPresenter from ItemsControl
 		nHandle = dnCreate('System.Windows.Controls.Primitives.DataGridCellsPresenter, PresentationFramework',[])
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+
 	Func getItem
 		return dnRequest("get",[self,"Item"])
 

@@ -25,6 +25,9 @@ Class HeaderedItemsControl from ItemsControl
 		nHandle = dnCreate('System.Windows.Controls.HeaderedItemsControl, PresentationFramework',[])
 		return self
 
+	Func ContainerFromElement P1
+		return dnRequest("call",[self,"ContainerFromElement",P1])
+
 	Func getHeader
 		return dnRequest("get",[self,"Header"])
 

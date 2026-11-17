@@ -26,6 +26,9 @@ Class DragDrop from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddPreviewQueryContinueDragHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.DragDrop, PresentationCore'),"AddPreviewQueryContinueDragHandler",P1,P2])
 		return self

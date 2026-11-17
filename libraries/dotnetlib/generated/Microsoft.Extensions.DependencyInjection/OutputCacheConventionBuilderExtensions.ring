@@ -13,7 +13,13 @@ Class OutputCacheConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CacheOutput P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
 
 	Func CacheOutput_2 P1,P2
@@ -21,7 +27,4 @@ Class OutputCacheConventionBuilderExtensions from Object
 
 	Func CacheOutput_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1,P2,P3])
-
-	Func CacheOutput@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
 

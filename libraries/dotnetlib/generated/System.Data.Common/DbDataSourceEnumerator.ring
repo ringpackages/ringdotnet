@@ -16,3 +16,6 @@ Class DbDataSourceEnumerator from Object
 	Func GetDataSources 
 		return dnRequest("call",[self,"GetDataSources"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

@@ -13,6 +13,9 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapConnections P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnections",P1,P2,P3])
 
@@ -24,10 +27,4 @@ Class ConnectionEndpointRouteBuilderExtensions from Object
 
 	Func MapConnections_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnections",P1,P2,P3,P4])
-
-	Func MapConnections@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnections",P1])
-
-	Func MapConnectionHandler@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ConnectionEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Http.Connections'),"MapConnectionHandler",P1])
 

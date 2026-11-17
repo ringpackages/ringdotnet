@@ -31,10 +31,19 @@ Class ModelBuilder from Object
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func Entity 
-		return dnRequest("call",[self,"Entity"])
+	Func Entity P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Entity",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Entity"])
+		ok
+		return dnRequest("call",[self,"Entity",P1])
 
 	Func SharedTypeEntity P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
+		ok
 		return dnRequest("call",[self,"SharedTypeEntity",P1])
 
 	Func Entity_1 P1
@@ -49,8 +58,14 @@ Class ModelBuilder from Object
 	Func SharedTypeEntity_3 P1,P2,P3
 		return dnRequest("call",[self,"SharedTypeEntity",P1,P2,P3])
 
-	Func Ignore 
-		return dnRequest("call",[self,"Ignore"])
+	Func Ignore P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Ignore",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Ignore"])
+		ok
+		return dnRequest("call",[self,"Ignore",P1])
 
 	Func Ignore_1 P1
 		return dnRequest("call",[self,"Ignore",P1])
@@ -62,10 +77,19 @@ Class ModelBuilder from Object
 		return dnRequest("call",[self,"ApplyConfigurationsFromAssembly",P1,P2])
 
 	Func ApplyConfigurationsFromAssembly P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ApplyConfigurationsFromAssembly",P1])
+		ok
 		return dnRequest("call",[self,"ApplyConfigurationsFromAssembly",P1])
 
-	Func Owned 
-		return dnRequest("call",[self,"Owned"])
+	Func Owned P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Owned",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Owned"])
+		ok
+		return dnRequest("call",[self,"Owned",P1])
 
 	Func Owned_1 P1
 		return dnRequest("call",[self,"Owned",P1])
@@ -82,20 +106,8 @@ Class ModelBuilder from Object
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
-	Func Entity@ P1
-		return dnRequest("callnamed",[self,"Entity",P1])
-
-	Func SharedTypeEntity@ P1
-		return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
-
-	Func Ignore@ P1
-		return dnRequest("callnamed",[self,"Ignore",P1])
-
-	Func ApplyConfigurationsFromAssembly@ P1
-		return dnRequest("callnamed",[self,"ApplyConfigurationsFromAssembly",P1])
-
-	Func Owned@ P1
-		return dnRequest("callnamed",[self,"Owned",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])

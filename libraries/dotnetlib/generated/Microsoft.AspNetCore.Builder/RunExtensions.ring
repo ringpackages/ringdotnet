@@ -13,6 +13,9 @@ Class RunExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Run P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RunExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Run",P1,P2])
 		return self

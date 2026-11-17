@@ -62,6 +62,10 @@ Class InkCanvas from FrameworkElement
 		return dnRequest("call",[self,"GetSelectedStrokes"])
 
 	Func Select P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Select",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Select",P1])
 		return self
 
@@ -80,8 +84,16 @@ Class InkCanvas from FrameworkElement
 		dnRequest("call",[self,"CutSelection"])
 		return self
 
-	Func Paste 
-		dnRequest("call",[self,"Paste"])
+	Func Paste P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Paste",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Paste"])
+		return self
+		ok
+		dnRequest("call",[self,"Paste",P1])
 		return self
 
 	Func Paste_1 P1
@@ -117,14 +129,6 @@ Class InkCanvas from FrameworkElement
 
 	Func SetRight P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.InkCanvas, PresentationFramework'),"SetRight",P1,P2])
-		return self
-
-	Func Select@ P1
-		dnRequest("callnamed",[self,"Select",P1])
-		return self
-
-	Func Paste@ P1
-		dnRequest("callnamed",[self,"Paste",P1])
 		return self
 
 	Func setStrokeCollectedEvent P1

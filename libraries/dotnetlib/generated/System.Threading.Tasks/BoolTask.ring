@@ -28,9 +28,6 @@ Class BoolTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
-	Func GetAwaiter@ P1
-		return dnRequest("callnamed",[self,"GetAwaiter",P1])
-
 	Func getResult
 		return dnRequest("get",[self,"Result"])
 

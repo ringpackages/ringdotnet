@@ -40,12 +40,18 @@ Class XmlNode from Object
 		return dnRequest("call",[self,"CreateNavigator"])
 
 	Func SelectSingleNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SelectSingleNode",P1])
+		ok
 		return dnRequest("call",[self,"SelectSingleNode",P1])
 
 	Func SelectSingleNode_2 P1,P2
 		return dnRequest("call",[self,"SelectSingleNode",P1,P2])
 
 	Func SelectNodes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SelectNodes",P1])
+		ok
 		return dnRequest("call",[self,"SelectNodes",P1])
 
 	Func SelectNodes_2 P1,P2
@@ -103,11 +109,8 @@ Class XmlNode from Object
 	Func GetPrefixOfNamespace P1
 		return dnRequest("call",[self,"GetPrefixOfNamespace",P1])
 
-	Func SelectSingleNode@ P1
-		return dnRequest("callnamed",[self,"SelectSingleNode",P1])
-
-	Func SelectNodes@ P1
-		return dnRequest("callnamed",[self,"SelectNodes",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -17,8 +17,14 @@ Class ValueTuple from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
@@ -43,10 +49,4 @@ Class ValueTuple from ValueType
 
 	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
 

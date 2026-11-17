@@ -38,6 +38,9 @@ Class TextPointer from ContentPosition
 		return dnRequest("call",[self,"GetOffsetToPosition",P1])
 
 	Func GetTextInRun P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetTextInRun",P1])
+		ok
 		return dnRequest("call",[self,"GetTextInRun",P1])
 
 	Func GetTextInRun_4 P1,P2,P3,P4
@@ -47,6 +50,9 @@ Class TextPointer from ContentPosition
 		return dnRequest("call",[self,"GetAdjacentElement",P1])
 
 	Func GetPositionAtOffset P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetPositionAtOffset",P1])
+		ok
 		return dnRequest("call",[self,"GetPositionAtOffset",P1])
 
 	Func GetPositionAtOffset_2 P1,P2
@@ -79,15 +85,6 @@ Class TextPointer from ContentPosition
 
 	Func InsertLineBreak 
 		return dnRequest("call",[self,"InsertLineBreak"])
-
-	Func GetTextInRun@ P1
-		return dnRequest("callnamed",[self,"GetTextInRun",P1])
-
-	Func GetPositionAtOffset@ P1
-		return dnRequest("callnamed",[self,"GetPositionAtOffset",P1])
-
-	Func GetLineStartPosition@ P1
-		return dnRequest("callnamed",[self,"GetLineStartPosition",P1])
 
 	Func getHasValidLayout
 		return dnRequest("get",[self,"HasValidLayout"])

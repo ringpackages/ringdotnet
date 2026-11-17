@@ -26,6 +26,9 @@ Class GridItem from Object
 	Func Select 
 		return dnRequest("call",[self,"Select"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTag
 		return dnRequest("get",[self,"Tag"])
 

@@ -28,10 +28,24 @@ Class WpfApplication from DispatcherObject
 		return dnRequest("call",[self,"Run"])
 
 	Func Run P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Run",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Run"])
+		ok
 		return dnRequest("call",[self,"Run",P1])
 
-	Func Shutdown 
-		dnRequest("call",[self,"Shutdown"])
+	Func Shutdown P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Shutdown",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Shutdown"])
+		return self
+		ok
+		dnRequest("call",[self,"Shutdown",P1])
 		return self
 
 	Func Shutdown_1 P1
@@ -49,6 +63,9 @@ Class WpfApplication from DispatcherObject
 		return self
 
 	Func LoadComponent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1])
 
 	Func GetResourceStream P1
@@ -66,16 +83,6 @@ Class WpfApplication from DispatcherObject
 	Func SetCookie P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Application, PresentationFramework'),"SetCookie",P1,P2])
 		return self
-
-	Func Run@ P1
-		return dnRequest("callnamed",[self,"Run",P1])
-
-	Func Shutdown@ P1
-		dnRequest("callnamed",[self,"Shutdown",P1])
-		return self
-
-	Func LoadComponent@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1])
 
 	Func setStartupEvent P1
 		dnRequest("setevent",[self,"Startup",dnCallback(P1)])

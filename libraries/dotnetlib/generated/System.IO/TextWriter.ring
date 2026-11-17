@@ -34,6 +34,10 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Write",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Write",P1])
 		return self
 
@@ -54,6 +58,14 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func WriteLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteLine",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"WriteLine"])
+		return self
+		ok
 		dnRequest("call",[self,"WriteLine",P1])
 		return self
 
@@ -70,6 +82,9 @@ Class TextWriter from MarshalByRefObject
 		return self
 
 	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WriteAsync",P1])
+		ok
 		return dnRequest("call",[self,"WriteAsync",P1])
 
 	Func WriteAsync_2 P1,P2
@@ -79,6 +94,12 @@ Class TextWriter from MarshalByRefObject
 		return dnRequest("call",[self,"WriteAsync",P1,P2,P3])
 
 	Func WriteLineAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WriteLineAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WriteLineAsync"])
+		ok
 		return dnRequest("call",[self,"WriteLineAsync",P1])
 
 	Func WriteLineAsync_2 P1,P2
@@ -90,8 +111,14 @@ Class TextWriter from MarshalByRefObject
 	Func WriteLineAsync_0 
 		return dnRequest("call",[self,"WriteLineAsync"])
 
-	Func FlushAsync 
-		return dnRequest("call",[self,"FlushAsync"])
+	Func FlushAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FlushAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"FlushAsync"])
+		ok
+		return dnRequest("call",[self,"FlushAsync",P1])
 
 	Func FlushAsync_1 P1
 		return dnRequest("call",[self,"FlushAsync",P1])
@@ -101,23 +128,6 @@ Class TextWriter from MarshalByRefObject
 
 	Func CreateBroadcasting P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"CreateBroadcasting",P1])
-
-	Func Write@ P1
-		dnRequest("callnamed",[self,"Write",P1])
-		return self
-
-	Func WriteLine@ P1
-		dnRequest("callnamed",[self,"WriteLine",P1])
-		return self
-
-	Func WriteAsync@ P1
-		return dnRequest("callnamed",[self,"WriteAsync",P1])
-
-	Func WriteLineAsync@ P1
-		return dnRequest("callnamed",[self,"WriteLineAsync",P1])
-
-	Func FlushAsync@ P1
-		return dnRequest("callnamed",[self,"FlushAsync",P1])
 
 	Func getFormatProvider
 		return dnRequest("get",[self,"FormatProvider"])

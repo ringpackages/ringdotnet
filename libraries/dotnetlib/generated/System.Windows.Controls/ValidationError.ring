@@ -23,6 +23,9 @@ Class ValidationError from Object
 		nHandle = dnCreate('System.Windows.Controls.ValidationError, PresentationFramework',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRuleInError
 		return dnRequest("get",[self,"RuleInError"])
 

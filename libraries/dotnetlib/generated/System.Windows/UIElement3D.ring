@@ -203,10 +203,6 @@ Class UIElement3D from Visual3D
 		dnRequest("call",[self,"ReleaseAllTouchCaptures"])
 		return self
 
-	Func AddHandler@ P1
-		dnRequest("callnamed",[self,"AddHandler",P1])
-		return self
-
 	Func setPreviewMouseDownEvent P1
 		dnRequest("setevent",[self,"PreviewMouseDown",dnCallback(P1)])
 		return self

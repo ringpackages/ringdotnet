@@ -38,6 +38,9 @@ Class Application from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetColorMode P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetColorMode",P1])
 		return self
@@ -65,8 +68,16 @@ Class Application from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"EnableVisualStyles"])
 		return self
 
-	Func Exit_ 
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit"])
+	Func Exit_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit"])
+		return self
+		ok
+		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
 		return self
 
 	Func Exit_1 P1
@@ -101,6 +112,14 @@ Class Application from Object
 		return self
 
 	Func Run P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run"])
+		return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run",P1])
 		return self
 
@@ -119,23 +138,15 @@ Class Application from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetSuspendState",P1,P2,P3])
 
 	Func SetUnhandledExceptionMode P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1])
 		return self
 
 	Func SetUnhandledExceptionMode_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1,P2])
-		return self
-
-	Func Exit@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
-		return self
-
-	Func Run@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run",P1])
-		return self
-
-	Func SetUnhandledExceptionMode@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1])
 		return self
 
 	Func setApplicationExitEvent P1

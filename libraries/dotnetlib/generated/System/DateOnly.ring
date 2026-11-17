@@ -40,6 +40,9 @@ Class DateOnly from ValueType
 		return dnRequest("call",[self,"Deconstruct"])
 
 	Func ToDateTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToDateTime",P1])
+		ok
 		return dnRequest("call",[self,"ToDateTime",P1])
 
 	Func ToDateTime_2 P1,P2
@@ -67,6 +70,9 @@ Class DateOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"FromDateTime",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_3 P1,P2,P3
@@ -85,6 +91,9 @@ Class DateOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -98,30 +107,6 @@ Class DateOnly from ValueType
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func ToDateTime@ P1
-		return dnRequest("callnamed",[self,"ToDateTime",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
-
-	Func ParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1])
 
 	Func getYear
 		return dnRequest("get",[self,"Year"])

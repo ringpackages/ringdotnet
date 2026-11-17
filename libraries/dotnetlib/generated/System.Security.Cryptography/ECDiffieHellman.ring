@@ -36,20 +36,17 @@ Class ECDiffieHellman from ECAlgorithm
 	Func DeriveRawSecretAgreement P1
 		return dnRequest("call",[self,"DeriveRawSecretAgreement",P1])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
-
-	Func DeriveKeyFromHash@ P1
-		return dnRequest("callnamed",[self,"DeriveKeyFromHash",P1])
-
-	Func DeriveKeyFromHmac@ P1
-		return dnRequest("callnamed",[self,"DeriveKeyFromHmac",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
 	Func getPublicKey
 		return dnRequest("get",[self,"PublicKey"])

@@ -39,6 +39,9 @@ Class SaveChangesInterceptor from Object
 		return dnRequest("call",[self,"SaveChangesFailedAsync",P1,P2])
 
 	Func SaveChangesFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveChangesFailedAsync",P1])
+		ok
 		return dnRequest("call",[self,"SaveChangesFailedAsync",P1])
 
 	Func SaveChangesCanceled P1
@@ -49,6 +52,9 @@ Class SaveChangesInterceptor from Object
 		return dnRequest("call",[self,"SaveChangesCanceledAsync",P1,P2])
 
 	Func SaveChangesCanceledAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SaveChangesCanceledAsync",P1])
+		ok
 		return dnRequest("call",[self,"SaveChangesCanceledAsync",P1])
 
 	Func ThrowingConcurrencyException P1,P2
@@ -60,18 +66,6 @@ Class SaveChangesInterceptor from Object
 	Func ThrowingConcurrencyExceptionAsync P1,P2
 		return dnRequest("call",[self,"ThrowingConcurrencyExceptionAsync",P1,P2])
 
-	Func SavingChangesAsync@ P1
-		return dnRequest("callnamed",[self,"SavingChangesAsync",P1])
-
-	Func SavedChangesAsync@ P1
-		return dnRequest("callnamed",[self,"SavedChangesAsync",P1])
-
-	Func SaveChangesFailedAsync@ P1
-		return dnRequest("callnamed",[self,"SaveChangesFailedAsync",P1])
-
-	Func SaveChangesCanceledAsync@ P1
-		return dnRequest("callnamed",[self,"SaveChangesCanceledAsync",P1])
-
-	Func ThrowingConcurrencyExceptionAsync@ P1
-		return dnRequest("callnamed",[self,"ThrowingConcurrencyExceptionAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

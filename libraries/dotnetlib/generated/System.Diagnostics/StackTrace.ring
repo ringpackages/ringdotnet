@@ -35,6 +35,9 @@ Class StackTrace from Object
 	Func GetFrames 
 		return dnRequest("call",[self,"GetFrames"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFrameCount
 		return dnRequest("get",[self,"FrameCount"])
 

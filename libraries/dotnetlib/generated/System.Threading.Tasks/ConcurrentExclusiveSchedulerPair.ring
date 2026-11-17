@@ -34,6 +34,9 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		dnRequest("call",[self,"Complete"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCompletion
 		return dnRequest("get",[self,"Completion"])
 

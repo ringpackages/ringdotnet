@@ -29,14 +29,17 @@ Class BindingInfo from Object
 	Func TryApplyBindingInfo P1
 		return dnRequest("call",[self,"TryApplyBindingInfo",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetBindingInfo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
 
 	Func GetBindingInfo_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1,P2])
-
-	Func GetBindingInfo@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
 
 	Func getBindingSource
 		return dnRequest("get",[self,"BindingSource"])

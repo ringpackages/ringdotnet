@@ -48,10 +48,6 @@ Class WriteableBitmap from BitmapSource
 		dnRequest("call",[self,"WritePixels",P1,P2,P3,P4])
 		return self
 
-	Func WritePixels@ P1
-		dnRequest("callnamed",[self,"WritePixels",P1])
-		return self
-
 	Func getBackBuffer
 		return dnRequest("get",[self,"BackBuffer"])
 

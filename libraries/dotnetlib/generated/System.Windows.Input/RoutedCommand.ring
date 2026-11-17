@@ -33,6 +33,9 @@ Class RoutedCommand from Object
 	Func CanExecute P1,P2
 		return dnRequest("call",[self,"CanExecute",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setCanExecuteChangedEvent P1
 		dnRequest("setevent",[self,"CanExecuteChanged",dnCallback(P1)])
 		return self

@@ -68,8 +68,14 @@ Class Process from Component
 	Func CloseMainWindow 
 		return dnRequest("call",[self,"CloseMainWindow"])
 
-	Func WaitForInputIdle 
-		return dnRequest("call",[self,"WaitForInputIdle"])
+	Func WaitForInputIdle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitForInputIdle",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WaitForInputIdle"])
+		ok
+		return dnRequest("call",[self,"WaitForInputIdle",P1])
 
 	Func WaitForInputIdle_1 P1
 		return dnRequest("call",[self,"WaitForInputIdle",P1])
@@ -82,12 +88,27 @@ Class Process from Component
 		dnRequest("call",[self,"Refresh"])
 		return self
 
-	Func Start 
-		return dnRequest("call",[self,"Start"])
+	Func Start P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
+			ok
+			return dnRequest("callnamed",[self,"Start",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Start"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
 
-	Func WaitForExit 
-		dnRequest("call",[self,"WaitForExit"])
+	Func WaitForExit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitForExit",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"WaitForExit"])
 		return self
+		ok
+		return dnRequest("call",[self,"WaitForExit",P1])
 
 	Func WaitForExit_1 P1
 		return dnRequest("call",[self,"WaitForExit",P1])
@@ -95,8 +116,14 @@ Class Process from Component
 	Func WaitForExitAsync_1 P1
 		return dnRequest("call",[self,"WaitForExitAsync",P1])
 
-	Func WaitForExitAsync 
-		return dnRequest("call",[self,"WaitForExitAsync"])
+	Func WaitForExitAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitForExitAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WaitForExitAsync"])
+		ok
+		return dnRequest("call",[self,"WaitForExitAsync",P1])
 
 	Func BeginOutputReadLine 
 		dnRequest("call",[self,"BeginOutputReadLine"])
@@ -114,8 +141,16 @@ Class Process from Component
 		dnRequest("call",[self,"CancelErrorRead"])
 		return self
 
-	Func Kill 
-		dnRequest("call",[self,"Kill"])
+	Func Kill P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Kill",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Kill"])
+		return self
+		ok
+		dnRequest("call",[self,"Kill",P1])
 		return self
 
 	Func Kill_1 P1
@@ -126,13 +161,25 @@ Class Process from Component
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1,P2])
 
 	Func GetProcessById P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1])
 
 	Func GetProcessesByName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessesByName",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessesByName",P1])
 
-	Func GetProcesses 
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses"])
+	Func GetProcesses P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
 
 	Func GetProcesses_1 P1
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
@@ -162,34 +209,6 @@ Class Process from Component
 	Func LeaveDebugMode 
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"LeaveDebugMode"])
 		return self
-
-	Func WaitForInputIdle@ P1
-		return dnRequest("callnamed",[self,"WaitForInputIdle",P1])
-
-	Func Start@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
-		ok
-		return dnRequest("callnamed",[self,"Start",P1])
-
-	Func WaitForExit@ P1
-		return dnRequest("callnamed",[self,"WaitForExit",P1])
-
-	Func WaitForExitAsync@ P1
-		return dnRequest("callnamed",[self,"WaitForExitAsync",P1])
-
-	Func Kill@ P1
-		dnRequest("callnamed",[self,"Kill",P1])
-		return self
-
-	Func GetProcessById@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1])
-
-	Func GetProcessesByName@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessesByName",P1])
-
-	Func GetProcesses@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
 
 	Func setOutputDataReceivedEvent P1
 		dnRequest("setevent",[self,"OutputDataReceived",dnCallback(P1)])

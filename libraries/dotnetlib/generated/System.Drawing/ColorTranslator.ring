@@ -13,6 +13,9 @@ Class ColorTranslator from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToWin32 P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.ColorTranslator, System.Drawing.Primitives'),"ToWin32",P1])
 

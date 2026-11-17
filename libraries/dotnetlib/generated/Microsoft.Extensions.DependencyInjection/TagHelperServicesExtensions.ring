@@ -13,12 +13,12 @@ Class TagHelperServicesExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddCacheTagHelper P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelper",P1])
 
 	Func AddCacheTagHelperLimits P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelperLimits",P1,P2])
-
-	Func AddCacheTagHelperLimits@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.TagHelperServicesExtensions, Microsoft.AspNetCore.Mvc.TagHelpers'),"AddCacheTagHelperLimits",P1])
 

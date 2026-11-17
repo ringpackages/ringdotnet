@@ -25,6 +25,9 @@ Class RouteBase from Object
 	Func GetVirtualPath P1
 		return dnRequest("call",[self,"GetVirtualPath",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getConstraints
 		return dnRequest("get",[self,"Constraints"])
 

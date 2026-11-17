@@ -24,18 +24,27 @@ Class OwnedNavigationBuilder from Object
 		return dnRequest("call",[self,"HasKey",P1])
 
 	Func Property P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Property",P1])
+		ok
 		return dnRequest("call",[self,"Property",P1])
 
 	Func Property_2 P1,P2
 		return dnRequest("call",[self,"Property",P1,P2])
 
 	Func PrimitiveCollection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+		ok
 		return dnRequest("call",[self,"PrimitiveCollection",P1])
 
 	Func PrimitiveCollection_2 P1,P2
 		return dnRequest("call",[self,"PrimitiveCollection",P1,P2])
 
 	Func IndexerProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexerProperty",P1])
+		ok
 		return dnRequest("call",[self,"IndexerProperty",P1])
 
 	Func IndexerProperty_2 P1,P2
@@ -48,6 +57,9 @@ Class OwnedNavigationBuilder from Object
 		return dnRequest("call",[self,"Ignore",P1])
 
 	Func HasIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasIndex",P1])
+		ok
 		return dnRequest("call",[self,"HasIndex",P1])
 
 	Func HasIndex_2 P1,P2
@@ -56,8 +68,14 @@ Class OwnedNavigationBuilder from Object
 	Func WithOwner_1 P1
 		return dnRequest("call",[self,"WithOwner",P1])
 
-	Func WithOwner 
-		return dnRequest("call",[self,"WithOwner"])
+	Func WithOwner P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WithOwner",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WithOwner"])
+		ok
+		return dnRequest("call",[self,"WithOwner",P1])
 
 	Func OwnsOne P1,P2
 		return dnRequest("call",[self,"OwnsOne",P1,P2])
@@ -81,6 +99,9 @@ Class OwnedNavigationBuilder from Object
 		return dnRequest("call",[self,"HasOne",P1,P2])
 
 	Func HasOne P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasOne",P1])
+		ok
 		return dnRequest("call",[self,"HasOne",P1])
 
 	Func HasChangeTrackingStrategy P1
@@ -92,32 +113,8 @@ Class OwnedNavigationBuilder from Object
 	Func HasData P1
 		return dnRequest("call",[self,"HasData",P1])
 
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
-
-	Func PrimitiveCollection@ P1
-		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
-
-	Func IndexerProperty@ P1
-		return dnRequest("callnamed",[self,"IndexerProperty",P1])
-
-	Func HasIndex@ P1
-		return dnRequest("callnamed",[self,"HasIndex",P1])
-
-	Func WithOwner@ P1
-		return dnRequest("callnamed",[self,"WithOwner",P1])
-
-	Func OwnsOne@ P1
-		return dnRequest("callnamed",[self,"OwnsOne",P1])
-
-	Func OwnsMany@ P1
-		return dnRequest("callnamed",[self,"OwnsMany",P1])
-
-	Func HasOne@ P1
-		return dnRequest("callnamed",[self,"HasOne",P1])
-
-	Func HasData@ P1
-		return dnRequest("callnamed",[self,"HasData",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -21,14 +21,20 @@ Class FormMultipartSection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func GetValueAsync 
-		return dnRequest("call",[self,"GetValueAsync"])
+	Func GetValueAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetValueAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetValueAsync"])
+		ok
+		return dnRequest("call",[self,"GetValueAsync",P1])
 
 	Func GetValueAsync_1 P1
 		return dnRequest("call",[self,"GetValueAsync",P1])
 
-	Func GetValueAsync@ P1
-		return dnRequest("callnamed",[self,"GetValueAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getSection
 		return dnRequest("get",[self,"Section"])

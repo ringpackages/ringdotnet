@@ -21,6 +21,9 @@ Class LinkedResource from AttachmentBase
 		return self
 
 	Func CreateLinkedResourceFromString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
 
 	Func CreateLinkedResourceFromString_3 P1,P2,P3
@@ -28,9 +31,6 @@ Class LinkedResource from AttachmentBase
 
 	Func CreateLinkedResourceFromString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1,P2])
-
-	Func CreateLinkedResourceFromString@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
 
 	Func getContentLink
 		return dnRequest("get",[self,"ContentLink"])

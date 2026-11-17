@@ -96,22 +96,6 @@ Class IMutableProperty from DotNetObject
 		dnRequest("call",[self,"SetElementType",P1])
 		return self
 
-	Func SetValueGeneratorFactory@ P1
-		dnRequest("callnamed",[self,"SetValueGeneratorFactory",P1])
-		return self
-
-	Func SetValueConverter@ P1
-		dnRequest("callnamed",[self,"SetValueConverter",P1])
-		return self
-
-	Func SetValueComparer@ P1
-		dnRequest("callnamed",[self,"SetValueComparer",P1])
-		return self
-
-	Func SetProviderValueComparer@ P1
-		dnRequest("callnamed",[self,"SetProviderValueComparer",P1])
-		return self
-
 	Func getDeclaringEntityType
 		return dnRequest("get",[self,"DeclaringEntityType"])
 

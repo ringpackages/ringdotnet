@@ -17,3 +17,6 @@ Class UrlHelperFactory from Object
 	Func GetUrlHelper P1
 		return dnRequest("call",[self,"GetUrlHelper",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

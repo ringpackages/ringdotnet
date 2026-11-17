@@ -75,7 +75,22 @@ Class CompareInfo from Object
 		return dnRequest("call",[self,"GetSortKey",P1,P2])
 
 	Func GetSortKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetSortKey",P1])
+		ok
 		return dnRequest("call",[self,"GetSortKey",P1])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func GetHashCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHashCode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHashCode"])
+		ok
+		raise("DotNet Error: GetHashCode does not take one argument: use GetHashCode(NULL), GetHashCode_N(...) or named arguments")
 
 	Func GetHashCode_2 P1,P2
 		return dnRequest("call",[self,"GetHashCode",P1,P2])
@@ -84,37 +99,13 @@ Class CompareInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1,P2])
 
 	Func GetCompareInfo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
 
 	Func IsSortable P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
-
-	Func Compare@ P1
-		return dnRequest("callnamed",[self,"Compare",P1])
-
-	Func IsPrefix@ P1
-		return dnRequest("callnamed",[self,"IsPrefix",P1])
-
-	Func IsSuffix@ P1
-		return dnRequest("callnamed",[self,"IsSuffix",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[self,"IndexOf",P1])
-
-	Func LastIndexOf@ P1
-		return dnRequest("callnamed",[self,"LastIndexOf",P1])
-
-	Func GetSortKey@ P1
-		return dnRequest("callnamed",[self,"GetSortKey",P1])
-
-	Func GetHashCode@ P1
-		return dnRequest("callnamed",[self,"GetHashCode",P1])
-
-	Func GetCompareInfo@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
-
-	Func IsSortable@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])

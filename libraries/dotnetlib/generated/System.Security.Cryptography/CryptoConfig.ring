@@ -16,6 +16,9 @@ Class CryptoConfig from Object
 		nHandle = dnCreate('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddAlgorithm P1,P2
 		dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"AddAlgorithm",P1,P2])
 		return self
@@ -24,6 +27,9 @@ Class CryptoConfig from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1,P2])
 
 	Func CreateFromName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1])
 
 	Func AddOID P1,P2
@@ -35,9 +41,6 @@ Class CryptoConfig from Object
 
 	Func EncodeOID P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"EncodeOID",P1])
-
-	Func CreateFromName@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1])
 
 	Func getAllowOnlyFipsAlgorithms
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"AllowOnlyFipsAlgorithms"])

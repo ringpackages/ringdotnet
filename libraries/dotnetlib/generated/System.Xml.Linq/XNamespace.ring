@@ -21,6 +21,9 @@ Class XNamespace from Object
 	Func GetName P1
 		return dnRequest("call",[self,"GetName",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Get_ P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNamespace, System.Private.Xml.Linq'),"Get",P1])
 

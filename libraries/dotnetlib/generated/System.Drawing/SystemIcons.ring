@@ -24,14 +24,17 @@ Class SystemIcons from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetStockIcon_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1,P2])
 
 	Func GetStockIcon P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1])
-
-	Func GetStockIcon@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1])
 
 	Func getApplication
 		return dnRequest("get",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"Application"])

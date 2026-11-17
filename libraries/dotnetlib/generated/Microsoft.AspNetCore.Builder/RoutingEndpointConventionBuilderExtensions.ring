@@ -13,6 +13,9 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RequireHost P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"RequireHost",P1,P2])
 
@@ -44,6 +47,9 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1,P2])
 
 	Func WithFormMappingOptions P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
 
 	Func WithFormOptions_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
@@ -77,14 +83,8 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1,P2])
 
 	Func WithFormOptions P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
-
-	Func WithDisplayName@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithDisplayName",P1])
-
-	Func WithFormMappingOptions@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
-
-	Func WithFormOptions@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
 

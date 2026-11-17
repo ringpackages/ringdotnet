@@ -16,6 +16,9 @@ Class PhysicalAddress from Object
 		nHandle = dnCreate('System.Net.NetworkInformation.PhysicalAddress, System.Net.NetworkInformation',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetAddressBytes 
 		return dnRequest("call",[self,"GetAddressBytes"])
 

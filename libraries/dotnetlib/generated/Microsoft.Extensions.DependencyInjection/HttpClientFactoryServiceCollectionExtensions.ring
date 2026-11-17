@@ -13,7 +13,13 @@ Class HttpClientFactoryServiceCollectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddHttpClient P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
 
 	Func ConfigureHttpClientDefaults P1,P2
@@ -24,7 +30,4 @@ Class HttpClientFactoryServiceCollectionExtensions from Object
 
 	Func AddHttpClient_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1,P2,P3])
-
-	Func AddHttpClient@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
 

@@ -25,6 +25,9 @@ Class SoapAttributes from Object
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSoapType
 		return dnRequest("get",[self,"SoapType"])
 

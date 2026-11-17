@@ -26,6 +26,9 @@ Class CreateParams from Object
 		nHandle = dnCreate('System.Windows.Forms.CreateParams, System.Windows.Forms',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getClassName
 		return dnRequest("get",[self,"ClassName"])
 

@@ -37,11 +37,11 @@ Class WpfDataFormats from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDataFormat P1
 		return dnRequest("call",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"GetDataFormat",P1])
-
-	Func GetDataFormat@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"GetDataFormat",P1])
 
 	Func getText
 		return dnRequest("get",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"Text"])

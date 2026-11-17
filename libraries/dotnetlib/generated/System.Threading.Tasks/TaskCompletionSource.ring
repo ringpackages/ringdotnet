@@ -38,16 +38,30 @@ Class TaskCompletionSource from Object
 	Func TrySetResult 
 		return dnRequest("call",[self,"TrySetResult"])
 
-	Func SetCanceled 
-		dnRequest("call",[self,"SetCanceled"])
+	Func SetCanceled P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetCanceled",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"SetCanceled"])
+		return self
+		ok
+		dnRequest("call",[self,"SetCanceled",P1])
 		return self
 
 	Func SetCanceled_1 P1
 		dnRequest("call",[self,"SetCanceled",P1])
 		return self
 
-	Func TrySetCanceled 
-		return dnRequest("call",[self,"TrySetCanceled"])
+	Func TrySetCanceled P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TrySetCanceled",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TrySetCanceled"])
+		ok
+		return dnRequest("call",[self,"TrySetCanceled",P1])
 
 	Func TrySetCanceled_1 P1
 		return dnRequest("call",[self,"TrySetCanceled",P1])
@@ -59,19 +73,8 @@ Class TaskCompletionSource from Object
 	Func TrySetFromTask P1
 		return dnRequest("call",[self,"TrySetFromTask",P1])
 
-	Func SetException@ P1
-		dnRequest("callnamed",[self,"SetException",P1])
-		return self
-
-	Func TrySetException@ P1
-		return dnRequest("callnamed",[self,"TrySetException",P1])
-
-	Func SetCanceled@ P1
-		dnRequest("callnamed",[self,"SetCanceled",P1])
-		return self
-
-	Func TrySetCanceled@ P1
-		return dnRequest("callnamed",[self,"TrySetCanceled",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getTask
 		return dnRequest("get",[self,"Task"])

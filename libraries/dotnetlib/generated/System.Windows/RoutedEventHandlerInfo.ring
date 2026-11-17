@@ -17,9 +17,6 @@ Class RoutedEventHandlerInfo from ValueType
 		nHandle = dnCreate('System.Windows.RoutedEventHandlerInfo, PresentationCore',[])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getHandler
 		return dnRequest("get",[self,"Handler"])
 

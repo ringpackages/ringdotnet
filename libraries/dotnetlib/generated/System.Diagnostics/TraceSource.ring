@@ -48,6 +48,10 @@ Class TraceSource from Object
 		return self
 
 	Func TraceInformation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"TraceInformation",P1])
+			return self
+		ok
 		dnRequest("call",[self,"TraceInformation",P1])
 		return self
 
@@ -59,17 +63,8 @@ Class TraceSource from Object
 		dnRequest("call",[self,"TraceTransfer",P1,P2,P3])
 		return self
 
-	Func TraceEvent@ P1
-		dnRequest("callnamed",[self,"TraceEvent",P1])
-		return self
-
-	Func TraceData@ P1
-		dnRequest("callnamed",[self,"TraceData",P1])
-		return self
-
-	Func TraceInformation@ P1
-		dnRequest("callnamed",[self,"TraceInformation",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setInitializingEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource'),"Initializing",dnCallback(P1)])

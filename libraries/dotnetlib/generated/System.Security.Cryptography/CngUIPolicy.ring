@@ -36,6 +36,9 @@ Class CngUIPolicy from Object
 		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1,P2,P3,P4,P5])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getProtectionLevel
 		return dnRequest("get",[self,"ProtectionLevel"])
 

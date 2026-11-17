@@ -21,6 +21,9 @@ Class EndpointDataSource from Object
 	Func GetGroupedEndpoints P1
 		return dnRequest("call",[self,"GetGroupedEndpoints",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEndpoints
 		return dnRequest("get",[self,"Endpoints"])
 

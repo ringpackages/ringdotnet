@@ -39,7 +39,13 @@ Class X509Certificate from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Export P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Export",P1])
+		ok
 		return dnRequest("call",[self,"Export",P1])
 
 	Func Export_2 P1,P2
@@ -48,14 +54,26 @@ Class X509Certificate from Object
 	Func GetRawCertDataString 
 		return dnRequest("call",[self,"GetRawCertDataString"])
 
-	Func GetCertHash 
-		return dnRequest("call",[self,"GetCertHash"])
+	Func GetCertHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCertHash",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCertHash"])
+		ok
+		return dnRequest("call",[self,"GetCertHash",P1])
 
 	Func GetCertHash_1 P1
 		return dnRequest("call",[self,"GetCertHash",P1])
 
-	Func GetCertHashString 
-		return dnRequest("call",[self,"GetCertHashString"])
+	Func GetCertHashString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCertHashString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCertHashString"])
+		ok
+		return dnRequest("call",[self,"GetCertHashString",P1])
 
 	Func GetCertHashString_1 P1
 		return dnRequest("call",[self,"GetCertHashString",P1])
@@ -103,6 +121,10 @@ Class X509Certificate from Object
 		return dnRequest("call",[self,"ToString",P1])
 
 	Func Import_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Import",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Import",P1])
 		return self
 
@@ -115,25 +137,6 @@ Class X509Certificate from Object
 
 	Func CreateFromSignedFile P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromSignedFile",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Export@ P1
-		return dnRequest("callnamed",[self,"Export",P1])
-
-	Func GetCertHash@ P1
-		return dnRequest("callnamed",[self,"GetCertHash",P1])
-
-	Func GetCertHashString@ P1
-		return dnRequest("callnamed",[self,"GetCertHashString",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Import@ P1
-		dnRequest("callnamed",[self,"Import",P1])
-		return self
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])

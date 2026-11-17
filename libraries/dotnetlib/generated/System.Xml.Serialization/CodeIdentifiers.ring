@@ -55,6 +55,9 @@ Class CodeIdentifiers from Object
 	Func ToArray P1
 		return dnRequest("call",[self,"ToArray",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getUseCamelCasing
 		return dnRequest("get",[self,"UseCamelCasing"])
 

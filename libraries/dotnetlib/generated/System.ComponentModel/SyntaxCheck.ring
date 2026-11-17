@@ -13,6 +13,9 @@ Class SyntaxCheck from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CheckMachineName P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.SyntaxCheck, System.ComponentModel.TypeConverter'),"CheckMachineName",P1])
 

@@ -105,6 +105,10 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func Navigate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Navigate",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Navigate",P1])
 		return self
 
@@ -128,8 +132,16 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[self,"GoForward"])
 		return self
 
-	Func Refresh 
-		dnRequest("call",[self,"Refresh"])
+	Func Refresh P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Refresh",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Refresh"])
+		return self
+		ok
+		dnRequest("call",[self,"Refresh",P1])
 		return self
 
 	Func Refresh_1 P1
@@ -137,6 +149,9 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func InvokeScript P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InvokeScript",P1])
+		ok
 		return dnRequest("call",[self,"InvokeScript",P1])
 
 	Func InvokeScript_2 P1,P2
@@ -161,6 +176,10 @@ Class WpfWebBrowser from DotNetObject
 		return self
 
 	Func BeginStoryboard P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"BeginStoryboard",P1])
+			return self
+		ok
 		dnRequest("call",[self,"BeginStoryboard",P1])
 		return self
 
@@ -194,8 +213,16 @@ Class WpfWebBrowser from DotNetObject
 	Func SetBinding P1,P2
 		return dnRequest("call",[self,"SetBinding",P1,P2])
 
-	Func BringIntoView 
-		dnRequest("call",[self,"BringIntoView"])
+	Func BringIntoView P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"BringIntoView",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"BringIntoView"])
+		return self
+		ok
+		dnRequest("call",[self,"BringIntoView",P1])
 		return self
 
 	Func BringIntoView_1 P1
@@ -404,51 +431,6 @@ Class WpfWebBrowser from DotNetObject
 
 	Func ToString 
 		return dnRequest("call",[self,"ToString"])
-
-	Func Navigate@ P1
-		dnRequest("callnamed",[self,"Navigate",P1])
-		return self
-
-	Func Refresh@ P1
-		dnRequest("callnamed",[self,"Refresh",P1])
-		return self
-
-	Func InvokeScript@ P1
-		return dnRequest("callnamed",[self,"InvokeScript",P1])
-
-	Func BeginStoryboard@ P1
-		dnRequest("callnamed",[self,"BeginStoryboard",P1])
-		return self
-
-	Func SetBinding@ P1
-		return dnRequest("callnamed",[self,"SetBinding",P1])
-
-	Func BringIntoView@ P1
-		dnRequest("callnamed",[self,"BringIntoView",P1])
-		return self
-
-	Func ApplyAnimationClock@ P1
-		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
-		return self
-
-	Func BeginAnimation@ P1
-		dnRequest("callnamed",[self,"BeginAnimation",P1])
-		return self
-
-	Func AddHandler@ P1
-		dnRequest("callnamed",[self,"AddHandler",P1])
-		return self
-
-	Func TransformToAncestor@ P1
-		return dnRequest("callnamed",[self,"TransformToAncestor",P1])
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[self,"SetValue",P1])
-		return self
-
-	Func ClearValue@ P1
-		dnRequest("callnamed",[self,"ClearValue",P1])
-		return self
 
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])

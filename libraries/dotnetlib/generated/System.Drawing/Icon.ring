@@ -53,9 +53,6 @@ Class Icon from MarshalByRefObject
 	Func ExtractIcon P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.Icon, System.Drawing.Common'),"ExtractIcon",P1,P2])
 
-	Func ExtractIcon@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Icon, System.Drawing.Common'),"ExtractIcon",P1])
-
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
 

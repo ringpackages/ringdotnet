@@ -35,11 +35,8 @@ Class Decoder from Object
 	Func Convert P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"Convert",P1,P2,P3,P4,P5,P6,P7])
 
-	Func GetCharCount@ P1
-		return dnRequest("callnamed",[self,"GetCharCount",P1])
-
-	Func GetChars@ P1
-		return dnRequest("callnamed",[self,"GetChars",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getFallback
 		return dnRequest("get",[self,"Fallback"])

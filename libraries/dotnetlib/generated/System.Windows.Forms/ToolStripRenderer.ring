@@ -93,6 +93,9 @@ Class ToolStripRenderer from Object
 		dnRequest("call",[self,"DrawToolStripContentPanelBackground",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateDisabledImage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripRenderer, System.Windows.Forms'),"CreateDisabledImage",P1])
 

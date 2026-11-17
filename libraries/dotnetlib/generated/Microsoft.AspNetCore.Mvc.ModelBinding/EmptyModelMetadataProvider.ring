@@ -18,6 +18,9 @@ Class EmptyModelMetadataProvider from DotNetObject
 		return dnRequest("call",[self,"GetMetadataForProperties",P1])
 
 	Func GetMetadataForParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
+		ok
 		return dnRequest("call",[self,"GetMetadataForParameter",P1])
 
 	Func GetMetadataForParameter_2 P1,P2
@@ -43,7 +46,4 @@ Class EmptyModelMetadataProvider from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func GetMetadataForParameter@ P1
-		return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
 

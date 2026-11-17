@@ -20,6 +20,9 @@ Class HttpRequestLifetimeFeature from Object
 		dnRequest("call",[self,"Abort"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRequestAborted
 		return dnRequest("get",[self,"RequestAborted"])
 

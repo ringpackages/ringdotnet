@@ -21,8 +21,16 @@ Class AdornerLayer from FrameworkElement
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func Update 
-		dnRequest("call",[self,"Update"])
+	Func Update P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Update",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Update"])
+		return self
+		ok
+		dnRequest("call",[self,"Update",P1])
 		return self
 
 	Func Update_1 P1
@@ -37,8 +45,4 @@ Class AdornerLayer from FrameworkElement
 
 	Func GetAdornerLayer P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.AdornerLayer, PresentationFramework'),"GetAdornerLayer",P1])
-
-	Func Update@ P1
-		dnRequest("callnamed",[self,"Update",P1])
-		return self
 

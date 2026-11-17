@@ -52,6 +52,10 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func MultiplyTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MultiplyTransform",P1])
+			return self
+		ok
 		dnRequest("call",[self,"MultiplyTransform",P1])
 		return self
 
@@ -76,27 +80,15 @@ Class Pen from MarshalByRefObject
 		return self
 
 	Func RotateTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"RotateTransform",P1])
+			return self
+		ok
 		dnRequest("call",[self,"RotateTransform",P1])
 		return self
 
 	Func RotateTransform_2 P1,P2
 		dnRequest("call",[self,"RotateTransform",P1,P2])
-		return self
-
-	Func MultiplyTransform@ P1
-		dnRequest("callnamed",[self,"MultiplyTransform",P1])
-		return self
-
-	Func TranslateTransform@ P1
-		dnRequest("callnamed",[self,"TranslateTransform",P1])
-		return self
-
-	Func ScaleTransform@ P1
-		dnRequest("callnamed",[self,"ScaleTransform",P1])
-		return self
-
-	Func RotateTransform@ P1
-		dnRequest("callnamed",[self,"RotateTransform",P1])
 		return self
 
 	Func getWidth

@@ -42,9 +42,8 @@ Class ClientWebSocketOptions from Object
 		dnRequest("call",[self,"SetBuffer",P1,P2,P3])
 		return self
 
-	Func SetBuffer@ P1
-		dnRequest("callnamed",[self,"SetBuffer",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHttpVersion
 		return dnRequest("get",[self,"HttpVersion"])

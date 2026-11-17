@@ -22,6 +22,9 @@ Class StagingAreaInputItem from Object
 		dnRequest("call",[self,"SetData",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getInput
 		return dnRequest("get",[self,"Input"])
 

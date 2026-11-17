@@ -17,6 +17,10 @@ Class XslTransform from Object
 		return self
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Load",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Load",P1])
 		return self
 
@@ -34,12 +38,8 @@ Class XslTransform from Object
 		dnRequest("call",[self,"Transform",P1,P2,P3,P4])
 		return self
 
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func Transform@ P1
-		return dnRequest("callnamed",[self,"Transform",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setXmlResolver P1
 		dnRequest("set",[self,"XmlResolver",P1])

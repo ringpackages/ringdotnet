@@ -20,6 +20,9 @@ Class NotFoundDirectoryContents from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getExists
 		return dnRequest("get",[self,"Exists"])
 

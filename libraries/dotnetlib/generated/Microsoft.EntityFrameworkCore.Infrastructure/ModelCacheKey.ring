@@ -18,3 +18,6 @@ Class ModelCacheKey from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

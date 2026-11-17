@@ -19,6 +19,9 @@ Class TlsConnectionFeature from Object
 	Func GetClientCertificateAsync P1
 		return dnRequest("call",[self,"GetClientCertificateAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getClientCertificate
 		return dnRequest("get",[self,"ClientCertificate"])
 

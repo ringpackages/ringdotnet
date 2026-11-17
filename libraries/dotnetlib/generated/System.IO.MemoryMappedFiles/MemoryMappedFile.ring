@@ -15,8 +15,14 @@ Class MemoryMappedFile from Object
 		ok
 		return self
 
-	Func CreateViewStream 
-		return dnRequest("call",[self,"CreateViewStream"])
+	Func CreateViewStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateViewStream",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateViewStream"])
+		ok
+		raise("DotNet Error: CreateViewStream does not take one argument: use CreateViewStream(NULL), CreateViewStream_N(...) or named arguments")
 
 	Func CreateViewStream_2 P1,P2
 		return dnRequest("call",[self,"CreateViewStream",P1,P2])
@@ -24,8 +30,14 @@ Class MemoryMappedFile from Object
 	Func CreateViewStream_3 P1,P2,P3
 		return dnRequest("call",[self,"CreateViewStream",P1,P2,P3])
 
-	Func CreateViewAccessor 
-		return dnRequest("call",[self,"CreateViewAccessor"])
+	Func CreateViewAccessor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateViewAccessor",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateViewAccessor"])
+		ok
+		raise("DotNet Error: CreateViewAccessor does not take one argument: use CreateViewAccessor(NULL), CreateViewAccessor_N(...) or named arguments")
 
 	Func CreateViewAccessor_2 P1,P2
 		return dnRequest("call",[self,"CreateViewAccessor",P1,P2])
@@ -37,7 +49,13 @@ Class MemoryMappedFile from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func OpenExisting P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1])
 
 	Func OpenExisting_2 P1,P2
@@ -47,6 +65,9 @@ Class MemoryMappedFile from Object
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1,P2,P3])
 
 	Func CreateFromFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
 
 	Func CreateFromFile_2 P1,P2
@@ -81,24 +102,6 @@ Class MemoryMappedFile from Object
 
 	Func CreateOrOpen_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3,P4,P5])
-
-	Func CreateViewStream@ P1
-		return dnRequest("callnamed",[self,"CreateViewStream",P1])
-
-	Func CreateViewAccessor@ P1
-		return dnRequest("callnamed",[self,"CreateViewAccessor",P1])
-
-	Func OpenExisting@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1])
-
-	Func CreateFromFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
-
-	Func CreateNew@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1])
-
-	Func CreateOrOpen@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1])
 
 	Func getSafeMemoryMappedFileHandle
 		return dnRequest("get",[self,"SafeMemoryMappedFileHandle"])

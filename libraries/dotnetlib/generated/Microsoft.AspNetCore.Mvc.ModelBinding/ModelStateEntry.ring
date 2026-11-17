@@ -23,6 +23,9 @@ Class ModelStateEntry from Object
 	Func GetModelStateForProperty P1
 		return dnRequest("call",[self,"GetModelStateForProperty",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRawValue
 		return dnRequest("get",[self,"RawValue"])
 

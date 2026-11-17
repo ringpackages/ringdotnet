@@ -37,6 +37,9 @@ Class KmacXof256 from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func HashData_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
 
@@ -51,12 +54,6 @@ Class KmacXof256 from Object
 
 	Func HashDataAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashData@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"IsSupported"])

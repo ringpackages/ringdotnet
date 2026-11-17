@@ -123,6 +123,9 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnRequest("call",[self,"AddIndex",P1,P2])
 
 	Func AddIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddIndex",P1])
+		ok
 		return dnRequest("call",[self,"AddIndex",P1])
 
 	Func FindIndex P1
@@ -147,6 +150,9 @@ Class RuntimeEntityType from RuntimeTypeBase
 		return dnRequest("call",[self,"AddServiceProperty",P1,P2])
 
 	Func AddServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"AddServiceProperty",P1])
 
 	Func FindServiceProperty P1
@@ -190,24 +196,6 @@ Class RuntimeEntityType from RuntimeTypeBase
 	Func SetShadowValuesFactory P1
 		dnRequest("call",[self,"SetShadowValuesFactory",P1])
 		return self
-
-	Func AddForeignKey@ P1
-		return dnRequest("callnamed",[self,"AddForeignKey",P1])
-
-	Func AddNavigation@ P1
-		return dnRequest("callnamed",[self,"AddNavigation",P1])
-
-	Func AddSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"AddSkipNavigation",P1])
-
-	Func AddIndex@ P1
-		return dnRequest("callnamed",[self,"AddIndex",P1])
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[self,"FindIndex",P1])
-
-	Func AddServiceProperty@ P1
-		return dnRequest("callnamed",[self,"AddServiceProperty",P1])
 
 	Func getServiceOnlyConstructorBinding
 		return dnRequest("get",[self,"ServiceOnlyConstructorBinding"])

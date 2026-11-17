@@ -20,6 +20,6 @@ Class SqlAliasManager from Object
 	Func PostprocessAliases P1
 		return dnRequest("call",[self,"PostprocessAliases",P1])
 
-	Func GenerateTableAlias@ P1
-		return dnRequest("callnamed",[self,"GenerateTableAlias",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

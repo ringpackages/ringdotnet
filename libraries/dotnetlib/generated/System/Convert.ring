@@ -15,6 +15,9 @@ Class Convert from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetTypeCode P1
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"GetTypeCode",P1])
 
@@ -28,84 +31,126 @@ Class Convert from Object
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1,P2,P3])
 
 	Func ToBoolean P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
 
 	Func ToBoolean_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1,P2])
 
 	Func ToChar P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
 
 	Func ToChar_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1,P2])
 
 	Func ToSByte P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
 
 	Func ToSByte_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1,P2])
 
 	Func ToByte P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
 
 	Func ToByte_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1,P2])
 
 	Func ToInt16 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
 
 	Func ToInt16_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1,P2])
 
 	Func ToUInt16 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
 
 	Func ToUInt16_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1,P2])
 
 	Func ToInt32 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
 
 	Func ToInt32_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1,P2])
 
 	Func ToUInt32 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
 
 	Func ToUInt32_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1,P2])
 
 	Func ToInt64 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
 
 	Func ToInt64_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1,P2])
 
 	Func ToUInt64 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
 
 	Func ToUInt64_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1,P2])
 
 	Func ToSingle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
 
 	Func ToSingle_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1,P2])
 
 	Func ToDouble P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
 
 	Func ToDouble_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1,P2])
 
 	Func ToDecimal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
 
 	Func ToDecimal_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1,P2])
 
 	Func ToDateTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
 
 	Func ToDateTime_2 P1,P2
@@ -118,6 +163,9 @@ Class Convert from Object
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1,P2])
 
 	Func ToBase64String P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
 
 	Func ToBase64String_2 P1,P2
@@ -145,79 +193,22 @@ Class Convert from Object
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"FromHexString",P1])
 
 	Func ToHexString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
 
 	Func ToHexString_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1,P2,P3])
 
 	Func ToHexStringLower P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
 
 	Func ToHexStringLower_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1,P2,P3])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func ChangeType@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1])
-
-	Func ToBoolean@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
-
-	Func ToChar@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
-
-	Func ToSByte@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
-
-	Func ToByte@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
-
-	Func ToInt16@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
-
-	Func ToUInt16@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
-
-	Func ToInt32@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
-
-	Func ToUInt32@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
-
-	Func ToInt64@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
-
-	Func ToUInt64@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
-
-	Func ToSingle@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
-
-	Func ToDouble@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
-
-	Func ToDecimal@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
-
-	Func ToDateTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
-
-	Func ToBase64String@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
-
-	Func ToBase64CharArray@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64CharArray",P1])
-
-	Func ToHexString@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
-
-	Func ToHexStringLower@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
 
 	Func getDBNull
 		return dnRequest("get",[dnTypeCached('System.Convert, System.Private.CoreLib'),"DBNull"])

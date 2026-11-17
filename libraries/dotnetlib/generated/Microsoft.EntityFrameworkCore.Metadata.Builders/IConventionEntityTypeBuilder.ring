@@ -31,18 +31,27 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
 
 	Func HasBaseType_2 P1,P2
 		return dnRequest("call",[self,"HasBaseType",P1,P2])
 
 	Func HasBaseType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasBaseType",P1])
+		ok
 		return dnRequest("call",[self,"HasBaseType",P1])
 
 	Func CanSetBaseType_2 P1,P2
 		return dnRequest("call",[self,"CanSetBaseType",P1,P2])
 
 	Func CanSetBaseType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetBaseType",P1])
+		ok
 		return dnRequest("call",[self,"CanSetBaseType",P1])
 
 	Func RemoveUnusedImplicitProperties P1
@@ -52,18 +61,27 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoProperty",P1,P2])
 
 	Func HasNoProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoProperty",P1])
+		ok
 		return dnRequest("call",[self,"HasNoProperty",P1])
 
 	Func HasNoComplexProperty_2 P1,P2
 		return dnRequest("call",[self,"HasNoComplexProperty",P1,P2])
 
 	Func HasNoComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"HasNoComplexProperty",P1])
 
 	Func ServiceProperty_2 P1,P2
 		return dnRequest("call",[self,"ServiceProperty",P1,P2])
 
 	Func ServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"ServiceProperty",P1])
 
 	Func ServiceProperty_3 P1,P2,P3
@@ -73,42 +91,63 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveServiceProperty",P1,P2])
 
 	Func CanHaveServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveServiceProperty",P1])
 
 	Func HasNoServiceProperty_2 P1,P2
 		return dnRequest("call",[self,"HasNoServiceProperty",P1,P2])
 
 	Func HasNoServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"HasNoServiceProperty",P1])
 
 	Func CanRemoveServiceProperty_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveServiceProperty",P1,P2])
 
 	Func CanRemoveServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveServiceProperty",P1])
 
 	Func Ignore_2 P1,P2
 		return dnRequest("call",[self,"Ignore",P1,P2])
 
 	Func Ignore P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Ignore",P1])
+		ok
 		return dnRequest("call",[self,"Ignore",P1])
 
 	Func PrimaryKey_2 P1,P2
 		return dnRequest("call",[self,"PrimaryKey",P1,P2])
 
 	Func PrimaryKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrimaryKey",P1])
+		ok
 		return dnRequest("call",[self,"PrimaryKey",P1])
 
 	Func CanSetPrimaryKey_2 P1,P2
 		return dnRequest("call",[self,"CanSetPrimaryKey",P1,P2])
 
 	Func CanSetPrimaryKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetPrimaryKey",P1])
+		ok
 		return dnRequest("call",[self,"CanSetPrimaryKey",P1])
 
 	Func HasKey_2 P1,P2
 		return dnRequest("call",[self,"HasKey",P1,P2])
 
 	Func HasKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasKey",P1])
+		ok
 		return dnRequest("call",[self,"HasKey",P1])
 
 	Func HasNoKey_2 P1,P2
@@ -123,16 +162,31 @@ Class IConventionEntityTypeBuilder from DotNetObject
 	Func CanRemoveKey_1 P1
 		return dnRequest("call",[self,"CanRemoveKey",P1])
 
-	Func HasNoKey 
-		return dnRequest("call",[self,"HasNoKey"])
+	Func HasNoKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoKey",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasNoKey"])
+		ok
+		return dnRequest("call",[self,"HasNoKey",P1])
 
-	Func CanRemoveKey 
-		return dnRequest("call",[self,"CanRemoveKey"])
+	Func CanRemoveKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveKey",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CanRemoveKey"])
+		ok
+		return dnRequest("call",[self,"CanRemoveKey",P1])
 
 	Func HasIndex_2 P1,P2
 		return dnRequest("call",[self,"HasIndex",P1,P2])
 
 	Func HasIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasIndex",P1])
+		ok
 		return dnRequest("call",[self,"HasIndex",P1])
 
 	Func HasIndex_3 P1,P2,P3
@@ -142,24 +196,36 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveIndex",P1,P2])
 
 	Func CanHaveIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveIndex",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveIndex",P1])
 
 	Func HasNoIndex_2 P1,P2
 		return dnRequest("call",[self,"HasNoIndex",P1,P2])
 
 	Func HasNoIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoIndex",P1])
+		ok
 		return dnRequest("call",[self,"HasNoIndex",P1])
 
 	Func CanRemoveIndex_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveIndex",P1,P2])
 
 	Func CanRemoveIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveIndex",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveIndex",P1])
 
 	Func HasRelationship_2 P1,P2
 		return dnRequest("call",[self,"HasRelationship",P1,P2])
 
 	Func HasRelationship P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasRelationship",P1])
+		ok
 		return dnRequest("call",[self,"HasRelationship",P1])
 
 	Func HasRelationship_3 P1,P2,P3
@@ -190,12 +256,18 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoRelationship",P1,P2])
 
 	Func HasNoRelationship P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoRelationship",P1])
+		ok
 		return dnRequest("call",[self,"HasNoRelationship",P1])
 
 	Func CanRemoveRelationship_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveRelationship",P1,P2])
 
 	Func CanRemoveRelationship P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveRelationship",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveRelationship",P1])
 
 	Func CanHaveNavigation_3 P1,P2,P3
@@ -205,18 +277,27 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveNavigation",P1,P2])
 
 	Func CanHaveNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveNavigation",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveNavigation",P1])
 
 	Func HasNoNavigation_2 P1,P2
 		return dnRequest("call",[self,"HasNoNavigation",P1,P2])
 
 	Func HasNoNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoNavigation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoNavigation",P1])
 
 	Func CanRemoveNavigation_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveNavigation",P1,P2])
 
 	Func CanRemoveNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveNavigation",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveNavigation",P1])
 
 	Func CanHaveSkipNavigation_3 P1,P2,P3
@@ -226,6 +307,9 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveSkipNavigation",P1,P2])
 
 	Func CanHaveSkipNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveSkipNavigation",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveSkipNavigation",P1])
 
 	Func HasSkipNavigation_6 P1,P2,P3,P4,P5,P6
@@ -247,67 +331,103 @@ Class IConventionEntityTypeBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoSkipNavigation",P1,P2])
 
 	Func HasNoSkipNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoSkipNavigation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoSkipNavigation",P1])
 
 	Func CanRemoveSkipNavigation_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveSkipNavigation",P1,P2])
 
 	Func CanRemoveSkipNavigation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveSkipNavigation",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveSkipNavigation",P1])
 
 	Func HasTrigger_2 P1,P2
 		return dnRequest("call",[self,"HasTrigger",P1,P2])
 
 	Func HasTrigger P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasTrigger",P1])
+		ok
 		return dnRequest("call",[self,"HasTrigger",P1])
 
 	Func CanHaveTrigger_2 P1,P2
 		return dnRequest("call",[self,"CanHaveTrigger",P1,P2])
 
 	Func CanHaveTrigger P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveTrigger",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveTrigger",P1])
 
 	Func HasQueryFilter_2 P1,P2
 		return dnRequest("call",[self,"HasQueryFilter",P1,P2])
 
 	Func HasQueryFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasQueryFilter",P1])
+		ok
 		return dnRequest("call",[self,"HasQueryFilter",P1])
 
 	Func CanSetQueryFilter_2 P1,P2
 		return dnRequest("call",[self,"CanSetQueryFilter",P1,P2])
 
 	Func CanSetQueryFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetQueryFilter",P1])
+		ok
 		return dnRequest("call",[self,"CanSetQueryFilter",P1])
 
 	Func HasDefiningQuery_2 P1,P2
 		return dnRequest("call",[self,"HasDefiningQuery",P1,P2])
 
 	Func HasDefiningQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasDefiningQuery",P1])
+		ok
 		return dnRequest("call",[self,"HasDefiningQuery",P1])
 
 	Func CanSetDefiningQuery_2 P1,P2
 		return dnRequest("call",[self,"CanSetDefiningQuery",P1,P2])
 
 	Func CanSetDefiningQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetDefiningQuery",P1])
+		ok
 		return dnRequest("call",[self,"CanSetDefiningQuery",P1])
 
 	Func HasChangeTrackingStrategy_2 P1,P2
 		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1,P2])
 
 	Func HasChangeTrackingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+		ok
 		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1])
 
 	Func UsePropertyAccessMode_2 P1,P2
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1,P2])
 
 	Func UsePropertyAccessMode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+		ok
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
 
 	Func HasDiscriminator_1 P1
 		return dnRequest("call",[self,"HasDiscriminator",P1])
 
-	Func HasDiscriminator 
-		return dnRequest("call",[self,"HasDiscriminator"])
+	Func HasDiscriminator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasDiscriminator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasDiscriminator"])
+		ok
+		return dnRequest("call",[self,"HasDiscriminator",P1])
 
 	Func HasDiscriminator_2 P1,P2
 		return dnRequest("call",[self,"HasDiscriminator",P1,P2])
@@ -318,13 +438,22 @@ Class IConventionEntityTypeBuilder from DotNetObject
 	Func HasNoDiscriminator_1 P1
 		return dnRequest("call",[self,"HasNoDiscriminator",P1])
 
-	Func HasNoDiscriminator 
-		return dnRequest("call",[self,"HasNoDiscriminator"])
+	Func HasNoDiscriminator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoDiscriminator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasNoDiscriminator"])
+		ok
+		return dnRequest("call",[self,"HasNoDiscriminator",P1])
 
 	Func CanSetDiscriminator_2 P1,P2
 		return dnRequest("call",[self,"CanSetDiscriminator",P1,P2])
 
 	Func CanSetDiscriminator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetDiscriminator",P1])
+		ok
 		return dnRequest("call",[self,"CanSetDiscriminator",P1])
 
 	Func CanSetDiscriminator_3 P1,P2,P3
@@ -333,8 +462,14 @@ Class IConventionEntityTypeBuilder from DotNetObject
 	Func CanRemoveDiscriminator_1 P1
 		return dnRequest("call",[self,"CanRemoveDiscriminator",P1])
 
-	Func CanRemoveDiscriminator 
-		return dnRequest("call",[self,"CanRemoveDiscriminator"])
+	Func CanRemoveDiscriminator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveDiscriminator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CanRemoveDiscriminator"])
+		ok
+		return dnRequest("call",[self,"CanRemoveDiscriminator",P1])
 
 	Func GetTargetEntityTypeBuilder_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetTargetEntityTypeBuilder",P1,P2,P3,P4,P5])
@@ -347,141 +482,6 @@ Class IConventionEntityTypeBuilder from DotNetObject
 
 	Func GetTargetEntityTypeBuilder P1,P2
 		return dnRequest("call",[self,"GetTargetEntityTypeBuilder",P1,P2])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
-
-	Func HasBaseType@ P1
-		return dnRequest("callnamed",[self,"HasBaseType",P1])
-
-	Func CanSetBaseType@ P1
-		return dnRequest("callnamed",[self,"CanSetBaseType",P1])
-
-	Func HasNoProperty@ P1
-		return dnRequest("callnamed",[self,"HasNoProperty",P1])
-
-	Func HasNoComplexProperty@ P1
-		return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
-
-	Func ServiceProperty@ P1
-		return dnRequest("callnamed",[self,"ServiceProperty",P1])
-
-	Func CanHaveServiceProperty@ P1
-		return dnRequest("callnamed",[self,"CanHaveServiceProperty",P1])
-
-	Func HasNoServiceProperty@ P1
-		return dnRequest("callnamed",[self,"HasNoServiceProperty",P1])
-
-	Func CanRemoveServiceProperty@ P1
-		return dnRequest("callnamed",[self,"CanRemoveServiceProperty",P1])
-
-	Func Ignore@ P1
-		return dnRequest("callnamed",[self,"Ignore",P1])
-
-	Func PrimaryKey@ P1
-		return dnRequest("callnamed",[self,"PrimaryKey",P1])
-
-	Func CanSetPrimaryKey@ P1
-		return dnRequest("callnamed",[self,"CanSetPrimaryKey",P1])
-
-	Func HasKey@ P1
-		return dnRequest("callnamed",[self,"HasKey",P1])
-
-	Func HasNoKey@ P1
-		return dnRequest("callnamed",[self,"HasNoKey",P1])
-
-	Func CanRemoveKey@ P1
-		return dnRequest("callnamed",[self,"CanRemoveKey",P1])
-
-	Func HasIndex@ P1
-		return dnRequest("callnamed",[self,"HasIndex",P1])
-
-	Func CanHaveIndex@ P1
-		return dnRequest("callnamed",[self,"CanHaveIndex",P1])
-
-	Func HasNoIndex@ P1
-		return dnRequest("callnamed",[self,"HasNoIndex",P1])
-
-	Func CanRemoveIndex@ P1
-		return dnRequest("callnamed",[self,"CanRemoveIndex",P1])
-
-	Func HasRelationship@ P1
-		return dnRequest("callnamed",[self,"HasRelationship",P1])
-
-	Func HasOwnership@ P1
-		return dnRequest("callnamed",[self,"HasOwnership",P1])
-
-	Func HasNoRelationship@ P1
-		return dnRequest("callnamed",[self,"HasNoRelationship",P1])
-
-	Func CanRemoveRelationship@ P1
-		return dnRequest("callnamed",[self,"CanRemoveRelationship",P1])
-
-	Func CanHaveNavigation@ P1
-		return dnRequest("callnamed",[self,"CanHaveNavigation",P1])
-
-	Func HasNoNavigation@ P1
-		return dnRequest("callnamed",[self,"HasNoNavigation",P1])
-
-	Func CanRemoveNavigation@ P1
-		return dnRequest("callnamed",[self,"CanRemoveNavigation",P1])
-
-	Func CanHaveSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"CanHaveSkipNavigation",P1])
-
-	Func HasSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"HasSkipNavigation",P1])
-
-	Func HasNoSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"HasNoSkipNavigation",P1])
-
-	Func CanRemoveSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"CanRemoveSkipNavigation",P1])
-
-	Func HasTrigger@ P1
-		return dnRequest("callnamed",[self,"HasTrigger",P1])
-
-	Func CanHaveTrigger@ P1
-		return dnRequest("callnamed",[self,"CanHaveTrigger",P1])
-
-	Func HasQueryFilter@ P1
-		return dnRequest("callnamed",[self,"HasQueryFilter",P1])
-
-	Func CanSetQueryFilter@ P1
-		return dnRequest("callnamed",[self,"CanSetQueryFilter",P1])
-
-	Func HasDefiningQuery@ P1
-		return dnRequest("callnamed",[self,"HasDefiningQuery",P1])
-
-	Func CanSetDefiningQuery@ P1
-		return dnRequest("callnamed",[self,"CanSetDefiningQuery",P1])
-
-	Func HasChangeTrackingStrategy@ P1
-		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
-
-	Func UsePropertyAccessMode@ P1
-		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
-
-	Func HasDiscriminator@ P1
-		return dnRequest("callnamed",[self,"HasDiscriminator",P1])
-
-	Func HasNoDiscriminator@ P1
-		return dnRequest("callnamed",[self,"HasNoDiscriminator",P1])
-
-	Func CanSetDiscriminator@ P1
-		return dnRequest("callnamed",[self,"CanSetDiscriminator",P1])
-
-	Func CanRemoveDiscriminator@ P1
-		return dnRequest("callnamed",[self,"CanRemoveDiscriminator",P1])
-
-	Func GetTargetEntityTypeBuilder@ P1
-		return dnRequest("callnamed",[self,"GetTargetEntityTypeBuilder",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

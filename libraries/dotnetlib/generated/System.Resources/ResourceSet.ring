@@ -32,20 +32,23 @@ Class ResourceSet from Object
 		return dnRequest("call",[self,"GetEnumerator"])
 
 	Func GetString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetString",P1])
+		ok
 		return dnRequest("call",[self,"GetString",P1])
 
 	Func GetString_2 P1,P2
 		return dnRequest("call",[self,"GetString",P1,P2])
 
 	Func GetObject P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetObject",P1])
+		ok
 		return dnRequest("call",[self,"GetObject",P1])
 
 	Func GetObject_2 P1,P2
 		return dnRequest("call",[self,"GetObject",P1,P2])
 
-	Func GetString@ P1
-		return dnRequest("callnamed",[self,"GetString",P1])
-
-	Func GetObject@ P1
-		return dnRequest("callnamed",[self,"GetObject",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

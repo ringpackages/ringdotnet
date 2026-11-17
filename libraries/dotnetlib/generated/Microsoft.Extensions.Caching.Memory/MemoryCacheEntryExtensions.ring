@@ -13,6 +13,9 @@ Class MemoryCacheEntryExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetPriority P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetPriority",P1,P2])
 
@@ -33,10 +36,4 @@ Class MemoryCacheEntryExtensions from Object
 
 	Func RegisterPostEvictionCallback_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"RegisterPostEvictionCallback",P1,P2,P3])
-
-	Func SetAbsoluteExpiration@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetAbsoluteExpiration",P1])
-
-	Func RegisterPostEvictionCallback@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"RegisterPostEvictionCallback",P1])
 

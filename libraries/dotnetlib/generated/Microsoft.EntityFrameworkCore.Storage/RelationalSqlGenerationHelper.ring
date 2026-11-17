@@ -21,6 +21,9 @@ Class RelationalSqlGenerationHelper from Object
 		return self
 
 	Func GenerateParameterName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GenerateParameterName",P1])
+		ok
 		return dnRequest("call",[self,"GenerateParameterName",P1])
 
 	Func GenerateParameterName_2 P1,P2
@@ -28,6 +31,9 @@ Class RelationalSqlGenerationHelper from Object
 		return self
 
 	Func GenerateParameterNamePlaceholder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GenerateParameterNamePlaceholder",P1])
+		ok
 		return dnRequest("call",[self,"GenerateParameterNamePlaceholder",P1])
 
 	Func GenerateParameterNamePlaceholder_2 P1,P2
@@ -35,6 +41,9 @@ Class RelationalSqlGenerationHelper from Object
 		return self
 
 	Func EscapeIdentifier P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EscapeIdentifier",P1])
+		ok
 		return dnRequest("call",[self,"EscapeIdentifier",P1])
 
 	Func EscapeIdentifier_2 P1,P2
@@ -42,6 +51,9 @@ Class RelationalSqlGenerationHelper from Object
 		return self
 
 	Func DelimitIdentifier P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DelimitIdentifier",P1])
+		ok
 		return dnRequest("call",[self,"DelimitIdentifier",P1])
 
 	Func DelimitIdentifier_2 P1,P2
@@ -70,17 +82,8 @@ Class RelationalSqlGenerationHelper from Object
 	Func GenerateReleaseSavepointStatement P1
 		return dnRequest("call",[self,"GenerateReleaseSavepointStatement",P1])
 
-	Func GenerateParameterName@ P1
-		return dnRequest("callnamed",[self,"GenerateParameterName",P1])
-
-	Func GenerateParameterNamePlaceholder@ P1
-		return dnRequest("callnamed",[self,"GenerateParameterNamePlaceholder",P1])
-
-	Func EscapeIdentifier@ P1
-		return dnRequest("callnamed",[self,"EscapeIdentifier",P1])
-
-	Func DelimitIdentifier@ P1
-		return dnRequest("callnamed",[self,"DelimitIdentifier",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getStatementTerminator
 		return dnRequest("get",[self,"StatementTerminator"])

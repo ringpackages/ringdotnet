@@ -104,11 +104,23 @@ func dnType  cTypeName
 	return dnRequest("type",[cTypeName])
 
 # Create a .NET object: dnNew("System.Text.StringBuilder", ["Hello"])
+# The arguments can be named: dnNew("StringBuilder",[ :value = "Hello", :capacity = 64 ]) chooses the constructor by the parameter names
+# (the order does not matter). The class is a full .NET type name or the name of a generated Ring class (see dnImport)
 func dnNew  cTypeName, aParameters
 	if not islist(aParameters)
 		aParameters = []
 	ok
-	return dnRequest("new",dnJoin([dnType(cTypeName)],aParameters))
+	dn_cType = cTypeName
+	for dn_aRegistered in aDotNetClasses
+		if lower(dn_aRegistered[2]) = lower(cTypeName)
+			dn_cType = dn_aRegistered[1]
+			exit
+		ok
+	next
+	if len(aParameters) > 0 and dnIsNamed(aParameters)
+		return dnRequest("newnamed",[dnTypeCached(dn_cType),aParameters])
+	ok
+	return dnRequest("new",dnJoin([dnType(dn_cType)],aParameters))
 
 # Call a static method: dnStatic("System.Math", "Max", [3, 9])
 func dnStatic  cTypeName, cMethod, aParameters
@@ -142,19 +154,17 @@ func dnCreate  cTypeName, aParameters
 	ok
 	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
 
-# Create a .NET object with named arguments, the constructor is chosen by the names of its parameters (the order does not matter):
-#   oSB = dnNew@("StringBuilder",[ :value = "Hello", :capacity = 64 ])
-#   oDate = dnNew@("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
-# cClass is the name of a generated Ring class (see dnImport) or a full .NET type name
-func dnNew@  cClass, aNamed
-	dn_cType = cClass
-	for dn_aRegistered in aDotNetClasses
-		if lower(dn_aRegistered[2]) = lower(cClass)
-			dn_cType = dn_aRegistered[1]
-			exit
+# True for a list of [name, value] pairs, the way Ring passes named arguments: [ :server = "x", :port = 80 ]  ([] too)
+func dnIsNamed  aValue
+	if not islist(aValue)
+		return false
+	ok
+	for dn_aItem in aValue
+		if not (islist(dn_aItem) and len(dn_aItem) = 2 and isstring(dn_aItem[1]))
+			return false
 		ok
 	next
-	return dnRequest("newnamed",[dnTypeCached(dn_cType),aNamed])
+	return true
 
 # The handle of an object created with named arguments (used by generated code)
 func dnCreateNamed  cTypeName, aNamed

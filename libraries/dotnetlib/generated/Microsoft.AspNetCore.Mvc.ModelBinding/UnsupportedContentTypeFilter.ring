@@ -24,6 +24,9 @@ Class UnsupportedContentTypeFilter from Object
 		dnRequest("call",[self,"OnActionExecuted",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOrder
 		return dnRequest("get",[self,"Order"])
 

@@ -31,24 +31,36 @@ Class HttpClient from HttpMessageInvoker
 		return self
 
 	Func GetStringAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStringAsync",P1])
+		ok
 		return dnRequest("call",[self,"GetStringAsync",P1])
 
 	Func GetStringAsync_2 P1,P2
 		return dnRequest("call",[self,"GetStringAsync",P1,P2])
 
 	Func GetByteArrayAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetByteArrayAsync",P1])
+		ok
 		return dnRequest("call",[self,"GetByteArrayAsync",P1])
 
 	Func GetByteArrayAsync_2 P1,P2
 		return dnRequest("call",[self,"GetByteArrayAsync",P1,P2])
 
 	Func GetStreamAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStreamAsync",P1])
+		ok
 		return dnRequest("call",[self,"GetStreamAsync",P1])
 
 	Func GetStreamAsync_2 P1,P2
 		return dnRequest("call",[self,"GetStreamAsync",P1,P2])
 
 	Func GetAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAsync",P1])
+		ok
 		return dnRequest("call",[self,"GetAsync",P1])
 
 	Func GetAsync_2 P1,P2
@@ -76,12 +88,18 @@ Class HttpClient from HttpMessageInvoker
 		return dnRequest("call",[self,"PatchAsync",P1,P2,P3])
 
 	Func DeleteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"DeleteAsync",P1])
+		ok
 		return dnRequest("call",[self,"DeleteAsync",P1])
 
 	Func DeleteAsync_2 P1,P2
 		return dnRequest("call",[self,"DeleteAsync",P1,P2])
 
 	Func Send P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Send",P1])
+		ok
 		return dnRequest("call",[self,"Send",P1])
 
 	Func Send_2 P1,P2
@@ -91,6 +109,9 @@ Class HttpClient from HttpMessageInvoker
 		return dnRequest("call",[self,"Send",P1,P2,P3])
 
 	Func SendAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendAsync",P1])
 
 	Func SendAsync_2 P1,P2
@@ -102,36 +123,6 @@ Class HttpClient from HttpMessageInvoker
 	Func CancelPendingRequests 
 		dnRequest("call",[self,"CancelPendingRequests"])
 		return self
-
-	Func GetStringAsync@ P1
-		return dnRequest("callnamed",[self,"GetStringAsync",P1])
-
-	Func GetByteArrayAsync@ P1
-		return dnRequest("callnamed",[self,"GetByteArrayAsync",P1])
-
-	Func GetStreamAsync@ P1
-		return dnRequest("callnamed",[self,"GetStreamAsync",P1])
-
-	Func GetAsync@ P1
-		return dnRequest("callnamed",[self,"GetAsync",P1])
-
-	Func PostAsync@ P1
-		return dnRequest("callnamed",[self,"PostAsync",P1])
-
-	Func PutAsync@ P1
-		return dnRequest("callnamed",[self,"PutAsync",P1])
-
-	Func PatchAsync@ P1
-		return dnRequest("callnamed",[self,"PatchAsync",P1])
-
-	Func DeleteAsync@ P1
-		return dnRequest("callnamed",[self,"DeleteAsync",P1])
-
-	Func Send@ P1
-		return dnRequest("callnamed",[self,"Send",P1])
-
-	Func SendAsync@ P1
-		return dnRequest("callnamed",[self,"SendAsync",P1])
 
 	Func getDefaultRequestHeaders
 		return dnRequest("get",[self,"DefaultRequestHeaders"])

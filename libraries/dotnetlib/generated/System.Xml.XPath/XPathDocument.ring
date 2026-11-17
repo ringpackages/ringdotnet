@@ -21,3 +21,6 @@ Class XPathDocument from Object
 	Func CreateNavigator 
 		return dnRequest("call",[self,"CreateNavigator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

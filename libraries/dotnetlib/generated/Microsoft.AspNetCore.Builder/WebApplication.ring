@@ -23,27 +23,53 @@ Class WebApplication from Object
 	Func StartAsync_1 P1
 		return dnRequest("call",[self,"StartAsync",P1])
 
-	Func StartAsync 
-		return dnRequest("call",[self,"StartAsync"])
+	Func StartAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"StartAsync"])
+		ok
+		return dnRequest("call",[self,"StartAsync",P1])
 
 	Func StopAsync_1 P1
 		return dnRequest("call",[self,"StopAsync",P1])
 
-	Func StopAsync 
-		return dnRequest("call",[self,"StopAsync"])
+	Func StopAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StopAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"StopAsync"])
+		ok
+		return dnRequest("call",[self,"StopAsync",P1])
 
 	Func RunAsync_1 P1
 		return dnRequest("call",[self,"RunAsync",P1])
 
-	Func RunAsync 
-		return dnRequest("call",[self,"RunAsync"])
+	Func RunAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RunAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"RunAsync"])
+		ok
+		return dnRequest("call",[self,"RunAsync",P1])
 
 	Func Run_1 P1
 		dnRequest("call",[self,"Run",P1])
 		return self
 
-	Func Run 
-		dnRequest("call",[self,"Run"])
+	Func Run P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Run",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Run"])
+		return self
+		ok
+		dnRequest("call",[self,"Run",P1])
 		return self
 
 	Func DisposeAsync 
@@ -52,17 +78,38 @@ Class WebApplication from Object
 	Func Use P1
 		return dnRequest("call",[self,"Use",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
 
-	Func CreateBuilder 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder"])
+	Func CreateBuilder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
 
-	Func CreateSlimBuilder 
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder"])
+	Func CreateSlimBuilder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder"])
+		ok
+		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
 
 	Func CreateBuilder_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
@@ -72,28 +119,6 @@ Class WebApplication from Object
 
 	Func CreateEmptyBuilder P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateEmptyBuilder",P1])
-
-	Func StartAsync@ P1
-		return dnRequest("callnamed",[self,"StartAsync",P1])
-
-	Func StopAsync@ P1
-		return dnRequest("callnamed",[self,"StopAsync",P1])
-
-	Func RunAsync@ P1
-		return dnRequest("callnamed",[self,"RunAsync",P1])
-
-	Func Run@ P1
-		dnRequest("callnamed",[self,"Run",P1])
-		return self
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
-
-	Func CreateBuilder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
-
-	Func CreateSlimBuilder@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
 
 	Func getServices
 		return dnRequest("get",[self,"Services"])

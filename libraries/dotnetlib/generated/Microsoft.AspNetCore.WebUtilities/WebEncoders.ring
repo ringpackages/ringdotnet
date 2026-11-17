@@ -13,7 +13,13 @@ Class WebEncoders from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Base64UrlDecode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
 
 	Func Base64UrlDecode_3 P1,P2,P3
@@ -26,6 +32,9 @@ Class WebEncoders from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToDecode",P1])
 
 	Func Base64UrlEncode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
 
 	Func Base64UrlEncode_3 P1,P2,P3
@@ -36,10 +45,4 @@ Class WebEncoders from Object
 
 	Func GetArraySizeRequiredToEncode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToEncode",P1])
-
-	Func Base64UrlDecode@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
-
-	Func Base64UrlEncode@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
 

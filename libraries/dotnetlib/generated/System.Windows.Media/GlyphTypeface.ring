@@ -62,6 +62,9 @@ Class GlyphTypeface from Object
 		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetGlyphOutline P1,P2,P3
 		return dnRequest("call",[self,"GetGlyphOutline",P1,P2,P3])
 

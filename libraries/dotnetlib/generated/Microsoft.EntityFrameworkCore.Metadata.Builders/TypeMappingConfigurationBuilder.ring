@@ -27,26 +27,35 @@ Class TypeMappingConfigurationBuilder from Object
 		return dnRequest("call",[self,"HasPrecision",P1,P2])
 
 	Func HasPrecision P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasPrecision",P1])
+		ok
 		return dnRequest("call",[self,"HasPrecision",P1])
 
 	Func IsUnicode_1 P1
 		return dnRequest("call",[self,"IsUnicode",P1])
 
-	Func IsUnicode 
-		return dnRequest("call",[self,"IsUnicode"])
+	Func IsUnicode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsUnicode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsUnicode"])
+		ok
+		return dnRequest("call",[self,"IsUnicode",P1])
 
-	Func HasConversion 
-		return dnRequest("call",[self,"HasConversion"])
+	Func HasConversion P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasConversion",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasConversion"])
+		ok
+		return dnRequest("call",[self,"HasConversion",P1])
 
 	Func HasConversion_1 P1
 		return dnRequest("call",[self,"HasConversion",P1])
 
-	Func HasPrecision@ P1
-		return dnRequest("callnamed",[self,"HasPrecision",P1])
-
-	Func IsUnicode@ P1
-		return dnRequest("callnamed",[self,"IsUnicode",P1])
-
-	Func HasConversion@ P1
-		return dnRequest("callnamed",[self,"HasConversion",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

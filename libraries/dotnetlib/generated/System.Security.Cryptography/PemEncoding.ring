@@ -13,6 +13,9 @@ Class PemEncoding from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetEncodedSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.PemEncoding, System.Security.Cryptography'),"GetEncodedSize",P1,P2])
 

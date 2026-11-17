@@ -58,6 +58,15 @@ Class SqlBoolean from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Parse",P1])
 
@@ -93,15 +102,6 @@ Class SqlBoolean from ValueType
 
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GetXsdType",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getIsNull
 		return dnRequest("get",[self,"IsNull"])

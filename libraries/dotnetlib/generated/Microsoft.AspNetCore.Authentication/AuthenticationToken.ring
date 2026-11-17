@@ -17,6 +17,9 @@ Class AuthenticationToken from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationToken, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

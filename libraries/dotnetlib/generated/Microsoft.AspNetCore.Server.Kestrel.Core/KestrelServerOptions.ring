@@ -35,8 +35,14 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[self,"ConfigureHttpsDefaults",P1])
 		return self
 
-	Func Configure 
-		return dnRequest("call",[self,"Configure"])
+	Func Configure P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Configure",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Configure"])
+		ok
+		return dnRequest("call",[self,"Configure",P1])
 
 	Func Configure_1 P1
 		return dnRequest("call",[self,"Configure",P1])
@@ -53,10 +59,18 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func Listen P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Listen",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Listen",P1])
 		return self
 
 	Func ListenLocalhost P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ListenLocalhost",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ListenLocalhost",P1])
 		return self
 
@@ -65,6 +79,10 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenAnyIP P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ListenAnyIP",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ListenAnyIP",P1])
 		return self
 
@@ -73,6 +91,10 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenUnixSocket P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ListenUnixSocket",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ListenUnixSocket",P1])
 		return self
 
@@ -81,6 +103,10 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenHandle P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ListenHandle",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ListenHandle",P1])
 		return self
 
@@ -89,6 +115,10 @@ Class KestrelServerOptions from Object
 		return self
 
 	Func ListenNamedPipe P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ListenNamedPipe",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ListenNamedPipe",P1])
 		return self
 
@@ -96,32 +126,8 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[self,"ListenNamedPipe",P1,P2])
 		return self
 
-	Func Configure@ P1
-		return dnRequest("callnamed",[self,"Configure",P1])
-
-	Func Listen@ P1
-		dnRequest("callnamed",[self,"Listen",P1])
-		return self
-
-	Func ListenLocalhost@ P1
-		dnRequest("callnamed",[self,"ListenLocalhost",P1])
-		return self
-
-	Func ListenAnyIP@ P1
-		dnRequest("callnamed",[self,"ListenAnyIP",P1])
-		return self
-
-	Func ListenUnixSocket@ P1
-		dnRequest("callnamed",[self,"ListenUnixSocket",P1])
-		return self
-
-	Func ListenHandle@ P1
-		dnRequest("callnamed",[self,"ListenHandle",P1])
-		return self
-
-	Func ListenNamedPipe@ P1
-		dnRequest("callnamed",[self,"ListenNamedPipe",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getAllowHostHeaderOverride
 		return dnRequest("get",[self,"AllowHostHeaderOverride"])

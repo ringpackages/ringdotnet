@@ -44,6 +44,9 @@ Class Module from Object
 		return dnRequest("call",[self,"GetCustomAttributes",P1,P2])
 
 	Func GetMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMethod",P1])
+		ok
 		return dnRequest("call",[self,"GetMethod",P1])
 
 	Func GetMethod_2 P1,P2
@@ -52,20 +55,35 @@ Class Module from Object
 	Func GetMethod_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"GetMethod",P1,P2,P3,P4,P5,P6])
 
-	Func GetMethods 
-		return dnRequest("call",[self,"GetMethods"])
+	Func GetMethods P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMethods",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetMethods"])
+		ok
+		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetMethods_1 P1
 		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetField P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetField",P1])
+		ok
 		return dnRequest("call",[self,"GetField",P1])
 
 	Func GetField_2 P1,P2
 		return dnRequest("call",[self,"GetField",P1,P2])
 
-	Func GetFields 
-		return dnRequest("call",[self,"GetFields"])
+	Func GetFields P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFields",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFields"])
+		ok
+		return dnRequest("call",[self,"GetFields",P1])
 
 	Func GetFields_1 P1
 		return dnRequest("call",[self,"GetFields",P1])
@@ -86,18 +104,27 @@ Class Module from Object
 		return dnRequest("call",[self,"FindTypes",P1,P2])
 
 	Func ResolveField P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ResolveField",P1])
+		ok
 		return dnRequest("call",[self,"ResolveField",P1])
 
 	Func ResolveField_3 P1,P2,P3
 		return dnRequest("call",[self,"ResolveField",P1,P2,P3])
 
 	Func ResolveMember P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ResolveMember",P1])
+		ok
 		return dnRequest("call",[self,"ResolveMember",P1])
 
 	Func ResolveMember_3 P1,P2,P3
 		return dnRequest("call",[self,"ResolveMember",P1,P2,P3])
 
 	Func ResolveMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ResolveMethod",P1])
+		ok
 		return dnRequest("call",[self,"ResolveMethod",P1])
 
 	Func ResolveMethod_3 P1,P2,P3
@@ -110,6 +137,9 @@ Class Module from Object
 		return dnRequest("call",[self,"ResolveString",P1])
 
 	Func ResolveType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ResolveType",P1])
+		ok
 		return dnRequest("call",[self,"ResolveType",P1])
 
 	Func ResolveType_3 P1,P2,P3
@@ -119,35 +149,17 @@ Class Module from Object
 		dnRequest("call",[self,"GetObjectData",P1,P2])
 		return self
 
-	Func GetCustomAttributes@ P1
-		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
-	Func GetMethod@ P1
-		return dnRequest("callnamed",[self,"GetMethod",P1])
-
-	Func GetMethods@ P1
-		return dnRequest("callnamed",[self,"GetMethods",P1])
-
-	Func GetField@ P1
-		return dnRequest("callnamed",[self,"GetField",P1])
-
-	Func GetFields@ P1
-		return dnRequest("callnamed",[self,"GetFields",P1])
-
-	Func GetType@ P1
-		return dnRequest("callnamed",[self,"GetType",P1])
-
-	Func ResolveField@ P1
-		return dnRequest("callnamed",[self,"ResolveField",P1])
-
-	Func ResolveMember@ P1
-		return dnRequest("callnamed",[self,"ResolveMember",P1])
-
-	Func ResolveMethod@ P1
-		return dnRequest("callnamed",[self,"ResolveMethod",P1])
-
-	Func ResolveType@ P1
-		return dnRequest("callnamed",[self,"ResolveType",P1])
+	Func GetType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetType",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetType"])
+		ok
+		return dnRequest("call",[self,"GetType",P1])
 
 	Func getAssembly
 		return dnRequest("get",[self,"Assembly"])

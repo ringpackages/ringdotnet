@@ -98,6 +98,9 @@ Class LoggingDefinitions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLogServiceProviderCreated
 		return dnRequest("get",[self,"LogServiceProviderCreated"])
 

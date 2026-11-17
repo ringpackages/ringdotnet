@@ -46,6 +46,9 @@ Class BindingManagerBase from Object
 		dnRequest("call",[self,"ResumeBinding"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setBindingCompleteEvent P1
 		dnRequest("setevent",[self,"BindingComplete",dnCallback(P1)])
 		return self

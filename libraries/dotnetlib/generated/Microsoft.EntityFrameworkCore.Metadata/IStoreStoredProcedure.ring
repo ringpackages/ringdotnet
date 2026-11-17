@@ -25,12 +25,6 @@ Class IStoreStoredProcedure from DotNetObject
 	Func FindResultColumn P1
 		return dnRequest("call",[self,"FindResultColumn",P1])
 
-	Func FindParameter@ P1
-		return dnRequest("callnamed",[self,"FindParameter",P1])
-
-	Func FindResultColumn@ P1
-		return dnRequest("callnamed",[self,"FindResultColumn",P1])
-
 	Func getStoredProcedures
 		return dnRequest("get",[self,"StoredProcedures"])
 

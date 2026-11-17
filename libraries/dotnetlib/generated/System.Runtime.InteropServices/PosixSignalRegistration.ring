@@ -17,6 +17,9 @@ Class PosixSignalRegistration from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.PosixSignalRegistration, System.Private.CoreLib'),"Create",P1,P2])
 

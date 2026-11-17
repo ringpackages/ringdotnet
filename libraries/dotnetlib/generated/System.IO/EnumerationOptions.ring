@@ -23,6 +23,9 @@ Class EnumerationOptions from Object
 		nHandle = dnCreate('System.IO.EnumerationOptions, System.Private.CoreLib',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRecurseSubdirectories
 		return dnRequest("get",[self,"RecurseSubdirectories"])
 

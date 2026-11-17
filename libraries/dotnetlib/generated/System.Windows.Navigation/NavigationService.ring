@@ -27,6 +27,9 @@ Class NavigationService from Object
 		return dnRequest("call",[self,"RemoveBackEntry"])
 
 	Func Navigate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Navigate",P1])
+		ok
 		return dnRequest("call",[self,"Navigate",P1])
 
 	Func Navigate_2 P1,P2
@@ -51,11 +54,11 @@ Class NavigationService from Object
 		dnRequest("call",[self,"Refresh"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetNavigationService P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework'),"GetNavigationService",P1])
-
-	Func Navigate@ P1
-		return dnRequest("callnamed",[self,"Navigate",P1])
 
 	Func setNavigationFailedEvent P1
 		dnRequest("setevent",[self,"NavigationFailed",dnCallback(P1)])

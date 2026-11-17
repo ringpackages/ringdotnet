@@ -13,6 +13,9 @@ Class AspHostingEnvironmentExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsDevelopment P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingEnvironmentExtensions, Microsoft.Extensions.Hosting.Abstractions'),"IsDevelopment",P1])
 

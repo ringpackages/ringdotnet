@@ -31,6 +31,9 @@ Class CookieOptions from Object
 	Func CreateCookieHeader P1,P2
 		return dnRequest("call",[self,"CreateCookieHeader",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDomain
 		return dnRequest("get",[self,"Domain"])
 

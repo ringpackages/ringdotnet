@@ -40,8 +40,17 @@ Class Console from Object
 		ok
 		return self
 
-	Func ReadKey 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func ReadKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
 
 	Func ReadKey_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
@@ -65,9 +74,16 @@ Class Console from Object
 	Func GetCursorPosition 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"GetCursorPosition"])
 
-	Func Beep 
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep"])
+	Func Beep P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Beep",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep"])
 		return self
+		ok
+		raise("DotNet Error: Beep does not take one argument: use Beep(NULL), Beep_N(...) or named arguments")
 
 	Func Beep_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep",P1,P2])
@@ -89,20 +105,38 @@ Class Console from Object
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetCursorPosition",P1,P2])
 		return self
 
-	Func OpenStandardInput 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput"])
+	Func OpenStandardInput P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
 
 	Func OpenStandardInput_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
 
-	Func OpenStandardOutput 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput"])
+	Func OpenStandardOutput P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
 
 	Func OpenStandardOutput_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
 
-	Func OpenStandardError 
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError"])
+	Func OpenStandardError P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
 
 	Func OpenStandardError_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
@@ -130,6 +164,14 @@ Class Console from Object
 		return self
 
 	Func WriteLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine"])
+		return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
 		return self
 
@@ -158,35 +200,11 @@ Class Console from Object
 		return self
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Write",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1])
-		return self
-
-	Func ReadKey@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
-
-	Func Beep@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Beep",P1])
-		return self
-
-	Func MoveBufferArea@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1])
-		return self
-
-	Func OpenStandardInput@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
-
-	Func OpenStandardOutput@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
-
-	Func OpenStandardError@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
-
-	Func WriteLine@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
-		return self
-
-	Func Write@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Write",P1])
 		return self
 
 	Func setCancelKeyPressEvent P1

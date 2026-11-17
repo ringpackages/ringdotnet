@@ -31,6 +31,9 @@ Class XmlSchemaSet from Object
 		return dnRequest("call",[self,"Add",P1,P2])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -54,20 +57,20 @@ Class XmlSchemaSet from Object
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
-	Func Schemas 
-		return dnRequest("call",[self,"Schemas"])
+	Func Schemas P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Schemas",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Schemas"])
+		ok
+		return dnRequest("call",[self,"Schemas",P1])
 
 	Func Schemas_1 P1
 		return dnRequest("call",[self,"Schemas",P1])
 
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Schemas@ P1
-		return dnRequest("callnamed",[self,"Schemas",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])

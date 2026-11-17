@@ -20,6 +20,9 @@ Class TouchPoint from Object
 		nHandle = dnCreate('System.Windows.Input.TouchPoint, PresentationCore',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTouchDevice
 		return dnRequest("get",[self,"TouchDevice"])
 

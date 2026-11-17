@@ -27,6 +27,9 @@ Class ContentDisposition from Object
 		nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getDispositionType
 		return dnRequest("get",[self,"DispositionType"])
 

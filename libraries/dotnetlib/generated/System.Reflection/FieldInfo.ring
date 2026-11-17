@@ -56,17 +56,13 @@ Class FieldInfo from MemberInfo
 		return dnRequest("call",[self,"GetRequiredCustomModifiers"])
 
 	Func GetFieldFromHandle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib'),"GetFieldFromHandle",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib'),"GetFieldFromHandle",P1])
 
 	Func GetFieldFromHandle_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib'),"GetFieldFromHandle",P1,P2])
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[self,"SetValue",P1])
-		return self
-
-	Func GetFieldFromHandle@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Reflection.FieldInfo, System.Private.CoreLib'),"GetFieldFromHandle",P1])
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])

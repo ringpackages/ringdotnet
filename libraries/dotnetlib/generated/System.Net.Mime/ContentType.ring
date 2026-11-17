@@ -24,6 +24,9 @@ Class ContentType from Object
 		nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBoundary
 		return dnRequest("get",[self,"Boundary"])
 

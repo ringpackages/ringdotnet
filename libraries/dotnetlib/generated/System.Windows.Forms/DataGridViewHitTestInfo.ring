@@ -20,6 +20,9 @@ Class DataGridViewHitTestInfo from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 

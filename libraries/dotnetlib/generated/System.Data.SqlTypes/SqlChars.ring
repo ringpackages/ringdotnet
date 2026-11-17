@@ -43,6 +43,9 @@ Class SqlChars from Object
 	Func ToSqlString 
 		return dnRequest("call",[self,"ToSqlString"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlChars, System.Data.Common'),"GetXsdType",P1])
 

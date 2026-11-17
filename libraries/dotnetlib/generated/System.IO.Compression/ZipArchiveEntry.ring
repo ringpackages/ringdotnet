@@ -31,6 +31,9 @@ Class ZipArchiveEntry from Object
 	Func Open 
 		return dnRequest("call",[self,"Open"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getArchive
 		return dnRequest("get",[self,"Archive"])
 

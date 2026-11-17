@@ -17,8 +17,16 @@ Class SpinWait from ValueType
 		nHandle = dnCreate('System.Threading.SpinWait, System.Private.CoreLib',[])
 		return self
 
-	Func SpinOnce 
-		dnRequest("call",[self,"SpinOnce"])
+	Func SpinOnce P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SpinOnce",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"SpinOnce"])
+		return self
+		ok
+		dnRequest("call",[self,"SpinOnce",P1])
 		return self
 
 	Func SpinOnce_1 P1
@@ -30,18 +38,14 @@ Class SpinWait from ValueType
 		return self
 
 	Func SpinUntil P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1])
+		ok
 		dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1])
 		return self
 
 	Func SpinUntil_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1,P2])
-
-	Func SpinOnce@ P1
-		dnRequest("callnamed",[self,"SpinOnce",P1])
-		return self
-
-	Func SpinUntil@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

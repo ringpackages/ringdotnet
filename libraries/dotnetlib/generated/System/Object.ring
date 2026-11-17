@@ -21,6 +21,12 @@ Class Object from DotNetObject
 		return dnRequest("call",[self,"ToString"])
 
 	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Object, System.Private.CoreLib'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
 		return dnRequest("call",[self,"Equals",P1])
 
 	Func GetHashCode 
@@ -31,10 +37,4 @@ Class Object from DotNetObject
 
 	Func ReferenceEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Object, System.Private.CoreLib'),"ReferenceEquals",P1,P2])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Object, System.Private.CoreLib'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
 

@@ -16,8 +16,16 @@ Class CorrelationManager from Object
 		ok
 		return self
 
-	Func StartLogicalOperation 
-		dnRequest("call",[self,"StartLogicalOperation"])
+	Func StartLogicalOperation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"StartLogicalOperation",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"StartLogicalOperation"])
+		return self
+		ok
+		dnRequest("call",[self,"StartLogicalOperation",P1])
 		return self
 
 	Func StopLogicalOperation 
@@ -28,9 +36,8 @@ Class CorrelationManager from Object
 		dnRequest("call",[self,"StartLogicalOperation",P1])
 		return self
 
-	Func StartLogicalOperation@ P1
-		dnRequest("callnamed",[self,"StartLogicalOperation",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getLogicalOperationStack
 		return dnRequest("get",[self,"LogicalOperationStack"])

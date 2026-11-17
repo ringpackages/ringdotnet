@@ -23,6 +23,3 @@ Class IEntityEntryGraphIterator from DotNetObject
 	Func TraverseGraphAsync P1,P2
 		return dnRequest("call",[self,"TraverseGraphAsync",P1,P2])
 
-	Func TraverseGraphAsync@ P1
-		return dnRequest("callnamed",[self,"TraverseGraphAsync",P1])
-

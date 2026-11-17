@@ -21,6 +21,9 @@ Class ListViewInsertionMark from Object
 	Func NearestIndex P1
 		return dnRequest("call",[self,"NearestIndex",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAppearsAfterItem
 		return dnRequest("get",[self,"AppearsAfterItem"])
 

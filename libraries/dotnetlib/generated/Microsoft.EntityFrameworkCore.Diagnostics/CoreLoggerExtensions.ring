@@ -13,6 +13,9 @@ Class CoreLoggerExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SaveChangesFailed P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailed",P1,P2,P3])
 		return self
@@ -358,19 +361,4 @@ Class CoreLoggerExtensions from Object
 	Func PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"PossibleIncorrectRequiredNavigationWithQueryFilterInteractionWarning",P1,P2])
 		return self
-
-	Func SaveChangesFailedAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailedAsync",P1])
-
-	Func SaveChangesCanceledAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCanceledAsync",P1])
-
-	Func OptimisticConcurrencyExceptionAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OptimisticConcurrencyExceptionAsync",P1])
-
-	Func SaveChangesStartingAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesStartingAsync",P1])
-
-	Func SaveChangesCompletedAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCompletedAsync",P1])
 

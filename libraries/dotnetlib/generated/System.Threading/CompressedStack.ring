@@ -20,6 +20,9 @@ Class CompressedStack from Object
 	Func CreateCopy 
 		return dnRequest("call",[self,"CreateCopy"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Capture 
 		return dnRequest("call",[dnTypeCached('System.Threading.CompressedStack, System.Private.CoreLib'),"Capture"])
 

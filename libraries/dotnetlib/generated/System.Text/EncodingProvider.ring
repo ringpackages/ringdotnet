@@ -14,6 +14,9 @@ Class EncodingProvider from Object
 		return self
 
 	Func GetEncoding P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEncoding",P1])
+		ok
 		return dnRequest("call",[self,"GetEncoding",P1])
 
 	Func GetEncoding_3 P1,P2,P3
@@ -22,6 +25,6 @@ Class EncodingProvider from Object
 	Func GetEncodings 
 		return dnRequest("call",[self,"GetEncodings"])
 
-	Func GetEncoding@ P1
-		return dnRequest("callnamed",[self,"GetEncoding",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

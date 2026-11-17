@@ -37,6 +37,9 @@ Class XmlParserContext from Object
 		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getNameTable
 		return dnRequest("get",[self,"NameTable"])
 

@@ -13,12 +13,15 @@ Class ConfigurationRootExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDebugView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
 
 	Func GetDebugView_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1,P2])
-
-	Func GetDebugView@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
 

@@ -92,13 +92,16 @@ Add your own closed generic with a line like `["System.Collections.Generic.List`
 
 ## Named arguments
 
-Ring passes optional, order-independent arguments as a list of `:name = value` pairs. Every method with overloads or optional parameters also has an `@` form (`Round@(...)`), and `dnNew@` creates objects with a constructor chosen by names. The names are the .NET parameter names (not case sensitive):
+Ring passes optional, order-independent arguments as a list of `:name = value` pairs. When a method has overloads with different numbers of parameters, its plain name takes one parameter: `NULL` calls the parameterless overload, a list of `:name = value` pairs chooses the overload by the .NET parameter names (not case sensitive), anything else is the one-argument call:
 
 ```ring
-? new Math().Round@([ :value = 3.14159, :digits = 2 ])
-oProcess = new Process().Start@([ :startInfo = oInfo ])
-oSB = dnNew@("StringBuilder",[ :value = "Hello" ])
+? new Math().Round([ :value = 3.14159, :digits = 2 ])
+oProcess = new Process().Start([ :startInfo = oInfo ])
+oProcess.WaitForExit(NULL)                       # the parameterless overload of an overloaded method
+oSB = dnNew("StringBuilder",[ :value = "Hello" ])
 ```
+
+Methods whose plain form takes two or more parameters, or whose overloads all have the same number of parameters, stay positional. `ToString` and `ToList` keep their plain forms (`ToString_1(format)`).
 
 ## LINQ
 

@@ -21,6 +21,9 @@ Class Screen from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromPoint P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"FromPoint",P1])
 
@@ -38,12 +41,6 @@ Class Screen from Object
 
 	Func GetBounds_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
-
-	Func GetWorkingArea@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetWorkingArea",P1])
-
-	Func GetBounds@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
 
 	Func getBitsPerPixel
 		return dnRequest("get",[self,"BitsPerPixel"])

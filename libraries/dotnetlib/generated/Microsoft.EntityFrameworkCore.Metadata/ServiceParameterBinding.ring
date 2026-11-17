@@ -16,11 +16,14 @@ Class ServiceParameterBinding from ParameterBinding
 		ok
 		return self
 
+	Func BindToParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BindToParameter",P1])
+		ok
+		return dnRequest("call",[self,"BindToParameter",P1])
+
 	Func BindToParameter_2 P1,P2
 		return dnRequest("call",[self,"BindToParameter",P1,P2])
-
-	Func BindToParameter@ P1
-		return dnRequest("callnamed",[self,"BindToParameter",P1])
 
 	Func getServiceType
 		return dnRequest("get",[self,"ServiceType"])

@@ -13,6 +13,9 @@ Class DependencyPropertyHelper from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetValueSource P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyPropertyHelper, PresentationFramework'),"GetValueSource",P1,P2])
 

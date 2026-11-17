@@ -17,6 +17,9 @@ Class ListSortDescription from Object
 		nHandle = dnCreate('System.ComponentModel.ListSortDescription, System.ComponentModel.TypeConverter',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPropertyDescriptor
 		return dnRequest("get",[self,"PropertyDescriptor"])
 

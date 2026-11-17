@@ -15,30 +15,45 @@ Class TypeConverter from Object
 		return self
 
 	Func CanConvertFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanConvertFrom",P1])
+		ok
 		return dnRequest("call",[self,"CanConvertFrom",P1])
 
 	Func CanConvertFrom_2 P1,P2
 		return dnRequest("call",[self,"CanConvertFrom",P1,P2])
 
 	Func CanConvertTo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanConvertTo",P1])
+		ok
 		return dnRequest("call",[self,"CanConvertTo",P1])
 
 	Func CanConvertTo_2 P1,P2
 		return dnRequest("call",[self,"CanConvertTo",P1,P2])
 
 	Func ConvertFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConvertFrom",P1])
+		ok
 		return dnRequest("call",[self,"ConvertFrom",P1])
 
 	Func ConvertFrom_3 P1,P2,P3
 		return dnRequest("call",[self,"ConvertFrom",P1,P2,P3])
 
 	Func ConvertFromInvariantString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConvertFromInvariantString",P1])
+		ok
 		return dnRequest("call",[self,"ConvertFromInvariantString",P1])
 
 	Func ConvertFromInvariantString_2 P1,P2
 		return dnRequest("call",[self,"ConvertFromInvariantString",P1,P2])
 
 	Func ConvertFromString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConvertFromString",P1])
+		ok
 		return dnRequest("call",[self,"ConvertFromString",P1])
 
 	Func ConvertFromString_2 P1,P2
@@ -54,12 +69,18 @@ Class TypeConverter from Object
 		return dnRequest("call",[self,"ConvertTo",P1,P2,P3,P4])
 
 	Func ConvertToInvariantString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConvertToInvariantString",P1])
+		ok
 		return dnRequest("call",[self,"ConvertToInvariantString",P1])
 
 	Func ConvertToInvariantString_2 P1,P2
 		return dnRequest("call",[self,"ConvertToInvariantString",P1,P2])
 
 	Func ConvertToString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConvertToString",P1])
+		ok
 		return dnRequest("call",[self,"ConvertToString",P1])
 
 	Func ConvertToString_2 P1,P2
@@ -69,18 +90,30 @@ Class TypeConverter from Object
 		return dnRequest("call",[self,"ConvertToString",P1,P2,P3])
 
 	Func CreateInstance P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateInstance",P1])
+		ok
 		return dnRequest("call",[self,"CreateInstance",P1])
 
 	Func CreateInstance_2 P1,P2
 		return dnRequest("call",[self,"CreateInstance",P1,P2])
 
-	Func GetCreateInstanceSupported 
-		return dnRequest("call",[self,"GetCreateInstanceSupported"])
+	Func GetCreateInstanceSupported P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCreateInstanceSupported",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetCreateInstanceSupported"])
+		ok
+		return dnRequest("call",[self,"GetCreateInstanceSupported",P1])
 
 	Func GetCreateInstanceSupported_1 P1
 		return dnRequest("call",[self,"GetCreateInstanceSupported",P1])
 
 	Func GetProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetProperties",P1])
+		ok
 		return dnRequest("call",[self,"GetProperties",P1])
 
 	Func GetProperties_2 P1,P2
@@ -89,81 +122,63 @@ Class TypeConverter from Object
 	Func GetProperties_3 P1,P2,P3
 		return dnRequest("call",[self,"GetProperties",P1,P2,P3])
 
-	Func GetPropertiesSupported 
-		return dnRequest("call",[self,"GetPropertiesSupported"])
+	Func GetPropertiesSupported P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetPropertiesSupported",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetPropertiesSupported"])
+		ok
+		return dnRequest("call",[self,"GetPropertiesSupported",P1])
 
 	Func GetPropertiesSupported_1 P1
 		return dnRequest("call",[self,"GetPropertiesSupported",P1])
 
-	Func GetStandardValues 
-		return dnRequest("call",[self,"GetStandardValues"])
+	Func GetStandardValues P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStandardValues",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetStandardValues"])
+		ok
+		return dnRequest("call",[self,"GetStandardValues",P1])
 
 	Func GetStandardValues_1 P1
 		return dnRequest("call",[self,"GetStandardValues",P1])
 
-	Func GetStandardValuesExclusive 
-		return dnRequest("call",[self,"GetStandardValuesExclusive"])
+	Func GetStandardValuesExclusive P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStandardValuesExclusive",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetStandardValuesExclusive"])
+		ok
+		return dnRequest("call",[self,"GetStandardValuesExclusive",P1])
 
 	Func GetStandardValuesExclusive_1 P1
 		return dnRequest("call",[self,"GetStandardValuesExclusive",P1])
 
-	Func GetStandardValuesSupported 
-		return dnRequest("call",[self,"GetStandardValuesSupported"])
+	Func GetStandardValuesSupported P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetStandardValuesSupported",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetStandardValuesSupported"])
+		ok
+		return dnRequest("call",[self,"GetStandardValuesSupported",P1])
 
 	Func GetStandardValuesSupported_1 P1
 		return dnRequest("call",[self,"GetStandardValuesSupported",P1])
 
 	Func IsValid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsValid",P1])
+		ok
 		return dnRequest("call",[self,"IsValid",P1])
 
 	Func IsValid_2 P1,P2
 		return dnRequest("call",[self,"IsValid",P1,P2])
 
-	Func CanConvertFrom@ P1
-		return dnRequest("callnamed",[self,"CanConvertFrom",P1])
-
-	Func CanConvertTo@ P1
-		return dnRequest("callnamed",[self,"CanConvertTo",P1])
-
-	Func ConvertFrom@ P1
-		return dnRequest("callnamed",[self,"ConvertFrom",P1])
-
-	Func ConvertFromInvariantString@ P1
-		return dnRequest("callnamed",[self,"ConvertFromInvariantString",P1])
-
-	Func ConvertFromString@ P1
-		return dnRequest("callnamed",[self,"ConvertFromString",P1])
-
-	Func ConvertTo@ P1
-		return dnRequest("callnamed",[self,"ConvertTo",P1])
-
-	Func ConvertToInvariantString@ P1
-		return dnRequest("callnamed",[self,"ConvertToInvariantString",P1])
-
-	Func ConvertToString@ P1
-		return dnRequest("callnamed",[self,"ConvertToString",P1])
-
-	Func CreateInstance@ P1
-		return dnRequest("callnamed",[self,"CreateInstance",P1])
-
-	Func GetCreateInstanceSupported@ P1
-		return dnRequest("callnamed",[self,"GetCreateInstanceSupported",P1])
-
-	Func GetProperties@ P1
-		return dnRequest("callnamed",[self,"GetProperties",P1])
-
-	Func GetPropertiesSupported@ P1
-		return dnRequest("callnamed",[self,"GetPropertiesSupported",P1])
-
-	Func GetStandardValues@ P1
-		return dnRequest("callnamed",[self,"GetStandardValues",P1])
-
-	Func GetStandardValuesExclusive@ P1
-		return dnRequest("callnamed",[self,"GetStandardValuesExclusive",P1])
-
-	Func GetStandardValuesSupported@ P1
-		return dnRequest("callnamed",[self,"GetStandardValuesSupported",P1])
-
-	Func IsValid@ P1
-		return dnRequest("callnamed",[self,"IsValid",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

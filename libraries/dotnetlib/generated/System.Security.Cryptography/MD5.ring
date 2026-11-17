@@ -16,8 +16,14 @@ Class MD5 from HashAlgorithm
 		ok
 		return self
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
@@ -29,19 +35,13 @@ Class MD5 from HashAlgorithm
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
-
-	Func HashData@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashSizeInBits"])

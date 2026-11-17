@@ -45,6 +45,9 @@ Class ConcurrentStringQueue from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])
 

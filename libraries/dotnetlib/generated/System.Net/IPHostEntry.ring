@@ -18,6 +18,9 @@ Class IPHostEntry from Object
 		nHandle = dnCreate('System.Net.IPHostEntry, System.Net.NameResolution',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHostName
 		return dnRequest("get",[self,"HostName"])
 

@@ -23,6 +23,9 @@ Class AuthenticateResult from Object
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Success P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Success",P1])
 
@@ -30,13 +33,13 @@ Class AuthenticateResult from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"NoResult"])
 
 	Func Fail P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
 
 	Func Fail_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1,P2])
-
-	Func Fail@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
 
 	Func getSucceeded
 		return dnRequest("get",[self,"Succeeded"])

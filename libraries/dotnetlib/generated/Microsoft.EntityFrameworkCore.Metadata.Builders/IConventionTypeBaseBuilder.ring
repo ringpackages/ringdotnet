@@ -31,6 +31,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
 
 	Func Property_4 P1,P2,P3,P4
@@ -43,6 +46,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"Property",P1,P2])
 
 	Func Property P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Property",P1])
+		ok
 		return dnRequest("call",[self,"Property",P1])
 
 	Func CanHaveProperty_3 P1,P2,P3
@@ -52,6 +58,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveProperty",P1,P2])
 
 	Func CanHaveProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveProperty",P1])
 
 	Func IndexerProperty_3 P1,P2,P3
@@ -73,6 +82,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"GetOrCreateProperties",P1,P2])
 
 	Func GetOrCreateProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetOrCreateProperties",P1])
+		ok
 		return dnRequest("call",[self,"GetOrCreateProperties",P1])
 
 	Func RemoveUnusedImplicitProperties P1
@@ -82,12 +94,18 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoProperty",P1,P2])
 
 	Func HasNoProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoProperty",P1])
+		ok
 		return dnRequest("call",[self,"HasNoProperty",P1])
 
 	Func CanRemoveProperty_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveProperty",P1,P2])
 
 	Func CanRemoveProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveProperty",P1])
 
 	Func ComplexProperty_4 P1,P2,P3,P4
@@ -100,6 +118,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"ComplexProperty",P1,P2])
 
 	Func ComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"ComplexProperty",P1])
 
 	Func CanHaveComplexProperty_4 P1,P2,P3,P4
@@ -112,6 +133,9 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"CanHaveComplexProperty",P1,P2])
 
 	Func CanHaveComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanHaveComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanHaveComplexProperty",P1])
 
 	Func ComplexIndexerProperty_4 P1,P2,P3,P4
@@ -130,124 +154,82 @@ Class IConventionTypeBaseBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoComplexProperty",P1,P2])
 
 	Func HasNoComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"HasNoComplexProperty",P1])
 
 	Func CanRemoveComplexProperty_2 P1,P2
 		return dnRequest("call",[self,"CanRemoveComplexProperty",P1,P2])
 
 	Func CanRemoveComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanRemoveComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"CanRemoveComplexProperty",P1])
 
 	Func IsIgnored_2 P1,P2
 		return dnRequest("call",[self,"IsIgnored",P1,P2])
 
 	Func IsIgnored P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsIgnored",P1])
+		ok
 		return dnRequest("call",[self,"IsIgnored",P1])
 
 	Func Ignore_2 P1,P2
 		return dnRequest("call",[self,"Ignore",P1,P2])
 
 	Func Ignore P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Ignore",P1])
+		ok
 		return dnRequest("call",[self,"Ignore",P1])
 
 	Func CanIgnore_2 P1,P2
 		return dnRequest("call",[self,"CanIgnore",P1,P2])
 
 	Func CanIgnore P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanIgnore",P1])
+		ok
 		return dnRequest("call",[self,"CanIgnore",P1])
 
 	Func HasChangeTrackingStrategy_2 P1,P2
 		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1,P2])
 
 	Func HasChangeTrackingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+		ok
 		return dnRequest("call",[self,"HasChangeTrackingStrategy",P1])
 
 	Func CanSetChangeTrackingStrategy_2 P1,P2
 		return dnRequest("call",[self,"CanSetChangeTrackingStrategy",P1,P2])
 
 	Func CanSetChangeTrackingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetChangeTrackingStrategy",P1])
+		ok
 		return dnRequest("call",[self,"CanSetChangeTrackingStrategy",P1])
 
 	Func UsePropertyAccessMode_2 P1,P2
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1,P2])
 
 	Func UsePropertyAccessMode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+		ok
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
 
 	Func CanSetPropertyAccessMode_2 P1,P2
 		return dnRequest("call",[self,"CanSetPropertyAccessMode",P1,P2])
 
 	Func CanSetPropertyAccessMode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetPropertyAccessMode",P1])
+		ok
 		return dnRequest("call",[self,"CanSetPropertyAccessMode",P1])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
-
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
-
-	Func CanHaveProperty@ P1
-		return dnRequest("callnamed",[self,"CanHaveProperty",P1])
-
-	Func IndexerProperty@ P1
-		return dnRequest("callnamed",[self,"IndexerProperty",P1])
-
-	Func CanHaveIndexerProperty@ P1
-		return dnRequest("callnamed",[self,"CanHaveIndexerProperty",P1])
-
-	Func GetOrCreateProperties@ P1
-		return dnRequest("callnamed",[self,"GetOrCreateProperties",P1])
-
-	Func HasNoProperty@ P1
-		return dnRequest("callnamed",[self,"HasNoProperty",P1])
-
-	Func CanRemoveProperty@ P1
-		return dnRequest("callnamed",[self,"CanRemoveProperty",P1])
-
-	Func ComplexProperty@ P1
-		return dnRequest("callnamed",[self,"ComplexProperty",P1])
-
-	Func CanHaveComplexProperty@ P1
-		return dnRequest("callnamed",[self,"CanHaveComplexProperty",P1])
-
-	Func ComplexIndexerProperty@ P1
-		return dnRequest("callnamed",[self,"ComplexIndexerProperty",P1])
-
-	Func CanHaveComplexIndexerProperty@ P1
-		return dnRequest("callnamed",[self,"CanHaveComplexIndexerProperty",P1])
-
-	Func HasNoComplexProperty@ P1
-		return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
-
-	Func CanRemoveComplexProperty@ P1
-		return dnRequest("callnamed",[self,"CanRemoveComplexProperty",P1])
-
-	Func IsIgnored@ P1
-		return dnRequest("callnamed",[self,"IsIgnored",P1])
-
-	Func Ignore@ P1
-		return dnRequest("callnamed",[self,"Ignore",P1])
-
-	Func CanIgnore@ P1
-		return dnRequest("callnamed",[self,"CanIgnore",P1])
-
-	Func HasChangeTrackingStrategy@ P1
-		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
-
-	Func CanSetChangeTrackingStrategy@ P1
-		return dnRequest("callnamed",[self,"CanSetChangeTrackingStrategy",P1])
-
-	Func UsePropertyAccessMode@ P1
-		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
-
-	Func CanSetPropertyAccessMode@ P1
-		return dnRequest("callnamed",[self,"CanSetPropertyAccessMode",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

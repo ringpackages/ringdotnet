@@ -53,8 +53,14 @@ Class PropertyDescriptorCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func Sort 
-		return dnRequest("call",[self,"Sort"])
+	Func Sort P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Sort",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Sort"])
+		ok
+		return dnRequest("call",[self,"Sort",P1])
 
 	Func Sort_1 P1
 		return dnRequest("call",[self,"Sort",P1])
@@ -65,8 +71,8 @@ Class PropertyDescriptorCollection from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func Sort@ P1
-		return dnRequest("callnamed",[self,"Sort",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

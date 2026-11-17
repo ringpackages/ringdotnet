@@ -19,6 +19,9 @@ Class AuthenticationMiddleware from Object
 	Func Invoke P1
 		return dnRequest("call",[self,"Invoke",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
 

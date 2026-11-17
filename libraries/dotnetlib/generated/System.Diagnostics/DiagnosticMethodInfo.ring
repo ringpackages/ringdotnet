@@ -17,11 +17,11 @@ Class DiagnosticMethodInfo from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"Create",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"Create",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])

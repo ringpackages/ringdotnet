@@ -22,20 +22,38 @@ Class DbCommandBuilder from Component
 		ok
 		return self
 
-	Func GetInsertCommand 
-		return dnRequest("call",[self,"GetInsertCommand"])
+	Func GetInsertCommand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetInsertCommand",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetInsertCommand"])
+		ok
+		return dnRequest("call",[self,"GetInsertCommand",P1])
 
 	Func GetInsertCommand_1 P1
 		return dnRequest("call",[self,"GetInsertCommand",P1])
 
-	Func GetUpdateCommand 
-		return dnRequest("call",[self,"GetUpdateCommand"])
+	Func GetUpdateCommand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetUpdateCommand",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetUpdateCommand"])
+		ok
+		return dnRequest("call",[self,"GetUpdateCommand",P1])
 
 	Func GetUpdateCommand_1 P1
 		return dnRequest("call",[self,"GetUpdateCommand",P1])
 
-	Func GetDeleteCommand 
-		return dnRequest("call",[self,"GetDeleteCommand"])
+	Func GetDeleteCommand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDeleteCommand",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDeleteCommand"])
+		ok
+		return dnRequest("call",[self,"GetDeleteCommand",P1])
 
 	Func GetDeleteCommand_1 P1
 		return dnRequest("call",[self,"GetDeleteCommand",P1])
@@ -49,15 +67,6 @@ Class DbCommandBuilder from Component
 
 	Func UnquoteIdentifier P1
 		return dnRequest("call",[self,"UnquoteIdentifier",P1])
-
-	Func GetInsertCommand@ P1
-		return dnRequest("callnamed",[self,"GetInsertCommand",P1])
-
-	Func GetUpdateCommand@ P1
-		return dnRequest("callnamed",[self,"GetUpdateCommand",P1])
-
-	Func GetDeleteCommand@ P1
-		return dnRequest("callnamed",[self,"GetDeleteCommand",P1])
 
 	Func getConflictOption
 		return dnRequest("get",[self,"ConflictOption"])

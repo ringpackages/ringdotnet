@@ -72,6 +72,10 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClient P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AuthenticateAsClient",P1])
 		return self
 
@@ -84,6 +88,10 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsServer P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AuthenticateAsServer",P1])
 		return self
 
@@ -96,6 +104,9 @@ Class SslStream from AuthenticatedStream
 		return self
 
 	Func AuthenticateAsClientAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
+		ok
 		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1])
 
 	Func AuthenticateAsClientAsync_3 P1,P2,P3
@@ -108,6 +119,9 @@ Class SslStream from AuthenticatedStream
 		return dnRequest("call",[self,"AuthenticateAsClientAsync",P1,P2])
 
 	Func AuthenticateAsServerAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
+		ok
 		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1])
 
 	Func AuthenticateAsServerAsync_3 P1,P2,P3
@@ -125,42 +139,25 @@ Class SslStream from AuthenticatedStream
 	Func NegotiateClientCertificateAsync_1 P1
 		return dnRequest("call",[self,"NegotiateClientCertificateAsync",P1])
 
-	Func NegotiateClientCertificateAsync 
-		return dnRequest("call",[self,"NegotiateClientCertificateAsync"])
+	Func NegotiateClientCertificateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NegotiateClientCertificateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NegotiateClientCertificateAsync"])
+		ok
+		return dnRequest("call",[self,"NegotiateClientCertificateAsync",P1])
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Write",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Write",P1])
 		return self
 
 	Func Write_3 P1,P2,P3
 		dnRequest("call",[self,"Write",P1,P2,P3])
-		return self
-
-	Func BeginAuthenticateAsClient@ P1
-		return dnRequest("callnamed",[self,"BeginAuthenticateAsClient",P1])
-
-	Func BeginAuthenticateAsServer@ P1
-		return dnRequest("callnamed",[self,"BeginAuthenticateAsServer",P1])
-
-	Func AuthenticateAsClient@ P1
-		dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
-		return self
-
-	Func AuthenticateAsServer@ P1
-		dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
-		return self
-
-	Func AuthenticateAsClientAsync@ P1
-		return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
-
-	Func AuthenticateAsServerAsync@ P1
-		return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
-
-	Func NegotiateClientCertificateAsync@ P1
-		return dnRequest("callnamed",[self,"NegotiateClientCertificateAsync",P1])
-
-	Func Write@ P1
-		dnRequest("callnamed",[self,"Write",P1])
 		return self
 
 	Func getTransportContext

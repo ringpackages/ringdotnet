@@ -17,8 +17,14 @@ Class Controller from ControllerBase
 		ok
 		return self
 
-	Func View 
-		return dnRequest("call",[self,"View"])
+	Func View P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"View",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"View"])
+		ok
+		return dnRequest("call",[self,"View",P1])
 
 	Func View_1 P1
 		return dnRequest("call",[self,"View",P1])
@@ -26,8 +32,14 @@ Class Controller from ControllerBase
 	Func View_2 P1,P2
 		return dnRequest("call",[self,"View",P1,P2])
 
-	Func PartialView 
-		return dnRequest("call",[self,"PartialView"])
+	Func PartialView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PartialView",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"PartialView"])
+		ok
+		return dnRequest("call",[self,"PartialView",P1])
 
 	Func PartialView_1 P1
 		return dnRequest("call",[self,"PartialView",P1])
@@ -36,12 +48,18 @@ Class Controller from ControllerBase
 		return dnRequest("call",[self,"PartialView",P1,P2])
 
 	Func ViewComponent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ViewComponent",P1])
+		ok
 		return dnRequest("call",[self,"ViewComponent",P1])
 
 	Func ViewComponent_2 P1,P2
 		return dnRequest("call",[self,"ViewComponent",P1,P2])
 
 	Func Json P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Json",P1])
+		ok
 		return dnRequest("call",[self,"Json",P1])
 
 	Func Json_2 P1,P2
@@ -61,18 +79,6 @@ Class Controller from ControllerBase
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
 		return self
-
-	Func View@ P1
-		return dnRequest("callnamed",[self,"View",P1])
-
-	Func PartialView@ P1
-		return dnRequest("callnamed",[self,"PartialView",P1])
-
-	Func ViewComponent@ P1
-		return dnRequest("callnamed",[self,"ViewComponent",P1])
-
-	Func Json@ P1
-		return dnRequest("callnamed",[self,"Json",P1])
 
 	Func getViewData
 		return dnRequest("get",[self,"ViewData"])

@@ -13,12 +13,15 @@ Class MemoryConfigurationBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddInMemoryCollection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
 
 	Func AddInMemoryCollection_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1,P2])
-
-	Func AddInMemoryCollection@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
 

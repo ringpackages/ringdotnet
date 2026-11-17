@@ -13,6 +13,9 @@ Class DirectoryBrowserServiceExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddDirectoryBrowser P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DirectoryBrowserServiceExtensions, Microsoft.AspNetCore.StaticFiles'),"AddDirectoryBrowser",P1])
 

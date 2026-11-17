@@ -23,6 +23,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+		ok
 		return dnRequest("call",[self,"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
@@ -32,6 +35,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetValueGenerated",P1,P2])
 
 	Func SetValueGenerated P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueGenerated",P1])
+		ok
 		return dnRequest("call",[self,"SetValueGenerated",P1])
 
 	Func GetValueGeneratedConfigurationSource 
@@ -41,6 +47,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetIsConcurrencyToken",P1,P2])
 
 	Func SetIsConcurrencyToken P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsConcurrencyToken",P1])
+		ok
 		return dnRequest("call",[self,"SetIsConcurrencyToken",P1])
 
 	Func GetIsConcurrencyTokenConfigurationSource 
@@ -71,6 +80,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetTypeMapping",P1,P2])
 
 	Func SetTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"SetTypeMapping",P1])
 
 	Func GetTypeMappingConfigurationSource 
@@ -80,6 +92,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetMaxLength",P1,P2])
 
 	Func SetMaxLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetMaxLength",P1])
+		ok
 		return dnRequest("call",[self,"SetMaxLength",P1])
 
 	Func GetMaxLengthConfigurationSource 
@@ -89,6 +104,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetPrecision",P1,P2])
 
 	Func SetPrecision P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetPrecision",P1])
+		ok
 		return dnRequest("call",[self,"SetPrecision",P1])
 
 	Func GetPrecisionConfigurationSource 
@@ -98,6 +116,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetScale",P1,P2])
 
 	Func SetScale P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetScale",P1])
+		ok
 		return dnRequest("call",[self,"SetScale",P1])
 
 	Func GetScaleConfigurationSource 
@@ -107,6 +128,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetIsUnicode",P1,P2])
 
 	Func SetIsUnicode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsUnicode",P1])
+		ok
 		return dnRequest("call",[self,"SetIsUnicode",P1])
 
 	Func GetIsUnicodeConfigurationSource 
@@ -116,6 +140,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetBeforeSaveBehavior",P1,P2])
 
 	Func SetBeforeSaveBehavior P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetBeforeSaveBehavior",P1])
+		ok
 		return dnRequest("call",[self,"SetBeforeSaveBehavior",P1])
 
 	Func GetBeforeSaveBehaviorConfigurationSource 
@@ -125,6 +152,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetAfterSaveBehavior",P1,P2])
 
 	Func SetAfterSaveBehavior P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetAfterSaveBehavior",P1])
+		ok
 		return dnRequest("call",[self,"SetAfterSaveBehavior",P1])
 
 	Func GetAfterSaveBehaviorConfigurationSource 
@@ -134,6 +164,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetSentinel",P1,P2])
 
 	Func SetSentinel P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetSentinel",P1])
+		ok
 		return dnRequest("call",[self,"SetSentinel",P1])
 
 	Func GetSentinelConfigurationSource 
@@ -143,6 +176,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetValueGeneratorFactory",P1,P2])
 
 	Func SetValueGeneratorFactory P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueGeneratorFactory",P1])
+		ok
 		return dnRequest("call",[self,"SetValueGeneratorFactory",P1])
 
 	Func GetValueGeneratorFactoryConfigurationSource 
@@ -152,6 +188,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetValueConverter",P1,P2])
 
 	Func SetValueConverter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueConverter",P1])
+		ok
 		return dnRequest("call",[self,"SetValueConverter",P1])
 
 	Func GetValueConverterConfigurationSource 
@@ -161,6 +200,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetProviderClrType",P1,P2])
 
 	Func SetProviderClrType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetProviderClrType",P1])
+		ok
 		return dnRequest("call",[self,"SetProviderClrType",P1])
 
 	Func GetProviderClrTypeConfigurationSource 
@@ -170,6 +212,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetValueComparer",P1,P2])
 
 	Func SetValueComparer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetValueComparer",P1])
+		ok
 		return dnRequest("call",[self,"SetValueComparer",P1])
 
 	Func GetValueComparerConfigurationSource 
@@ -179,6 +224,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetProviderValueComparer",P1,P2])
 
 	Func SetProviderValueComparer P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetProviderValueComparer",P1])
+		ok
 		return dnRequest("call",[self,"SetProviderValueComparer",P1])
 
 	Func GetProviderValueComparerConfigurationSource 
@@ -188,6 +236,9 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetJsonValueReaderWriterType",P1,P2])
 
 	Func SetJsonValueReaderWriterType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
+		ok
 		return dnRequest("call",[self,"SetJsonValueReaderWriterType",P1])
 
 	Func GetJsonValueReaderWriterTypeConfigurationSource 
@@ -200,64 +251,13 @@ Class IConventionProperty from DotNetObject
 		return dnRequest("call",[self,"SetElementType",P1,P2])
 
 	Func SetElementType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetElementType",P1])
+		ok
 		return dnRequest("call",[self,"SetElementType",P1])
 
 	Func GetElementTypeConfigurationSource 
 		return dnRequest("call",[self,"GetElementTypeConfigurationSource"])
-
-	Func SetIsNullable@ P1
-		return dnRequest("callnamed",[self,"SetIsNullable",P1])
-
-	Func SetValueGenerated@ P1
-		return dnRequest("callnamed",[self,"SetValueGenerated",P1])
-
-	Func SetIsConcurrencyToken@ P1
-		return dnRequest("callnamed",[self,"SetIsConcurrencyToken",P1])
-
-	Func SetTypeMapping@ P1
-		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
-
-	Func SetMaxLength@ P1
-		return dnRequest("callnamed",[self,"SetMaxLength",P1])
-
-	Func SetPrecision@ P1
-		return dnRequest("callnamed",[self,"SetPrecision",P1])
-
-	Func SetScale@ P1
-		return dnRequest("callnamed",[self,"SetScale",P1])
-
-	Func SetIsUnicode@ P1
-		return dnRequest("callnamed",[self,"SetIsUnicode",P1])
-
-	Func SetBeforeSaveBehavior@ P1
-		return dnRequest("callnamed",[self,"SetBeforeSaveBehavior",P1])
-
-	Func SetAfterSaveBehavior@ P1
-		return dnRequest("callnamed",[self,"SetAfterSaveBehavior",P1])
-
-	Func SetSentinel@ P1
-		return dnRequest("callnamed",[self,"SetSentinel",P1])
-
-	Func SetValueGeneratorFactory@ P1
-		return dnRequest("callnamed",[self,"SetValueGeneratorFactory",P1])
-
-	Func SetValueConverter@ P1
-		return dnRequest("callnamed",[self,"SetValueConverter",P1])
-
-	Func SetProviderClrType@ P1
-		return dnRequest("callnamed",[self,"SetProviderClrType",P1])
-
-	Func SetValueComparer@ P1
-		return dnRequest("callnamed",[self,"SetValueComparer",P1])
-
-	Func SetProviderValueComparer@ P1
-		return dnRequest("callnamed",[self,"SetProviderValueComparer",P1])
-
-	Func SetJsonValueReaderWriterType@ P1
-		return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
-
-	Func SetElementType@ P1
-		return dnRequest("callnamed",[self,"SetElementType",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

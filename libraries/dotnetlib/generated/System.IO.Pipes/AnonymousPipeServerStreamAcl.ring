@@ -13,6 +13,9 @@ Class AnonymousPipeServerStreamAcl from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.Pipes.AnonymousPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4])
 

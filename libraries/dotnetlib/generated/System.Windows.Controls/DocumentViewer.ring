@@ -65,8 +65,16 @@ Class DocumentViewer from DocumentViewerBase
 		dnRequest("call",[self,"FitToHeight"])
 		return self
 
-	Func FitToMaxPagesAcross 
-		dnRequest("call",[self,"FitToMaxPagesAcross"])
+	Func FitToMaxPagesAcross P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"FitToMaxPagesAcross",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"FitToMaxPagesAcross"])
+		return self
+		ok
+		dnRequest("call",[self,"FitToMaxPagesAcross",P1])
 		return self
 
 	Func FitToMaxPagesAcross_1 P1
@@ -115,10 +123,6 @@ Class DocumentViewer from DocumentViewerBase
 
 	Func DecreaseZoom 
 		dnRequest("call",[self,"DecreaseZoom"])
-		return self
-
-	Func FitToMaxPagesAcross@ P1
-		dnRequest("callnamed",[self,"FitToMaxPagesAcross",P1])
 		return self
 
 	Func getHorizontalOffset

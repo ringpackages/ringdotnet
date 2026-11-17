@@ -18,6 +18,9 @@ Class SessionOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.SessionOptions, Microsoft.AspNetCore.Session',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCookie
 		return dnRequest("get",[self,"Cookie"])
 

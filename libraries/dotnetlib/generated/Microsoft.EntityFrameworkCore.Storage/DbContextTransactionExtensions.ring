@@ -13,6 +13,9 @@ Class DbContextTransactionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetDbTransaction P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.DbContextTransactionExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDbTransaction",P1])
 

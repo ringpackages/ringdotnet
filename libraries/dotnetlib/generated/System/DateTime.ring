@@ -101,6 +101,15 @@ Class DateTime from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[self,"CompareTo",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsDaylightSavingTime 
 		return dnRequest("call",[self,"IsDaylightSavingTime"])
 
@@ -146,8 +155,14 @@ Class DateTime from ValueType
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
-	Func GetDateTimeFormats 
-		return dnRequest("call",[self,"GetDateTimeFormats"])
+	Func GetDateTimeFormats P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetDateTimeFormats",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetDateTimeFormats"])
+		ok
+		return dnRequest("call",[self,"GetDateTimeFormats",P1])
 
 	Func GetDateTimeFormats_1 P1
 		return dnRequest("call",[self,"GetDateTimeFormats",P1])
@@ -186,6 +201,9 @@ Class DateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"IsLeapYear",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -201,6 +219,9 @@ Class DateTime from ValueType
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -211,39 +232,6 @@ Class DateTime from ValueType
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Subtract@ P1
-		return dnRequest("callnamed",[self,"Subtract",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Deconstruct@ P1
-		return dnRequest("callnamed",[self,"Deconstruct",P1])
-
-	Func GetDateTimeFormats@ P1
-		return dnRequest("callnamed",[self,"GetDateTimeFormats",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
-
-	Func ParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParseExact",P1])
 
 	Func getDate
 		return dnRequest("get",[self,"Date"])

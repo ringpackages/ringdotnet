@@ -16,6 +16,9 @@ Class Http3Limits from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.Http3Limits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMaxRequestHeaderFieldSize
 		return dnRequest("get",[self,"MaxRequestHeaderFieldSize"])
 

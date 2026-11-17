@@ -20,6 +20,9 @@ Class SpellCheck from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetIsEnabled_2 P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"SetIsEnabled",P1,P2])
 		return self

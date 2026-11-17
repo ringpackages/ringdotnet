@@ -84,6 +84,9 @@ Class TimeOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"FromDateTime",P1])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_3 P1,P2,P3
@@ -102,6 +105,9 @@ Class TimeOnly from ValueType
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_3 P1,P2,P3
@@ -115,39 +121,6 @@ Class TimeOnly from ValueType
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddHours@ P1
-		return dnRequest("callnamed",[self,"AddHours",P1])
-
-	Func AddMinutes@ P1
-		return dnRequest("callnamed",[self,"AddMinutes",P1])
-
-	Func Deconstruct@ P1
-		return dnRequest("callnamed",[self,"Deconstruct",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
-
-	Func ParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParseExact@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1])
 
 	Func getHour
 		return dnRequest("get",[self,"Hour"])

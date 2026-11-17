@@ -13,6 +13,9 @@ Class X509CertificateLoader from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func LoadCertificate P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadCertificate",P1])
 
@@ -54,16 +57,4 @@ Class X509CertificateLoader from Object
 
 	Func LoadPkcs12CollectionFromFile P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1,P2])
-
-	Func LoadPkcs12@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1])
-
-	Func LoadPkcs12FromFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1])
-
-	Func LoadPkcs12Collection@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1])
-
-	Func LoadPkcs12CollectionFromFile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1])
 

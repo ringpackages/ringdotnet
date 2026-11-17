@@ -34,6 +34,9 @@ Class ListViewSubItem from Object
 		dnRequest("call",[self,"ResetStyle"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBackColor
 		return dnRequest("get",[self,"BackColor"])
 

@@ -26,6 +26,15 @@ Class Point3D from ValueType
 		dnRequest("call",[self,"Offset",P1,P2,P3])
 		return self
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
@@ -43,18 +52,6 @@ Class Point3D from ValueType
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Parse",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Subtract@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Subtract",P1])
 
 	Func getX
 		return dnRequest("get",[self,"X"])

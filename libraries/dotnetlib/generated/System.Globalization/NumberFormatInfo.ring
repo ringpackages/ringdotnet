@@ -51,6 +51,9 @@ Class NumberFormatInfo from Object
 	Func GetFormat P1
 		return dnRequest("call",[self,"GetFormat",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetInstance P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.NumberFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
 

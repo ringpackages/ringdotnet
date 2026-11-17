@@ -15,6 +15,9 @@ Class BitConverter from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetBytes P1
 		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"GetBytes",P1])
 
@@ -101,15 +104,6 @@ Class BitConverter from Object
 
 	Func UInt16BitsToHalf P1
 		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"UInt16BitsToHalf",P1])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func GetBytes@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"GetBytes",P1])
 
 	Func getIsLittleEndian
 		return dnRequest("get",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"IsLittleEndian"])

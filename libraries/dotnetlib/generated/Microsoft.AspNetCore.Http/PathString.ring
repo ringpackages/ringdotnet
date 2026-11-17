@@ -26,6 +26,9 @@ Class PathString from ValueType
 		return dnRequest("call",[self,"ToUriComponent"])
 
 	Func StartsWithSegments P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartsWithSegments",P1])
+		ok
 		return dnRequest("call",[self,"StartsWithSegments",P1])
 
 	Func StartsWithSegments_2 P1,P2
@@ -34,23 +37,17 @@ Class PathString from ValueType
 	Func Add P1
 		return dnRequest("call",[self,"Add",P1])
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Equals_2 P1,P2
 		return dnRequest("call",[self,"Equals",P1,P2])
 
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
-
-	Func StartsWithSegments@ P1
-		return dnRequest("callnamed",[self,"StartsWithSegments",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func FromUriComponent@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])

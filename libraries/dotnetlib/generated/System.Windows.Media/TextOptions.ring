@@ -17,6 +17,9 @@ Class TextOptions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func SetTextFormattingMode P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Media.TextOptions, PresentationFramework'),"SetTextFormattingMode",P1,P2])
 		return self

@@ -25,6 +25,9 @@ Class CompositeFileProvider from Object
 	Func Watch P1
 		return dnRequest("call",[self,"Watch",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFileProviders
 		return dnRequest("get",[self,"FileProviders"])
 

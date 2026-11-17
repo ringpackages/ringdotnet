@@ -46,6 +46,9 @@ Class RichTextBox from TextBoxBase
 		return dnRequest("call",[self,"CanPaste",P1])
 
 	Func Find P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Find",P1])
+		ok
 		return dnRequest("call",[self,"Find",P1])
 
 	Func Find_2 P1,P2
@@ -58,6 +61,10 @@ Class RichTextBox from TextBoxBase
 		return dnRequest("call",[self,"Find",P1,P2,P3,P4])
 
 	Func LoadFile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"LoadFile",P1])
+			return self
+		ok
 		dnRequest("call",[self,"LoadFile",P1])
 		return self
 
@@ -74,6 +81,10 @@ Class RichTextBox from TextBoxBase
 		return self
 
 	Func SaveFile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SaveFile",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SaveFile",P1])
 		return self
 
@@ -81,23 +92,16 @@ Class RichTextBox from TextBoxBase
 		dnRequest("call",[self,"SaveFile",P1,P2])
 		return self
 
-	Func DrawToBitmap@ P1
-		dnRequest("callnamed",[self,"DrawToBitmap",P1])
+	Func Paste P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Paste",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Paste"])
 		return self
-
-	Func Find@ P1
-		return dnRequest("callnamed",[self,"Find",P1])
-
-	Func LoadFile@ P1
-		dnRequest("callnamed",[self,"LoadFile",P1])
-		return self
-
-	Func Paste@ P1
-		dnRequest("callnamed",[self,"Paste",P1])
-		return self
-
-	Func SaveFile@ P1
-		dnRequest("callnamed",[self,"SaveFile",P1])
+		ok
+		dnRequest("call",[self,"Paste",P1])
 		return self
 
 	Func setContentsResizedEvent P1

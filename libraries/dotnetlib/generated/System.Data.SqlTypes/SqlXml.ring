@@ -24,6 +24,9 @@ Class SqlXml from Object
 	Func CreateReader 
 		return dnRequest("call",[self,"CreateReader"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlXml, System.Data.Common'),"GetXsdType",P1])
 

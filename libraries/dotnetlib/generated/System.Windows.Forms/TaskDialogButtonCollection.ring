@@ -23,6 +23,9 @@ Class TaskDialogButtonCollection from DotNetObject
 		return dnRequest("call",[self,"Add",P1,P2])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
 	Func Clear 
@@ -64,9 +67,6 @@ Class TaskDialogButtonCollection from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

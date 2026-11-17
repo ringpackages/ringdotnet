@@ -20,9 +20,6 @@ Class CLong from ValueType
 		nHandle = dnCreate('System.Runtime.InteropServices.CLong, System.Private.CoreLib',[P1])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getValue
 		return dnRequest("get",[self,"Value"])
 

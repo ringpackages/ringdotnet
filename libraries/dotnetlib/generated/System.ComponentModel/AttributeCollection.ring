@@ -30,14 +30,11 @@ Class AttributeCollection from Object
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromExisting P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter'),"FromExisting",P1,P2])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Matches@ P1
-		return dnRequest("callnamed",[self,"Matches",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

@@ -13,6 +13,9 @@ Class OptionsBuilderDataAnnotationsExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ValidateDataAnnotations P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderDataAnnotationsExtensions, Microsoft.Extensions.Options.DataAnnotations'),"ValidateDataAnnotations",P1])
 

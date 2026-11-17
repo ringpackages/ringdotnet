@@ -13,6 +13,9 @@ Class ConfigurationExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"Add",P1,P2])
 
@@ -20,6 +23,9 @@ Class ConfigurationExtensions from Object
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetConnectionString",P1,P2])
 
 	Func AsEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
 
 	Func AsEnumerable_2 P1,P2
@@ -30,7 +36,4 @@ Class ConfigurationExtensions from Object
 
 	Func GetRequiredSection P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetRequiredSection",P1,P2])
-
-	Func AsEnumerable@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
 

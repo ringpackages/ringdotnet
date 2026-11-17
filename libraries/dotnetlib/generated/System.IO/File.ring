@@ -13,6 +13,9 @@ Class File from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func OpenText P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenText",P1])
 
@@ -31,6 +34,9 @@ Class File from Object
 		return self
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1])
 
 	Func Create_2 P1,P2
@@ -71,6 +77,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2])
 
 	Func OpenHandle P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1])
 
 	Func SetCreationTime P1,P2
@@ -136,6 +145,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenWrite",P1])
 
 	Func ReadAllText P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllText",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllText",P1])
 
 	Func ReadAllText_2 P1,P2
@@ -167,12 +179,18 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1,P2])
 
 	Func ReadAllLines P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1])
 
 	Func ReadAllLines_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1,P2])
 
 	Func ReadLines P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1])
 
 	Func ReadLines_2 P1,P2
@@ -182,6 +200,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1,P2])
 
 	Func ReadLinesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1])
 
 	Func ReadLinesAsync_3 P1,P2,P3
@@ -239,6 +260,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1,P2])
 
 	Func ReadAllTextAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
 
 	Func ReadAllTextAsync_3 P1,P2,P3
@@ -257,6 +281,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1,P2])
 
 	Func ReadAllBytesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1])
 
 	Func WriteAllBytesAsync_3 P1,P2,P3
@@ -269,6 +296,9 @@ Class File from Object
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1,P2])
 
 	Func ReadAllLinesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1])
 
 	Func ReadAllLinesAsync_3 P1,P2,P3
@@ -306,136 +336,4 @@ Class File from Object
 
 	Func ResolveLinkTarget P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ResolveLinkTarget",P1,P2])
-
-	Func Copy@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Copy",P1])
-		return self
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1])
-
-	Func Open@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1])
-
-	Func OpenHandle@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1])
-
-	Func SetCreationTime@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetCreationTime",P1])
-		return self
-
-	Func SetCreationTimeUtc@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetCreationTimeUtc",P1])
-		return self
-
-	Func GetCreationTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetCreationTime",P1])
-
-	Func GetCreationTimeUtc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetCreationTimeUtc",P1])
-
-	Func SetLastAccessTime@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetLastAccessTime",P1])
-		return self
-
-	Func SetLastAccessTimeUtc@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetLastAccessTimeUtc",P1])
-		return self
-
-	Func GetLastAccessTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetLastAccessTime",P1])
-
-	Func GetLastAccessTimeUtc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetLastAccessTimeUtc",P1])
-
-	Func SetLastWriteTime@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetLastWriteTime",P1])
-		return self
-
-	Func SetLastWriteTimeUtc@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetLastWriteTimeUtc",P1])
-		return self
-
-	Func GetLastWriteTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetLastWriteTime",P1])
-
-	Func GetLastWriteTimeUtc@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetLastWriteTimeUtc",P1])
-
-	Func GetAttributes@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetAttributes",P1])
-
-	Func SetAttributes@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetAttributes",P1])
-		return self
-
-	Func GetUnixFileMode@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"GetUnixFileMode",P1])
-
-	Func SetUnixFileMode@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetUnixFileMode",P1])
-		return self
-
-	Func ReadAllText@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllText",P1])
-
-	Func WriteAllText@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllText",P1])
-		return self
-
-	Func AppendAllBytesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1])
-
-	Func ReadAllLines@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1])
-
-	Func ReadLines@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1])
-
-	Func ReadLinesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1])
-
-	Func WriteAllLines@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLines",P1])
-		return self
-
-	Func AppendAllText@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllText",P1])
-		return self
-
-	Func AppendAllLines@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLines",P1])
-		return self
-
-	Func Replace@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Replace",P1])
-		return self
-
-	Func Move@ P1
-		dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Move",P1])
-		return self
-
-	Func ReadAllTextAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
-
-	Func WriteAllTextAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1])
-
-	Func ReadAllBytesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1])
-
-	Func WriteAllBytesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1])
-
-	Func ReadAllLinesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1])
-
-	Func WriteAllLinesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1])
-
-	Func AppendAllTextAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1])
-
-	Func AppendAllLinesAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1])
 

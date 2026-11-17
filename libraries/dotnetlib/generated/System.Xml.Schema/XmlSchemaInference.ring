@@ -18,13 +18,16 @@ Class XmlSchemaInference from Object
 		return self
 
 	Func InferSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InferSchema",P1])
+		ok
 		return dnRequest("call",[self,"InferSchema",P1])
 
 	Func InferSchema_2 P1,P2
 		return dnRequest("call",[self,"InferSchema",P1,P2])
 
-	Func InferSchema@ P1
-		return dnRequest("callnamed",[self,"InferSchema",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getOccurrence
 		return dnRequest("get",[self,"Occurrence"])

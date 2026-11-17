@@ -14,6 +14,6 @@ Class QueryableMethodTranslatingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryableMethodTranslatingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

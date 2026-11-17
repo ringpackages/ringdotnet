@@ -13,6 +13,9 @@ Class MigrationsAssemblyExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetMigrationId P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.MigrationsAssemblyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMigrationId",P1,P2])
 

@@ -20,6 +20,9 @@ Class IISServerOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.IISServerOptions, Microsoft.AspNetCore.Server.IIS',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAllowSynchronousIO
 		return dnRequest("get",[self,"AllowSynchronousIO"])
 

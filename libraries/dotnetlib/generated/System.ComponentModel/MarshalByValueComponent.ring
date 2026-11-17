@@ -25,6 +25,9 @@ Class MarshalByValueComponent from Object
 	Func GetService P1
 		return dnRequest("call",[self,"GetService",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setDisposedEvent P1
 		dnRequest("setevent",[self,"Disposed",dnCallback(P1)])
 		return self

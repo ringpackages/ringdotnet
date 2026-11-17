@@ -16,14 +16,32 @@ Class ServiceCollectionMap from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCollectionMap, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func TryAddTransient 
-		return dnRequest("call",[self,"TryAddTransient"])
+	Func TryAddTransient P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddTransient",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddTransient"])
+		ok
+		return dnRequest("call",[self,"TryAddTransient",P1])
 
-	Func TryAddScoped 
-		return dnRequest("call",[self,"TryAddScoped"])
+	Func TryAddScoped P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddScoped",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddScoped"])
+		ok
+		return dnRequest("call",[self,"TryAddScoped",P1])
 
-	Func TryAddSingleton 
-		return dnRequest("call",[self,"TryAddSingleton"])
+	Func TryAddSingleton P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddSingleton",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddSingleton"])
+		ok
+		return dnRequest("call",[self,"TryAddSingleton",P1])
 
 	Func TryAddTransient_2 P1,P2
 		return dnRequest("call",[self,"TryAddTransient",P1,P2])
@@ -46,14 +64,32 @@ Class ServiceCollectionMap from Object
 	Func TryAddSingleton_1 P1
 		return dnRequest("call",[self,"TryAddSingleton",P1])
 
-	Func TryAddTransientEnumerable 
-		return dnRequest("call",[self,"TryAddTransientEnumerable"])
+	Func TryAddTransientEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddTransientEnumerable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddTransientEnumerable"])
+		ok
+		return dnRequest("call",[self,"TryAddTransientEnumerable",P1])
 
-	Func TryAddScopedEnumerable 
-		return dnRequest("call",[self,"TryAddScopedEnumerable"])
+	Func TryAddScopedEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddScopedEnumerable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddScopedEnumerable"])
+		ok
+		return dnRequest("call",[self,"TryAddScopedEnumerable",P1])
 
-	Func TryAddSingletonEnumerable 
-		return dnRequest("call",[self,"TryAddSingletonEnumerable"])
+	Func TryAddSingletonEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddSingletonEnumerable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddSingletonEnumerable"])
+		ok
+		return dnRequest("call",[self,"TryAddSingletonEnumerable",P1])
 
 	Func TryAddTransientEnumerable_2 P1,P2
 		return dnRequest("call",[self,"TryAddTransientEnumerable",P1,P2])
@@ -79,29 +115,8 @@ Class ServiceCollectionMap from Object
 	Func TryAddEnumerable_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"TryAddEnumerable",P1,P2,P3,P4])
 
-	Func TryAddTransient@ P1
-		return dnRequest("callnamed",[self,"TryAddTransient",P1])
-
-	Func TryAddScoped@ P1
-		return dnRequest("callnamed",[self,"TryAddScoped",P1])
-
-	Func TryAddSingleton@ P1
-		return dnRequest("callnamed",[self,"TryAddSingleton",P1])
-
-	Func TryAdd@ P1
-		return dnRequest("callnamed",[self,"TryAdd",P1])
-
-	Func TryAddTransientEnumerable@ P1
-		return dnRequest("callnamed",[self,"TryAddTransientEnumerable",P1])
-
-	Func TryAddScopedEnumerable@ P1
-		return dnRequest("callnamed",[self,"TryAddScopedEnumerable",P1])
-
-	Func TryAddSingletonEnumerable@ P1
-		return dnRequest("callnamed",[self,"TryAddSingletonEnumerable",P1])
-
-	Func TryAddEnumerable@ P1
-		return dnRequest("callnamed",[self,"TryAddEnumerable",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getServiceCollection
 		return dnRequest("get",[self,"ServiceCollection"])

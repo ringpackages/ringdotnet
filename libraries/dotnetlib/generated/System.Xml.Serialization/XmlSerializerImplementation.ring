@@ -25,6 +25,9 @@ Class XmlSerializerImplementation from Object
 	Func GetSerializer P1
 		return dnRequest("call",[self,"GetSerializer",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getReader
 		return dnRequest("get",[self,"Reader"])
 

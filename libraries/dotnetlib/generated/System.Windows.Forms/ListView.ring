@@ -61,8 +61,16 @@ Class ListView from Control
 		dnRequest("call",[self,"ArrangeIcons",P1])
 		return self
 
-	Func ArrangeIcons 
-		dnRequest("call",[self,"ArrangeIcons"])
+	Func ArrangeIcons P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ArrangeIcons",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ArrangeIcons"])
+		return self
+		ok
+		dnRequest("call",[self,"ArrangeIcons",P1])
 		return self
 
 	Func AutoResizeColumns P1
@@ -90,6 +98,9 @@ Class ListView from Control
 		return self
 
 	Func FindItemWithText P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindItemWithText",P1])
+		ok
 		return dnRequest("call",[self,"FindItemWithText",P1])
 
 	Func FindItemWithText_3 P1,P2,P3
@@ -108,12 +119,18 @@ Class ListView from Control
 		return dnRequest("call",[self,"GetItemAt",P1,P2])
 
 	Func GetItemRect P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetItemRect",P1])
+		ok
 		return dnRequest("call",[self,"GetItemRect",P1])
 
 	Func GetItemRect_2 P1,P2
 		return dnRequest("call",[self,"GetItemRect",P1,P2])
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func HitTest_2 P1,P2
@@ -126,22 +143,6 @@ Class ListView from Control
 	Func Sort 
 		dnRequest("call",[self,"Sort"])
 		return self
-
-	Func ArrangeIcons@ P1
-		dnRequest("callnamed",[self,"ArrangeIcons",P1])
-		return self
-
-	Func FindItemWithText@ P1
-		return dnRequest("callnamed",[self,"FindItemWithText",P1])
-
-	Func FindNearestItem@ P1
-		return dnRequest("callnamed",[self,"FindNearestItem",P1])
-
-	Func GetItemRect@ P1
-		return dnRequest("callnamed",[self,"GetItemRect",P1])
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
 
 	Func setRightToLeftLayoutChangedEvent P1
 		dnRequest("setevent",[self,"RightToLeftLayoutChanged",dnCallback(P1)])

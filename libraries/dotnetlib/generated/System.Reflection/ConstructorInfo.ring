@@ -17,6 +17,9 @@ Class ConstructorInfo from MethodBase
 		return self
 
 	Func Invoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Invoke",P1])
+		ok
 		return dnRequest("call",[self,"Invoke",P1])
 
 	Func Invoke_4 P1,P2,P3,P4

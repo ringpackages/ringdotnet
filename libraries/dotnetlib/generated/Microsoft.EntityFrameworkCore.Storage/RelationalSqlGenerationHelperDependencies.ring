@@ -14,6 +14,6 @@ Class RelationalSqlGenerationHelperDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalSqlGenerationHelperDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

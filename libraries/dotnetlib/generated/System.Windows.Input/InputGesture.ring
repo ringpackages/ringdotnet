@@ -16,3 +16,6 @@ Class InputGesture from Object
 	Func Matches P1,P2
 		return dnRequest("call",[self,"Matches",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

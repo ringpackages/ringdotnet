@@ -71,6 +71,9 @@ Class ProfessionalColors from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getButtonSelectedHighlight
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ProfessionalColors, System.Windows.Forms'),"ButtonSelectedHighlight"])
 

@@ -30,6 +30,9 @@ Class IPInterfaceProperties from Object
 	Func GetIPv6Properties 
 		return dnRequest("call",[self,"GetIPv6Properties"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getIsDnsEnabled
 		return dnRequest("get",[self,"IsDnsEnabled"])
 

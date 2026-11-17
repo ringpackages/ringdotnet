@@ -13,6 +13,9 @@ Class HKDF from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Extract_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2,P3])
 
@@ -33,13 +36,4 @@ Class HKDF from Object
 
 	Func DeriveKey P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3])
-
-	Func Extract@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1])
-
-	Func Expand@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1])
-
-	Func DeriveKey@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1])
 

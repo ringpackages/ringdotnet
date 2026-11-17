@@ -28,8 +28,14 @@ Class StructuralTypeShaperExpression from DotNetObject
 	Func MakeNullable_1 P1
 		return dnRequest("call",[self,"MakeNullable",P1])
 
-	Func MakeNullable 
-		return dnRequest("call",[self,"MakeNullable"])
+	Func MakeNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MakeNullable",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MakeNullable"])
+		ok
+		return dnRequest("call",[self,"MakeNullable",P1])
 
 	Func Update P1
 		return dnRequest("call",[self,"Update",P1])
@@ -60,9 +66,6 @@ Class StructuralTypeShaperExpression from DotNetObject
 
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"CreateUnableToDiscriminateException",P1,P2])
-
-	Func MakeNullable@ P1
-		return dnRequest("callnamed",[self,"MakeNullable",P1])
 
 	Func getStructuralType
 		return dnRequest("get",[self,"StructuralType"])

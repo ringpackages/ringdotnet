@@ -29,6 +29,6 @@ Class WebHostBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func ConfigureServices@ P1
-		return dnRequest("callnamed",[self,"ConfigureServices",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

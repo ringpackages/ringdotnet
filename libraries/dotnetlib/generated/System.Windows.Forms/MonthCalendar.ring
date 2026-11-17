@@ -56,6 +56,9 @@ Class MonthCalendar from Control
 		return dnRequest("call",[self,"HitTest",P1,P2])
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func RemoveAllAnnuallyBoldedDates 
@@ -97,9 +100,6 @@ Class MonthCalendar from Control
 	Func UpdateBoldedDates 
 		dnRequest("call",[self,"UpdateBoldedDates"])
 		return self
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
 
 	Func setDateChangedEvent P1
 		dnRequest("setevent",[self,"DateChanged",dnCallback(P1)])

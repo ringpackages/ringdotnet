@@ -13,6 +13,9 @@ Class ModelMetadataProviderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetMetadataForProperty P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelMetadataProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetMetadataForProperty",P1,P2,P3])
 

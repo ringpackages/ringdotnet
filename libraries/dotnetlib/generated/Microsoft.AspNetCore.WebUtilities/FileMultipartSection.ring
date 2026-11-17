@@ -23,6 +23,9 @@ Class FileMultipartSection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSection
 		return dnRequest("get",[self,"Section"])
 

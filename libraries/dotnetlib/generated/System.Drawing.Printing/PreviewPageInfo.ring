@@ -17,6 +17,9 @@ Class PreviewPageInfo from Object
 		nHandle = dnCreate('System.Drawing.Printing.PreviewPageInfo, System.Drawing.Common',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getImage
 		return dnRequest("get",[self,"Image"])
 

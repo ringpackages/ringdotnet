@@ -16,3 +16,6 @@ Class MaskGenerationMethod from Object
 	Func GenerateMask P1,P2
 		return dnRequest("call",[self,"GenerateMask",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

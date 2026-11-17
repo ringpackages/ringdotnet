@@ -35,6 +35,9 @@ Class X509Chain from Object
 		dnRequest("call",[self,"Reset"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create 
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography'),"Create"])
 

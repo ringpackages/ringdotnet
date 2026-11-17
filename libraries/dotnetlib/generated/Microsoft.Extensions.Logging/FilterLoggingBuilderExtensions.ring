@@ -13,12 +13,12 @@ Class FilterLoggingBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddFilter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"AddFilter",P1,P2])
 
 	Func AddFilter P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"AddFilter",P1,P2,P3])
-
-	Func AddFilter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"AddFilter",P1])
 

@@ -25,10 +25,9 @@ Class QueryBuilder from Object
 	Func ToQueryString 
 		return dnRequest("call",[self,"ToQueryString"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
-
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
 

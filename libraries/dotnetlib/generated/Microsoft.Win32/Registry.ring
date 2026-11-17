@@ -20,6 +20,9 @@ Class Registry from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetValue P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"GetValue",P1,P2,P3])
 
@@ -29,10 +32,6 @@ Class Registry from Object
 
 	Func SetValue_4 P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1,P2,P3,P4])
-		return self
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1])
 		return self
 
 	Func getCurrentUser

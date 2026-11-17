@@ -19,6 +19,9 @@ Class ManipulationDelta from Object
 		nHandle = dnCreate('System.Windows.Input.ManipulationDelta, PresentationCore',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTranslation
 		return dnRequest("get",[self,"Translation"])
 

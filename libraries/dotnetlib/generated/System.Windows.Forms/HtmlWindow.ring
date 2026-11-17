@@ -55,6 +55,10 @@ Class HtmlWindow from Object
 		return self
 
 	Func MoveTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"MoveTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"MoveTo",P1])
 		return self
 
@@ -80,6 +84,10 @@ Class HtmlWindow from Object
 		return self
 
 	Func ResizeTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ResizeTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ResizeTo",P1])
 		return self
 
@@ -88,30 +96,15 @@ Class HtmlWindow from Object
 		return self
 
 	Func ScrollTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ScrollTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"ScrollTo",P1])
 		return self
 
-	Func MoveTo@ P1
-		dnRequest("callnamed",[self,"MoveTo",P1])
-		return self
-
-	Func Navigate@ P1
-		dnRequest("callnamed",[self,"Navigate",P1])
-		return self
-
-	Func Open@ P1
-		return dnRequest("callnamed",[self,"Open",P1])
-
-	Func OpenNew@ P1
-		return dnRequest("callnamed",[self,"OpenNew",P1])
-
-	Func ResizeTo@ P1
-		dnRequest("callnamed",[self,"ResizeTo",P1])
-		return self
-
-	Func ScrollTo@ P1
-		dnRequest("callnamed",[self,"ScrollTo",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setErrorEvent P1
 		dnRequest("setevent",[self,"Error",dnCallback(P1)])

@@ -22,9 +22,6 @@ Class OSPlatform from ValueType
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"Create",P1])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getFreeBSD
 		return dnRequest("get",[dnTypeCached('System.Runtime.InteropServices.OSPlatform, System.Private.CoreLib'),"FreeBSD"])
 

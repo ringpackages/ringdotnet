@@ -29,6 +29,9 @@ Class RegionInfo from Object
 		nHandle = dnCreate('System.Globalization.RegionInfo, System.Private.CoreLib',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

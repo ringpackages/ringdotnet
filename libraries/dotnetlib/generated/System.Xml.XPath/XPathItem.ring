@@ -25,13 +25,16 @@ Class XPathItem from Object
 		return self
 
 	Func ValueAs P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ValueAs",P1])
+		ok
 		return dnRequest("call",[self,"ValueAs",P1])
 
 	Func ValueAs_2 P1,P2
 		return dnRequest("call",[self,"ValueAs",P1,P2])
 
-	Func ValueAs@ P1
-		return dnRequest("callnamed",[self,"ValueAs",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIsNode
 		return dnRequest("get",[self,"IsNode"])

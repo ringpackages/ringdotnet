@@ -21,6 +21,9 @@ Class DSA from AsymmetricAlgorithm
 		return self
 
 	Func CreateSignature P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateSignature",P1])
+		ok
 		return dnRequest("call",[self,"CreateSignature",P1])
 
 	Func VerifySignature P1,P2
@@ -62,21 +65,12 @@ Class DSA from AsymmetricAlgorithm
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create"])
-
-	Func CreateSignature@ P1
-		return dnRequest("callnamed",[self,"CreateSignature",P1])
-
-	Func VerifySignature@ P1
-		return dnRequest("callnamed",[self,"VerifySignature",P1])
-
-	Func SignData@ P1
-		return dnRequest("callnamed",[self,"SignData",P1])
-
-	Func VerifyData@ P1
-		return dnRequest("callnamed",[self,"VerifyData",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
 

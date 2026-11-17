@@ -55,6 +55,9 @@ Class HttpListenerRequest from Object
 	Func EndGetClientCertificate P1
 		return dnRequest("call",[self,"EndGetClientCertificate",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAcceptTypes
 		return dnRequest("get",[self,"AcceptTypes"])
 

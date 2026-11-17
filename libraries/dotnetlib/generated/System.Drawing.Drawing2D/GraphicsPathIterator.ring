@@ -21,8 +21,14 @@ Class GraphicsPathIterator from MarshalByRefObject
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func NextSubpath 
-		return dnRequest("call",[self,"NextSubpath"])
+	Func NextSubpath P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NextSubpath",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NextSubpath"])
+		ok
+		return dnRequest("call",[self,"NextSubpath",P1])
 
 	Func NextSubpath_1 P1
 		return dnRequest("call",[self,"NextSubpath",P1])
@@ -30,8 +36,14 @@ Class GraphicsPathIterator from MarshalByRefObject
 	Func NextPathType 
 		return dnRequest("call",[self,"NextPathType"])
 
-	Func NextMarker 
-		return dnRequest("call",[self,"NextMarker"])
+	Func NextMarker P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"NextMarker",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"NextMarker"])
+		ok
+		return dnRequest("call",[self,"NextMarker",P1])
 
 	Func NextMarker_1 P1
 		return dnRequest("call",[self,"NextMarker",P1])
@@ -48,12 +60,6 @@ Class GraphicsPathIterator from MarshalByRefObject
 
 	Func CopyData P1,P2,P3,P4
 		return dnRequest("call",[self,"CopyData",P1,P2,P3,P4])
-
-	Func NextSubpath@ P1
-		return dnRequest("callnamed",[self,"NextSubpath",P1])
-
-	Func NextMarker@ P1
-		return dnRequest("callnamed",[self,"NextMarker",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

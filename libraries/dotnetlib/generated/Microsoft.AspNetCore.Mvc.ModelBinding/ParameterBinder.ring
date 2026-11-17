@@ -20,6 +20,6 @@ Class ParameterBinder from Object
 	Func BindModelAsync_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"BindModelAsync",P1,P2,P3,P4,P5,P6,P7])
 
-	Func BindModelAsync@ P1
-		return dnRequest("callnamed",[self,"BindModelAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

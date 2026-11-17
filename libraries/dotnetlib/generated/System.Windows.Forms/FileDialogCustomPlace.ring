@@ -17,6 +17,9 @@ Class FileDialogCustomPlace from Object
 		nHandle = dnCreate('System.Windows.Forms.FileDialogCustomPlace, System.Windows.Forms.Primitives',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getPath
 		return dnRequest("get",[self,"Path"])
 

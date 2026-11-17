@@ -39,8 +39,14 @@ Class CustomTypeDescriptor from Object
 	Func GetEditor P1
 		return dnRequest("call",[self,"GetEditor",P1])
 
-	Func GetEvents 
-		return dnRequest("call",[self,"GetEvents"])
+	Func GetEvents P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEvents",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetEvents"])
+		ok
+		return dnRequest("call",[self,"GetEvents",P1])
 
 	Func GetEvents_1 P1
 		return dnRequest("call",[self,"GetEvents",P1])
@@ -48,8 +54,14 @@ Class CustomTypeDescriptor from Object
 	Func GetEventsFromRegisteredType 
 		return dnRequest("call",[self,"GetEventsFromRegisteredType"])
 
-	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+	Func GetProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetProperties",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetProperties"])
+		ok
+		return dnRequest("call",[self,"GetProperties",P1])
 
 	Func GetPropertiesFromRegisteredType 
 		return dnRequest("call",[self,"GetPropertiesFromRegisteredType"])
@@ -60,11 +72,8 @@ Class CustomTypeDescriptor from Object
 	Func GetPropertyOwner P1
 		return dnRequest("call",[self,"GetPropertyOwner",P1])
 
-	Func GetEvents@ P1
-		return dnRequest("callnamed",[self,"GetEvents",P1])
-
-	Func GetProperties@ P1
-		return dnRequest("callnamed",[self,"GetProperties",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRequireRegisteredTypes
 		return dnRequest("get",[self,"RequireRegisteredTypes"])

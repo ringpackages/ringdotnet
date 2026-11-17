@@ -29,6 +29,9 @@ Class ApplicationContext from Object
 		dnRequest("call",[self,"ExitThread"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setThreadExitEvent P1
 		dnRequest("setevent",[self,"ThreadExit",dnCallback(P1)])
 		return self

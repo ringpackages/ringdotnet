@@ -16,6 +16,9 @@ Class EventArgs from Object
 		nHandle = dnCreate('System.EventArgs, System.Private.CoreLib',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEmpty
 		return dnRequest("get",[dnTypeCached('System.EventArgs, System.Private.CoreLib'),"Empty"])
 

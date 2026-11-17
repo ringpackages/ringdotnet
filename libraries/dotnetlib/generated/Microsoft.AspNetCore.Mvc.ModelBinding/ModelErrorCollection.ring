@@ -60,10 +60,6 @@ Class ModelErrorCollection from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

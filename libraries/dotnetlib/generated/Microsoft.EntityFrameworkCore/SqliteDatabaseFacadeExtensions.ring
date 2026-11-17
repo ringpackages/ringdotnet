@@ -13,6 +13,9 @@ Class SqliteDatabaseFacadeExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsSqlite P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlite",P1])
 

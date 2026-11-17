@@ -28,6 +28,9 @@ Class DataSourceProvider from Object
 	Func DeferRefresh 
 		return dnRequest("call",[self,"DeferRefresh"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setDataChangedEvent P1
 		dnRequest("setevent",[self,"DataChanged",dnCallback(P1)])
 		return self

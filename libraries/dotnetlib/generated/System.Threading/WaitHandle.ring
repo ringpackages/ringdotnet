@@ -28,8 +28,14 @@ Class WaitHandle from MarshalByRefObject
 	Func WaitOne_1 P1
 		return dnRequest("call",[self,"WaitOne",P1])
 
-	Func WaitOne 
-		return dnRequest("call",[self,"WaitOne"])
+	Func WaitOne P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitOne",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WaitOne"])
+		ok
+		return dnRequest("call",[self,"WaitOne",P1])
 
 	Func WaitOne_2 P1,P2
 		return dnRequest("call",[self,"WaitOne",P1,P2])
@@ -38,6 +44,9 @@ Class WaitHandle from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1,P2])
 
 	Func WaitAll P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
 
 	Func WaitAll_3 P1,P2,P3
@@ -47,6 +56,9 @@ Class WaitHandle from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1,P2])
 
 	Func WaitAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1])
 
 	Func WaitAny_3 P1,P2,P3
@@ -57,18 +69,6 @@ Class WaitHandle from MarshalByRefObject
 
 	Func SignalAndWait_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2,P3,P4])
-
-	Func WaitOne@ P1
-		return dnRequest("callnamed",[self,"WaitOne",P1])
-
-	Func WaitAll@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
-
-	Func WaitAny@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1])
-
-	Func SignalAndWait@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1])
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])

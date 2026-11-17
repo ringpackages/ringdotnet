@@ -46,6 +46,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetForegroundBrush P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetForegroundBrush",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetForegroundBrush",P1])
 		return self
 
@@ -54,6 +58,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontFamily P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontFamily",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontFamily",P1])
 		return self
 
@@ -62,6 +70,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontSize P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontSize",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontSize",P1])
 		return self
 
@@ -70,6 +82,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetCulture P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetCulture",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetCulture",P1])
 		return self
 
@@ -78,6 +94,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetNumberSubstitution P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetNumberSubstitution",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetNumberSubstitution",P1])
 		return self
 
@@ -86,6 +106,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontWeight P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontWeight",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontWeight",P1])
 		return self
 
@@ -94,6 +118,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontStyle P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontStyle",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontStyle",P1])
 		return self
 
@@ -102,6 +130,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontStretch P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontStretch",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontStretch",P1])
 		return self
 
@@ -110,6 +142,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetFontTypeface P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetFontTypeface",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetFontTypeface",P1])
 		return self
 
@@ -118,6 +154,10 @@ Class FormattedText from Object
 		return self
 
 	Func SetTextDecorations P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetTextDecorations",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetTextDecorations",P1])
 		return self
 
@@ -133,6 +173,9 @@ Class FormattedText from Object
 		return dnRequest("call",[self,"GetMaxTextWidths"])
 
 	Func BuildHighlightGeometry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"BuildHighlightGeometry",P1])
+		ok
 		return dnRequest("call",[self,"BuildHighlightGeometry",P1])
 
 	Func BuildGeometry P1
@@ -141,48 +184,8 @@ Class FormattedText from Object
 	Func BuildHighlightGeometry_3 P1,P2,P3
 		return dnRequest("call",[self,"BuildHighlightGeometry",P1,P2,P3])
 
-	Func SetForegroundBrush@ P1
-		dnRequest("callnamed",[self,"SetForegroundBrush",P1])
-		return self
-
-	Func SetFontFamily@ P1
-		dnRequest("callnamed",[self,"SetFontFamily",P1])
-		return self
-
-	Func SetFontSize@ P1
-		dnRequest("callnamed",[self,"SetFontSize",P1])
-		return self
-
-	Func SetCulture@ P1
-		dnRequest("callnamed",[self,"SetCulture",P1])
-		return self
-
-	Func SetNumberSubstitution@ P1
-		dnRequest("callnamed",[self,"SetNumberSubstitution",P1])
-		return self
-
-	Func SetFontWeight@ P1
-		dnRequest("callnamed",[self,"SetFontWeight",P1])
-		return self
-
-	Func SetFontStyle@ P1
-		dnRequest("callnamed",[self,"SetFontStyle",P1])
-		return self
-
-	Func SetFontStretch@ P1
-		dnRequest("callnamed",[self,"SetFontStretch",P1])
-		return self
-
-	Func SetFontTypeface@ P1
-		dnRequest("callnamed",[self,"SetFontTypeface",P1])
-		return self
-
-	Func SetTextDecorations@ P1
-		dnRequest("callnamed",[self,"SetTextDecorations",P1])
-		return self
-
-	Func BuildHighlightGeometry@ P1
-		return dnRequest("callnamed",[self,"BuildHighlightGeometry",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getText
 		return dnRequest("get",[self,"Text"])

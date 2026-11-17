@@ -17,6 +17,9 @@ Class FilterProviderContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterProviderContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
 

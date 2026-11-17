@@ -61,3 +61,6 @@ Class TextEncoderSettings from Object
 	Func GetAllowedCodePoints 
 		return dnRequest("call",[self,"GetAllowedCodePoints"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

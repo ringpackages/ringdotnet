@@ -34,6 +34,9 @@ Class Rect3D from ValueType
 		return self
 
 	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Contains",P1])
+		ok
 		return dnRequest("call",[self,"Contains",P1])
 
 	Func Contains_3 P1,P2,P3
@@ -43,20 +46,47 @@ Class Rect3D from ValueType
 		return dnRequest("call",[self,"IntersectsWith",P1])
 
 	Func Intersect P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1])
+			ok
+			return dnRequest("callnamed",[self,"Intersect",P1])
+		ok
 		dnRequest("call",[self,"Intersect",P1])
 		return self
 
 	Func Union P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Union",P1])
+			ok
+			return dnRequest("callnamed",[self,"Union",P1])
+		ok
 		dnRequest("call",[self,"Union",P1])
 		return self
 
 	Func Offset P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1])
+			ok
+			return dnRequest("callnamed",[self,"Offset",P1])
+		ok
 		dnRequest("call",[self,"Offset",P1])
 		return self
 
 	Func Offset_3 P1,P2,P3
 		dnRequest("call",[self,"Offset",P1,P2,P3])
 		return self
+
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
@@ -78,36 +108,6 @@ Class Rect3D from ValueType
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Parse",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[self,"Contains",P1])
-
-	Func Intersect@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1])
-		ok
-		return dnRequest("callnamed",[self,"Intersect",P1])
-
-	Func Union@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Union",P1])
-		ok
-		return dnRequest("callnamed",[self,"Union",P1])
-
-	Func Offset@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1])
-		ok
-		return dnRequest("callnamed",[self,"Offset",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])

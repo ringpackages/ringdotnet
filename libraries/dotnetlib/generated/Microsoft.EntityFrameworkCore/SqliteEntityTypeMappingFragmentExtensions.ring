@@ -13,6 +13,9 @@ Class SqliteEntityTypeMappingFragmentExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsSqlReturningClauseUsed P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
 
@@ -25,7 +28,4 @@ Class SqliteEntityTypeMappingFragmentExtensions from Object
 
 	Func GetUseSqlReturningClauseConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
-
-	Func UseSqlReturningClause@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
 

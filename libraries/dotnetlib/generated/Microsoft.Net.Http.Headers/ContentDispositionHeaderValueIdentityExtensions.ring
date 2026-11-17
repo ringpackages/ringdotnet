@@ -13,6 +13,9 @@ Class ContentDispositionHeaderValueIdentityExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsFileDisposition P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentDispositionHeaderValueIdentityExtensions, Microsoft.Net.Http.Headers'),"IsFileDisposition",P1])
 

@@ -24,6 +24,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetName",P1,P2])
 
 	Func SetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetName",P1])
+		ok
 		return dnRequest("call",[self,"SetName",P1])
 
 	Func GetNameConfigurationSource 
@@ -33,6 +36,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetSchema",P1,P2])
 
 	Func SetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetSchema",P1])
+		ok
 		return dnRequest("call",[self,"SetSchema",P1])
 
 	Func GetSchemaConfigurationSource 
@@ -42,6 +48,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetIsBuiltIn",P1,P2])
 
 	Func SetIsBuiltIn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsBuiltIn",P1])
+		ok
 		return dnRequest("call",[self,"SetIsBuiltIn",P1])
 
 	Func GetIsBuiltInConfigurationSource 
@@ -51,6 +60,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetIsNullable",P1,P2])
 
 	Func SetIsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsNullable",P1])
+		ok
 		return dnRequest("call",[self,"SetIsNullable",P1])
 
 	Func GetIsNullableConfigurationSource 
@@ -60,6 +72,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetStoreType",P1,P2])
 
 	Func SetStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetStoreType",P1])
+		ok
 		return dnRequest("call",[self,"SetStoreType",P1])
 
 	Func GetStoreTypeConfigurationSource 
@@ -69,6 +84,9 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetTypeMapping",P1,P2])
 
 	Func SetTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"SetTypeMapping",P1])
 
 	Func GetTypeMappingConfigurationSource 
@@ -78,31 +96,13 @@ Class IConventionDbFunction from DotNetObject
 		return dnRequest("call",[self,"SetTranslation",P1,P2])
 
 	Func SetTranslation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetTranslation",P1])
+		ok
 		return dnRequest("call",[self,"SetTranslation",P1])
 
 	Func GetTranslationConfigurationSource 
 		return dnRequest("call",[self,"GetTranslationConfigurationSource"])
-
-	Func SetName@ P1
-		return dnRequest("callnamed",[self,"SetName",P1])
-
-	Func SetSchema@ P1
-		return dnRequest("callnamed",[self,"SetSchema",P1])
-
-	Func SetIsBuiltIn@ P1
-		return dnRequest("callnamed",[self,"SetIsBuiltIn",P1])
-
-	Func SetIsNullable@ P1
-		return dnRequest("callnamed",[self,"SetIsNullable",P1])
-
-	Func SetStoreType@ P1
-		return dnRequest("callnamed",[self,"SetStoreType",P1])
-
-	Func SetTypeMapping@ P1
-		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
-
-	Func SetTranslation@ P1
-		return dnRequest("callnamed",[self,"SetTranslation",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])

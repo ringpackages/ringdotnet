@@ -35,8 +35,16 @@ Class ObjectStack from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func TrimExcess 
-		dnRequest("call",[self,"TrimExcess"])
+	Func TrimExcess P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"TrimExcess",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"TrimExcess"])
+		return self
+		ok
+		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 
 	Func TrimExcess_1 P1
@@ -65,9 +73,8 @@ Class ObjectStack from Object
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
-	Func TrimExcess@ P1
-		dnRequest("callnamed",[self,"TrimExcess",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

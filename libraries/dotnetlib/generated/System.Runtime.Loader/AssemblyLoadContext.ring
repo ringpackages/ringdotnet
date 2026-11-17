@@ -43,6 +43,9 @@ Class AssemblyLoadContext from Object
 		return dnRequest("call",[self,"LoadFromNativeImagePath",P1,P2])
 
 	Func LoadFromStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LoadFromStream",P1])
+		ok
 		return dnRequest("call",[self,"LoadFromStream",P1])
 
 	Func LoadFromStream_2 P1,P2
@@ -52,8 +55,20 @@ Class AssemblyLoadContext from Object
 		dnRequest("call",[self,"Unload"])
 		return self
 
-	Func EnterContextualReflection 
-		return dnRequest("call",[self,"EnterContextualReflection"])
+	Func EnterContextualReflection P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
+			ok
+			return dnRequest("callnamed",[self,"EnterContextualReflection",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EnterContextualReflection"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func GetLoadContext P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetLoadContext",P1])
@@ -63,15 +78,6 @@ Class AssemblyLoadContext from Object
 
 	Func EnterContextualReflection_1 P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
-
-	Func LoadFromStream@ P1
-		return dnRequest("callnamed",[self,"LoadFromStream",P1])
-
-	Func EnterContextualReflection@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
-		ok
-		return dnRequest("callnamed",[self,"EnterContextualReflection",P1])
 
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[self,"ResolvingUnmanagedDll",dnCallback(P1)])

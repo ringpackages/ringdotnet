@@ -24,3 +24,6 @@ Class StartupBase from Object
 	Func CreateServiceProvider P1
 		return dnRequest("call",[self,"CreateServiceProvider",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

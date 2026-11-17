@@ -32,6 +32,9 @@ Class RequestLocalizationOptions from Object
 	Func SetDefaultCulture P1
 		return dnRequest("call",[self,"SetDefaultCulture",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCultureInfoUseUserOverride
 		return dnRequest("get",[self,"CultureInfoUseUserOverride"])
 

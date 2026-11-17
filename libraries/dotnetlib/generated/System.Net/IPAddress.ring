@@ -41,6 +41,9 @@ Class IPAddress from Object
 	Func GetAddressBytes 
 		return dnRequest("call",[self,"GetAddressBytes"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapToIPv6 
 		return dnRequest("call",[self,"MapToIPv6"])
 
@@ -61,12 +64,6 @@ Class IPAddress from Object
 
 	Func IsLoopback P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"IsLoopback",P1])
-
-	Func HostToNetworkOrder@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"HostToNetworkOrder",P1])
-
-	Func NetworkToHostOrder@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"NetworkToHostOrder",P1])
 
 	Func getAddressFamily
 		return dnRequest("get",[self,"AddressFamily"])

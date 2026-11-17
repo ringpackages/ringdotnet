@@ -15,10 +15,6 @@ Class WebBrowserBase from Control
 		ok
 		return self
 
-	Func DrawToBitmap@ P1
-		dnRequest("callnamed",[self,"DrawToBitmap",P1])
-		return self
-
 	Func getActiveXInstance
 		return dnRequest("get",[self,"ActiveXInstance"])
 

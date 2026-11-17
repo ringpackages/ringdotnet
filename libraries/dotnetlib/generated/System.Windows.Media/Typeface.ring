@@ -39,6 +39,9 @@ Class Typeface from Object
 	Func TryGetGlyphTypeface 
 		return dnRequest("call",[self,"TryGetGlyphTypeface"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFontFamily
 		return dnRequest("get",[self,"FontFamily"])
 

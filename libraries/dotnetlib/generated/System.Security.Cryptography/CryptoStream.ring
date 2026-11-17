@@ -27,15 +27,18 @@ Class CryptoStream from Stream
 	Func FlushFinalBlockAsync_1 P1
 		return dnRequest("call",[self,"FlushFinalBlockAsync",P1])
 
-	Func FlushFinalBlockAsync 
-		return dnRequest("call",[self,"FlushFinalBlockAsync"])
+	Func FlushFinalBlockAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FlushFinalBlockAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"FlushFinalBlockAsync"])
+		ok
+		return dnRequest("call",[self,"FlushFinalBlockAsync",P1])
 
 	Func Clear 
 		dnRequest("call",[self,"Clear"])
 		return self
-
-	Func FlushFinalBlockAsync@ P1
-		return dnRequest("callnamed",[self,"FlushFinalBlockAsync",P1])
 
 	Func getHasFlushedFinalBlock
 		return dnRequest("get",[self,"HasFlushedFinalBlock"])

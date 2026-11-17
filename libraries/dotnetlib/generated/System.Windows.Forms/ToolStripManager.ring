@@ -17,10 +17,17 @@ Class ToolStripManager from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FindToolStrip P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"FindToolStrip",P1])
 
 	Func LoadSettings P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1])
 		return self
 
@@ -29,6 +36,10 @@ Class ToolStripManager from Object
 		return self
 
 	Func SaveSettings P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
 		return self
 
@@ -46,24 +57,13 @@ Class ToolStripManager from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"Merge",P1,P2])
 
 	Func RevertMerge P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
 
 	Func RevertMerge_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1,P2])
-
-	Func LoadSettings@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1])
-		return self
-
-	Func SaveSettings@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
-		return self
-
-	Func Merge@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"Merge",P1])
-
-	Func RevertMerge@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
 
 	Func setRendererChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RendererChanged",dnCallback(P1)])

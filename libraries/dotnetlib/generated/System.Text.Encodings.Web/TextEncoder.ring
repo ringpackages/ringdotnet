@@ -19,6 +19,9 @@ Class TextEncoder from Object
 		return dnRequest("call",[self,"WillEncode",P1])
 
 	Func Encode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Encode",P1])
+		ok
 		return dnRequest("call",[self,"Encode",P1])
 
 	Func Encode_2 P1,P2
@@ -29,8 +32,8 @@ Class TextEncoder from Object
 		dnRequest("call",[self,"Encode",P1,P2,P3,P4])
 		return self
 
-	Func Encode@ P1
-		return dnRequest("callnamed",[self,"Encode",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMaxOutputCharactersPerInputCharacter
 		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])

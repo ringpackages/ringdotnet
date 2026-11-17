@@ -13,6 +13,9 @@ Class DbProviderFactories from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func TryGetFactory P1
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common'),"TryGetFactory",P1])
 
@@ -31,11 +34,4 @@ Class DbProviderFactories from Object
 
 	Func UnregisterFactory P1
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common'),"UnregisterFactory",P1])
-
-	Func GetFactory@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common'),"GetFactory",P1])
-
-	Func RegisterFactory@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Data.Common.DbProviderFactories, System.Data.Common'),"RegisterFactory",P1])
-		return self
 

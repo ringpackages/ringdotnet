@@ -21,6 +21,9 @@ Class WebSocketAcceptContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.WebSocketAcceptContext, Microsoft.AspNetCore.Http.Features',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSubProtocol
 		return dnRequest("get",[self,"SubProtocol"])
 

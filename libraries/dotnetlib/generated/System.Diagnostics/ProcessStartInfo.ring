@@ -48,6 +48,9 @@ Class ProcessStartInfo from Object
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getArguments
 		return dnRequest("get",[self,"Arguments"])
 

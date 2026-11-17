@@ -26,6 +26,9 @@ Class RouteBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getApplicationBuilder
 		return dnRequest("get",[self,"ApplicationBuilder"])
 

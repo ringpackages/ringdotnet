@@ -31,6 +31,9 @@ Class ZipArchive from Object
 		return self
 
 	Func CreateEntry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateEntry",P1])
+		ok
 		return dnRequest("call",[self,"CreateEntry",P1])
 
 	Func CreateEntry_2 P1,P2
@@ -43,8 +46,8 @@ Class ZipArchive from Object
 	Func GetEntry P1
 		return dnRequest("call",[self,"GetEntry",P1])
 
-	Func CreateEntry@ P1
-		return dnRequest("callnamed",[self,"CreateEntry",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getComment
 		return dnRequest("get",[self,"Comment"])

@@ -22,8 +22,14 @@ Class EntityFrameworkServicesBuilder from Object
 	Func TryAddCoreServices 
 		return dnRequest("call",[self,"TryAddCoreServices"])
 
-	Func TryAdd 
-		return dnRequest("call",[self,"TryAdd"])
+	Func TryAdd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAdd",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAdd"])
+		ok
+		return dnRequest("call",[self,"TryAdd",P1])
 
 	Func TryAdd_2 P1,P2
 		return dnRequest("call",[self,"TryAdd",P1,P2])
@@ -34,8 +40,8 @@ Class EntityFrameworkServicesBuilder from Object
 	Func TryAdd_3 P1,P2,P3
 		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
 
-	Func TryAdd@ P1
-		return dnRequest("callnamed",[self,"TryAdd",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCoreServices
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore'),"CoreServices"])

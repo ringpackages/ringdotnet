@@ -23,6 +23,9 @@ Class CookiePolicyOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.CookiePolicyOptions, Microsoft.AspNetCore.CookiePolicy',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMinimumSameSitePolicy
 		return dnRequest("get",[self,"MinimumSameSitePolicy"])
 

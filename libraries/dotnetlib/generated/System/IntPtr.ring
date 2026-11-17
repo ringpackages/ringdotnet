@@ -48,6 +48,9 @@ Class IntPtr from ValueType
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Subtract",P1,P2])
 
 	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
 
 	Func Parse_2 P1,P2
@@ -57,6 +60,9 @@ Class IntPtr from ValueType
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1,P2,P3])
 
 	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
 
 	Func TryParse_2 P1,P2
@@ -133,21 +139,6 @@ Class IntPtr from ValueType
 
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MinMagnitude",P1,P2])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Parse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
-
-	Func TryParse@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getSize
 		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Size"])

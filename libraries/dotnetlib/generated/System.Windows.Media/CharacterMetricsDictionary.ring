@@ -25,6 +25,10 @@ Class CharacterMetricsDictionary from Object
 		return dnRequest("call",[self,"TryGetValue",P1])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -49,12 +53,8 @@ Class CharacterMetricsDictionary from Object
 	Func ContainsKey P1
 		return dnRequest("call",[self,"ContainsKey",P1])
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

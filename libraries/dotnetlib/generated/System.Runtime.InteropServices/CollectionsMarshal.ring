@@ -13,6 +13,9 @@ Class CollectionsMarshal from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AsSpan P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"AsSpan",P1])
 
@@ -25,10 +28,4 @@ Class CollectionsMarshal from Object
 	Func SetCount P1,P2
 		dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"SetCount",P1,P2])
 		return self
-
-	Func GetValueRefOrNullRef@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"GetValueRefOrNullRef",P1])
-
-	Func GetValueRefOrAddDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"GetValueRefOrAddDefault",P1])
 

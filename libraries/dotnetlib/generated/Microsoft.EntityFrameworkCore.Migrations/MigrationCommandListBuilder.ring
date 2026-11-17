@@ -20,14 +20,26 @@ Class MigrationCommandListBuilder from Object
 	Func EndCommand_1 P1
 		return dnRequest("call",[self,"EndCommand",P1])
 
-	Func EndCommand 
-		return dnRequest("call",[self,"EndCommand"])
+	Func EndCommand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"EndCommand",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"EndCommand"])
+		ok
+		return dnRequest("call",[self,"EndCommand",P1])
 
 	Func Append P1
 		return dnRequest("call",[self,"Append",P1])
 
-	Func AppendLine 
-		return dnRequest("call",[self,"AppendLine"])
+	Func AppendLine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLine",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AppendLine"])
+		ok
+		return dnRequest("call",[self,"AppendLine",P1])
 
 	Func AppendLine_1 P1
 		return dnRequest("call",[self,"AppendLine",P1])
@@ -44,9 +56,6 @@ Class MigrationCommandListBuilder from Object
 	Func DecrementIndent 
 		return dnRequest("call",[self,"DecrementIndent"])
 
-	Func EndCommand@ P1
-		return dnRequest("callnamed",[self,"EndCommand",P1])
-
-	Func AppendLine@ P1
-		return dnRequest("callnamed",[self,"AppendLine",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

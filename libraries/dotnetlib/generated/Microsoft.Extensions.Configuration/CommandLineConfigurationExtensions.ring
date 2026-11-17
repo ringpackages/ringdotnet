@@ -13,12 +13,12 @@ Class CommandLineConfigurationExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddCommandLine P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1,P2])
 
 	Func AddCommandLine_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1,P2,P3])
-
-	Func AddCommandLine@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1])
 

@@ -17,6 +17,9 @@ Class MinDataRate from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.MinDataRate, Microsoft.AspNetCore.Server.Kestrel.Core',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBytesPerSecond
 		return dnRequest("get",[self,"BytesPerSecond"])
 

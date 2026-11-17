@@ -25,6 +25,9 @@ Class XmlSchemaImporter from SchemaImporter
 		return dnRequest("call",[self,"ImportDerivedTypeMapping",P1,P2,P3])
 
 	Func ImportSchemaType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ImportSchemaType",P1])
+		ok
 		return dnRequest("call",[self,"ImportSchemaType",P1])
 
 	Func ImportSchemaType_2 P1,P2
@@ -37,6 +40,9 @@ Class XmlSchemaImporter from SchemaImporter
 		return dnRequest("call",[self,"ImportTypeMapping",P1])
 
 	Func ImportMembersMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ImportMembersMapping",P1])
+		ok
 		return dnRequest("call",[self,"ImportMembersMapping",P1])
 
 	Func ImportAnyType P1,P2
@@ -44,13 +50,4 @@ Class XmlSchemaImporter from SchemaImporter
 
 	Func ImportMembersMapping_3 P1,P2,P3
 		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3])
-
-	Func ImportDerivedTypeMapping@ P1
-		return dnRequest("callnamed",[self,"ImportDerivedTypeMapping",P1])
-
-	Func ImportSchemaType@ P1
-		return dnRequest("callnamed",[self,"ImportSchemaType",P1])
-
-	Func ImportMembersMapping@ P1
-		return dnRequest("callnamed",[self,"ImportMembersMapping",P1])
 

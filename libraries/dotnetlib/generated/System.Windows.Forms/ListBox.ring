@@ -50,12 +50,18 @@ Class ListBox from ListControl
 		return self
 
 	Func FindString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindString",P1])
+		ok
 		return dnRequest("call",[self,"FindString",P1])
 
 	Func FindString_2 P1,P2
 		return dnRequest("call",[self,"FindString",P1,P2])
 
 	Func FindStringExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindStringExact",P1])
+		ok
 		return dnRequest("call",[self,"FindStringExact",P1])
 
 	Func FindStringExact_2 P1,P2
@@ -71,6 +77,9 @@ Class ListBox from ListControl
 		return dnRequest("call",[self,"GetSelected",P1])
 
 	Func IndexFromPoint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexFromPoint",P1])
+		ok
 		return dnRequest("call",[self,"IndexFromPoint",P1])
 
 	Func IndexFromPoint_2 P1,P2
@@ -79,15 +88,6 @@ Class ListBox from ListControl
 	Func SetSelected P1,P2
 		dnRequest("call",[self,"SetSelected",P1,P2])
 		return self
-
-	Func FindString@ P1
-		return dnRequest("callnamed",[self,"FindString",P1])
-
-	Func FindStringExact@ P1
-		return dnRequest("callnamed",[self,"FindStringExact",P1])
-
-	Func IndexFromPoint@ P1
-		return dnRequest("callnamed",[self,"IndexFromPoint",P1])
 
 	Func setDrawItemEvent P1
 		dnRequest("setevent",[self,"DrawItem",dnCallback(P1)])

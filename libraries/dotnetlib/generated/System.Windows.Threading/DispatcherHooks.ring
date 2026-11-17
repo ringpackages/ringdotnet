@@ -13,6 +13,9 @@ Class DispatcherHooks from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setDispatcherInactiveEvent P1
 		dnRequest("setevent",[self,"DispatcherInactive",dnCallback(P1)])
 		return self

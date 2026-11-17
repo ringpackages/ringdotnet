@@ -31,14 +31,20 @@ Class SequenceBuilder from Object
 	Func IsCyclic_1 P1
 		return dnRequest("call",[self,"IsCyclic",P1])
 
-	Func IsCyclic 
-		return dnRequest("call",[self,"IsCyclic"])
+	Func IsCyclic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsCyclic",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsCyclic"])
+		ok
+		return dnRequest("call",[self,"IsCyclic",P1])
 
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func IsCyclic@ P1
-		return dnRequest("callnamed",[self,"IsCyclic",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

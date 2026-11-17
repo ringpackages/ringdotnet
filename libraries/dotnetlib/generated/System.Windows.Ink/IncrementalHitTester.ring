@@ -27,9 +27,8 @@ Class IncrementalHitTester from Object
 		dnRequest("call",[self,"EndHitTesting"])
 		return self
 
-	Func AddPoints@ P1
-		dnRequest("callnamed",[self,"AddPoints",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIsValid
 		return dnRequest("get",[self,"IsValid"])

@@ -60,6 +60,9 @@ Class Dispatcher from Object
 		return self
 
 	Func InvokeAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"InvokeAsync",P1])
+		ok
 		return dnRequest("call",[self,"InvokeAsync",P1])
 
 	Func InvokeAsync_2 P1,P2
@@ -73,6 +76,9 @@ Class Dispatcher from Object
 
 	Func DisableProcessing 
 		return dnRequest("call",[self,"DisableProcessing"])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func FromThread P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"FromThread",P1])
@@ -89,8 +95,14 @@ Class Dispatcher from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"ExitAllFrames"])
 		return self
 
-	Func Yield 
-		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield"])
+	Func Yield P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
 
 	Func Yield_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
@@ -98,18 +110,6 @@ Class Dispatcher from Object
 	Func ValidatePriority P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"ValidatePriority",P1,P2])
 		return self
-
-	Func BeginInvoke@ P1
-		return dnRequest("callnamed",[self,"BeginInvoke",P1])
-
-	Func Invoke@ P1
-		return dnRequest("callnamed",[self,"Invoke",P1])
-
-	Func InvokeAsync@ P1
-		return dnRequest("callnamed",[self,"InvokeAsync",P1])
-
-	Func Yield@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
 
 	Func setShutdownStartedEvent P1
 		dnRequest("setevent",[self,"ShutdownStarted",dnCallback(P1)])

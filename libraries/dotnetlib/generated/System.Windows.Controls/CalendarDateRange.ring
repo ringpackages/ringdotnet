@@ -24,6 +24,9 @@ Class CalendarDateRange from Object
 		nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setPropertyChangedEvent P1
 		dnRequest("setevent",[self,"PropertyChanged",dnCallback(P1)])
 		return self

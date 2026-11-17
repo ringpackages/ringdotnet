@@ -26,11 +26,18 @@ Class ConventionSetBuilder from Object
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func Remove 
-		dnRequest("call",[self,"Remove"])
+	Func Remove P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Remove",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Remove"])
+		return self
+		ok
+		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func Remove@ P1
-		dnRequest("callnamed",[self,"Remove",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

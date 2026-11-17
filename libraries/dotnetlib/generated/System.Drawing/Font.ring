@@ -64,8 +64,14 @@ Class Font from MarshalByRefObject
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 
-	Func ToLogFont 
-		return dnRequest("call",[self,"ToLogFont"])
+	Func ToLogFont P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ToLogFont",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ToLogFont"])
+		ok
+		return dnRequest("call",[self,"ToLogFont",P1])
 
 	Func ToHfont 
 		return dnRequest("call",[self,"ToHfont"])
@@ -77,6 +83,9 @@ Class Font from MarshalByRefObject
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHfont",P1])
 
 	Func FromLogFont P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromLogFont",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromLogFont",P1])
 
 	Func FromLogFont_2 P1,P2
@@ -84,15 +93,6 @@ Class Font from MarshalByRefObject
 
 	Func FromHdc P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHdc",P1])
-
-	Func GetHeight@ P1
-		return dnRequest("callnamed",[self,"GetHeight",P1])
-
-	Func ToLogFont@ P1
-		return dnRequest("callnamed",[self,"ToLogFont",P1])
-
-	Func FromLogFont@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromLogFont",P1])
 
 	Func getSize
 		return dnRequest("get",[self,"Size"])

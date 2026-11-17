@@ -72,56 +72,110 @@ Class XmlReader from Object
 	Func ReadContentAs P1,P2
 		return dnRequest("call",[self,"ReadContentAs",P1,P2])
 
-	Func ReadElementContentAsObject 
-		return dnRequest("call",[self,"ReadElementContentAsObject"])
+	Func ReadElementContentAsObject P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsObject",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsObject"])
+		ok
+		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use ReadElementContentAsObject(NULL), ReadElementContentAsObject_N(...) or named arguments")
 
 	Func ReadElementContentAsObject_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsObject",P1,P2])
 
-	Func ReadElementContentAsBoolean 
-		return dnRequest("call",[self,"ReadElementContentAsBoolean"])
+	Func ReadElementContentAsBoolean P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsBoolean",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsBoolean"])
+		ok
+		raise("DotNet Error: ReadElementContentAsBoolean does not take one argument: use ReadElementContentAsBoolean(NULL), ReadElementContentAsBoolean_N(...) or named arguments")
 
 	Func ReadElementContentAsBoolean_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsBoolean",P1,P2])
 
-	Func ReadElementContentAsDateTime 
-		return dnRequest("call",[self,"ReadElementContentAsDateTime"])
+	Func ReadElementContentAsDateTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsDateTime",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsDateTime"])
+		ok
+		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use ReadElementContentAsDateTime(NULL), ReadElementContentAsDateTime_N(...) or named arguments")
 
 	Func ReadElementContentAsDateTime_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsDateTime",P1,P2])
 
-	Func ReadElementContentAsDouble 
-		return dnRequest("call",[self,"ReadElementContentAsDouble"])
+	Func ReadElementContentAsDouble P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsDouble",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsDouble"])
+		ok
+		raise("DotNet Error: ReadElementContentAsDouble does not take one argument: use ReadElementContentAsDouble(NULL), ReadElementContentAsDouble_N(...) or named arguments")
 
 	Func ReadElementContentAsDouble_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsDouble",P1,P2])
 
-	Func ReadElementContentAsFloat 
-		return dnRequest("call",[self,"ReadElementContentAsFloat"])
+	Func ReadElementContentAsFloat P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsFloat",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsFloat"])
+		ok
+		raise("DotNet Error: ReadElementContentAsFloat does not take one argument: use ReadElementContentAsFloat(NULL), ReadElementContentAsFloat_N(...) or named arguments")
 
 	Func ReadElementContentAsFloat_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsFloat",P1,P2])
 
-	Func ReadElementContentAsDecimal 
-		return dnRequest("call",[self,"ReadElementContentAsDecimal"])
+	Func ReadElementContentAsDecimal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsDecimal",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsDecimal"])
+		ok
+		raise("DotNet Error: ReadElementContentAsDecimal does not take one argument: use ReadElementContentAsDecimal(NULL), ReadElementContentAsDecimal_N(...) or named arguments")
 
 	Func ReadElementContentAsDecimal_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsDecimal",P1,P2])
 
-	Func ReadElementContentAsInt 
-		return dnRequest("call",[self,"ReadElementContentAsInt"])
+	Func ReadElementContentAsInt P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsInt",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsInt"])
+		ok
+		raise("DotNet Error: ReadElementContentAsInt does not take one argument: use ReadElementContentAsInt(NULL), ReadElementContentAsInt_N(...) or named arguments")
 
 	Func ReadElementContentAsInt_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsInt",P1,P2])
 
-	Func ReadElementContentAsLong 
-		return dnRequest("call",[self,"ReadElementContentAsLong"])
+	Func ReadElementContentAsLong P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsLong",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsLong"])
+		ok
+		raise("DotNet Error: ReadElementContentAsLong does not take one argument: use ReadElementContentAsLong(NULL), ReadElementContentAsLong_N(...) or named arguments")
 
 	Func ReadElementContentAsLong_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsLong",P1,P2])
 
-	Func ReadElementContentAsString 
-		return dnRequest("call",[self,"ReadElementContentAsString"])
+	Func ReadElementContentAsString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementContentAsString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementContentAsString"])
+		ok
+		raise("DotNet Error: ReadElementContentAsString does not take one argument: use ReadElementContentAsString(NULL), ReadElementContentAsString_N(...) or named arguments")
 
 	Func ReadElementContentAsString_2 P1,P2
 		return dnRequest("call",[self,"ReadElementContentAsString",P1,P2])
@@ -133,12 +187,18 @@ Class XmlReader from Object
 		return dnRequest("call",[self,"ReadElementContentAs",P1,P2,P3,P4])
 
 	Func GetAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAttribute",P1])
+		ok
 		return dnRequest("call",[self,"GetAttribute",P1])
 
 	Func GetAttribute_2 P1,P2
 		return dnRequest("call",[self,"GetAttribute",P1,P2])
 
 	Func MoveToAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MoveToAttribute",P1])
+		ok
 		return dnRequest("call",[self,"MoveToAttribute",P1])
 
 	Func MoveToAttribute_2 P1,P2
@@ -195,8 +255,16 @@ Class XmlReader from Object
 	Func MoveToContent 
 		return dnRequest("call",[self,"MoveToContent"])
 
-	Func ReadStartElement 
-		dnRequest("call",[self,"ReadStartElement"])
+	Func ReadStartElement P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"ReadStartElement",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"ReadStartElement"])
+		return self
+		ok
+		dnRequest("call",[self,"ReadStartElement",P1])
 		return self
 
 	Func ReadStartElement_1 P1
@@ -207,8 +275,14 @@ Class XmlReader from Object
 		dnRequest("call",[self,"ReadStartElement",P1,P2])
 		return self
 
-	Func ReadElementString 
-		return dnRequest("call",[self,"ReadElementString"])
+	Func ReadElementString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadElementString",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadElementString"])
+		ok
+		return dnRequest("call",[self,"ReadElementString",P1])
 
 	Func ReadElementString_1 P1
 		return dnRequest("call",[self,"ReadElementString",P1])
@@ -220,8 +294,14 @@ Class XmlReader from Object
 		dnRequest("call",[self,"ReadEndElement"])
 		return self
 
-	Func IsStartElement 
-		return dnRequest("call",[self,"IsStartElement"])
+	Func IsStartElement P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsStartElement",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsStartElement"])
+		ok
+		return dnRequest("call",[self,"IsStartElement",P1])
 
 	Func IsStartElement_1 P1
 		return dnRequest("call",[self,"IsStartElement",P1])
@@ -230,18 +310,27 @@ Class XmlReader from Object
 		return dnRequest("call",[self,"IsStartElement",P1,P2])
 
 	Func ReadToFollowing P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadToFollowing",P1])
+		ok
 		return dnRequest("call",[self,"ReadToFollowing",P1])
 
 	Func ReadToFollowing_2 P1,P2
 		return dnRequest("call",[self,"ReadToFollowing",P1,P2])
 
 	Func ReadToDescendant P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadToDescendant",P1])
+		ok
 		return dnRequest("call",[self,"ReadToDescendant",P1])
 
 	Func ReadToDescendant_2 P1,P2
 		return dnRequest("call",[self,"ReadToDescendant",P1,P2])
 
 	Func ReadToNextSibling P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadToNextSibling",P1])
+		ok
 		return dnRequest("call",[self,"ReadToNextSibling",P1])
 
 	Func ReadToNextSibling_2 P1,P2
@@ -311,6 +400,9 @@ Class XmlReader from Object
 	Func ReadOuterXmlAsync 
 		return dnRequest("call",[self,"ReadOuterXmlAsync"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsName P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"IsName",P1])
 
@@ -318,6 +410,9 @@ Class XmlReader from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"IsNameToken",P1])
 
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
 
 	Func Create_2 P1,P2
@@ -325,64 +420,6 @@ Class XmlReader from Object
 
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1,P2,P3])
-
-	Func ReadElementContentAsObject@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsObject",P1])
-
-	Func ReadElementContentAsBoolean@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsBoolean",P1])
-
-	Func ReadElementContentAsDateTime@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsDateTime",P1])
-
-	Func ReadElementContentAsDouble@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsDouble",P1])
-
-	Func ReadElementContentAsFloat@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsFloat",P1])
-
-	Func ReadElementContentAsDecimal@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsDecimal",P1])
-
-	Func ReadElementContentAsInt@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsInt",P1])
-
-	Func ReadElementContentAsLong@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsLong",P1])
-
-	Func ReadElementContentAsString@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAsString",P1])
-
-	Func ReadElementContentAs@ P1
-		return dnRequest("callnamed",[self,"ReadElementContentAs",P1])
-
-	Func GetAttribute@ P1
-		return dnRequest("callnamed",[self,"GetAttribute",P1])
-
-	Func MoveToAttribute@ P1
-		return dnRequest("callnamed",[self,"MoveToAttribute",P1])
-
-	Func ReadStartElement@ P1
-		dnRequest("callnamed",[self,"ReadStartElement",P1])
-		return self
-
-	Func ReadElementString@ P1
-		return dnRequest("callnamed",[self,"ReadElementString",P1])
-
-	Func IsStartElement@ P1
-		return dnRequest("callnamed",[self,"IsStartElement",P1])
-
-	Func ReadToFollowing@ P1
-		return dnRequest("callnamed",[self,"ReadToFollowing",P1])
-
-	Func ReadToDescendant@ P1
-		return dnRequest("callnamed",[self,"ReadToDescendant",P1])
-
-	Func ReadToNextSibling@ P1
-		return dnRequest("callnamed",[self,"ReadToNextSibling",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

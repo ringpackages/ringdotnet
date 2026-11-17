@@ -56,6 +56,12 @@ Class ItemsControl from WpfControl
 		return dnRequest("call",[self,"ShouldSerializeGroupStyle"])
 
 	Func ContainerFromElement P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1])
+			ok
+			return dnRequest("callnamed",[self,"ContainerFromElement",P1])
+		ok
 		return dnRequest("call",[self,"ContainerFromElement",P1])
 
 	Func IsItemItsOwnContainer P1
@@ -72,12 +78,6 @@ Class ItemsControl from WpfControl
 
 	Func ContainerFromElement_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1,P2])
-
-	Func ContainerFromElement@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1])
-		ok
-		return dnRequest("callnamed",[self,"ContainerFromElement",P1])
 
 	Func getItems
 		return dnRequest("get",[self,"Items"])

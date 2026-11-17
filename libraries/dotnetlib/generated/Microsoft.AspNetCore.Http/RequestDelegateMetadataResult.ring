@@ -16,6 +16,9 @@ Class RequestDelegateMetadataResult from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.RequestDelegateMetadataResult, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEndpointMetadata
 		return dnRequest("get",[self,"EndpointMetadata"])
 

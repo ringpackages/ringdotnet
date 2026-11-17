@@ -21,8 +21,15 @@ Class SemaphoreSlim from Object
 		nHandle = dnCreate('System.Threading.SemaphoreSlim, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func Wait 
-		dnRequest("call",[self,"Wait"])
+	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Wait",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Wait"])
+		return self
+		ok
+		dnRequest("call",[self,"Wait",P1])
 		return self
 
 	Func Wait_1 P1
@@ -32,8 +39,14 @@ Class SemaphoreSlim from Object
 	Func Wait_2 P1,P2
 		return dnRequest("call",[self,"Wait",P1,P2])
 
-	Func WaitAsync 
-		return dnRequest("call",[self,"WaitAsync"])
+	Func WaitAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WaitAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"WaitAsync"])
+		ok
+		return dnRequest("call",[self,"WaitAsync",P1])
 
 	Func WaitAsync_1 P1
 		return dnRequest("call",[self,"WaitAsync",P1])
@@ -45,11 +58,8 @@ Class SemaphoreSlim from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Wait@ P1
-		return dnRequest("callnamed",[self,"Wait",P1])
-
-	Func WaitAsync@ P1
-		return dnRequest("callnamed",[self,"WaitAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCurrentCount
 		return dnRequest("get",[self,"CurrentCount"])

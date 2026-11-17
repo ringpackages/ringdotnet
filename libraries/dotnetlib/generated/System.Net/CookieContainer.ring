@@ -31,6 +31,10 @@ Class CookieContainer from Object
 		return self
 
 	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Add",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Add",P1])
 		return self
 
@@ -51,9 +55,8 @@ Class CookieContainer from Object
 		dnRequest("call",[self,"SetCookies",P1,P2])
 		return self
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])

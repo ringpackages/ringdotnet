@@ -22,3 +22,6 @@ Class BindingSourceValueProvider from Object
 	Func Filter P1
 		return dnRequest("call",[self,"Filter",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

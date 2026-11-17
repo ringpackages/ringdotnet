@@ -28,6 +28,10 @@ Class HttpResponse from Object
 		return self
 
 	Func OnStarting P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"OnStarting",P1])
+			return self
+		ok
 		dnRequest("call",[self,"OnStarting",P1])
 		return self
 
@@ -44,10 +48,18 @@ Class HttpResponse from Object
 		return self
 
 	Func OnCompleted P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"OnCompleted",P1])
+			return self
+		ok
 		dnRequest("call",[self,"OnCompleted",P1])
 		return self
 
 	Func Redirect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Redirect",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Redirect",P1])
 		return self
 
@@ -58,26 +70,20 @@ Class HttpResponse from Object
 	Func StartAsync_1 P1
 		return dnRequest("call",[self,"StartAsync",P1])
 
-	Func StartAsync 
-		return dnRequest("call",[self,"StartAsync"])
+	Func StartAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"StartAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"StartAsync"])
+		ok
+		return dnRequest("call",[self,"StartAsync",P1])
 
 	Func CompleteAsync 
 		return dnRequest("call",[self,"CompleteAsync"])
 
-	Func OnStarting@ P1
-		dnRequest("callnamed",[self,"OnStarting",P1])
-		return self
-
-	Func OnCompleted@ P1
-		dnRequest("callnamed",[self,"OnCompleted",P1])
-		return self
-
-	Func Redirect@ P1
-		dnRequest("callnamed",[self,"Redirect",P1])
-		return self
-
-	Func StartAsync@ P1
-		return dnRequest("callnamed",[self,"StartAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])

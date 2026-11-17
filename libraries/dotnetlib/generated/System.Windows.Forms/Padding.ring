@@ -38,9 +38,6 @@ Class Padding from ValueType
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Padding, System.Windows.Forms.Primitives'),"Subtract",P1,P2])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getAll
 		return dnRequest("get",[self,"All"])
 

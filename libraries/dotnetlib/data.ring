@@ -46,7 +46,7 @@ func dbValue  aRow, cColumn
 
 # wait for a Task of the async methods and return its result
 func dbWait  oTask
-	oTask.Wait()
+	oTask.Wait(NULL)
 	return oTask.getProp("Result")
 
 class RingDatabase

@@ -52,9 +52,6 @@ Class DrawingCollection from Animatable
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

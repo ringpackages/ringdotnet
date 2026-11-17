@@ -21,6 +21,9 @@ Class RoutedEvent from Object
 	Func AddOwner P1
 		return dnRequest("call",[self,"AddOwner",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

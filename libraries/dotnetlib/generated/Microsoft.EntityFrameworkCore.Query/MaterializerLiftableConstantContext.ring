@@ -16,11 +16,11 @@ Class MaterializerLiftableConstantContext from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.MaterializerLiftableConstantContext, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getDependencies
 		return dnRequest("get",[self,"Dependencies"])

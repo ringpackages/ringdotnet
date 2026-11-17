@@ -18,6 +18,9 @@ Class HttpListenerContext from Object
 		return self
 
 	Func AcceptWebSocketAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+		ok
 		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
 
 	Func AcceptWebSocketAsync_2 P1,P2
@@ -29,8 +32,8 @@ Class HttpListenerContext from Object
 	Func AcceptWebSocketAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"AcceptWebSocketAsync",P1,P2,P3,P4])
 
-	Func AcceptWebSocketAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRequest
 		return dnRequest("get",[self,"Request"])

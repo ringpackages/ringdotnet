@@ -21,6 +21,9 @@ Class AuthenticationSchemeBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

@@ -53,6 +53,9 @@ Class ComboBoxObjectCollection from Object
 	Func IndexOf P1
 		return dnRequest("call",[self,"IndexOf",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

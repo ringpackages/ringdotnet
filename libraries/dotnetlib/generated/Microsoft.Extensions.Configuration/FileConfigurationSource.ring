@@ -31,6 +31,9 @@ Class FileConfigurationSource from Object
 		dnRequest("call",[self,"ResolveFileProvider"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFileProvider
 		return dnRequest("get",[self,"FileProvider"])
 

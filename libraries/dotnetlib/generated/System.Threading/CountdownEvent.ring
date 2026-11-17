@@ -23,18 +23,38 @@ Class CountdownEvent from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func Signal 
-		return dnRequest("call",[self,"Signal"])
+	Func Signal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Signal",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Signal"])
+		ok
+		return dnRequest("call",[self,"Signal",P1])
 
 	Func Signal_1 P1
 		return dnRequest("call",[self,"Signal",P1])
 
-	Func AddCount 
-		dnRequest("call",[self,"AddCount"])
+	Func AddCount P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddCount",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"AddCount"])
+		return self
+		ok
+		dnRequest("call",[self,"AddCount",P1])
 		return self
 
-	Func TryAddCount 
-		return dnRequest("call",[self,"TryAddCount"])
+	Func TryAddCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"TryAddCount",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"TryAddCount"])
+		ok
+		return dnRequest("call",[self,"TryAddCount",P1])
 
 	Func AddCount_1 P1
 		dnRequest("call",[self,"AddCount",P1])
@@ -43,16 +63,31 @@ Class CountdownEvent from Object
 	Func TryAddCount_1 P1
 		return dnRequest("call",[self,"TryAddCount",P1])
 
-	Func Reset 
-		dnRequest("call",[self,"Reset"])
+	Func Reset P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Reset",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Reset"])
+		return self
+		ok
+		dnRequest("call",[self,"Reset",P1])
 		return self
 
 	Func Reset_1 P1
 		dnRequest("call",[self,"Reset",P1])
 		return self
 
-	Func Wait 
-		dnRequest("call",[self,"Wait"])
+	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Wait",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Wait"])
+		return self
+		ok
+		dnRequest("call",[self,"Wait",P1])
 		return self
 
 	Func Wait_1 P1
@@ -62,22 +97,8 @@ Class CountdownEvent from Object
 	Func Wait_2 P1,P2
 		return dnRequest("call",[self,"Wait",P1,P2])
 
-	Func Signal@ P1
-		return dnRequest("callnamed",[self,"Signal",P1])
-
-	Func AddCount@ P1
-		dnRequest("callnamed",[self,"AddCount",P1])
-		return self
-
-	Func TryAddCount@ P1
-		return dnRequest("callnamed",[self,"TryAddCount",P1])
-
-	Func Reset@ P1
-		dnRequest("callnamed",[self,"Reset",P1])
-		return self
-
-	Func Wait@ P1
-		return dnRequest("callnamed",[self,"Wait",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCurrentCount
 		return dnRequest("get",[self,"CurrentCount"])

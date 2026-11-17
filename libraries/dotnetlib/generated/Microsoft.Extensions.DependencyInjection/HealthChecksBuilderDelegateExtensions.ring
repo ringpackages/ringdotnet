@@ -13,6 +13,9 @@ Class HealthChecksBuilderDelegateExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddCheck_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddCheck",P1,P2,P3,P4])
 
@@ -30,10 +33,4 @@ Class HealthChecksBuilderDelegateExtensions from Object
 
 	Func AddAsyncCheck P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddAsyncCheck",P1,P2,P3])
-
-	Func AddCheck@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddCheck",P1])
-
-	Func AddAsyncCheck@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthChecksBuilderDelegateExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddAsyncCheck",P1])
 

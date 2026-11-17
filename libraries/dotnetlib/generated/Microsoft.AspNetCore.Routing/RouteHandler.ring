@@ -23,3 +23,6 @@ Class RouteHandler from Object
 	Func RouteAsync P1
 		return dnRequest("call",[self,"RouteAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

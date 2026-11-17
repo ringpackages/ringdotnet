@@ -34,8 +34,16 @@ Class QueryContext from Object
 		dnRequest("call",[self,"InitializeStateManager",P1])
 		return self
 
-	Func InitializeStateManager 
-		dnRequest("call",[self,"InitializeStateManager"])
+	Func InitializeStateManager P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"InitializeStateManager",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"InitializeStateManager"])
+		return self
+		ok
+		dnRequest("call",[self,"InitializeStateManager",P1])
 		return self
 
 	Func TryGetEntry P1,P2,P3
@@ -44,9 +52,8 @@ Class QueryContext from Object
 	Func StartTracking P1,P2,P3
 		return dnRequest("call",[self,"StartTracking",P1,P2,P3])
 
-	Func InitializeStateManager@ P1
-		dnRequest("callnamed",[self,"InitializeStateManager",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getContext
 		return dnRequest("get",[self,"Context"])

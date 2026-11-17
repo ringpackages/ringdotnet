@@ -47,12 +47,18 @@ Class ToolStripComboBox from ToolStripControlHost
 		return self
 
 	Func FindString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindString",P1])
+		ok
 		return dnRequest("call",[self,"FindString",P1])
 
 	Func FindString_2 P1,P2
 		return dnRequest("call",[self,"FindString",P1,P2])
 
 	Func FindStringExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"FindStringExact",P1])
+		ok
 		return dnRequest("call",[self,"FindStringExact",P1])
 
 	Func FindStringExact_2 P1,P2
@@ -69,15 +75,16 @@ Class ToolStripComboBox from ToolStripControlHost
 		dnRequest("call",[self,"SelectAll"])
 		return self
 
-	Func FindString@ P1
-		return dnRequest("callnamed",[self,"FindString",P1])
-
-	Func FindStringExact@ P1
-		return dnRequest("callnamed",[self,"FindStringExact",P1])
-
-	Func Select@ P1
-		dnRequest("callnamed",[self,"Select",P1])
+	Func Select P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Select",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Select"])
 		return self
+		ok
+		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
 
 	Func setDropDownEvent P1
 		dnRequest("setevent",[self,"DropDown",dnCallback(P1)])

@@ -20,13 +20,13 @@ Class IConventionServiceProperty from DotNetObject
 		return dnRequest("call",[self,"SetParameterBinding",P1,P2])
 
 	Func SetParameterBinding P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetParameterBinding",P1])
+		ok
 		return dnRequest("call",[self,"SetParameterBinding",P1])
 
 	Func GetParameterBindingConfigurationSource 
 		return dnRequest("call",[self,"GetParameterBindingConfigurationSource"])
-
-	Func SetParameterBinding@ P1
-		return dnRequest("callnamed",[self,"SetParameterBinding",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

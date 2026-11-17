@@ -14,6 +14,9 @@ Class XmlConvert from Object
 		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func EncodeName P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"EncodeName",P1])
 
@@ -114,12 +117,18 @@ Class XmlConvert from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToTimeSpan",P1])
 
 	Func ToDateTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
 
 	Func ToDateTime_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1,P2])
 
 	Func ToDateTimeOffset P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
 
 	Func ToDateTimeOffset_2 P1,P2
@@ -127,16 +136,4 @@ Class XmlConvert from Object
 
 	Func ToGuid P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToGuid",P1])
-
-	Func ToString@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
-		ok
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func ToDateTime@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
-
-	Func ToDateTimeOffset@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
 

@@ -23,6 +23,10 @@ Class CertificateRevocationListBuilder from Object
 		return self
 
 	Func AddEntry P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddEntry",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddEntry",P1])
 		return self
 
@@ -41,10 +45,16 @@ Class CertificateRevocationListBuilder from Object
 	Func Build_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"Build",P1,P2,P3,P4,P5,P6,P7])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func BuildCrlDistributionPointExtension_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1,P2])
 
 	Func BuildCrlDistributionPointExtension P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1])
 
 	Func Load_ P1
@@ -52,14 +62,4 @@ Class CertificateRevocationListBuilder from Object
 
 	Func LoadPem P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"LoadPem",P1])
-
-	Func AddEntry@ P1
-		dnRequest("callnamed",[self,"AddEntry",P1])
-		return self
-
-	Func Build@ P1
-		return dnRequest("callnamed",[self,"Build",P1])
-
-	Func BuildCrlDistributionPointExtension@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1])
 

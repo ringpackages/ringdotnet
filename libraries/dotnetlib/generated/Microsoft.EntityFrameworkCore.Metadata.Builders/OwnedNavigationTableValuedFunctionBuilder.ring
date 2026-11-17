@@ -17,9 +17,3 @@ Class OwnedNavigationTableValuedFunctionBuilder from DbFunctionBuilderBase
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func HasName@ P1
-		return dnRequest("callnamed",[self,"HasName",P1])
-
-	Func HasSchema@ P1
-		return dnRequest("callnamed",[self,"HasSchema",P1])
-

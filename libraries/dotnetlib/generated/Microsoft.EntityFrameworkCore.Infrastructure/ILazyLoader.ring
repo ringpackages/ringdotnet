@@ -22,6 +22,10 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func SetLoaded P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetLoaded",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetLoaded",P1])
 		return self
 
@@ -29,6 +33,9 @@ Class ILazyLoader from DotNetObject
 		return dnRequest("call",[self,"IsLoaded",P1,P2])
 
 	Func IsLoaded P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsLoaded",P1])
+		ok
 		return dnRequest("call",[self,"IsLoaded",P1])
 
 	Func Load_2 P1,P2
@@ -36,6 +43,10 @@ Class ILazyLoader from DotNetObject
 		return self
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Load",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Load",P1])
 		return self
 
@@ -46,23 +57,12 @@ Class ILazyLoader from DotNetObject
 		return dnRequest("call",[self,"LoadAsync",P1,P2])
 
 	Func LoadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LoadAsync",P1])
+		ok
 		return dnRequest("call",[self,"LoadAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
 		return self
-
-	Func SetLoaded@ P1
-		dnRequest("callnamed",[self,"SetLoaded",P1])
-		return self
-
-	Func IsLoaded@ P1
-		return dnRequest("callnamed",[self,"IsLoaded",P1])
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
-		return self
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[self,"LoadAsync",P1])
 

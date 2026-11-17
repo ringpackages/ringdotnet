@@ -24,6 +24,9 @@ Class WebSocketReceiveResult from Object
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1,P2,P3,P4,P5])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

@@ -26,17 +26,24 @@ Class AuthenticationSchemeOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, Microsoft.AspNetCore.Authentication',[])
 		return self
 
-	Func Validate 
-		dnRequest("call",[self,"Validate"])
+	Func Validate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Validate",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Validate"])
+		return self
+		ok
+		dnRequest("call",[self,"Validate",P1])
 		return self
 
 	Func Validate_1 P1
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
-	Func Validate@ P1
-		dnRequest("callnamed",[self,"Validate",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getClaimsIssuer
 		return dnRequest("get",[self,"ClaimsIssuer"])

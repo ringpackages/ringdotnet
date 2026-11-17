@@ -24,6 +24,9 @@ Class ConfigurationReloadToken from Object
 		dnRequest("call",[self,"OnReload"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActiveChangeCallbacks
 		return dnRequest("get",[self,"ActiveChangeCallbacks"])
 

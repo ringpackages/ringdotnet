@@ -44,6 +44,9 @@ Class SqlBytes from Object
 	Func ToSqlBinary 
 		return dnRequest("call",[self,"ToSqlBinary"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBytes, System.Data.Common'),"GetXsdType",P1])
 

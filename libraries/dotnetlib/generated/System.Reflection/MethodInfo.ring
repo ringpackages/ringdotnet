@@ -32,11 +32,14 @@ Class MethodInfo from MethodBase
 	Func CreateDelegate_2 P1,P2
 		return dnRequest("call",[self,"CreateDelegate",P1,P2])
 
-	Func CreateDelegate 
-		return dnRequest("call",[self,"CreateDelegate"])
-
-	Func CreateDelegate@ P1
-		return dnRequest("callnamed",[self,"CreateDelegate",P1])
+	Func CreateDelegate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateDelegate",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateDelegate"])
+		ok
+		return dnRequest("call",[self,"CreateDelegate",P1])
 
 	Func getReturnParameter
 		return dnRequest("get",[self,"ReturnParameter"])

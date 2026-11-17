@@ -22,12 +22,18 @@ Class IConventionPropertyBase from DotNetObject
 		return dnRequest("call",[self,"SetFieldInfo",P1,P2])
 
 	Func SetFieldInfo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetFieldInfo",P1])
+		ok
 		return dnRequest("call",[self,"SetFieldInfo",P1])
 
 	Func SetField_2 P1,P2
 		return dnRequest("call",[self,"SetField",P1,P2])
 
 	Func SetField P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetField",P1])
+		ok
 		return dnRequest("call",[self,"SetField",P1])
 
 	Func GetFieldInfoConfigurationSource 
@@ -37,19 +43,13 @@ Class IConventionPropertyBase from DotNetObject
 		return dnRequest("call",[self,"SetPropertyAccessMode",P1,P2])
 
 	Func SetPropertyAccessMode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
+		ok
 		return dnRequest("call",[self,"SetPropertyAccessMode",P1])
 
 	Func GetPropertyAccessModeConfigurationSource 
 		return dnRequest("call",[self,"GetPropertyAccessModeConfigurationSource"])
-
-	Func SetFieldInfo@ P1
-		return dnRequest("callnamed",[self,"SetFieldInfo",P1])
-
-	Func SetField@ P1
-		return dnRequest("callnamed",[self,"SetField",P1])
-
-	Func SetPropertyAccessMode@ P1
-		return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
 
 	Func getDeclaringType
 		return dnRequest("get",[self,"DeclaringType"])

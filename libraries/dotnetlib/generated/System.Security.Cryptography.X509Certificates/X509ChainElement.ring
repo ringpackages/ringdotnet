@@ -17,6 +17,9 @@ Class X509ChainElement from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCertificate
 		return dnRequest("get",[self,"Certificate"])
 

@@ -15,14 +15,17 @@ Class KeyedHashAlgorithm from HashAlgorithm
 		ok
 		return self
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create"])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getKey
 		return dnRequest("get",[self,"Key"])

@@ -13,7 +13,14 @@ Class Parallel from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Invoke P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"Invoke",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"Invoke",P1])
 		return self
 
@@ -56,20 +63,4 @@ Class Parallel from Object
 
 	Func ForEachAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEachAsync",P1,P2,P3])
-
-	Func Invoke@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"Invoke",P1])
-		return self
-
-	Func For@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1])
-
-	Func ForEach@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1])
-
-	Func ForAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForAsync",P1])
-
-	Func ForEachAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEachAsync",P1])
 

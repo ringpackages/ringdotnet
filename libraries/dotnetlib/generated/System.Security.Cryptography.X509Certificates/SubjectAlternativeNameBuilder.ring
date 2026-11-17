@@ -37,9 +37,15 @@ Class SubjectAlternativeNameBuilder from Object
 	Func Build_1 P1
 		return dnRequest("call",[self,"Build",P1])
 
-	Func Build 
-		return dnRequest("call",[self,"Build"])
+	Func Build P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Build",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Build"])
+		ok
+		return dnRequest("call",[self,"Build",P1])
 
-	Func Build@ P1
-		return dnRequest("callnamed",[self,"Build",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

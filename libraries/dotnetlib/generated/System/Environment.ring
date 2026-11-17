@@ -39,11 +39,18 @@ Class Environment from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Exit_ P1
 		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"Exit",P1])
 		return self
 
 	Func FailFast P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
 		return self
 
@@ -52,6 +59,9 @@ Class Environment from Object
 		return self
 
 	Func GetEnvironmentVariable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
 
 	Func GetEnvironmentVariable_2 P1,P2
@@ -75,6 +85,9 @@ Class Environment from Object
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"ExpandEnvironmentVariables",P1])
 
 	Func GetFolderPath P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
 
 	Func GetFolderPath_2 P1,P2
@@ -83,25 +96,14 @@ Class Environment from Object
 	Func GetLogicalDrives 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetLogicalDrives"])
 
-	Func GetEnvironmentVariables 
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
-
-	Func FailFast@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
-		return self
-
-	Func GetEnvironmentVariable@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
-
-	Func GetEnvironmentVariables@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
-
-	Func SetEnvironmentVariable@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1])
-		return self
-
-	Func GetFolderPath@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
+	Func GetEnvironmentVariables P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
 
 	Func getCurrentManagedThreadId
 		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentManagedThreadId"])

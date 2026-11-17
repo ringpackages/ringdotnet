@@ -16,6 +16,9 @@ Class XmlSchemaCompilationSettings from Object
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaCompilationSettings, System.Private.Xml',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEnableUpaCheck
 		return dnRequest("get",[self,"EnableUpaCheck"])
 

@@ -31,52 +31,46 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
 
 	Func HasStoreType_2 P1,P2
 		return dnRequest("call",[self,"HasStoreType",P1,P2])
 
 	Func HasStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasStoreType",P1])
+		ok
 		return dnRequest("call",[self,"HasStoreType",P1])
 
 	Func CanSetStoreType_2 P1,P2
 		return dnRequest("call",[self,"CanSetStoreType",P1,P2])
 
 	Func CanSetStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetStoreType",P1])
+		ok
 		return dnRequest("call",[self,"CanSetStoreType",P1])
 
 	Func HasTypeMapping_2 P1,P2
 		return dnRequest("call",[self,"HasTypeMapping",P1,P2])
 
 	Func HasTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"HasTypeMapping",P1])
 
 	Func CanSetTypeMapping_2 P1,P2
 		return dnRequest("call",[self,"CanSetTypeMapping",P1,P2])
 
 	Func CanSetTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"CanSetTypeMapping",P1])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
-
-	Func HasStoreType@ P1
-		return dnRequest("callnamed",[self,"HasStoreType",P1])
-
-	Func CanSetStoreType@ P1
-		return dnRequest("callnamed",[self,"CanSetStoreType",P1])
-
-	Func HasTypeMapping@ P1
-		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
-
-	Func CanSetTypeMapping@ P1
-		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

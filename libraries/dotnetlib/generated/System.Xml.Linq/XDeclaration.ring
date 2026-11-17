@@ -22,6 +22,9 @@ Class XDeclaration from Object
 		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEncoding
 		return dnRequest("get",[self,"Encoding"])
 

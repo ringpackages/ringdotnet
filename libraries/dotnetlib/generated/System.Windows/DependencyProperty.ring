@@ -34,6 +34,9 @@ Class DependencyProperty from Object
 		return dnRequest("call",[self,"GetMetadata",P1])
 
 	Func AddOwner P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddOwner",P1])
+		ok
 		return dnRequest("call",[self,"AddOwner",P1])
 
 	Func AddOwner_2 P1,P2
@@ -44,6 +47,9 @@ Class DependencyProperty from Object
 
 	Func IsValidValue P1
 		return dnRequest("call",[self,"IsValidValue",P1])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Register P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1,P2,P3])
@@ -74,28 +80,6 @@ Class DependencyProperty from Object
 
 	Func RegisterAttached_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4,P5])
-
-	Func OverrideMetadata@ P1
-		dnRequest("callnamed",[self,"OverrideMetadata",P1])
-		return self
-
-	Func GetMetadata@ P1
-		return dnRequest("callnamed",[self,"GetMetadata",P1])
-
-	Func AddOwner@ P1
-		return dnRequest("callnamed",[self,"AddOwner",P1])
-
-	Func Register@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1])
-
-	Func RegisterReadOnly@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterReadOnly",P1])
-
-	Func RegisterAttachedReadOnly@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttachedReadOnly",P1])
-
-	Func RegisterAttached@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1])
 
 	Func getName
 		return dnRequest("get",[self,"Name"])

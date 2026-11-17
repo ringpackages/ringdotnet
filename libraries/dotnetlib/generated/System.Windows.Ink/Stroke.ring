@@ -52,6 +52,10 @@ Class Stroke from Object
 		return dnRequest("call",[self,"GetBounds"])
 
 	Func Draw P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Draw",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Draw",P1])
 		return self
 
@@ -63,38 +67,37 @@ Class Stroke from Object
 		return dnRequest("call",[self,"GetClipResult",P1])
 
 	Func GetEraseResult P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEraseResult",P1])
+		ok
 		return dnRequest("call",[self,"GetEraseResult",P1])
 
 	Func GetEraseResult_2 P1,P2
 		return dnRequest("call",[self,"GetEraseResult",P1,P2])
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func HitTest_2 P1,P2
 		return dnRequest("call",[self,"HitTest",P1,P2])
 
-	Func GetGeometry 
-		return dnRequest("call",[self,"GetGeometry"])
+	Func GetGeometry P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetGeometry",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetGeometry"])
+		ok
+		return dnRequest("call",[self,"GetGeometry",P1])
 
 	Func GetGeometry_1 P1
 		return dnRequest("call",[self,"GetGeometry",P1])
 
-	Func Draw@ P1
-		dnRequest("callnamed",[self,"Draw",P1])
-		return self
-
-	Func GetClipResult@ P1
-		return dnRequest("callnamed",[self,"GetClipResult",P1])
-
-	Func GetEraseResult@ P1
-		return dnRequest("callnamed",[self,"GetEraseResult",P1])
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
-
-	Func GetGeometry@ P1
-		return dnRequest("callnamed",[self,"GetGeometry",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setDrawingAttributesChangedEvent P1
 		dnRequest("setevent",[self,"DrawingAttributesChanged",dnCallback(P1)])

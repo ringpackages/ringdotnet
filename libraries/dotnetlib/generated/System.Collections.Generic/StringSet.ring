@@ -94,6 +94,10 @@ Class StringSet from Object
 		return dnRequest("call",[self,"SetEquals",P1])
 
 	Func CopyTo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"CopyTo",P1])
+			return self
+		ok
 		dnRequest("call",[self,"CopyTo",P1])
 		return self
 
@@ -111,24 +115,27 @@ Class StringSet from Object
 	Func EnsureCapacity P1
 		return dnRequest("call",[self,"EnsureCapacity",P1])
 
-	Func TrimExcess 
-		dnRequest("call",[self,"TrimExcess"])
+	Func TrimExcess P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"TrimExcess",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"TrimExcess"])
+		return self
+		ok
+		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 
 	Func TrimExcess_1 P1
 		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func TrimExcess@ P1
-		dnRequest("callnamed",[self,"TrimExcess",P1])
-		return self
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])

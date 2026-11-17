@@ -43,6 +43,9 @@ Class XmlSerializer from Object
 		return self
 
 	Func Deserialize P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Deserialize",P1])
+		ok
 		return dnRequest("call",[self,"Deserialize",P1])
 
 	Func Deserialize_2 P1,P2
@@ -54,7 +57,13 @@ Class XmlSerializer from Object
 	Func CanDeserialize P1
 		return dnRequest("call",[self,"CanDeserialize",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromMappings P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1])
 
 	Func FromMappings_2 P1,P2
@@ -64,23 +73,13 @@ Class XmlSerializer from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromTypes",P1])
 
 	Func GetXmlSerializerAssemblyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
 
 	Func GetXmlSerializerAssemblyName_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1,P2])
-
-	Func Serialize@ P1
-		dnRequest("callnamed",[self,"Serialize",P1])
-		return self
-
-	Func Deserialize@ P1
-		return dnRequest("callnamed",[self,"Deserialize",P1])
-
-	Func FromMappings@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1])
-
-	Func GetXmlSerializerAssemblyName@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
 
 	Func setUnknownNodeEvent P1
 		dnRequest("setevent",[self,"UnknownNode",dnCallback(P1)])

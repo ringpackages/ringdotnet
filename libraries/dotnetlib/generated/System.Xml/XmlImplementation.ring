@@ -24,3 +24,6 @@ Class XmlImplementation from Object
 	Func CreateDocument 
 		return dnRequest("call",[self,"CreateDocument"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

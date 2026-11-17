@@ -49,7 +49,13 @@ Class CngKey from Object
 		dnRequest("call",[self,"SetProperty",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_2 P1,P2
@@ -59,6 +65,9 @@ Class CngKey from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1,P2,P3])
 
 	Func Exists P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
 
 	Func Exists_2 P1,P2
@@ -74,6 +83,9 @@ Class CngKey from Object
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1,P2,P3])
 
 	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
 
 	Func Open_2 P1,P2
@@ -81,18 +93,6 @@ Class CngKey from Object
 
 	Func Open_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1,P2,P3])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1])
-
-	Func Exists@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
-
-	Func Import@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1])
-
-	Func Open@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
 
 	Func getAlgorithm
 		return dnRequest("get",[self,"Algorithm"])

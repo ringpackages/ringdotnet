@@ -17,3 +17,6 @@ Class FormFileValueProviderFactory from Object
 	Func CreateValueProviderAsync P1
 		return dnRequest("call",[self,"CreateValueProviderAsync",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

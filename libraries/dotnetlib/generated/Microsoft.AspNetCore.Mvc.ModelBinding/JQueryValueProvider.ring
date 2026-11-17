@@ -18,14 +18,17 @@ Class JQueryValueProvider from BindingSourceValueProvider
 	Func GetKeysFromPrefix P1
 		return dnRequest("call",[self,"GetKeysFromPrefix",P1])
 
-	Func Filter 
-		return dnRequest("call",[self,"Filter"])
+	Func Filter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Filter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Filter"])
+		ok
+		return dnRequest("call",[self,"Filter",P1])
 
 	Func Filter_1 P1
 		return dnRequest("call",[self,"Filter",P1])
-
-	Func Filter@ P1
-		return dnRequest("callnamed",[self,"Filter",P1])
 
 	Func getCulture
 		return dnRequest("get",[self,"Culture"])

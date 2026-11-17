@@ -26,6 +26,9 @@ Class IPv4InterfaceStatistics from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBytesReceived
 		return dnRequest("get",[self,"BytesReceived"])
 

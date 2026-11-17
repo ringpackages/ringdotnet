@@ -43,12 +43,20 @@ Class FileStream from Stream
 		dnRequest("call",[self,"Unlock",P1,P2])
 		return self
 
-	Func Flush_1 P1
+	Func Flush P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Flush",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Flush"])
+		return self
+		ok
 		dnRequest("call",[self,"Flush",P1])
 		return self
 
-	Func Flush@ P1
-		dnRequest("callnamed",[self,"Flush",P1])
+	Func Flush_1 P1
+		dnRequest("call",[self,"Flush",P1])
 		return self
 
 	Func getHandle

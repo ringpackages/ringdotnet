@@ -13,6 +13,9 @@ Class RelationalExecutionStrategyExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ExecuteInTransaction P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1,P2,P3,P4])
 		return self
@@ -29,10 +32,4 @@ Class RelationalExecutionStrategyExtensions from Object
 
 	Func ExecuteInTransactionAsync_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5,P6])
-
-	Func ExecuteInTransaction@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1])
-
-	Func ExecuteInTransactionAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1])
 

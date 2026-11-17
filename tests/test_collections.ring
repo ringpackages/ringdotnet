@@ -8,7 +8,7 @@ dnImport("System.Collections.ObjectModel")
 # Non-generic collections
 oArr = new ArrayList()
 oArr.Add("pear")  oArr.Add("apple")  oArr.Add("fig")
-oArr.Sort()
+oArr.Sort(NULL)
 dnAssert("ArrayList sorted",oArr.Item(0),"apple")
 dnAssert("ArrayList.Count",oArr.Count,3)
 dnAssert("ArrayList.IndexOf",oArr.IndexOf("fig"),1)
@@ -54,7 +54,7 @@ for nLoop = 1 to 5 oInts.Add(nLoop * 10) next
 dnAssert("IntList.Count",oInts.Count,5)
 dnAssert("IntList.Item",oInts.Item(2),30)
 dnAssert("IntList.Contains",oInts.Contains(50),1)
-oInts.Reverse()
+oInts.Reverse(NULL)
 dnAssert("IntList.Reverse",oInts.Item(0),50)
 dnAssert("IntList.IndexOf",oInts.IndexOf(10),4)
 

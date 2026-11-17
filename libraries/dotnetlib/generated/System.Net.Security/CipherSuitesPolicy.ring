@@ -16,6 +16,9 @@ Class CipherSuitesPolicy from Object
 		nHandle = dnCreate('System.Net.Security.CipherSuitesPolicy, System.Net.Security',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAllowedCipherSuites
 		return dnRequest("get",[self,"AllowedCipherSuites"])
 

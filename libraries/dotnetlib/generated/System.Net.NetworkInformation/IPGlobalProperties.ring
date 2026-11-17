@@ -64,6 +64,9 @@ Class IPGlobalProperties from Object
 	Func GetUnicastAddressesAsync 
 		return dnRequest("call",[self,"GetUnicastAddressesAsync"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetIPGlobalProperties 
 		return dnRequest("call",[dnTypeCached('System.Net.NetworkInformation.IPGlobalProperties, System.Net.NetworkInformation'),"GetIPGlobalProperties"])
 

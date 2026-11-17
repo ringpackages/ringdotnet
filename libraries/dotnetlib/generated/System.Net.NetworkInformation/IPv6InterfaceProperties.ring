@@ -19,6 +19,9 @@ Class IPv6InterfaceProperties from Object
 	Func GetScopeId P1
 		return dnRequest("call",[self,"GetScopeId",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getIndex
 		return dnRequest("get",[self,"Index"])
 

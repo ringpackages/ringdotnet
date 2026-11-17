@@ -13,6 +13,9 @@ Class MemoryMarshal from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetArrayDataReference P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"GetArrayDataReference",P1])
 
@@ -39,10 +42,4 @@ Class MemoryMarshal from Object
 
 	Func CreateFromPinnedArray P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"CreateFromPinnedArray",P1,P2,P3])
-
-	Func GetArrayDataReference@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"GetArrayDataReference",P1])
-
-	Func TryGetMemoryManager@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.MemoryMarshal, System.Private.CoreLib'),"TryGetMemoryManager",P1])
 

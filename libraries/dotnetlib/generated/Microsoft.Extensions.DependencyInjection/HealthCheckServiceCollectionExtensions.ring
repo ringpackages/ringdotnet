@@ -13,6 +13,9 @@ Class HealthCheckServiceCollectionExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddHealthChecks P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions, Microsoft.Extensions.Diagnostics.HealthChecks'),"AddHealthChecks",P1])
 

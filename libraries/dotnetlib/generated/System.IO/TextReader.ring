@@ -26,8 +26,14 @@ Class TextReader from MarshalByRefObject
 	Func Peek 
 		return dnRequest("call",[self,"Peek"])
 
-	Func Read 
-		return dnRequest("call",[self,"Read"])
+	Func Read P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Read",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Read"])
+		ok
+		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
 
 	Func Read_3 P1,P2,P3
 		return dnRequest("call",[self,"Read",P1,P2,P3])
@@ -41,14 +47,26 @@ Class TextReader from MarshalByRefObject
 	Func ReadLine 
 		return dnRequest("call",[self,"ReadLine"])
 
-	Func ReadLineAsync 
-		return dnRequest("call",[self,"ReadLineAsync"])
+	Func ReadLineAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadLineAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadLineAsync"])
+		ok
+		return dnRequest("call",[self,"ReadLineAsync",P1])
 
 	Func ReadLineAsync_1 P1
 		return dnRequest("call",[self,"ReadLineAsync",P1])
 
-	Func ReadToEndAsync 
-		return dnRequest("call",[self,"ReadToEndAsync"])
+	Func ReadToEndAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadToEndAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadToEndAsync"])
+		ok
+		return dnRequest("call",[self,"ReadToEndAsync",P1])
 
 	Func ReadToEndAsync_1 P1
 		return dnRequest("call",[self,"ReadToEndAsync",P1])
@@ -73,21 +91,6 @@ Class TextReader from MarshalByRefObject
 
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Synchronized",P1])
-
-	Func Read@ P1
-		return dnRequest("callnamed",[self,"Read",P1])
-
-	Func ReadLineAsync@ P1
-		return dnRequest("callnamed",[self,"ReadLineAsync",P1])
-
-	Func ReadToEndAsync@ P1
-		return dnRequest("callnamed",[self,"ReadToEndAsync",P1])
-
-	Func ReadAsync@ P1
-		return dnRequest("callnamed",[self,"ReadAsync",P1])
-
-	Func ReadBlockAsync@ P1
-		return dnRequest("callnamed",[self,"ReadBlockAsync",P1])
 
 	Func getNull
 		return dnRequest("get",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Null"])

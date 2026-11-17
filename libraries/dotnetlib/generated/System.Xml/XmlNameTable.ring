@@ -17,17 +17,20 @@ Class XmlNameTable from Object
 		return dnRequest("call",[self,"Get",P1,P2,P3])
 
 	Func Get_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Get",P1])
+		ok
 		return dnRequest("call",[self,"Get",P1])
 
 	Func Add_3 P1,P2,P3
 		return dnRequest("call",[self,"Add",P1,P2,P3])
 
 	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
 		return dnRequest("call",[self,"Add",P1])
 
-	Func Get@ P1
-		return dnRequest("callnamed",[self,"Get",P1])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

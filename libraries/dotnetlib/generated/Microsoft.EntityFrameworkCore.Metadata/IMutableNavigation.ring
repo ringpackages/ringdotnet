@@ -21,9 +21,6 @@ Class IMutableNavigation from DotNetObject
 	Func SetInverse P1
 		return dnRequest("call",[self,"SetInverse",P1])
 
-	Func SetInverse@ P1
-		return dnRequest("callnamed",[self,"SetInverse",P1])
-
 	Func getDeclaringEntityType
 		return dnRequest("get",[self,"DeclaringEntityType"])
 

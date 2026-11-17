@@ -109,18 +109,27 @@ Class Matrix4x4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateReflection",P1])
 
 	Func CreateRotationX P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1])
 
 	Func CreateRotationX_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1,P2])
 
 	Func CreateRotationY P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
 
 	Func CreateRotationY_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1,P2])
 
 	Func CreateRotationZ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1])
 
 	Func CreateRotationZ_2 P1,P2
@@ -133,6 +142,9 @@ Class Matrix4x4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1,P2,P3,P4])
 
 	Func CreateScale P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
 
 	Func CreateScale_2 P1,P2
@@ -142,6 +154,9 @@ Class Matrix4x4 from ValueType
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateShadow",P1,P2])
 
 	Func CreateTranslation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
 
 	Func CreateTranslation_3 P1,P2,P3
@@ -179,27 +194,6 @@ Class Matrix4x4 from ValueType
 
 	Func Transpose P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Transpose",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CreateRotationX@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1])
-
-	Func CreateRotationY@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
-
-	Func CreateRotationZ@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1])
-
-	Func CreateScale@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
-
-	Func CreateTranslation@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
-
-	Func Multiply@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Multiply",P1])
 
 	Func getIsIdentity
 		return dnRequest("get",[self,"IsIdentity"])

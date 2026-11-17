@@ -17,8 +17,8 @@ Class IPrincipalKeyValueFactory from DotNetObject
 		return dnRequest("call",[self,"CreateEquatableKey",P1,P2])
 
 	Func CreateEquatableKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateEquatableKey",P1])
+		ok
 		return dnRequest("call",[self,"CreateEquatableKey",P1])
-
-	Func CreateEquatableKey@ P1
-		return dnRequest("callnamed",[self,"CreateEquatableKey",P1])
 

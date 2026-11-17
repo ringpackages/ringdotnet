@@ -118,6 +118,9 @@ Class SystemInformation from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetVerticalScrollBarWidthForDpi P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.SystemInformation, System.Windows.Forms'),"GetVerticalScrollBarWidthForDpi",P1])
 

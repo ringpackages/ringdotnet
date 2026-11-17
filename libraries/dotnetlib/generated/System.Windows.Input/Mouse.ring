@@ -39,6 +39,9 @@ Class Mouse from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddPreviewMouseMoveHandler P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"AddPreviewMouseMoveHandler",P1,P2])
 		return self
@@ -160,6 +163,9 @@ Class Mouse from Object
 		return self
 
 	Func Capture P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1])
 
 	Func Capture_2 P1,P2
@@ -181,9 +187,6 @@ Class Mouse from Object
 	Func UpdateCursor 
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"UpdateCursor"])
 		return self
-
-	Func Capture@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1])
 
 	Func getDirectlyOver
 		return dnRequest("get",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"DirectlyOver"])

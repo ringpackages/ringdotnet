@@ -44,11 +44,8 @@ Class TypeInfo from Type
 	Func GetDeclaredMethods_1 P1
 		return dnRequest("call",[self,"GetDeclaredMethods",P1])
 
-	Func IsAssignableFrom@ P1
-		return dnRequest("callnamed",[self,"IsAssignableFrom",P1])
-
-	Func GetType@ P1
-		return dnRequest("callnamed",[self,"GetType",P1])
+	Func GetType 
+		return dnRequest("call",[self,"GetType"])
 
 	Func getGenericTypeParameters
 		return dnRequest("get",[self,"GenericTypeParameters"])

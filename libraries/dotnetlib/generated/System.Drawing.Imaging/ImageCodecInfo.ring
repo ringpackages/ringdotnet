@@ -25,6 +25,9 @@ Class ImageCodecInfo from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetImageDecoders 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ImageCodecInfo, System.Drawing.Common'),"GetImageDecoders"])
 

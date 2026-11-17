@@ -16,3 +16,6 @@ Class ItemContainerTemplateSelector from Object
 	Func SelectTemplate P1,P2
 		return dnRequest("call",[self,"SelectTemplate",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

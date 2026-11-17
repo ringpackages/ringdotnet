@@ -31,6 +31,9 @@ Class ActionContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActionDescriptor
 		return dnRequest("get",[self,"ActionDescriptor"])
 

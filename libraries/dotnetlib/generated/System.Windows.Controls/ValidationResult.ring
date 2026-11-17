@@ -18,6 +18,9 @@ Class ValidationResult from Object
 		nHandle = dnCreate('System.Windows.Controls.ValidationResult, PresentationFramework',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getIsValid
 		return dnRequest("get",[self,"IsValid"])
 

@@ -31,151 +31,145 @@ Class IConventionDbFunctionBuilder from DotNetObject
 		return dnRequest("call",[self,"HasNoAnnotation",P1,P2])
 
 	Func HasNoAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+		ok
 		return dnRequest("call",[self,"HasNoAnnotation",P1])
 
 	Func HasName_2 P1,P2
 		return dnRequest("call",[self,"HasName",P1,P2])
 
 	Func HasName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasName",P1])
+		ok
 		return dnRequest("call",[self,"HasName",P1])
 
 	Func CanSetName_2 P1,P2
 		return dnRequest("call",[self,"CanSetName",P1,P2])
 
 	Func CanSetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetName",P1])
+		ok
 		return dnRequest("call",[self,"CanSetName",P1])
 
 	Func HasSchema_2 P1,P2
 		return dnRequest("call",[self,"HasSchema",P1,P2])
 
 	Func HasSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasSchema",P1])
+		ok
 		return dnRequest("call",[self,"HasSchema",P1])
 
 	Func CanSetSchema_2 P1,P2
 		return dnRequest("call",[self,"CanSetSchema",P1,P2])
 
 	Func CanSetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetSchema",P1])
+		ok
 		return dnRequest("call",[self,"CanSetSchema",P1])
 
 	Func IsBuiltIn_2 P1,P2
 		return dnRequest("call",[self,"IsBuiltIn",P1,P2])
 
 	Func IsBuiltIn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsBuiltIn",P1])
+		ok
 		return dnRequest("call",[self,"IsBuiltIn",P1])
 
 	Func CanSetIsBuiltIn_2 P1,P2
 		return dnRequest("call",[self,"CanSetIsBuiltIn",P1,P2])
 
 	Func CanSetIsBuiltIn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetIsBuiltIn",P1])
+		ok
 		return dnRequest("call",[self,"CanSetIsBuiltIn",P1])
 
 	Func IsNullable_2 P1,P2
 		return dnRequest("call",[self,"IsNullable",P1,P2])
 
 	Func IsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsNullable",P1])
+		ok
 		return dnRequest("call",[self,"IsNullable",P1])
 
 	Func CanSetIsNullable_2 P1,P2
 		return dnRequest("call",[self,"CanSetIsNullable",P1,P2])
 
 	Func CanSetIsNullable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetIsNullable",P1])
+		ok
 		return dnRequest("call",[self,"CanSetIsNullable",P1])
 
 	Func HasStoreType_2 P1,P2
 		return dnRequest("call",[self,"HasStoreType",P1,P2])
 
 	Func HasStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasStoreType",P1])
+		ok
 		return dnRequest("call",[self,"HasStoreType",P1])
 
 	Func CanSetStoreType_2 P1,P2
 		return dnRequest("call",[self,"CanSetStoreType",P1,P2])
 
 	Func CanSetStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetStoreType",P1])
+		ok
 		return dnRequest("call",[self,"CanSetStoreType",P1])
 
 	Func HasTypeMapping_2 P1,P2
 		return dnRequest("call",[self,"HasTypeMapping",P1,P2])
 
 	Func HasTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"HasTypeMapping",P1])
 
 	Func CanSetTypeMapping_2 P1,P2
 		return dnRequest("call",[self,"CanSetTypeMapping",P1,P2])
 
 	Func CanSetTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"CanSetTypeMapping",P1])
 
 	Func HasTranslation_2 P1,P2
 		return dnRequest("call",[self,"HasTranslation",P1,P2])
 
 	Func HasTranslation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasTranslation",P1])
+		ok
 		return dnRequest("call",[self,"HasTranslation",P1])
 
 	Func CanSetTranslation_2 P1,P2
 		return dnRequest("call",[self,"CanSetTranslation",P1,P2])
 
 	Func CanSetTranslation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CanSetTranslation",P1])
+		ok
 		return dnRequest("call",[self,"CanSetTranslation",P1])
 
 	Func HasParameter_2 P1,P2
 		return dnRequest("call",[self,"HasParameter",P1,P2])
 
 	Func HasParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasParameter",P1])
+		ok
 		return dnRequest("call",[self,"HasParameter",P1])
-
-	Func HasAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasAnnotation",P1])
-
-	Func HasNonNullAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
-
-	Func HasNoAnnotation@ P1
-		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
-
-	Func HasName@ P1
-		return dnRequest("callnamed",[self,"HasName",P1])
-
-	Func CanSetName@ P1
-		return dnRequest("callnamed",[self,"CanSetName",P1])
-
-	Func HasSchema@ P1
-		return dnRequest("callnamed",[self,"HasSchema",P1])
-
-	Func CanSetSchema@ P1
-		return dnRequest("callnamed",[self,"CanSetSchema",P1])
-
-	Func IsBuiltIn@ P1
-		return dnRequest("callnamed",[self,"IsBuiltIn",P1])
-
-	Func CanSetIsBuiltIn@ P1
-		return dnRequest("callnamed",[self,"CanSetIsBuiltIn",P1])
-
-	Func IsNullable@ P1
-		return dnRequest("callnamed",[self,"IsNullable",P1])
-
-	Func CanSetIsNullable@ P1
-		return dnRequest("callnamed",[self,"CanSetIsNullable",P1])
-
-	Func HasStoreType@ P1
-		return dnRequest("callnamed",[self,"HasStoreType",P1])
-
-	Func CanSetStoreType@ P1
-		return dnRequest("callnamed",[self,"CanSetStoreType",P1])
-
-	Func HasTypeMapping@ P1
-		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
-
-	Func CanSetTypeMapping@ P1
-		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
-
-	Func HasTranslation@ P1
-		return dnRequest("callnamed",[self,"HasTranslation",P1])
-
-	Func CanSetTranslation@ P1
-		return dnRequest("callnamed",[self,"CanSetTranslation",P1])
-
-	Func HasParameter@ P1
-		return dnRequest("callnamed",[self,"HasParameter",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -73,14 +73,14 @@ Class ModelMetadata from Object
 	Func GetDisplayName_0 
 		return dnRequest("call",[self,"GetDisplayName"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetMetadataForType P1
 		return dnRequest("call",[self,"GetMetadataForType",P1])
 
 	Func GetMetadataForProperties P1
 		return dnRequest("call",[self,"GetMetadataForProperties",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getContainerType
 		return dnRequest("get",[self,"ContainerType"])

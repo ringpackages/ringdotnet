@@ -33,6 +33,9 @@ Class WpfFontFamily from Object
 	Func GetTypefaces 
 		return dnRequest("call",[self,"GetTypefaces"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getFamilyNames
 		return dnRequest("get",[self,"FamilyNames"])
 

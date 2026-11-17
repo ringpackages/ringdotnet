@@ -26,6 +26,9 @@ Class MigrationCommand from Object
 		return dnRequest("call",[self,"ExecuteNonQuery",P1,P2])
 
 	Func ExecuteNonQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteNonQuery",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteNonQuery",P1])
 
 	Func ExecuteNonQueryAsync_3 P1,P2,P3
@@ -35,13 +38,13 @@ Class MigrationCommand from Object
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
 
-	Func ExecuteNonQuery@ P1
-		return dnRequest("callnamed",[self,"ExecuteNonQuery",P1])
-
-	Func ExecuteNonQueryAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getTransactionSuppressed
 		return dnRequest("get",[self,"TransactionSuppressed"])

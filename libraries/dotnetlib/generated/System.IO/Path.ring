@@ -19,6 +19,9 @@ Class Path from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ChangeExtension P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"ChangeExtension",P1,P2])
 
@@ -86,6 +89,9 @@ Class Path from Object
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetInvalidPathChars"])
 
 	Func GetFullPath P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
 
 	Func GetFullPath_2 P1,P2
@@ -102,15 +108,6 @@ Class Path from Object
 
 	Func GetPathRoot P1
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetPathRoot",P1])
-
-	Func Combine@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1])
-
-	Func Join@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1])
-
-	Func GetFullPath@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
 
 	Func getDirectorySeparatorChar
 		return dnRequest("get",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"DirectorySeparatorChar"])

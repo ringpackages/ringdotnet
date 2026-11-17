@@ -57,6 +57,9 @@ Class AssemblyName from Object
 		dnRequest("call",[self,"OnDeserialization",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetAssemblyName P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.AssemblyName, System.Private.CoreLib'),"GetAssemblyName",P1])
 

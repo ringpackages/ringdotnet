@@ -30,6 +30,9 @@ Class UrlHelperBase from Object
 	Func RouteUrl P1
 		return dnRequest("call",[self,"RouteUrl",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getActionContext
 		return dnRequest("get",[self,"ActionContext"])
 

@@ -26,6 +26,9 @@ Class LicenseContext from Object
 		dnRequest("call",[self,"SetSavedLicenseKey",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getUsageMode
 		return dnRequest("get",[self,"UsageMode"])
 

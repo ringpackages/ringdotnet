@@ -21,8 +21,11 @@ Class MigrationsSqlGenerator from Object
 		return dnRequest("call",[self,"Generate",P1,P2])
 
 	Func Generate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Generate",P1])
+		ok
 		return dnRequest("call",[self,"Generate",P1])
 
-	Func Generate@ P1
-		return dnRequest("callnamed",[self,"Generate",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

@@ -31,6 +31,9 @@ Class SoapReflectionImporter from Object
 		return self
 
 	Func ImportTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ImportTypeMapping",P1])
+		ok
 		return dnRequest("call",[self,"ImportTypeMapping",P1])
 
 	Func ImportTypeMapping_2 P1,P2
@@ -48,9 +51,6 @@ Class SoapReflectionImporter from Object
 	Func ImportMembersMapping_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
 
-	Func ImportTypeMapping@ P1
-		return dnRequest("callnamed",[self,"ImportTypeMapping",P1])
-
-	Func ImportMembersMapping@ P1
-		return dnRequest("callnamed",[self,"ImportMembersMapping",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

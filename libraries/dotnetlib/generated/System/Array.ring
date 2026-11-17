@@ -36,6 +36,9 @@ Class Array from Object
 		return self
 
 	Func GetValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetValue",P1])
+		ok
 		return dnRequest("call",[self,"GetValue",P1])
 
 	Func GetValue_2 P1,P2
@@ -69,11 +72,18 @@ Class Array from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ConstrainedCopy P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ConstrainedCopy",P1,P2,P3,P4,P5])
 		return self
 
 	Func Clear P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
 		return self
 
@@ -189,6 +199,10 @@ Class Array from Object
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1,P2,P3,P4])
 
 	Func Reverse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
 		return self
 
@@ -197,6 +211,10 @@ Class Array from Object
 		return self
 
 	Func Sort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
+			return self
+		ok
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
 		return self
 
@@ -218,58 +236,6 @@ Class Array from Object
 
 	Func TrueForAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
-
-	Func GetValue@ P1
-		return dnRequest("callnamed",[self,"GetValue",P1])
-
-	Func SetValue@ P1
-		dnRequest("callnamed",[self,"SetValue",P1])
-		return self
-
-	Func CopyTo@ P1
-		dnRequest("callnamed",[self,"CopyTo",P1])
-		return self
-
-	Func Clear@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
-		return self
-
-	Func CreateInstance@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1])
-
-	Func CreateInstanceFromArrayType@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1])
-
-	Func Copy@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1])
-		return self
-
-	Func BinarySearch@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1])
-
-	Func Fill@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1])
-		return self
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1])
-
-	Func FindLastIndex@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1])
-
-	Func IndexOf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1])
-
-	Func LastIndexOf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1])
-
-	Func Reverse@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
-		return self
-
-	Func Sort@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
-		return self
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])

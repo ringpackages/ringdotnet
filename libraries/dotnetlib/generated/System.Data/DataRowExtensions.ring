@@ -13,6 +13,9 @@ Class DataRowExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Field P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1,P2])
 
@@ -21,12 +24,5 @@ Class DataRowExtensions from Object
 
 	Func SetField P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"SetField",P1,P2,P3])
-		return self
-
-	Func Field@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1])
-
-	Func SetField@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"SetField",P1])
 		return self
 

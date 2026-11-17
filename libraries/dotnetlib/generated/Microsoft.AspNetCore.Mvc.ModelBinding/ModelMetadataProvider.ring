@@ -20,6 +20,9 @@ Class ModelMetadataProvider from Object
 		return dnRequest("call",[self,"GetMetadataForType",P1])
 
 	Func GetMetadataForParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
+		ok
 		return dnRequest("call",[self,"GetMetadataForParameter",P1])
 
 	Func GetMetadataForParameter_2 P1,P2
@@ -31,6 +34,6 @@ Class ModelMetadataProvider from Object
 	Func GetMetadataForConstructor P1,P2
 		return dnRequest("call",[self,"GetMetadataForConstructor",P1,P2])
 
-	Func GetMetadataForParameter@ P1
-		return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

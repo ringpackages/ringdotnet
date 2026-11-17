@@ -19,6 +19,10 @@ Class ValidateOptionsResultBuilder from Object
 		return self
 
 	Func AddError P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"AddError",P1])
+			return self
+		ok
 		dnRequest("call",[self,"AddError",P1])
 		return self
 
@@ -37,11 +41,6 @@ Class ValidateOptionsResultBuilder from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
-	Func AddError@ P1
-		dnRequest("callnamed",[self,"AddError",P1])
-		return self
-
-	Func AddResult@ P1
-		dnRequest("callnamed",[self,"AddResult",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

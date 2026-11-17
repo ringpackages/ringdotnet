@@ -19,6 +19,9 @@ Class SystemCommands from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CloseWindow P1
 		dnRequest("call",[dnTypeCached('System.Windows.SystemCommands, PresentationFramework'),"CloseWindow",P1])
 		return self

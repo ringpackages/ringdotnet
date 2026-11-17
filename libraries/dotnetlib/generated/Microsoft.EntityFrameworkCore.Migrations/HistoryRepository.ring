@@ -22,8 +22,14 @@ Class HistoryRepository from Object
 	Func ExistsAsync_1 P1
 		return dnRequest("call",[self,"ExistsAsync",P1])
 
-	Func ExistsAsync 
-		return dnRequest("call",[self,"ExistsAsync"])
+	Func ExistsAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExistsAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ExistsAsync"])
+		ok
+		return dnRequest("call",[self,"ExistsAsync",P1])
 
 	Func GetCreateIfNotExistsScript 
 		return dnRequest("call",[self,"GetCreateIfNotExistsScript"])
@@ -38,8 +44,14 @@ Class HistoryRepository from Object
 	Func CreateAsync_1 P1
 		return dnRequest("call",[self,"CreateAsync",P1])
 
-	Func CreateAsync 
-		return dnRequest("call",[self,"CreateAsync"])
+	Func CreateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateAsync"])
+		ok
+		return dnRequest("call",[self,"CreateAsync",P1])
 
 	Func AcquireDatabaseLock 
 		return dnRequest("call",[self,"AcquireDatabaseLock"])
@@ -47,8 +59,14 @@ Class HistoryRepository from Object
 	Func AcquireDatabaseLockAsync_1 P1
 		return dnRequest("call",[self,"AcquireDatabaseLockAsync",P1])
 
-	Func AcquireDatabaseLockAsync 
-		return dnRequest("call",[self,"AcquireDatabaseLockAsync"])
+	Func AcquireDatabaseLockAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcquireDatabaseLockAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcquireDatabaseLockAsync"])
+		ok
+		return dnRequest("call",[self,"AcquireDatabaseLockAsync",P1])
 
 	Func GetAppliedMigrations 
 		return dnRequest("call",[self,"GetAppliedMigrations"])
@@ -56,8 +74,14 @@ Class HistoryRepository from Object
 	Func GetAppliedMigrationsAsync_1 P1
 		return dnRequest("call",[self,"GetAppliedMigrationsAsync",P1])
 
-	Func GetAppliedMigrationsAsync 
-		return dnRequest("call",[self,"GetAppliedMigrationsAsync"])
+	Func GetAppliedMigrationsAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAppliedMigrationsAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetAppliedMigrationsAsync"])
+		ok
+		return dnRequest("call",[self,"GetAppliedMigrationsAsync",P1])
 
 	Func GetInsertScript P1
 		return dnRequest("call",[self,"GetInsertScript",P1])
@@ -74,17 +98,8 @@ Class HistoryRepository from Object
 	Func GetEndIfScript 
 		return dnRequest("call",[self,"GetEndIfScript"])
 
-	Func ExistsAsync@ P1
-		return dnRequest("callnamed",[self,"ExistsAsync",P1])
-
-	Func CreateAsync@ P1
-		return dnRequest("callnamed",[self,"CreateAsync",P1])
-
-	Func AcquireDatabaseLockAsync@ P1
-		return dnRequest("callnamed",[self,"AcquireDatabaseLockAsync",P1])
-
-	Func GetAppliedMigrationsAsync@ P1
-		return dnRequest("callnamed",[self,"GetAppliedMigrationsAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getLockReleaseBehavior
 		return dnRequest("get",[self,"LockReleaseBehavior"])

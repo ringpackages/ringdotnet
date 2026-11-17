@@ -13,6 +13,9 @@ Class MvcApiExplorerMvcCoreBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddApiExplorer P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcApiExplorerMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ApiExplorer'),"AddApiExplorer",P1])
 

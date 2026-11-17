@@ -24,6 +24,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetQueryFilter",P1,P2])
 
 	Func SetQueryFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetQueryFilter",P1])
+		ok
 		return dnRequest("call",[self,"SetQueryFilter",P1])
 
 	Func GetQueryFilterConfigurationSource 
@@ -36,6 +39,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetDiscriminatorProperty",P1,P2])
 
 	Func SetDiscriminatorProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDiscriminatorProperty",P1])
+		ok
 		return dnRequest("call",[self,"SetDiscriminatorProperty",P1])
 
 	Func GetDiscriminatorPropertyConfigurationSource 
@@ -45,6 +51,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetDiscriminatorMappingComplete",P1,P2])
 
 	Func SetDiscriminatorMappingComplete P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDiscriminatorMappingComplete",P1])
+		ok
 		return dnRequest("call",[self,"SetDiscriminatorMappingComplete",P1])
 
 	Func GetDiscriminatorMappingCompleteConfigurationSource 
@@ -54,6 +63,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetDiscriminatorValue",P1,P2])
 
 	Func SetDiscriminatorValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetDiscriminatorValue",P1])
+		ok
 		return dnRequest("call",[self,"SetDiscriminatorValue",P1])
 
 	Func RemoveDiscriminatorValue 
@@ -66,6 +78,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetBaseType",P1,P2])
 
 	Func SetBaseType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetBaseType",P1])
+		ok
 		return dnRequest("call",[self,"SetBaseType",P1])
 
 	Func GetBaseTypeConfigurationSource 
@@ -105,6 +120,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetIsKeyless",P1,P2])
 
 	Func SetIsKeyless P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsKeyless",P1])
+		ok
 		return dnRequest("call",[self,"SetIsKeyless",P1])
 
 	Func GetIsKeylessConfigurationSource 
@@ -114,6 +132,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetPrimaryKey",P1,P2])
 
 	Func SetPrimaryKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetPrimaryKey",P1])
+		ok
 		return dnRequest("call",[self,"SetPrimaryKey",P1])
 
 	Func FindPrimaryKey 
@@ -126,6 +147,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"AddKey",P1,P2])
 
 	Func AddKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddKey",P1])
+		ok
 		return dnRequest("call",[self,"AddKey",P1])
 
 	Func FindKey P1
@@ -180,6 +204,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"RemoveForeignKey",P1,P2,P3])
 
 	Func RemoveForeignKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"RemoveForeignKey",P1])
+		ok
 		return dnRequest("call",[self,"RemoveForeignKey",P1])
 
 	Func FindNavigation P1
@@ -225,6 +252,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"AddIndex",P1,P2])
 
 	Func AddIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddIndex",P1])
+		ok
 		return dnRequest("call",[self,"AddIndex",P1])
 
 	Func AddIndex_3 P1,P2,P3
@@ -252,6 +282,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"AddServiceProperty",P1,P2])
 
 	Func AddServiceProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddServiceProperty",P1])
+		ok
 		return dnRequest("call",[self,"AddServiceProperty",P1])
 
 	Func FindServiceProperty P1
@@ -279,6 +312,9 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"AddTrigger",P1,P2])
 
 	Func AddTrigger P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddTrigger",P1])
+		ok
 		return dnRequest("call",[self,"AddTrigger",P1])
 
 	Func RemoveTrigger P1
@@ -288,82 +324,13 @@ Class IConventionEntityType from DotNetObject
 		return dnRequest("call",[self,"SetNavigationAccessMode",P1,P2])
 
 	Func SetNavigationAccessMode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetNavigationAccessMode",P1])
+		ok
 		return dnRequest("call",[self,"SetNavigationAccessMode",P1])
 
 	Func GetNavigationAccessModeConfigurationSource 
 		return dnRequest("call",[self,"GetNavigationAccessModeConfigurationSource"])
-
-	Func SetQueryFilter@ P1
-		return dnRequest("callnamed",[self,"SetQueryFilter",P1])
-
-	Func SetDiscriminatorProperty@ P1
-		return dnRequest("callnamed",[self,"SetDiscriminatorProperty",P1])
-
-	Func SetDiscriminatorMappingComplete@ P1
-		return dnRequest("callnamed",[self,"SetDiscriminatorMappingComplete",P1])
-
-	Func SetDiscriminatorValue@ P1
-		return dnRequest("callnamed",[self,"SetDiscriminatorValue",P1])
-
-	Func SetBaseType@ P1
-		return dnRequest("callnamed",[self,"SetBaseType",P1])
-
-	Func SetIsKeyless@ P1
-		return dnRequest("callnamed",[self,"SetIsKeyless",P1])
-
-	Func SetPrimaryKey@ P1
-		return dnRequest("callnamed",[self,"SetPrimaryKey",P1])
-
-	Func AddKey@ P1
-		return dnRequest("callnamed",[self,"AddKey",P1])
-
-	Func FindKey@ P1
-		return dnRequest("callnamed",[self,"FindKey",P1])
-
-	Func RemoveKey@ P1
-		return dnRequest("callnamed",[self,"RemoveKey",P1])
-
-	Func AddForeignKey@ P1
-		return dnRequest("callnamed",[self,"AddForeignKey",P1])
-
-	Func FindForeignKey@ P1
-		return dnRequest("callnamed",[self,"FindForeignKey",P1])
-
-	Func FindForeignKeys@ P1
-		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
-
-	Func RemoveForeignKey@ P1
-		return dnRequest("callnamed",[self,"RemoveForeignKey",P1])
-
-	Func FindNavigation@ P1
-		return dnRequest("callnamed",[self,"FindNavigation",P1])
-
-	Func AddSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"AddSkipNavigation",P1])
-
-	Func FindSkipNavigation@ P1
-		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
-
-	Func AddIndex@ P1
-		return dnRequest("callnamed",[self,"AddIndex",P1])
-
-	Func FindIndex@ P1
-		return dnRequest("callnamed",[self,"FindIndex",P1])
-
-	Func RemoveIndex@ P1
-		return dnRequest("callnamed",[self,"RemoveIndex",P1])
-
-	Func AddServiceProperty@ P1
-		return dnRequest("callnamed",[self,"AddServiceProperty",P1])
-
-	Func RemoveServiceProperty@ P1
-		return dnRequest("callnamed",[self,"RemoveServiceProperty",P1])
-
-	Func AddTrigger@ P1
-		return dnRequest("callnamed",[self,"AddTrigger",P1])
-
-	Func SetNavigationAccessMode@ P1
-		return dnRequest("callnamed",[self,"SetNavigationAccessMode",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

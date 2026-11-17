@@ -13,12 +13,15 @@ Class EnvironmentVariablesExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddEnvironmentVariables P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
 
 	Func AddEnvironmentVariables_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1,P2])
-
-	Func AddEnvironmentVariables@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
 

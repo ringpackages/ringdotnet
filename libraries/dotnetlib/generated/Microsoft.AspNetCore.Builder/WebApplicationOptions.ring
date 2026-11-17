@@ -20,6 +20,9 @@ Class WebApplicationOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.WebApplicationOptions, Microsoft.AspNetCore',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getArgs
 		return dnRequest("get",[self,"Args"])
 

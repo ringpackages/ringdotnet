@@ -13,6 +13,9 @@ Class MessageBox from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Show_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6,P7])
 
@@ -41,8 +44,8 @@ Class MessageBox from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2])
 
 	Func Show P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1])
-
-	Func Show@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1])
 

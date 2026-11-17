@@ -16,6 +16,9 @@ Class RouteHandlerOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteHandlerOptions, Microsoft.AspNetCore.Routing',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getThrowOnBadRequest
 		return dnRequest("get",[self,"ThrowOnBadRequest"])
 

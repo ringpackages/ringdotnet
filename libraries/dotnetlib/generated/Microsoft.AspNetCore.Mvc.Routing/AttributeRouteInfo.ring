@@ -20,6 +20,9 @@ Class AttributeRouteInfo from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Routing.AttributeRouteInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getTemplate
 		return dnRequest("get",[self,"Template"])
 

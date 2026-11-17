@@ -13,15 +13,18 @@ Class EndpointFilterExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AddEndpointFilter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1,P2])
 
 	Func AddEndpointFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1])
 
 	Func AddEndpointFilterFactory P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilterFactory",P1,P2])
-
-	Func AddEndpointFilter@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1])
 

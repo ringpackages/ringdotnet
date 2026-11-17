@@ -21,12 +21,9 @@ Class SP800108HmacCounterKdf from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DeriveBytes P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SP800108HmacCounterKdf, System.Security.Cryptography'),"DeriveBytes",P1,P2,P3,P4,P5])
-
-	Func DeriveKey@ P1
-		return dnRequest("callnamed",[self,"DeriveKey",P1])
-
-	Func DeriveBytes@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SP800108HmacCounterKdf, System.Security.Cryptography'),"DeriveBytes",P1])
 

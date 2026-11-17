@@ -13,6 +13,9 @@ Class ServiceProviderKeyedServiceExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetKeyedService P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedService",P1,P2])
 
@@ -27,10 +30,4 @@ Class ServiceProviderKeyedServiceExtensions from Object
 
 	Func GetKeyedServices_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedServices",P1,P2,P3])
-
-	Func GetRequiredKeyedService@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetRequiredKeyedService",P1])
-
-	Func GetKeyedServices@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedServices",P1])
 

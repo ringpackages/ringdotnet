@@ -64,8 +64,8 @@ using { <span class="s">"System"</span> }
 
 <span class="c"># Dates and times</span>
 oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>).<span class="f">AddHours</span>(<span class="n">18.5</span>)
-? <span class="s">"Christmas 2024 : "</span> + oNow.ToString@([ :format = <span class="s">"dddd, dd MMMM yyyy HH:mm"</span> ])
-? <span class="s">"Plus 10 days   : "</span> + oNow.<span class="f">AddDays</span>(<span class="n">10</span>).ToString@([ :format = <span class="s">"yyyy-MM-dd"</span> ])
+? <span class="s">"Christmas 2024 : "</span> + oNow.<span class="f">ToString_1</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
+? <span class="s">"Plus 10 days   : "</span> + oNow.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
 ? <span class="s">"Day of week    : "</span> + oNow.DayOfWeek
 oSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMinutes</span>(<span class="n">135</span>)
 ? <span class="s">"135 minutes    : "</span> + oSpan.<span class="f">ToString</span>() + <span class="s">" ("</span> + oSpan.TotalHours + <span class="s">" hours)"</span>
@@ -74,7 +74,7 @@ oSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class
 oStr = <span class="k">new</span> <span class="t">String</span>()
 ? oStr.<span class="f">Join</span>(<span class="s">" | "</span>,[<span class="s">"Ring"</span>,<span class="s">"loves"</span>,<span class="s">".NET"</span>])
 ? <span class="s">"Base64         : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToBase64String</span>(<span class="s">"Hello Ring"</span>)
-? <span class="s">"Hex of 255     : "</span> + <span class="k">new</span> <span class="t">Convert</span>().ToString@([ :value = <span class="n">255</span>, :toBase = <span class="n">16</span> ])
+? <span class="s">"Hex of 255     : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">16</span>)
 ? <span class="s">"2 ^ 20         : "</span> + <span class="k">new</span> <span class="t">Math</span>().<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">20</span>)
 
 <span class="c"># Uri, Guid, Version, Environment</span>
@@ -153,7 +153,7 @@ cZip = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</s
 <span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>(cDir,cZip)
 ? <span class="s">"Zip created   : "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cZip).Length + <span class="s">" bytes"</span>
 
-<span class="k">new</span> <span class="t">Directory</span>().Delete@([ :path = cDir, :recursive = <span class="k">True</span> ])
+<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cDir, :recursive = <span class="k">True</span> ])
 oFile.<span class="f">Delete</span>(cZip)</code></pre></div></details>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Lines in file : 3
 File size     : 88 bytes
@@ -188,15 +188,15 @@ oWaiting = oServer.<span class="f">GetContextAsync</span>()
 oClient = <span class="k">new</span> <span class="t">HttpClient</span>()
 oRequest = oClient.<span class="f">GetStringAsync</span>(cPrefix + <span class="s">"greet?name=Ring"</span>)
 
-oWaiting.<span class="f">Wait</span>()
+oWaiting.<span class="f">Wait</span>(<span class="k">NULL</span>)
 oContext = oWaiting.<span class="f">getProp</span>(<span class="s">"Result"</span>)
 ? <span class="s">"Request        : "</span> + oContext.Request.HttpMethod + <span class="s">" "</span> + oContext.Request.Url.PathAndQuery
 cReply = <span class="s">"Hello "</span> + oContext.Request.QueryString.<span class="f">Item</span>(<span class="s">"name"</span>) + <span class="s">", this is .NET speaking Ring!"</span>
 aBytes = <span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(cReply)
 oContext.Response.OutputStream.<span class="f">Write</span>(aBytes,<span class="n">0</span>,len(aBytes))
-oContext.Response.<span class="f">Close</span>()
+oContext.Response.<span class="f">Close</span>(<span class="k">NULL</span>)
 
-oRequest.<span class="f">Wait</span>()
+oRequest.<span class="f">Wait</span>(<span class="k">NULL</span>)
 ? <span class="s">"Response       : "</span> + oRequest.<span class="f">getProp</span>(<span class="s">"Result"</span>)
 oServer.<span class="f">Stop</span>()
 
@@ -225,23 +225,23 @@ using {
 oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 ? <span class="s">"SHA256(abc)    : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
 ? <span class="s">"MD5(abc)       : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">MD5</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
-oHmac = <span class="f">dnNew</span>@(<span class="s">"HMACSHA256"</span>,[ :key = <span class="s">"secret key"</span> ])
+oHmac = <span class="f">dnNew</span>(<span class="s">"HMACSHA256"</span>,[ :key = <span class="s">"secret key"</span> ])
 ? <span class="s">"HMAC           : "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(oHmac.<span class="f">ComputeHash</span>(<span class="s">"message"</span>))),<span class="n">32</span>) + <span class="s">"..."</span>
 
 <span class="c"># AES encryption round trip</span>
-oAes = <span class="k">new</span> <span class="t">Aes</span>().<span class="f">Create</span>()
+oAes = <span class="k">new</span> <span class="t">Aes</span>().<span class="f">Create</span>(<span class="k">NULL</span>)
 oAes.<span class="f">GenerateKey</span>()
 oAes.<span class="f">GenerateIV</span>()
 cText = <span class="s">"Ring talks to .NET crypto"</span>
-cCipher = oAes.<span class="f">CreateEncryptor</span>().<span class="f">TransformFinalBlock</span>(cText,<span class="n">0</span>,len(cText))
+cCipher = oAes.<span class="f">CreateEncryptor</span>(<span class="k">NULL</span>).<span class="f">TransformFinalBlock</span>(cText,<span class="n">0</span>,len(cText))
 ? <span class="s">"AES            : "</span> + len(cText) + <span class="s">" bytes -&gt; "</span> + len(cCipher) + <span class="s">" bytes encrypted"</span>
-? <span class="s">"Decrypted      : "</span> + oAes.<span class="f">CreateDecryptor</span>().<span class="f">TransformFinalBlock</span>(cCipher,<span class="n">0</span>,len(cCipher))
+? <span class="s">"Decrypted      : "</span> + oAes.<span class="f">CreateDecryptor</span>(<span class="k">NULL</span>).<span class="f">TransformFinalBlock</span>(cCipher,<span class="n">0</span>,len(cCipher))
 
 <span class="c"># Cultures</span>
 oUS = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">7</span>,<span class="n">4</span>)
-? <span class="s">"US date        : "</span> + oDate.ToString@([ :format = <span class="s">"D"</span>, :provider = oUS ])
-? <span class="s">"German date    : "</span> + oDate.ToString@([ :format = <span class="s">"D"</span>, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>) ])
+? <span class="s">"US date        : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,oUS)
+? <span class="s">"German date    : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>))
 ? <span class="s">"Title case     : "</span> + oUS.TextInfo.<span class="f">ToTitleCase</span>(<span class="s">"ring meets dot net"</span>)
 
 <span class="c"># Start a process and read its output</span>
@@ -259,9 +259,9 @@ oInfo {
 	UseShellExecute = <span class="k">False</span>
 	CreateNoWindow = <span class="k">True</span>
 }
-oProcess = <span class="k">new</span> <span class="t">Process</span>().Start@([ :startInfo = oInfo ])
+oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start</span>([ :startInfo = oInfo ])
 ? <span class="s">"Process says   : "</span> + trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
-oProcess.<span class="f">WaitForExit</span>()</code></pre></div></details>
+oProcess.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)</code></pre></div></details>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SHA256(abc)    : ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
 MD5(abc)       : 900150983cd24fb0d6963f7d28e17f72
 HMAC           : c431e4857a6b817f9eeaab86b00f78e2...
@@ -302,8 +302,8 @@ oRoot = oDocument.RootElement
 
 <span class="c"># DataTable with SQL-like filtering and sorting</span>
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
-oTable.Columns.Add@([ :columnName = <span class="s">"Product"</span>, :type = <span class="s">"System.String"</span> ])
-oTable.Columns.Add@([ :columnName = <span class="s">"Qty"</span>, :type = <span class="s">"System.Int32"</span> ])
+oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Product"</span>, :type = <span class="s">"System.String"</span> ])
+oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Qty"</span>, :type = <span class="s">"System.Int32"</span> ])
 oTable {
 	Rows.<span class="f">Add</span>([<span class="s">"pens"</span>,<span class="n">120</span>])
 	Rows.<span class="f">Add</span>([<span class="s">"paper"</span>,<span class="n">15</span>])
@@ -313,7 +313,7 @@ oTable {
 oView = oTable.DefaultView
 oView.Sort = <span class="s">"Qty DESC"</span>
 ? <span class="s">"Biggest stock   : "</span> + oView.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">Item</span>(<span class="s">"Product"</span>)
-? <span class="s">"Low stock rows  : "</span> + len(oTable.Select@([ :filterExpression = <span class="s">"Qty &lt; 100"</span> ]).<span class="f">toList</span>())</code></pre></div></details>
+? <span class="s">"Low stock rows  : "</span> + len(oTable.<span class="f">Select</span>([ :filterExpression = <span class="s">"Qty &lt; 100"</span> ]).<span class="f">toList</span>())</code></pre></div></details>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Items over 2    : 2
   apple costs 3.5
   melon costs 9
@@ -343,18 +343,18 @@ nFactorial = oBig.<span class="f">Parse</span>(<span class="s">"1"</span>)
 <span class="k">next</span>
 ? <span class="s">"40!            : "</span> + nFactorial.<span class="f">ToString</span>()
 ? <span class="s">"2^200          : "</span> + oBig.<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">200</span>).<span class="f">ToString</span>()
-oZ = <span class="f">dnNew</span>@(<span class="s">"Complex"</span>,[ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
+oZ = <span class="f">dnNew</span>(<span class="s">"Complex"</span>,[ :real = <span class="n">3</span>, :imaginary = <span class="n">4</span> ])
 ? <span class="s">"|3+4i|         : "</span> + oZ.Magnitude
 
 <span class="c"># Reflection: explore a type</span>
-oMath = <span class="k">new</span> <span class="t">Type</span>().GetType@([ :typeName = <span class="s">"System.Math"</span> ])
+oMath = <span class="k">new</span> <span class="t">Type</span>().<span class="f">GetType</span>([ :typeName = <span class="s">"System.Math"</span> ])
 aNames = []
-<span class="k">for</span> oMethod <span class="k">in</span> oMath.<span class="f">GetMethods</span>().<span class="f">toList</span>()
+<span class="k">for</span> oMethod <span class="k">in</span> oMath.<span class="f">GetMethods</span>(<span class="k">NULL</span>).<span class="f">toList</span>()
 	<span class="k">if</span> find(aNames,oMethod.Name) = <span class="n">0</span> aNames + oMethod.Name <span class="k">ok</span>
 <span class="k">next</span>
 ? <span class="s">"Math methods   : "</span> + len(aNames) + <span class="s">" names, e.g. "</span> + aNames[<span class="n">1</span>] + <span class="s">", "</span> + aNames[<span class="n">2</span>] + <span class="s">", "</span> + aNames[<span class="n">3</span>]
 oAsm = <span class="k">new</span> <span class="t">Assembly</span>().<span class="f">Load_</span>(<span class="s">"System.Linq"</span>)
-? <span class="s">"Assembly       : "</span> + oAsm.<span class="f">GetName</span>().Name + <span class="s">" "</span> + oAsm.<span class="f">GetName</span>().Version.<span class="f">ToString</span>()
+? <span class="s">"Assembly       : "</span> + oAsm.<span class="f">GetName</span>(<span class="k">NULL</span>).Name + <span class="s">" "</span> + oAsm.<span class="f">GetName</span>(<span class="k">NULL</span>).Version.<span class="f">ToString</span>()
 
 <span class="c"># Environment and encoders</span>
 ? <span class="s">"OS             : "</span> + <span class="k">new</span> <span class="t">RuntimeInformation</span>().OSDescription
@@ -383,12 +383,12 @@ oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>() {
 	UseShellExecute = <span class="k">False</span>
 	CreateNoWindow = <span class="k">True</span>
 }
-oProcess = <span class="k">new</span> <span class="t">Process</span>().Start@([ :startInfo = oInfo ])
+oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start</span>([ :startInfo = oInfo ])
 ? trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
-oProcess.<span class="f">WaitForExit</span>()
+oProcess.<span class="f">WaitForExit</span>(<span class="k">NULL</span>)
 
 oTask = <span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">30</span>)                    <span class="c"># a Task: wait for it on the Ring thread</span>
-oTask.<span class="f">Wait</span>()
+oTask.<span class="f">Wait</span>(<span class="k">NULL</span>)
 ? oTask.IsCompleted
 
 oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="f">FromResult</span>(<span class="s">"done"</span>)

@@ -16,14 +16,20 @@ Class WebSocketManager from Object
 		ok
 		return self
 
-	Func AcceptWebSocketAsync 
-		return dnRequest("call",[self,"AcceptWebSocketAsync"])
+	Func AcceptWebSocketAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AcceptWebSocketAsync"])
+		ok
+		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
 
 	Func AcceptWebSocketAsync_1 P1
 		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
 
-	Func AcceptWebSocketAsync@ P1
-		return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIsWebSocketRequest
 		return dnRequest("get",[self,"IsWebSocketRequest"])

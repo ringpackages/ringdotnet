@@ -29,6 +29,9 @@ Class ForwardedHeadersOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Builder.ForwardedHeadersOptions, Microsoft.AspNetCore.HttpOverrides',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getForwardedForHeaderName
 		return dnRequest("get",[self,"ForwardedForHeaderName"])
 

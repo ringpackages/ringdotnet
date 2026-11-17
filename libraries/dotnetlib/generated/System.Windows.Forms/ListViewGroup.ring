@@ -36,6 +36,9 @@ Class ListViewGroup from Object
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getHeader
 		return dnRequest("get",[self,"Header"])
 

@@ -35,18 +35,13 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		dnRequest("call",[self,"FromXmlString",P1,P2])
 		return self
 
-	Func DeriveKeyMaterial@ P1
-		return dnRequest("callnamed",[self,"DeriveKeyMaterial",P1])
-
-	Func DeriveSecretAgreementHandle@ P1
-		return dnRequest("callnamed",[self,"DeriveSecretAgreementHandle",P1])
-
-	Func FromXmlString@ P1
-		dnRequest("callnamed",[self,"FromXmlString",P1])
+	Func FromXmlString P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"FromXmlString",P1])
+			return self
+		ok
+		dnRequest("call",[self,"FromXmlString",P1])
 		return self
-
-	Func ToXmlString@ P1
-		return dnRequest("callnamed",[self,"ToXmlString",P1])
 
 	Func getHashAlgorithm
 		return dnRequest("get",[self,"HashAlgorithm"])

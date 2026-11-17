@@ -46,11 +46,11 @@ Class RouteValueDictionary from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromArray P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions'),"FromArray",P1])
-
-	Func Remove@ P1
-		return dnRequest("callnamed",[self,"Remove",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

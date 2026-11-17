@@ -16,6 +16,9 @@ Class SuppressMatchingMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.SuppressMatchingMetadata, Microsoft.AspNetCore.Routing',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSuppressMatching
 		return dnRequest("get",[self,"SuppressMatching"])
 

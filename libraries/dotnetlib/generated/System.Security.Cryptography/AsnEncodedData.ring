@@ -28,6 +28,9 @@ Class AsnEncodedData from Object
 	Func Format P1
 		return dnRequest("call",[self,"Format",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOid
 		return dnRequest("get",[self,"Oid"])
 

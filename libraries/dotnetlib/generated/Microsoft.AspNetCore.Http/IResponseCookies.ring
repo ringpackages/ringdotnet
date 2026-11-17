@@ -22,18 +22,14 @@ Class IResponseCookies from DotNetObject
 		return self
 
 	Func Delete P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Delete",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Delete",P1])
 		return self
 
 	Func Delete_2 P1,P2
 		dnRequest("call",[self,"Delete",P1,P2])
-		return self
-
-	Func Append@ P1
-		dnRequest("callnamed",[self,"Append",P1])
-		return self
-
-	Func Delete@ P1
-		dnRequest("callnamed",[self,"Delete",P1])
 		return self
 

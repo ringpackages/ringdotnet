@@ -22,6 +22,9 @@ Class XmlLanguage from Object
 	Func GetSpecificCulture 
 		return dnRequest("call",[self,"GetSpecificCulture"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetLanguage P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XmlLanguage, PresentationCore'),"GetLanguage",P1])
 

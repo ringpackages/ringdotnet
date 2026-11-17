@@ -25,6 +25,9 @@ Class Oid from Object
 		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func FromFriendlyName P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Oid, System.Security.Cryptography'),"FromFriendlyName",P1,P2])
 

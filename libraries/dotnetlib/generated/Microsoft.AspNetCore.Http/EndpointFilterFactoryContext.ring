@@ -17,6 +17,9 @@ Class EndpointFilterFactoryContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.EndpointFilterFactoryContext, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMethodInfo
 		return dnRequest("get",[self,"MethodInfo"])
 

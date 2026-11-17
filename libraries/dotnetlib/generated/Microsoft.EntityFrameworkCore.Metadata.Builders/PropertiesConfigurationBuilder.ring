@@ -27,16 +27,31 @@ Class PropertiesConfigurationBuilder from Object
 		return dnRequest("call",[self,"HavePrecision",P1,P2])
 
 	Func HavePrecision P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HavePrecision",P1])
+		ok
 		return dnRequest("call",[self,"HavePrecision",P1])
 
 	Func AreUnicode_1 P1
 		return dnRequest("call",[self,"AreUnicode",P1])
 
-	Func AreUnicode 
-		return dnRequest("call",[self,"AreUnicode"])
+	Func AreUnicode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AreUnicode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AreUnicode"])
+		ok
+		return dnRequest("call",[self,"AreUnicode",P1])
 
-	Func HaveConversion 
-		return dnRequest("call",[self,"HaveConversion"])
+	Func HaveConversion P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HaveConversion",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HaveConversion"])
+		ok
+		return dnRequest("call",[self,"HaveConversion",P1])
 
 	Func HaveConversion_1 P1
 		return dnRequest("call",[self,"HaveConversion",P1])
@@ -47,12 +62,6 @@ Class PropertiesConfigurationBuilder from Object
 	Func HaveConversion_3 P1,P2,P3
 		return dnRequest("call",[self,"HaveConversion",P1,P2,P3])
 
-	Func HavePrecision@ P1
-		return dnRequest("callnamed",[self,"HavePrecision",P1])
-
-	Func AreUnicode@ P1
-		return dnRequest("callnamed",[self,"AreUnicode",P1])
-
-	Func HaveConversion@ P1
-		return dnRequest("callnamed",[self,"HaveConversion",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

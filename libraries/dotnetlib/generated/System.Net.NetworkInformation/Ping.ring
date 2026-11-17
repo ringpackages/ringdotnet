@@ -15,6 +15,9 @@ Class Ping from Component
 		return self
 
 	Func Send P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Send",P1])
+		ok
 		return dnRequest("call",[self,"Send",P1])
 
 	Func Send_2 P1,P2
@@ -43,6 +46,9 @@ Class Ping from Component
 		return self
 
 	Func SendPingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SendPingAsync",P1])
+		ok
 		return dnRequest("call",[self,"SendPingAsync",P1])
 
 	Func SendPingAsync_2 P1,P2
@@ -60,16 +66,6 @@ Class Ping from Component
 	Func SendAsyncCancel 
 		dnRequest("call",[self,"SendAsyncCancel"])
 		return self
-
-	Func Send@ P1
-		return dnRequest("callnamed",[self,"Send",P1])
-
-	Func SendAsync@ P1
-		dnRequest("callnamed",[self,"SendAsync",P1])
-		return self
-
-	Func SendPingAsync@ P1
-		return dnRequest("callnamed",[self,"SendPingAsync",P1])
 
 	Func setPingCompletedEvent P1
 		dnRequest("setevent",[self,"PingCompleted",dnCallback(P1)])

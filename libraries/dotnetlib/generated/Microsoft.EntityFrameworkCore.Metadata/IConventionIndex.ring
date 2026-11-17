@@ -24,6 +24,9 @@ Class IConventionIndex from DotNetObject
 		return dnRequest("call",[self,"SetIsUnique",P1,P2])
 
 	Func SetIsUnique P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsUnique",P1])
+		ok
 		return dnRequest("call",[self,"SetIsUnique",P1])
 
 	Func GetIsUniqueConfigurationSource 
@@ -33,16 +36,13 @@ Class IConventionIndex from DotNetObject
 		return dnRequest("call",[self,"SetIsDescending",P1,P2])
 
 	Func SetIsDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsDescending",P1])
+		ok
 		return dnRequest("call",[self,"SetIsDescending",P1])
 
 	Func GetIsDescendingConfigurationSource 
 		return dnRequest("call",[self,"GetIsDescendingConfigurationSource"])
-
-	Func SetIsUnique@ P1
-		return dnRequest("callnamed",[self,"SetIsUnique",P1])
-
-	Func SetIsDescending@ P1
-		return dnRequest("callnamed",[self,"SetIsDescending",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

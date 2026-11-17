@@ -42,6 +42,9 @@ Class Cursors from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAppStarting
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Cursors, System.Windows.Forms'),"AppStarting"])
 

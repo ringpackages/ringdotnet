@@ -14,6 +14,9 @@ Class IRawSqlCommandBuilder from DotNetObject
 		return self
 
 	Func Build P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Build",P1])
+		ok
 		return dnRequest("call",[self,"Build",P1])
 
 	Func Build_2 P1,P2
@@ -21,7 +24,4 @@ Class IRawSqlCommandBuilder from DotNetObject
 
 	Func Build_3 P1,P2,P3
 		return dnRequest("call",[self,"Build",P1,P2,P3])
-
-	Func Build@ P1
-		return dnRequest("callnamed",[self,"Build",P1])
 

@@ -17,6 +17,9 @@ Class DataGridViewElement from Object
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewElement, System.Windows.Forms',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getState
 		return dnRequest("get",[self,"State"])
 

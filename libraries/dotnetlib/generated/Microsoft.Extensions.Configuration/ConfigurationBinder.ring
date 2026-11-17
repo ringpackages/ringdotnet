@@ -13,7 +13,13 @@ Class ConfigurationBinder from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Get_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
 
 	Func Get_2 P1,P2
@@ -38,14 +44,4 @@ Class ConfigurationBinder from Object
 
 	Func GetValue_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1,P2,P3,P4])
-
-	Func Get@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
-
-	Func Bind@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Bind",P1])
-		return self
-
-	Func GetValue@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1])
 

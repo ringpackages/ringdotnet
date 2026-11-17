@@ -27,11 +27,11 @@ Class ExecutionStrategy from Object
 	Func ExecuteAsync P1,P2,P3
 		return dnRequest("call",[self,"ExecuteAsync",P1,P2,P3])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CallOnWrappedException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"CallOnWrappedException",P1,P2])
-
-	Func ExecuteAsync@ P1
-		return dnRequest("callnamed",[self,"ExecuteAsync",P1])
 
 	Func getMaxRetryCount
 		return dnRequest("get",[self,"MaxRetryCount"])

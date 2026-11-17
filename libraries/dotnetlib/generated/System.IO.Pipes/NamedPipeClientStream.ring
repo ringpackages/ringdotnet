@@ -36,29 +36,36 @@ Class NamedPipeClientStream from PipeStream
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func Connect 
-		dnRequest("call",[self,"Connect"])
+	Func Connect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Connect",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Connect"])
+		return self
+		ok
+		dnRequest("call",[self,"Connect",P1])
 		return self
 
 	Func Connect_1 P1
 		dnRequest("call",[self,"Connect",P1])
 		return self
 
-	Func ConnectAsync 
-		return dnRequest("call",[self,"ConnectAsync"])
+	Func ConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ConnectAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ConnectAsync"])
+		ok
+		return dnRequest("call",[self,"ConnectAsync",P1])
 
 	Func ConnectAsync_1 P1
 		return dnRequest("call",[self,"ConnectAsync",P1])
 
 	Func ConnectAsync_2 P1,P2
 		return dnRequest("call",[self,"ConnectAsync",P1,P2])
-
-	Func Connect@ P1
-		dnRequest("callnamed",[self,"Connect",P1])
-		return self
-
-	Func ConnectAsync@ P1
-		return dnRequest("callnamed",[self,"ConnectAsync",P1])
 
 	Func getNumberOfServerInstances
 		return dnRequest("get",[self,"NumberOfServerInstances"])

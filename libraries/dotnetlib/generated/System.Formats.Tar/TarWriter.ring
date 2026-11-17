@@ -42,18 +42,21 @@ Class TarWriter from Object
 		return dnRequest("call",[self,"WriteEntryAsync",P1,P2])
 
 	Func WriteEntry P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"WriteEntry",P1])
+			return self
+		ok
 		dnRequest("call",[self,"WriteEntry",P1])
 		return self
 
 	Func WriteEntryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"WriteEntryAsync",P1])
+		ok
 		return dnRequest("call",[self,"WriteEntryAsync",P1])
 
-	Func WriteEntry@ P1
-		dnRequest("callnamed",[self,"WriteEntry",P1])
-		return self
-
-	Func WriteEntryAsync@ P1
-		return dnRequest("callnamed",[self,"WriteEntryAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getFormat
 		return dnRequest("get",[self,"Format"])

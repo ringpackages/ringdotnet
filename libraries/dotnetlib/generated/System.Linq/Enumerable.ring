@@ -13,6 +13,9 @@ Class Enumerable from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Aggregate P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1,P2])
 
@@ -23,6 +26,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1,P2,P3,P4])
 
 	Func Any P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1])
 
 	Func Any_2 P1,P2
@@ -38,6 +44,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Prepend",P1,P2])
 
 	Func Average P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Average",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Average",P1])
 
 	Func Average_2 P1,P2
@@ -71,6 +80,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1,P2])
 
 	Func Count P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])
 
 	Func Count_2 P1,P2
@@ -80,18 +92,27 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"TryGetNonEnumeratedCount",P1])
 
 	Func LongCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1])
 
 	Func LongCount_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1,P2])
 
 	Func DefaultIfEmpty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1])
 
 	Func DefaultIfEmpty_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1,P2])
 
 	Func Distinct P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Distinct",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Distinct",P1])
 
 	Func Distinct_2 P1,P2
@@ -128,12 +149,18 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ExceptBy",P1,P2,P3,P4])
 
 	Func First P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1])
 
 	Func First_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1,P2])
 
 	Func FirstOrDefault P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1])
 
 	Func FirstOrDefault_2 P1,P2
@@ -182,12 +209,18 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Join",P1,P2,P3,P4,P5,P6])
 
 	Func Last P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1])
 
 	Func Last_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1,P2])
 
 	Func LastOrDefault P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1])
 
 	Func LastOrDefault_2 P1,P2
@@ -206,6 +239,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1,P2,P3,P4])
 
 	Func Max P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Max",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Max",P1])
 
 	Func Max_2 P1,P2
@@ -218,6 +254,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MaxBy",P1,P2,P3])
 
 	Func Min P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Min",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Min",P1])
 
 	Func Min_2 P1,P2
@@ -233,6 +272,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OfType",P1])
 
 	Func Order P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Order",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Order",P1])
 
 	Func Order_2 P1,P2
@@ -245,6 +287,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderBy",P1,P2,P3])
 
 	Func OrderDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderDescending",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderDescending",P1])
 
 	Func OrderDescending_2 P1,P2
@@ -293,12 +338,18 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SequenceEqual",P1,P2,P3])
 
 	Func Single P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1])
 
 	Func Single_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1,P2])
 
 	Func SingleOrDefault P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1])
 
 	Func SingleOrDefault_2 P1,P2
@@ -317,6 +368,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SkipLast",P1,P2])
 
 	Func Sum P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1])
 
 	Func Sum_2 P1,P2
@@ -335,6 +389,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToArray",P1])
 
 	Func ToDictionary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1])
 
 	Func ToDictionary_2 P1,P2
@@ -347,6 +404,9 @@ Class Enumerable from Object
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1,P2,P3,P4])
 
 	Func ToHashSet P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1])
 
 	Func ToHashSet_2 P1,P2
@@ -372,154 +432,4 @@ Class Enumerable from Object
 
 	Func Zip P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Zip",P1,P2])
-
-	Func Aggregate@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1])
-
-	Func Any@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1])
-
-	Func Average@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Average",P1])
-
-	Func Contains@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Contains",P1])
-
-	Func AggregateBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1])
-
-	Func CountBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1])
-
-	Func Count@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])
-
-	Func LongCount@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1])
-
-	Func DefaultIfEmpty@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1])
-
-	Func Distinct@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Distinct",P1])
-
-	Func DistinctBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DistinctBy",P1])
-
-	Func ElementAt@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ElementAt",P1])
-
-	Func ElementAtOrDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ElementAtOrDefault",P1])
-
-	Func Except@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Except",P1])
-
-	Func ExceptBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ExceptBy",P1])
-
-	Func First@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1])
-
-	Func FirstOrDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1])
-
-	Func GroupBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1])
-
-	Func GroupJoin@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupJoin",P1])
-
-	Func Intersect@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Intersect",P1])
-
-	Func IntersectBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"IntersectBy",P1])
-
-	Func Join@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Join",P1])
-
-	Func Last@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1])
-
-	Func LastOrDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1])
-
-	Func ToLookup@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1])
-
-	Func Max@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Max",P1])
-
-	Func MaxBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MaxBy",P1])
-
-	Func Min@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Min",P1])
-
-	Func MinBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MinBy",P1])
-
-	Func Order@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Order",P1])
-
-	Func OrderBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderBy",P1])
-
-	Func OrderDescending@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderDescending",P1])
-
-	Func OrderByDescending@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderByDescending",P1])
-
-	Func ThenBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenBy",P1])
-
-	Func ThenByDescending@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenByDescending",P1])
-
-	Func Select@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Select",P1])
-
-	Func SelectMany@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SelectMany",P1])
-
-	Func SequenceEqual@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SequenceEqual",P1])
-
-	Func Single@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1])
-
-	Func SingleOrDefault@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1])
-
-	Func SkipWhile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SkipWhile",P1])
-
-	Func Sum@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1])
-
-	Func Take@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Take",P1])
-
-	Func TakeWhile@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"TakeWhile",P1])
-
-	Func ToDictionary@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1])
-
-	Func ToHashSet@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1])
-
-	Func Union@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Union",P1])
-
-	Func UnionBy@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"UnionBy",P1])
-
-	Func Where@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Where",P1])
-
-	Func Zip@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Zip",P1])
 

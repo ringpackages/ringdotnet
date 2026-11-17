@@ -29,6 +29,9 @@ Class KestrelServerLimits from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits, Microsoft.AspNetCore.Server.Kestrel.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMaxResponseBufferSize
 		return dnRequest("get",[self,"MaxResponseBufferSize"])
 

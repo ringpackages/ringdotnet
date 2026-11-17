@@ -15,6 +15,9 @@ Class CheckBoxRenderer from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsBackgroundPartiallyTransparent P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"IsBackgroundPartiallyTransparent",P1])
 
@@ -44,10 +47,6 @@ Class CheckBoxRenderer from Object
 
 	Func GetGlyphSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"GetGlyphSize",P1,P2])
-
-	Func DrawCheckBox@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1])
-		return self
 
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])

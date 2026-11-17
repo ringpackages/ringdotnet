@@ -22,6 +22,9 @@ Class StoredProcedureResultColumnBuilder from Object
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

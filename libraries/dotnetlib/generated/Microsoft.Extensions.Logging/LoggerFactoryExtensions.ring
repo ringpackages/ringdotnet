@@ -13,12 +13,15 @@ Class LoggerFactoryExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateLogger P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1])
 
 	Func CreateLogger_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1,P2])
-
-	Func CreateLogger@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1])
 

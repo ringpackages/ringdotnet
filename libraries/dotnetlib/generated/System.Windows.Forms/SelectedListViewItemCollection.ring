@@ -40,6 +40,9 @@ Class SelectedListViewItemCollection from Object
 	Func IndexOfKey P1
 		return dnRequest("call",[self,"IndexOfKey",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

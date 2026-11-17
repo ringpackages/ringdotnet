@@ -25,32 +25,45 @@ Class XObject from Object
 	Func Annotation_1 P1
 		return dnRequest("call",[self,"Annotation",P1])
 
-	Func Annotation 
-		return dnRequest("call",[self,"Annotation"])
+	Func Annotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Annotation",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Annotation"])
+		ok
+		return dnRequest("call",[self,"Annotation",P1])
 
 	Func Annotations_1 P1
 		return dnRequest("call",[self,"Annotations",P1])
 
-	Func Annotations 
-		return dnRequest("call",[self,"Annotations"])
+	Func Annotations P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Annotations",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Annotations"])
+		ok
+		return dnRequest("call",[self,"Annotations",P1])
 
 	Func RemoveAnnotations_1 P1
 		dnRequest("call",[self,"RemoveAnnotations",P1])
 		return self
 
-	Func RemoveAnnotations 
-		dnRequest("call",[self,"RemoveAnnotations"])
+	Func RemoveAnnotations P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"RemoveAnnotations",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"RemoveAnnotations"])
+		return self
+		ok
+		dnRequest("call",[self,"RemoveAnnotations",P1])
 		return self
 
-	Func Annotation@ P1
-		return dnRequest("callnamed",[self,"Annotation",P1])
-
-	Func Annotations@ P1
-		return dnRequest("callnamed",[self,"Annotations",P1])
-
-	Func RemoveAnnotations@ P1
-		dnRequest("callnamed",[self,"RemoveAnnotations",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setChangedEvent P1
 		dnRequest("setevent",[self,"Changed",dnCallback(P1)])

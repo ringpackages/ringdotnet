@@ -19,10 +19,16 @@ Class DataRowView from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateChildView_2 P1,P2
 		return dnRequest("call",[self,"CreateChildView",P1,P2])
 
 	Func CreateChildView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateChildView",P1])
+		ok
 		return dnRequest("call",[self,"CreateChildView",P1])
 
 	Func BeginEdit 
@@ -40,9 +46,6 @@ Class DataRowView from Object
 	Func Delete 
 		dnRequest("call",[self,"Delete"])
 		return self
-
-	Func CreateChildView@ P1
-		return dnRequest("callnamed",[self,"CreateChildView",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

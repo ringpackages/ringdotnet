@@ -16,3 +16,6 @@ Class MarkupExtension from Object
 	Func ProvideValue P1
 		return dnRequest("call",[self,"ProvideValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

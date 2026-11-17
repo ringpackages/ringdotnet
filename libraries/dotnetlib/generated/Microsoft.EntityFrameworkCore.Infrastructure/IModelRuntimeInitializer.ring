@@ -20,8 +20,8 @@ Class IModelRuntimeInitializer from DotNetObject
 		return dnRequest("call",[self,"Initialize",P1,P2])
 
 	Func Initialize P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Initialize",P1])
+		ok
 		return dnRequest("call",[self,"Initialize",P1])
-
-	Func Initialize@ P1
-		return dnRequest("callnamed",[self,"Initialize",P1])
 

@@ -44,8 +44,14 @@ Class PrinterSettings from Object
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 
-	Func CreateMeasurementGraphics 
-		return dnRequest("call",[self,"CreateMeasurementGraphics"])
+	Func CreateMeasurementGraphics P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CreateMeasurementGraphics",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CreateMeasurementGraphics"])
+		ok
+		return dnRequest("call",[self,"CreateMeasurementGraphics",P1])
 
 	Func CreateMeasurementGraphics_1 P1
 		return dnRequest("call",[self,"CreateMeasurementGraphics",P1])
@@ -53,8 +59,14 @@ Class PrinterSettings from Object
 	Func CreateMeasurementGraphics_2 P1,P2
 		return dnRequest("call",[self,"CreateMeasurementGraphics",P1,P2])
 
-	Func GetHdevmode 
-		return dnRequest("call",[self,"GetHdevmode"])
+	Func GetHdevmode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHdevmode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHdevmode"])
+		ok
+		return dnRequest("call",[self,"GetHdevmode",P1])
 
 	Func GetHdevmode_1 P1
 		return dnRequest("call",[self,"GetHdevmode",P1])
@@ -70,14 +82,8 @@ Class PrinterSettings from Object
 		dnRequest("call",[self,"SetHdevnames",P1])
 		return self
 
-	Func IsDirectPrintingSupported@ P1
-		return dnRequest("callnamed",[self,"IsDirectPrintingSupported",P1])
-
-	Func CreateMeasurementGraphics@ P1
-		return dnRequest("callnamed",[self,"CreateMeasurementGraphics",P1])
-
-	Func GetHdevmode@ P1
-		return dnRequest("callnamed",[self,"GetHdevmode",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getCanDuplex
 		return dnRequest("get",[self,"CanDuplex"])

@@ -32,15 +32,6 @@ Class Boolean from ValueType
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"TryParse",P1])
 
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func CompareTo@ P1
-		return dnRequest("callnamed",[self,"CompareTo",P1])
-
 	Func getTrueString
 		return dnRequest("get",[dnTypeCached('System.Boolean, System.Private.CoreLib'),"TrueString"])
 

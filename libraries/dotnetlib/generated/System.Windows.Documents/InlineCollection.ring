@@ -63,10 +63,6 @@ Class InlineCollection from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func Add@ P1
-		dnRequest("callnamed",[self,"Add",P1])
-		return self
-
 	Func getFirstInline
 		return dnRequest("get",[self,"FirstInline"])
 

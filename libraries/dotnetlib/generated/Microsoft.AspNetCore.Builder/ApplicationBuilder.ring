@@ -31,6 +31,9 @@ Class ApplicationBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getApplicationServices
 		return dnRequest("get",[self,"ApplicationServices"])
 

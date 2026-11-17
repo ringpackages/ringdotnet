@@ -71,6 +71,9 @@ Class WpfTextBox from WpfTextBoxBase
 		return dnRequest("call",[self,"GetLineText",P1])
 
 	Func GetRectFromCharacterIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetRectFromCharacterIndex",P1])
+		ok
 		return dnRequest("call",[self,"GetRectFromCharacterIndex",P1])
 
 	Func GetRectFromCharacterIndex_2 P1,P2
@@ -90,9 +93,6 @@ Class WpfTextBox from WpfTextBoxBase
 
 	Func ShouldSerializeText P1
 		return dnRequest("call",[self,"ShouldSerializeText",P1])
-
-	Func GetRectFromCharacterIndex@ P1
-		return dnRequest("callnamed",[self,"GetRectFromCharacterIndex",P1])
 
 	Func getTextWrapping
 		return dnRequest("get",[self,"TextWrapping"])

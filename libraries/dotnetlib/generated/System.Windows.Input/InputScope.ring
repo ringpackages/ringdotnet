@@ -19,6 +19,9 @@ Class InputScope from Object
 		nHandle = dnCreate('System.Windows.Input.InputScope, PresentationCore',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getNames
 		return dnRequest("get",[self,"Names"])
 

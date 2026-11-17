@@ -53,10 +53,10 @@ dnAssert("JsonElement.GetProperty",oRoot.GetProperty("name").GetString(),"Ring")
 dnAssert("JsonElement.GetInt32",oRoot.GetProperty("n").GetInt32(),42)
 dnAssert("JsonElement array length",oRoot.GetProperty("tags").GetArrayLength(),2)
 oNode = new JsonNode().Parse('{"a":{"b":5}}')
-dnAssert("JsonNode indexer",oNode.Item("a").Item("b").ToJsonString(),"5")
+dnAssert("JsonNode indexer",oNode.Item("a").Item("b").ToJsonString(NULL),"5")
 oObject = new JsonObject()
 oObject.SetItem("x",new JsonValue().Create("y"))
-dnAssert("JsonObject.ToJsonString",oObject.ToJsonString(),'{"x":"y"}')
+dnAssert("JsonObject.ToJsonString",oObject.ToJsonString(NULL),'{"x":"y"}')
 
 # DataTable
 oTable = new DataTable()

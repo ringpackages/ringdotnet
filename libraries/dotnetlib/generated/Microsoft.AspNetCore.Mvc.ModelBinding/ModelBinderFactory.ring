@@ -17,3 +17,6 @@ Class ModelBinderFactory from Object
 	Func CreateBinder P1
 		return dnRequest("call",[self,"CreateBinder",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

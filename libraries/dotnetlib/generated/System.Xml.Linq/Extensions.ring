@@ -13,19 +13,31 @@ Class Extensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Attributes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1])
 
 	Func Attributes_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1,P2])
 
 	Func Ancestors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
 
 	Func Ancestors_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1,P2])
 
 	Func AncestorsAndSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
 
 	Func AncestorsAndSelf_2 P1,P2
@@ -38,6 +50,9 @@ Class Extensions from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantNodes",P1])
 
 	Func Descendants P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1])
 
 	Func Descendants_2 P1,P2
@@ -47,12 +62,18 @@ Class Extensions from Object
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantNodesAndSelf",P1])
 
 	Func DescendantsAndSelf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1])
 
 	Func DescendantsAndSelf_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1,P2])
 
 	Func Elements P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
 
 	Func Elements_2 P1,P2
@@ -63,27 +84,5 @@ Class Extensions from Object
 
 	Func Remove P1
 		dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Remove",P1])
-		return self
-
-	Func Attributes@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1])
-
-	Func Ancestors@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
-
-	Func AncestorsAndSelf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
-
-	Func Descendants@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1])
-
-	Func DescendantsAndSelf@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1])
-
-	Func Elements@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
-
-	Func Remove@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Remove",P1])
 		return self
 

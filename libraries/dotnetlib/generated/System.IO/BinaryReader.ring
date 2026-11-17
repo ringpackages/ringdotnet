@@ -35,8 +35,14 @@ Class BinaryReader from Object
 	Func PeekChar 
 		return dnRequest("call",[self,"PeekChar"])
 
-	Func Read 
-		return dnRequest("call",[self,"Read"])
+	Func Read P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Read",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Read"])
+		ok
+		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
 
 	Func ReadByte 
 		return dnRequest("call",[self,"ReadByte"])
@@ -98,8 +104,8 @@ Class BinaryReader from Object
 	Func Read7BitEncodedInt64 
 		return dnRequest("call",[self,"Read7BitEncodedInt64"])
 
-	Func Read@ P1
-		return dnRequest("callnamed",[self,"Read",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])

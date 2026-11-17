@@ -18,6 +18,9 @@ Class ManipulationVelocities from Object
 		nHandle = dnCreate('System.Windows.Input.ManipulationVelocities, PresentationCore',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLinearVelocity
 		return dnRequest("get",[self,"LinearVelocity"])
 

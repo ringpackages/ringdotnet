@@ -38,6 +38,9 @@ Class AppDomain from MarshalByRefObject
 		return dnRequest("call",[self,"ApplyPolicy",P1])
 
 	Func ExecuteAssembly P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteAssembly",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteAssembly",P1])
 
 	Func ExecuteAssembly_2 P1,P2
@@ -50,6 +53,9 @@ Class AppDomain from MarshalByRefObject
 		return dnRequest("call",[self,"ExecuteAssemblyByName",P1,P2])
 
 	Func ExecuteAssemblyByName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ExecuteAssemblyByName",P1])
+		ok
 		return dnRequest("call",[self,"ExecuteAssemblyByName",P1])
 
 	Func GetData P1
@@ -69,6 +75,9 @@ Class AppDomain from MarshalByRefObject
 		return dnRequest("call",[self,"IsFinalizingForUnload"])
 
 	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Load",P1])
+		ok
 		return dnRequest("call",[self,"Load",P1])
 
 	Func Load_2 P1,P2
@@ -157,27 +166,6 @@ Class AppDomain from MarshalByRefObject
 
 	Func GetCurrentThreadId 
 		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"GetCurrentThreadId"])
-
-	Func ExecuteAssembly@ P1
-		return dnRequest("callnamed",[self,"ExecuteAssembly",P1])
-
-	Func ExecuteAssemblyByName@ P1
-		return dnRequest("callnamed",[self,"ExecuteAssemblyByName",P1])
-
-	Func Load@ P1
-		return dnRequest("callnamed",[self,"Load",P1])
-
-	Func CreateInstance@ P1
-		return dnRequest("callnamed",[self,"CreateInstance",P1])
-
-	Func CreateInstanceAndUnwrap@ P1
-		return dnRequest("callnamed",[self,"CreateInstanceAndUnwrap",P1])
-
-	Func CreateInstanceFrom@ P1
-		return dnRequest("callnamed",[self,"CreateInstanceFrom",P1])
-
-	Func CreateInstanceFromAndUnwrap@ P1
-		return dnRequest("callnamed",[self,"CreateInstanceFromAndUnwrap",P1])
 
 	Func setUnhandledExceptionEvent P1
 		dnRequest("setevent",[self,"UnhandledException",dnCallback(P1)])

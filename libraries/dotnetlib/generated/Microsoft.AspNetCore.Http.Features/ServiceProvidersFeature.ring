@@ -16,6 +16,9 @@ Class ServiceProvidersFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ServiceProvidersFeature, Microsoft.AspNetCore.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getRequestServices
 		return dnRequest("get",[self,"RequestServices"])
 

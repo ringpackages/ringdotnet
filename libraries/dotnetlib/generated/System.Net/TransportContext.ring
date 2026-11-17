@@ -16,3 +16,6 @@ Class TransportContext from Object
 	Func GetChannelBinding P1
 		return dnRequest("call",[self,"GetChannelBinding",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

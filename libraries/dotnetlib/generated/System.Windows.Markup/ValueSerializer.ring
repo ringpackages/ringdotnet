@@ -28,12 +28,15 @@ Class ValueSerializer from Object
 	Func TypeReferences P1,P2
 		return dnRequest("call",[self,"TypeReferences",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetSerializerFor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1])
 
 	Func GetSerializerFor_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1,P2])
-
-	Func GetSerializerFor@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1])
 

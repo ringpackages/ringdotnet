@@ -24,6 +24,9 @@ Class ParserContext from Object
 		nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToXmlParserContext P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ParserContext, PresentationFramework'),"ToXmlParserContext",P1])
 

@@ -30,7 +30,3 @@ Class ComponentResourceManager from ResourceManager
 		dnRequest("call",[self,"ApplyResourcesToRegisteredType",P1,P2,P3])
 		return self
 
-	Func ApplyResources@ P1
-		dnRequest("callnamed",[self,"ApplyResources",P1])
-		return self
-

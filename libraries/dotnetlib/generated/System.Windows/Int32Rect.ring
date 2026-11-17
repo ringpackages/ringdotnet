@@ -26,6 +26,15 @@ Class Int32Rect from ValueType
 		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[P1,P2,P3,P4])
 		return self
 
+	Func Equals P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Equals",P1])
+			ok
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
@@ -34,15 +43,6 @@ Class Int32Rect from ValueType
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Parse",P1])
-
-	Func Equals@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Equals",P1])
-		ok
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getX
 		return dnRequest("get",[self,"X"])

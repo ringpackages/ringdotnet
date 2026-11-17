@@ -23,6 +23,9 @@ Class MouseDevice from InputDevice
 		return self
 
 	Func Capture P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Capture",P1])
+		ok
 		return dnRequest("call",[self,"Capture",P1])
 
 	Func Capture_2 P1,P2
@@ -41,9 +44,6 @@ Class MouseDevice from InputDevice
 	Func UpdateCursor 
 		dnRequest("call",[self,"UpdateCursor"])
 		return self
-
-	Func Capture@ P1
-		return dnRequest("callnamed",[self,"Capture",P1])
 
 	Func getDirectlyOver
 		return dnRequest("get",[self,"DirectlyOver"])

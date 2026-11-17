@@ -13,7 +13,13 @@ Class LazyInitializer from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func EnsureInitialized P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1])
 
 	Func EnsureInitialized_2 P1,P2
@@ -24,7 +30,4 @@ Class LazyInitializer from Object
 
 	Func EnsureInitialized_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1,P2,P3,P4])
-
-	Func EnsureInitialized@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1])
 

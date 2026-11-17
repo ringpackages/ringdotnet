@@ -40,6 +40,9 @@ Class XmlReaderSettings from Object
 	Func Clone 
 		return dnRequest("call",[self,"Clone"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setValidationEventHandlerEvent P1
 		dnRequest("setevent",[self,"ValidationEventHandler",dnCallback(P1)])
 		return self

@@ -25,9 +25,6 @@ Class VirtualizationCacheLength from ValueType
 		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[P1,P2])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
 	Func getCacheBeforeViewport
 		return dnRequest("get",[self,"CacheBeforeViewport"])
 

@@ -13,6 +13,9 @@ Class EventManager from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RegisterRoutedEvent P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterRoutedEvent",P1,P2,P3,P4])
 
@@ -29,8 +32,4 @@ Class EventManager from Object
 
 	Func GetRoutedEventsForOwner P1
 		return dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"GetRoutedEventsForOwner",P1])
-
-	Func RegisterClassHandler@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterClassHandler",P1])
-		return self
 

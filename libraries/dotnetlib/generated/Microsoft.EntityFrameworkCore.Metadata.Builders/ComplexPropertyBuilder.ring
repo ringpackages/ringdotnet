@@ -25,31 +25,49 @@ Class ComplexPropertyBuilder from Object
 	Func IsRequired_1 P1
 		return dnRequest("call",[self,"IsRequired",P1])
 
-	Func IsRequired 
-		return dnRequest("call",[self,"IsRequired"])
+	Func IsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsRequired",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsRequired"])
+		ok
+		return dnRequest("call",[self,"IsRequired",P1])
 
 	Func HasField P1
 		return dnRequest("call",[self,"HasField",P1])
 
 	Func Property P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Property",P1])
+		ok
 		return dnRequest("call",[self,"Property",P1])
 
 	Func Property_2 P1,P2
 		return dnRequest("call",[self,"Property",P1,P2])
 
 	Func PrimitiveCollection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+		ok
 		return dnRequest("call",[self,"PrimitiveCollection",P1])
 
 	Func PrimitiveCollection_2 P1,P2
 		return dnRequest("call",[self,"PrimitiveCollection",P1,P2])
 
 	Func IndexerProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IndexerProperty",P1])
+		ok
 		return dnRequest("call",[self,"IndexerProperty",P1])
 
 	Func IndexerProperty_2 P1,P2
 		return dnRequest("call",[self,"IndexerProperty",P1,P2])
 
 	Func ComplexProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ComplexProperty",P1])
+		ok
 		return dnRequest("call",[self,"ComplexProperty",P1])
 
 	Func ComplexProperty_2 P1,P2
@@ -73,20 +91,8 @@ Class ComplexPropertyBuilder from Object
 	Func UseDefaultPropertyAccessMode P1
 		return dnRequest("call",[self,"UseDefaultPropertyAccessMode",P1])
 
-	Func IsRequired@ P1
-		return dnRequest("callnamed",[self,"IsRequired",P1])
-
-	Func Property@ P1
-		return dnRequest("callnamed",[self,"Property",P1])
-
-	Func PrimitiveCollection@ P1
-		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
-
-	Func IndexerProperty@ P1
-		return dnRequest("callnamed",[self,"IndexerProperty",P1])
-
-	Func ComplexProperty@ P1
-		return dnRequest("callnamed",[self,"ComplexProperty",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -17,3 +17,6 @@ Class BitmapMetadataBlob from Object
 	Func GetBlobValue 
 		return dnRequest("call",[self,"GetBlobValue"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

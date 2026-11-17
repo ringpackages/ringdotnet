@@ -16,8 +16,14 @@ Class FilterCollection from DotNetObject
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterCollection, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func Add 
-		return dnRequest("call",[self,"Add"])
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Add",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Add"])
+		ok
+		return dnRequest("call",[self,"Add",P1])
 
 	Func Add_1 P1
 		return dnRequest("call",[self,"Add",P1])
@@ -25,8 +31,14 @@ Class FilterCollection from DotNetObject
 	Func Add_2 P1,P2
 		return dnRequest("call",[self,"Add",P1,P2])
 
-	Func AddService 
-		return dnRequest("call",[self,"AddService"])
+	Func AddService P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AddService",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AddService"])
+		ok
+		return dnRequest("call",[self,"AddService",P1])
 
 	Func AddService_1 P1
 		return dnRequest("call",[self,"AddService",P1])
@@ -73,12 +85,6 @@ Class FilterCollection from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
-
-	Func Add@ P1
-		return dnRequest("callnamed",[self,"Add",P1])
-
-	Func AddService@ P1
-		return dnRequest("callnamed",[self,"AddService",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

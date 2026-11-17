@@ -93,36 +93,53 @@ Class Form from ContainerControl
 	Func ShowAsync_1 P1
 		return dnRequest("call",[self,"ShowAsync",P1])
 
-	Func ShowAsync 
-		return dnRequest("call",[self,"ShowAsync"])
+	Func ShowAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ShowAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ShowAsync"])
+		ok
+		return dnRequest("call",[self,"ShowAsync",P1])
 
-	Func ShowDialog 
-		return dnRequest("call",[self,"ShowDialog"])
+	Func ShowDialog P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ShowDialog",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ShowDialog"])
+		ok
+		return dnRequest("call",[self,"ShowDialog",P1])
 
 	Func ShowDialog_1 P1
 		return dnRequest("call",[self,"ShowDialog",P1])
 
-	Func ShowDialogAsync 
-		return dnRequest("call",[self,"ShowDialogAsync"])
+	Func ShowDialogAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ShowDialogAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ShowDialogAsync"])
+		ok
+		return dnRequest("call",[self,"ShowDialogAsync",P1])
 
 	Func ShowDialogAsync_1 P1
 		return dnRequest("call",[self,"ShowDialogAsync",P1])
 
-	Func GetAutoScaleSize P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms'),"GetAutoScaleSize",P1])
-
-	Func Show@ P1
-		dnRequest("callnamed",[self,"Show",P1])
+	Func Show P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Show",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Show"])
+		return self
+		ok
+		dnRequest("call",[self,"Show",P1])
 		return self
 
-	Func ShowAsync@ P1
-		return dnRequest("callnamed",[self,"ShowAsync",P1])
-
-	Func ShowDialog@ P1
-		return dnRequest("callnamed",[self,"ShowDialog",P1])
-
-	Func ShowDialogAsync@ P1
-		return dnRequest("callnamed",[self,"ShowDialogAsync",P1])
+	Func GetAutoScaleSize P1
+		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms'),"GetAutoScaleSize",P1])
 
 	Func setHelpButtonClickedEvent P1
 		dnRequest("setevent",[self,"HelpButtonClicked",dnCallback(P1)])

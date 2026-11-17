@@ -15,16 +15,24 @@ Class FileConfigurationProvider from ConfigurationProvider
 		ok
 		return self
 
+	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Load",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Load"])
+		return self
+		ok
+		dnRequest("call",[self,"Load",P1])
+		return self
+
 	Func Load_1 P1
 		dnRequest("call",[self,"Load",P1])
 		return self
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
-		return self
-
-	Func Load@ P1
-		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
 	Func getSource

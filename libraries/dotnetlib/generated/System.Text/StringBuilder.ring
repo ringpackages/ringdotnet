@@ -49,10 +49,19 @@ Class StringBuilder from Object
 		return dnRequest("call",[self,"Append",P1,P2,P3])
 
 	Func Append P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Append",P1])
+		ok
 		return dnRequest("call",[self,"Append",P1])
 
-	Func AppendLine 
-		return dnRequest("call",[self,"AppendLine"])
+	Func AppendLine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"AppendLine",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"AppendLine"])
+		ok
+		return dnRequest("call",[self,"AppendLine",P1])
 
 	Func AppendLine_1 P1
 		return dnRequest("call",[self,"AppendLine",P1])
@@ -94,32 +103,11 @@ Class StringBuilder from Object
 	Func Replace P1,P2
 		return dnRequest("call",[self,"Replace",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Replace_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"Replace",P1,P2,P3,P4])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func Append@ P1
-		return dnRequest("callnamed",[self,"Append",P1])
-
-	Func AppendLine@ P1
-		return dnRequest("callnamed",[self,"AppendLine",P1])
-
-	Func Insert@ P1
-		return dnRequest("callnamed",[self,"Insert",P1])
-
-	Func AppendJoin@ P1
-		return dnRequest("callnamed",[self,"AppendJoin",P1])
-
-	Func AppendFormat@ P1
-		return dnRequest("callnamed",[self,"AppendFormat",P1])
-
-	Func Replace@ P1
-		return dnRequest("callnamed",[self,"Replace",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])

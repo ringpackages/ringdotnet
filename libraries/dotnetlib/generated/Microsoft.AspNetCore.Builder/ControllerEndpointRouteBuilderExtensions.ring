@@ -13,6 +13,9 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapControllers P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllers",P1])
 
@@ -65,21 +68,5 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 
 	Func MapDynamicControllerRoute_4 P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDynamicControllerRoute",P1,P2,P3,P4])
-		return self
-
-	Func MapControllerRoute@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllerRoute",P1])
-
-	Func MapAreaControllerRoute@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaControllerRoute",P1])
-
-	Func MapFallbackToController@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToController",P1])
-
-	Func MapFallbackToAreaController@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToAreaController",P1])
-
-	Func MapDynamicControllerRoute@ P1
-		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDynamicControllerRoute",P1])
 		return self
 

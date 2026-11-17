@@ -24,20 +24,26 @@ Class DbFunctionBuilderBase from Object
 	Func IsBuiltIn_1 P1
 		return dnRequest("call",[self,"IsBuiltIn",P1])
 
-	Func IsBuiltIn 
-		return dnRequest("call",[self,"IsBuiltIn"])
+	Func IsBuiltIn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsBuiltIn",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsBuiltIn"])
+		ok
+		return dnRequest("call",[self,"IsBuiltIn",P1])
 
 	Func HasParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasParameter",P1])
+		ok
 		return dnRequest("call",[self,"HasParameter",P1])
 
 	Func HasParameter_2 P1,P2
 		return dnRequest("call",[self,"HasParameter",P1,P2])
 
-	Func IsBuiltIn@ P1
-		return dnRequest("callnamed",[self,"IsBuiltIn",P1])
-
-	Func HasParameter@ P1
-		return dnRequest("callnamed",[self,"HasParameter",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -46,6 +46,9 @@ Class StackFrame from Object
 	Func GetFileColumnNumber 
 		return dnRequest("call",[self,"GetFileColumnNumber"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOFFSET_UNKNOWN
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.StackFrame, System.Private.CoreLib'),"OFFSET_UNKNOWN"])
 

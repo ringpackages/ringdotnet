@@ -17,14 +17,17 @@ Class XName from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Get_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
 
 	Func Get_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1,P2])
-
-	Func Get@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
 
 	Func getLocalName
 		return dnRequest("get",[self,"LocalName"])

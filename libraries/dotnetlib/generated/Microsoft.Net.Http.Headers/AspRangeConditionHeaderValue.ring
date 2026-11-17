@@ -17,6 +17,9 @@ Class AspRangeConditionHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.RangeConditionHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
 

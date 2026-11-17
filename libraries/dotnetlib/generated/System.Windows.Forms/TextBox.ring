@@ -29,8 +29,16 @@ Class TextBox from TextBoxBase
 		dnRequest("call",[self,"Paste",P1])
 		return self
 
-	Func Paste@ P1
-		dnRequest("callnamed",[self,"Paste",P1])
+	Func Paste P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Paste",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Paste"])
+		return self
+		ok
+		dnRequest("call",[self,"Paste",P1])
 		return self
 
 	Func setTextAlignChangedEvent P1

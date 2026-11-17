@@ -24,6 +24,9 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnRequest("call",[self,"SetForeignKey",P1,P2])
 
 	Func SetForeignKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetForeignKey",P1])
+		ok
 		return dnRequest("call",[self,"SetForeignKey",P1])
 
 	Func GetForeignKeyConfigurationSource 
@@ -33,16 +36,13 @@ Class IConventionSkipNavigation from DotNetObject
 		return dnRequest("call",[self,"SetInverse",P1,P2])
 
 	Func SetInverse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetInverse",P1])
+		ok
 		return dnRequest("call",[self,"SetInverse",P1])
 
 	Func GetInverseConfigurationSource 
 		return dnRequest("call",[self,"GetInverseConfigurationSource"])
-
-	Func SetForeignKey@ P1
-		return dnRequest("callnamed",[self,"SetForeignKey",P1])
-
-	Func SetInverse@ P1
-		return dnRequest("callnamed",[self,"SetInverse",P1])
 
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])

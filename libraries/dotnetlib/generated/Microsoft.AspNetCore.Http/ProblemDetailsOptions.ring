@@ -16,6 +16,9 @@ Class ProblemDetailsOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProblemDetailsOptions, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getCustomizeProblemDetails
 		return dnRequest("get",[self,"CustomizeProblemDetails"])
 

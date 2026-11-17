@@ -22,8 +22,14 @@ Class DispatcherOperation from Object
 	Func GetAwaiter 
 		return dnRequest("call",[self,"GetAwaiter"])
 
-	Func Wait 
-		return dnRequest("call",[self,"Wait"])
+	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Wait",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Wait"])
+		ok
+		return dnRequest("call",[self,"Wait",P1])
 
 	Func Wait_1 P1
 		return dnRequest("call",[self,"Wait",P1])
@@ -31,8 +37,8 @@ Class DispatcherOperation from Object
 	Func Abort 
 		return dnRequest("call",[self,"Abort"])
 
-	Func Wait@ P1
-		return dnRequest("callnamed",[self,"Wait",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setAbortedEvent P1
 		dnRequest("setevent",[self,"Aborted",dnCallback(P1)])

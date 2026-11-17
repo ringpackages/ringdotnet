@@ -18,8 +18,8 @@ Class RelationalMethodCallTranslatorProviderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalMethodCallTranslatorProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getSqlExpressionFactory
 		return dnRequest("get",[self,"SqlExpressionFactory"])

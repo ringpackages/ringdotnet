@@ -17,6 +17,9 @@ Class ColorPalette from Object
 		nHandle = dnCreate('System.Drawing.Imaging.ColorPalette, System.Drawing.Common',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func CreateOptimalPalette P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.ColorPalette, System.Drawing.Common'),"CreateOptimalPalette",P1,P2,P3])
 

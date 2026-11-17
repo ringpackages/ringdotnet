@@ -20,3 +20,6 @@ Class QueryTranslationPreprocessor from Object
 	Func NormalizeQueryableMethod P1
 		return dnRequest("call",[self,"NormalizeQueryableMethod",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

@@ -13,15 +13,12 @@ Class Volatile from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Read P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Read",P1])
 
 	Func Write P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Write",P1,P2])
-
-	Func Read@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Read",P1])
-
-	Func Write@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Write",P1])
 

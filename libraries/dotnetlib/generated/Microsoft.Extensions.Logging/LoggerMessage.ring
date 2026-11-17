@@ -13,6 +13,9 @@ Class LoggerMessage from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func DefineScope P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"DefineScope",P1])
 
@@ -21,10 +24,4 @@ Class LoggerMessage from Object
 
 	Func Define_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"Define",P1,P2,P3,P4])
-
-	Func DefineScope@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"DefineScope",P1])
-
-	Func Define@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerMessage, Microsoft.Extensions.Logging.Abstractions'),"Define",P1])
 

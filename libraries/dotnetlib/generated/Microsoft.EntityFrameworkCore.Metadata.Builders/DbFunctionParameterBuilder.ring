@@ -22,11 +22,17 @@ Class DbFunctionParameterBuilder from Object
 	Func PropagatesNullability_1 P1
 		return dnRequest("call",[self,"PropagatesNullability",P1])
 
-	Func PropagatesNullability 
-		return dnRequest("call",[self,"PropagatesNullability"])
+	Func PropagatesNullability P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"PropagatesNullability",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"PropagatesNullability"])
+		ok
+		return dnRequest("call",[self,"PropagatesNullability",P1])
 
-	Func PropagatesNullability@ P1
-		return dnRequest("callnamed",[self,"PropagatesNullability",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

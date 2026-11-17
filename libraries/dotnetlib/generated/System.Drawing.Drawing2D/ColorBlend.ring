@@ -21,6 +21,9 @@ Class ColorBlend from Object
 		nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getColors
 		return dnRequest("get",[self,"Colors"])
 

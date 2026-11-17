@@ -44,12 +44,18 @@ Class Encoding from Object
 		return dnRequest("call",[self,"Clone"])
 
 	Func GetByteCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetByteCount",P1])
+		ok
 		return dnRequest("call",[self,"GetByteCount",P1])
 
 	Func GetByteCount_3 P1,P2,P3
 		return dnRequest("call",[self,"GetByteCount",P1,P2,P3])
 
 	Func GetBytes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetBytes",P1])
+		ok
 		return dnRequest("call",[self,"GetBytes",P1])
 
 	Func GetBytes_3 P1,P2,P3
@@ -59,12 +65,18 @@ Class Encoding from Object
 		return dnRequest("call",[self,"GetBytes",P1,P2,P3,P4,P5])
 
 	Func GetCharCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetCharCount",P1])
+		ok
 		return dnRequest("call",[self,"GetCharCount",P1])
 
 	Func GetCharCount_3 P1,P2,P3
 		return dnRequest("call",[self,"GetCharCount",P1,P2,P3])
 
 	Func GetChars P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetChars",P1])
+		ok
 		return dnRequest("call",[self,"GetChars",P1])
 
 	Func GetChars_3 P1,P2,P3
@@ -73,8 +85,14 @@ Class Encoding from Object
 	Func GetChars_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetChars",P1,P2,P3,P4,P5])
 
-	Func IsAlwaysNormalized 
-		return dnRequest("call",[self,"IsAlwaysNormalized"])
+	Func IsAlwaysNormalized P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsAlwaysNormalized",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsAlwaysNormalized"])
+		ok
+		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
 
 	Func IsAlwaysNormalized_1 P1
 		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
@@ -92,10 +110,16 @@ Class Encoding from Object
 		return dnRequest("call",[self,"GetMaxCharCount",P1])
 
 	Func GetString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetString",P1])
+		ok
 		return dnRequest("call",[self,"GetString",P1])
 
 	Func GetString_3 P1,P2,P3
 		return dnRequest("call",[self,"GetString",P1,P2,P3])
+
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func Convert P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1,P2,P3])
@@ -108,6 +132,9 @@ Class Encoding from Object
 		return self
 
 	Func GetEncoding P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
 
 	Func GetEncoding_3 P1,P2,P3
@@ -121,33 +148,6 @@ Class Encoding from Object
 
 	Func CreateTranscodingStream P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
-
-	Func GetByteCount@ P1
-		return dnRequest("callnamed",[self,"GetByteCount",P1])
-
-	Func GetBytes@ P1
-		return dnRequest("callnamed",[self,"GetBytes",P1])
-
-	Func GetCharCount@ P1
-		return dnRequest("callnamed",[self,"GetCharCount",P1])
-
-	Func GetChars@ P1
-		return dnRequest("callnamed",[self,"GetChars",P1])
-
-	Func IsAlwaysNormalized@ P1
-		return dnRequest("callnamed",[self,"IsAlwaysNormalized",P1])
-
-	Func GetString@ P1
-		return dnRequest("callnamed",[self,"GetString",P1])
-
-	Func Convert@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1])
-
-	Func GetEncoding@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
-
-	Func CreateTranscodingStream@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1])
 
 	Func getPreamble
 		return dnRequest("get",[self,"Preamble"])

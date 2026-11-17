@@ -25,6 +25,9 @@ Class ComWrappers from Object
 	Func GetOrRegisterObjectForComInstance_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"GetOrRegisterObjectForComInstance",P1,P2,P3,P4])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func TryGetComInstance P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"TryGetComInstance",P1])
 
@@ -41,7 +44,4 @@ Class ComWrappers from Object
 
 	Func GetIUnknownImpl 
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"GetIUnknownImpl"])
-
-	Func GetOrRegisterObjectForComInstance@ P1
-		return dnRequest("callnamed",[self,"GetOrRegisterObjectForComInstance",P1])
 

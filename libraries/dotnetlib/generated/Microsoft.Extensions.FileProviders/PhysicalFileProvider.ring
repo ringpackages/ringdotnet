@@ -35,6 +35,9 @@ Class PhysicalFileProvider from Object
 	Func Watch P1
 		return dnRequest("call",[self,"Watch",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getUsePollingFileWatcher
 		return dnRequest("get",[self,"UsePollingFileWatcher"])
 

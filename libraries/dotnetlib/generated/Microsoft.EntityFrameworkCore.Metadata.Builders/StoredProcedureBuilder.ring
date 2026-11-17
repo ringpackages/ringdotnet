@@ -17,31 +17,52 @@ Class StoredProcedureBuilder from Object
 		return self
 
 	Func HasParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasParameter",P1])
+		ok
 		return dnRequest("call",[self,"HasParameter",P1])
 
 	Func HasParameter_2 P1,P2
 		return dnRequest("call",[self,"HasParameter",P1,P2])
 
 	Func HasOriginalValueParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
+		ok
 		return dnRequest("call",[self,"HasOriginalValueParameter",P1])
 
 	Func HasOriginalValueParameter_2 P1,P2
 		return dnRequest("call",[self,"HasOriginalValueParameter",P1,P2])
 
-	Func HasRowsAffectedParameter 
-		return dnRequest("call",[self,"HasRowsAffectedParameter"])
+	Func HasRowsAffectedParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasRowsAffectedParameter"])
+		ok
+		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
 
 	Func HasRowsAffectedParameter_1 P1
 		return dnRequest("call",[self,"HasRowsAffectedParameter",P1])
 
 	Func HasResultColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasResultColumn",P1])
+		ok
 		return dnRequest("call",[self,"HasResultColumn",P1])
 
 	Func HasResultColumn_2 P1,P2
 		return dnRequest("call",[self,"HasResultColumn",P1,P2])
 
-	Func HasRowsAffectedResultColumn 
-		return dnRequest("call",[self,"HasRowsAffectedResultColumn"])
+	Func HasRowsAffectedResultColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasRowsAffectedResultColumn"])
+		ok
+		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
 
 	Func HasRowsAffectedResultColumn_1 P1
 		return dnRequest("call",[self,"HasRowsAffectedResultColumn",P1])
@@ -49,29 +70,20 @@ Class StoredProcedureBuilder from Object
 	Func HasRowsAffectedReturnValue_1 P1
 		return dnRequest("call",[self,"HasRowsAffectedReturnValue",P1])
 
-	Func HasRowsAffectedReturnValue 
-		return dnRequest("call",[self,"HasRowsAffectedReturnValue"])
+	Func HasRowsAffectedReturnValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasRowsAffectedReturnValue",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasRowsAffectedReturnValue"])
+		ok
+		return dnRequest("call",[self,"HasRowsAffectedReturnValue",P1])
 
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func HasParameter@ P1
-		return dnRequest("callnamed",[self,"HasParameter",P1])
-
-	Func HasOriginalValueParameter@ P1
-		return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
-
-	Func HasRowsAffectedParameter@ P1
-		return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
-
-	Func HasResultColumn@ P1
-		return dnRequest("callnamed",[self,"HasResultColumn",P1])
-
-	Func HasRowsAffectedResultColumn@ P1
-		return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
-
-	Func HasRowsAffectedReturnValue@ P1
-		return dnRequest("callnamed",[self,"HasRowsAffectedReturnValue",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

@@ -64,8 +64,14 @@ Class DateTimeFormatInfo from Object
 	Func GetShortestDayName P1
 		return dnRequest("call",[self,"GetShortestDayName",P1])
 
-	Func GetAllDateTimePatterns 
-		return dnRequest("call",[self,"GetAllDateTimePatterns"])
+	Func GetAllDateTimePatterns P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetAllDateTimePatterns",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetAllDateTimePatterns"])
+		ok
+		return dnRequest("call",[self,"GetAllDateTimePatterns",P1])
 
 	Func GetAllDateTimePatterns_1 P1
 		return dnRequest("call",[self,"GetAllDateTimePatterns",P1])
@@ -83,14 +89,14 @@ Class DateTimeFormatInfo from Object
 		dnRequest("call",[self,"SetAllDateTimePatterns",P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetInstance P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"GetInstance",P1])
 
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
-
-	Func GetAllDateTimePatterns@ P1
-		return dnRequest("callnamed",[self,"GetAllDateTimePatterns",P1])
 
 	Func getAMDesignator
 		return dnRequest("get",[self,"AMDesignator"])

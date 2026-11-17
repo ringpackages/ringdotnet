@@ -19,6 +19,9 @@ Class FontFamilyMap from Object
 		nHandle = dnCreate('System.Windows.Media.FontFamilyMap, PresentationCore',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getUnicode
 		return dnRequest("get",[self,"Unicode"])
 

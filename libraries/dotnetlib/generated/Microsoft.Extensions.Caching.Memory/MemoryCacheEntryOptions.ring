@@ -22,6 +22,9 @@ Class MemoryCacheEntryOptions from Object
 		nHandle = dnCreate('Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions, Microsoft.Extensions.Caching.Abstractions',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAbsoluteExpiration
 		return dnRequest("get",[self,"AbsoluteExpiration"])
 

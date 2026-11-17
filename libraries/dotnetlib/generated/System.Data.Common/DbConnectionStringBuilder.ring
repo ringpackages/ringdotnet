@@ -49,16 +49,15 @@ Class DbConnectionStringBuilder from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AppendKeyValuePair P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1,P2,P3])
 		return self
 
 	Func AppendKeyValuePair_4 P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1,P2,P3,P4])
-		return self
-
-	Func AppendKeyValuePair@ P1
-		dnRequest("callnamed",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1])
 		return self
 
 	Func Item P1

@@ -26,6 +26,9 @@ Class TouchDevice from InputDevice
 		return dnRequest("call",[self,"GetIntermediateTouchPoints",P1])
 
 	Func Capture P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Capture",P1])
+		ok
 		return dnRequest("call",[self,"Capture",P1])
 
 	Func Capture_2 P1,P2
@@ -34,9 +37,6 @@ Class TouchDevice from InputDevice
 	Func Synchronize 
 		dnRequest("call",[self,"Synchronize"])
 		return self
-
-	Func Capture@ P1
-		return dnRequest("callnamed",[self,"Capture",P1])
 
 	Func setActivatedEvent P1
 		dnRequest("setevent",[self,"Activated",dnCallback(P1)])

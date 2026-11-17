@@ -16,6 +16,9 @@ Class VariantWrapper from Object
 		nHandle = dnCreate('System.Runtime.InteropServices.VariantWrapper, System.Private.CoreLib',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getWrappedObject
 		return dnRequest("get",[self,"WrappedObject"])
 

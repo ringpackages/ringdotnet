@@ -23,6 +23,9 @@ Class BindingAddress from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.BindingAddress, Microsoft.AspNetCore.Http'),"Parse",P1])
 

@@ -45,14 +45,20 @@ Class AsymmetricAlgorithm from Object
 	Func ExportSubjectPublicKeyInfoPem 
 		return dnRequest("call",[self,"ExportSubjectPublicKeyInfoPem"])
 
-	Func Create 
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create"])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func Create@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getKeySize
 		return dnRequest("get",[self,"KeySize"])

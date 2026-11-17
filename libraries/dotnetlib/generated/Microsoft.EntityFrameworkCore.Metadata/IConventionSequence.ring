@@ -23,6 +23,9 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetStartValue",P1,P2])
 
 	Func SetStartValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetStartValue",P1])
+		ok
 		return dnRequest("call",[self,"SetStartValue",P1])
 
 	Func GetStartValueConfigurationSource 
@@ -32,6 +35,9 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetIncrementBy",P1,P2])
 
 	Func SetIncrementBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIncrementBy",P1])
+		ok
 		return dnRequest("call",[self,"SetIncrementBy",P1])
 
 	Func GetIncrementByConfigurationSource 
@@ -41,6 +47,9 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetMinValue",P1,P2])
 
 	Func SetMinValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetMinValue",P1])
+		ok
 		return dnRequest("call",[self,"SetMinValue",P1])
 
 	Func GetMinValueConfigurationSource 
@@ -50,6 +59,9 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetMaxValue",P1,P2])
 
 	Func SetMaxValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetMaxValue",P1])
+		ok
 		return dnRequest("call",[self,"SetMaxValue",P1])
 
 	Func GetMaxValueConfigurationSource 
@@ -59,6 +71,9 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetType",P1,P2])
 
 	Func SetType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetType",P1])
+		ok
 		return dnRequest("call",[self,"SetType",P1])
 
 	Func GetTypeConfigurationSource 
@@ -68,28 +83,13 @@ Class IConventionSequence from DotNetObject
 		return dnRequest("call",[self,"SetIsCyclic",P1,P2])
 
 	Func SetIsCyclic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"SetIsCyclic",P1])
+		ok
 		return dnRequest("call",[self,"SetIsCyclic",P1])
 
 	Func GetIsCyclicConfigurationSource 
 		return dnRequest("call",[self,"GetIsCyclicConfigurationSource"])
-
-	Func SetStartValue@ P1
-		return dnRequest("callnamed",[self,"SetStartValue",P1])
-
-	Func SetIncrementBy@ P1
-		return dnRequest("callnamed",[self,"SetIncrementBy",P1])
-
-	Func SetMinValue@ P1
-		return dnRequest("callnamed",[self,"SetMinValue",P1])
-
-	Func SetMaxValue@ P1
-		return dnRequest("callnamed",[self,"SetMaxValue",P1])
-
-	Func SetType@ P1
-		return dnRequest("callnamed",[self,"SetType",P1])
-
-	Func SetIsCyclic@ P1
-		return dnRequest("callnamed",[self,"SetIsCyclic",P1])
 
 	Func getModel
 		return dnRequest("get",[self,"Model"])

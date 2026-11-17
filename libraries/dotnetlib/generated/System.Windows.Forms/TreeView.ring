@@ -61,6 +61,9 @@ Class TreeView from Control
 		return self
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func HitTest_2 P1,P2
@@ -70,6 +73,9 @@ Class TreeView from Control
 		return dnRequest("call",[self,"GetNodeCount",P1])
 
 	Func GetNodeAt P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNodeAt",P1])
+		ok
 		return dnRequest("call",[self,"GetNodeAt",P1])
 
 	Func GetNodeAt_2 P1,P2
@@ -78,12 +84,6 @@ Class TreeView from Control
 	Func Sort 
 		dnRequest("call",[self,"Sort"])
 		return self
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
-
-	Func GetNodeAt@ P1
-		return dnRequest("callnamed",[self,"GetNodeAt",P1])
 
 	Func setBeforeLabelEditEvent P1
 		dnRequest("setevent",[self,"BeforeLabelEdit",dnCallback(P1)])

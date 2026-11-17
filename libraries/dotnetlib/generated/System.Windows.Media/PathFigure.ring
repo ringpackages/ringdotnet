@@ -30,23 +30,20 @@ Class PathFigure from Animatable
 	Func GetFlattenedPathFigure_2 P1,P2
 		return dnRequest("call",[self,"GetFlattenedPathFigure",P1,P2])
 
-	Func GetFlattenedPathFigure 
-		return dnRequest("call",[self,"GetFlattenedPathFigure"])
+	Func GetFlattenedPathFigure P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFlattenedPathFigure",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFlattenedPathFigure"])
+		ok
+		raise("DotNet Error: GetFlattenedPathFigure does not take one argument: use GetFlattenedPathFigure(NULL), GetFlattenedPathFigure_N(...) or named arguments")
 
 	Func MayHaveCurves 
 		return dnRequest("call",[self,"MayHaveCurves"])
 
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
-
-	Func GetFlattenedPathFigure@ P1
-		return dnRequest("callnamed",[self,"GetFlattenedPathFigure",P1])
-
-	Func ToString@ P1
-		return dnRequest("callnamed",[self,"ToString",P1])
-
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 
 	Func getStartPoint
 		return dnRequest("get",[self,"StartPoint"])

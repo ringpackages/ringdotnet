@@ -26,18 +26,15 @@ Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 	Func IsRequired_1 P1
 		return dnRequest("call",[self,"IsRequired",P1])
 
-	Func IsRequired 
-		return dnRequest("call",[self,"IsRequired"])
+	Func IsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsRequired",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsRequired"])
+		ok
+		return dnRequest("call",[self,"IsRequired",P1])
 
 	Func OnDelete P1
 		return dnRequest("call",[self,"OnDelete",P1])
-
-	Func HasForeignKey@ P1
-		return dnRequest("callnamed",[self,"HasForeignKey",P1])
-
-	Func HasPrincipalKey@ P1
-		return dnRequest("callnamed",[self,"HasPrincipalKey",P1])
-
-	Func IsRequired@ P1
-		return dnRequest("callnamed",[self,"IsRequired",P1])
 

@@ -50,6 +50,9 @@ Class QueryCompilationContext from Object
 	Func RegisterRuntimeParameter P1,P2
 		return dnRequest("call",[self,"RegisterRuntimeParameter",P1,P2])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getParametersToConstantize
 		return dnRequest("get",[self,"ParametersToConstantize"])
 

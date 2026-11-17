@@ -31,14 +31,14 @@ Class ContainerVisual from Visual
 		return self
 
 	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HitTest",P1])
+		ok
 		return dnRequest("call",[self,"HitTest",P1])
 
 	Func HitTest_3 P1,P2,P3
 		dnRequest("call",[self,"HitTest",P1,P2,P3])
 		return self
-
-	Func HitTest@ P1
-		return dnRequest("callnamed",[self,"HitTest",P1])
 
 	Func getChildren
 		return dnRequest("get",[self,"Children"])

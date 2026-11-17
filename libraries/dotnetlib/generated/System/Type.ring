@@ -86,6 +86,18 @@ Class Type from MemberInfo
 		ok
 		return self
 
+	Func GetType P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
+			ok
+			return dnRequest("callnamed",[self,"GetType",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetType"])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
+
 	Func GetElementType 
 		return dnRequest("call",[self,"GetElementType"])
 
@@ -111,6 +123,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[self,"IsAssignableTo",P1])
 
 	Func GetConstructor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetConstructor",P1])
+		ok
 		return dnRequest("call",[self,"GetConstructor",P1])
 
 	Func GetConstructor_2 P1,P2
@@ -122,32 +137,56 @@ Class Type from MemberInfo
 	Func GetConstructor_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetConstructor",P1,P2,P3,P4,P5])
 
-	Func GetConstructors 
-		return dnRequest("call",[self,"GetConstructors"])
+	Func GetConstructors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetConstructors",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetConstructors"])
+		ok
+		return dnRequest("call",[self,"GetConstructors",P1])
 
 	Func GetConstructors_1 P1
 		return dnRequest("call",[self,"GetConstructors",P1])
 
 	Func GetEvent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEvent",P1])
+		ok
 		return dnRequest("call",[self,"GetEvent",P1])
 
 	Func GetEvent_2 P1,P2
 		return dnRequest("call",[self,"GetEvent",P1,P2])
 
-	Func GetEvents 
-		return dnRequest("call",[self,"GetEvents"])
+	Func GetEvents P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetEvents",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetEvents"])
+		ok
+		return dnRequest("call",[self,"GetEvents",P1])
 
 	Func GetEvents_1 P1
 		return dnRequest("call",[self,"GetEvents",P1])
 
 	Func GetField P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetField",P1])
+		ok
 		return dnRequest("call",[self,"GetField",P1])
 
 	Func GetField_2 P1,P2
 		return dnRequest("call",[self,"GetField",P1,P2])
 
-	Func GetFields 
-		return dnRequest("call",[self,"GetFields"])
+	Func GetFields P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetFields",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetFields"])
+		ok
+		return dnRequest("call",[self,"GetFields",P1])
 
 	Func GetFields_1 P1
 		return dnRequest("call",[self,"GetFields",P1])
@@ -162,6 +201,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[self,"GetFunctionPointerParameterTypes"])
 
 	Func GetMember P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMember",P1])
+		ok
 		return dnRequest("call",[self,"GetMember",P1])
 
 	Func GetMember_2 P1,P2
@@ -170,8 +212,14 @@ Class Type from MemberInfo
 	Func GetMember_3 P1,P2,P3
 		return dnRequest("call",[self,"GetMember",P1,P2,P3])
 
-	Func GetMembers 
-		return dnRequest("call",[self,"GetMembers"])
+	Func GetMembers P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMembers",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetMembers"])
+		ok
+		return dnRequest("call",[self,"GetMembers",P1])
 
 	Func GetMemberWithSameMetadataDefinitionAs P1
 		return dnRequest("call",[self,"GetMemberWithSameMetadataDefinitionAs",P1])
@@ -180,6 +228,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[self,"GetMembers",P1])
 
 	Func GetMethod P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMethod",P1])
+		ok
 		return dnRequest("call",[self,"GetMethod",P1])
 
 	Func GetMethod_2 P1,P2
@@ -200,25 +251,43 @@ Class Type from MemberInfo
 	Func GetMethod_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"GetMethod",P1,P2,P3,P4,P5,P6,P7])
 
-	Func GetMethods 
-		return dnRequest("call",[self,"GetMethods"])
+	Func GetMethods P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetMethods",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetMethods"])
+		ok
+		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetMethods_1 P1
 		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetNestedType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNestedType",P1])
+		ok
 		return dnRequest("call",[self,"GetNestedType",P1])
 
 	Func GetNestedType_2 P1,P2
 		return dnRequest("call",[self,"GetNestedType",P1,P2])
 
-	Func GetNestedTypes 
-		return dnRequest("call",[self,"GetNestedTypes"])
+	Func GetNestedTypes P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetNestedTypes",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetNestedTypes"])
+		ok
+		return dnRequest("call",[self,"GetNestedTypes",P1])
 
 	Func GetNestedTypes_1 P1
 		return dnRequest("call",[self,"GetNestedTypes",P1])
 
 	Func GetProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetProperty",P1])
+		ok
 		return dnRequest("call",[self,"GetProperty",P1])
 
 	Func GetProperty_2 P1,P2
@@ -233,8 +302,14 @@ Class Type from MemberInfo
 	Func GetProperty_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"GetProperty",P1,P2,P3,P4,P5,P6])
 
-	Func GetProperties 
-		return dnRequest("call",[self,"GetProperties"])
+	Func GetProperties P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetProperties",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetProperties"])
+		ok
+		return dnRequest("call",[self,"GetProperties",P1])
 
 	Func GetProperties_1 P1
 		return dnRequest("call",[self,"GetProperties",P1])
@@ -252,6 +327,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func GetInterface P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetInterface",P1])
+		ok
 		return dnRequest("call",[self,"GetInterface",P1])
 
 	Func GetInterface_2 P1,P2
@@ -278,8 +356,14 @@ Class Type from MemberInfo
 	Func GetEnumValuesAsUnderlyingType 
 		return dnRequest("call",[self,"GetEnumValuesAsUnderlyingType"])
 
-	Func MakeArrayType 
-		return dnRequest("call",[self,"MakeArrayType"])
+	Func MakeArrayType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"MakeArrayType",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"MakeArrayType"])
+		ok
+		return dnRequest("call",[self,"MakeArrayType",P1])
 
 	Func MakeArrayType_1 P1
 		return dnRequest("call",[self,"MakeArrayType",P1])
@@ -342,6 +426,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeCode",P1])
 
 	Func GetTypeFromCLSID P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
 
 	Func GetTypeFromCLSID_2 P1,P2
@@ -351,6 +438,9 @@ Class Type from MemberInfo
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1,P2,P3])
 
 	Func GetTypeFromProgID P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
 
 	Func GetTypeFromProgID_2 P1,P2
@@ -367,72 +457,6 @@ Class Type from MemberInfo
 
 	Func ReflectionOnlyGetType P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"ReflectionOnlyGetType",P1,P2,P3])
-
-	Func GetType@ P1
-		if nHandle = 0
-			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
-		ok
-		return dnRequest("callnamed",[self,"GetType",P1])
-
-	Func GetConstructor@ P1
-		return dnRequest("callnamed",[self,"GetConstructor",P1])
-
-	Func GetConstructors@ P1
-		return dnRequest("callnamed",[self,"GetConstructors",P1])
-
-	Func GetEvent@ P1
-		return dnRequest("callnamed",[self,"GetEvent",P1])
-
-	Func GetEvents@ P1
-		return dnRequest("callnamed",[self,"GetEvents",P1])
-
-	Func GetField@ P1
-		return dnRequest("callnamed",[self,"GetField",P1])
-
-	Func GetFields@ P1
-		return dnRequest("callnamed",[self,"GetFields",P1])
-
-	Func GetMember@ P1
-		return dnRequest("callnamed",[self,"GetMember",P1])
-
-	Func GetMembers@ P1
-		return dnRequest("callnamed",[self,"GetMembers",P1])
-
-	Func GetMethod@ P1
-		return dnRequest("callnamed",[self,"GetMethod",P1])
-
-	Func GetMethods@ P1
-		return dnRequest("callnamed",[self,"GetMethods",P1])
-
-	Func GetNestedType@ P1
-		return dnRequest("callnamed",[self,"GetNestedType",P1])
-
-	Func GetNestedTypes@ P1
-		return dnRequest("callnamed",[self,"GetNestedTypes",P1])
-
-	Func GetProperty@ P1
-		return dnRequest("callnamed",[self,"GetProperty",P1])
-
-	Func GetProperties@ P1
-		return dnRequest("callnamed",[self,"GetProperties",P1])
-
-	Func InvokeMember@ P1
-		return dnRequest("callnamed",[self,"InvokeMember",P1])
-
-	Func GetInterface@ P1
-		return dnRequest("callnamed",[self,"GetInterface",P1])
-
-	Func MakeArrayType@ P1
-		return dnRequest("callnamed",[self,"MakeArrayType",P1])
-
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func GetTypeFromCLSID@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
-
-	Func GetTypeFromProgID@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
 
 	Func getNamespace
 		return dnRequest("get",[self,"Namespace"])

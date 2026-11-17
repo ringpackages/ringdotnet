@@ -16,6 +16,9 @@ Class DefaultSessionFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.DefaultSessionFeature, Microsoft.AspNetCore.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getSession
 		return dnRequest("get",[self,"Session"])
 

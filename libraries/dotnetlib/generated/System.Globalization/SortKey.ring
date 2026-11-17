@@ -16,6 +16,9 @@ Class SortKey from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.SortKey, System.Private.CoreLib'),"Compare",P1,P2])
 

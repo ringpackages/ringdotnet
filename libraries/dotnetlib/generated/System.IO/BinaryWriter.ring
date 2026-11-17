@@ -44,6 +44,10 @@ Class BinaryWriter from Object
 		return dnRequest("call",[self,"Seek",P1,P2])
 
 	Func Write P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Write",P1])
+			return self
+		ok
 		dnRequest("call",[self,"Write",P1])
 		return self
 
@@ -59,9 +63,8 @@ Class BinaryWriter from Object
 		dnRequest("call",[self,"Write7BitEncodedInt64",P1])
 		return self
 
-	Func Write@ P1
-		dnRequest("callnamed",[self,"Write",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])

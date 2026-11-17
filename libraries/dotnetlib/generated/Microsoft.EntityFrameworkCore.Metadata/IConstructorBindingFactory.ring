@@ -19,9 +19,3 @@ Class IConstructorBindingFactory from DotNetObject
 	Func TryBindConstructor P1,P2
 		return dnRequest("call",[self,"TryBindConstructor",P1,P2])
 
-	Func GetBindings@ P1
-		return dnRequest("callnamed",[self,"GetBindings",P1])
-
-	Func TryBindConstructor@ P1
-		return dnRequest("callnamed",[self,"TryBindConstructor",P1])
-

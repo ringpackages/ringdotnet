@@ -21,6 +21,9 @@ Class BitmapData from Object
 		nHandle = dnCreate('System.Drawing.Imaging.BitmapData, System.Drawing.Common',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getWidth
 		return dnRequest("get",[self,"Width"])
 

@@ -38,6 +38,9 @@ Class EncoderParameter from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getEncoder
 		return dnRequest("get",[self,"Encoder"])
 

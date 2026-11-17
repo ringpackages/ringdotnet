@@ -22,8 +22,14 @@ Class PropertyBuilder from Object
 	Func IsRequired_1 P1
 		return dnRequest("call",[self,"IsRequired",P1])
 
-	Func IsRequired 
-		return dnRequest("call",[self,"IsRequired"])
+	Func IsRequired P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsRequired",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsRequired"])
+		ok
+		return dnRequest("call",[self,"IsRequired",P1])
 
 	Func HasMaxLength P1
 		return dnRequest("call",[self,"HasMaxLength",P1])
@@ -35,25 +41,46 @@ Class PropertyBuilder from Object
 		return dnRequest("call",[self,"HasPrecision",P1,P2])
 
 	Func HasPrecision P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasPrecision",P1])
+		ok
 		return dnRequest("call",[self,"HasPrecision",P1])
 
 	Func IsUnicode_1 P1
 		return dnRequest("call",[self,"IsUnicode",P1])
 
-	Func IsUnicode 
-		return dnRequest("call",[self,"IsUnicode"])
+	Func IsUnicode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsUnicode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsUnicode"])
+		ok
+		return dnRequest("call",[self,"IsUnicode",P1])
 
 	Func IsRowVersion 
 		return dnRequest("call",[self,"IsRowVersion"])
 
-	Func HasValueGenerator 
-		return dnRequest("call",[self,"HasValueGenerator"])
+	Func HasValueGenerator P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasValueGenerator",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasValueGenerator"])
+		ok
+		return dnRequest("call",[self,"HasValueGenerator",P1])
 
 	Func HasValueGenerator_1 P1
 		return dnRequest("call",[self,"HasValueGenerator",P1])
 
-	Func HasValueGeneratorFactory 
-		return dnRequest("call",[self,"HasValueGeneratorFactory"])
+	Func HasValueGeneratorFactory P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasValueGeneratorFactory"])
+		ok
+		return dnRequest("call",[self,"HasValueGeneratorFactory",P1])
 
 	Func HasValueGeneratorFactory_1 P1
 		return dnRequest("call",[self,"HasValueGeneratorFactory",P1])
@@ -61,8 +88,14 @@ Class PropertyBuilder from Object
 	Func IsConcurrencyToken_1 P1
 		return dnRequest("call",[self,"IsConcurrencyToken",P1])
 
-	Func IsConcurrencyToken 
-		return dnRequest("call",[self,"IsConcurrencyToken"])
+	Func IsConcurrencyToken P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"IsConcurrencyToken"])
+		ok
+		return dnRequest("call",[self,"IsConcurrencyToken",P1])
 
 	Func ValueGeneratedNever 
 		return dnRequest("call",[self,"ValueGeneratedNever"])
@@ -85,8 +118,14 @@ Class PropertyBuilder from Object
 	Func UsePropertyAccessMode P1
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
 
-	Func HasConversion 
-		return dnRequest("call",[self,"HasConversion"])
+	Func HasConversion P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"HasConversion",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"HasConversion"])
+		ok
+		return dnRequest("call",[self,"HasConversion",P1])
 
 	Func HasConversion_1 P1
 		return dnRequest("call",[self,"HasConversion",P1])
@@ -97,26 +136,8 @@ Class PropertyBuilder from Object
 	Func HasConversion_3 P1,P2,P3
 		return dnRequest("call",[self,"HasConversion",P1,P2,P3])
 
-	Func IsRequired@ P1
-		return dnRequest("callnamed",[self,"IsRequired",P1])
-
-	Func HasPrecision@ P1
-		return dnRequest("callnamed",[self,"HasPrecision",P1])
-
-	Func IsUnicode@ P1
-		return dnRequest("callnamed",[self,"IsUnicode",P1])
-
-	Func HasValueGenerator@ P1
-		return dnRequest("callnamed",[self,"HasValueGenerator",P1])
-
-	Func HasValueGeneratorFactory@ P1
-		return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
-
-	Func IsConcurrencyToken@ P1
-		return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
-
-	Func HasConversion@ P1
-		return dnRequest("callnamed",[self,"HasConversion",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])

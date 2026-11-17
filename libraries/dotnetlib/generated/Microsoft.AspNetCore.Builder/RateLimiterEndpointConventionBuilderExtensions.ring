@@ -13,12 +13,12 @@ Class RateLimiterEndpointConventionBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func RequireRateLimiting P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"RequireRateLimiting",P1,P2])
 
 	Func DisableRateLimiting P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"DisableRateLimiting",P1])
-
-	Func RequireRateLimiting@ P1
-		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"RequireRateLimiting",P1])
 

@@ -20,14 +20,26 @@ Class ISession from DotNetObject
 	Func LoadAsync_1 P1
 		return dnRequest("call",[self,"LoadAsync",P1])
 
-	Func LoadAsync 
-		return dnRequest("call",[self,"LoadAsync"])
+	Func LoadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"LoadAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"LoadAsync"])
+		ok
+		return dnRequest("call",[self,"LoadAsync",P1])
 
 	Func CommitAsync_1 P1
 		return dnRequest("call",[self,"CommitAsync",P1])
 
-	Func CommitAsync 
-		return dnRequest("call",[self,"CommitAsync"])
+	Func CommitAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"CommitAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"CommitAsync"])
+		ok
+		return dnRequest("call",[self,"CommitAsync",P1])
 
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
@@ -43,12 +55,6 @@ Class ISession from DotNetObject
 	Func Clear 
 		dnRequest("call",[self,"Clear"])
 		return self
-
-	Func LoadAsync@ P1
-		return dnRequest("callnamed",[self,"LoadAsync",P1])
-
-	Func CommitAsync@ P1
-		return dnRequest("callnamed",[self,"CommitAsync",P1])
 
 	Func getIsAvailable
 		return dnRequest("get",[self,"IsAvailable"])

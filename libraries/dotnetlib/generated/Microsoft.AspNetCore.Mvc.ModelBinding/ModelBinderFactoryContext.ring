@@ -18,6 +18,9 @@ Class ModelBinderFactoryContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactoryContext, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getBindingInfo
 		return dnRequest("get",[self,"BindingInfo"])
 

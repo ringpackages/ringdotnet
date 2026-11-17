@@ -27,6 +27,9 @@ Class RemoteAuthenticationEvents from Object
 	Func TicketReceived P1
 		return dnRequest("call",[self,"TicketReceived",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getOnAccessDenied
 		return dnRequest("get",[self,"OnAccessDenied"])
 

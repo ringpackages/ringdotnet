@@ -28,6 +28,9 @@ Class Authorization from Object
 		nHandle = dnCreate('System.Net.Authorization, System.Net.Requests',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getMessage
 		return dnRequest("get",[self,"Message"])
 

@@ -29,8 +29,14 @@ Class RelationalDataReader from Object
 	Func ReadAsync_1 P1
 		return dnRequest("call",[self,"ReadAsync",P1])
 
-	Func ReadAsync 
-		return dnRequest("call",[self,"ReadAsync"])
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"ReadAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"ReadAsync"])
+		ok
+		return dnRequest("call",[self,"ReadAsync",P1])
 
 	Func Close 
 		dnRequest("call",[self,"Close"])
@@ -46,8 +52,8 @@ Class RelationalDataReader from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func ReadAsync@ P1
-		return dnRequest("callnamed",[self,"ReadAsync",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getRelationalConnection
 		return dnRequest("get",[self,"RelationalConnection"])

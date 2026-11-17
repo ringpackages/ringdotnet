@@ -17,6 +17,9 @@ Class JsonOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonOptions, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAllowInputFormatterExceptionMessages
 		return dnRequest("get",[self,"AllowInputFormatterExceptionMessages"])
 

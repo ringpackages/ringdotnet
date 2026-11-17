@@ -13,6 +13,9 @@ Class RazorComponentsEndpointRouteBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func MapRazorComponents P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"MapRazorComponents",P1])
 

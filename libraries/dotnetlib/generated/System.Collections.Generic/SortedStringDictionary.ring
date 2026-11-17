@@ -54,6 +54,9 @@ Class SortedStringDictionary from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

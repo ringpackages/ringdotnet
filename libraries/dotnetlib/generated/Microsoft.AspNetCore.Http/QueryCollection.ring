@@ -31,6 +31,9 @@ Class QueryCollection from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

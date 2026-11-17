@@ -32,6 +32,9 @@ Class StylusPointDescription from Object
 	Func IsSubsetOf P1
 		return dnRequest("call",[self,"IsSubsetOf",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func AreCompatible P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPointDescription, PresentationCore'),"AreCompatible",P1,P2])
 

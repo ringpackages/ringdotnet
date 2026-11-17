@@ -52,6 +52,9 @@ Class Stack from Object
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Stack, System.Collections.NonGeneric'),"Synchronized",P1])
 

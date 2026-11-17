@@ -54,9 +54,8 @@ Class TextRange from Object
 		dnRequest("call",[self,"Load",P1,P2])
 		return self
 
-	Func Save@ P1
-		dnRequest("callnamed",[self,"Save",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func setChangedEvent P1
 		dnRequest("setevent",[self,"Changed",dnCallback(P1)])

@@ -37,6 +37,9 @@ Class ManifestEmbeddedFileProvider from Object
 	Func Watch P1
 		return dnRequest("call",[self,"Watch",P1])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getAssembly
 		return dnRequest("get",[self,"Assembly"])
 

@@ -24,6 +24,9 @@ Class ContentDispositionHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http',[P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.ContentDispositionHeaderValue, System.Net.Http'),"Parse",P1])
 

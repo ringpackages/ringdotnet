@@ -46,6 +46,9 @@ Class CultureInfo from Object
 		nHandle = dnCreate('System.Globalization.CultureInfo, System.Private.CoreLib',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func GetFormat P1
 		return dnRequest("call",[self,"GetFormat",P1])
 
@@ -69,6 +72,9 @@ Class CultureInfo from Object
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
 	Func GetCultureInfo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
 
 	Func GetCultureInfo_2 P1,P2
@@ -76,9 +82,6 @@ Class CultureInfo from Object
 
 	Func GetCultureInfoByIetfLanguageTag P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfoByIetfLanguageTag",P1])
-
-	Func GetCultureInfo@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
 
 	Func getParent
 		return dnRequest("get",[self,"Parent"])

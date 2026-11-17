@@ -21,15 +21,22 @@ Class HostExecutionContext from Object
 	Func CreateCopy 
 		return dnRequest("call",[self,"CreateCopy"])
 
-	Func Dispose 
-		dnRequest("call",[self,"Dispose"])
+	Func Dispose P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Dispose",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Dispose"])
+		return self
+		ok
+		dnRequest("call",[self,"Dispose",P1])
 		return self
 
 	Func Dispose_1 P1
 		dnRequest("call",[self,"Dispose",P1])
 		return self
 
-	Func Dispose@ P1
-		dnRequest("callnamed",[self,"Dispose",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 

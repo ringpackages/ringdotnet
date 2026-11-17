@@ -482,15 +482,15 @@ oRich.Text = <span class="s">"Ring and .NET make a good team"</span>
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
-	oRich.Select@([ :start = <span class="n">0</span>, :length = <span class="n">4</span> ])
+	oRich.<span class="f">Select</span>([ :start = <span class="n">0</span>, :length = <span class="n">4</span> ])
 	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Red"</span>)
 	oBoldFont = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
 	oRich.SelectionFont = oBoldFont
-	oRich.Select@([ :start = <span class="n">9</span>, :length = <span class="n">4</span> ])
+	oRich.<span class="f">Select</span>([ :start = <span class="n">9</span>, :length = <span class="n">4</span> ])
 	oRich.SelectionColor = <span class="f">uiColor</span>(<span class="s">"Blue"</span>)
-	oRich.Select@([ :start = <span class="n">0</span>, :length = <span class="n">0</span> ])
+	oRich.<span class="f">Select</span>([ :start = <span class="n">0</span>, :length = <span class="n">0</span> ])
 	<span class="f">dnAssert</span>(<span class="s">"text is kept"</span>,oRich.Text,<span class="s">"Ring and .NET make a good team"</span>)
-	oRich.Select@([ :start = <span class="n">1</span>, :length = <span class="n">1</span> ])
+	oRich.<span class="f">Select</span>([ :start = <span class="n">1</span>, :length = <span class="n">1</span> ])
 	<span class="f">dnAssert</span>(<span class="s">"first word is red"</span>,oRich.SelectionColor.Name,<span class="s">"Red"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"rtf has formatting"</span>,substr(oRich.Rtf,<span class="s">"\b"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="picturebox-drawing"><div class="pic"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Picturebox drawing" loading="lazy"></div><div class="info"><h3>Picturebox drawing</h3><p>Draw shapes and text on a bitmap (UiCanvas)</p><div class="run"><code>ring samples/Forms/15_picturebox_drawing.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Draw shapes and text on a bitmap (UiCanvas)</span>
 
@@ -618,7 +618,7 @@ oTimer.<span class="f">Start</span>()
 
 <span class="k">func</span> <span class="f">tick</span>
 	oNow = <span class="f">dnType</span>(<span class="s">"System.DateTime"</span>).<span class="f">getProp</span>(<span class="s">"Now"</span>)
-	oClock.Text = oNow.ToString@([ :format = <span class="s">"HH:mm:ss"</span> ])</code></pre></div></details></div></div><div class="item" id="splitcontainer"><div class="pic"><img src="img/shots/forms-19_splitcontainer.png" alt="Splitcontainer" loading="lazy"></div><div class="info"><h3>Splitcontainer</h3><p>A split container with two panels</p><div class="run"><code>ring samples/Forms/19_splitcontainer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A split container with two panels</span>
+	oClock.Text = oNow.<span class="f">ToString_1</span>(<span class="s">"HH:mm:ss"</span>)</code></pre></div></details></div></div><div class="item" id="splitcontainer"><div class="pic"><img src="img/shots/forms-19_splitcontainer.png" alt="Splitcontainer" loading="lazy"></div><div class="info"><h3>Splitcontainer</h3><p>A split container with two panels</p><div class="run"><code>ring samples/Forms/19_splitcontainer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A split container with two panels</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -701,7 +701,7 @@ oTable = <span class="k">new</span> <span class="t">TableLayoutPanel</span>() {
 			Dock = <span class="s">"Fill"</span>
 			TextAlign = <span class="s">"MiddleCenter"</span>
 		}
-		oTable.Controls.Add@([ :control = oCell, :column = nColumn - <span class="n">1</span>, :row = nRow - <span class="n">1</span> ])
+		oTable.Controls.<span class="f">Add</span>([ :control = oCell, :column = nColumn - <span class="n">1</span>, :row = nRow - <span class="n">1</span> ])
 	<span class="k">next</span>
 <span class="k">next</span>
 oForm.Controls.<span class="f">Add</span>(oTable)
@@ -747,7 +747,7 @@ oPanel = <span class="f">uiPanel</span>(oForm,<span class="n">15</span>,<span cl
 oPanel.BackColor = <span class="f">uiColor</span>(<span class="s">"Lavender"</span>)
 oMenu = <span class="k">new</span> <span class="t">ContextMenuStrip</span>()
 <span class="k">for</span> cColor <span class="k">in</span> [<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>]
-	oItem = <span class="f">dnNew</span>@(<span class="s">"ToolStripMenuItem"</span>,[ :text = cColor ])
+	oItem = <span class="f">dnNew</span>(<span class="s">"ToolStripMenuItem"</span>,[ :text = cColor ])
 	oItem.<span class="f">setClickEvent</span>(<span class="s">"oPanel.BackColor = uiColor('"</span> + cColor + <span class="s">"')"</span>)
 	oMenu.Items.<span class="f">Add</span>(oItem)
 <span class="k">next</span>
@@ -831,8 +831,8 @@ using {
 
 using { <span class="s">"System.Data"</span> }
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
-oTable.Columns.Add@([ :columnName = <span class="s">"Name"</span>, :type = <span class="s">"System.String"</span> ])
-oTable.Columns.Add@([ :columnName = <span class="s">"Age"</span>, :type = <span class="s">"System.Int32"</span> ])
+oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Name"</span>, :type = <span class="s">"System.String"</span> ])
+oTable.Columns.<span class="f">Add</span>([ :columnName = <span class="s">"Age"</span>, :type = <span class="s">"System.Int32"</span> ])
 oTable {
 	Rows.<span class="f">Add</span>([<span class="s">"Ann"</span>,<span class="n">31</span>])
 	Rows.<span class="f">Add</span>([<span class="s">"Bob"</span>,<span class="n">17</span>])
@@ -928,7 +928,7 @@ oResult = <span class="f">uiLabel</span>(oForm,<span class="s">"No name yet"</sp
 		<span class="c"># in a test the dialog confirms itself as soon as it is shown</span>
 		oDialog.<span class="f">setShownEvent</span>(<span class="s">"oOk.PerformClick()"</span>)
 	<span class="k">ok</span>
-	<span class="k">if</span> oDialog.<span class="f">ShowDialog</span>() = <span class="s">"OK"</span>
+	<span class="k">if</span> oDialog.<span class="f">ShowDialog</span>(<span class="k">NULL</span>) = <span class="s">"OK"</span>
 		<span class="k">return</span> oBox.Text
 	<span class="k">ok</span>
 	<span class="k">return</span> <span class="s">""</span>
@@ -970,7 +970,7 @@ oPasted = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span c
 <span class="k">func</span> <span class="f">pasteText</span>
 	<span class="c"># (a method call on a new object can't be on the right side of an attribute assignment: use a variable)</span>
 	oClipboard = <span class="k">new</span> <span class="t">Clipboard</span>()
-	cText = oClipboard.<span class="f">GetText</span>()
+	cText = oClipboard.<span class="f">GetText</span>(<span class="k">NULL</span>)
 	oPasted.Text = cText
 
 <span class="k">func</span> <span class="f">selfTest</span>

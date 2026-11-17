@@ -25,11 +25,20 @@ Class StringSegmentComparer from Object
 	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Equals",P1])
+		ok
+		return dnRequest("call",[self,"Equals",P1])
 
-	Func GetHashCode@ P1
-		return dnRequest("callnamed",[self,"GetHashCode",P1])
+	Func GetHashCode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"GetHashCode",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"GetHashCode"])
+		ok
+		return dnRequest("call",[self,"GetHashCode",P1])
 
 	Func getOrdinal
 		return dnRequest("get",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegmentComparer, Microsoft.Extensions.Primitives'),"Ordinal"])

@@ -20,6 +20,9 @@ Class MigrationExecutionState from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationExecutionState, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getLastCommittedCommandIndex
 		return dnRequest("get",[self,"LastCommittedCommandIndex"])
 

@@ -28,6 +28,9 @@ Class CommandBinding from Object
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[P1,P2,P3])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func setPreviewExecutedEvent P1
 		dnRequest("setevent",[self,"PreviewExecuted",dnCallback(P1)])
 		return self

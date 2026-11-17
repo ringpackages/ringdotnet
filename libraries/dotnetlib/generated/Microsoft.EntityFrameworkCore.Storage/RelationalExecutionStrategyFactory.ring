@@ -17,3 +17,6 @@ Class RelationalExecutionStrategyFactory from Object
 	Func Create 
 		return dnRequest("call",[self,"Create"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+

@@ -23,13 +23,20 @@ Class BufferedGraphics from Object
 		dnRequest("call",[self,"Render",P1])
 		return self
 
-	Func Render 
-		dnRequest("call",[self,"Render"])
+	Func Render P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"Render",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[self,"Render"])
+		return self
+		ok
+		dnRequest("call",[self,"Render",P1])
 		return self
 
-	Func Render@ P1
-		dnRequest("callnamed",[self,"Render",P1])
-		return self
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])

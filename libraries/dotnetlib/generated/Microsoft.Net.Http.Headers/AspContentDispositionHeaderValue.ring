@@ -32,6 +32,9 @@ Class AspContentDispositionHeaderValue from Object
 		dnRequest("call",[self,"SetMimeFileName",P1])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.ContentDispositionHeaderValue, Microsoft.Net.Http.Headers'),"Parse",P1])
 

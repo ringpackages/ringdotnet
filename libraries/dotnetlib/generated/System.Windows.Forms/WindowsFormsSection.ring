@@ -16,6 +16,9 @@ Class WindowsFormsSection from Object
 		nHandle = dnCreate('System.Windows.Forms.WindowsFormsSection, System.Windows.Forms',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getJitDebugging
 		return dnRequest("get",[self,"JitDebugging"])
 

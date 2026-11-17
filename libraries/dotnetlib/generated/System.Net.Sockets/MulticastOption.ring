@@ -22,6 +22,9 @@ Class MulticastOption from Object
 		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1,P2])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func getGroup
 		return dnRequest("get",[self,"Group"])
 

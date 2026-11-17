@@ -31,7 +31,7 @@ oTasks.Enqueue("write docs",3)  oTasks.Enqueue("fix bug",1)  oTasks.Enqueue("rel
 # Non-generic and specialized collections
 oList = new ArrayList()
 oList.Add(3)  oList.Add(1)  oList.Add(2)
-oList.Sort()
+oList.Sort(NULL)
 ? "ArrayList      : " + oList.Item(0) + oList.Item(1) + oList.Item(2)
 oQuery = new NameValueCollection()
 oQuery.Add("tag","ring")  oQuery.Add("tag","dotnet")  oQuery.Add("page","2")

@@ -19,10 +19,16 @@ Class TaskDialog from Object
 		dnRequest("call",[self,"Close"])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func ShowDialogAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1,P2])
 
 	Func ShowDialogAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
 
 	Func ShowDialogAsync_3 P1,P2,P3
@@ -32,16 +38,13 @@ Class TaskDialog from Object
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2])
 
 	Func ShowDialog P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
 
 	Func ShowDialog_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2,P3])
-
-	Func ShowDialogAsync@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
-
-	Func ShowDialog@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])

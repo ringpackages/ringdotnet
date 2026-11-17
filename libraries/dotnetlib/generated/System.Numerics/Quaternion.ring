@@ -81,12 +81,6 @@ Class Quaternion from ValueType
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Subtract",P1,P2])
 
-	Func Equals@ P1
-		return dnRequest("callnamed",[self,"Equals",P1])
-
-	Func Multiply@ P1
-		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Quaternion, System.Private.CoreLib'),"Multiply",P1])
-
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

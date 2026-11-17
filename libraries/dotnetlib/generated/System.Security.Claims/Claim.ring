@@ -42,8 +42,14 @@ Class Claim from Object
 		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func Clone 
-		return dnRequest("call",[self,"Clone"])
+	Func Clone P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[self,"Clone",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[self,"Clone"])
+		ok
+		return dnRequest("call",[self,"Clone",P1])
 
 	Func Clone_1 P1
 		return dnRequest("call",[self,"Clone",P1])
@@ -55,8 +61,8 @@ Class Claim from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
-	Func Clone@ P1
-		return dnRequest("callnamed",[self,"Clone",P1])
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
 
 	Func getIssuer
 		return dnRequest("get",[self,"Issuer"])

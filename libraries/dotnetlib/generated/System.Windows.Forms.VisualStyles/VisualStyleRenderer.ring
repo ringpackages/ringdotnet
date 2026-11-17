@@ -25,6 +25,10 @@ Class VisualStyleRenderer from Object
 		return self
 
 	Func SetParameters P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[self,"SetParameters",P1])
+			return self
+		ok
 		dnRequest("call",[self,"SetParameters",P1])
 		return self
 
@@ -127,33 +131,11 @@ Class VisualStyleRenderer from Object
 	Func IsBackgroundPartiallyTransparent 
 		return dnRequest("call",[self,"IsBackgroundPartiallyTransparent"])
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsElementDefined P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])
-
-	Func SetParameters@ P1
-		dnRequest("callnamed",[self,"SetParameters",P1])
-		return self
-
-	Func DrawBackground@ P1
-		dnRequest("callnamed",[self,"DrawBackground",P1])
-		return self
-
-	Func DrawImage@ P1
-		dnRequest("callnamed",[self,"DrawImage",P1])
-		return self
-
-	Func DrawText@ P1
-		dnRequest("callnamed",[self,"DrawText",P1])
-		return self
-
-	Func GetPartSize@ P1
-		return dnRequest("callnamed",[self,"GetPartSize",P1])
-
-	Func GetTextExtent@ P1
-		return dnRequest("callnamed",[self,"GetTextExtent",P1])
-
-	Func HitTestBackground@ P1
-		return dnRequest("callnamed",[self,"HitTestBackground",P1])
 
 	Func getClass
 		return dnRequest("get",[self,"Class"])

@@ -30,6 +30,9 @@ Class CacheControlHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http',[])
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Headers.CacheControlHeaderValue, System.Net.Http'),"Parse",P1])
 

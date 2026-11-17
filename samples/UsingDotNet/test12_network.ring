@@ -19,15 +19,15 @@ oWaiting = oServer.GetContextAsync()
 oClient = new HttpClient()
 oRequest = oClient.GetStringAsync(cPrefix + "greet?name=Ring")
 
-oWaiting.Wait()
+oWaiting.Wait(NULL)
 oContext = oWaiting.getProp("Result")
 ? "Request        : " + oContext.Request.HttpMethod + " " + oContext.Request.Url.PathAndQuery
 cReply = "Hello " + oContext.Request.QueryString.Item("name") + ", this is .NET speaking Ring!"
 aBytes = new UTF8Encoding().GetBytes(cReply)
 oContext.Response.OutputStream.Write(aBytes,0,len(aBytes))
-oContext.Response.Close()
+oContext.Response.Close(NULL)
 
-oRequest.Wait()
+oRequest.Wait(NULL)
 ? "Response       : " + oRequest.getProp("Result")
 oServer.Stop()
 

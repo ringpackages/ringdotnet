@@ -13,6 +13,9 @@ Class SqliteMigrationBuilderExtensions from Object
 		ok
 		return self
 
+	Func Equals P1
+		return dnRequest("call",[self,"Equals",P1])
+
 	Func IsSqlite P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Migrations.SqliteMigrationBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlite",P1])
 

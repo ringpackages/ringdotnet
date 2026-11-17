@@ -29,9 +29,6 @@ Class TextEffect from Animatable
 		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[P1,P2,P3,P4,P5])
 		return self
 
-	Func CloneCurrentValue@ P1
-		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
-
 	Func getTransform
 		return dnRequest("get",[self,"Transform"])
 
