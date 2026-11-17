@@ -1,0 +1,35 @@
+load "../../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System")
+dnImport("System.Reflection")
+dnImport("System.Numerics")
+dnImport("System.Text.Encodings.Web")
+dnImport("System.Collections.Concurrent")
+dnImport("System.Runtime.InteropServices")
+
+# Big integers: factorial of 40
+oBig = new BigInteger()
+nFactorial = oBig.Parse("1")
+for x = 2 to 40
+	nFactorial = oBig.Multiply(nFactorial,x)
+next
+? "40!            : " + nFactorial.ToString()
+? "2^200          : " + oBig.Pow(2,200).ToString()
+oZ = new Complex().New_2(3,4)
+? "|3+4i|         : " + oZ.Magnitude
+
+# Reflection: explore a type
+oMath = new Type().GetType_1("System.Math")
+aNames = []
+for oMethod in oMath.GetMethods().toList()
+	if find(aNames,oMethod.Name) = 0 aNames + oMethod.Name ok
+next
+? "Math methods   : " + len(aNames) + " names, e.g. " + aNames[1] + ", " + aNames[2] + ", " + aNames[3]
+oAsm = new Assembly().Load_("System.Linq")
+? "Assembly       : " + oAsm.GetName().Name + " " + oAsm.GetName().Version.ToString()
+
+# Environment and encoders
+? "OS             : " + new RuntimeInformation().OSDescription
+? "HTML encoded   : " + new HtmlEncoder().Default.Encode("<script>alert('x')</script>")
+oQueue = new ConcurrentStringQueue()
+oQueue.Enqueue("first")  oQueue.Enqueue("second")
+? "Concurrent     : " + oQueue.TryDequeue()[2] + ", left " + oQueue.Count

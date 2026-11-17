@@ -924,9 +924,21 @@ namespace RingDotNet
 				{
 					if (m.Name != "op_Implicit" || !target.IsAssignableFrom(m.ReturnType)) continue;
 					ParameterInfo[] ps = m.GetParameters();
-					if (ps.Length == 1 && ps[0].ParameterType.IsAssignableFrom(from))
+					if (ps.Length != 1) continue;
+					object arg = null;
+					bool usable = ps[0].ParameterType.IsAssignableFrom(from);
+					if (usable)
 					{
-						try { result = m.Invoke(null, new[] { v }); score = 1; return true; }
+						arg = v;
+					}
+					else if (v is double && IsNumeric(ps[0].ParameterType))
+					{
+						/* a Ring number for BigInteger / Complex / Half... : whole numbers use the integer conversions first */
+						usable = TryConvert(v, ps[0].ParameterType, out arg, out int sc) && (sc >= 5 || !(((double)v) == Math.Floor((double)v)) || ps[0].ParameterType == typeof(double));
+					}
+					if (usable)
+					{
+						try { result = m.Invoke(null, new[] { arg }); score = 1; return true; }
 						catch (Exception) { }
 					}
 				}
@@ -939,7 +951,7 @@ namespace RingDotNet
 		{
 			MethodBase best = null;
 			object[] bestArgs = null;
-			int bestScore = -1;
+			int bestScore = int.MinValue;
 			foreach (MethodBase candidate in candidates)
 			{
 				MethodBase m = candidate;
@@ -986,6 +998,10 @@ namespace RingDotNet
 					{
 						conv[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : Type.Missing;
 					}
+				}
+				if (candidate != m)
+				{
+					total -= 3;	/* a closed generic method loses against a plain overload with the same arguments */
 				}
 				if (ok && total > bestScore)
 				{

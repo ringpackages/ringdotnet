@@ -163,6 +163,113 @@ aDotNetManifest = [
 	  :uses = ["System.Collections.Specialized"],
 	  :all = true ],
 
+	[ :namespace = "System.Reflection",
+	  :assemblies = ["System.Private.CoreLib","System.Reflection","System.Reflection.Primitives","System.Reflection.Extensions"],
+	  :uses = ["System.Collections.Generic"],
+	  :all = true ],
+
+	[ :namespace = "System.Runtime.InteropServices",
+	  :assemblies = ["System.Private.CoreLib","System.Runtime.InteropServices","System.Runtime.InteropServices.RuntimeInformation"],
+	  :all = true ],
+
+	[ :namespace = "System.Runtime.Loader",
+	  :assemblies = ["System.Runtime.Loader","System.Private.CoreLib"],
+	  :uses = ["System.Reflection"],
+	  :all = true ],
+
+	[ :namespace = "System.Timers",
+	  :assemblies = ["System.ComponentModel.TypeConverter","System.ComponentModel.Primitives","System.Timers"],
+	  :uses = ["System.ComponentModel"],
+	  :all = true ],
+
+	[ :namespace = "System.IO.Pipes",
+	  :assemblies = ["System.IO.Pipes","System.IO.Pipes.AccessControl"],
+	  :uses = ["System.IO"],
+	  :types = [ ["System.IO.Pipes.NamedPipeClientStream","NamedPipeClientStream",2] ],
+	  :all = true ],
+
+	[ :namespace = "System.IO.MemoryMappedFiles",
+	  :assemblies = ["System.IO.MemoryMappedFiles"],
+	  :uses = ["System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Security.Principal",
+	  :assemblies = ["System.Security.Principal.Windows","System.Security.Principal","System.Private.CoreLib"],
+	  :types = [ ["System.Security.Principal.WindowsIdentity","WindowsIdentity",0] ],
+	  :all = true ],
+
+	[ :namespace = "System.Security.Claims",
+	  :assemblies = ["System.Security.Claims","System.Security.Principal","System.Private.CoreLib"],
+	  :uses = ["System.Security.Principal"],
+	  :all = true ],
+
+	[ :namespace = "System.Security.Cryptography.X509Certificates",
+	  :assemblies = ["System.Security.Cryptography.X509Certificates","System.Security.Cryptography","System.Private.CoreLib"],
+	  :uses = ["System.Security.Cryptography"],
+	  :all = true ],
+
+	[ :namespace = "Microsoft.Win32",
+	  :assemblies = ["Microsoft.Win32.Registry","Microsoft.Win32.Primitives","System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Numerics",
+	  :assemblies = ["System.Runtime.Numerics","System.Numerics.Vectors","System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.Mail",
+	  :assemblies = ["System.Net.Mail"],
+	  :uses = ["System.Net","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.Mime",
+	  :assemblies = ["System.Net.Mail"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.WebSockets",
+	  :assemblies = ["System.Net.WebSockets","System.Net.WebSockets.Client"],
+	  :uses = ["System.Threading.Tasks"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.Security",
+	  :assemblies = ["System.Net.Security"],
+	  :uses = ["System.IO","System.Security.Cryptography.X509Certificates"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.Http.Headers",
+	  :assemblies = ["System.Net.Http"],
+	  :uses = ["System.Net.Http"],
+	  :all = true ],
+
+	[ :namespace = "System.Text.Encodings.Web",
+	  :assemblies = ["System.Text.Encodings.Web"],
+	  :all = true ],
+
+	[ :namespace = "System.Text.Unicode",
+	  :assemblies = ["System.Text.Encodings.Web","System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Formats.Tar",
+	  :assemblies = ["System.Formats.Tar"],
+	  :uses = ["System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Resources",
+	  :assemblies = ["System.Resources.ResourceManager","System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Collections.Concurrent",
+	  :assemblies = ["System.Collections.Concurrent"],
+	  :types = [
+		["System.Collections.Concurrent.ConcurrentQueue`1[[System.String]]","ConcurrentStringQueue",0],
+		["System.Collections.Concurrent.ConcurrentQueue`1[[System.Object]]","ConcurrentObjectQueue",0],
+		["System.Collections.Concurrent.ConcurrentStack`1[[System.Object]]","ConcurrentObjectStack",0],
+		["System.Collections.Concurrent.ConcurrentBag`1[[System.Object]]","ConcurrentObjectBag",0],
+		["System.Collections.Concurrent.ConcurrentDictionary`2[[System.String],[System.Object]]","ConcurrentObjectDictionary",0],
+		["System.Collections.Concurrent.ConcurrentDictionary`2[[System.String],[System.String]]","ConcurrentStringDictionary",0],
+		["System.Collections.Concurrent.BlockingCollection`1[[System.Object]]","BlockingObjectCollection",0]
+	  ],
+	  :all = true ],
+
 	[ :namespace = "System.Collections",
 	  :assemblies = ["System.Private.CoreLib","System.Collections","System.Collections.NonGeneric"],
 	  :all = true ],
