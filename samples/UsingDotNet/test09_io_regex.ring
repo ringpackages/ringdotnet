@@ -23,8 +23,8 @@ oWriter.Close()
 oRegex = new Regex("(?<month>\d{4}-\d{2})-\d{2} ERROR (?<what>.+)")
 oMatches = oRegex.Matches(oFile.ReadAllText(cLog))
 ? "Errors found  : " + oMatches.Count
-for x = 0 to oMatches.Count - 1
-	oMatch = oMatches.Item(x)
+for nLoop = 0 to oMatches.Count - 1
+	oMatch = oMatches.Item(nLoop)
 	? "  " + oMatch.Groups.Item("month").Value + " -> " + trim(oMatch.Groups.Item("what").Value)
 next
 ? "Cleaned       : " + new Regex("\s+").Replace("too    many   spaces"," ")

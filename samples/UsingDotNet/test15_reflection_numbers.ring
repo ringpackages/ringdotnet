@@ -9,8 +9,8 @@ dnImport("System.Runtime.InteropServices")
 # Big integers: factorial of 40
 oBig = new BigInteger()
 nFactorial = oBig.Parse("1")
-for x = 2 to 40
-	nFactorial = oBig.Multiply(nFactorial,x)
+for nLoop = 2 to 40
+	nFactorial = oBig.Multiply(nFactorial,nLoop)
 next
 ? "40!            : " + nFactorial.ToString()
 ? "2^200          : " + oBig.Pow(2,200).ToString()

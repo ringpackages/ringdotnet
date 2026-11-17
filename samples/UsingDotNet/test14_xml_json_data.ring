@@ -8,8 +8,8 @@ oDoc = new XmlDocument()
 oDoc.LoadXml("<shop><item price='3.5'>apple</item><item price='1.2'>fig</item><item price='9'>melon</item></shop>")
 oItems = oDoc.SelectNodes("//item[@price > 2]")
 ? "Items over 2    : " + oItems.Count
-for x = 0 to oItems.Count - 1
-	oItem = oItems.Item(x)
+for nLoop = 0 to oItems.Count - 1
+	oItem = oItems.Item(nLoop)
 	? "  " + oItem.InnerText + " costs " + oItem.GetAttribute("price")
 next
 

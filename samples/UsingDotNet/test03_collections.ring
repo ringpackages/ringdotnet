@@ -17,8 +17,8 @@ next
 
 # List<double>
 oNums = new NumberList()
-for x = 1 to 5
-	oNums.Add(x * x)
+for nLoop = 1 to 5
+	oNums.Add(nLoop * nLoop)
 next
 ? "Numbers : " + list2str(oNums.toList())
 

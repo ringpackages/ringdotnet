@@ -50,7 +50,7 @@ dnAssert("StringCollection",oStrs.Count,1)
 
 # Generic closed types
 oInts = new IntList()
-for x = 1 to 5 oInts.Add(x * 10) next
+for nLoop = 1 to 5 oInts.Add(nLoop * 10) next
 dnAssert("IntList.Count",oInts.Count,5)
 dnAssert("IntList.Item",oInts.Item(2),30)
 dnAssert("IntList.Contains",oInts.Contains(50),1)

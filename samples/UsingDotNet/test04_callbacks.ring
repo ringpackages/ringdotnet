@@ -23,7 +23,7 @@ oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))
 oList.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"))
 ? "Longest first: " + oList.Item(0)
 oNums = new NumberList()
-for x = 1 to 6 oNums.Add(x) next
+for nLoop = 1 to 6 oNums.Add(nLoop) next
 ? "Even numbers: " + list2str(oNums.FindAll(dnCallback("xDotNetResult = (aDotNetArgs[1] % 2 = 0)")).toList())
 
 # Errors in the callback reach the caller
