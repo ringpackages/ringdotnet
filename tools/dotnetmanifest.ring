@@ -314,14 +314,67 @@ aDotNetManifest = [
 		["System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String]]","ReadOnlyStringList"],
 		["System.Collections.ObjectModel.Collection`1[[System.String]]","StringCollectionList",0] ] ],
 
-	[ :namespace = "System.Windows.Forms",
+	[ :namespace = "System.Drawing",
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives","System.Private.CoreLib"],
 	  :desktop = true,
-	  :prefer = ["System.Windows.Forms.Application.Run=1"],
+	  :uses = ["System.ComponentModel"],
+	  :all = true,
+	  :types = [ ["System.Drawing.Point","Point",2], ["System.Drawing.PointF","PointF",2], ["System.Drawing.Size","Size",2],
+		["System.Drawing.SizeF","SizeF",2], ["System.Drawing.Rectangle","Rectangle",4], ["System.Drawing.RectangleF","RectangleF",4],
+		["System.Drawing.Font","Font",2], ["System.Drawing.Bitmap","Bitmap",2], ["System.Drawing.Pen","Pen",1],
+		["System.Drawing.SolidBrush","SolidBrush",1] ] ],
+
+	[ :namespace = "System.Drawing.Drawing2D",
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing"],
+	  :all = true ],
+
+	[ :namespace = "System.Drawing.Imaging",
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing"],
+	  :all = true ],
+
+	[ :namespace = "System.Drawing.Text",
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing"],
+	  :all = true ],
+
+	[ :namespace = "System.Drawing.Printing",
+	  :assemblies = ["System.Drawing.Common","System.Drawing.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Forms",
+	  :assemblies = ["System.Windows.Forms","System.Windows.Forms.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing","System.ComponentModel","System.Collections","System.Collections.Specialized","System.IO"],
+	  :all = true,
+	  :prefer = ["System.Windows.Forms.Application.Run=1","System.Windows.Forms.MessageBox.Show=1"],
 	  :types = [
-		["System.Windows.Forms.Application"], ["System.Windows.Forms.MessageBox"],
-		["System.Windows.Forms.Form","Form",0], ["System.Windows.Forms.Button","Button",0], ["System.Windows.Forms.Label","Label",0],
-		["System.Windows.Forms.TextBox","TextBox",0], ["System.Windows.Forms.CheckBox","CheckBox",0], ["System.Windows.Forms.ListBox","ListBox",0],
-		["System.Windows.Forms.Control+ControlCollection"]
-	  ] ]
+		["System.Windows.Forms.Control+ControlCollection","ControlCollection"],
+		["System.Windows.Forms.ListBox+ObjectCollection","ListBoxObjectCollection"],
+		["System.Windows.Forms.ListBox+SelectedObjectCollection","ListBoxSelectedObjectCollection"],
+		["System.Windows.Forms.ComboBox+ObjectCollection","ComboBoxObjectCollection"],
+		["System.Windows.Forms.ListView+ListViewItemCollection","ListViewItemCollection"],
+		["System.Windows.Forms.ListView+ColumnHeaderCollection","ColumnHeaderCollection"],
+		["System.Windows.Forms.ListView+SelectedListViewItemCollection","SelectedListViewItemCollection"],
+		["System.Windows.Forms.DataGridView+HitTestInfo","DataGridViewHitTestInfo"]
+	  ] ],
+
+	[ :namespace = "System.Windows.Forms.VisualStyles",
+	  :assemblies = ["System.Windows.Forms","System.Windows.Forms.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Drawing"],
+	  :all = true ],
+
+	[ :namespace = "System.Windows.Forms.Layout",
+	  :assemblies = ["System.Windows.Forms","System.Windows.Forms.Primitives"],
+	  :desktop = true,
+	  :uses = ["System.Windows.Forms"],
+	  :all = true ]
 
 ]

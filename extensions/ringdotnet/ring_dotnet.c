@@ -244,7 +244,14 @@ static int DN_CALLTYPE ringdotnet_callback ( const unsigned char *pRequest, int 
 			memcpy(g_pCallbackRequest,pRequest,nSize);
 			g_nCallbackRequestSize = nSize ;
 			ringdotnet_setresult("z0:",3);
-			ring_vm_runcode((VM *) g_pVM,"dnDispatchCallback()");
+			{
+				/* Run dnDispatchCallback() to completion (no eval: the code of the callback was compiled when dnCallback() was called) */
+				VM *pVM = (VM *) g_pVM ;
+				unsigned int nSP = pVM->nSP, nFuncSP = pVM->nFuncSP ;
+				ring_vm_runcode(pVM,"dnDispatchCallback()");
+				pVM->nSP = nSP ;
+				pVM->nFuncSP = nFuncSP ;
+			}
 		}
 	}
 	if ( pOut && (g_nCallbackResultSize <= nCapacity) ) {

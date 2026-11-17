@@ -143,9 +143,21 @@ func dnDescribe  cTypeName
 	return dnRequest("describe",[cTypeName])
 
 # Ring code callable from .NET: dnCallback("? aDotNetArgs[1]") or dnCallback("myfunc"),
-# then pass it where a delegate is expected
+# then pass it where a delegate is expected. The code is compiled once into a function (the same code gives the same function).
 func dnCallback  cCode
-	return new DotNetCallback(cCode)
+	dn_nPos = find(aDotNetCallbacks,cCode,1)
+	if dn_nPos = 0
+		dn_cName = "dncallback" + (len(aDotNetCallbacks) + 1)
+		if dnIsIdentifier(cCode)
+			dn_cBody = "xDotNetResult = " + cCode + "(aDotNetArgs)"
+		else
+			dn_cBody = cCode
+		ok
+		eval("func " + dn_cName + nl + dn_cBody + nl)
+		aDotNetCallbacks + [cCode,dn_cName]
+		dn_nPos = len(aDotNetCallbacks)
+	ok
+	return new DotNetCallback(aDotNetCallbacks[dn_nPos][2])
 
 # Runs one Ring callback requested by .NET (called by the extension, don't call it directly)
 func dnDispatchCallback
@@ -156,11 +168,8 @@ func dnDispatchCallback
 	next
 	try
 		xDotNetResult = ""
-		if dnIsIdentifier(dn_aItems[1])
-			eval("xDotNetResult = " + dn_aItems[1] + "(aDotNetArgs)")
-		else
-			eval(dn_aItems[1])
-		ok
+		dn_cFunction = dn_aItems[1]
+		call dn_cFunction()
 		dn_cOut = dnPackItem(xDotNetResult)
 	catch
 		dn_cOut = C_DOTNET_ERROR + len(cCatchError) + ":" + cCatchError
@@ -184,7 +193,10 @@ func dnIsIdentifier  cText
 
 # Use Windows Forms / WPF (adds the Windows Desktop runtime). Call it before any other .NET call.
 func dnUseDesktop
-	return dotnet_start("desktop")
+	dotnet_start("desktop")
+	# errors in event handlers are raised out of Application.Run() (catch them with try/catch) instead of opening a dialog
+	dnRequest("call",[dnTypeCached("System.Windows.Forms.Application, System.Windows.Forms"),"SetUnhandledExceptionMode","ThrowException"])
+	return 1
 
 # Folder (with a trailing "/") of a file path
 func dnFolderOf  cPath

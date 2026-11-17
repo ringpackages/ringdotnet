@@ -29,3 +29,6 @@ aDotNetClasses = []
 
 # [.NET type name, namespace] of every generated class (generated/classindex.ring): used to import namespaces on demand
 aDotNetClassIndex = []
+
+# Compiled callbacks: [code, function name] (see dnCallback)
+aDotNetCallbacks = []

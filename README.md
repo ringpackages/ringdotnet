@@ -98,7 +98,7 @@ func show aArgs
 	? aArgs[1]
 ```
 
-Errors raised by the Ring code reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
+The code of a callback is compiled once into a function (`dncallbackN`, the same text reuses it), so using it in a loop or a timer costs nothing extra. Errors raised by the Ring code reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
 
 ## Events (like Click)
 
@@ -111,6 +111,8 @@ oList.Add("one")
 ```
 
 ### Windows Forms
+
+All of `System.Windows.Forms` and `System.Drawing*` are wrapped (`dnImport("System.Windows.Forms")`, `dnImport("System.Drawing")`). `dnUseDesktop()` also makes errors in event handlers raise out of `Application.Run()` (so a Ring `try/catch` sees them, no dialog). Remember that in Ring `number + string` is an error: write `string(n) + " items"`.
 
 Call `dnUseDesktop()` first (it adds the Windows Desktop runtime and makes the Ring thread an STA thread). The Ring thread then runs the message loop in `Application.Run(form)`, so event code runs normally:
 
