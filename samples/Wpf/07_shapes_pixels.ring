@@ -17,21 +17,24 @@ using {
 }
 
 
-oCanvas = new Canvas()
-oCanvas.Width = 200
-oCanvas.Height = 120
-oCanvas.Background = wpfBrush("White")
-oRect = new WpfRectangle()
-oRect.Width = 80
-oRect.Height = 50
-oRect.Fill = wpfBrush("SteelBlue")
+oCanvas = new Canvas() {
+	Width = 200
+	Height = 120
+	Background = wpfBrush("White")
+}
+oRect = new WpfRectangle() {
+	Width = 80
+	Height = 50
+	Fill = wpfBrush("SteelBlue")
+}
 oCanvas.Children.Add(oRect)
 oCanvas.SetLeft(oRect,10)
 oCanvas.SetTop(oRect,10)
-oCircle = new Ellipse()
-oCircle.Width = 60
-oCircle.Height = 60
-oCircle.Fill = wpfBrush("Orange")
+oCircle = new Ellipse() {
+	Width = 60
+	Height = 60
+	Fill = wpfBrush("Orange")
+}
 oCanvas.Children.Add(oCircle)
 oCanvas.SetLeft(oCircle,120)
 oCanvas.SetTop(oCircle,30)

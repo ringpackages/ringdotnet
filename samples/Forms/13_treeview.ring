@@ -13,11 +13,15 @@ oTree = new TreeView()
 oTree.Dock = "Fill"
 oRoot = oTree.Nodes.Add("Languages")
 oScripting = oRoot.Nodes.Add("Scripting")
-oScripting.Nodes.Add("Ring")
-oScripting.Nodes.Add("Lua")
+oScripting {
+	Nodes.Add("Ring")
+	Nodes.Add("Lua")
+}
 oCompiled = oRoot.Nodes.Add("Compiled")
-oCompiled.Nodes.Add("C")
-oCompiled.Nodes.Add("Go")
+oCompiled {
+	Nodes.Add("C")
+	Nodes.Add("Go")
+}
 oForm.Controls.Add(oTree)
 oTree.ExpandAll()
 oTree.setAfterSelectEvent("oForm.Text = 'Selected: ' + oTree.SelectedNode.Text")

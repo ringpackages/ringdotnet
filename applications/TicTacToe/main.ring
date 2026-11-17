@@ -16,8 +16,10 @@ nDraws = 0
 aLines = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 
 oForm = uiForm("Tic-Tac-Toe",306,400)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 
 for nIndex = 1 to 9
 	nRow = floor((nIndex - 1) / 3)
@@ -46,8 +48,10 @@ func newGame
 	aBoard = list(9)
 	lGameOver = false
 	for oButton in aButtons
-		oButton.Text = ""
-		oButton.BackColor = new Color().Empty
+		oButton {
+			Text = ""
+			BackColor = new Color().Empty
+		}
 	next
 	oStatus.Text = "Your turn (X)"
 
@@ -147,4 +151,4 @@ func selfTest
 	move(9)
 	move(8)
 	dnAssert("game ended",lGameOver,1)
-	dnAssert("score updated",nWinsO + nDraws + nWinsX >= 1,1)
+	dnAssert("score updated",nWinsO + nDraws + nWinsX >= 1,True)

@@ -25,8 +25,10 @@ uiEnd()
 func askNameDialog cPreset
 	# (global variables: the code of an event runs outside this function)
 	oDialog = uiForm("What is your name?",300,120)
-	oDialog.FormBorderStyle = "FixedDialog"
-	oDialog.StartPosition = "CenterParent"
+	oDialog {
+		FormBorderStyle = "FixedDialog"
+		StartPosition = "CenterParent"
+	}
 	oBox = uiTextBox(oDialog,15,15,260,26)
 	oBox.Text = cPreset
 	oOk = uiButton(oDialog,"OK",110,60,80,30,"")

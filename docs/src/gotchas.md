@@ -41,6 +41,10 @@ func main
 	uiButton(oForm,"Click",20,50,100,32,"nClicks++ oCount.Text = '' + nClicks")
 ```
 
+### Names inside braces belong to the object first
+
+In `oForm { Text = cTitle }` Ring looks for `Text` and `cTitle` as members of `oForm` before it looks for variables. A variable named like a member of the object (`text`, `width`, `count`...) is then not what you expect. Use prefixed names (`cText`, `nWidth`) for your variables.
+
 ### Put the program in functions
 
 In Ring a **global variable named like an attribute** (`x`, `width`, `text`...) makes `obj.x` fail, and a function that assigns a name that exists as a global changes the global. Write `func main` and keep only what event code needs global.

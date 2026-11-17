@@ -73,6 +73,8 @@ nClicks = <span class="n">0</span>
 	oForm = <span class="f">uiForm</span>(<span class="s">"Counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
 	oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
 	<span class="f">uiButton</span>(oForm,<span class="s">"Click"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"nClicks++ oCount.Text = '' + nClicks"</span>)</code></pre></div>
+<h3 id="names-inside-braces-belong-to-the-object-first">Names inside braces belong to the object first<a class="anchor" href="#names-inside-braces-belong-to-the-object-first">#</a></h3>
+<p>In <code>oForm { Text = cTitle }</code> Ring looks for <code>Text</code> and <code>cTitle</code> as members of <code>oForm</code> before it looks for variables. A variable named like a member of the object (<code>text</code>, <code>width</code>, <code>count</code>...) is then not what you expect. Use prefixed names (<code>cText</code>, <code>nWidth</code>) for your variables.</p>
 <h3 id="put-the-program-in-functions">Put the program in functions<a class="anchor" href="#put-the-program-in-functions">#</a></h3>
 <p>In Ring a <strong>global variable named like an attribute</strong> (<code>x</code>, <code>width</code>, <code>text</code>...) makes <code>obj.x</code> fail, and a function that assigns a name that exists as a global changes the global. Write <code>func main</code> and keep only what event code needs global.</p>
 <h3 id="keywords-can-not-be-names">Keywords can not be names<a class="anchor" href="#keywords-can-not-be-names">#</a></h3>

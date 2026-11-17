@@ -42,9 +42,10 @@ Every public .NET event gets two methods, as in RingQt: `setXXXEvent(code)` and 
 ```ring
 using { "System.Collections.ObjectModel" }
 
-oList = new ObservableStringList()
-oList.setCollectionChangedEvent("? 'changed: ' + aDotNetArgs[2].getProp('Action')")
-oList.Add("one")
+oList = new ObservableStringList() {
+	setCollectionChangedEvent("? 'changed: ' + aDotNetArgs[2].getProp('Action')")
+	Add("one")
+}
 ```
 
 {{output:samples/UsingDotNet/test05_events.ring}}
@@ -54,9 +55,10 @@ oList.Add("one")
 Windows Forms and WPF controls are events all the way down:
 
 ```ring
-oButton = new Button()
-oButton.Text = "Click me"
-oButton.setClickEvent("oForm.Text = 'Clicked!'")
+oButton = new Button() {
+	Text = "Click me"
+	setClickEvent("oForm.Text = 'Clicked!'")
+}
 oForm.Controls.Add(oButton)
 ```
 

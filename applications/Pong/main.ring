@@ -24,9 +24,11 @@ nPlayerMove = 0		# -1, 0 or 1 while a key is held
 nKeyEvents = 0		# key events seen (for the test)
 
 oForm = uiForm("Pong",C_WIDTH,C_HEIGHT + 30)
-oForm.KeyPreview = 1
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	KeyPreview = True
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,30,C_WIDTH,C_HEIGHT)
 oCanvas = new UiCanvas(oPicture)
 oScore = uiLabel(oForm,"",10,6,400,22)
@@ -158,6 +160,6 @@ func selfTest
 	nBallDX = -5
 	nBallDY = 0
 	tick()
-	dnAssert("paddle hit reverses the ball",nBallDX > 0,1)
+	dnAssert("paddle hit reverses the ball",nBallDX > 0,True)
 	dnAssert("score text",oScore.Text,"You 1  :  0 Computer")
 	dnAssert("the paddle is drawn",oCanvas.pixel(36,nPlayerY + 10),"ff1e90ff")

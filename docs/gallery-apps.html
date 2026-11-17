@@ -85,13 +85,14 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Address book"</span>,<spa
 <span class="f">uiLabel</span>(oForm,<span class="s">"Search"</span>,<span class="n">10</span>,<span class="n">14</span>,<span class="n">50</span>,<span class="n">22</span>)
 oSearch = <span class="f">uiTextBox</span>(oForm,<span class="n">65</span>,<span class="n">11</span>,<span class="n">200</span>,<span class="n">26</span>)
 oSearch.<span class="f">setTextChangedEvent</span>(<span class="s">"applyFilter()"</span>)
-oGrid = <span class="k">new</span> <span class="t">DataGridView</span>()
-oGrid.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">45</span>)
-oGrid.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">580</span>,<span class="n">250</span>)
-oGrid.AllowUserToAddRows = <span class="n">0</span>
-oGrid.ReadOnly = <span class="n">1</span>
-oGrid.SelectionMode = <span class="s">"FullRowSelect"</span>
-oGrid.DataSource = oTable
+oGrid = <span class="k">new</span> <span class="t">DataGridView</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">45</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">580</span>,<span class="n">250</span>)
+	AllowUserToAddRows = <span class="k">False</span>
+	ReadOnly = <span class="k">True</span>
+	SelectionMode = <span class="s">"FullRowSelect"</span>
+	DataSource = oTable
+}
 oForm.Controls.<span class="f">Add</span>(oGrid)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Name"</span>,<span class="n">10</span>,<span class="n">312</span>,<span class="n">50</span>,<span class="n">22</span>)
 oName = <span class="f">uiTextBox</span>(oForm,<span class="n">65</span>,<span class="n">309</span>,<span class="n">150</span>,<span class="n">26</span>)
@@ -189,8 +190,8 @@ showCount()
 	addContact()
 	<span class="f">dnAssert</span>(<span class="s">"an empty name is ignored"</span>,oTable.Rows.Count,<span class="n">3</span>)
 	saveBook()
-	<span class="f">dnAssert</span>(<span class="s">"saved as xml"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="n">1</span>)
-	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="n">1</span>
+	<span class="f">dnAssert</span>(<span class="s">"saved as xml"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
+	oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Selected = <span class="k">True</span>
 	deleteSelected()
 	<span class="f">dnAssert</span>(<span class="s">"deleted"</span>,oTable.Rows.Count,<span class="n">2</span>)
 	loadBook()
@@ -221,13 +222,17 @@ C_CENTER = <span class="n">150</span>
 C_PI = <span class="n">3.14159265358979</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Analog clock"</span>,<span class="n">300</span>,<span class="n">330</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,<span class="n">300</span>,<span class="n">300</span>)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oDigital = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">0</span>,<span class="n">302</span>,<span class="n">300</span>,<span class="n">24</span>)
-oDigital.TextAlign = <span class="s">"MiddleCenter"</span>
-oDigital.Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">12</span>,<span class="k">true</span>)
+oDigital {
+	TextAlign = <span class="s">"MiddleCenter"</span>
+	Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">12</span>,<span class="k">true</span>)
+}
 oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class="s">"tick()"</span>)
 tick()
 oTimer.<span class="f">Start</span>()
@@ -304,12 +309,13 @@ oForm = <span class="f">uiForm</span>(<span class="s">"ASCII table"</span>,<span
 <span class="f">uiLabel</span>(oForm,<span class="s">"Filter"</span>,<span class="n">10</span>,<span class="n">12</span>,<span class="n">40</span>,<span class="n">22</span>)
 oFilter = <span class="f">uiTextBox</span>(oForm,<span class="n">55</span>,<span class="n">9</span>,<span class="n">200</span>,<span class="n">26</span>)
 oCount = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">270</span>,<span class="n">12</span>,<span class="n">140</span>,<span class="n">22</span>)
-oList = <span class="k">new</span> <span class="t">ListView</span>()
-oList.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">45</span>)
-oList.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">400</span>,<span class="n">465</span>)
-oList.View = <span class="s">"Details"</span>
-oList.FullRowSelect = <span class="n">1</span>
-oList.GridLines = <span class="n">1</span>
+oList = <span class="k">new</span> <span class="t">ListView</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">45</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">400</span>,<span class="n">465</span>)
+	View = <span class="s">"Details"</span>
+	FullRowSelect = <span class="k">True</span>
+	GridLines = <span class="k">True</span>
+}
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Dec"</span>,<span class="n">60</span>)
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Hex"</span>,<span class="n">60</span>)
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Binary"</span>,<span class="n">100</span>)
@@ -393,8 +399,10 @@ using {
 aHistory = []
 
 oForm = <span class="f">uiForm</span>(<span class="s">"BMI calculator"</span>,<span class="n">340</span>,<span class="n">360</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Units"</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">90</span>,<span class="n">24</span>)
 oUnits = <span class="f">uiComboBox</span>(oForm,<span class="n">110</span>,<span class="n">12</span>,<span class="n">200</span>,[<span class="s">"Metric (kg, cm)"</span>,<span class="s">"Imperial (lb, in)"</span>])
 oWeightLabel = <span class="f">uiLabel</span>(oForm,<span class="s">"Weight (kg)"</span>,<span class="n">15</span>,<span class="n">50</span>,<span class="n">90</span>,<span class="n">24</span>)
@@ -495,19 +503,25 @@ lFresh = <span class="k">true</span>		<span class="c"># the next digit starts a 
 cHistory = <span class="s">""</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Calculator"</span>,<span class="n">280</span>,<span class="n">380</span>)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 
 oHistory = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">8</span>,<span class="n">260</span>,<span class="n">18</span>)
-oHistory.TextAlign = <span class="s">"MiddleRight"</span>
-oHistory.ForeColor = <span class="f">uiColor</span>(<span class="s">"Gray"</span>)
+oHistory {
+	TextAlign = <span class="s">"MiddleRight"</span>
+	ForeColor = <span class="f">uiColor</span>(<span class="s">"Gray"</span>)
+}
 
 oScreen = <span class="f">uiTextBox</span>(oForm,<span class="n">10</span>,<span class="n">30</span>,<span class="n">260</span>,<span class="n">50</span>)
-oScreen.ReadOnly = <span class="n">1</span>
-oScreen.TextAlign = <span class="s">"Right"</span>
-oScreen.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">24</span>,<span class="k">false</span>)
-oScreen.Text = <span class="s">"0"</span>
+oScreen {
+	ReadOnly = <span class="k">True</span>
+	TextAlign = <span class="s">"Right"</span>
+	Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">24</span>,<span class="k">false</span>)
+	Text = <span class="s">"0"</span>
+}
 
 aKeys = [
 	[<span class="s">"C"</span>,<span class="s">"±"</span>,<span class="s">"%"</span>,<span class="s">"/"</span>],
@@ -530,8 +544,10 @@ aKeys = [
 <span class="c"># typing on the keyboard works too: characters arrive in KeyPress, Enter / Escape / Backspace in KeyDown</span>
 <span class="c"># (uiInputKeys: a focused button would take Enter and press itself again)</span>
 <span class="f">uiInputKeys</span>(oForm)
-oForm.<span class="f">setKeyPressEvent</span>(<span class="s">"keyTyped(aDotNetArgs[2])"</span>)
-oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"specialKey(aDotNetArgs[2])"</span>)
+oForm {
+	setKeyPressEvent(<span class="s">"keyTyped(aDotNetArgs[2])"</span>)
+	setKeyDownEvent(<span class="s">"specialKey(aDotNetArgs[2])"</span>)
+}
 
 <span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)
@@ -543,13 +559,13 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"specialKey(aDotNet
 	cChar = oArgs.KeyChar
 	<span class="k">if</span> find([<span class="s">"0"</span>,<span class="s">"1"</span>,<span class="s">"2"</span>,<span class="s">"3"</span>,<span class="s">"4"</span>,<span class="s">"5"</span>,<span class="s">"6"</span>,<span class="s">"7"</span>,<span class="s">"8"</span>,<span class="s">"9"</span>,<span class="s">"."</span>,<span class="s">"+"</span>,<span class="s">"-"</span>,<span class="s">"*"</span>,<span class="s">"/"</span>,<span class="s">"%"</span>],cChar) &gt; <span class="n">0</span>
 		press(cChar)
-		oArgs.Handled = <span class="n">1</span>
+		oArgs.Handled = <span class="k">True</span>
 	<span class="k">but</span> cChar = <span class="s">"="</span>
 		press(<span class="s">"="</span>)
-		oArgs.Handled = <span class="n">1</span>
+		oArgs.Handled = <span class="k">True</span>
 	<span class="k">but</span> cChar = <span class="s">"c"</span> <span class="k">or</span> cChar = <span class="s">"C"</span>
 		press(<span class="s">"C"</span>)
-		oArgs.Handled = <span class="n">1</span>
+		oArgs.Handled = <span class="k">True</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">specialKey</span> oArgs
@@ -563,8 +579,10 @@ oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"specialKey(aDotNet
 	<span class="k">else</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
-	oArgs.Handled = <span class="n">1</span>
-	oArgs.SuppressKeyPress = <span class="n">1</span>
+	oArgs {
+		Handled = <span class="k">True</span>
+		SuppressKeyPress = <span class="k">True</span>
+	}
 
 <span class="k">func</span> <span class="f">backspace</span>
 	<span class="k">if</span> <span class="k">not</span> lFresh <span class="k">and</span> len(cDisplay) &gt; <span class="n">0</span>
@@ -734,12 +752,15 @@ using {
 }
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Calendar"</span>,<span class="n">470</span>,<span class="n">260</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
-oCalendar = <span class="k">new</span> <span class="t">MonthCalendar</span>()
-oCalendar.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">10</span>)
-oCalendar.MaxSelectionCount = <span class="n">1</span>
-oCalendar.<span class="f">setDateChangedEvent</span>(<span class="s">"showFacts()"</span>)
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
+oCalendar = <span class="k">new</span> <span class="t">MonthCalendar</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">10</span>)
+	MaxSelectionCount = <span class="n">1</span>
+	setDateChangedEvent(<span class="s">"showFacts()"</span>)
+}
 oForm.Controls.<span class="f">Add</span>(oCalendar)
 oFacts = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">250</span>,<span class="n">12</span>,<span class="n">210</span>,<span class="n">230</span>)
 oFacts.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">10</span>,<span class="k">false</span>)
@@ -774,15 +795,15 @@ showFacts()
 <span class="k">func</span> <span class="f">selfTest</span>
 	oCalendar.<span class="f">SetDate</span>(<span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">2</span>,<span class="n">29</span>))
 	<span class="f">dnAssert</span>(<span class="s">"selected year"</span>,oCalendar.SelectionStart.Year,<span class="n">2024</span>)
-	<span class="f">dnAssert</span>(<span class="s">"event updated the facts"</span>,substr(oFacts.Text,<span class="s">"Thursday, February 29, 2024"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"day of year"</span>,substr(oFacts.Text,<span class="s">"Day of the year: 60"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"leap year"</span>,substr(oFacts.Text,<span class="s">"Leap year: yes"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"days in month"</span>,substr(oFacts.Text,<span class="s">"Days in the month: 29"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"days left"</span>,substr(oFacts.Text,<span class="s">"Days left in the year: 306"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"event updated the facts"</span>,substr(oFacts.Text,<span class="s">"Thursday, February 29, 2024"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"day of year"</span>,substr(oFacts.Text,<span class="s">"Day of the year: 60"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"leap year"</span>,substr(oFacts.Text,<span class="s">"Leap year: yes"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"days in month"</span>,substr(oFacts.Text,<span class="s">"Days in the month: 29"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"days left"</span>,substr(oFacts.Text,<span class="s">"Days left in the year: 306"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	oCalendar.<span class="f">SetDate</span>(<span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2023</span>,<span class="n">7</span>,<span class="n">4</span>))
-	<span class="f">dnAssert</span>(<span class="s">"not a leap year"</span>,substr(oFacts.Text,<span class="s">"Leap year: no"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"quarter 3"</span>,substr(oFacts.Text,<span class="s">"Quarter: 3"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"weekday"</span>,substr(oFacts.Text,<span class="s">"Tuesday"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd applications/ColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
+	<span class="f">dnAssert</span>(<span class="s">"not a leap year"</span>,substr(oFacts.Text,<span class="s">"Leap year: no"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"quarter 3"</span>,substr(oFacts.Text,<span class="s">"Quarter: 3"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"weekday"</span>,substr(oFacts.Text,<span class="s">"Tuesday"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd applications/ColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -795,19 +816,22 @@ aBars = []
 aValues = []
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Color mixer"</span>,<span class="n">420</span>,<span class="n">260</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 nY = <span class="n">15</span>
 <span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>]
 	<span class="f">uiLabel</span>(oForm,cName,<span class="n">15</span>,nY + <span class="n">4</span>,<span class="n">50</span>,<span class="n">22</span>)
-	oBar = <span class="k">new</span> <span class="t">TrackBar</span>()
-	oBar.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">70</span>,nY)
-	oBar.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">200</span>,<span class="n">40</span>)
-	oBar.Minimum = <span class="n">0</span>
-	oBar.Maximum = <span class="n">255</span>
-	oBar.TickFrequency = <span class="n">32</span>
-	oBar.<span class="f">setScrollEvent</span>(<span class="s">"mix()"</span>)
-	oBar.<span class="f">setValueChangedEvent</span>(<span class="s">"mix()"</span>)
+	oBar = <span class="k">new</span> <span class="t">TrackBar</span>() {
+		Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">70</span>,nY)
+		Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">200</span>,<span class="n">40</span>)
+		Minimum = <span class="n">0</span>
+		Maximum = <span class="n">255</span>
+		TickFrequency = <span class="n">32</span>
+		setScrollEvent(<span class="s">"mix()"</span>)
+		setValueChangedEvent(<span class="s">"mix()"</span>)
+	}
 	oForm.Controls.<span class="f">Add</span>(oBar)
 	aBars + oBar
 	aValues + <span class="f">uiLabel</span>(oForm,<span class="s">"0"</span>,<span class="n">280</span>,nY + <span class="n">4</span>,<span class="n">40</span>,<span class="n">22</span>)
@@ -816,8 +840,10 @@ nY = <span class="n">15</span>
 oSwatch = <span class="f">uiPanel</span>(oForm,<span class="n">15</span>,<span class="n">170</span>,<span class="n">120</span>,<span class="n">70</span>)
 oSwatch.BorderStyle = <span class="s">"FixedSingle"</span>
 oHex = <span class="f">uiTextBox</span>(oForm,<span class="n">150</span>,<span class="n">175</span>,<span class="n">100</span>,<span class="n">26</span>)
-oHex.ReadOnly = <span class="n">1</span>
-oHex.Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">12</span>,<span class="k">false</span>)
+oHex {
+	ReadOnly = <span class="k">True</span>
+	Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">12</span>,<span class="k">false</span>)
+}
 oHsv = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">150</span>,<span class="n">210</span>,<span class="n">250</span>,<span class="n">24</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Random"</span>,<span class="n">300</span>,<span class="n">172</span>,<span class="n">100</span>,<span class="n">28</span>,<span class="s">"randomColor()"</span>)
 aBars[<span class="n">1</span>].Value = <span class="n">200</span>
@@ -888,28 +914,35 @@ nLeft = <span class="n">0</span>		<span class="c"># seconds left</span>
 lRunning = <span class="k">false</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Countdown"</span>,<span class="n">330</span>,<span class="n">230</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Minutes"</span>,<span class="n">15</span>,<span class="n">18</span>,<span class="n">60</span>,<span class="n">22</span>)
-oMinutes = <span class="k">new</span> <span class="t">NumericUpDown</span>()
-oMinutes.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">80</span>,<span class="n">16</span>)
-oMinutes.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">55</span>,<span class="n">24</span>)
-oMinutes.Maximum = <span class="n">99</span>
-oMinutes.Value = <span class="n">1</span>
+oMinutes = <span class="k">new</span> <span class="t">NumericUpDown</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">80</span>,<span class="n">16</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">55</span>,<span class="n">24</span>)
+	Maximum = <span class="n">99</span>
+	Value = <span class="n">1</span>
+}
 oForm.Controls.<span class="f">Add</span>(oMinutes)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Seconds"</span>,<span class="n">150</span>,<span class="n">18</span>,<span class="n">60</span>,<span class="n">22</span>)
-oSeconds = <span class="k">new</span> <span class="t">NumericUpDown</span>()
-oSeconds.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">215</span>,<span class="n">16</span>)
-oSeconds.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">55</span>,<span class="n">24</span>)
-oSeconds.Maximum = <span class="n">59</span>
+oSeconds = <span class="k">new</span> <span class="t">NumericUpDown</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">215</span>,<span class="n">16</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">55</span>,<span class="n">24</span>)
+	Maximum = <span class="n">59</span>
+}
 oForm.Controls.<span class="f">Add</span>(oSeconds)
 oDisplay = <span class="f">uiLabel</span>(oForm,<span class="s">"01:00"</span>,<span class="n">15</span>,<span class="n">55</span>,<span class="n">300</span>,<span class="n">60</span>)
-oDisplay.Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">36</span>,<span class="k">true</span>)
-oDisplay.TextAlign = <span class="s">"MiddleCenter"</span>
-oBar = <span class="k">new</span> <span class="t">ProgressBar</span>()
-oBar.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">120</span>)
-oBar.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">300</span>,<span class="n">18</span>)
-oBar.Maximum = <span class="n">100</span>
+oDisplay {
+	Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">36</span>,<span class="k">true</span>)
+	TextAlign = <span class="s">"MiddleCenter"</span>
+}
+oBar = <span class="k">new</span> <span class="t">ProgressBar</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">120</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">300</span>,<span class="n">18</span>)
+	Maximum = <span class="n">100</span>
+}
 oForm.Controls.<span class="f">Add</span>(oBar)
 oStart = <span class="f">uiButton</span>(oForm,<span class="s">"Start"</span>,<span class="n">15</span>,<span class="n">155</span>,<span class="n">95</span>,<span class="n">34</span>,<span class="s">"startStop()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Reset"</span>,<span class="n">120</span>,<span class="n">155</span>,<span class="n">95</span>,<span class="n">34</span>,<span class="s">"resetTimer()"</span>)
@@ -1002,7 +1035,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	<span class="f">dnAssert</span>(<span class="s">"button says Pause"</span>,oStart.Text,<span class="s">"Pause"</span>)
 	waitMs(<span class="n">2200</span>)
 	oStart.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"two ticks happened"</span>,nLeft &lt;= <span class="n">3</span> <span class="k">and</span> nLeft &gt;= <span class="n">2</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two ticks happened"</span>,nLeft &lt;= <span class="n">3</span> <span class="k">and</span> nLeft &gt;= <span class="n">2</span>,<span class="k">True</span>)
 	resetTimer()
 	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oDisplay.Text,<span class="s">"00:05"</span>)</code></pre></div></details></div></div><div class="item" id="dice-roller"><div class="pic"><img src="img/shots/app-DiceRoller.png" alt="Dice Roller" loading="lazy"></div><div class="info"><h3>Dice Roller</h3><p>Dice roller - draws five dice with their pips and keeps statistics</p><div class="run"><code>cd applications/DiceRoller  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Dice roller - draws five dice with their pips and keeps statistics</span>
 
@@ -1019,8 +1052,10 @@ aCounts = list(<span class="n">6</span>)
 nRolls = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Dice roller"</span>,<span class="n">420</span>,<span class="n">330</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,<span class="n">420</span>,<span class="n">100</span>)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 <span class="f">uiButton</span>(oForm,<span class="s">"Roll"</span>,<span class="n">10</span>,<span class="n">110</span>,<span class="n">100</span>,<span class="n">34</span>,<span class="s">"rollAll()"</span>)
@@ -1111,7 +1146,7 @@ draw()
 		nSum += nCount
 	<span class="k">next</span>
 	<span class="f">dnAssert</span>(<span class="s">"statistics add up"</span>,nSum,<span class="n">1005</span>)
-	<span class="f">dnAssert</span>(<span class="s">"each face came up"</span>,aCounts[<span class="n">1</span>] &gt; <span class="n">80</span> <span class="k">and</span> aCounts[<span class="n">6</span>] &gt; <span class="n">80</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"each face came up"</span>,aCounts[<span class="n">1</span>] &gt; <span class="n">80</span> <span class="k">and</span> aCounts[<span class="n">6</span>] &gt; <span class="n">80</span>,<span class="k">True</span>)
 	lValid = <span class="k">true</span>
 	<span class="k">for</span> nFace <span class="k">in</span> aDice
 		<span class="k">if</span> nFace &lt; <span class="n">1</span> <span class="k">or</span> nFace &gt; <span class="n">6</span>
@@ -1133,14 +1168,18 @@ aQueens = list(C_SIZE)	<span class="c"># aQueens[column] = the row of the queen 
 aSquares = []
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Eight queens"</span>,<span class="n">360</span>,<span class="n">440</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> C_SIZE * C_SIZE
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE) + <span class="n">1</span>
 	nColumn = (nCell - <span class="n">1</span>) % C_SIZE + <span class="n">1</span>
 	oSquare = <span class="f">uiButton</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + (nColumn - <span class="n">1</span>) * <span class="n">42</span>,<span class="n">10</span> + (nRow - <span class="n">1</span>) * <span class="n">42</span>,<span class="n">42</span>,<span class="n">42</span>,<span class="s">"toggle("</span> + nRow + <span class="s">","</span> + nColumn + <span class="s">")"</span>)
-	oSquare.FlatStyle = <span class="s">"Flat"</span>
-	oSquare.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">18</span>,<span class="k">true</span>)
+	oSquare {
+		FlatStyle = <span class="s">"Flat"</span>
+		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">18</span>,<span class="k">true</span>)
+	}
 	aSquares + oSquare
 <span class="k">next</span>
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">355</span>,<span class="n">340</span>,<span class="n">24</span>)
@@ -1305,8 +1344,10 @@ using {
 C_FORMAT = <span class="s">"yyyy-MM-dd HH:mm:ss"</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Epoch time converter"</span>,<span class="n">440</span>,<span class="n">230</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Epoch (seconds)"</span>,<span class="n">15</span>,<span class="n">20</span>,<span class="n">110</span>,<span class="n">24</span>)
 oEpoch = <span class="f">uiTextBox</span>(oForm,<span class="n">130</span>,<span class="n">17</span>,<span class="n">170</span>,<span class="n">26</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Convert"</span>,<span class="n">310</span>,<span class="n">15</span>,<span class="n">100</span>,<span class="n">28</span>,<span class="s">"epochToDate()"</span>)
@@ -1315,7 +1356,7 @@ oUtc = <span class="f">uiTextBox</span>(oForm,<span class="n">130</span>,<span c
 <span class="f">uiButton</span>(oForm,<span class="s">"To epoch"</span>,<span class="n">310</span>,<span class="n">65</span>,<span class="n">100</span>,<span class="n">28</span>,<span class="s">"dateToEpoch()"</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Local time"</span>,<span class="n">15</span>,<span class="n">115</span>,<span class="n">110</span>,<span class="n">24</span>)
 oLocal = <span class="f">uiTextBox</span>(oForm,<span class="n">130</span>,<span class="n">112</span>,<span class="n">280</span>,<span class="n">26</span>)
-oLocal.ReadOnly = <span class="n">1</span>
+oLocal.ReadOnly = <span class="k">True</span>
 <span class="f">uiButton</span>(oForm,<span class="s">"Now"</span>,<span class="n">130</span>,<span class="n">155</span>,<span class="n">100</span>,<span class="n">30</span>,<span class="s">"showNow()"</span>)
 oMessage = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">195</span>,<span class="n">410</span>,<span class="n">24</span>)
 oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
@@ -1378,7 +1419,7 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	epochToDate()
 	<span class="f">dnAssert</span>(<span class="s">"invalid epoch message"</span>,oMessage.Text,<span class="s">"Invalid epoch value"</span>)
 	showNow()
-	<span class="f">dnAssert</span>(<span class="s">"now is after 2024"</span>,number(oEpoch.Text) &gt; <span class="n">1704067200</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="fifteen-puzzle"><div class="pic"><img src="img/shots/app-FifteenPuzzle.png" alt="Fifteen Puzzle" loading="lazy"></div><div class="info"><h3>Fifteen Puzzle</h3><p>Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</p><div class="run"><code>cd applications/FifteenPuzzle  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</span>
+	<span class="f">dnAssert</span>(<span class="s">"now is after 2024"</span>,number(oEpoch.Text) &gt; <span class="n">1704067200</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="fifteen-puzzle"><div class="pic"><img src="img/shots/app-FifteenPuzzle.png" alt="Fifteen Puzzle" loading="lazy"></div><div class="info"><h3>Fifteen Puzzle</h3><p>Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</p><div class="run"><code>cd applications/FifteenPuzzle  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -1393,8 +1434,10 @@ aCells = []		<span class="c"># the buttons</span>
 nMoves = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Fifteen puzzle"</span>,<span class="n">324</span>,<span class="n">390</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> C_SIZE * C_SIZE
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
@@ -1527,11 +1570,12 @@ oSplit.SplitterDistance = <span class="n">240</span>
 oTree = <span class="k">new</span> <span class="t">TreeView</span>()
 oTree.Dock = <span class="s">"Fill"</span>
 oSplit.Panel1.Controls.<span class="f">Add</span>(oTree)
-oList = <span class="k">new</span> <span class="t">ListView</span>()
-oList.Dock = <span class="s">"Fill"</span>
-oList.View = <span class="s">"Details"</span>
-oList.FullRowSelect = <span class="n">1</span>
-oList.GridLines = <span class="n">1</span>
+oList = <span class="k">new</span> <span class="t">ListView</span>() {
+	Dock = <span class="s">"Fill"</span>
+	View = <span class="s">"Details"</span>
+	FullRowSelect = <span class="k">True</span>
+	GridLines = <span class="k">True</span>
+}
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Name"</span>,<span class="n">260</span>)
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Size"</span>,<span class="n">90</span>)
 oList.Columns.<span class="f">Add_2</span>(<span class="s">"Modified"</span>,<span class="n">140</span>)
@@ -1540,8 +1584,10 @@ oStatus = <span class="k">new</span> <span class="t">StatusStrip</span>()
 oStatusText = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
 oStatus.Items.<span class="f">Add</span>(oStatusText)
 oForm.Controls.<span class="f">Add</span>(oStatus)
-oTree.<span class="f">setAfterSelectEvent</span>(<span class="s">"showFolder()"</span>)
-oTree.<span class="f">setBeforeExpandEvent</span>(<span class="s">"expandNode(aDotNetArgs[2].Node)"</span>)
+oTree {
+	setAfterSelectEvent(<span class="s">"showFolder()"</span>)
+	setBeforeExpandEvent(<span class="s">"expandNode(aDotNetArgs[2].Node)"</span>)
+}
 
 <span class="k">if</span> <span class="k">not</span> <span class="f">uiSelfTest</span>()
 	setRoot(<span class="k">new</span> <span class="t">Environment</span>().<span class="f">GetFolderPath</span>(<span class="s">"UserProfile"</span>))
@@ -1654,20 +1700,26 @@ nScore = <span class="n">0</span>
 lGameOver = <span class="k">false</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"2048"</span>,<span class="n">340</span>,<span class="n">420</span>)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
-oForm.BackColor = <span class="f">uiRGB</span>(<span class="n">187</span>,<span class="n">173</span>,<span class="n">160</span>)
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+	BackColor = <span class="f">uiRGB</span>(<span class="n">187</span>,<span class="n">173</span>,<span class="n">160</span>)
+}
 oScore = <span class="f">uiLabel</span>(oForm,<span class="s">"Score: 0"</span>,<span class="n">10</span>,<span class="n">8</span>,<span class="n">200</span>,<span class="n">28</span>)
-oScore.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
-oScore.BackColor = <span class="f">uiRGB</span>(<span class="n">187</span>,<span class="n">173</span>,<span class="n">160</span>)
+oScore {
+	Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
+	BackColor = <span class="f">uiRGB</span>(<span class="n">187</span>,<span class="n">173</span>,<span class="n">160</span>)
+}
 oNewGame = <span class="f">uiButton</span>(oForm,<span class="s">"New game"</span>,<span class="n">230</span>,<span class="n">8</span>,<span class="n">100</span>,<span class="n">28</span>,<span class="s">"newGame()"</span>)
 <span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> C_SIZE * C_SIZE
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
 	oTile = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + nCol * <span class="n">80</span>,<span class="n">50</span> + nRow * <span class="n">80</span>,<span class="n">76</span>,<span class="n">76</span>)
-	oTile.TextAlign = <span class="s">"MiddleCenter"</span>
-	oTile.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">20</span>,<span class="k">true</span>)
+	oTile {
+		TextAlign = <span class="s">"MiddleCenter"</span>
+		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">20</span>,<span class="k">true</span>)
+	}
 	aTileLabels + oTile
 <span class="k">next</span>
 <span class="f">uiGameKeys</span>(oForm,<span class="s">"keyPressed(aDotNetArgs[2].KeyCode)"</span>)
@@ -1871,7 +1923,7 @@ newGame()
 		<span class="f">uiSendKeys</span>(oForm,<span class="s">"{UP}"</span>)
 		<span class="f">dnAssert</span>(<span class="s">"the up arrow key reaches the game"</span>,aBoard[<span class="n">1</span>],<span class="n">16</span>)
 		<span class="f">uiSendKeys</span>(oForm,<span class="s">" "</span>)
-		<span class="f">dnAssert</span>(<span class="s">"Space does not press the New game button"</span>,nScore &gt; <span class="n">0</span>,<span class="n">1</span>)
+		<span class="f">dnAssert</span>(<span class="s">"Space does not press the New game button"</span>,nScore &gt; <span class="n">0</span>,<span class="k">True</span>)
 	<span class="k">ok</span>
 	<span class="c"># a full board without equal neighbours is game over</span>
 	aBoard = [<span class="n">2</span>,<span class="n">4</span>,<span class="n">2</span>,<span class="n">4</span>, <span class="n">4</span>,<span class="n">2</span>,<span class="n">4</span>,<span class="n">2</span>, <span class="n">2</span>,<span class="n">4</span>,<span class="n">2</span>,<span class="n">4</span>, <span class="n">4</span>,<span class="n">2</span>,<span class="n">4</span>,<span class="n">2</span>]
@@ -1893,8 +1945,10 @@ aCells = list(C_COLUMNS * C_ROWS)	<span class="c"># 1 = alive</span>
 nGeneration = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Game of Life"</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL + <span class="n">40</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">40</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"clickCell(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
@@ -2046,8 +2100,10 @@ C_MAXWRONG = <span class="n">6</span>
 aLetterButtons = []
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Hangman"</span>,<span class="n">420</span>,<span class="n">380</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">200</span>,<span class="n">200</span>)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oWord = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">220</span>,<span class="n">30</span>,<span class="n">190</span>,<span class="n">50</span>)
@@ -2072,7 +2128,7 @@ newGame()
 	cGuessed = <span class="s">""</span>
 	nWrong = <span class="n">0</span>
 	<span class="k">for</span> oButton <span class="k">in</span> aLetterButtons
-		oButton.Enabled = <span class="n">1</span>
+		oButton.Enabled = <span class="k">True</span>
 	<span class="k">next</span>
 	showState()
 
@@ -2096,7 +2152,7 @@ newGame()
 		<span class="k">return</span>
 	<span class="k">ok</span>
 	cGuessed += cLetter
-	aLetterButtons[ascii(cLetter) - <span class="n">64</span>].Enabled = <span class="n">0</span>
+	aLetterButtons[ascii(cLetter) - <span class="n">64</span>].Enabled = <span class="k">False</span>
 	<span class="k">if</span> <span class="k">not</span> substr(cWord,cLetter)
 		nWrong++
 	<span class="k">ok</span>
@@ -2138,7 +2194,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"letter revealed"</span>,oWord.Text,<span class="s">"R _ _ _"</span>)
 	letter(<span class="s">"Z"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"wrong guess counted"</span>,nWrong,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the button is disabled"</span>,aLetterButtons[<span class="n">26</span>].Enabled,<span class="n">0</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the button is disabled"</span>,aLetterButtons[<span class="n">26</span>].Enabled,<span class="k">False</span>)
 	<span class="f">dnAssert</span>(<span class="s">"no body yet"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">130</span>,<span class="n">90</span>),<span class="s">"ffffffff"</span>)
 	letter(<span class="s">"Z"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"same letter twice is ignored"</span>,nWrong,<span class="n">1</span>)
@@ -2175,10 +2231,11 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Image viewer"</span>,<spa
 	[<span class="s">"File"</span>,[[<span class="s">"Open..."</span>,<span class="s">"openDialog()"</span>,<span class="s">"Control, O"</span>],[<span class="s">"Save As..."</span>,<span class="s">"saveDialog()"</span>,<span class="s">"Control, S"</span>],[<span class="s">"-"</span>,<span class="s">""</span>],[<span class="s">"Exit"</span>,<span class="s">"oForm.Close()"</span>]]],
 	[<span class="s">"Image"</span>,[[<span class="s">"Rotate right"</span>,<span class="s">"rotate()"</span>],[<span class="s">"Flip horizontal"</span>,<span class="s">"flip()"</span>],[<span class="s">"Grayscale"</span>,<span class="s">"grayscale()"</span>],[<span class="s">"-"</span>,<span class="s">""</span>],[<span class="s">"Zoom in"</span>,<span class="s">"zoomBy(25)"</span>],[<span class="s">"Zoom out"</span>,<span class="s">"zoomBy(-25)"</span>],[<span class="s">"Actual size"</span>,<span class="s">"setZoom(100)"</span>]]]
 ])
-oBox = <span class="k">new</span> <span class="t">PictureBox</span>()
-oBox.Dock = <span class="s">"Fill"</span>
-oBox.SizeMode = <span class="s">"Zoom"</span>
-oBox.BackColor = <span class="f">uiColor</span>(<span class="s">"DimGray"</span>)
+oBox = <span class="k">new</span> <span class="t">PictureBox</span>() {
+	Dock = <span class="s">"Fill"</span>
+	SizeMode = <span class="s">"Zoom"</span>
+	BackColor = <span class="f">uiColor</span>(<span class="s">"DimGray"</span>)
+}
 oForm.Controls.<span class="f">Add</span>(oBox)
 oInfo = <span class="k">new</span> <span class="t">StatusStrip</span>()
 oInfoText = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
@@ -2292,14 +2349,14 @@ oBox.<span class="f">BringToFront</span>()
 	<span class="f">dnAssert</span>(<span class="s">"rotated size"</span>,oInfoText.Text,<span class="s">"20 x 40   zoom 100%"</span>)
 	grayscale()
 	oGray = oImage.<span class="f">GetPixel</span>(<span class="n">5</span>,<span class="n">5</span>)
-	<span class="f">dnAssert</span>(<span class="s">"gray has equal channels"</span>,oGray.R = oGray.G <span class="k">and</span> oGray.G = oGray.B,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"gray has equal channels"</span>,oGray.R = oGray.G <span class="k">and</span> oGray.G = oGray.B,<span class="k">True</span>)
 	zoomBy(<span class="n">50</span>)
 	<span class="f">dnAssert</span>(<span class="s">"zoom"</span>,nZoom,<span class="n">150</span>)
 	zoomBy(-<span class="n">500</span>)
 	<span class="f">dnAssert</span>(<span class="s">"zoom has a minimum"</span>,nZoom,<span class="n">25</span>)
 	cOut = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_saved.png"</span>)
 	saveTo(cOut)
-	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cOut),<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cOut),<span class="k">True</span>)
 	oBox.Image = <span class="f">dnNull</span>()
 	oImage.<span class="f">Dispose</span>()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
@@ -2314,13 +2371,16 @@ using {
 }
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Julian day"</span>,<span class="n">400</span>,<span class="n">230</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Date"</span>,<span class="n">15</span>,<span class="n">22</span>,<span class="n">60</span>,<span class="n">22</span>)
-oPicker = <span class="k">new</span> <span class="t">DateTimePicker</span>()
-oPicker.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">85</span>,<span class="n">19</span>)
-oPicker.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">150</span>,<span class="n">26</span>)
-oPicker.Format = <span class="s">"Short"</span>
+oPicker = <span class="k">new</span> <span class="t">DateTimePicker</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">85</span>,<span class="n">19</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">150</span>,<span class="n">26</span>)
+	Format = <span class="s">"Short"</span>
+}
 oForm.Controls.<span class="f">Add</span>(oPicker)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Julian day"</span>,<span class="n">15</span>,<span class="n">72</span>,<span class="n">70</span>,<span class="n">22</span>)
 oJulian = <span class="f">uiTextBox</span>(oForm,<span class="n">85</span>,<span class="n">69</span>,<span class="n">150</span>,<span class="n">26</span>)
@@ -2396,8 +2456,10 @@ aCells = []
 nPresses = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Lights Out"</span>,<span class="n">310</span>,<span class="n">380</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> C_SIZE * C_SIZE
 	nRow = floor((nCell - <span class="n">1</span>) / C_SIZE)
 	nCol = (nCell - <span class="n">1</span>) % C_SIZE
@@ -2499,12 +2561,13 @@ oPayment = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span 
 oPayment.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">13</span>,<span class="k">true</span>)
 oInterest = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">270</span>,<span class="n">48</span>,<span class="n">240</span>,<span class="n">24</span>)
 oTotal = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">270</span>,<span class="n">78</span>,<span class="n">240</span>,<span class="n">24</span>)
-oTable = <span class="k">new</span> <span class="t">ListView</span>()
-oTable.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">165</span>)
-oTable.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">490</span>,<span class="n">245</span>)
-oTable.View = <span class="s">"Details"</span>
-oTable.GridLines = <span class="n">1</span>
-oTable.FullRowSelect = <span class="n">1</span>
+oTable = <span class="k">new</span> <span class="t">ListView</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">165</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">490</span>,<span class="n">245</span>)
+	View = <span class="s">"Details"</span>
+	GridLines = <span class="k">True</span>
+	FullRowSelect = <span class="k">True</span>
+}
 <span class="k">for</span> aColumn <span class="k">in</span> [[<span class="s">"Month"</span>,<span class="n">60</span>],[<span class="s">"Payment"</span>,<span class="n">100</span>],[<span class="s">"Interest"</span>,<span class="n">100</span>],[<span class="s">"Principal"</span>,<span class="n">100</span>],[<span class="s">"Balance"</span>,<span class="n">110</span>]]
 	oTable.Columns.<span class="f">Add_2</span>(aColumn[<span class="n">1</span>],aColumn[<span class="n">2</span>])
 <span class="k">next</span>
@@ -2591,13 +2654,15 @@ aUsers = []
 nAttempts = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Sign in"</span>,<span class="n">340</span>,<span class="n">240</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"User name"</span>,<span class="n">20</span>,<span class="n">22</span>,<span class="n">90</span>,<span class="n">22</span>)
 oUser = <span class="f">uiTextBox</span>(oForm,<span class="n">115</span>,<span class="n">19</span>,<span class="n">190</span>,<span class="n">26</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Password"</span>,<span class="n">20</span>,<span class="n">62</span>,<span class="n">90</span>,<span class="n">22</span>)
 oPassword = <span class="f">uiTextBox</span>(oForm,<span class="n">115</span>,<span class="n">59</span>,<span class="n">190</span>,<span class="n">26</span>)
-oPassword.UseSystemPasswordChar = <span class="n">1</span>
+oPassword.UseSystemPasswordChar = <span class="k">True</span>
 oShow = <span class="f">uiCheckBox</span>(oForm,<span class="s">"Show password"</span>,<span class="n">115</span>,<span class="n">92</span>,<span class="n">150</span>,<span class="n">24</span>,<span class="s">"togglePassword()"</span>)
 oSignIn = <span class="f">uiButton</span>(oForm,<span class="s">"Sign in"</span>,<span class="n">115</span>,<span class="n">125</span>,<span class="n">90</span>,<span class="n">32</span>,<span class="s">"signIn()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Register"</span>,<span class="n">215</span>,<span class="n">125</span>,<span class="n">90</span>,<span class="n">32</span>,<span class="s">"registerUser()"</span>)
@@ -2660,14 +2725,18 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="k">ok</span>
 	nAttempts++
 	<span class="k">if</span> checkLogin(oUser.Text,oPassword.Text)
-		oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
-		oMessage.Text = <span class="s">"Welcome, "</span> + oUser.Text + <span class="s">"!"</span>
+		oMessage {
+			ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
+			Text = <span class="s">"Welcome, "</span> + oUser.Text + <span class="s">"!"</span>
+		}
 		nAttempts = <span class="n">0</span>
 	<span class="k">else</span>
-		oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
-		oMessage.Text = <span class="s">"Wrong user name or password (attempt "</span> + nAttempts + <span class="s">" of 3)"</span>
+		oMessage {
+			ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
+			Text = <span class="s">"Wrong user name or password (attempt "</span> + nAttempts + <span class="s">" of 3)"</span>
+		}
 		<span class="k">if</span> nAttempts &gt;= <span class="n">3</span>
-			oSignIn.Enabled = <span class="n">0</span>
+			oSignIn.Enabled = <span class="k">False</span>
 			oMessage.Text = <span class="s">"Too many attempts: sign in is disabled"</span>
 		<span class="k">ok</span>
 	<span class="k">ok</span>
@@ -2675,11 +2744,15 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 <span class="k">func</span> <span class="f">registerUser</span>
 	<span class="k">if</span> validate()
 		<span class="k">if</span> register(oUser.Text,oPassword.Text)
-			oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
-			oMessage.Text = <span class="s">"User "</span> + oUser.Text + <span class="s">" created"</span>
+			oMessage {
+				ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
+				Text = <span class="s">"User "</span> + oUser.Text + <span class="s">" created"</span>
+			}
 		<span class="k">else</span>
-			oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
-			oMessage.Text = <span class="s">"That user name is taken"</span>
+			oMessage {
+				ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
+				Text = <span class="s">"That user name is taken"</span>
+			}
 		<span class="k">ok</span>
 	<span class="k">ok</span>
 
@@ -2698,8 +2771,8 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"wrong password"</span>,left(oMessage.Text,<span class="n">5</span>),<span class="s">"Wrong"</span>)
 	oSignIn.<span class="f">PerformClick</span>()
 	oSignIn.<span class="f">PerformClick</span>()
-	<span class="f">dnAssert</span>(<span class="s">"locked after 3 attempts"</span>,oSignIn.Enabled,<span class="n">0</span>)
-	oSignIn.Enabled = <span class="n">1</span>
+	<span class="f">dnAssert</span>(<span class="s">"locked after 3 attempts"</span>,oSignIn.Enabled,<span class="k">False</span>)
+	oSignIn.Enabled = <span class="k">True</span>
 	nAttempts = <span class="n">0</span>
 	oUser.Text = <span class="s">"newuser"</span>
 	oPassword.Text = <span class="s">"pw123"</span>
@@ -2707,10 +2780,10 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"registered"</span>,oMessage.Text,<span class="s">"User newuser created"</span>)
 	registerUser()
 	<span class="f">dnAssert</span>(<span class="s">"duplicate user"</span>,oMessage.Text,<span class="s">"That user name is taken"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"password char hidden"</span>,oPassword.UseSystemPasswordChar,<span class="n">1</span>)
-	oShow.Checked = <span class="n">1</span>
+	<span class="f">dnAssert</span>(<span class="s">"password char hidden"</span>,oPassword.UseSystemPasswordChar,<span class="k">True</span>)
+	oShow.Checked = <span class="k">True</span>
 	togglePassword()
-	<span class="f">dnAssert</span>(<span class="s">"show password turns the mask off"</span>,oPassword.UseSystemPasswordChar,<span class="n">0</span>)</code></pre></div></details></div></div><div class="item" id="memory-game"><div class="pic"><img src="img/shots/app-MemoryGame.png" alt="Memory Game" loading="lazy"></div><div class="info"><h3>Memory Game</h3><p>Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</p><div class="run"><code>cd applications/MemoryGame  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</span>
+	<span class="f">dnAssert</span>(<span class="s">"show password turns the mask off"</span>,oPassword.UseSystemPasswordChar,<span class="k">False</span>)</code></pre></div></details></div></div><div class="item" id="memory-game"><div class="pic"><img src="img/shots/app-MemoryGame.png" alt="Memory Game" loading="lazy"></div><div class="info"><h3>Memory Game</h3><p>Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</p><div class="run"><code>cd applications/MemoryGame  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -2733,8 +2806,10 @@ nPairs = <span class="n">0</span>
 lBusy = <span class="k">false</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Memory game"</span>,<span class="n">330</span>,<span class="n">400</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="k">for</span> nCard = <span class="n">1</span> <span class="k">to</span> C_CARDS
 	nRow = floor((nCard - <span class="n">1</span>) / <span class="n">4</span>)
 	nCol = (nCard - <span class="n">1</span>) % <span class="n">4</span>
@@ -2774,9 +2849,11 @@ newGame()
 	nPairs = <span class="n">0</span>
 	lBusy = <span class="k">false</span>
 	<span class="k">for</span> oCard <span class="k">in</span> aCardButtons
-		oCard.Text = <span class="s">"?"</span>
-		oCard.Enabled = <span class="n">1</span>
-		oCard.BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		oCard {
+			Text = <span class="s">"?"</span>
+			Enabled = <span class="k">True</span>
+			BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		}
 	<span class="k">next</span>
 	showInfo()
 
@@ -2872,8 +2949,10 @@ lPlaying = <span class="k">true</span>
 nFlags = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Minesweeper"</span>,C_COLUMNS * C_SIZE + <span class="n">20</span>,C_ROWS * C_SIZE + <span class="n">70</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">8</span>,<span class="n">200</span>,<span class="n">24</span>)
 oInfo.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"New game"</span>,C_COLUMNS * C_SIZE - <span class="n">80</span>,<span class="n">6</span>,<span class="n">90</span>,<span class="n">28</span>,<span class="s">"newGame()"</span>)
@@ -2881,9 +2960,11 @@ oInfo.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<sp
 	nRow = floor((nCell - <span class="n">1</span>) / C_COLUMNS)
 	nColumn = (nCell - <span class="n">1</span>) % C_COLUMNS
 	oButton = <span class="f">uiButton</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + nColumn * C_SIZE,<span class="n">44</span> + nRow * C_SIZE,C_SIZE,C_SIZE,<span class="s">""</span>)
-	oButton.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
-	oButton.Margin = <span class="k">new</span> <span class="t">Padding</span>().<span class="f">New_1</span>(<span class="n">0</span>)
-	oButton.<span class="f">setMouseUpEvent</span>(<span class="s">"cellClicked("</span> + nCell + <span class="s">",aDotNetArgs[2].Button)"</span>)
+	oButton {
+		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
+		Margin = <span class="k">new</span> <span class="t">Padding</span>().<span class="f">New_1</span>(<span class="n">0</span>)
+		setMouseUpEvent(<span class="s">"cellClicked("</span> + nCell + <span class="s">",aDotNetArgs[2].Button)"</span>)
+	}
 	aButtons + oButton
 <span class="k">next</span>
 newGame()
@@ -2936,9 +3017,11 @@ newGame()
 	lPlaying = <span class="k">true</span>
 	nFlags = <span class="n">0</span>
 	<span class="k">for</span> oButton <span class="k">in</span> aButtons
-		oButton.Text = <span class="s">""</span>
-		oButton.Enabled = <span class="n">1</span>
-		oButton.BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		oButton {
+			Text = <span class="s">""</span>
+			Enabled = <span class="k">True</span>
+			BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		}
 	<span class="k">next</span>
 	showInfo()
 
@@ -3084,11 +3167,13 @@ oForm = <span class="f">uiForm</span>(<span class="s">"Untitled - Notepad"</span
 ])
 
 oEditor = <span class="f">uiMemo</span>(oForm,<span class="n">0</span>,<span class="n">24</span>,<span class="n">640</span>,<span class="n">370</span>)
-oEditor.Dock = <span class="s">"Fill"</span>
-oEditor.Font = <span class="k">new</span> <span class="t">Font</span>(<span class="s">"Consolas"</span>,<span class="n">11</span>)
-oEditor.<span class="f">setTextChangedEvent</span>(<span class="s">"textChanged()"</span>)
-oEditor.<span class="f">setKeyUpEvent</span>(<span class="s">"showPosition()"</span>)
-oEditor.<span class="f">setMouseUpEvent</span>(<span class="s">"showPosition()"</span>)
+oEditor {
+	Dock = <span class="s">"Fill"</span>
+	Font = <span class="k">new</span> <span class="t">Font</span>(<span class="s">"Consolas"</span>,<span class="n">11</span>)
+	setTextChangedEvent(<span class="s">"textChanged()"</span>)
+	setKeyUpEvent(<span class="s">"showPosition()"</span>)
+	setMouseUpEvent(<span class="s">"showPosition()"</span>)
+}
 
 oStatus = <span class="k">new</span> <span class="t">StatusStrip</span>()
 oPosition = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
@@ -3098,8 +3183,10 @@ oForm.Controls.<span class="f">Add</span>(oStatus)
 
 <span class="c"># find bar</span>
 oFindPanel = <span class="f">uiPanel</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,<span class="n">640</span>,<span class="n">30</span>)
-oFindPanel.Dock = <span class="s">"Bottom"</span>
-oFindPanel.Visible = <span class="n">0</span>
+oFindPanel {
+	Dock = <span class="s">"Bottom"</span>
+	Visible = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oFindPanel,<span class="s">"Find:"</span>,<span class="n">6</span>,<span class="n">6</span>,<span class="n">40</span>,<span class="n">20</span>)
 oFindText = <span class="f">uiTextBox</span>(oFindPanel,<span class="n">50</span>,<span class="n">4</span>,<span class="n">200</span>,<span class="n">24</span>)
 <span class="f">uiButton</span>(oFindPanel,<span class="s">"Find next"</span>,<span class="n">260</span>,<span class="n">3</span>,<span class="n">80</span>,<span class="n">26</span>,<span class="s">"findNext()"</span>)
@@ -3248,16 +3335,16 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="k">func</span> <span class="f">closing</span> oArgs
 	<span class="k">if</span> <span class="k">not</span> canDiscard()
-		oArgs.Cancel = <span class="n">1</span>
+		oArgs.Cancel = <span class="k">True</span>
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
 	oEditor.Text = <span class="s">"Hello"</span> + windowsnl() + <span class="s">"Ring and .NET"</span>
 	<span class="f">dnAssert</span>(<span class="s">"modified after typing"</span>,lModified,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"title has a star"</span>,<span class="s">"*"</span> = right(left(oForm.Text,len(<span class="s">"Untitled*"</span>)),<span class="n">1</span>),<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"title has a star"</span>,<span class="s">"*"</span> = right(left(oForm.Text,len(<span class="s">"Untitled*"</span>)),<span class="n">1</span>),<span class="k">True</span>)
 	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"notepad_selftest.txt"</span>)
 	saveTo(cTemp)
-	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cTemp),<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cTemp),<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"not modified after save"</span>,lModified,<span class="n">0</span>)
 	<span class="f">dnAssert</span>(<span class="s">"title is the file name"</span>,oForm.Text,<span class="s">"notepad_selftest.txt - Notepad"</span>)
 	oEditor.Text = <span class="s">"other"</span>
@@ -3270,9 +3357,11 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	oEditor.SelectionStart = <span class="n">3</span>
 	showPosition()
 	<span class="f">dnAssert</span>(<span class="s">"status position"</span>,oPosition.Text,<span class="s">"Ln 1, Col 4"</span>)
-	oEditor.Text = <span class="s">"one two three two"</span>
-	oEditor.SelectionStart = <span class="n">0</span>
-	oEditor.SelectionLength = <span class="n">0</span>
+	oEditor {
+		Text = <span class="s">"one two three two"</span>
+		SelectionStart = <span class="n">0</span>
+		SelectionLength = <span class="n">0</span>
+	}
 	oFindText.Text = <span class="s">"two"</span>
 	findNext()
 	<span class="f">dnAssert</span>(<span class="s">"find first"</span>,oEditor.SelectionStart,<span class="n">4</span>)
@@ -3297,15 +3386,18 @@ nAttempts = <span class="n">0</span>
 nBest = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Guess the number"</span>,<span class="n">340</span>,<span class="n">250</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"I am thinking of a number between 1 and 100"</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">310</span>,<span class="n">22</span>)
-oGuess = <span class="k">new</span> <span class="t">NumericUpDown</span>()
-oGuess.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">50</span>)
-oGuess.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">90</span>,<span class="n">26</span>)
-oGuess.Minimum = <span class="n">1</span>
-oGuess.Maximum = <span class="n">100</span>
-oGuess.Value = <span class="n">50</span>
+oGuess = <span class="k">new</span> <span class="t">NumericUpDown</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">50</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">90</span>,<span class="n">26</span>)
+	Minimum = <span class="n">1</span>
+	Maximum = <span class="n">100</span>
+	Value = <span class="n">50</span>
+}
 oForm.Controls.<span class="f">Add</span>(oGuess)
 <span class="f">uiButton</span>(oForm,<span class="s">"Guess"</span>,<span class="n">115</span>,<span class="n">48</span>,<span class="n">90</span>,<span class="n">30</span>,<span class="s">"guess()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"New game"</span>,<span class="n">215</span>,<span class="n">48</span>,<span class="n">100</span>,<span class="n">30</span>,<span class="s">"newGame()"</span>)
@@ -3364,7 +3456,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"history has 3 lines"</span>,oHistory.Items.Count,<span class="n">3</span>)
 	newGame()
 	<span class="f">dnAssert</span>(<span class="s">"new game resets"</span>,nAttempts,<span class="n">0</span>)
-	<span class="f">dnAssert</span>(<span class="s">"secret in range"</span>,nSecret &gt;= <span class="n">1</span> <span class="k">and</span> nSecret &lt;= <span class="n">100</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="paint"><div class="pic"><img src="img/shots/app-Paint.png" alt="Paint" loading="lazy"></div><div class="info"><h3>Paint</h3><p>Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</p><div class="run"><code>cd applications/Paint  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</span>
+	<span class="f">dnAssert</span>(<span class="s">"secret in range"</span>,nSecret &gt;= <span class="n">1</span> <span class="k">and</span> nSecret &lt;= <span class="n">100</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="paint"><div class="pic"><img src="img/shots/app-Paint.png" alt="Paint" loading="lazy"></div><div class="info"><h3>Paint</h3><p>Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</p><div class="run"><code>cd applications/Paint  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -3387,9 +3479,11 @@ oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<s
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
 oCanvas.<span class="f">show</span>()
-oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"mouseDown(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
-oPicture.<span class="f">setMouseMoveEvent</span>(<span class="s">"mouseMove(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
-oPicture.<span class="f">setMouseUpEvent</span>(<span class="s">"lDrawing = false"</span>)
+oPicture {
+	setMouseDownEvent(<span class="s">"mouseDown(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+	setMouseMoveEvent(<span class="s">"mouseMove(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+	setMouseUpEvent(<span class="s">"lDrawing = false"</span>)
+}
 
 nX = <span class="n">6</span>
 <span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Black"</span>,<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>,<span class="s">"Orange"</span>,<span class="s">"Purple"</span>,<span class="s">"Brown"</span>,<span class="s">"White"</span>]
@@ -3398,13 +3492,14 @@ nX = <span class="n">6</span>
 	nX += <span class="n">32</span>
 <span class="k">next</span>
 <span class="f">uiLabel</span>(oForm,<span class="s">"Size"</span>,<span class="n">280</span>,<span class="n">12</span>,<span class="n">32</span>,<span class="n">20</span>)
-oSize = <span class="k">new</span> <span class="t">TrackBar</span>()
-oSize.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">312</span>,<span class="n">6</span>)
-oSize.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">130</span>,<span class="n">30</span>)
-oSize.Minimum = <span class="n">1</span>
-oSize.Maximum = <span class="n">30</span>
-oSize.Value = <span class="n">4</span>
-oSize.<span class="f">setScrollEvent</span>(<span class="s">"nPenSize = oSize.Value"</span>)
+oSize = <span class="k">new</span> <span class="t">TrackBar</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">312</span>,<span class="n">6</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">130</span>,<span class="n">30</span>)
+	Minimum = <span class="n">1</span>
+	Maximum = <span class="n">30</span>
+	Value = <span class="n">4</span>
+	setScrollEvent(<span class="s">"nPenSize = oSize.Value"</span>)
+}
 oForm.Controls.<span class="f">Add</span>(oSize)
 <span class="f">uiButton</span>(oForm,<span class="s">"Clear"</span>,<span class="n">460</span>,<span class="n">6</span>,<span class="n">60</span>,<span class="n">28</span>,<span class="s">"clearCanvas()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Save..."</span>,<span class="n">526</span>,<span class="n">6</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"saveDialog()"</span>)
@@ -3464,8 +3559,8 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	<span class="f">dnAssert</span>(<span class="s">"pen size from the track bar value"</span>,oSize.Value,<span class="n">12</span>)
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"paint_selftest.png"</span>)
 	saveTo(cFile)
-	<span class="f">dnAssert</span>(<span class="s">"picture saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"PNG signature"</span>,substr(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile),<span class="s">"PNG"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"picture saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"PNG signature"</span>,substr(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile),<span class="s">"PNG"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	clearCanvas()
 	<span class="f">dnAssert</span>(<span class="s">"cleared"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">100</span>,<span class="n">50</span>),<span class="s">"ffffffff"</span>)</code></pre></div></details></div></div><div class="item" id="password-generator"><div class="pic"><img src="img/shots/app-PasswordGenerator.png" alt="Password Generator" loading="lazy"></div><div class="info"><h3>Password Generator</h3><p>Password generator - uses the .NET cryptographic random number generator</p><div class="run"><code>cd applications/PasswordGenerator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Password generator - uses the .NET cryptographic random number generator</span>
@@ -3480,33 +3575,39 @@ using {
 }
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Password generator"</span>,<span class="n">380</span>,<span class="n">260</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPassword = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">15</span>,<span class="n">350</span>,<span class="n">32</span>)
-oPassword.Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">14</span>,<span class="k">false</span>)
-oPassword.ReadOnly = <span class="n">1</span>
+oPassword {
+	Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">14</span>,<span class="k">false</span>)
+	ReadOnly = <span class="k">True</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Length"</span>,<span class="n">15</span>,<span class="n">62</span>,<span class="n">50</span>,<span class="n">22</span>)
-oLength = <span class="k">new</span> <span class="t">NumericUpDown</span>()
-oLength.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">70</span>,<span class="n">60</span>)
-oLength.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">60</span>,<span class="n">26</span>)
-oLength.Minimum = <span class="n">4</span>
-oLength.Maximum = <span class="n">64</span>
-oLength.Value = <span class="n">16</span>
+oLength = <span class="k">new</span> <span class="t">NumericUpDown</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">70</span>,<span class="n">60</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">60</span>,<span class="n">26</span>)
+	Minimum = <span class="n">4</span>
+	Maximum = <span class="n">64</span>
+	Value = <span class="n">16</span>
+}
 oForm.Controls.<span class="f">Add</span>(oLength)
 oLower = <span class="f">uiCheckBox</span>(oForm,<span class="s">"abc"</span>,<span class="n">150</span>,<span class="n">60</span>,<span class="n">60</span>,<span class="n">24</span>,<span class="s">""</span>)
 oUpper = <span class="f">uiCheckBox</span>(oForm,<span class="s">"ABC"</span>,<span class="n">210</span>,<span class="n">60</span>,<span class="n">60</span>,<span class="n">24</span>,<span class="s">""</span>)
 oDigits = <span class="f">uiCheckBox</span>(oForm,<span class="s">"123"</span>,<span class="n">270</span>,<span class="n">60</span>,<span class="n">60</span>,<span class="n">24</span>,<span class="s">""</span>)
 oSymbols = <span class="f">uiCheckBox</span>(oForm,<span class="s">"!@#"</span>,<span class="n">150</span>,<span class="n">90</span>,<span class="n">70</span>,<span class="n">24</span>,<span class="s">""</span>)
-oLower.Checked = <span class="n">1</span>
-oUpper.Checked = <span class="n">1</span>
-oDigits.Checked = <span class="n">1</span>
-oSymbols.Checked = <span class="n">1</span>
+oLower.Checked = <span class="k">True</span>
+oUpper.Checked = <span class="k">True</span>
+oDigits.Checked = <span class="k">True</span>
+oSymbols.Checked = <span class="k">True</span>
 <span class="f">uiButton</span>(oForm,<span class="s">"Generate"</span>,<span class="n">15</span>,<span class="n">130</span>,<span class="n">110</span>,<span class="n">34</span>,<span class="s">"generate()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Copy"</span>,<span class="n">135</span>,<span class="n">130</span>,<span class="n">80</span>,<span class="n">34</span>,<span class="s">"copyIt()"</span>)
-oStrength = <span class="k">new</span> <span class="t">ProgressBar</span>()
-oStrength.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">185</span>)
-oStrength.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">350</span>,<span class="n">18</span>)
-oStrength.Maximum = <span class="n">100</span>
+oStrength = <span class="k">new</span> <span class="t">ProgressBar</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">15</span>,<span class="n">185</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">350</span>,<span class="n">18</span>)
+	Maximum = <span class="n">100</span>
+}
 oForm.Controls.<span class="f">Add</span>(oStrength)
 oStrengthText = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">210</span>,<span class="n">350</span>,<span class="n">24</span>)
 generate()
@@ -3584,9 +3685,9 @@ generate()
 	oLength.Value = <span class="n">30</span>
 	generate()
 	<span class="f">dnAssert</span>(<span class="s">"longer password"</span>,len(oPassword.Text),<span class="n">30</span>)
-	oUpper.Checked = <span class="n">0</span>
-	oDigits.Checked = <span class="n">0</span>
-	oSymbols.Checked = <span class="n">0</span>
+	oUpper.Checked = <span class="k">False</span>
+	oDigits.Checked = <span class="k">False</span>
+	oSymbols.Checked = <span class="k">False</span>
 	oLength.Value = <span class="n">20</span>
 	generate()
 	<span class="f">dnAssert</span>(<span class="s">"only lower case"</span>,hasAny(oPassword.Text,<span class="s">"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#"</span>),<span class="n">0</span>)
@@ -3594,15 +3695,15 @@ generate()
 	oLength.Value = <span class="n">4</span>
 	generate()
 	<span class="f">dnAssert</span>(<span class="s">"short and simple is weak"</span>,oStrengthText.Text,<span class="s">"Weak"</span>)
-	oLower.Checked = <span class="n">0</span>
+	oLower.Checked = <span class="k">False</span>
 	generate()
 	<span class="f">dnAssert</span>(<span class="s">"no characters selected"</span>,oStrengthText.Text,<span class="s">"Choose at least one kind of characters"</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the random numbers are in range"</span>,secureRandom(<span class="n">10</span>) &lt; <span class="n">10</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the random numbers are in range"</span>,secureRandom(<span class="n">10</span>) &lt; <span class="n">10</span>,<span class="k">True</span>)
 	nSeen = <span class="s">""</span>
 	<span class="k">for</span> x = <span class="n">1</span> <span class="k">to</span> <span class="n">200</span>
 		nSeen += <span class="s">""</span> + secureRandom(<span class="n">3</span>)
 	<span class="k">next</span>
-	<span class="f">dnAssert</span>(<span class="s">"all values appear"</span>,substr(nSeen,<span class="s">"0"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"1"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"2"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="pong"><div class="pic"><img src="img/shots/app-Pong.png" alt="Pong" loading="lazy"></div><div class="info"><h3>Pong</h3><p>Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</p><div class="run"><code>cd applications/Pong  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</span>
+	<span class="f">dnAssert</span>(<span class="s">"all values appear"</span>,substr(nSeen,<span class="s">"0"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"1"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"2"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="pong"><div class="pic"><img src="img/shots/app-Pong.png" alt="Pong" loading="lazy"></div><div class="info"><h3>Pong</h3><p>Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</p><div class="run"><code>cd applications/Pong  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -3628,9 +3729,11 @@ nPlayerMove = <span class="n">0</span>		<span class="c"># -1, 0 or 1 while a key
 nKeyEvents = <span class="n">0</span>		<span class="c"># key events seen (for the test)</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Pong"</span>,C_WIDTH,C_HEIGHT + <span class="n">30</span>)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">30</span>,C_WIDTH,C_HEIGHT)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oScore = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">6</span>,<span class="n">400</span>,<span class="n">22</span>)
@@ -3762,7 +3865,7 @@ draw()
 	nBallDX = -<span class="n">5</span>
 	nBallDY = <span class="n">0</span>
 	tick()
-	<span class="f">dnAssert</span>(<span class="s">"paddle hit reverses the ball"</span>,nBallDX &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"paddle hit reverses the ball"</span>,nBallDX &gt; <span class="n">0</span>,<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"score text"</span>,oScore.Text,<span class="s">"You 1  :  0 Computer"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the paddle is drawn"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">36</span>,nPlayerY + <span class="n">10</span>),<span class="s">"ff1e90ff"</span>)</code></pre></div></details></div></div><div class="item" id="rock-paper-scissors"><div class="pic"><img src="img/shots/app-RockPaperScissors.png" alt="Rock Paper Scissors" loading="lazy"></div><div class="info"><h3>Rock Paper Scissors</h3><p>Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</p><div class="run"><code>cd applications/RockPaperScissors  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</span>
 
@@ -3779,15 +3882,19 @@ nLosses = <span class="n">0</span>
 nTies = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Rock, paper, scissors"</span>,<span class="n">360</span>,<span class="n">250</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Choose:"</span>,<span class="n">10</span>,<span class="n">12</span>,<span class="n">60</span>,<span class="n">24</span>)
 <span class="k">for</span> nChoice = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
 	<span class="f">uiButton</span>(oForm,aNames[nChoice],<span class="n">80</span> + (nChoice - <span class="n">1</span>) * <span class="n">90</span>,<span class="n">8</span>,<span class="n">85</span>,<span class="n">34</span>,<span class="s">"play("</span> + nChoice + <span class="s">")"</span>)
 <span class="k">next</span>
 oResult = <span class="f">uiLabel</span>(oForm,<span class="s">"Make your move"</span>,<span class="n">10</span>,<span class="n">60</span>,<span class="n">340</span>,<span class="n">60</span>)
-oResult.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
-oResult.TextAlign = <span class="s">"MiddleCenter"</span>
+oResult {
+	Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">true</span>)
+	TextAlign = <span class="s">"MiddleCenter"</span>
+}
 oScore = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">140</span>,<span class="n">340</span>,<span class="n">28</span>)
 oScore.TextAlign = <span class="s">"MiddleCenter"</span>
 oHistory = <span class="f">uiListBox</span>(oForm,<span class="n">10</span>,<span class="n">172</span>,<span class="n">340</span>,<span class="n">70</span>)
@@ -3871,9 +3978,11 @@ nScore = <span class="n">0</span>
 lAlive = <span class="k">true</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Snake"</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL + <span class="n">30</span>)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">30</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">8</span>,<span class="n">6</span>,<span class="n">300</span>,<span class="n">20</span>)
@@ -4052,9 +4161,11 @@ nPlayerRow = <span class="n">0</span>
 nMoves = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Sokoban"</span>,<span class="n">400</span>,<span class="n">300</span>)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">36</span>,<span class="n">400</span>,<span class="n">264</span>)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,<span class="n">8</span>,<span class="n">250</span>,<span class="n">22</span>)
@@ -4280,8 +4391,10 @@ nLastLap = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Stopwatch"</span>,<span class="n">300</span>,<span class="n">320</span>)
 oTime = <span class="f">uiLabel</span>(oForm,<span class="s">"00:00.00"</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">280</span>,<span class="n">60</span>)
-oTime.Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">32</span>,<span class="k">true</span>)
-oTime.TextAlign = <span class="s">"MiddleCenter"</span>
+oTime {
+	Font = <span class="f">uiFont</span>(<span class="s">"Consolas"</span>,<span class="n">32</span>,<span class="k">true</span>)
+	TextAlign = <span class="s">"MiddleCenter"</span>
+}
 oStart = <span class="f">uiButton</span>(oForm,<span class="s">"Start"</span>,<span class="n">10</span>,<span class="n">80</span>,<span class="n">85</span>,<span class="n">34</span>,<span class="s">"startStop()"</span>)
 oLap = <span class="f">uiButton</span>(oForm,<span class="s">"Lap"</span>,<span class="n">107</span>,<span class="n">80</span>,<span class="n">85</span>,<span class="n">34</span>,<span class="s">"lap()"</span>)
 oReset = <span class="f">uiButton</span>(oForm,<span class="s">"Reset"</span>,<span class="n">204</span>,<span class="n">80</span>,<span class="n">85</span>,<span class="n">34</span>,<span class="s">"reset()"</span>)
@@ -4353,7 +4466,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	waitMs(<span class="n">300</span>)
 	oLap.<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"one lap"</span>,oLaps.Items.Count,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"time moved"</span>,oWatch.ElapsedMilliseconds &gt;= <span class="n">250</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"time moved"</span>,oWatch.ElapsedMilliseconds &gt;= <span class="n">250</span>,<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"display updated by the timer"</span>,oTime.Text != <span class="s">"00:00.00"</span>,<span class="n">1</span>)
 	oStart.<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"stopped"</span>,oWatch.IsRunning,<span class="n">0</span>)
@@ -4375,18 +4488,22 @@ aFixed = list(<span class="n">81</span>)	<span class="c"># 1 for the digits that
 aBoxes = []
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Sudoku"</span>,<span class="n">420</span>,<span class="n">500</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="k">for</span> nCell = <span class="n">1</span> <span class="k">to</span> <span class="n">81</span>
 	nRow = floor((nCell - <span class="n">1</span>) / <span class="n">9</span>)
 	nColumn = (nCell - <span class="n">1</span>) % <span class="n">9</span>
 	nX = <span class="n">12</span> + nColumn * <span class="n">40</span> + floor(nColumn / <span class="n">3</span>) * <span class="n">4</span>
 	nY = <span class="n">12</span> + nRow * <span class="n">40</span> + floor(nRow / <span class="n">3</span>) * <span class="n">4</span>
 	oBox = <span class="f">uiTextBox</span>(oForm,nX,nY,<span class="n">38</span>,<span class="n">38</span>)
-	oBox.MaxLength = <span class="n">1</span>
-	oBox.TextAlign = <span class="s">"Center"</span>
-	oBox.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">16</span>,<span class="k">true</span>)
-	oBox.<span class="f">setTextChangedEvent</span>(<span class="s">"typed("</span> + nCell + <span class="s">")"</span>)
+	oBox {
+		MaxLength = <span class="n">1</span>
+		TextAlign = <span class="s">"Center"</span>
+		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">16</span>,<span class="k">true</span>)
+		setTextChangedEvent(<span class="s">"typed("</span> + nCell + <span class="s">")"</span>)
+	}
 	aBoxes + oBox
 <span class="k">next</span>
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">12</span>,<span class="n">400</span>,<span class="n">396</span>,<span class="n">24</span>)
@@ -4530,7 +4647,7 @@ loadPuzzle(aPuzzle)
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="f">dnAssert</span>(<span class="s">"puzzle loaded"</span>,aGrid[<span class="n">1</span>],<span class="n">5</span>)
 	<span class="f">dnAssert</span>(<span class="s">"empty square"</span>,aBoxes[<span class="n">3</span>].Text,<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"given digits are read only"</span>,aBoxes[<span class="n">1</span>].ReadOnly,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"given digits are read only"</span>,aBoxes[<span class="n">1</span>].ReadOnly,<span class="k">True</span>)
 	aBoxes[<span class="n">3</span>].Text = <span class="s">"4"</span>
 	<span class="f">dnAssert</span>(<span class="s">"typed digit"</span>,aGrid[<span class="n">3</span>],<span class="n">4</span>)
 	checkBoard()
@@ -4563,8 +4680,10 @@ using {
 lUpdating = <span class="k">false</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Temperature converter"</span>,<span class="n">320</span>,<span class="n">170</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 <span class="f">uiLabel</span>(oForm,<span class="s">"Celsius"</span>,<span class="n">20</span>,<span class="n">20</span>,<span class="n">80</span>,<span class="n">24</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Fahrenheit"</span>,<span class="n">20</span>,<span class="n">60</span>,<span class="n">80</span>,<span class="n">24</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Kelvin"</span>,<span class="n">20</span>,<span class="n">100</span>,<span class="n">80</span>,<span class="n">24</span>)
@@ -4669,9 +4788,11 @@ nLines = <span class="n">0</span>
 lGameOver = <span class="k">false</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tetris"</span>,C_COLUMNS * C_CELL + <span class="n">150</span>,C_ROWS * C_CELL)
-oForm.KeyPreview = <span class="n">1</span>
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	KeyPreview = <span class="k">True</span>
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,C_COLUMNS * C_CELL + <span class="n">10</span>,<span class="n">10</span>,<span class="n">130</span>,<span class="n">120</span>)
@@ -4884,7 +5005,7 @@ newGame()
 		<span class="f">dnAssert</span>(<span class="s">"the down arrow key drops one row"</span>,nPieceY,<span class="n">3</span>)
 		nScoreBefore = nScore
 		<span class="f">uiSendKeys</span>(oForm,<span class="s">" "</span>)
-		<span class="f">dnAssert</span>(<span class="s">"Space drops the piece to the bottom"</span>,aBoard[cellOf(<span class="n">5</span>,C_ROWS - <span class="n">1</span>)] &gt; <span class="n">0</span> <span class="k">or</span> aBoard[cellOf(<span class="n">5</span>,C_ROWS - <span class="n">2</span>)] &gt; <span class="n">0</span>,<span class="n">1</span>)
+		<span class="f">dnAssert</span>(<span class="s">"Space drops the piece to the bottom"</span>,aBoard[cellOf(<span class="n">5</span>,C_ROWS - <span class="n">1</span>)] &gt; <span class="n">0</span> <span class="k">or</span> aBoard[cellOf(<span class="n">5</span>,C_ROWS - <span class="n">2</span>)] &gt; <span class="n">0</span>,<span class="k">True</span>)
 	<span class="k">ok</span>
 	<span class="c"># the walls stop the piece</span>
 	nPieceX = <span class="n">0</span>
@@ -4919,8 +5040,10 @@ nDraws = <span class="n">0</span>
 aLines = [[<span class="n">1</span>,<span class="n">2</span>,<span class="n">3</span>],[<span class="n">4</span>,<span class="n">5</span>,<span class="n">6</span>],[<span class="n">7</span>,<span class="n">8</span>,<span class="n">9</span>],[<span class="n">1</span>,<span class="n">4</span>,<span class="n">7</span>],[<span class="n">2</span>,<span class="n">5</span>,<span class="n">8</span>],[<span class="n">3</span>,<span class="n">6</span>,<span class="n">9</span>],[<span class="n">1</span>,<span class="n">5</span>,<span class="n">9</span>],[<span class="n">3</span>,<span class="n">5</span>,<span class="n">7</span>]]
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Tic-Tac-Toe"</span>,<span class="n">306</span>,<span class="n">400</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 
 <span class="k">for</span> nIndex = <span class="n">1</span> <span class="k">to</span> <span class="n">9</span>
 	nRow = floor((nIndex - <span class="n">1</span>) / <span class="n">3</span>)
@@ -4949,8 +5072,10 @@ showScore()
 	aBoard = list(<span class="n">9</span>)
 	lGameOver = <span class="k">false</span>
 	<span class="k">for</span> oButton <span class="k">in</span> aButtons
-		oButton.Text = <span class="s">""</span>
-		oButton.BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		oButton {
+			Text = <span class="s">""</span>
+			BackColor = <span class="k">new</span> <span class="t">Color</span>().Empty
+		}
 	<span class="k">next</span>
 	oStatus.Text = <span class="s">"Your turn (X)"</span>
 
@@ -5050,7 +5175,7 @@ showScore()
 	move(<span class="n">9</span>)
 	move(<span class="n">8</span>)
 	<span class="f">dnAssert</span>(<span class="s">"game ended"</span>,lGameOver,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"score updated"</span>,nWinsO + nDraws + nWinsX &gt;= <span class="n">1</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="todo-list"><div class="pic"><img src="img/shots/app-TodoList.png" alt="Todo List" loading="lazy"></div><div class="info"><h3>Todo List</h3><p>To-do list with check boxes, saved to a text file</p><div class="run"><code>cd applications/TodoList  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># To-do list with check boxes, saved to a text file</span>
+	<span class="f">dnAssert</span>(<span class="s">"score updated"</span>,nWinsO + nDraws + nWinsX &gt;= <span class="n">1</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="todo-list"><div class="pic"><img src="img/shots/app-TodoList.png" alt="Todo List" loading="lazy"></div><div class="info"><h3>Todo List</h3><p>To-do list with check boxes, saved to a text file</p><div class="run"><code>cd applications/TodoList  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># To-do list with check boxes, saved to a text file</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -5069,13 +5194,16 @@ cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f"
 oForm = <span class="f">uiForm</span>(<span class="s">"To-do list"</span>,<span class="n">360</span>,<span class="n">420</span>)
 oInput = <span class="f">uiTextBox</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">250</span>,<span class="n">26</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Add"</span>,<span class="n">268</span>,<span class="n">9</span>,<span class="n">80</span>,<span class="n">28</span>,<span class="s">"addTask()"</span>)
-oList = <span class="k">new</span> <span class="t">CheckedListBox</span>()
-oList.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">46</span>)
-oList.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">338</span>,<span class="n">290</span>)
-oList.CheckOnClick = <span class="n">1</span>
+oList = <span class="k">new</span> <span class="t">CheckedListBox</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">46</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">338</span>,<span class="n">290</span>)
+	CheckOnClick = <span class="k">True</span>
+}
 <span class="c"># ItemCheck fires before the state changes, so the counters are refreshed after the mouse or key press</span>
-oList.<span class="f">setMouseUpEvent</span>(<span class="s">"updateInfo()"</span>)
-oList.<span class="f">setKeyUpEvent</span>(<span class="s">"updateInfo()"</span>)
+oList {
+	setMouseUpEvent(<span class="s">"updateInfo()"</span>)
+	setKeyUpEvent(<span class="s">"updateInfo()"</span>)
+}
 oForm.Controls.<span class="f">Add</span>(oList)
 <span class="f">uiButton</span>(oForm,<span class="s">"Remove checked"</span>,<span class="n">10</span>,<span class="n">345</span>,<span class="n">120</span>,<span class="n">28</span>,<span class="s">"removeDone()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Save"</span>,<span class="n">140</span>,<span class="n">345</span>,<span class="n">80</span>,<span class="n">28</span>,<span class="s">"saveTasks()"</span>)
@@ -5178,18 +5306,21 @@ aPlan = []		<span class="c"># the moves of the solver: [from,to]</span>
 nPlanned = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Towers of Hanoi"</span>,<span class="n">600</span>,<span class="n">380</span>)
-oForm.FormBorderStyle = <span class="s">"FixedSingle"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedSingle"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">0</span>,<span class="n">0</span>,<span class="n">600</span>,<span class="n">300</span>)
 oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
 oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"clicked(aDotNetArgs[2].X)"</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Disks:"</span>,<span class="n">10</span>,<span class="n">316</span>,<span class="n">45</span>,<span class="n">24</span>)
-oCount = <span class="k">new</span> <span class="t">NumericUpDown</span>()
-oCount.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">58</span>,<span class="n">314</span>)
-oCount.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">50</span>,<span class="n">24</span>)
-oCount.Minimum = <span class="n">1</span>
-oCount.Maximum = <span class="n">8</span>
-oCount.Value = <span class="n">4</span>
+oCount = <span class="k">new</span> <span class="t">NumericUpDown</span>() {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">58</span>,<span class="n">314</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">50</span>,<span class="n">24</span>)
+	Minimum = <span class="n">1</span>
+	Maximum = <span class="n">8</span>
+	Value = <span class="n">4</span>
+}
 oForm.Controls.<span class="f">Add</span>(oCount)
 <span class="f">uiButton</span>(oForm,<span class="s">"New"</span>,<span class="n">118</span>,<span class="n">312</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"newGame()"</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"Solve"</span>,<span class="n">196</span>,<span class="n">312</span>,<span class="n">70</span>,<span class="n">28</span>,<span class="s">"startSolver()"</span>)
@@ -5354,13 +5485,17 @@ lStarted = <span class="k">false</span>
 nBest = <span class="n">0</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Typing quiz"</span>,<span class="n">560</span>,<span class="n">260</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 oSentence = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">530</span>,<span class="n">50</span>)
 oSentence.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">false</span>)
 oInput = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span class="n">75</span>,<span class="n">530</span>,<span class="n">30</span>)
-oInput.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">false</span>)
-oInput.<span class="f">setTextChangedEvent</span>(<span class="s">"typed()"</span>)
+oInput {
+	Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>,<span class="k">false</span>)
+	setTextChangedEvent(<span class="s">"typed()"</span>)
+}
 oResult = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">120</span>,<span class="n">530</span>,<span class="n">60</span>)
 oResult.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">12</span>,<span class="k">true</span>)
 <span class="f">uiButton</span>(oForm,<span class="s">"New sentence"</span>,<span class="n">15</span>,<span class="n">195</span>,<span class="n">130</span>,<span class="n">34</span>,<span class="s">"newSentence()"</span>)
@@ -5377,8 +5512,10 @@ newSentence()
 	cTarget = aSentences[random(len(aSentences) - <span class="n">1</span>) + <span class="n">1</span>]
 	showTarget(cTarget)
 	oInput.Text = <span class="s">""</span>
-	oResult.Text = <span class="s">"Start typing..."</span>
-	oResult.ForeColor = <span class="f">uiColor</span>(<span class="s">"Black"</span>)
+	oResult {
+		Text = <span class="s">"Start typing..."</span>
+		ForeColor = <span class="f">uiColor</span>(<span class="s">"Black"</span>)
+	}
 	oWatch.<span class="f">Reset</span>()
 	lStarted = <span class="k">false</span>
 	oInput.<span class="f">Focus</span>()
@@ -5419,8 +5556,10 @@ newSentence()
 	<span class="k">if</span> cTyped = cTarget
 		oWatch.<span class="f">Stop</span>()
 		nSpeed = wordsPerMinute(len(cTarget),oWatch.ElapsedMilliseconds)
-		oResult.Text = <span class="s">"Done! "</span> + nSpeed + <span class="s">" words per minute"</span>
-		oResult.ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
+		oResult {
+			Text = <span class="s">"Done! "</span> + nSpeed + <span class="s">" words per minute"</span>
+			ForeColor = <span class="f">uiColor</span>(<span class="s">"DarkGreen"</span>)
+		}
 		<span class="k">if</span> nSpeed &gt; nBest
 			nBest = nSpeed
 			oBest.Text = <span class="s">"Best: "</span> + nBest + <span class="s">" wpm"</span>
@@ -5428,11 +5567,15 @@ newSentence()
 	<span class="k">else</span>
 		nWrong = mistakes(cTyped)
 		<span class="k">if</span> nWrong = <span class="n">0</span>
-			oResult.Text = <span class="s">"Good so far..."</span>
-			oResult.ForeColor = <span class="f">uiColor</span>(<span class="s">"Black"</span>)
+			oResult {
+				Text = <span class="s">"Good so far..."</span>
+				ForeColor = <span class="f">uiColor</span>(<span class="s">"Black"</span>)
+			}
 		<span class="k">else</span>
-			oResult.Text = <span class="s">""</span> + nWrong + <span class="s">" characters are different"</span>
-			oResult.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
+			oResult {
+				Text = <span class="s">""</span> + nWrong + <span class="s">" characters are different"</span>
+				ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"</span>)
+			}
 		<span class="k">ok</span>
 	<span class="k">ok</span>
 
@@ -5452,7 +5595,7 @@ newSentence()
 	<span class="f">dnAssert</span>(<span class="s">"the watch stopped"</span>,oWatch.IsRunning,<span class="n">0</span>)
 	<span class="f">dnAssert</span>(<span class="s">"best recorded"</span>,left(oBest.Text,<span class="n">5</span>),<span class="s">"Best:"</span>)
 	newSentence()
-	<span class="f">dnAssert</span>(<span class="s">"new sentence is one of the list"</span>,find(aSentences,cTarget) &gt; <span class="n">0</span>,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="unit-converter"><div class="pic"><img src="img/shots/app-UnitConverter.png" alt="Unit Converter" loading="lazy"></div><div class="info"><h3>Unit Converter</h3><p>Unit converter - length, weight, volume and temperature</p><div class="run"><code>cd applications/UnitConverter  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Unit converter - length, weight, volume and temperature</span>
+	<span class="f">dnAssert</span>(<span class="s">"new sentence is one of the list"</span>,find(aSentences,cTarget) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="unit-converter"><div class="pic"><img src="img/shots/app-UnitConverter.png" alt="Unit Converter" loading="lazy"></div><div class="info"><h3>Unit Converter</h3><p>Unit converter - length, weight, volume and temperature</p><div class="run"><code>cd applications/UnitConverter  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Unit converter - length, weight, volume and temperature</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -5470,8 +5613,10 @@ aCategories = [
 ]
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Unit converter"</span>,<span class="n">420</span>,<span class="n">200</span>)
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
-oForm.MaximizeBox = <span class="n">0</span>
+oForm {
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+	MaximizeBox = <span class="k">False</span>
+}
 aNames = []
 <span class="k">for</span> aCategory <span class="k">in</span> aCategories
 	aNames + aCategory[<span class="n">1</span>]
@@ -5482,7 +5627,7 @@ oValue = <span class="f">uiTextBox</span>(oForm,<span class="n">15</span>,<span 
 oFrom = <span class="f">uiComboBox</span>(oForm,<span class="n">130</span>,<span class="n">60</span>,<span class="n">110</span>,[<span class="s">"-"</span>])
 <span class="f">uiLabel</span>(oForm,<span class="s">"="</span>,<span class="n">248</span>,<span class="n">62</span>,<span class="n">16</span>,<span class="n">22</span>)
 oResult = <span class="f">uiTextBox</span>(oForm,<span class="n">268</span>,<span class="n">60</span>,<span class="n">130</span>,<span class="n">26</span>)
-oResult.ReadOnly = <span class="n">1</span>
+oResult.ReadOnly = <span class="k">True</span>
 oTo = <span class="f">uiComboBox</span>(oForm,<span class="n">268</span>,<span class="n">95</span>,<span class="n">130</span>,[<span class="s">"-"</span>])
 oFormula = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">15</span>,<span class="n">135</span>,<span class="n">380</span>,<span class="n">40</span>)
 oCategory.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"fillUnits()"</span>)
@@ -5600,8 +5745,10 @@ using {
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Word counter"</span>,<span class="n">620</span>,<span class="n">420</span>)
 oText = <span class="f">uiMemo</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">380</span>,<span class="n">400</span>)
-oText.WordWrap = <span class="n">1</span>
-oText.ScrollBars = <span class="s">"Vertical"</span>
+oText {
+	WordWrap = <span class="k">True</span>
+	ScrollBars = <span class="s">"Vertical"</span>
+}
 oStats = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">400</span>,<span class="n">10</span>,<span class="n">210</span>,<span class="n">120</span>)
 oStats.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">10</span>,<span class="k">false</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Most frequent words"</span>,<span class="n">400</span>,<span class="n">140</span>,<span class="n">200</span>,<span class="n">20</span>)
@@ -5667,14 +5814,14 @@ update()
 	oText.Text = <span class="s">"the cat and the hat"</span> + windowsnl() + <span class="s">"The end"</span>
 	<span class="f">dnAssert</span>(<span class="s">"word count"</span>,len(wordsOf(oText.Text)),<span class="n">7</span>)
 	<span class="f">dnAssert</span>(<span class="s">"unique words"</span>,len(uniqueWords(wordsOf(oText.Text))),<span class="n">5</span>)
-	<span class="f">dnAssert</span>(<span class="s">"stats label"</span>,substr(oStats.Text,<span class="s">"Words: 7"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
-	<span class="f">dnAssert</span>(<span class="s">"two lines"</span>,substr(oStats.Text,<span class="s">"Lines: 2"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"stats label"</span>,substr(oStats.Text,<span class="s">"Words: 7"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
+	<span class="f">dnAssert</span>(<span class="s">"two lines"</span>,substr(oStats.Text,<span class="s">"Lines: 2"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	aCounts = countWords(wordsOf(oText.Text))
 	<span class="f">dnAssert</span>(<span class="s">"sorted counts: first the 'the'"</span>,aCounts[len(aCounts)][<span class="n">1</span>],<span class="s">"the"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the count is 3"</span>,aCounts[len(aCounts)][<span class="n">2</span>],<span class="n">3</span>)
 	<span class="f">dnAssert</span>(<span class="s">"top list filled"</span>,oTop.Items.Count,<span class="n">5</span>)
 	oText.Text = <span class="s">""</span>
-	<span class="f">dnAssert</span>(<span class="s">"empty text"</span>,substr(oStats.Text,<span class="s">"Words: 0"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"empty text"</span>,substr(oStats.Text,<span class="s">"Words: 0"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	oText.Text = <span class="s">"naïve café 42 times"</span>
 	<span class="f">dnAssert</span>(<span class="s">"unicode letters and digits"</span>,len(wordsOf(oText.Text)),<span class="n">4</span>)</code></pre></div></details></div></div><div class="item" id="wpf-calculator"><div class="pic"><img src="img/shots/app-WpfCalculator.png" alt="Wpf Calculator" loading="lazy"></div><div class="info"><h3>Wpf Calculator</h3><p>Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</p><div class="run"><code>cd applications/WpfCalculator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</span>
 
@@ -5708,8 +5855,10 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 	oKeys = <span class="f">wpfFind</span>(oWindow,<span class="s">"keys"</span>)
 	<span class="k">for</span> cKey <span class="k">in</span> [<span class="s">"C"</span>,<span class="s">"±"</span>,<span class="s">"%"</span>,<span class="s">"/"</span>,<span class="s">"7"</span>,<span class="s">"8"</span>,<span class="s">"9"</span>,<span class="s">"*"</span>,<span class="s">"4"</span>,<span class="s">"5"</span>,<span class="s">"6"</span>,<span class="s">"-"</span>,<span class="s">"1"</span>,<span class="s">"2"</span>,<span class="s">"3"</span>,<span class="s">"+"</span>,<span class="s">"0"</span>,<span class="s">"."</span>,<span class="s">"√"</span>,<span class="s">"="</span>]
 		oButton = <span class="f">wpfButton</span>(cKey,<span class="s">"press('"</span> + cKey + <span class="s">"')"</span>)
-		oButton.FontSize = <span class="n">18</span>
-		oButton.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">2</span>,<span class="n">2</span>,<span class="n">2</span>,<span class="n">2</span>)
+		oButton {
+			FontSize = <span class="n">18</span>
+			Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">2</span>,<span class="n">2</span>,<span class="n">2</span>,<span class="n">2</span>)
+		}
 		oKeys.Children.<span class="f">Add</span>(oButton)
 	<span class="k">next</span>
 	<span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
@@ -5864,17 +6013,19 @@ oCode = <span class="s">""</span>
 		oGrid.RowDefinitions.<span class="f">Add</span>(<span class="k">new</span> <span class="t">RowDefinition</span>())
 	<span class="k">next</span>
 	<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Red"</span>,<span class="s">"Green"</span>,<span class="s">"Blue"</span>]
-		oRow = <span class="k">new</span> <span class="t">StackPanel</span>()
-		oRow.Orientation = <span class="s">"Horizontal"</span>
-		oRow.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">0</span>,<span class="n">5</span>,<span class="n">0</span>,<span class="n">5</span>)
+		oRow = <span class="k">new</span> <span class="t">StackPanel</span>() {
+			Orientation = <span class="s">"Horizontal"</span>
+			Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">0</span>,<span class="n">5</span>,<span class="n">0</span>,<span class="n">5</span>)
+		}
 		oLabel = <span class="f">wpfLabel</span>(cName)
 		oLabel.Width = <span class="n">60</span>
 		oRow.Children.<span class="f">Add</span>(oLabel)
-		oSlider = <span class="k">new</span> <span class="t">Slider</span>()
-		oSlider.Minimum = <span class="n">0</span>
-		oSlider.Maximum = <span class="n">255</span>
-		oSlider.Width = <span class="n">220</span>
-		oSlider.<span class="f">setValueChangedEvent</span>(<span class="s">"mix()"</span>)
+		oSlider = <span class="k">new</span> <span class="t">Slider</span>() {
+			Minimum = <span class="n">0</span>
+			Maximum = <span class="n">255</span>
+			Width = <span class="n">220</span>
+			setValueChangedEvent(<span class="s">"mix()"</span>)
+		}
 		oRow.Children.<span class="f">Add</span>(oSlider)
 		oValue = <span class="f">wpfLabel</span>(<span class="s">"0"</span>)
 		oRow.Children.<span class="f">Add</span>(oValue)
@@ -5883,9 +6034,10 @@ oCode = <span class="s">""</span>
 		aSliders + oSlider
 		aValues + oValue
 	<span class="k">next</span>
-	oSwatch = <span class="k">new</span> <span class="t">WpfRectangle</span>()
-	oSwatch.Height = <span class="n">80</span>
-	oSwatch.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">0</span>,<span class="n">10</span>,<span class="n">0</span>,<span class="n">0</span>)
+	oSwatch = <span class="k">new</span> <span class="t">WpfRectangle</span>() {
+		Height = <span class="n">80</span>
+		Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">0</span>,<span class="n">10</span>,<span class="n">0</span>,<span class="n">0</span>)
+	}
 	oGrid.Children.<span class="f">Add</span>(oSwatch)
 	oGrid.<span class="f">SetRow</span>(oSwatch,<span class="n">3</span>)
 	oCode = <span class="f">wpfLabel</span>(<span class="s">""</span>)

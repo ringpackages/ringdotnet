@@ -22,12 +22,13 @@ oPayment = uiLabel(oForm,"",270,15,240,24)
 oPayment.Font = uiFont("Segoe UI",13,true)
 oInterest = uiLabel(oForm,"",270,48,240,24)
 oTotal = uiLabel(oForm,"",270,78,240,24)
-oTable = new ListView()
-oTable.Location = new Point(15,165)
-oTable.Size = new Size(490,245)
-oTable.View = "Details"
-oTable.GridLines = 1
-oTable.FullRowSelect = 1
+oTable = new ListView() {
+	Location = new Point(15,165)
+	Size = new Size(490,245)
+	View = "Details"
+	GridLines = True
+	FullRowSelect = True
+}
 for aColumn in [["Month",60],["Payment",100],["Interest",100],["Principal",100],["Balance",110]]
 	oTable.Columns.Add_2(aColumn[1],aColumn[2])
 next

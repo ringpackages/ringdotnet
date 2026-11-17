@@ -15,8 +15,10 @@ nLastLap = 0
 
 oForm = uiForm("Stopwatch",300,320)
 oTime = uiLabel(oForm,"00:00.00",10,10,280,60)
-oTime.Font = uiFont("Consolas",32,true)
-oTime.TextAlign = "MiddleCenter"
+oTime {
+	Font = uiFont("Consolas",32,true)
+	TextAlign = "MiddleCenter"
+}
 oStart = uiButton(oForm,"Start",10,80,85,34,"startStop()")
 oLap = uiButton(oForm,"Lap",107,80,85,34,"lap()")
 oReset = uiButton(oForm,"Reset",204,80,85,34,"reset()")
@@ -88,7 +90,7 @@ func selfTest
 	waitMs(300)
 	oLap.PerformClick()
 	dnAssert("one lap",oLaps.Items.Count,1)
-	dnAssert("time moved",oWatch.ElapsedMilliseconds >= 250,1)
+	dnAssert("time moved",oWatch.ElapsedMilliseconds >= 250,True)
 	dnAssert("display updated by the timer",oTime.Text != "00:00.00",1)
 	oStart.PerformClick()
 	dnAssert("stopped",oWatch.IsRunning,0)

@@ -12,15 +12,18 @@ using { "System.Data" }
 oTable = new DataTable()
 oTable.Columns.Add_2("Name","System.String")
 oTable.Columns.Add_2("Age","System.Int32")
-oTable.Rows.Add(["Ann",31])
-oTable.Rows.Add(["Bob",17])
-oTable.Rows.Add(["Cy",45])
+oTable {
+	Rows.Add(["Ann",31])
+	Rows.Add(["Bob",17])
+	Rows.Add(["Cy",45])
+}
 oForm = uiForm("Data grid",340,200)
-oGrid = new DataGridView()
-oGrid.Dock = "Fill"
-oGrid.DataSource = oTable
-oGrid.ReadOnly = 1
-oGrid.AllowUserToAddRows = 0
+oGrid = new DataGridView() {
+	Dock = "Fill"
+	DataSource = oTable
+	ReadOnly = True
+	AllowUserToAddRows = False
+}
 oForm.Controls.Add(oGrid)
 
 uiTest(oForm,"selfTest()")

@@ -17,16 +17,19 @@ using {
 oWindow = wpfWindow("Binding",320,150)
 oPanel = new StackPanel()
 oWindow.Content = oPanel
-oSlider = new Slider()
-oSlider.Maximum = 100
-oSlider.Margin = new Thickness(10,10,10,10)
+oSlider = new Slider() {
+	Maximum = 100
+	Margin = new Thickness(10,10,10,10)
+}
 oText = new WpfTextBox()
 oText.Margin = new Thickness(10,10,10,10)
 oBinding = new WpfBinding().New_1("Value")
 oBinding.Source = oSlider
 oText.SetBinding(oText.TextProperty,oBinding)
-oPanel.Children.Add(oSlider)
-oPanel.Children.Add(oText)
+oPanel {
+	Children.Add(oSlider)
+	Children.Add(oText)
+}
 
 wpfTest(oWindow,"oSlider.Value = 64 dnAssert('binding',oText.Text,'64')")
 wpfRun(oWindow)

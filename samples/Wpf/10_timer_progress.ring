@@ -19,16 +19,18 @@ nPercent = 0
 oWindow = wpfWindow("Progress",320,120)
 oPanel = new StackPanel()
 oWindow.Content = oPanel
-oBar = new WpfProgressBar()
-oBar.Height = 24
-oBar.Margin = new Thickness(15,15,15,15)
-oBar.Maximum = 100
+oBar = new WpfProgressBar() {
+	Height = 24
+	Margin = new Thickness(15,15,15,15)
+	Maximum = 100
+}
 oPanel.Children.Add(oBar)
 oText = wpfLabel("0%")
 oPanel.Children.Add(oText)
-oTimer = new DispatcherTimer()
-oTimer.Interval = new TimeSpan().FromMilliseconds(20)
-oTimer.setTickEvent("advance()")
+oTimer = new DispatcherTimer() {
+	Interval = new TimeSpan().FromMilliseconds(20)
+	setTickEvent("advance()")
+}
 oTimer.Start()
 
 wpfRun(oWindow)

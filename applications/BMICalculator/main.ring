@@ -10,8 +10,10 @@ using {
 aHistory = []
 
 oForm = uiForm("BMI calculator",340,360)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"Units",15,15,90,24)
 oUnits = uiComboBox(oForm,110,12,200,["Metric (kg, cm)","Imperial (lb, in)"])
 oWeightLabel = uiLabel(oForm,"Weight (kg)",15,50,90,24)

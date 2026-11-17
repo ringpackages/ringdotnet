@@ -75,10 +75,11 @@ aResult = oDict.<span class="f">TryGetValue</span>(<span class="s">"three"</span
 using { <span class="s">"System.Collections.Generic"</span> }
 
 <span class="c"># List&lt;string&gt;</span>
-oList = <span class="k">new</span> <span class="t">StringList</span>()
-oList.<span class="f">Add</span>(<span class="s">"banana"</span>)
-oList.<span class="f">Add</span>(<span class="s">"apple"</span>)
-oList.<span class="f">Add</span>(<span class="s">"cherry"</span>)
+oList = <span class="k">new</span> <span class="t">StringList</span>() {
+	Add(<span class="s">"banana"</span>)
+	Add(<span class="s">"apple"</span>)
+	Add(<span class="s">"cherry"</span>)
+}
 oList.<span class="f">Sort</span>()
 ? <span class="s">"Count = "</span> + oList.<span class="f">getCount</span>()
 ? <span class="s">"First = "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>)

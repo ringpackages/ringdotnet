@@ -247,14 +247,18 @@ oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="
 <span class="c"># Start a process and read its output</span>
 oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>()
 <span class="k">if</span> iswindows()
-	oInfo.FileName = <span class="s">"cmd"</span>
-	oInfo.Arguments = <span class="s">"/c ver"</span>
+	oInfo {
+		FileName = <span class="s">"cmd"</span>
+		Arguments = <span class="s">"/c ver"</span>
+	}
 <span class="k">else</span>
 	oInfo.FileName = <span class="s">"uname"</span>
 <span class="k">ok</span>
-oInfo.RedirectStandardOutput = <span class="n">1</span>
-oInfo.UseShellExecute = <span class="n">0</span>
-oInfo.CreateNoWindow = <span class="n">1</span>
+oInfo {
+	RedirectStandardOutput = <span class="k">True</span>
+	UseShellExecute = <span class="k">False</span>
+	CreateNoWindow = <span class="k">True</span>
+}
 oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start_1</span>(oInfo)
 ? <span class="s">"Process says   : "</span> + trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
 oProcess.<span class="f">WaitForExit</span>()</code></pre></div></details>
@@ -300,9 +304,11 @@ oRoot = oDocument.RootElement
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
 oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Product"</span>,<span class="s">"System.String"</span>)
 oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Qty"</span>,<span class="s">"System.Int32"</span>)
-oTable.Rows.<span class="f">Add</span>([<span class="s">"pens"</span>,<span class="n">120</span>])
-oTable.Rows.<span class="f">Add</span>([<span class="s">"paper"</span>,<span class="n">15</span>])
-oTable.Rows.<span class="f">Add</span>([<span class="s">"ink"</span>,<span class="n">60</span>])
+oTable {
+	Rows.<span class="f">Add</span>([<span class="s">"pens"</span>,<span class="n">120</span>])
+	Rows.<span class="f">Add</span>([<span class="s">"paper"</span>,<span class="n">15</span>])
+	Rows.<span class="f">Add</span>([<span class="s">"ink"</span>,<span class="n">60</span>])
+}
 ? <span class="s">"Total quantity  : "</span> + oTable.<span class="f">Compute</span>(<span class="s">"SUM(Qty)"</span>,<span class="s">""</span>)
 oView = oTable.DefaultView
 oView.Sort = <span class="s">"Qty DESC"</span>
@@ -370,12 +376,13 @@ Concurrent     : first, left 1</code></pre></div>
 	<span class="s">"System.Threading.Tasks"</span>
 }
 
-oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>()
-oInfo.FileName = <span class="s">"cmd"</span>
-oInfo.Arguments = <span class="s">"/c ver"</span>
-oInfo.RedirectStandardOutput = <span class="n">1</span>
-oInfo.UseShellExecute = <span class="n">0</span>
-oInfo.CreateNoWindow = <span class="n">1</span>
+oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>() {
+	FileName = <span class="s">"cmd"</span>
+	Arguments = <span class="s">"/c ver"</span>
+	RedirectStandardOutput = <span class="k">True</span>
+	UseShellExecute = <span class="k">False</span>
+	CreateNoWindow = <span class="k">True</span>
+}
 oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start_1</span>(oInfo)
 ? trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
 oProcess.<span class="f">WaitForExit</span>()

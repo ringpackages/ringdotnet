@@ -16,8 +16,10 @@ aCells = list(C_COLUMNS * C_ROWS)	# 1 = alive
 nGeneration = 0
 
 oForm = uiForm("Game of Life",C_COLUMNS * C_CELL,C_ROWS * C_CELL + 40)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,40,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = new UiCanvas(oPicture)
 oPicture.setMouseDownEvent("clickCell(aDotNetArgs[2].X,aDotNetArgs[2].Y)")

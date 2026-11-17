@@ -23,11 +23,13 @@ uiMenu(oForm,[
 ])
 
 oEditor = uiMemo(oForm,0,24,640,370)
-oEditor.Dock = "Fill"
-oEditor.Font = new Font("Consolas",11)
-oEditor.setTextChangedEvent("textChanged()")
-oEditor.setKeyUpEvent("showPosition()")
-oEditor.setMouseUpEvent("showPosition()")
+oEditor {
+	Dock = "Fill"
+	Font = new Font("Consolas",11)
+	setTextChangedEvent("textChanged()")
+	setKeyUpEvent("showPosition()")
+	setMouseUpEvent("showPosition()")
+}
 
 oStatus = new StatusStrip()
 oPosition = new ToolStripStatusLabel()
@@ -37,8 +39,10 @@ oForm.Controls.Add(oStatus)
 
 # find bar
 oFindPanel = uiPanel(oForm,0,0,640,30)
-oFindPanel.Dock = "Bottom"
-oFindPanel.Visible = 0
+oFindPanel {
+	Dock = "Bottom"
+	Visible = False
+}
 uiLabel(oFindPanel,"Find:",6,6,40,20)
 oFindText = uiTextBox(oFindPanel,50,4,200,24)
 uiButton(oFindPanel,"Find next",260,3,80,26,"findNext()")
@@ -187,16 +191,16 @@ func findFrom cText, cWhat, nStart
 
 func closing oArgs
 	if not canDiscard()
-		oArgs.Cancel = 1
+		oArgs.Cancel = True
 	ok
 
 func selfTest
 	oEditor.Text = "Hello" + windowsnl() + "Ring and .NET"
 	dnAssert("modified after typing",lModified,1)
-	dnAssert("title has a star","*" = right(left(oForm.Text,len("Untitled*")),1),1)
+	dnAssert("title has a star","*" = right(left(oForm.Text,len("Untitled*")),1),True)
 	cTemp = new Path().Combine(new Path().GetTempPath(),"notepad_selftest.txt")
 	saveTo(cTemp)
-	dnAssert("saved",new File().Exists(cTemp),1)
+	dnAssert("saved",new File().Exists(cTemp),True)
 	dnAssert("not modified after save",lModified,0)
 	dnAssert("title is the file name",oForm.Text,"notepad_selftest.txt - Notepad")
 	oEditor.Text = "other"
@@ -209,9 +213,11 @@ func selfTest
 	oEditor.SelectionStart = 3
 	showPosition()
 	dnAssert("status position",oPosition.Text,"Ln 1, Col 4")
-	oEditor.Text = "one two three two"
-	oEditor.SelectionStart = 0
-	oEditor.SelectionLength = 0
+	oEditor {
+		Text = "one two three two"
+		SelectionStart = 0
+		SelectionLength = 0
+	}
 	oFindText.Text = "two"
 	findNext()
 	dnAssert("find first",oEditor.SelectionStart,4)

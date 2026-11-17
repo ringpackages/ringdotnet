@@ -16,8 +16,10 @@ aCategories = [
 ]
 
 oForm = uiForm("Unit converter",420,200)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 aNames = []
 for aCategory in aCategories
 	aNames + aCategory[1]
@@ -28,7 +30,7 @@ oValue = uiTextBox(oForm,15,60,110,26)
 oFrom = uiComboBox(oForm,130,60,110,["-"])
 uiLabel(oForm,"=",248,62,16,22)
 oResult = uiTextBox(oForm,268,60,130,26)
-oResult.ReadOnly = 1
+oResult.ReadOnly = True
 oTo = uiComboBox(oForm,268,95,130,["-"])
 oFormula = uiLabel(oForm,"",15,135,380,40)
 oCategory.setSelectedIndexChangedEvent("fillUnits()")

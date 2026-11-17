@@ -102,8 +102,10 @@ oCanvas.<span class="f">show</span>()                         <span class="c"># 
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTree = <span class="k">new</span> <span class="t">TreeView</span>()
 oTree.Dock = <span class="s">"Fill"</span>
 oRoot = oTree.Nodes.<span class="f">Add</span>(<span class="s">"Fruit"</span>)
-oRoot.Nodes.<span class="f">Add</span>(<span class="s">"Apple"</span>)
-oRoot.Nodes.<span class="f">Add</span>(<span class="s">"Pear"</span>)
+oRoot {
+	Nodes.<span class="f">Add</span>(<span class="s">"Apple"</span>)
+	Nodes.<span class="f">Add</span>(<span class="s">"Pear"</span>)
+}
 oTree.<span class="f">ExpandAll</span>()
 oForm.Controls.<span class="f">Add</span>(oTree)</code></pre></div>
 <div class="tablewrap"><table><thead><tr><th>Group</th><th>Controls</th></tr></thead><tbody><tr><td>Text and input</td><td><code>Label</code>, <code>TextBox</code>, <code>RichTextBox</code>, <code>MaskedTextBox</code>, <code>NumericUpDown</code>, <code>DateTimePicker</code>, <code>MonthCalendar</code></td></tr><tr><td>Buttons and choices</td><td><code>Button</code>, <code>CheckBox</code>, <code>RadioButton</code>, <code>ComboBox</code>, <code>ListBox</code>, <code>CheckedListBox</code>, <code>TrackBar</code>, <code>ProgressBar</code></td></tr><tr><td>Lists and trees</td><td><code>ListView</code>, <code>TreeView</code>, <code>DataGridView</code></td></tr><tr><td>Containers and layout</td><td><code>Panel</code>, <code>GroupBox</code>, <code>TabControl</code>, <code>SplitContainer</code>, <code>FlowLayoutPanel</code>, <code>TableLayoutPanel</code>; <code>Anchor</code> and <code>Dock</code></td></tr><tr><td>Menus and bars</td><td><code>MenuStrip</code>, <code>ContextMenuStrip</code>, <code>ToolStrip</code>, <code>StatusStrip</code>, <code>ToolTip</code></td></tr><tr><td>Dialogs</td><td><code>OpenFileDialog</code>, <code>SaveFileDialog</code>, <code>ColorDialog</code>, <code>FontDialog</code>, <code>FolderBrowserDialog</code>, <code>MessageBox</code>, your own modal <code>Form</code></td></tr><tr><td>Graphics</td><td><code>PictureBox</code>, <code>Bitmap</code>, <code>Graphics</code>, <code>Pen</code>, <code>Brush</code>, <code>Font</code></td></tr><tr><td>System</td><td><code>Clipboard</code>, <code>Timer</code>, <code>Screen</code>, <code>Cursor</code>, <code>Application</code></td></tr></tbody></table></div>

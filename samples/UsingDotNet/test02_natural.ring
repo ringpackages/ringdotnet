@@ -14,9 +14,10 @@ oMath = new Math()
 ? "Sqrt(144)  = " + oMath.Sqrt(144)
 ? "PI         = " + oMath.getPI()
 
-oSB = new StringBuilder("Hello")
-oSB.Append(", ")
-oSB.Append("Ring!")
+oSB = new StringBuilder("Hello") {
+	Append(", ")
+	Append("Ring!")
+}
 ? oSB.ToString()
 ? "Length    = " + oSB.getLength()
 oSB.Append("!!").Append("?")        # chained: Append returns a StringBuilder

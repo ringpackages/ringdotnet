@@ -26,8 +26,10 @@ for cName in ["Ring","Python","Lua"]
 next
 oList.setSelectionChangedEvent("cPicked = 'list:' + oList.SelectedItem")
 oCombo.setSelectionChangedEvent("cPicked = 'combo:' + oCombo.SelectedItem")
-oPanel.Children.Add(oList)
-oPanel.Children.Add(oCombo)
+oPanel {
+	Children.Add(oList)
+	Children.Add(oCombo)
+}
 
 wpfTest(oWindow,"oList.SelectedIndex = 1 dnAssert('list',cPicked,'list:Python') oCombo.SelectedIndex = 2 dnAssert('combo',cPicked,'combo:Lua') dnAssert('count',oList.Items.Count,3)")
 wpfRun(oWindow)

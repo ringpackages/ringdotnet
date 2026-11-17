@@ -10,9 +10,10 @@ using {
 
 nPercent = 0
 oForm = uiForm("Progress",320,110)
-oBar = new ProgressBar()
-oBar.Location = new Point(20,20)
-oBar.Size = new Size(270,24)
+oBar = new ProgressBar() {
+	Location = new Point(20,20)
+	Size = new Size(270,24)
+}
 oForm.Controls.Add(oBar)
 oText = uiLabel(oForm,"0%",20,55,270,24)
 oTimer = uiTimer(100,"advance()")

@@ -13,12 +13,13 @@ oForm = uiForm("ASCII table",420,520)
 uiLabel(oForm,"Filter",10,12,40,22)
 oFilter = uiTextBox(oForm,55,9,200,26)
 oCount = uiLabel(oForm,"",270,12,140,22)
-oList = new ListView()
-oList.Location = new Point(10,45)
-oList.Size = new Size(400,465)
-oList.View = "Details"
-oList.FullRowSelect = 1
-oList.GridLines = 1
+oList = new ListView() {
+	Location = new Point(10,45)
+	Size = new Size(400,465)
+	View = "Details"
+	FullRowSelect = True
+	GridLines = True
+}
 oList.Columns.Add_2("Dec",60)
 oList.Columns.Add_2("Hex",60)
 oList.Columns.Add_2("Binary",100)

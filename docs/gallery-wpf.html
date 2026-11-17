@@ -73,10 +73,11 @@ using {
 oWindow = <span class="f">wpfWindow</span>(<span class="s">"Hello WPF"</span>,<span class="n">320</span>,<span class="n">160</span>)
 oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
-oText = <span class="k">new</span> <span class="t">TextBlock</span>()
-oText.Text = <span class="s">"Hello from Ring and WPF!"</span>
-oText.FontSize = <span class="n">20</span>
-oText.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">20</span>,<span class="n">30</span>,<span class="n">20</span>,<span class="n">0</span>)
+oText = <span class="k">new</span> <span class="t">TextBlock</span>() {
+	Text = <span class="s">"Hello from Ring and WPF!"</span>
+	FontSize = <span class="n">20</span>
+	Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">20</span>,<span class="n">30</span>,<span class="n">20</span>,<span class="n">0</span>)
+}
 oPanel.Children.<span class="f">Add</span>(oText)
 
 <span class="f">wpfTest</span>(oWindow,<span class="s">"dnAssert('title',oWindow.Title,'Hello WPF') dnAssert('text',oText.Text,'Hello from Ring and WPF!') dnAssert('size',oWindow.Width,320)"</span>)
@@ -103,8 +104,10 @@ oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
 oInfo = <span class="f">wpfLabel</span>(<span class="s">"0 clicks"</span>)
 oButton = <span class="f">wpfButton</span>(<span class="s">"Click me"</span>,<span class="s">"clicked()"</span>)
-oPanel.Children.<span class="f">Add</span>(oInfo)
-oPanel.Children.<span class="f">Add</span>(oButton)
+oPanel {
+	Children.<span class="f">Add</span>(oInfo)
+	Children.<span class="f">Add</span>(oButton)
+}
 
 <span class="f">wpfTest</span>(oWindow,<span class="s">"selfTest()"</span>)
 <span class="f">wpfRun</span>(oWindow)
@@ -139,16 +142,19 @@ using {
 oWindow = <span class="f">wpfWindow</span>(<span class="s">"Binding"</span>,<span class="n">320</span>,<span class="n">150</span>)
 oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
-oSlider = <span class="k">new</span> <span class="t">Slider</span>()
-oSlider.Maximum = <span class="n">100</span>
-oSlider.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>)
+oSlider = <span class="k">new</span> <span class="t">Slider</span>() {
+	Maximum = <span class="n">100</span>
+	Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>)
+}
 oText = <span class="k">new</span> <span class="t">WpfTextBox</span>()
 oText.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>)
 oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_1</span>(<span class="s">"Value"</span>)
 oBinding.Source = oSlider
 oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)
-oPanel.Children.<span class="f">Add</span>(oSlider)
-oPanel.Children.<span class="f">Add</span>(oText)
+oPanel {
+	Children.<span class="f">Add</span>(oSlider)
+	Children.<span class="f">Add</span>(oText)
+}
 
 <span class="f">wpfTest</span>(oWindow,<span class="s">"oSlider.Value = 64 dnAssert('binding',oText.Text,'64')"</span>)
 <span class="f">wpfRun</span>(oWindow)
@@ -172,10 +178,11 @@ cLog = <span class="s">""</span>
 oWindow = <span class="f">wpfWindow</span>(<span class="s">"Choices"</span>,<span class="n">320</span>,<span class="n">220</span>)
 oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
-oCheck = <span class="k">new</span> <span class="t">WpfCheckBox</span>()
-oCheck.Content = <span class="s">"Enable logging"</span>
-oCheck.<span class="f">setCheckedEvent</span>(<span class="s">"cLog += 'on '"</span>)
-oCheck.<span class="f">setUncheckedEvent</span>(<span class="s">"cLog += 'off '"</span>)
+oCheck = <span class="k">new</span> <span class="t">WpfCheckBox</span>() {
+	Content = <span class="s">"Enable logging"</span>
+	setCheckedEvent(<span class="s">"cLog += 'on '"</span>)
+	setUncheckedEvent(<span class="s">"cLog += 'off '"</span>)
+}
 oPanel.Children.<span class="f">Add</span>(oCheck)
 aRadios = []
 <span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Small"</span>,<span class="s">"Medium"</span>,<span class="s">"Large"</span>]
@@ -185,7 +192,7 @@ aRadios = []
 	aRadios + oRadio
 <span class="k">next</span>
 
-<span class="f">wpfTest</span>(oWindow,<span class="s">"oCheck.IsChecked = 1 oCheck.IsChecked = 0 dnAssert('events',cLog,'on off ') aRadios[2].IsChecked = 1 aRadios[3].IsChecked = 1 dnAssert('exclusive',aRadios[2].IsChecked,0) dnAssert('selected',aRadios[3].IsChecked,1)"</span>)
+<span class="f">wpfTest</span>(oWindow,<span class="s">"oCheck.IsChecked = True oCheck.IsChecked = False dnAssert('events',cLog,'on off ') aRadios[2].IsChecked = True aRadios[3].IsChecked = True dnAssert('exclusive',aRadios[2].IsChecked,0) dnAssert('selected',aRadios[3].IsChecked,1)"</span>)
 <span class="f">wpfRun</span>(oWindow)
 <span class="f">wpfEnd</span>()</code></pre></div></details></div></div><div class="item" id="list-combo"><div class="pic"><img src="img/shots/wpf-05_list_combo.png" alt="List combo" loading="lazy"></div><div class="info"><h3>List combo</h3><p>A list box and a combo box with selection events</p><div class="run"><code>ring samples/Wpf/05_list_combo.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A list box and a combo box with selection events</span>
 
@@ -215,8 +222,10 @@ oCombo = <span class="k">new</span> <span class="t">WpfComboBox</span>()
 <span class="k">next</span>
 oList.<span class="f">setSelectionChangedEvent</span>(<span class="s">"cPicked = 'list:' + oList.SelectedItem"</span>)
 oCombo.<span class="f">setSelectionChangedEvent</span>(<span class="s">"cPicked = 'combo:' + oCombo.SelectedItem"</span>)
-oPanel.Children.<span class="f">Add</span>(oList)
-oPanel.Children.<span class="f">Add</span>(oCombo)
+oPanel {
+	Children.<span class="f">Add</span>(oList)
+	Children.<span class="f">Add</span>(oCombo)
+}
 
 <span class="f">wpfTest</span>(oWindow,<span class="s">"oList.SelectedIndex = 1 dnAssert('list',cPicked,'list:Python') oCombo.SelectedIndex = 2 dnAssert('combo',cPicked,'combo:Lua') dnAssert('count',oList.Items.Count,3)"</span>)
 <span class="f">wpfRun</span>(oWindow)
@@ -273,21 +282,24 @@ using {
 }
 
 
-oCanvas = <span class="k">new</span> <span class="t">Canvas</span>()
-oCanvas.Width = <span class="n">200</span>
-oCanvas.Height = <span class="n">120</span>
-oCanvas.Background = <span class="f">wpfBrush</span>(<span class="s">"White"</span>)
-oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>()
-oRect.Width = <span class="n">80</span>
-oRect.Height = <span class="n">50</span>
-oRect.Fill = <span class="f">wpfBrush</span>(<span class="s">"SteelBlue"</span>)
+oCanvas = <span class="k">new</span> <span class="t">Canvas</span>() {
+	Width = <span class="n">200</span>
+	Height = <span class="n">120</span>
+	Background = <span class="f">wpfBrush</span>(<span class="s">"White"</span>)
+}
+oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>() {
+	Width = <span class="n">80</span>
+	Height = <span class="n">50</span>
+	Fill = <span class="f">wpfBrush</span>(<span class="s">"SteelBlue"</span>)
+}
 oCanvas.Children.<span class="f">Add</span>(oRect)
 oCanvas.<span class="f">SetLeft</span>(oRect,<span class="n">10</span>)
 oCanvas.<span class="f">SetTop</span>(oRect,<span class="n">10</span>)
-oCircle = <span class="k">new</span> <span class="t">Ellipse</span>()
-oCircle.Width = <span class="n">60</span>
-oCircle.Height = <span class="n">60</span>
-oCircle.Fill = <span class="f">wpfBrush</span>(<span class="s">"Orange"</span>)
+oCircle = <span class="k">new</span> <span class="t">Ellipse</span>() {
+	Width = <span class="n">60</span>
+	Height = <span class="n">60</span>
+	Fill = <span class="f">wpfBrush</span>(<span class="s">"Orange"</span>)
+}
 oCanvas.Children.<span class="f">Add</span>(oCircle)
 oCanvas.<span class="f">SetLeft</span>(oCircle,<span class="n">120</span>)
 oCanvas.<span class="f">SetTop</span>(oCircle,<span class="n">30</span>)
@@ -335,10 +347,11 @@ fillGrid()
 	<span class="k">next</span>
 	<span class="k">for</span> nRow = <span class="n">0</span> <span class="k">to</span> <span class="n">2</span>
 		<span class="k">for</span> nColumn = <span class="n">0</span> <span class="k">to</span> <span class="n">2</span>
-			oCell = <span class="k">new</span> <span class="t">TextBlock</span>()
-			oCell.Text = <span class="s">""</span> + (nRow * <span class="n">3</span> + nColumn + <span class="n">1</span>)
-			oCell.HorizontalAlignment = <span class="s">"Center"</span>
-			oCell.VerticalAlignment = <span class="s">"Center"</span>
+			oCell = <span class="k">new</span> <span class="t">TextBlock</span>() {
+				Text = <span class="s">""</span> + (nRow * <span class="n">3</span> + nColumn + <span class="n">1</span>)
+				HorizontalAlignment = <span class="s">"Center"</span>
+				VerticalAlignment = <span class="s">"Center"</span>
+			}
 			oGrid.Children.<span class="f">Add</span>(oCell)
 			oGrid.<span class="f">SetRow</span>(oCell,nRow)
 			oGrid.<span class="f">SetColumn</span>(oCell,nColumn)
@@ -373,18 +386,20 @@ oWindow.Content = oDock
 oMenu = <span class="k">new</span> <span class="t">Menu</span>()
 oFile = <span class="k">new</span> <span class="t">MenuItem</span>()
 oFile.Header = <span class="s">"File"</span>
-oOpen = <span class="k">new</span> <span class="t">MenuItem</span>()
-oOpen.Header = <span class="s">"Open"</span>
-oOpen.<span class="f">setClickEvent</span>(<span class="s">"cLast = 'open'"</span>)
+oOpen = <span class="k">new</span> <span class="t">MenuItem</span>() {
+	Header = <span class="s">"Open"</span>
+	setClickEvent(<span class="s">"cLast = 'open'"</span>)
+}
 oFile.Items.<span class="f">Add</span>(oOpen)
 oMenu.Items.<span class="f">Add</span>(oFile)
 oDock.Children.<span class="f">Add</span>(oMenu)
 oDock.<span class="f">SetDock</span>(oMenu,<span class="s">"Top"</span>)
 oTabs = <span class="k">new</span> <span class="t">WpfTabControl</span>()
 <span class="k">for</span> cName <span class="k">in</span> [<span class="s">"First"</span>,<span class="s">"Second"</span>]
-	oTab = <span class="k">new</span> <span class="t">TabItem</span>()
-	oTab.Header = cName
-	oTab.Content = <span class="f">wpfLabel</span>(<span class="s">"Page "</span> + cName)
+	oTab = <span class="k">new</span> <span class="t">TabItem</span>() {
+		Header = cName
+		Content = <span class="f">wpfLabel</span>(<span class="s">"Page "</span> + cName)
+	}
 	oTabs.Items.<span class="f">Add</span>(oTab)
 <span class="k">next</span>
 oDock.Children.<span class="f">Add</span>(oTabs)
@@ -422,16 +437,18 @@ nPercent = <span class="n">0</span>
 oWindow = <span class="f">wpfWindow</span>(<span class="s">"Progress"</span>,<span class="n">320</span>,<span class="n">120</span>)
 oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
-oBar = <span class="k">new</span> <span class="t">WpfProgressBar</span>()
-oBar.Height = <span class="n">24</span>
-oBar.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>)
-oBar.Maximum = <span class="n">100</span>
+oBar = <span class="k">new</span> <span class="t">WpfProgressBar</span>() {
+	Height = <span class="n">24</span>
+	Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>,<span class="n">15</span>)
+	Maximum = <span class="n">100</span>
+}
 oPanel.Children.<span class="f">Add</span>(oBar)
 oText = <span class="f">wpfLabel</span>(<span class="s">"0%"</span>)
 oPanel.Children.<span class="f">Add</span>(oText)
-oTimer = <span class="k">new</span> <span class="t">DispatcherTimer</span>()
-oTimer.Interval = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMilliseconds</span>(<span class="n">20</span>)
-oTimer.<span class="f">setTickEvent</span>(<span class="s">"advance()"</span>)
+oTimer = <span class="k">new</span> <span class="t">DispatcherTimer</span>() {
+	Interval = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMilliseconds</span>(<span class="n">20</span>)
+	setTickEvent(<span class="s">"advance()"</span>)
+}
 oTimer.<span class="f">Start</span>()
 
 <span class="f">wpfRun</span>(oWindow)

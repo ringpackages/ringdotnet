@@ -2,10 +2,11 @@ load "../../libraries/dotnetlib/dotnetlib.ring"
 using { "System.Collections.Generic" }
 
 # List<string>
-oList = new StringList()
-oList.Add("banana")
-oList.Add("apple")
-oList.Add("cherry")
+oList = new StringList() {
+	Add("banana")
+	Add("apple")
+	Add("cherry")
+}
 oList.Sort()
 ? "Count = " + oList.getCount()
 ? "First = " + oList.Item(0)

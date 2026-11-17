@@ -83,9 +83,10 @@ file.txt
 <p>The bridge still <strong>picks the real overload from the argument types</strong>: whole numbers prefer <code>int</code>, strings prefer <code>string</code>, a .NET object prefers its own type.</p>
 <h2 id="properties-and-fields-are-attributes">Properties and fields are attributes<a class="anchor" href="#properties-and-fields-are-attributes">#</a></h2>
 <p>.NET properties are Ring attributes. Ring calls the generated <code>getName()</code> / <code>setName(value)</code> for you, so reading and writing is natural, also inside <code>{ }</code>:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm = <span class="k">new</span> <span class="t">Form</span>()
-oForm.Text = <span class="s">"Hello"</span>
-oForm.Width = <span class="n">400</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm = <span class="k">new</span> <span class="t">Form</span>() {
+	Text = <span class="s">"Hello"</span>
+	Width = <span class="n">400</span>
+}
 ? oForm.Controls.Count                 <span class="c"># chained: Controls returns a ControlCollection</span>
 oForm { Height = <span class="n">300</span>  Text += <span class="s">"!"</span> }</code></pre></div>
 <p>Assigning a read-only property raises an error. Properties whose names are Ring keywords (<code>From</code>, <code>To</code>, <code>Step</code>, <code>On</code> ...) are not attributes: use <code>getFrom()</code> / <code>setFrom(value)</code>.</p>
@@ -97,18 +98,34 @@ Count     = 2
 Capacity  = 50
 Caught: DotNet Error: Count is a read-only property
 Running = 0</code></pre></div>
+<h2 id="braces-instead-of-the-dot-operator">Braces instead of the dot operator<a class="anchor" href="#braces-instead-of-the-dot-operator">#</a></h2>
+<p>Ring lets you write <code>{ }</code> after an object, and everything inside is evaluated <strong>on that object</strong>. It is the natural way to configure a .NET object, and all the samples in this documentation use it:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>() {
+	FileName = <span class="s">"cmd"</span>
+	Arguments = <span class="s">"/c ver"</span>
+	RedirectStandardOutput = <span class="k">True</span>
+	UseShellExecute = <span class="k">False</span>
+	CreateNoWindow = <span class="k">True</span>
+}</code></pre></div>
+<p>This is exactly the same as writing <code>oInfo.FileName = "cmd"</code> line by line. Inside the braces you can assign properties, call methods (<code>setClickEvent("...")</code>, <code>Controls.Add(oButton)</code>) and use <code>+=</code>. Use it on any object: <code>oForm { Height = 300 }</code>.</p>
+<p>Use <code>True</code> and <code>False</code> for logical values; they are the numbers <code>1</code> and <code>0</code>, which is what .NET booleans become in Ring.</p>
+<div class="callout warn"><span class="t">Warning</span><p>Inside the braces a <strong>name is first looked up as a member of the object</strong>. If a variable of your program has the same name as a property of the object (a global called <code>text</code>, <code>width</code> or <code>count</code>), the braces use the property, not your variable. Keep your own names Hungarian-style (<code>cText</code>, <code>nWidth</code>) and the problem never appears.</p></div>
 <h2 id="enums-are-strings">Enums are strings<a class="anchor" href="#enums-are-strings">#</a></h2>
 <p>Enum values are strings in <strong>both directions</strong>:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm.WindowState = <span class="s">"Maximized"</span>
-oForm.FormBorderStyle = <span class="s">"FixedDialog"</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm {
+	WindowState = <span class="s">"Maximized"</span>
+	FormBorderStyle = <span class="s">"FixedDialog"</span>
+}
 oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)
 ? oDate.DayOfWeek                       <span class="c"># "Wednesday"</span>
 oLabel.TextAlign = <span class="s">"MiddleCenter"</span></code></pre></div>
 <p>Flag combinations use the .NET text form: <code>"Top, Left"</code>.</p>
 <h2 id="value-types-and-dnnull">Value types and <code>dnNull()</code><a class="anchor" href="#value-types-and-dnnull">#</a></h2>
 <p>Structs (<code>Point</code>, <code>Size</code>, <code>Color</code>, <code>DateTime</code>) are objects like any other. Their constructors take the numbers: <code>new Point(10,20)</code>, <code>new DateTime(2024,12,25)</code>:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton.Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">20</span>)
-oButton.Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">100</span>,<span class="n">30</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton {
+	Location = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">20</span>)
+	Size = <span class="k">new</span> <span class="t">Size</span>(<span class="n">100</span>,<span class="n">30</span>)
+}
 oPictureBox.Image = <span class="f">dnNull</span>()           <span class="c"># the .NET null</span></code></pre></div>
 <p><code>dnNull()</code> is the .NET <code>null</code>. A .NET method that returns null gives an object whose <code>isNull()</code> is true.</p>
 <h2 id="out-and-ref-parameters"><code>out</code> and <code>ref</code> parameters<a class="anchor" href="#out-and-ref-parameters">#</a></h2>

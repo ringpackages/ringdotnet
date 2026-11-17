@@ -11,9 +11,10 @@ using {
 oForm = uiForm("Toolbar",360,160)
 oBar = new ToolStrip()
 for cName in ["New","Open","Save"]
-	oTool = new ToolStripButton()
-	oTool.Text = cName
-	oTool.setClickEvent("oStatus.Text = 'Clicked ' + '" + cName + "'")
+	oTool = new ToolStripButton() {
+		Text = cName
+		setClickEvent("oStatus.Text = 'Clicked ' + '" + cName + "'")
+	}
 	oBar.Items.Add(oTool)
 next
 oForm.Controls.Add(oBar)

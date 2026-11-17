@@ -13,8 +13,10 @@ aCells = []		# the buttons
 nMoves = 0
 
 oForm = uiForm("Fifteen puzzle",324,390)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 for nCell = 1 to C_SIZE * C_SIZE
 	nRow = floor((nCell - 1) / C_SIZE)
 	nCol = (nCell - 1) % C_SIZE

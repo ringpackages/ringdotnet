@@ -19,9 +19,11 @@ nScore = 0
 lAlive = true
 
 oForm = uiForm("Snake",C_COLUMNS * C_CELL,C_ROWS * C_CELL + 30)
-oForm.KeyPreview = 1
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	KeyPreview = True
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,30,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",8,6,300,20)

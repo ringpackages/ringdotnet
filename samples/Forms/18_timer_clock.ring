@@ -10,8 +10,10 @@ using {
 
 oForm = uiForm("Clock",260,100)
 oClock = uiLabel(oForm,"",10,20,240,50)
-oClock.Font = uiFont("Consolas",28,true)
-oClock.TextAlign = "MiddleCenter"
+oClock {
+	Font = uiFont("Consolas",28,true)
+	TextAlign = "MiddleCenter"
+}
 oTimer = uiTimer(1000,"tick()")
 tick()
 oTimer.Start()

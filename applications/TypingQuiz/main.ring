@@ -21,13 +21,17 @@ lStarted = false
 nBest = 0
 
 oForm = uiForm("Typing quiz",560,260)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 oSentence = uiLabel(oForm,"",15,15,530,50)
 oSentence.Font = uiFont("Segoe UI",14,false)
 oInput = uiTextBox(oForm,15,75,530,30)
-oInput.Font = uiFont("Segoe UI",14,false)
-oInput.setTextChangedEvent("typed()")
+oInput {
+	Font = uiFont("Segoe UI",14,false)
+	setTextChangedEvent("typed()")
+}
 oResult = uiLabel(oForm,"",15,120,530,60)
 oResult.Font = uiFont("Segoe UI",12,true)
 uiButton(oForm,"New sentence",15,195,130,34,"newSentence()")
@@ -44,8 +48,10 @@ func newSentence
 	cTarget = aSentences[random(len(aSentences) - 1) + 1]
 	showTarget(cTarget)
 	oInput.Text = ""
-	oResult.Text = "Start typing..."
-	oResult.ForeColor = uiColor("Black")
+	oResult {
+		Text = "Start typing..."
+		ForeColor = uiColor("Black")
+	}
 	oWatch.Reset()
 	lStarted = false
 	oInput.Focus()
@@ -86,8 +92,10 @@ func typed
 	if cTyped = cTarget
 		oWatch.Stop()
 		nSpeed = wordsPerMinute(len(cTarget),oWatch.ElapsedMilliseconds)
-		oResult.Text = "Done! " + nSpeed + " words per minute"
-		oResult.ForeColor = uiColor("DarkGreen")
+		oResult {
+			Text = "Done! " + nSpeed + " words per minute"
+			ForeColor = uiColor("DarkGreen")
+		}
 		if nSpeed > nBest
 			nBest = nSpeed
 			oBest.Text = "Best: " + nBest + " wpm"
@@ -95,11 +103,15 @@ func typed
 	else
 		nWrong = mistakes(cTyped)
 		if nWrong = 0
-			oResult.Text = "Good so far..."
-			oResult.ForeColor = uiColor("Black")
+			oResult {
+				Text = "Good so far..."
+				ForeColor = uiColor("Black")
+			}
 		else
-			oResult.Text = "" + nWrong + " characters are different"
-			oResult.ForeColor = uiColor("Firebrick")
+			oResult {
+				Text = "" + nWrong + " characters are different"
+				ForeColor = uiColor("Firebrick")
+			}
 		ok
 	ok
 
@@ -119,4 +131,4 @@ func selfTest
 	dnAssert("the watch stopped",oWatch.IsRunning,0)
 	dnAssert("best recorded",left(oBest.Text,5),"Best:")
 	newSentence()
-	dnAssert("new sentence is one of the list",find(aSentences,cTarget) > 0,1)
+	dnAssert("new sentence is one of the list",find(aSentences,cTarget) > 0,True)

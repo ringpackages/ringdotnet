@@ -10,12 +10,15 @@ using {
 }
 
 oForm = uiForm("Calendar",470,260)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
-oCalendar = new MonthCalendar()
-oCalendar.Location = new Point(10,10)
-oCalendar.MaxSelectionCount = 1
-oCalendar.setDateChangedEvent("showFacts()")
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
+oCalendar = new MonthCalendar() {
+	Location = new Point(10,10)
+	MaxSelectionCount = 1
+	setDateChangedEvent("showFacts()")
+}
 oForm.Controls.Add(oCalendar)
 oFacts = uiLabel(oForm,"",250,12,210,230)
 oFacts.Font = uiFont("Segoe UI",10,false)
@@ -50,12 +53,12 @@ func showFacts
 func selfTest
 	oCalendar.SetDate(new DateTime(2024,2,29))
 	dnAssert("selected year",oCalendar.SelectionStart.Year,2024)
-	dnAssert("event updated the facts",substr(oFacts.Text,"Thursday, February 29, 2024") > 0,1)
-	dnAssert("day of year",substr(oFacts.Text,"Day of the year: 60") > 0,1)
-	dnAssert("leap year",substr(oFacts.Text,"Leap year: yes") > 0,1)
-	dnAssert("days in month",substr(oFacts.Text,"Days in the month: 29") > 0,1)
-	dnAssert("days left",substr(oFacts.Text,"Days left in the year: 306") > 0,1)
+	dnAssert("event updated the facts",substr(oFacts.Text,"Thursday, February 29, 2024") > 0,True)
+	dnAssert("day of year",substr(oFacts.Text,"Day of the year: 60") > 0,True)
+	dnAssert("leap year",substr(oFacts.Text,"Leap year: yes") > 0,True)
+	dnAssert("days in month",substr(oFacts.Text,"Days in the month: 29") > 0,True)
+	dnAssert("days left",substr(oFacts.Text,"Days left in the year: 306") > 0,True)
 	oCalendar.SetDate(new DateTime(2023,7,4))
-	dnAssert("not a leap year",substr(oFacts.Text,"Leap year: no") > 0,1)
-	dnAssert("quarter 3",substr(oFacts.Text,"Quarter: 3") > 0,1)
-	dnAssert("weekday",substr(oFacts.Text,"Tuesday") > 0,1)
+	dnAssert("not a leap year",substr(oFacts.Text,"Leap year: no") > 0,True)
+	dnAssert("quarter 3",substr(oFacts.Text,"Quarter: 3") > 0,True)
+	dnAssert("weekday",substr(oFacts.Text,"Tuesday") > 0,True)

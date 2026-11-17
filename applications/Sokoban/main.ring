@@ -37,9 +37,11 @@ nPlayerRow = 0
 nMoves = 0
 
 oForm = uiForm("Sokoban",400,300)
-oForm.KeyPreview = 1
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	KeyPreview = True
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,36,400,264)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",10,8,250,22)

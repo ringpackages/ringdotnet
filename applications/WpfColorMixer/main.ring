@@ -28,17 +28,19 @@ func main
 		oGrid.RowDefinitions.Add(new RowDefinition())
 	next
 	for cName in ["Red","Green","Blue"]
-		oRow = new StackPanel()
-		oRow.Orientation = "Horizontal"
-		oRow.Margin = new Thickness(0,5,0,5)
+		oRow = new StackPanel() {
+			Orientation = "Horizontal"
+			Margin = new Thickness(0,5,0,5)
+		}
 		oLabel = wpfLabel(cName)
 		oLabel.Width = 60
 		oRow.Children.Add(oLabel)
-		oSlider = new Slider()
-		oSlider.Minimum = 0
-		oSlider.Maximum = 255
-		oSlider.Width = 220
-		oSlider.setValueChangedEvent("mix()")
+		oSlider = new Slider() {
+			Minimum = 0
+			Maximum = 255
+			Width = 220
+			setValueChangedEvent("mix()")
+		}
 		oRow.Children.Add(oSlider)
 		oValue = wpfLabel("0")
 		oRow.Children.Add(oValue)
@@ -47,9 +49,10 @@ func main
 		aSliders + oSlider
 		aValues + oValue
 	next
-	oSwatch = new WpfRectangle()
-	oSwatch.Height = 80
-	oSwatch.Margin = new Thickness(0,10,0,0)
+	oSwatch = new WpfRectangle() {
+		Height = 80
+		Margin = new Thickness(0,10,0,0)
+	}
 	oGrid.Children.Add(oSwatch)
 	oGrid.SetRow(oSwatch,3)
 	oCode = wpfLabel("")

@@ -81,12 +81,13 @@ using {
 	"System.Threading.Tasks"
 }
 
-oInfo = new ProcessStartInfo()
-oInfo.FileName = "cmd"
-oInfo.Arguments = "/c ver"
-oInfo.RedirectStandardOutput = 1
-oInfo.UseShellExecute = 0
-oInfo.CreateNoWindow = 1
+oInfo = new ProcessStartInfo() {
+	FileName = "cmd"
+	Arguments = "/c ver"
+	RedirectStandardOutput = True
+	UseShellExecute = False
+	CreateNoWindow = True
+}
 oProcess = new Process().Start_1(oInfo)
 ? trim(oProcess.StandardOutput.ReadToEnd())
 oProcess.WaitForExit()

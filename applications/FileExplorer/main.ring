@@ -18,11 +18,12 @@ oSplit.SplitterDistance = 240
 oTree = new TreeView()
 oTree.Dock = "Fill"
 oSplit.Panel1.Controls.Add(oTree)
-oList = new ListView()
-oList.Dock = "Fill"
-oList.View = "Details"
-oList.FullRowSelect = 1
-oList.GridLines = 1
+oList = new ListView() {
+	Dock = "Fill"
+	View = "Details"
+	FullRowSelect = True
+	GridLines = True
+}
 oList.Columns.Add_2("Name",260)
 oList.Columns.Add_2("Size",90)
 oList.Columns.Add_2("Modified",140)
@@ -31,8 +32,10 @@ oStatus = new StatusStrip()
 oStatusText = new ToolStripStatusLabel()
 oStatus.Items.Add(oStatusText)
 oForm.Controls.Add(oStatus)
-oTree.setAfterSelectEvent("showFolder()")
-oTree.setBeforeExpandEvent("expandNode(aDotNetArgs[2].Node)")
+oTree {
+	setAfterSelectEvent("showFolder()")
+	setBeforeExpandEvent("expandNode(aDotNetArgs[2].Node)")
+}
 
 if not uiSelfTest()
 	setRoot(new Environment().GetFolderPath("UserProfile"))

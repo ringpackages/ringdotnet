@@ -32,10 +32,11 @@ func fillGrid
 	next
 	for nRow = 0 to 2
 		for nColumn = 0 to 2
-			oCell = new TextBlock()
-			oCell.Text = "" + (nRow * 3 + nColumn + 1)
-			oCell.HorizontalAlignment = "Center"
-			oCell.VerticalAlignment = "Center"
+			oCell = new TextBlock() {
+				Text = "" + (nRow * 3 + nColumn + 1)
+				HorizontalAlignment = "Center"
+				VerticalAlignment = "Center"
+			}
 			oGrid.Children.Add(oCell)
 			oGrid.SetRow(oCell,nRow)
 			oGrid.SetColumn(oCell,nColumn)

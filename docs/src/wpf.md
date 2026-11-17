@@ -86,10 +86,11 @@ oText.SetBinding(oText.TextProperty,oBinding)
 
 ```ring
 oCanvas = new Canvas()
-oRect = new WpfRectangle()
-oRect.Width = 80
-oRect.Height = 50
-oRect.Fill = wpfBrush("SteelBlue")
+oRect = new WpfRectangle() {
+	Width = 80
+	Height = 50
+	Fill = wpfBrush("SteelBlue")
+}
 oCanvas.Children.Add(oRect)
 oCanvas.SetLeft(oRect,10)
 oCanvas.SetTop(oRect,10)

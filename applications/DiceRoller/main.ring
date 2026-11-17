@@ -13,8 +13,10 @@ aCounts = list(6)
 nRolls = 0
 
 oForm = uiForm("Dice roller",420,330)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,0,420,100)
 oCanvas = new UiCanvas(oPicture)
 uiButton(oForm,"Roll",10,110,100,34,"rollAll()")
@@ -105,7 +107,7 @@ func selfTest
 		nSum += nCount
 	next
 	dnAssert("statistics add up",nSum,1005)
-	dnAssert("each face came up",aCounts[1] > 80 and aCounts[6] > 80,1)
+	dnAssert("each face came up",aCounts[1] > 80 and aCounts[6] > 80,True)
 	lValid = true
 	for nFace in aDice
 		if nFace < 1 or nFace > 6

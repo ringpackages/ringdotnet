@@ -27,13 +27,14 @@ oForm = uiForm("Address book",600,420)
 uiLabel(oForm,"Search",10,14,50,22)
 oSearch = uiTextBox(oForm,65,11,200,26)
 oSearch.setTextChangedEvent("applyFilter()")
-oGrid = new DataGridView()
-oGrid.Location = new Point(10,45)
-oGrid.Size = new Size(580,250)
-oGrid.AllowUserToAddRows = 0
-oGrid.ReadOnly = 1
-oGrid.SelectionMode = "FullRowSelect"
-oGrid.DataSource = oTable
+oGrid = new DataGridView() {
+	Location = new Point(10,45)
+	Size = new Size(580,250)
+	AllowUserToAddRows = False
+	ReadOnly = True
+	SelectionMode = "FullRowSelect"
+	DataSource = oTable
+}
 oForm.Controls.Add(oGrid)
 uiLabel(oForm,"Name",10,312,50,22)
 oName = uiTextBox(oForm,65,309,150,26)
@@ -131,8 +132,8 @@ func selfTest
 	addContact()
 	dnAssert("an empty name is ignored",oTable.Rows.Count,3)
 	saveBook()
-	dnAssert("saved as xml",new File().Exists(cFile),1)
-	oGrid.Rows.Item(1).Selected = 1
+	dnAssert("saved as xml",new File().Exists(cFile),True)
+	oGrid.Rows.Item(1).Selected = True
 	deleteSelected()
 	dnAssert("deleted",oTable.Rows.Count,2)
 	loadBook()

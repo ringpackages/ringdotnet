@@ -9,16 +9,18 @@ using {
 
 
 oForm = uiForm("Table layout",300,200)
-oTable = new TableLayoutPanel()
-oTable.Dock = "Fill"
-oTable.ColumnCount = 3
-oTable.RowCount = 3
+oTable = new TableLayoutPanel() {
+	Dock = "Fill"
+	ColumnCount = 3
+	RowCount = 3
+}
 for nRow = 1 to 3
 	for nColumn = 1 to 3
-		oCell = new Label()
-		oCell.Text = "" + (nRow * nColumn)
-		oCell.Dock = "Fill"
-		oCell.TextAlign = "MiddleCenter"
+		oCell = new Label() {
+			Text = "" + (nRow * nColumn)
+			Dock = "Fill"
+			TextAlign = "MiddleCenter"
+		}
 		oTable.Controls.Add_3(oCell,nColumn - 1,nRow - 1)
 	next
 next

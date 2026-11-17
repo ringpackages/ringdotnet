@@ -13,14 +13,16 @@ oSplit = new SplitContainer()
 oSplit.Dock = "Fill"
 oForm.Controls.Add(oSplit)
 oSplit.SplitterDistance = 140
-oList = new ListBox()
-oList.Dock = "Fill"
-oList.Items.Add("One")
-oList.Items.Add("Two")
+oList = new ListBox() {
+	Dock = "Fill"
+	Items.Add("One")
+	Items.Add("Two")
+}
 oSplit.Panel1.Controls.Add(oList)
-oText = new TextBox()
-oText.Dock = "Fill"
-oText.Multiline = 1
+oText = new TextBox() {
+	Dock = "Fill"
+	Multiline = True
+}
 oSplit.Panel2.Controls.Add(oText)
 oList.setSelectedIndexChangedEvent("oText.Text = 'You selected ' + oList.Text")
 

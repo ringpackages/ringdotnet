@@ -21,8 +21,10 @@ nPairs = 0
 lBusy = false
 
 oForm = uiForm("Memory game",330,400)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 for nCard = 1 to C_CARDS
 	nRow = floor((nCard - 1) / 4)
 	nCol = (nCard - 1) % 4
@@ -62,9 +64,11 @@ func newGame
 	nPairs = 0
 	lBusy = false
 	for oCard in aCardButtons
-		oCard.Text = "?"
-		oCard.Enabled = 1
-		oCard.BackColor = new Color().Empty
+		oCard {
+			Text = "?"
+			Enabled = True
+			BackColor = new Color().Empty
+		}
 	next
 	showInfo()
 

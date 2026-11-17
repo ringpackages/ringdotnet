@@ -11,19 +11,22 @@ aBars = []
 aValues = []
 
 oForm = uiForm("Color mixer",420,260)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 nY = 15
 for cName in ["Red","Green","Blue"]
 	uiLabel(oForm,cName,15,nY + 4,50,22)
-	oBar = new TrackBar()
-	oBar.Location = new Point(70,nY)
-	oBar.Size = new Size(200,40)
-	oBar.Minimum = 0
-	oBar.Maximum = 255
-	oBar.TickFrequency = 32
-	oBar.setScrollEvent("mix()")
-	oBar.setValueChangedEvent("mix()")
+	oBar = new TrackBar() {
+		Location = new Point(70,nY)
+		Size = new Size(200,40)
+		Minimum = 0
+		Maximum = 255
+		TickFrequency = 32
+		setScrollEvent("mix()")
+		setValueChangedEvent("mix()")
+	}
 	oForm.Controls.Add(oBar)
 	aBars + oBar
 	aValues + uiLabel(oForm,"0",280,nY + 4,40,22)
@@ -32,8 +35,10 @@ next
 oSwatch = uiPanel(oForm,15,170,120,70)
 oSwatch.BorderStyle = "FixedSingle"
 oHex = uiTextBox(oForm,150,175,100,26)
-oHex.ReadOnly = 1
-oHex.Font = uiFont("Consolas",12,false)
+oHex {
+	ReadOnly = True
+	Font = uiFont("Consolas",12,false)
+}
 oHsv = uiLabel(oForm,"",150,210,250,24)
 uiButton(oForm,"Random",300,172,100,28,"randomColor()")
 aBars[1].Value = 200

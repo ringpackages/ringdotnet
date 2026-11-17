@@ -32,14 +32,18 @@ oDate = new DateTime(2024,7,4)
 # Start a process and read its output
 oInfo = new ProcessStartInfo()
 if iswindows()
-	oInfo.FileName = "cmd"
-	oInfo.Arguments = "/c ver"
+	oInfo {
+		FileName = "cmd"
+		Arguments = "/c ver"
+	}
 else
 	oInfo.FileName = "uname"
 ok
-oInfo.RedirectStandardOutput = 1
-oInfo.UseShellExecute = 0
-oInfo.CreateNoWindow = 1
+oInfo {
+	RedirectStandardOutput = True
+	UseShellExecute = False
+	CreateNoWindow = True
+}
 oProcess = new Process().Start_1(oInfo)
 ? "Process says   : " + trim(oProcess.StandardOutput.ReadToEnd())
 oProcess.WaitForExit()

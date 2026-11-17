@@ -104,8 +104,10 @@ The helpers are optional. The whole of `System.Windows.Forms` (414 classes), `Sy
 oTree = new TreeView()
 oTree.Dock = "Fill"
 oRoot = oTree.Nodes.Add("Fruit")
-oRoot.Nodes.Add("Apple")
-oRoot.Nodes.Add("Pear")
+oRoot {
+	Nodes.Add("Apple")
+	Nodes.Add("Pear")
+}
 oTree.ExpandAll()
 oForm.Controls.Add(oTree)
 ```

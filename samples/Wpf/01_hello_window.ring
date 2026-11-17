@@ -17,10 +17,11 @@ using {
 oWindow = wpfWindow("Hello WPF",320,160)
 oPanel = new StackPanel()
 oWindow.Content = oPanel
-oText = new TextBlock()
-oText.Text = "Hello from Ring and WPF!"
-oText.FontSize = 20
-oText.Margin = new Thickness(20,30,20,0)
+oText = new TextBlock() {
+	Text = "Hello from Ring and WPF!"
+	FontSize = 20
+	Margin = new Thickness(20,30,20,0)
+}
 oPanel.Children.Add(oText)
 
 wpfTest(oWindow,"dnAssert('title',oWindow.Title,'Hello WPF') dnAssert('text',oText.Text,'Hello from Ring and WPF!') dnAssert('size',oWindow.Width,320)")

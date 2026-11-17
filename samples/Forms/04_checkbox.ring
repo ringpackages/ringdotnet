@@ -26,9 +26,9 @@ func changed
 	ok
 
 func selfTest
-	oCheck.Checked = 1
+	oCheck.Checked = True
 	changed()
 	dnAssert("on",oState.Text,"Notifications are on")
-	oCheck.Checked = 0
+	oCheck.Checked = False
 	changed()
 	dnAssert("off",oState.Text,"Notifications are off")

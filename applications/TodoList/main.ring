@@ -17,13 +17,16 @@ ok
 oForm = uiForm("To-do list",360,420)
 oInput = uiTextBox(oForm,10,10,250,26)
 uiButton(oForm,"Add",268,9,80,28,"addTask()")
-oList = new CheckedListBox()
-oList.Location = new Point(10,46)
-oList.Size = new Size(338,290)
-oList.CheckOnClick = 1
+oList = new CheckedListBox() {
+	Location = new Point(10,46)
+	Size = new Size(338,290)
+	CheckOnClick = True
+}
 # ItemCheck fires before the state changes, so the counters are refreshed after the mouse or key press
-oList.setMouseUpEvent("updateInfo()")
-oList.setKeyUpEvent("updateInfo()")
+oList {
+	setMouseUpEvent("updateInfo()")
+	setKeyUpEvent("updateInfo()")
+}
 oForm.Controls.Add(oList)
 uiButton(oForm,"Remove checked",10,345,120,28,"removeDone()")
 uiButton(oForm,"Save",140,345,80,28,"saveTasks()")

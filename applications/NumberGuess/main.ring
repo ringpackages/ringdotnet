@@ -12,15 +12,18 @@ nAttempts = 0
 nBest = 0
 
 oForm = uiForm("Guess the number",340,250)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"I am thinking of a number between 1 and 100",15,15,310,22)
-oGuess = new NumericUpDown()
-oGuess.Location = new Point(15,50)
-oGuess.Size = new Size(90,26)
-oGuess.Minimum = 1
-oGuess.Maximum = 100
-oGuess.Value = 50
+oGuess = new NumericUpDown() {
+	Location = new Point(15,50)
+	Size = new Size(90,26)
+	Minimum = 1
+	Maximum = 100
+	Value = 50
+}
 oForm.Controls.Add(oGuess)
 uiButton(oForm,"Guess",115,48,90,30,"guess()")
 uiButton(oForm,"New game",215,48,100,30,"newGame()")
@@ -79,4 +82,4 @@ func selfTest
 	dnAssert("history has 3 lines",oHistory.Items.Count,3)
 	newGame()
 	dnAssert("new game resets",nAttempts,0)
-	dnAssert("secret in range",nSecret >= 1 and nSecret <= 100,1)
+	dnAssert("secret in range",nSecret >= 1 and nSecret <= 100,True)

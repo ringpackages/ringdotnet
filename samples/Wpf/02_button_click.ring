@@ -20,8 +20,10 @@ oPanel = new StackPanel()
 oWindow.Content = oPanel
 oInfo = wpfLabel("0 clicks")
 oButton = wpfButton("Click me","clicked()")
-oPanel.Children.Add(oInfo)
-oPanel.Children.Add(oButton)
+oPanel {
+	Children.Add(oInfo)
+	Children.Add(oButton)
+}
 
 wpfTest(oWindow,"selfTest()")
 wpfRun(oWindow)

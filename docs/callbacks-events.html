@@ -139,9 +139,10 @@ Caught: DotNet Error: System.InvalidOperationException: Ring error: callback fai
 <p>Every public .NET event gets two methods, as in RingQt: <code>setXXXEvent(code)</code> and <code>clearXXXEvent()</code>. The code runs when the event is raised and can read <code>aDotNetArgs</code>, which is <code>[sender, eventArgs]</code> (both .NET objects). Each event has one handler; setting it again replaces it.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Collections.ObjectModel"</span> }
 
-oList = <span class="k">new</span> <span class="t">ObservableStringList</span>()
-oList.<span class="f">setCollectionChangedEvent</span>(<span class="s">"? 'changed: ' + aDotNetArgs[2].getProp('Action')"</span>)
-oList.<span class="f">Add</span>(<span class="s">"one"</span>)</code></pre></div>
+oList = <span class="k">new</span> <span class="t">ObservableStringList</span>() {
+	setCollectionChangedEvent(<span class="s">"? 'changed: ' + aDotNetArgs[2].getProp('Action')"</span>)
+	Add(<span class="s">"one"</span>)
+}</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>CollectionChanged event #1
   CollectionChanged event #2
   CollectionChanged event #3
@@ -152,9 +153,10 @@ Items           : 3
   action = Add</code></pre></div>
 <h3 id="click-and-friends">Click and friends<a class="anchor" href="#click-and-friends">#</a></h3>
 <p>Windows Forms and WPF controls are events all the way down:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton = <span class="k">new</span> <span class="t">Button</span>()
-oButton.Text = <span class="s">"Click me"</span>
-oButton.<span class="f">setClickEvent</span>(<span class="s">"oForm.Text = 'Clicked!'"</span>)
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton = <span class="k">new</span> <span class="t">Button</span>() {
+	Text = <span class="s">"Click me"</span>
+	setClickEvent(<span class="s">"oForm.Text = 'Clicked!'"</span>)
+}
 oForm.Controls.<span class="f">Add</span>(oButton)</code></pre></div>
 <p>The same event can be set with a function name, which is cleaner for longer handlers:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton.<span class="f">setClickEvent</span>(<span class="s">"clicked()"</span>)
@@ -179,11 +181,15 @@ using {
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Mouse"</span>,<span class="n">320</span>,<span class="n">160</span>)
 oArea = <span class="f">uiPanel</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">300</span>,<span class="n">100</span>)
-oArea.BackColor = <span class="f">uiColor</span>(<span class="s">"LightYellow"</span>)
-oArea.BorderStyle = <span class="s">"FixedSingle"</span>
+oArea {
+	BackColor = <span class="f">uiColor</span>(<span class="s">"LightYellow"</span>)
+	BorderStyle = <span class="s">"FixedSingle"</span>
+}
 oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">"Move the mouse over the yellow area"</span>,<span class="n">10</span>,<span class="n">120</span>,<span class="n">300</span>,<span class="n">24</span>)
-oArea.<span class="f">setMouseMoveEvent</span>(<span class="s">"moved(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
-oArea.<span class="f">setMouseDownEvent</span>(<span class="s">"pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+oArea {
+	setMouseMoveEvent(<span class="s">"moved(aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+	setMouseDownEvent(<span class="s">"pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)"</span>)
+}
 
 <span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)
 <span class="f">uiRun</span>(oForm)

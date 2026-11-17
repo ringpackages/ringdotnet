@@ -13,14 +13,18 @@ aQueens = list(C_SIZE)	# aQueens[column] = the row of the queen of that column (
 aSquares = []
 
 oForm = uiForm("Eight queens",360,440)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 for nCell = 1 to C_SIZE * C_SIZE
 	nRow = floor((nCell - 1) / C_SIZE) + 1
 	nColumn = (nCell - 1) % C_SIZE + 1
 	oSquare = uiButton(oForm,"",10 + (nColumn - 1) * 42,10 + (nRow - 1) * 42,42,42,"toggle(" + nRow + "," + nColumn + ")")
-	oSquare.FlatStyle = "Flat"
-	oSquare.Font = uiFont("Segoe UI",18,true)
+	oSquare {
+		FlatStyle = "Flat"
+		Font = uiFont("Segoe UI",18,true)
+	}
 	aSquares + oSquare
 next
 oInfo = uiLabel(oForm,"",10,355,340,24)

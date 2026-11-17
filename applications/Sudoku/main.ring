@@ -14,18 +14,22 @@ aFixed = list(81)	# 1 for the digits that belong to the puzzle
 aBoxes = []
 
 oForm = uiForm("Sudoku",420,500)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 for nCell = 1 to 81
 	nRow = floor((nCell - 1) / 9)
 	nColumn = (nCell - 1) % 9
 	nX = 12 + nColumn * 40 + floor(nColumn / 3) * 4
 	nY = 12 + nRow * 40 + floor(nRow / 3) * 4
 	oBox = uiTextBox(oForm,nX,nY,38,38)
-	oBox.MaxLength = 1
-	oBox.TextAlign = "Center"
-	oBox.Font = uiFont("Segoe UI",16,true)
-	oBox.setTextChangedEvent("typed(" + nCell + ")")
+	oBox {
+		MaxLength = 1
+		TextAlign = "Center"
+		Font = uiFont("Segoe UI",16,true)
+		setTextChangedEvent("typed(" + nCell + ")")
+	}
 	aBoxes + oBox
 next
 oInfo = uiLabel(oForm,"",12,400,396,24)
@@ -169,7 +173,7 @@ func checkBoard
 func selfTest
 	dnAssert("puzzle loaded",aGrid[1],5)
 	dnAssert("empty square",aBoxes[3].Text,"")
-	dnAssert("given digits are read only",aBoxes[1].ReadOnly,1)
+	dnAssert("given digits are read only",aBoxes[1].ReadOnly,True)
 	aBoxes[3].Text = "4"
 	dnAssert("typed digit",aGrid[3],4)
 	checkBoard()

@@ -33,9 +33,11 @@ nLines = 0
 lGameOver = false
 
 oForm = uiForm("Tetris",C_COLUMNS * C_CELL + 150,C_ROWS * C_CELL)
-oForm.KeyPreview = 1
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	KeyPreview = True
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,0,C_COLUMNS * C_CELL,C_ROWS * C_CELL)
 oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",C_COLUMNS * C_CELL + 10,10,130,120)
@@ -248,7 +250,7 @@ func selfTest
 		dnAssert("the down arrow key drops one row",nPieceY,3)
 		nScoreBefore = nScore
 		uiSendKeys(oForm," ")
-		dnAssert("Space drops the piece to the bottom",aBoard[cellOf(5,C_ROWS - 1)] > 0 or aBoard[cellOf(5,C_ROWS - 2)] > 0,1)
+		dnAssert("Space drops the piece to the bottom",aBoard[cellOf(5,C_ROWS - 1)] > 0 or aBoard[cellOf(5,C_ROWS - 2)] > 0,True)
 	ok
 	# the walls stop the piece
 	nPieceX = 0

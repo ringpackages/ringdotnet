@@ -27,9 +27,11 @@ oRoot = oDocument.RootElement
 oTable = new DataTable()
 oTable.Columns.Add_2("Product","System.String")
 oTable.Columns.Add_2("Qty","System.Int32")
-oTable.Rows.Add(["pens",120])
-oTable.Rows.Add(["paper",15])
-oTable.Rows.Add(["ink",60])
+oTable {
+	Rows.Add(["pens",120])
+	Rows.Add(["paper",15])
+	Rows.Add(["ink",60])
+}
 ? "Total quantity  : " + oTable.Compute("SUM(Qty)","")
 oView = oTable.DefaultView
 oView.Sort = "Qty DESC"

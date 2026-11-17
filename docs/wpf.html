@@ -96,10 +96,11 @@ oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)</code></pre
 <figure class="shot"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding a slider to a text box" loading="lazy"><figcaption>samples/Wpf/03_binding_slider.ring — the text follows the slider</figcaption></figure>
 <h2 id="shapes-and-brushes">Shapes and brushes<a class="anchor" href="#shapes-and-brushes">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oCanvas = <span class="k">new</span> <span class="t">Canvas</span>()
-oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>()
-oRect.Width = <span class="n">80</span>
-oRect.Height = <span class="n">50</span>
-oRect.Fill = <span class="f">wpfBrush</span>(<span class="s">"SteelBlue"</span>)
+oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>() {
+	Width = <span class="n">80</span>
+	Height = <span class="n">50</span>
+	Fill = <span class="f">wpfBrush</span>(<span class="s">"SteelBlue"</span>)
+}
 oCanvas.Children.<span class="f">Add</span>(oRect)
 oCanvas.<span class="f">SetLeft</span>(oRect,<span class="n">10</span>)
 oCanvas.<span class="f">SetTop</span>(oRect,<span class="n">10</span>)</code></pre></div>

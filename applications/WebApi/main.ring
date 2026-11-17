@@ -118,7 +118,7 @@ func selfTest
 	aResult = request("DELETE","/api/todos?id=9","")
 	dnAssert("missing is a 404",aResult[1],404)
 	aResult = request("GET","/","")
-	dnAssert("the web page lists the to-do",substr(aResult[2],"call ASP.NET") > 0,1)
+	dnAssert("the web page lists the to-do",substr(aResult[2],"call ASP.NET") > 0,True)
 	oServer.close()
 	? "SELFTEST " + iif(nDotNetFail = 0,"OK (" + nDotNetPass + " checks)","FAILED")
 

@@ -20,8 +20,10 @@ lPlaying = true
 nFlags = 0
 
 oForm = uiForm("Minesweeper",C_COLUMNS * C_SIZE + 20,C_ROWS * C_SIZE + 70)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oInfo = uiLabel(oForm,"",10,8,200,24)
 oInfo.Font = uiFont("Segoe UI",11,true)
 uiButton(oForm,"New game",C_COLUMNS * C_SIZE - 80,6,90,28,"newGame()")
@@ -29,9 +31,11 @@ for nCell = 1 to C_COLUMNS * C_ROWS
 	nRow = floor((nCell - 1) / C_COLUMNS)
 	nColumn = (nCell - 1) % C_COLUMNS
 	oButton = uiButton(oForm,"",10 + nColumn * C_SIZE,44 + nRow * C_SIZE,C_SIZE,C_SIZE,"")
-	oButton.Font = uiFont("Segoe UI",11,true)
-	oButton.Margin = new Padding().New_1(0)
-	oButton.setMouseUpEvent("cellClicked(" + nCell + ",aDotNetArgs[2].Button)")
+	oButton {
+		Font = uiFont("Segoe UI",11,true)
+		Margin = new Padding().New_1(0)
+		setMouseUpEvent("cellClicked(" + nCell + ",aDotNetArgs[2].Button)")
+	}
 	aButtons + oButton
 next
 newGame()
@@ -84,9 +88,11 @@ func startPlay
 	lPlaying = true
 	nFlags = 0
 	for oButton in aButtons
-		oButton.Text = ""
-		oButton.Enabled = 1
-		oButton.BackColor = new Color().Empty
+		oButton {
+			Text = ""
+			Enabled = True
+			BackColor = new Color().Empty
+		}
 	next
 	showInfo()
 

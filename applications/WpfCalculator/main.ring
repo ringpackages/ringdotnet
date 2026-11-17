@@ -30,8 +30,10 @@ func main
 	oKeys = wpfFind(oWindow,"keys")
 	for cKey in ["C","±","%","/","7","8","9","*","4","5","6","-","1","2","3","+","0",".","√","="]
 		oButton = wpfButton(cKey,"press('" + cKey + "')")
-		oButton.FontSize = 18
-		oButton.Margin = new Thickness(2,2,2,2)
+		oButton {
+			FontSize = 18
+			Margin = new Thickness(2,2,2,2)
+		}
 		oKeys.Children.Add(oButton)
 	next
 	wpfTest(oWindow,"selfTest()")

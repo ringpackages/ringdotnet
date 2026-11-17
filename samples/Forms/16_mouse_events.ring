@@ -10,11 +10,15 @@ using {
 
 oForm = uiForm("Mouse",320,160)
 oArea = uiPanel(oForm,10,10,300,100)
-oArea.BackColor = uiColor("LightYellow")
-oArea.BorderStyle = "FixedSingle"
+oArea {
+	BackColor = uiColor("LightYellow")
+	BorderStyle = "FixedSingle"
+}
 oInfo = uiLabel(oForm,"Move the mouse over the yellow area",10,120,300,24)
-oArea.setMouseMoveEvent("moved(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
-oArea.setMouseDownEvent("pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)")
+oArea {
+	setMouseMoveEvent("moved(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
+	setMouseDownEvent("pressed(aDotNetArgs[2].Button,aDotNetArgs[2].X,aDotNetArgs[2].Y)")
+}
 
 uiTest(oForm,"selfTest()")
 uiRun(oForm)

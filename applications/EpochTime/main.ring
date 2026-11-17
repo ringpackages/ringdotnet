@@ -12,8 +12,10 @@ using {
 C_FORMAT = "yyyy-MM-dd HH:mm:ss"
 
 oForm = uiForm("Epoch time converter",440,230)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"Epoch (seconds)",15,20,110,24)
 oEpoch = uiTextBox(oForm,130,17,170,26)
 uiButton(oForm,"Convert",310,15,100,28,"epochToDate()")
@@ -22,7 +24,7 @@ oUtc = uiTextBox(oForm,130,67,170,26)
 uiButton(oForm,"To epoch",310,65,100,28,"dateToEpoch()")
 uiLabel(oForm,"Local time",15,115,110,24)
 oLocal = uiTextBox(oForm,130,112,280,26)
-oLocal.ReadOnly = 1
+oLocal.ReadOnly = True
 uiButton(oForm,"Now",130,155,100,30,"showNow()")
 oMessage = uiLabel(oForm,"",15,195,410,24)
 oMessage.ForeColor = uiColor("Firebrick")
@@ -85,4 +87,4 @@ func selfTest
 	epochToDate()
 	dnAssert("invalid epoch message",oMessage.Text,"Invalid epoch value")
 	showNow()
-	dnAssert("now is after 2024",number(oEpoch.Text) > 1704067200,1)
+	dnAssert("now is after 2024",number(oEpoch.Text) > 1704067200,True)

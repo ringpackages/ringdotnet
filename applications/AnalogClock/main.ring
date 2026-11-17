@@ -12,13 +12,17 @@ C_CENTER = 150
 C_PI = 3.14159265358979
 
 oForm = uiForm("Analog clock",300,330)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,0,300,300)
 oCanvas = new UiCanvas(oPicture)
 oDigital = uiLabel(oForm,"",0,302,300,24)
-oDigital.TextAlign = "MiddleCenter"
-oDigital.Font = uiFont("Consolas",12,true)
+oDigital {
+	TextAlign = "MiddleCenter"
+	Font = uiFont("Consolas",12,true)
+}
 oTimer = uiTimer(1000,"tick()")
 tick()
 oTimer.Start()

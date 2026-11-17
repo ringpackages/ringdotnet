@@ -214,7 +214,7 @@ cUrl = <span class="s">""</span>
 	aResult = request(<span class="s">"DELETE"</span>,<span class="s">"/api/todos?id=9"</span>,<span class="s">""</span>)
 	<span class="f">dnAssert</span>(<span class="s">"missing is a 404"</span>,aResult[<span class="n">1</span>],<span class="n">404</span>)
 	aResult = request(<span class="s">"GET"</span>,<span class="s">"/"</span>,<span class="s">""</span>)
-	<span class="f">dnAssert</span>(<span class="s">"the web page lists the to-do"</span>,substr(aResult[<span class="n">2</span>],<span class="s">"call ASP.NET"</span>) &gt; <span class="n">0</span>,<span class="n">1</span>)
+	<span class="f">dnAssert</span>(<span class="s">"the web page lists the to-do"</span>,substr(aResult[<span class="n">2</span>],<span class="s">"call ASP.NET"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	oServer.<span class="f">close</span>()
 	? <span class="s">"SELFTEST "</span> + iif(nDotNetFail = <span class="n">0</span>,<span class="s">"OK ("</span> + nDotNetPass + <span class="s">" checks)"</span>,<span class="s">"FAILED"</span>)
 

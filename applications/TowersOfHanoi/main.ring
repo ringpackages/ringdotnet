@@ -16,18 +16,21 @@ aPlan = []		# the moves of the solver: [from,to]
 nPlanned = 0
 
 oForm = uiForm("Towers of Hanoi",600,380)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,0,0,600,300)
 oCanvas = new UiCanvas(oPicture)
 oPicture.setMouseDownEvent("clicked(aDotNetArgs[2].X)")
 uiLabel(oForm,"Disks:",10,316,45,24)
-oCount = new NumericUpDown()
-oCount.Location = new Point(58,314)
-oCount.Size = new Size(50,24)
-oCount.Minimum = 1
-oCount.Maximum = 8
-oCount.Value = 4
+oCount = new NumericUpDown() {
+	Location = new Point(58,314)
+	Size = new Size(50,24)
+	Minimum = 1
+	Maximum = 8
+	Value = 4
+}
 oForm.Controls.Add(oCount)
 uiButton(oForm,"New",118,312,70,28,"newGame()")
 uiButton(oForm,"Solve",196,312,70,28,"startSolver()")

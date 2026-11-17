@@ -9,13 +9,16 @@ using {
 }
 
 oForm = uiForm("Julian day",400,230)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"Date",15,22,60,22)
-oPicker = new DateTimePicker()
-oPicker.Location = new Point(85,19)
-oPicker.Size = new Size(150,26)
-oPicker.Format = "Short"
+oPicker = new DateTimePicker() {
+	Location = new Point(85,19)
+	Size = new Size(150,26)
+	Format = "Short"
+}
 oForm.Controls.Add(oPicker)
 uiLabel(oForm,"Julian day",15,72,70,22)
 oJulian = uiTextBox(oForm,85,69,150,26)

@@ -21,9 +21,11 @@ oPicture = uiPictureBox(oForm,0,40,640,440)
 oCanvas = new UiCanvas(oPicture)
 oCanvas.clear("White")
 oCanvas.show()
-oPicture.setMouseDownEvent("mouseDown(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
-oPicture.setMouseMoveEvent("mouseMove(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
-oPicture.setMouseUpEvent("lDrawing = false")
+oPicture {
+	setMouseDownEvent("mouseDown(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
+	setMouseMoveEvent("mouseMove(aDotNetArgs[2].X,aDotNetArgs[2].Y)")
+	setMouseUpEvent("lDrawing = false")
+}
 
 nX = 6
 for cName in ["Black","Red","Green","Blue","Orange","Purple","Brown","White"]
@@ -32,13 +34,14 @@ for cName in ["Black","Red","Green","Blue","Orange","Purple","Brown","White"]
 	nX += 32
 next
 uiLabel(oForm,"Size",280,12,32,20)
-oSize = new TrackBar()
-oSize.Location = new Point(312,6)
-oSize.Size = new Size(130,30)
-oSize.Minimum = 1
-oSize.Maximum = 30
-oSize.Value = 4
-oSize.setScrollEvent("nPenSize = oSize.Value")
+oSize = new TrackBar() {
+	Location = new Point(312,6)
+	Size = new Size(130,30)
+	Minimum = 1
+	Maximum = 30
+	Value = 4
+	setScrollEvent("nPenSize = oSize.Value")
+}
 oForm.Controls.Add(oSize)
 uiButton(oForm,"Clear",460,6,60,28,"clearCanvas()")
 uiButton(oForm,"Save...",526,6,70,28,"saveDialog()")
@@ -98,8 +101,8 @@ func selfTest
 	dnAssert("pen size from the track bar value",oSize.Value,12)
 	cFile = new Path().Combine(new Path().GetTempPath(),"paint_selftest.png")
 	saveTo(cFile)
-	dnAssert("picture saved",new File().Exists(cFile),1)
-	dnAssert("PNG signature",substr(new File().ReadAllBytes(cFile),"PNG") > 0,1)
+	dnAssert("picture saved",new File().Exists(cFile),True)
+	dnAssert("PNG signature",substr(new File().ReadAllBytes(cFile),"PNG") > 0,True)
 	new File().Delete(cFile)
 	clearCanvas()
 	dnAssert("cleared",oCanvas.pixel(100,50),"ffffffff")

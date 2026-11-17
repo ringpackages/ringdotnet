@@ -15,13 +15,15 @@ aUsers = []
 nAttempts = 0
 
 oForm = uiForm("Sign in",340,240)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"User name",20,22,90,22)
 oUser = uiTextBox(oForm,115,19,190,26)
 uiLabel(oForm,"Password",20,62,90,22)
 oPassword = uiTextBox(oForm,115,59,190,26)
-oPassword.UseSystemPasswordChar = 1
+oPassword.UseSystemPasswordChar = True
 oShow = uiCheckBox(oForm,"Show password",115,92,150,24,"togglePassword()")
 oSignIn = uiButton(oForm,"Sign in",115,125,90,32,"signIn()")
 uiButton(oForm,"Register",215,125,90,32,"registerUser()")
@@ -84,14 +86,18 @@ func signIn
 	ok
 	nAttempts++
 	if checkLogin(oUser.Text,oPassword.Text)
-		oMessage.ForeColor = uiColor("DarkGreen")
-		oMessage.Text = "Welcome, " + oUser.Text + "!"
+		oMessage {
+			ForeColor = uiColor("DarkGreen")
+			Text = "Welcome, " + oUser.Text + "!"
+		}
 		nAttempts = 0
 	else
-		oMessage.ForeColor = uiColor("Firebrick")
-		oMessage.Text = "Wrong user name or password (attempt " + nAttempts + " of 3)"
+		oMessage {
+			ForeColor = uiColor("Firebrick")
+			Text = "Wrong user name or password (attempt " + nAttempts + " of 3)"
+		}
 		if nAttempts >= 3
-			oSignIn.Enabled = 0
+			oSignIn.Enabled = False
 			oMessage.Text = "Too many attempts: sign in is disabled"
 		ok
 	ok
@@ -99,11 +105,15 @@ func signIn
 func registerUser
 	if validate()
 		if register(oUser.Text,oPassword.Text)
-			oMessage.ForeColor = uiColor("DarkGreen")
-			oMessage.Text = "User " + oUser.Text + " created"
+			oMessage {
+				ForeColor = uiColor("DarkGreen")
+				Text = "User " + oUser.Text + " created"
+			}
 		else
-			oMessage.ForeColor = uiColor("Firebrick")
-			oMessage.Text = "That user name is taken"
+			oMessage {
+				ForeColor = uiColor("Firebrick")
+				Text = "That user name is taken"
+			}
 		ok
 	ok
 
@@ -122,8 +132,8 @@ func selfTest
 	dnAssert("wrong password",left(oMessage.Text,5),"Wrong")
 	oSignIn.PerformClick()
 	oSignIn.PerformClick()
-	dnAssert("locked after 3 attempts",oSignIn.Enabled,0)
-	oSignIn.Enabled = 1
+	dnAssert("locked after 3 attempts",oSignIn.Enabled,False)
+	oSignIn.Enabled = True
 	nAttempts = 0
 	oUser.Text = "newuser"
 	oPassword.Text = "pw123"
@@ -131,7 +141,7 @@ func selfTest
 	dnAssert("registered",oMessage.Text,"User newuser created")
 	registerUser()
 	dnAssert("duplicate user",oMessage.Text,"That user name is taken")
-	dnAssert("password char hidden",oPassword.UseSystemPasswordChar,1)
-	oShow.Checked = 1
+	dnAssert("password char hidden",oPassword.UseSystemPasswordChar,True)
+	oShow.Checked = True
 	togglePassword()
-	dnAssert("show password turns the mask off",oPassword.UseSystemPasswordChar,0)
+	dnAssert("show password turns the mask off",oPassword.UseSystemPasswordChar,False)

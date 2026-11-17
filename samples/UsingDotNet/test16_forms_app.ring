@@ -6,32 +6,39 @@ using {
 }
 
 # A small to-do window. The sample drives itself (Shown event), see demo_todo.ring for the interactive version.
-oForm = new Form()
-oForm.Text = "To-do list"
-oForm.ClientSize = new Size(320,220)
-oForm.StartPosition = "CenterScreen"
+oForm = new Form() {
+	Text = "To-do list"
+	ClientSize = new Size(320,220)
+	StartPosition = "CenterScreen"
+}
 
-oInput = new TextBox()
-oInput.Location = new Point(10,10)
-oInput.Width = 200
+oInput = new TextBox() {
+	Location = new Point(10,10)
+	Width = 200
+}
 
-oAdd = new Button()
-oAdd.Text = "Add"
-oAdd.Location = new Point(220,9)
+oAdd = new Button() {
+	Text = "Add"
+	Location = new Point(220,9)
+}
 
-oList = new ListBox()
-oList.Location = new Point(10,45)
-oList.Size = new Size(300,140)
+oList = new ListBox() {
+	Location = new Point(10,45)
+	Size = new Size(300,140)
+}
 
-oStatus = new Label()
-oStatus.Location = new Point(10,195)
-oStatus.Width = 300
-oStatus.Text = "0 items"
+oStatus = new Label() {
+	Location = new Point(10,195)
+	Width = 300
+	Text = "0 items"
+}
 
-oForm.Controls.Add(oInput)
-oForm.Controls.Add(oAdd)
-oForm.Controls.Add(oList)
-oForm.Controls.Add(oStatus)
+oForm {
+	Controls.Add(oInput)
+	Controls.Add(oAdd)
+	Controls.Add(oList)
+	Controls.Add(oStatus)
+}
 
 oAdd.setClickEvent("addItem()")
 

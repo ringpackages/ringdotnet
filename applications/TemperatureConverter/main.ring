@@ -10,8 +10,10 @@ using {
 lUpdating = false
 
 oForm = uiForm("Temperature converter",320,170)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 uiLabel(oForm,"Celsius",20,20,80,24)
 uiLabel(oForm,"Fahrenheit",20,60,80,24)
 uiLabel(oForm,"Kelvin",20,100,80,24)

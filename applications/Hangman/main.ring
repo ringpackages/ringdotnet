@@ -15,8 +15,10 @@ C_MAXWRONG = 6
 aLetterButtons = []
 
 oForm = uiForm("Hangman",420,380)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 oPicture = uiPictureBox(oForm,10,10,200,200)
 oCanvas = new UiCanvas(oPicture)
 oWord = uiLabel(oForm,"",220,30,190,50)
@@ -41,7 +43,7 @@ func newGame
 	cGuessed = ""
 	nWrong = 0
 	for oButton in aLetterButtons
-		oButton.Enabled = 1
+		oButton.Enabled = True
 	next
 	showState()
 
@@ -65,7 +67,7 @@ func letter cLetter
 		return
 	ok
 	cGuessed += cLetter
-	aLetterButtons[ascii(cLetter) - 64].Enabled = 0
+	aLetterButtons[ascii(cLetter) - 64].Enabled = False
 	if not substr(cWord,cLetter)
 		nWrong++
 	ok
@@ -107,7 +109,7 @@ func selfTest
 	dnAssert("letter revealed",oWord.Text,"R _ _ _")
 	letter("Z")
 	dnAssert("wrong guess counted",nWrong,1)
-	dnAssert("the button is disabled",aLetterButtons[26].Enabled,0)
+	dnAssert("the button is disabled",aLetterButtons[26].Enabled,False)
 	dnAssert("no body yet",oCanvas.pixel(130,90),"ffffffff")
 	letter("Z")
 	dnAssert("same letter twice is ignored",nWrong,1)

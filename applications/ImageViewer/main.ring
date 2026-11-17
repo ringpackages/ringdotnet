@@ -18,10 +18,11 @@ uiMenu(oForm,[
 	["File",[["Open...","openDialog()","Control, O"],["Save As...","saveDialog()","Control, S"],["-",""],["Exit","oForm.Close()"]]],
 	["Image",[["Rotate right","rotate()"],["Flip horizontal","flip()"],["Grayscale","grayscale()"],["-",""],["Zoom in","zoomBy(25)"],["Zoom out","zoomBy(-25)"],["Actual size","setZoom(100)"]]]
 ])
-oBox = new PictureBox()
-oBox.Dock = "Fill"
-oBox.SizeMode = "Zoom"
-oBox.BackColor = uiColor("DimGray")
+oBox = new PictureBox() {
+	Dock = "Fill"
+	SizeMode = "Zoom"
+	BackColor = uiColor("DimGray")
+}
 oForm.Controls.Add(oBox)
 oInfo = new StatusStrip()
 oInfoText = new ToolStripStatusLabel()
@@ -135,14 +136,14 @@ func selfTest
 	dnAssert("rotated size",oInfoText.Text,"20 x 40   zoom 100%")
 	grayscale()
 	oGray = oImage.GetPixel(5,5)
-	dnAssert("gray has equal channels",oGray.R = oGray.G and oGray.G = oGray.B,1)
+	dnAssert("gray has equal channels",oGray.R = oGray.G and oGray.G = oGray.B,True)
 	zoomBy(50)
 	dnAssert("zoom",nZoom,150)
 	zoomBy(-500)
 	dnAssert("zoom has a minimum",nZoom,25)
 	cOut = new Path().Combine(new Path().GetTempPath(),"imageviewer_saved.png")
 	saveTo(cOut)
-	dnAssert("saved",new File().Exists(cOut),1)
+	dnAssert("saved",new File().Exists(cOut),True)
 	oBox.Image = dnNull()
 	oImage.Dispose()
 	new File().Delete(cFile)

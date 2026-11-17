@@ -44,9 +44,10 @@ The bridge still **picks the real overload from the argument types**: whole numb
 .NET properties are Ring attributes. Ring calls the generated `getName()` / `setName(value)` for you, so reading and writing is natural, also inside `{ }`:
 
 ```ring
-oForm = new Form()
-oForm.Text = "Hello"
-oForm.Width = 400
+oForm = new Form() {
+	Text = "Hello"
+	Width = 400
+}
 ? oForm.Controls.Count                 # chained: Controls returns a ControlCollection
 oForm { Height = 300  Text += "!" }
 ```
@@ -55,13 +56,35 @@ Assigning a read-only property raises an error. Properties whose names are Ring 
 
 {{output:samples/UsingDotNet/test07_properties.ring}}
 
+## Braces instead of the dot operator
+
+Ring lets you write `{ }` after an object, and everything inside is evaluated **on that object**. It is the natural way to configure a .NET object, and all the samples in this documentation use it:
+
+```ring
+oInfo = new ProcessStartInfo() {
+	FileName = "cmd"
+	Arguments = "/c ver"
+	RedirectStandardOutput = True
+	UseShellExecute = False
+	CreateNoWindow = True
+}
+```
+
+This is exactly the same as writing `oInfo.FileName = "cmd"` line by line. Inside the braces you can assign properties, call methods (`setClickEvent("...")`, `Controls.Add(oButton)`) and use `+=`. Use it on any object: `oForm { Height = 300 }`.
+
+Use `True` and `False` for logical values; they are the numbers `1` and `0`, which is what .NET booleans become in Ring.
+
+> [!WARNING] Inside the braces a **name is first looked up as a member of the object**. If a variable of your program has the same name as a property of the object (a global called `text`, `width` or `count`), the braces use the property, not your variable. Keep your own names Hungarian-style (`cText`, `nWidth`) and the problem never appears.
+
 ## Enums are strings
 
 Enum values are strings in **both directions**:
 
 ```ring
-oForm.WindowState = "Maximized"
-oForm.FormBorderStyle = "FixedDialog"
+oForm {
+	WindowState = "Maximized"
+	FormBorderStyle = "FixedDialog"
+}
 oDate = new DateTime(2024,12,25)
 ? oDate.DayOfWeek                       # "Wednesday"
 oLabel.TextAlign = "MiddleCenter"
@@ -74,8 +97,10 @@ Flag combinations use the .NET text form: `"Top, Left"`.
 Structs (`Point`, `Size`, `Color`, `DateTime`) are objects like any other. Their constructors take the numbers: `new Point(10,20)`, `new DateTime(2024,12,25)`:
 
 ```ring
-oButton.Location = new Point(10,20)
-oButton.Size = new Size(100,30)
+oButton {
+	Location = new Point(10,20)
+	Size = new Size(100,30)
+}
 oPictureBox.Image = dnNull()           # the .NET null
 ```
 

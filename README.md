@@ -99,6 +99,22 @@ aTop = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDes
 ? dnQuery(aSales).Sum("") + " " + dnQuery(aSales).Average("")
 ```
 
+## Braces
+
+`{ }` after an object evaluates everything inside on that object, which keeps configuration code short (`True` / `False` are the logical values):
+
+```ring
+oInfo = new ProcessStartInfo() {
+	FileName = "cmd"
+	Arguments = "/c ver"
+	RedirectStandardOutput = True
+	UseShellExecute = False
+	CreateNoWindow = True
+}
+```
+
+Inside the braces a name is looked up as a member of the object first: do not name a variable `text`, `width`...
+
 ## Properties
 
 .NET properties and fields are Ring attributes (Ring calls the generated `getName()` / `setName(value)` automatically, see "Setter and Getter" in the Ring docs), so they read and write naturally, also inside `{ }`; `getName()` / `setName()` can still be called explicitly. Assigning a read-only property raises an error. Properties whose names are Ring keywords (`From`, `To`, `Step`, `On`...) are not attributes: use `getFrom()` / `setFrom(value)`.

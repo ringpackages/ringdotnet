@@ -9,15 +9,17 @@ using {
 
 
 oForm = uiForm("Slider",320,130)
-oBar = new TrackBar()
-oBar.Location = new Point(15,15)
-oBar.Size = new Size(200,40)
-oBar.Maximum = 100
+oBar = new TrackBar() {
+	Location = new Point(15,15)
+	Size = new Size(200,40)
+	Maximum = 100
+}
 oForm.Controls.Add(oBar)
-oNumber = new NumericUpDown()
-oNumber.Location = new Point(230,18)
-oNumber.Size = new Size(65,26)
-oNumber.Maximum = 100
+oNumber = new NumericUpDown() {
+	Location = new Point(230,18)
+	Size = new Size(65,26)
+	Maximum = 100
+}
 oForm.Controls.Add(oNumber)
 oBar.setValueChangedEvent("oNumber.Value = oBar.Value")
 oNumber.setValueChangedEvent("oBar.Value = oNumber.Value")

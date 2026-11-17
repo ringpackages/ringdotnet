@@ -9,25 +9,27 @@ using {
 
 
 oForm = uiForm("Radio buttons",300,200)
-oGroup = new GroupBox()
-oGroup.Text = "Size"
-oGroup.Location = new Point(15,10)
-oGroup.Size = new Size(260,110)
+oGroup = new GroupBox() {
+	Text = "Size"
+	Location = new Point(15,10)
+	Size = new Size(260,110)
+}
 oForm.Controls.Add(oGroup)
 aRadios = []
 nY = 22
 for cSize in ["Small","Medium","Large"]
-	oRadio = new RadioButton()
-	oRadio.Text = cSize
-	oRadio.Location = new Point(15,nY)
-	oRadio.Size = new Size(120,24)
-	oRadio.setClickEvent("show()")
+	oRadio = new RadioButton() {
+		Text = cSize
+		Location = new Point(15,nY)
+		Size = new Size(120,24)
+		setClickEvent("show()")
+	}
 	oGroup.Controls.Add(oRadio)
 	aRadios + oRadio
 	nY += 26
 next
 oChoice = uiLabel(oForm,"Choose a size",15,135,260,24)
-aRadios[2].Checked = 1
+aRadios[2].Checked = True
 
 uiTest(oForm,"selfTest()")
 uiRun(oForm)
@@ -43,7 +45,7 @@ func show
 	next
 
 func selfTest
-	aRadios[3].Checked = 1
+	aRadios[3].Checked = True
 	show()
 	dnAssert("large",oChoice.Text,"You chose Large")
-	dnAssert("only one radio is checked",aRadios[2].Checked + aRadios[3].Checked + aRadios[1].Checked,1)
+	dnAssert("only one radio is checked",aRadios[2].Checked + aRadios[3].Checked + aRadios[1].Checked,True)

@@ -21,18 +21,20 @@ oWindow.Content = oDock
 oMenu = new Menu()
 oFile = new MenuItem()
 oFile.Header = "File"
-oOpen = new MenuItem()
-oOpen.Header = "Open"
-oOpen.setClickEvent("cLast = 'open'")
+oOpen = new MenuItem() {
+	Header = "Open"
+	setClickEvent("cLast = 'open'")
+}
 oFile.Items.Add(oOpen)
 oMenu.Items.Add(oFile)
 oDock.Children.Add(oMenu)
 oDock.SetDock(oMenu,"Top")
 oTabs = new WpfTabControl()
 for cName in ["First","Second"]
-	oTab = new TabItem()
-	oTab.Header = cName
-	oTab.Content = wpfLabel("Page " + cName)
+	oTab = new TabItem() {
+		Header = cName
+		Content = wpfLabel("Page " + cName)
+	}
 	oTabs.Items.Add(oTab)
 next
 oDock.Children.Add(oTabs)

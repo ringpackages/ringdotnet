@@ -10,33 +10,39 @@ using {
 }
 
 oForm = uiForm("Password generator",380,260)
-oForm.FormBorderStyle = "FixedDialog"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedDialog"
+	MaximizeBox = False
+}
 oPassword = uiTextBox(oForm,15,15,350,32)
-oPassword.Font = uiFont("Consolas",14,false)
-oPassword.ReadOnly = 1
+oPassword {
+	Font = uiFont("Consolas",14,false)
+	ReadOnly = True
+}
 uiLabel(oForm,"Length",15,62,50,22)
-oLength = new NumericUpDown()
-oLength.Location = new Point(70,60)
-oLength.Size = new Size(60,26)
-oLength.Minimum = 4
-oLength.Maximum = 64
-oLength.Value = 16
+oLength = new NumericUpDown() {
+	Location = new Point(70,60)
+	Size = new Size(60,26)
+	Minimum = 4
+	Maximum = 64
+	Value = 16
+}
 oForm.Controls.Add(oLength)
 oLower = uiCheckBox(oForm,"abc",150,60,60,24,"")
 oUpper = uiCheckBox(oForm,"ABC",210,60,60,24,"")
 oDigits = uiCheckBox(oForm,"123",270,60,60,24,"")
 oSymbols = uiCheckBox(oForm,"!@#",150,90,70,24,"")
-oLower.Checked = 1
-oUpper.Checked = 1
-oDigits.Checked = 1
-oSymbols.Checked = 1
+oLower.Checked = True
+oUpper.Checked = True
+oDigits.Checked = True
+oSymbols.Checked = True
 uiButton(oForm,"Generate",15,130,110,34,"generate()")
 uiButton(oForm,"Copy",135,130,80,34,"copyIt()")
-oStrength = new ProgressBar()
-oStrength.Location = new Point(15,185)
-oStrength.Size = new Size(350,18)
-oStrength.Maximum = 100
+oStrength = new ProgressBar() {
+	Location = new Point(15,185)
+	Size = new Size(350,18)
+	Maximum = 100
+}
 oForm.Controls.Add(oStrength)
 oStrengthText = uiLabel(oForm,"",15,210,350,24)
 generate()
@@ -114,9 +120,9 @@ func selfTest
 	oLength.Value = 30
 	generate()
 	dnAssert("longer password",len(oPassword.Text),30)
-	oUpper.Checked = 0
-	oDigits.Checked = 0
-	oSymbols.Checked = 0
+	oUpper.Checked = False
+	oDigits.Checked = False
+	oSymbols.Checked = False
 	oLength.Value = 20
 	generate()
 	dnAssert("only lower case",hasAny(oPassword.Text,"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#"),0)
@@ -124,12 +130,12 @@ func selfTest
 	oLength.Value = 4
 	generate()
 	dnAssert("short and simple is weak",oStrengthText.Text,"Weak")
-	oLower.Checked = 0
+	oLower.Checked = False
 	generate()
 	dnAssert("no characters selected",oStrengthText.Text,"Choose at least one kind of characters")
-	dnAssert("the random numbers are in range",secureRandom(10) < 10,1)
+	dnAssert("the random numbers are in range",secureRandom(10) < 10,True)
 	nSeen = ""
 	for x = 1 to 200
 		nSeen += "" + secureRandom(3)
 	next
-	dnAssert("all values appear",substr(nSeen,"0") > 0 and substr(nSeen,"1") > 0 and substr(nSeen,"2") > 0,1)
+	dnAssert("all values appear",substr(nSeen,"0") > 0 and substr(nSeen,"1") > 0 and substr(nSeen,"2") > 0,True)

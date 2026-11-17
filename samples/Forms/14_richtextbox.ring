@@ -31,4 +31,4 @@ func selfTest
 	dnAssert("text is kept",oRich.Text,"Ring and .NET make a good team")
 	oRich.Select_2(1,1)
 	dnAssert("first word is red",oRich.SelectionColor.Name,"Red")
-	dnAssert("rtf has formatting",substr(oRich.Rtf,"\b") > 0,1)
+	dnAssert("rtf has formatting",substr(oRich.Rtf,"\b") > 0,True)

@@ -13,15 +13,19 @@ nLosses = 0
 nTies = 0
 
 oForm = uiForm("Rock, paper, scissors",360,250)
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 uiLabel(oForm,"Choose:",10,12,60,24)
 for nChoice = 1 to 3
 	uiButton(oForm,aNames[nChoice],80 + (nChoice - 1) * 90,8,85,34,"play(" + nChoice + ")")
 next
 oResult = uiLabel(oForm,"Make your move",10,60,340,60)
-oResult.Font = uiFont("Segoe UI",14,true)
-oResult.TextAlign = "MiddleCenter"
+oResult {
+	Font = uiFont("Segoe UI",14,true)
+	TextAlign = "MiddleCenter"
+}
 oScore = uiLabel(oForm,"",10,140,340,28)
 oScore.TextAlign = "MiddleCenter"
 oHistory = uiListBox(oForm,10,172,340,70)

@@ -14,19 +14,25 @@ lFresh = true		# the next digit starts a new number
 cHistory = ""
 
 oForm = uiForm("Calculator",280,380)
-oForm.KeyPreview = 1
-oForm.FormBorderStyle = "FixedSingle"
-oForm.MaximizeBox = 0
+oForm {
+	KeyPreview = True
+	FormBorderStyle = "FixedSingle"
+	MaximizeBox = False
+}
 
 oHistory = uiLabel(oForm,"",10,8,260,18)
-oHistory.TextAlign = "MiddleRight"
-oHistory.ForeColor = uiColor("Gray")
+oHistory {
+	TextAlign = "MiddleRight"
+	ForeColor = uiColor("Gray")
+}
 
 oScreen = uiTextBox(oForm,10,30,260,50)
-oScreen.ReadOnly = 1
-oScreen.TextAlign = "Right"
-oScreen.Font = uiFont("Segoe UI",24,false)
-oScreen.Text = "0"
+oScreen {
+	ReadOnly = True
+	TextAlign = "Right"
+	Font = uiFont("Segoe UI",24,false)
+	Text = "0"
+}
 
 aKeys = [
 	["C","±","%","/"],
@@ -49,8 +55,10 @@ next
 # typing on the keyboard works too: characters arrive in KeyPress, Enter / Escape / Backspace in KeyDown
 # (uiInputKeys: a focused button would take Enter and press itself again)
 uiInputKeys(oForm)
-oForm.setKeyPressEvent("keyTyped(aDotNetArgs[2])")
-oForm.setKeyDownEvent("specialKey(aDotNetArgs[2])")
+oForm {
+	setKeyPressEvent("keyTyped(aDotNetArgs[2])")
+	setKeyDownEvent("specialKey(aDotNetArgs[2])")
+}
 
 uiTest(oForm,"selfTest()")
 uiRun(oForm)
@@ -62,13 +70,13 @@ func keyTyped oArgs
 	cChar = oArgs.KeyChar
 	if find(["0","1","2","3","4","5","6","7","8","9",".","+","-","*","/","%"],cChar) > 0
 		press(cChar)
-		oArgs.Handled = 1
+		oArgs.Handled = True
 	but cChar = "="
 		press("=")
-		oArgs.Handled = 1
+		oArgs.Handled = True
 	but cChar = "c" or cChar = "C"
 		press("C")
-		oArgs.Handled = 1
+		oArgs.Handled = True
 	ok
 
 func specialKey oArgs
@@ -82,8 +90,10 @@ func specialKey oArgs
 	else
 		return
 	ok
-	oArgs.Handled = 1
-	oArgs.SuppressKeyPress = 1
+	oArgs {
+		Handled = True
+		SuppressKeyPress = True
+	}
 
 func backspace
 	if not lFresh and len(cDisplay) > 0
