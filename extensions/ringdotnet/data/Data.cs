@@ -21,13 +21,21 @@ namespace RingDotNet
 			public string Name;
 			public Type Type;
 			public bool Key;
+			public bool Nullable;
+			public bool Required;
+			public bool Unique;
+			public bool Index;
+			public int MaxLength;
+			public object Default;
+			public bool HasDefault;
 		}
 
 		private sealed class Table
 		{
 			public string Name;
 			public List<Column> Columns = new List<Column>();
-			public Column KeyColumn;
+			public List<Column> Keys = new List<Column>();
+			public Column KeyColumn { get { return Keys[0]; } }
 		}
 
 		private readonly List<Table> tables = new List<Table>();
@@ -52,10 +60,11 @@ namespace RingDotNet
 				{
 					object[] col = (object[])c;
 					Column column = new Column { Name = (string)col[0], Type = ClrType((string)col[1]), Key = col.Length > 2 && Convert.ToDouble(col[2], CultureInfo.InvariantCulture) != 0 };
+					if (col.Length > 3) ReadOptions(column, (object[])col[3]);
 					table.Columns.Add(column);
-					if (column.Key) table.KeyColumn = column;
+					if (column.Key) table.Keys.Add(column);
 				}
-				if (table.KeyColumn == null)
+				if (table.Keys.Count == 0)
 				{
 					throw new ArgumentException("The table " + table.Name + " needs a key column");
 				}
@@ -68,6 +77,29 @@ namespace RingDotNet
 			}
 			db.Database.EnsureCreated();
 			return db;
+		}
+
+		/* options: [ [name, value], ... ] with required, nullable, unique, index, maxlength, default */
+		private static void ReadOptions(Column column, object[] options)
+		{
+			foreach (object o in options)
+			{
+				object[] pair = (object[])o;
+				string name = ((string)pair[0]).ToLowerInvariant();
+				object value = pair[1];
+				bool flag = !(value is double) || Convert.ToDouble(value, CultureInfo.InvariantCulture) != 0;
+				switch (name)
+				{
+					case "required": column.Required = flag; break;
+					case "nullable": column.Nullable = flag; break;
+					case "unique": column.Unique = flag; break;
+					case "index": column.Index = flag; break;
+					case "maxlength": column.MaxLength = Convert.ToInt32(value, CultureInfo.InvariantCulture); break;
+					case "default": column.Default = value; column.HasDefault = true; break;
+					default: throw new ArgumentException("Unknown column option: " + name);
+				}
+			}
+			if (column.Nullable && column.Type.IsValueType) column.Type = typeof(Nullable<>).MakeGenericType(column.Type);
 		}
 
 		private static Type ClrType(string name)
@@ -100,15 +132,34 @@ namespace RingDotNet
 					builder.ToTable(table.Name);
 					foreach (Column column in table.Columns)
 					{
-						builder.IndexerProperty(column.Type, column.Name);
+						var property = builder.IndexerProperty(column.Type, column.Name);
+						if (column.Required) property.IsRequired();
+						if (column.MaxLength > 0) property.HasMaxLength(column.MaxLength);
+						if (column.HasDefault) property.HasDefaultValue(Coerce(column.Default, column.Type));
+						if (column.Unique) builder.HasIndex(column.Name).IsUnique();
+						else if (column.Index) builder.HasIndex(column.Name);
 					}
-					builder.HasKey(table.KeyColumn.Name);
-					if (table.KeyColumn.Type == typeof(int) || table.KeyColumn.Type == typeof(long))
+					builder.HasKey(table.Keys.Select(k => k.Name).ToArray());
+					if (table.Keys.Count == 1 && (table.KeyColumn.Type == typeof(int) || table.KeyColumn.Type == typeof(long)))
 					{
 						builder.Property(table.KeyColumn.Name).ValueGeneratedOnAdd();
 					}
+					else
+					{
+						foreach (Column key in table.Keys) builder.Property(key.Name).ValueGeneratedNever();
+					}
 				});
 			}
+		}
+
+		/* the key of a row: one value, or a list of values for a composite key */
+		private object[] KeyValues(Table table, object key)
+		{
+			object[] values = key as object[] ?? new object[] { key };
+			if (values.Length != table.Keys.Count) throw new ArgumentException("The table " + table.Name + " has a key of " + table.Keys.Count + " column(s)");
+			object[] result = new object[values.Length];
+			for (int i = 0; i < values.Length; i++) result[i] = Coerce(values[i], table.Keys[i].Type);
+			return result;
 		}
 
 		private Table Find(string entity)
@@ -128,6 +179,7 @@ namespace RingDotNet
 		private static object Coerce(object value, Type type)
 		{
 			if (value == null) return null;
+			type = Nullable.GetUnderlyingType(type) ?? type;
 			if (type == typeof(DateTime)) return value is DateTime ? value : DateTime.Parse(Convert.ToString(value, CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
 			if (type == typeof(byte[])) return value is byte[] ? value : System.Text.Encoding.Latin1.GetBytes(Convert.ToString(value, CultureInfo.InvariantCulture));
 			if (type == typeof(bool)) return value is bool ? value : Convert.ToDouble(value, CultureInfo.InvariantCulture) != 0;
@@ -167,7 +219,36 @@ namespace RingDotNet
 
 		private void SaveIfAuto()
 		{
-			if (AutoSave) SaveChanges();
+			if (!AutoSave) return;
+			try
+			{
+				SaveChanges();
+			}
+			catch
+			{
+				/* forget the changes that could not be saved: the next call starts clean */
+				ChangeTracker.Clear();
+				throw;
+			}
+		}
+
+		/* Forget the changes that were not saved */
+		public void Discard()
+		{
+			ChangeTracker.Clear();
+		}
+
+		/* The description of a column: [ [name, value], ... ] */
+		public List<object> ColumnInfo(string entity, string column)
+		{
+			Table table = Find(entity);
+			Column c = table.Columns.Find(x => string.Equals(x.Name, column, StringComparison.OrdinalIgnoreCase));
+			if (c == null) throw new ArgumentException("Unknown column " + column + " in " + table.Name);
+			return new List<object> {
+				new List<object> { "name", c.Name }, new List<object> { "type", (Nullable.GetUnderlyingType(c.Type) ?? c.Type).Name },
+				new List<object> { "key", c.Key ? 1 : 0 }, new List<object> { "nullable", c.Nullable ? 1 : 0 },
+				new List<object> { "required", c.Required ? 1 : 0 }, new List<object> { "unique", c.Unique ? 1 : 0 },
+				new List<object> { "index", c.Index ? 1 : 0 }, new List<object> { "maxlength", c.MaxLength } };
 		}
 
 		/* Add a row: returns its key (generated for int/long keys) */
@@ -178,14 +259,16 @@ namespace RingDotNet
 			Fill(table, row, pairs);
 			SetOf(table).Add(row);
 			SaveIfAuto();
-			return AutoSave ? row[table.KeyColumn.Name] : null;
+			if (!AutoSave) return null;
+			if (table.Keys.Count == 1) return row[table.KeyColumn.Name];
+			return table.Keys.Select(k => row[k.Name]).ToList();
 		}
 
 		/* The row with the key, or null */
 		public List<object> GetRow(string entity, object key)
 		{
 			Table table = Find(entity);
-			Dictionary<string, object> row = SetOf(table).Find(Coerce(key, table.KeyColumn.Type));
+			Dictionary<string, object> row = SetOf(table).Find(KeyValues(table, key));
 			return row == null ? null : ToPairs(table, row);
 		}
 
@@ -206,7 +289,7 @@ namespace RingDotNet
 		public bool Update(string entity, object key, object[] pairs)
 		{
 			Table table = Find(entity);
-			Dictionary<string, object> row = SetOf(table).Find(Coerce(key, table.KeyColumn.Type));
+			Dictionary<string, object> row = SetOf(table).Find(KeyValues(table, key));
 			if (row == null) return false;
 			Fill(table, row, pairs);
 			SaveIfAuto();
@@ -216,7 +299,7 @@ namespace RingDotNet
 		public bool Delete(string entity, object key)
 		{
 			Table table = Find(entity);
-			Dictionary<string, object> row = SetOf(table).Find(Coerce(key, table.KeyColumn.Type));
+			Dictionary<string, object> row = SetOf(table).Find(KeyValues(table, key));
 			if (row == null) return false;
 			SetOf(table).Remove(row);
 			SaveIfAuto();
@@ -258,7 +341,15 @@ namespace RingDotNet
 
 		public void Save()
 		{
-			SaveChanges();
+			try
+			{
+				SaveChanges();
+			}
+			catch
+			{
+				ChangeTracker.Clear();
+				throw;
+			}
 		}
 
 		/* Dispose the context and release the database file (SQLite keeps pooled connections open) */
