@@ -285,31 +285,21 @@ func dnRegisterClass  cType, cClass, nInit
 func dnWrapObject  cInfo
 	dn_aParts = str2list(substr(cInfo,"|",nl))
 	nHandle = number(dn_aParts[1])
-	for dn_nPass = 1 to 2
-		for dn_x = 2 to len(dn_aParts)
-			dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
-			if dn_nPos > 0
-				nDotNetWrapHandle = nHandle
-				dn_cFactory = "dotnetnew_" + aDotNetClasses[dn_nPos][2]
-				call dn_cFactory()
-				return oDotNetNew
+	# the most specific type first: a type that is not imported yet is imported on demand before a less specific one is used
+	for dn_x = 2 to len(dn_aParts)
+		dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
+		if dn_nPos = 0
+			dn_nIndex = find(aDotNetClassIndex,dn_aParts[dn_x],1)
+			if dn_nIndex > 0 and find(aDotNetImported,aDotNetClassIndex[dn_nIndex][2]) = 0
+				dnImport(aDotNetClassIndex[dn_nIndex][2])
+				dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
 			ok
-		next
-		if dn_nPass = 1
-			dn_lImported = false
-			for dn_x = 2 to len(dn_aParts)
-				dn_nPos = find(aDotNetClassIndex,dn_aParts[dn_x],1)
-				if dn_nPos > 0
-					if find(aDotNetImported,aDotNetClassIndex[dn_nPos][2]) = 0
-						dnImport(aDotNetClassIndex[dn_nPos][2])
-						dn_lImported = true
-					ok
-					exit
-				ok
-			next
-			if not dn_lImported
-				exit
-			ok
+		ok
+		if dn_nPos > 0
+			nDotNetWrapHandle = nHandle
+			dn_cFactory = "dotnetnew_" + aDotNetClasses[dn_nPos][2]
+			call dn_cFactory()
+			return oDotNetNew
 		ok
 	next
 	return new DotNetObject(nHandle)
@@ -328,4 +318,9 @@ func dnUseWeb
 func dnUseAll
 	dotnet_start("all")
 	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
+	return 1
+
+# Use Entity Framework Core with SQLite (loads the data assembly of RingDotNet and its packages)
+func dnUseData
+	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Data.dll")
 	return 1

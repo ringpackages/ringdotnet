@@ -50,6 +50,17 @@ namespace RingDotNet
 		private static int Depth;
 		private static int RingThread;
 
+		/* Assemblies that are not part of the runtime (the packages of RingDotNet.Data) are found next to the bridge */
+		static Bridge()
+		{
+			string folder = Path.GetDirectoryName(typeof(Bridge).Assembly.Location);
+			AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
+			{
+				string file = Path.Combine(folder, new AssemblyName(args.Name).Name + ".dll");
+				return File.Exists(file) ? Assembly.LoadFrom(file) : null;
+			};
+		}
+
 		private static readonly Dictionary<long, object> Handles = new Dictionary<long, object>();
 		private static readonly object Sync = new object();
 		private static long NextHandle = 1;

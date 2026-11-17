@@ -14,6 +14,7 @@ load "generated/classindex.ring"
 load "functions.ring"
 load "classes.ring"
 load "web.ring"
+load "data.ring"
 
 # Keep only the folder (with a trailing "/") of the path above
 cDotNetLibFolder = dnFolderOf(cDotNetLibFolder)

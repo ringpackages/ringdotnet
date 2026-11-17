@@ -5,3 +5,4 @@ obj/
 tests/UserLib/bin/
 tests/UserLib/obj/
 tests/UserLib/generated/
+bin/runtimes/

@@ -115,6 +115,28 @@ oForm { Height = 300  Text += "!" }
 
 `dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`, `samples/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
 
+## Entity Framework Core (SQLite)
+
+`dnUseData()` loads Entity Framework Core 9 with the SQLite provider. A Ring program cannot declare entity classes, so the model is described with data and the entities are EF Core shared-type entities; rows are lists of `[name, value]` pairs:
+
+```ring
+load "dotnetlib.ring"
+dnUseData()
+oDb = new RingDatabase("Data Source=people.db",[
+	["Customers",[ ["Id","int",1], ["Name","string",0], ["Age","int",0], ["City","string",0] ]]
+])
+nId = oDb.insert("Customers",[["Name","Ann"],["Age",31],["City","Cairo"]])
+? dbValue(oDb.byKey("Customers",nId),"Name")
+for aRow in oDb.where("Customers","Age > {0} AND City = {1}",[18,"Cairo"])		# real SQL parameters
+	? dbValue(aRow,"Name")
+next
+oDb.update("Customers",nId,[["Age",32]])
+oDb.remove("Customers",nId)
+oDb.close()
+```
+
+Column types: int long double decimal string bool datetime bytes; `"Data Source=:memory:"` gives an in-memory database. `oDb.context()` is the wrapped EF `DbContext` (`oContext = oDb.context()` then `oContext.Database.ProviderName`). The classes of `Microsoft.EntityFrameworkCore(.ChangeTracking/.Infrastructure/.Metadata/.Metadata.Builders/.Storage/.Query/.Migrations/.Diagnostics)` and `Microsoft.Data.Sqlite` are wrapped too (clashing names start with `Ef`). Example: `applications/Contacts`, test: `tests/test_data_ef.ring`. Not supported: your own C# entity classes, LINQ expression trees, migrations written in C#. The packages add about 10 MB to `bin` (SQLite native libraries for Windows, Linux and macOS).
+
 ## ASP.NET Core
 
 `dnUseWeb()` (before any other .NET call) adds the ASP.NET Core runtime. `web.ring` then gives a Kestrel web server whose requests are handled by Ring functions:
@@ -219,7 +241,7 @@ Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `bui
 
 ## Wrapped namespaces (see tools/dotnetmanifest.ring)
 
-System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: WPF, ASP.NET, Entity Framework and other packages that are not part of the base runtime (use `wrapassembly.ring`).
+System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: other packages that are not part of the base runtime (use `wrapassembly.ring`).
 
 ## Not yet supported (ideas)
 

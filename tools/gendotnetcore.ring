@@ -245,6 +245,21 @@ func buildPlan cTypeName, nForceInit
 	aCtors = aInfo[3]
 	aMethods = aInfo[4]
 	aMembers = aInfo[5]
+	# compiler generated members of records and the like (<Clone>$) have names that are not Ring identifiers
+	aGood = []
+	for aMethod in aMethods
+		if isIdent(aMethod[1])
+			aGood + aMethod
+		ok
+	next
+	aMethods = aGood
+	aGood = []
+	for aMember in aMembers
+		if isIdent(aMember[1])
+			aGood + aMember
+		ok
+	next
+	aMembers = aGood
 	# a method with optional parameters is also available with fewer parameters (down to the required ones)
 	aExpanded = []
 	for aMethod in aMethods
@@ -626,10 +641,12 @@ func genAll aWanted
 	# Windows Forms / WPF types need the desktop runtime, it must be selected before any other .NET call
 	lDesktop = false
 	lWeb = false
+	lData = false
 	for aEntry in aDotNetManifest
 		if len(aWanted) = 0 or find(aWanted,aEntry[:namespace]) > 0
 			if optValue(aEntry,"desktop",false) lDesktop = true ok
 			if optValue(aEntry,"web",false) lWeb = true ok
+			if optValue(aEntry,"data",false) lData = true ok
 		ok
 	next
 	if lDesktop and lWeb
@@ -638,6 +655,9 @@ func genAll aWanted
 		dnUseDesktop()
 	but lWeb
 		dnUseWeb()
+	ok
+	if lData
+		dnUseData()
 	ok
 	# Pass 1: resolve the types of every namespace and choose the Ring class names (global, so names never clash)
 	# explicit Ring class names are reserved first, so an automatic name never takes one of them
@@ -676,3 +696,13 @@ func genAll aWanted
 		ok
 	next
 
+
+# letters, digits and _ only
+func isIdent cName
+	for x = 1 to len(cName)
+		n = ascii(cName[x])
+		if not ((n >= 65 and n <= 90) or (n >= 97 and n <= 122) or n = 95 or (n >= 48 and n <= 57))
+			return false
+		ok
+	next
+	return len(cName) > 0
