@@ -24,8 +24,11 @@ Class KeyedHashAlgorithm from DotNetObject
 	Func ComputeHash_3 P1,P2,P3
 		return dnRequest("call",[self,"ComputeHash",P1,P2,P3])
 
-	Func ComputeHashAsync P1,P2
+	Func ComputeHashAsync_2 P1,P2
 		return dnRequest("call",[self,"ComputeHashAsync",P1,P2])
+
+	Func ComputeHashAsync P1
+		return dnRequest("call",[self,"ComputeHashAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])

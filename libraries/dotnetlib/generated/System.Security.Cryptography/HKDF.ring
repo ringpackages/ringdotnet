@@ -22,12 +22,24 @@ Class HKDF from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func Extract P1,P2,P3
+	Func Extract_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2,P3])
 
-	Func Expand P1,P2,P3,P4
+	Func Extract P1,P2
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2])
+
+	Func Expand_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1,P2,P3,P4])
 
-	Func DeriveKey P1,P2,P3,P4,P5
+	Func Expand P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1,P2,P3])
+
+	Func DeriveKey_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3,P4,P5])
+
+	Func DeriveKey_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3,P4])
+
+	Func DeriveKey P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3])
 

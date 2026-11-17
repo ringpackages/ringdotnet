@@ -81,11 +81,17 @@ Class DateOnly from DotNetObject
 	Func Parse_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1,P2,P3])
 
+	Func Parse_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1,P2])
+
 	Func ParseExact P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2])
 
 	Func ParseExact_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
+
+	Func ParseExact_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
 
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
@@ -98,9 +104,6 @@ Class DateOnly from DotNetObject
 
 	Func TryParseExact_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1,P2])
 
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])

@@ -597,6 +597,17 @@ namespace RingDotNet
 			return n;
 		}
 
+		/* Parameters the caller has to give (the others are optional) */
+		private static int RequiredCount(MethodBase m)
+		{
+			int n = 0;
+			foreach (ParameterInfo p in m.GetParameters())
+			{
+				if (!IsOutOnly(p) && !p.IsOptional) n++;
+			}
+			return n;
+		}
+
 		private static List<object> ParamTypes(MethodBase m)
 		{
 			List<object> list = new List<object>();
@@ -618,7 +629,14 @@ namespace RingDotNet
 			{
 				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
 				{
-					if (Usable(c)) ctors.Add(ParamTypes(c));
+					if (!Usable(c)) continue;
+					List<object> types = ParamTypes(c);
+					ctors.Add(types);
+					/* optional parameters: the constructor is also available with fewer parameters */
+					for (int cut = types.Count - 1; cut >= RequiredCount(c); cut--)
+					{
+						ctors.Add(types.GetRange(0, cut));
+					}
 				}
 			}
 			List<object> methods = new List<object>();
@@ -627,7 +645,7 @@ namespace RingDotNet
 				foreach (MethodInfo m in t.GetMethods(f))
 				{
 					if (m.IsSpecialName || !Usable(m)) continue;
-					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m) });
+					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m), ByRefCount(m), RequiredCount(m) });
 				}
 			}
 			List<object> members = new List<object>();
@@ -804,7 +822,7 @@ namespace RingDotNet
 					score = 0;
 					return true;
 				}
-				return false;
+				return TryImplicit(v, ut, out result, out score);
 			}
 			if (v is string s)
 			{
@@ -836,7 +854,7 @@ namespace RingDotNet
 					try { result = ResolveType(s); score = 2; return true; }
 					catch (Exception) { return false; }
 				}
-				return false;
+				return TryImplicit(v, ut, out result, out score);
 			}
 			if (v is bool b)
 			{
@@ -889,6 +907,28 @@ namespace RingDotNet
 					result = Activator.CreateInstance(listType, arr);
 					score = 2;
 					return true;
+				}
+			}
+			return TryImplicit(v, ut, out result, out score);
+		}
+
+		/* User defined implicit conversions (string --> XName, string --> PathString ...) */
+		private static bool TryImplicit(object v, Type target, out object result, out int score)
+		{
+			result = null;
+			score = 0;
+			Type from = v.GetType();
+			foreach (Type owner in new[] { target, from })
+			{
+				foreach (MethodInfo m in owner.GetMethods(BindingFlags.Public | BindingFlags.Static))
+				{
+					if (m.Name != "op_Implicit" || !target.IsAssignableFrom(m.ReturnType)) continue;
+					ParameterInfo[] ps = m.GetParameters();
+					if (ps.Length == 1 && ps[0].ParameterType.IsAssignableFrom(from))
+					{
+						try { result = m.Invoke(null, new[] { v }); score = 1; return true; }
+						catch (Exception) { }
+					}
 				}
 			}
 			return false;

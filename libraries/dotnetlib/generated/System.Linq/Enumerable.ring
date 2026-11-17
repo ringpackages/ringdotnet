@@ -67,11 +67,17 @@ Class Enumerable from DotNetObject
 	Func Contains_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Contains",P1,P2,P3])
 
-	Func AggregateBy P1,P2,P3,P4,P5
+	Func AggregateBy_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1,P2,P3,P4,P5])
 
-	Func CountBy P1,P2,P3
+	Func AggregateBy P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1,P2,P3,P4])
+
+	Func CountBy_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1,P2,P3])
+
+	Func CountBy P1,P2
+		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1,P2])
 
 	Func Count P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])

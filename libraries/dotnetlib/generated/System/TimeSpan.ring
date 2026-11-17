@@ -123,11 +123,32 @@ Class TimeSpan from DotNetObject
 	Func FromDays_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4,P5,P6])
 
+	Func FromDays_5 P1,P2,P3,P4,P5
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4,P5])
+
+	Func FromDays_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4])
+
+	Func FromDays_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3])
+
+	Func FromDays_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2])
+
 	Func FromHours P1
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
 
 	Func FromHours_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3,P4,P5])
+
+	Func FromHours_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3,P4])
+
+	Func FromHours_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3])
+
+	Func FromHours_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2])
 
 	Func FromMinutes P1
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
@@ -135,20 +156,29 @@ Class TimeSpan from DotNetObject
 	Func FromMinutes_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2,P3,P4])
 
+	Func FromMinutes_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2,P3])
+
+	Func FromMinutes_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2])
+
 	Func FromSeconds P1
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
 
 	Func FromSeconds_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1,P2,P3])
 
+	Func FromSeconds_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1,P2])
+
 	Func FromMilliseconds_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1,P2])
 
-	Func FromMicroseconds P1
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMicroseconds",P1])
-
 	Func FromMilliseconds P1
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
+
+	Func FromMicroseconds P1
+		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMicroseconds",P1])
 
 	Func FromTicks P1
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromTicks",P1])

@@ -52,8 +52,11 @@ Class Shake128 from DotNetObject
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync P1,P2,P3
+	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
+
+	Func HashDataAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"IsSupported"])

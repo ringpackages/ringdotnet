@@ -53,8 +53,11 @@ Class StringPriorityQueue from DotNetObject
 		dnRequest("call",[self,"EnqueueRange",P1,P2])
 		return self
 
-	Func Remove P1,P2
+	Func Remove_2 P1,P2
 		return dnRequest("call",[self,"Remove",P1,P2])
+
+	Func Remove P1
+		return dnRequest("call",[self,"Remove",P1])
 
 	Func Clear 
 		dnRequest("call",[self,"Clear"])

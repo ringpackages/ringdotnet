@@ -26,8 +26,11 @@ Class SHA3_384 from DotNetObject
 	Func ComputeHash_3 P1,P2,P3
 		return dnRequest("call",[self,"ComputeHash",P1,P2,P3])
 
-	Func ComputeHashAsync P1,P2
+	Func ComputeHashAsync_2 P1,P2
 		return dnRequest("call",[self,"ComputeHashAsync",P1,P2])
+
+	Func ComputeHashAsync P1
+		return dnRequest("call",[self,"ComputeHashAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
@@ -65,8 +68,11 @@ Class SHA3_384 from DotNetObject
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsync P1,P2
+	Func HashDataAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
+
+	Func HashDataAsync P1
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])

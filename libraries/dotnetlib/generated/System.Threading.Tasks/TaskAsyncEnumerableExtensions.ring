@@ -28,6 +28,9 @@ Class TaskAsyncEnumerableExtensions from DotNetObject
 	Func WithCancellation P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"WithCancellation",P1,P2])
 
-	Func ToBlockingEnumerable P1,P2
+	Func ToBlockingEnumerable_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1,P2])
+
+	Func ToBlockingEnumerable P1
+		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1])
 

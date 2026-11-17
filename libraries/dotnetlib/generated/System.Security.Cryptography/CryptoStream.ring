@@ -29,8 +29,11 @@ Class CryptoStream from DotNetObject
 		dnRequest("call",[self,"FlushFinalBlock"])
 		return self
 
-	Func FlushFinalBlockAsync P1
+	Func FlushFinalBlockAsync_1 P1
 		return dnRequest("call",[self,"FlushFinalBlockAsync",P1])
+
+	Func FlushFinalBlockAsync 
+		return dnRequest("call",[self,"FlushFinalBlockAsync"])
 
 	Func Flush 
 		dnRequest("call",[self,"Flush"])
@@ -51,6 +54,9 @@ Class CryptoStream from DotNetObject
 
 	Func ReadAsync_2 P1,P2
 		return dnRequest("call",[self,"ReadAsync",P1,P2])
+
+	Func ReadAsync_1 P1
+		return dnRequest("call",[self,"ReadAsync",P1])
 
 	Func BeginRead P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"BeginRead",P1,P2,P3,P4,P5])
@@ -73,6 +79,9 @@ Class CryptoStream from DotNetObject
 
 	Func WriteAsync_2 P1,P2
 		return dnRequest("call",[self,"WriteAsync",P1,P2])
+
+	Func WriteAsync_1 P1
+		return dnRequest("call",[self,"WriteAsync",P1])
 
 	Func BeginWrite P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"BeginWrite",P1,P2,P3,P4,P5])
@@ -123,14 +132,26 @@ Class CryptoStream from DotNetObject
 	Func ReadAsync P1,P2,P3
 		return dnRequest("call",[self,"ReadAsync",P1,P2,P3])
 
-	Func ReadExactlyAsync P1,P2
+	Func ReadExactlyAsync_2 P1,P2
 		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2])
+
+	Func ReadExactlyAsync_1 P1
+		return dnRequest("call",[self,"ReadExactlyAsync",P1])
 
 	Func ReadExactlyAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2,P3,P4])
 
-	Func ReadAtLeastAsync P1,P2,P3,P4
+	Func ReadExactlyAsync P1,P2,P3
+		return dnRequest("call",[self,"ReadExactlyAsync",P1,P2,P3])
+
+	Func ReadAtLeastAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2,P3,P4])
+
+	Func ReadAtLeastAsync_3 P1,P2,P3
+		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2,P3])
+
+	Func ReadAtLeastAsync P1,P2
+		return dnRequest("call",[self,"ReadAtLeastAsync",P1,P2])
 
 	Func WriteAsync P1,P2,P3
 		return dnRequest("call",[self,"WriteAsync",P1,P2,P3])

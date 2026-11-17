@@ -76,11 +76,17 @@ Class StreamReader from DotNetObject
 	Func ReadAsync_2 P1,P2
 		return dnRequest("call",[self,"ReadAsync",P1,P2])
 
+	Func ReadAsync_1 P1
+		return dnRequest("call",[self,"ReadAsync",P1])
+
 	Func ReadBlockAsync P1,P2,P3
 		return dnRequest("call",[self,"ReadBlockAsync",P1,P2,P3])
 
 	Func ReadBlockAsync_2 P1,P2
 		return dnRequest("call",[self,"ReadBlockAsync",P1,P2])
+
+	Func ReadBlockAsync_1 P1
+		return dnRequest("call",[self,"ReadBlockAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])

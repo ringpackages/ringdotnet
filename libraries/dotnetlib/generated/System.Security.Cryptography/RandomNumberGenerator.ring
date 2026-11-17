@@ -53,6 +53,9 @@ Class RandomNumberGenerator from DotNetObject
 	Func GetInt32 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
 
-	Func GetHexString P1,P2
+	Func GetHexString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1,P2])
+
+	Func GetHexString P1
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
 

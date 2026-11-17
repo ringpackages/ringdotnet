@@ -15,12 +15,20 @@ Class AesCcm from DotNetObject
 		nHandle = dnCreate('System.Security.Cryptography.AesCcm, System.Security.Cryptography',[P1])
 		return self
 
-	Func Encrypt P1,P2,P3,P4,P5
+	Func Encrypt_5 P1,P2,P3,P4,P5
 		dnRequest("call",[self,"Encrypt",P1,P2,P3,P4,P5])
 		return self
 
-	Func Decrypt P1,P2,P3,P4,P5
+	Func Encrypt P1,P2,P3,P4
+		dnRequest("call",[self,"Encrypt",P1,P2,P3,P4])
+		return self
+
+	Func Decrypt_5 P1,P2,P3,P4,P5
 		dnRequest("call",[self,"Decrypt",P1,P2,P3,P4,P5])
+		return self
+
+	Func Decrypt P1,P2,P3,P4
+		dnRequest("call",[self,"Decrypt",P1,P2,P3,P4])
 		return self
 
 	Func Dispose 

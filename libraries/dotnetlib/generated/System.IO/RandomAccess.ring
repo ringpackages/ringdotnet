@@ -32,15 +32,21 @@ Class RandomAccess from DotNetObject
 	Func Read P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"Read",P1,P2,P3])
 
-	Func ReadAsync P1,P2,P3,P4
+	Func ReadAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1,P2,P3,P4])
+
+	Func ReadAsync P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1,P2,P3])
 
 	Func Write P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"Write",P1,P2,P3])
 		return self
 
-	Func WriteAsync P1,P2,P3,P4
+	Func WriteAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1,P2,P3,P4])
+
+	Func WriteAsync P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1,P2,P3])
 
 	Func FlushToDisk P1
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"FlushToDisk",P1])

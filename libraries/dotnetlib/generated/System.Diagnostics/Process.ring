@@ -94,8 +94,11 @@ Class Process from DotNetObject
 	Func WaitForExit_1 P1
 		return dnRequest("call",[self,"WaitForExit",P1])
 
-	Func WaitForExitAsync P1
+	Func WaitForExitAsync_1 P1
 		return dnRequest("call",[self,"WaitForExitAsync",P1])
+
+	Func WaitForExitAsync 
+		return dnRequest("call",[self,"WaitForExitAsync"])
 
 	Func BeginOutputReadLine 
 		dnRequest("call",[self,"BeginOutputReadLine"])

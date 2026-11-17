@@ -54,11 +54,20 @@ Class Aes from DotNetObject
 	Func GetCiphertextLengthEcb P1,P2
 		return dnRequest("call",[self,"GetCiphertextLengthEcb",P1,P2])
 
-	Func GetCiphertextLengthCbc P1,P2
+	Func GetCiphertextLengthCbc_2 P1,P2
 		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1,P2])
 
-	Func GetCiphertextLengthCfb P1,P2,P3
+	Func GetCiphertextLengthCbc P1
+		return dnRequest("call",[self,"GetCiphertextLengthCbc",P1])
+
+	Func GetCiphertextLengthCfb_3 P1,P2,P3
 		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1,P2,P3])
+
+	Func GetCiphertextLengthCfb_2 P1,P2
+		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1,P2])
+
+	Func GetCiphertextLengthCfb P1
+		return dnRequest("call",[self,"GetCiphertextLengthCfb",P1])
 
 	Func DecryptEcb P1,P2
 		return dnRequest("call",[self,"DecryptEcb",P1,P2])
@@ -66,17 +75,35 @@ Class Aes from DotNetObject
 	Func EncryptEcb P1,P2
 		return dnRequest("call",[self,"EncryptEcb",P1,P2])
 
-	Func DecryptCbc P1,P2,P3
+	Func DecryptCbc_3 P1,P2,P3
 		return dnRequest("call",[self,"DecryptCbc",P1,P2,P3])
 
-	Func EncryptCbc P1,P2,P3
+	Func DecryptCbc P1,P2
+		return dnRequest("call",[self,"DecryptCbc",P1,P2])
+
+	Func EncryptCbc_3 P1,P2,P3
 		return dnRequest("call",[self,"EncryptCbc",P1,P2,P3])
 
-	Func DecryptCfb P1,P2,P3,P4
+	Func EncryptCbc P1,P2
+		return dnRequest("call",[self,"EncryptCbc",P1,P2])
+
+	Func DecryptCfb_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"DecryptCfb",P1,P2,P3,P4])
 
-	Func EncryptCfb P1,P2,P3,P4
+	Func DecryptCfb_3 P1,P2,P3
+		return dnRequest("call",[self,"DecryptCfb",P1,P2,P3])
+
+	Func DecryptCfb P1,P2
+		return dnRequest("call",[self,"DecryptCfb",P1,P2])
+
+	Func EncryptCfb_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"EncryptCfb",P1,P2,P3,P4])
+
+	Func EncryptCfb_3 P1,P2,P3
+		return dnRequest("call",[self,"EncryptCfb",P1,P2,P3])
+
+	Func EncryptCfb P1,P2
+		return dnRequest("call",[self,"EncryptCfb",P1,P2])
 
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])

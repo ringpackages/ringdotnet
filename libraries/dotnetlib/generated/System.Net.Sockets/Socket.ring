@@ -331,11 +331,17 @@ Class Socket from DotNetObject
 	Func SendToAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"SendToAsync",P1,P2,P3,P4])
 
-	Func SendFileAsync P1,P2
+	Func SendFileAsync_2 P1,P2
 		return dnRequest("call",[self,"SendFileAsync",P1,P2])
+
+	Func SendFileAsync P1
+		return dnRequest("call",[self,"SendFileAsync",P1])
 
 	Func SendFileAsync_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"SendFileAsync",P1,P2,P3,P4,P5])
+
+	Func SendFileAsync_4 P1,P2,P3,P4
+		return dnRequest("call",[self,"SendFileAsync",P1,P2,P3,P4])
 
 	Func DuplicateAndClose P1
 		return dnRequest("call",[self,"DuplicateAndClose",P1])

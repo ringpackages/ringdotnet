@@ -103,6 +103,66 @@ aDotNetManifest = [
 	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib","System.ComponentModel.Primitives","System.Diagnostics.StackTrace","System.Diagnostics.TraceSource"],
 	  :all = true ],
 
+	[ :namespace = "System.Xml",
+	  :assemblies = ["System.Private.Xml","System.Xml.ReaderWriter"],
+	  :uses = ["System.IO","System.Xml.XPath"],
+	  :all = true ],
+
+	[ :namespace = "System.Xml.XPath",
+	  :assemblies = ["System.Private.Xml","System.Xml.XPath"],
+	  :uses = ["System.Xml"],
+	  :all = true ],
+
+	[ :namespace = "System.Xml.Linq",
+	  :assemblies = ["System.Private.Xml.Linq","System.Xml.XDocument"],
+	  :uses = ["System.Xml","System.IO"],
+	  :all = true,
+	  :types = [ ["System.Xml.Linq.XElement","XElement",2], ["System.Xml.Linq.XAttribute","XAttribute",2] ] ],
+
+	[ :namespace = "System.Xml.Schema",
+	  :assemblies = ["System.Private.Xml"],
+	  :uses = ["System.Xml"],
+	  :all = true ],
+
+	[ :namespace = "System.Xml.Serialization",
+	  :assemblies = ["System.Private.Xml"],
+	  :uses = ["System.Xml","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Xml.Xsl",
+	  :assemblies = ["System.Private.Xml"],
+	  :uses = ["System.Xml","System.Xml.XPath","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Text.Json",
+	  :assemblies = ["System.Text.Json"],
+	  :uses = ["System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Text.Json.Nodes",
+	  :assemblies = ["System.Text.Json"],
+	  :uses = ["System.Text.Json"],
+	  :all = true ],
+
+	[ :namespace = "System.Data",
+	  :assemblies = ["System.Data.Common","System.Private.CoreLib"],
+	  :uses = ["System.Data.Common","System.Xml"],
+	  :all = true ],
+
+	[ :namespace = "System.Data.Common",
+	  :assemblies = ["System.Data.Common"],
+	  :uses = ["System.Data","System.IO"],
+	  :all = true ],
+
+	[ :namespace = "System.Data.SqlTypes",
+	  :assemblies = ["System.Data.Common"],
+	  :all = true ],
+
+	[ :namespace = "System.ComponentModel",
+	  :assemblies = ["System.ComponentModel.Primitives","System.ComponentModel.TypeConverter","System.ComponentModel","System.Private.CoreLib","System.ComponentModel.EventBasedAsync"],
+	  :uses = ["System.Collections.Specialized"],
+	  :all = true ],
+
 	[ :namespace = "System.Collections",
 	  :assemblies = ["System.Private.CoreLib","System.Collections","System.Collections.NonGeneric"],
 	  :all = true ],

@@ -19,6 +19,10 @@ Class Index from DotNetObject
 		nHandle = dnCreate('System.Index, System.Private.CoreLib',[P1,P2])
 		return self
 
+	Func New_1 P1
+		nHandle = dnCreate('System.Index, System.Private.CoreLib',[P1])
+		return self
+
 	Func GetOffset P1
 		return dnRequest("call",[self,"GetOffset",P1])
 

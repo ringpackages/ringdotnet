@@ -64,8 +64,23 @@ Class File from DotNetObject
 	Func Open_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1,P2,P3,P4])
 
-	Func OpenHandle P1,P2,P3,P4,P5,P6
+	Func OpenHandle_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4,P5,P6])
+
+	Func OpenHandle_5 P1,P2,P3,P4,P5
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4,P5])
+
+	Func OpenHandle_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4])
+
+	Func OpenHandle_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3])
+
+	Func OpenHandle_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2])
+
+	Func OpenHandle P1
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1])
 
 	Func SetCreationTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"SetCreationTime",P1,P2])
@@ -154,8 +169,11 @@ Class File from DotNetObject
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytes",P1,P2])
 		return self
 
-	Func AppendAllBytesAsync P1,P2,P3
+	Func AppendAllBytesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1,P2,P3])
+
+	Func AppendAllBytesAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1,P2])
 
 	Func ReadAllLines P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1])
@@ -169,8 +187,11 @@ Class File from DotNetObject
 	Func ReadLines_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1,P2])
 
-	Func ReadLinesAsync P1,P2
+	Func ReadLinesAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1,P2])
+
+	Func ReadLinesAsync P1
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1])
 
 	Func ReadLinesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1,P2,P3])
@@ -223,44 +244,68 @@ Class File from DotNetObject
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Decrypt",P1])
 		return self
 
-	Func ReadAllTextAsync P1,P2
+	Func ReadAllTextAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1,P2])
+
+	Func ReadAllTextAsync P1
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
 
 	Func ReadAllTextAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1,P2,P3])
 
-	Func WriteAllTextAsync P1,P2,P3
+	Func WriteAllTextAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2,P3])
+
+	Func WriteAllTextAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2])
 
 	Func WriteAllTextAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2,P3,P4])
 
-	Func ReadAllBytesAsync P1,P2
+	Func ReadAllBytesAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1,P2])
 
-	Func WriteAllBytesAsync P1,P2,P3
+	Func ReadAllBytesAsync P1
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1])
+
+	Func WriteAllBytesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1,P2,P3])
 
-	Func ReadAllLinesAsync P1,P2
+	Func WriteAllBytesAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1,P2])
+
+	Func ReadAllLinesAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1,P2])
+
+	Func ReadAllLinesAsync P1
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1])
 
 	Func ReadAllLinesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1,P2,P3])
 
-	Func WriteAllLinesAsync P1,P2,P3
+	Func WriteAllLinesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2,P3])
+
+	Func WriteAllLinesAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2])
 
 	Func WriteAllLinesAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2,P3,P4])
 
-	Func AppendAllTextAsync P1,P2,P3
+	Func AppendAllTextAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2,P3])
+
+	Func AppendAllTextAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2])
 
 	Func AppendAllTextAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2,P3,P4])
 
-	Func AppendAllLinesAsync P1,P2,P3
+	Func AppendAllLinesAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2,P3])
+
+	Func AppendAllLinesAsync P1,P2
+		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2])
 
 	Func AppendAllLinesAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2,P3,P4])

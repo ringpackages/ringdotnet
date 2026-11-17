@@ -38,8 +38,17 @@ Class OperatingSystem from DotNetObject
 	Func IsOSPlatform P1
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatform",P1])
 
-	Func IsOSPlatformVersionAtLeast P1,P2,P3,P4,P5
+	Func IsOSPlatformVersionAtLeast_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4,P5])
+
+	Func IsOSPlatformVersionAtLeast_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4])
+
+	Func IsOSPlatformVersionAtLeast_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3])
+
+	Func IsOSPlatformVersionAtLeast P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2])
 
 	Func IsBrowser 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsBrowser"])
@@ -53,50 +62,107 @@ Class OperatingSystem from DotNetObject
 	Func IsFreeBSD 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSD"])
 
-	Func IsFreeBSDVersionAtLeast P1,P2,P3,P4
+	Func IsFreeBSDVersionAtLeast_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2,P3,P4])
+
+	Func IsFreeBSDVersionAtLeast_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2,P3])
+
+	Func IsFreeBSDVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2])
+
+	Func IsFreeBSDVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1])
 
 	Func IsAndroid 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroid"])
 
-	Func IsAndroidVersionAtLeast P1,P2,P3,P4
+	Func IsAndroidVersionAtLeast_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2,P3,P4])
+
+	Func IsAndroidVersionAtLeast_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2,P3])
+
+	Func IsAndroidVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2])
+
+	Func IsAndroidVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1])
 
 	Func IsIOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOS"])
 
-	Func IsIOSVersionAtLeast P1,P2,P3
+	Func IsIOSVersionAtLeast_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1,P2,P3])
+
+	Func IsIOSVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1,P2])
+
+	Func IsIOSVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1])
 
 	Func IsMacOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOS"])
 
-	Func IsMacOSVersionAtLeast P1,P2,P3
+	Func IsMacOSVersionAtLeast_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1,P2,P3])
+
+	Func IsMacOSVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1,P2])
+
+	Func IsMacOSVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1])
 
 	Func IsMacCatalyst 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalyst"])
 
-	Func IsMacCatalystVersionAtLeast P1,P2,P3
+	Func IsMacCatalystVersionAtLeast_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1,P2,P3])
+
+	Func IsMacCatalystVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1,P2])
+
+	Func IsMacCatalystVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1])
 
 	Func IsTvOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOS"])
 
-	Func IsTvOSVersionAtLeast P1,P2,P3
+	Func IsTvOSVersionAtLeast_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1,P2,P3])
+
+	Func IsTvOSVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1,P2])
+
+	Func IsTvOSVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1])
 
 	Func IsWatchOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOS"])
 
-	Func IsWatchOSVersionAtLeast P1,P2,P3
+	Func IsWatchOSVersionAtLeast_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1,P2,P3])
+
+	Func IsWatchOSVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1,P2])
+
+	Func IsWatchOSVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1])
 
 	Func IsWindows 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindows"])
 
-	Func IsWindowsVersionAtLeast P1,P2,P3,P4
+	Func IsWindowsVersionAtLeast_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2,P3,P4])
+
+	Func IsWindowsVersionAtLeast_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2,P3])
+
+	Func IsWindowsVersionAtLeast_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2])
+
+	Func IsWindowsVersionAtLeast P1
+		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1])
 
 	Func getPlatform
 		return dnRequest("get",[self,"Platform"])

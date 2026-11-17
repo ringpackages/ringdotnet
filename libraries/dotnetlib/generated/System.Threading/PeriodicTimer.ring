@@ -17,8 +17,11 @@ Class PeriodicTimer from DotNetObject
 		nHandle = dnCreate('System.Threading.PeriodicTimer, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func WaitForNextTickAsync P1
+	Func WaitForNextTickAsync_1 P1
 		return dnRequest("call",[self,"WaitForNextTickAsync",P1])
+
+	Func WaitForNextTickAsync 
+		return dnRequest("call",[self,"WaitForNextTickAsync"])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])

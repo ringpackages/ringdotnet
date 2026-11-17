@@ -31,8 +31,11 @@ Class Directory from DotNetObject
 	Func CreateDirectory_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateDirectory",P1,P2])
 
-	Func CreateTempSubdirectory P1
+	Func CreateTempSubdirectory_1 P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateTempSubdirectory",P1])
+
+	Func CreateTempSubdirectory 
+		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateTempSubdirectory"])
 
 	Func Exists P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"Exists",P1])

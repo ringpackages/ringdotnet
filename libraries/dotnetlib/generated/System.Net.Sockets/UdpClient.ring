@@ -72,6 +72,9 @@ Class UdpClient from DotNetObject
 	Func SendAsync P1,P2
 		return dnRequest("call",[self,"SendAsync",P1,P2])
 
+	Func SendAsync_1 P1
+		return dnRequest("call",[self,"SendAsync",P1])
+
 	Func SendAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
 

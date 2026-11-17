@@ -143,11 +143,11 @@ Class String from DotNetObject
 	Func Split_2 P1,P2
 		return dnRequest("call",[self,"Split",P1,P2])
 
-	Func Split_3 P1,P2,P3
-		return dnRequest("call",[self,"Split",P1,P2,P3])
-
 	Func Split P1
 		return dnRequest("call",[self,"Split",P1])
+
+	Func Split_3 P1,P2,P3
+		return dnRequest("call",[self,"Split",P1,P2,P3])
 
 	Func Substring P1
 		return dnRequest("call",[self,"Substring",P1])

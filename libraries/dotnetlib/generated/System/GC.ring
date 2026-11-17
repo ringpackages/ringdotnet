@@ -86,8 +86,11 @@ Class GC from DotNetObject
 	Func GetAllocatedBytesForCurrentThread 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetAllocatedBytesForCurrentThread"])
 
-	Func GetTotalAllocatedBytes P1
+	Func GetTotalAllocatedBytes_1 P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
+
+	Func GetTotalAllocatedBytes 
+		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes"])
 
 	Func RegisterForFullGCNotification P1,P2
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterForFullGCNotification",P1,P2])
@@ -126,11 +129,17 @@ Class GC from DotNetObject
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterNoGCRegionCallback",P1,P2])
 		return self
 
-	Func AllocateUninitializedArray P1,P2
+	Func AllocateUninitializedArray_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1,P2])
 
-	Func AllocateArray P1,P2
+	Func AllocateUninitializedArray P1
+		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
+
+	Func AllocateArray_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1,P2])
+
+	Func AllocateArray P1
+		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1])
 
 	Func GetTotalPauseDuration 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalPauseDuration"])

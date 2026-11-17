@@ -304,8 +304,11 @@ Class CheckBox from DotNetObject
 		dnRequest("call",[self,"ResetImeMode"])
 		return self
 
-	Func InvokeAsync P1,P2
+	Func InvokeAsync_2 P1,P2
 		return dnRequest("call",[self,"InvokeAsync",P1,P2])
+
+	Func InvokeAsync P1
+		return dnRequest("call",[self,"InvokeAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])

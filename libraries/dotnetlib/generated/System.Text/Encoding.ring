@@ -125,8 +125,11 @@ Class Encoding from DotNetObject
 	Func GetEncodings 
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncodings"])
 
-	Func CreateTranscodingStream P1,P2,P3,P4
+	Func CreateTranscodingStream_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3,P4])
+
+	Func CreateTranscodingStream P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")

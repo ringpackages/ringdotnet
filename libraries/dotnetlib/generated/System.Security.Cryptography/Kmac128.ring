@@ -4,12 +4,16 @@ Class Kmac128 from DotNetObject
 
 	IsSupported
 
-	Func init P1,P2
+	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[P1])
+		return self
+
+	Func New_2 P1,P2
 		nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[P1,P2])
 		return self
 
@@ -42,11 +46,20 @@ Class Kmac128 from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func HashData P1,P2,P3,P4
+	Func HashData_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
 
-	Func HashDataAsync P1,P2,P3,P4,P5
+	Func HashData P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashData",P1,P2,P3])
+
+	Func HashDataAsync_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4,P5])
+
+	Func HashDataAsync_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+
+	Func HashDataAsync P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"IsSupported"])

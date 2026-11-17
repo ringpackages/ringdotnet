@@ -176,8 +176,11 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"Show",P1])
 		return self
 
-	Func ShowAsync P1
+	Func ShowAsync_1 P1
 		return dnRequest("call",[self,"ShowAsync",P1])
+
+	Func ShowAsync 
+		return dnRequest("call",[self,"ShowAsync"])
 
 	Func ShowDialog 
 		return dnRequest("call",[self,"ShowDialog"])
@@ -410,8 +413,11 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"ResetImeMode"])
 		return self
 
-	Func InvokeAsync P1,P2
+	Func InvokeAsync_2 P1,P2
 		return dnRequest("call",[self,"InvokeAsync",P1,P2])
+
+	Func InvokeAsync P1
+		return dnRequest("call",[self,"InvokeAsync",P1])
 
 	Func Dispose 
 		dnRequest("call",[self,"Dispose"])
