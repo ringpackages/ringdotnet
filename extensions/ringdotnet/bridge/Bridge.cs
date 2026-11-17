@@ -129,7 +129,7 @@ namespace RingDotNet
 					case 'n': items.Add(double.Parse(Encoding.ASCII.GetString(body), NumberStyles.Float, Inv)); break;
 					case 'b': items.Add(body.Length > 0 && body[0] == (byte)'1'); break;
 					case 'z': items.Add(null); break;
-					case 'o': items.Add(Lookup(long.Parse(Encoding.ASCII.GetString(body), Inv))); break;
+					case 'o': items.Add(Lookup(ParseHandle(body))); break;
 					case 'l': items.Add(Decode(body).ToArray()); break;
 					case 'c': items.Add(new CallbackRef(Encoding.UTF8.GetString(body))); break;
 					case 'e': throw new InvalidOperationException("Ring error: " + Encoding.UTF8.GetString(body));
@@ -137,6 +137,25 @@ namespace RingDotNet
 				}
 			}
 			return items;
+		}
+
+		/* An object item is "<id>" or "<id>|<type>|<base type>|..." (the form sent to Ring) */
+		private static long ParseHandle(ReadOnlySpan<byte> body)
+		{
+			int bar = body.IndexOf((byte)'|');
+			return long.Parse(Encoding.ASCII.GetString(bar < 0 ? body : body.Slice(0, bar)), Inv);
+		}
+
+		/* Type names Ring can wrap the object with: its type, then its base types */
+		private static string TypeChain(object value)
+		{
+			StringBuilder sb = new StringBuilder();
+			int count = 0;
+			for (Type t = value.GetType(); t != null && t != typeof(object) && count < 8; t = t.BaseType, count++)
+			{
+				sb.Append('|').Append(t.FullName ?? t.Name);
+			}
+			return sb.ToString();
 		}
 
 		private static readonly UTF8Encoding StrictUtf8 = new UTF8Encoding(false, true);
@@ -186,7 +205,7 @@ namespace RingDotNet
 						return;
 					}
 				default:
-					WriteItem(ms, 'o', Encoding.ASCII.GetBytes(Register(value).ToString(Inv)));
+					WriteItem(ms, 'o', Encoding.UTF8.GetBytes(Register(value).ToString(Inv) + TypeChain(value)));
 					return;
 			}
 		}
@@ -637,7 +656,7 @@ namespace RingDotNet
 					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType };
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType, t.Assembly.GetName().Name };
 		}
 
 		private static List<object> ToList(object target)

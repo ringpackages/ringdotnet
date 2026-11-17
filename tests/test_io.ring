@@ -36,6 +36,11 @@ dnAssert("FileInfo.Length",oFI.Length,11)
 dnAssert("FileInfo.Extension",oFI.Extension,".txt")
 dnAssert("GetFiles",len(oDir.GetFiles(cTemp).toList()),3)
 
+# Objects are wrapped by their runtime type: File.Create declares Stream but returns a FileStream
+oStream = oFile.Create(oPath.Combine(cTemp,"s.bin"))
+dnAssert("runtime type wrapper",classname(oStream),"filestream")
+oStream.Close()
+
 # Readers and writers
 cText = oPath.Combine(cTemp,"w.txt")
 oWriter = new StreamWriter(cText)

@@ -23,3 +23,6 @@ xDotNetResult = ""
 aDotNetImported = []
 nDotNetPass = 0
 nDotNetFail = 0
+
+# Generated classes: [.NET type name, Ring class, dummy init arguments] (see dnRegisterClass)
+aDotNetClasses = []

@@ -8,6 +8,7 @@
 		:exclude     .NET type names that :all must skip
 		:types       extra or explicit types: [.NET type name, (optional) Ring class name, (optional) init() parameters]
 		             (closed generic types and nested types are listed here)
+		:prefer      ["Namespace.Type.Method=arity", ...]: the overload that gets the plain method name (the others are Name_N)
 		:desktop     true when the namespace needs the Windows Desktop runtime (dnUseDesktop())
 */
 
@@ -42,21 +43,49 @@ aDotNetManifest = [
 	  :assemblies = ["System.Net.Http"],
 	  :types = [ ["System.Net.Http.HttpClient"] ] ],
 
+	[ :namespace = "System.Collections",
+	  :assemblies = ["System.Private.CoreLib","System.Collections","System.Collections.NonGeneric"],
+	  :all = true ],
+
+	[ :namespace = "System.Collections.Specialized",
+	  :assemblies = ["System.Collections.Specialized","System.Collections.NonGeneric","System.Collections"],
+	  :all = true,
+	  :prefer = ["System.Collections.Specialized.NameValueCollection.Add=2","System.Collections.Specialized.NameValueCollection.Set=2"] ],
+
 	[ :namespace = "System.Collections.Generic",
 	  :types = [
 		["System.Collections.Generic.List`1[[System.String]]","StringList",0],
 		["System.Collections.Generic.List`1[[System.Double]]","NumberList",0],
+		["System.Collections.Generic.List`1[[System.Int32]]","IntList",0],
 		["System.Collections.Generic.List`1[[System.Object]]","ObjectList",0],
 		["System.Collections.Generic.Dictionary`2[[System.String],[System.String]]","StringDictionary",0],
 		["System.Collections.Generic.Dictionary`2[[System.String],[System.Double]]","NumberDictionary",0],
 		["System.Collections.Generic.Dictionary`2[[System.String],[System.Object]]","ObjectDictionary",0],
+		["System.Collections.Generic.Dictionary`2[[System.Double],[System.Object]]","NumberKeyDictionary",0],
+		["System.Collections.Generic.SortedDictionary`2[[System.String],[System.String]]","SortedStringDictionary",0],
+		["System.Collections.Generic.SortedDictionary`2[[System.String],[System.Object]]","SortedObjectDictionary",0],
+		["System.Collections.Generic.SortedList`2[[System.String],[System.Object]]","SortedObjectList",0],
 		["System.Collections.Generic.HashSet`1[[System.String]]","StringSet",0],
+		["System.Collections.Generic.HashSet`1[[System.Double]]","NumberSet",0],
+		["System.Collections.Generic.SortedSet`1[[System.String]]","SortedStringSet",0],
+		["System.Collections.Generic.SortedSet`1[[System.Double]]","SortedNumberSet",0],
 		["System.Collections.Generic.Queue`1[[System.String]]","StringQueue",0],
-		["System.Collections.Generic.Stack`1[[System.String]]","StringStack",0]
+		["System.Collections.Generic.Queue`1[[System.Object]]","ObjectQueue",0],
+		["System.Collections.Generic.Stack`1[[System.String]]","StringStack",0],
+		["System.Collections.Generic.Stack`1[[System.Object]]","ObjectStack",0],
+		["System.Collections.Generic.LinkedList`1[[System.String]]","StringLinkedList",0],
+		["System.Collections.Generic.LinkedList`1[[System.Object]]","ObjectLinkedList",0],
+		["System.Collections.Generic.PriorityQueue`2[[System.String],[System.Double]]","StringPriorityQueue",0],
+		["System.Collections.Generic.KeyValuePair`2[[System.String],[System.String]]","StringPair"],
+		["System.Collections.Generic.KeyValuePair`2[[System.String],[System.Object]]","ObjectPair"],
+		["System.Collections.Generic.KeyValuePair`2[[System.String],[System.Double]]","NumberPair"]
 	  ] ],
 
 	[ :namespace = "System.Collections.ObjectModel",
-	  :types = [ ["System.Collections.ObjectModel.ObservableCollection`1[[System.String]]","ObservableStringList",0] ] ],
+	  :types = [ ["System.Collections.ObjectModel.ObservableCollection`1[[System.String]]","ObservableStringList",0],
+		["System.Collections.ObjectModel.ObservableCollection`1[[System.Object]]","ObservableObjectList",0],
+		["System.Collections.ObjectModel.ReadOnlyCollection`1[[System.String]]","ReadOnlyStringList"],
+		["System.Collections.ObjectModel.Collection`1[[System.String]]","StringCollectionList",0] ] ],
 
 	[ :namespace = "System.Windows.Forms",
 	  :desktop = true,

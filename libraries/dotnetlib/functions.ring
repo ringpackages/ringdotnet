@@ -66,7 +66,7 @@ func dnUnpack  dn_cData
 		on C_DOTNET_NULL
 			dn_aItems + new DotNetObject(0)
 		on C_DOTNET_OBJECT
-			dn_aItems + new DotNetObject(number(dn_cBody))
+			dn_aItems + dnWrapObject(dn_cBody)
 		on C_DOTNET_LIST
 			dn_aItems + dnUnpack(dn_cBody)
 		on C_DOTNET_ERROR
@@ -239,3 +239,28 @@ func dnShow  dn_xValue
 func dnTestSummary
 	? "TESTS: " + nDotNetPass + " passed, " + nDotNetFail + " failed"
 	return nDotNetFail
+
+# Register a generated class: objects of this .NET type are returned as instances of the Ring class
+func dnRegisterClass  cType, cClass, nInit
+	if find(aDotNetClasses,cType,1) = 0
+		cDummies = ""
+		for dn_x = 1 to nInit
+			if dn_x > 1 cDummies += "," ok
+			cDummies += "0"
+		next
+		aDotNetClasses + [cType,cClass,cDummies]
+	ok
+
+# A .NET object received from the bridge ("<handle>|<type>|<base type>|...") as the generated class of its type
+func dnWrapObject  cInfo
+	dn_aParts = str2list(substr(cInfo,"|",nl))
+	nHandle = number(dn_aParts[1])
+	for dn_x = 2 to len(dn_aParts)
+		dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
+		if dn_nPos > 0
+			nDotNetWrapHandle = nHandle
+			eval("dn_oWrapped = new " + aDotNetClasses[dn_nPos][2] + "(" + aDotNetClasses[dn_nPos][3] + ")")
+			return dn_oWrapped
+		ok
+	next
+	return new DotNetObject(nHandle)
