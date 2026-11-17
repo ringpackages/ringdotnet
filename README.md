@@ -101,6 +101,14 @@ oForm { Height = 300  Text += "!" }
 
 `dnImport("System.Windows.Forms")` also loads `libraries/dotnetlib/gui.ring`: `uiForm()`, `uiButton()`, `uiLabel()`, `uiTextBox()`, `uiMemo()`, `uiListBox()`, `uiComboBox()`, `uiPanel()`, `uiPictureBox()`, `uiTimer()`, `uiMenu()`, dialogs (`uiMessage()`, `uiOpenFileName()`...) and a `UiCanvas` class for drawing. `applications/` has complete programs (Calculator, Notepad, games, ...) that run themselves with `--selftest`.
 
+## Ring gotchas when writing GUI programs
+
+* `"text" + number` works, `number + "text"` is an error (`string(n) + " items"`).
+* Do not create objects (`new X()`) in the right side of an attribute assignment (`oForm.Text = new Path().GetFileName(f)`): Ring loses the assignment. Use a variable first.
+* Ring keywords can't be variable or function names, in any case: `oK` is `ok`, `step()` is `step`, `To`, `From`, `Load`... Do not define functions named like the built-ins the library uses (`isNumber`, `len`, ...).
+* Define the functions after the main code (a `func` at the top would swallow the rest of the file).
+* `dnNull()` is the .NET null (`oPictureBox.Image = dnNull()`).
+
 ## Calling Ring code from .NET (callbacks)
 
 Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type. When .NET invokes it, the Ring code runs, as in RingQt events: it can read `aDotNetArgs` (the list of delegate arguments) and set `xDotNetResult` (converted to the delegate's return type).

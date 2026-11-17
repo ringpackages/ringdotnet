@@ -1164,6 +1164,26 @@ namespace RingDotNet
 			return results;
 		}
 
+		/* A property by name; a property that hides one of a base class (CheckedListBox.Items) is the one of the most derived type */
+		private static PropertyInfo FindProperty(Type t, string name, BindingFlags f)
+		{
+			try
+			{
+				return t.GetProperty(name, f);
+			}
+			catch (AmbiguousMatchException)
+			{
+				PropertyInfo best = null;
+				foreach (PropertyInfo p in t.GetProperties(f))
+				{
+					if (p.Name != name && !(f.HasFlag(BindingFlags.IgnoreCase) && string.Equals(p.Name, name, StringComparison.OrdinalIgnoreCase))) continue;
+					if (p.GetIndexParameters().Length > 0) continue;
+					if (best == null || best.DeclaringType.IsAssignableFrom(p.DeclaringType)) best = p;
+				}
+				return best;
+			}
+		}
+
 		private static object GetMember(object target, string name)
 		{
 			Type t = target is TypeRef tr ? tr.Type : target?.GetType();
@@ -1175,7 +1195,7 @@ namespace RingDotNet
 			BindingFlags flags = target is TypeRef ? StaticFlags : InstanceFlags;
 			foreach (BindingFlags f in new[] { flags, flags | BindingFlags.IgnoreCase })
 			{
-				PropertyInfo p = t.GetProperty(name, f);
+				PropertyInfo p = FindProperty(t, name, f);
 				if (p != null && p.GetIndexParameters().Length == 0)
 				{
 					return p.GetValue(instance);
@@ -1200,7 +1220,7 @@ namespace RingDotNet
 			BindingFlags flags = target is TypeRef ? StaticFlags : InstanceFlags;
 			foreach (BindingFlags f in new[] { flags, flags | BindingFlags.IgnoreCase })
 			{
-				PropertyInfo p = t.GetProperty(name, f);
+				PropertyInfo p = FindProperty(t, name, f);
 				if (p != null && p.CanWrite)
 				{
 					if (!TryConvert(value, p.PropertyType, out object conv, out int _))

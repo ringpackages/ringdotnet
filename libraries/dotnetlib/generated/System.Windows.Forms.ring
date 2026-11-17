@@ -262,6 +262,12 @@ dnRegisterClass("System.Windows.Forms.ListView+ListViewItemCollection","ListView
 dnRegisterClass("System.Windows.Forms.ListView+ColumnHeaderCollection","ColumnHeaderCollection",1)
 dnRegisterClass("System.Windows.Forms.ListView+SelectedListViewItemCollection","SelectedListViewItemCollection",1)
 dnRegisterClass("System.Windows.Forms.DataGridView+HitTestInfo","DataGridViewHitTestInfo",0)
+dnRegisterClass("System.Windows.Forms.ListViewItem+ListViewSubItem","ListViewSubItem",0)
+dnRegisterClass("System.Windows.Forms.ListViewItem+ListViewSubItemCollection","ListViewSubItemCollection",1)
+dnRegisterClass("System.Windows.Forms.TabControl+TabPageCollection","TabPageCollection",1)
+dnRegisterClass("System.Windows.Forms.ImageList+ImageCollection","ImageCollection",0)
+dnRegisterClass("System.Windows.Forms.CheckedListBox+CheckedItemCollection","CheckedItemCollection",0)
+dnRegisterClass("System.Windows.Forms.CheckedListBox+CheckedIndexCollection","CheckedIndexCollection",0)
 dnRegisterClass("System.Windows.Forms.AxHost","AxHost",0)
 dnRegisterClass("System.Windows.Forms.BindingsCollection","BindingsCollection",0)
 dnRegisterClass("System.Windows.Forms.ButtonBase","ButtonBase",0)
@@ -336,6 +342,7 @@ dnRegisterClass("System.Windows.Forms.TreeViewImageIndexConverter","TreeViewImag
 dnRegisterClass("System.Windows.Forms.TreeViewImageKeyConverter","TreeViewImageKeyConverter",0)
 dnRegisterClass("System.Windows.Forms.VScrollProperties","VScrollProperties",1)
 dnRegisterClass("System.Windows.Forms.WebBrowserBase","WebBrowserBase",0)
+dnRegisterClass("System.Windows.Forms.CheckedListBox+ObjectCollection","CheckedListBoxObjectCollection",1)
 dnRegisterClass("System.Windows.Forms.Button","Button",0)
 dnRegisterClass("System.Windows.Forms.CheckBox","CheckBox",0)
 dnRegisterClass("System.Windows.Forms.ComboBox","ComboBox",0)
@@ -667,6 +674,12 @@ load "System.Windows.Forms/ListViewItemCollection.ring"
 load "System.Windows.Forms/ColumnHeaderCollection.ring"
 load "System.Windows.Forms/SelectedListViewItemCollection.ring"
 load "System.Windows.Forms/DataGridViewHitTestInfo.ring"
+load "System.Windows.Forms/ListViewSubItem.ring"
+load "System.Windows.Forms/ListViewSubItemCollection.ring"
+load "System.Windows.Forms/TabPageCollection.ring"
+load "System.Windows.Forms/ImageCollection.ring"
+load "System.Windows.Forms/CheckedItemCollection.ring"
+load "System.Windows.Forms/CheckedIndexCollection.ring"
 load "System.Windows.Forms/AxHost.ring"
 load "System.Windows.Forms/BindingsCollection.ring"
 load "System.Windows.Forms/ButtonBase.ring"
@@ -741,6 +754,7 @@ load "System.Windows.Forms/TreeViewImageIndexConverter.ring"
 load "System.Windows.Forms/TreeViewImageKeyConverter.ring"
 load "System.Windows.Forms/VScrollProperties.ring"
 load "System.Windows.Forms/WebBrowserBase.ring"
+load "System.Windows.Forms/CheckedListBoxObjectCollection.ring"
 load "System.Windows.Forms/Button.ring"
 load "System.Windows.Forms/CheckBox.ring"
 load "System.Windows.Forms/ComboBox.ring"

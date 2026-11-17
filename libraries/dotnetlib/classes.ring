@@ -7,8 +7,10 @@ class DotNetObject
 
 	nHandle = 0
 
-	func init  nHandle
-		this.nHandle = nHandle
+	# (the parameter has another name: "this.nHandle = ..." would run Ring's property setter machinery,
+	# which breaks an outer assignment like oForm.Text = new Path().GetFileName(...))
+	func init  pHandle
+		nHandle = pHandle
 
 	# True for the null reference
 	func isNull
@@ -56,5 +58,5 @@ class DotNetCallback
 
 	cCode = ""
 
-	func init  cCode
-		this.cCode = cCode
+	func init  pCode
+		cCode = pCode

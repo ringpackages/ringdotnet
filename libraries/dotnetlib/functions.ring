@@ -312,3 +312,7 @@ func dnWrapObject  cInfo
 		ok
 	next
 	return new DotNetObject(nHandle)
+
+# The .NET null: oPictureBox.Image = dnNull()
+func dnNull
+	return new DotNetObject(0)

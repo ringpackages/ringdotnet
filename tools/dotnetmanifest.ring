@@ -364,7 +364,14 @@ aDotNetManifest = [
 		["System.Windows.Forms.ListView+ListViewItemCollection","ListViewItemCollection"],
 		["System.Windows.Forms.ListView+ColumnHeaderCollection","ColumnHeaderCollection"],
 		["System.Windows.Forms.ListView+SelectedListViewItemCollection","SelectedListViewItemCollection"],
-		["System.Windows.Forms.DataGridView+HitTestInfo","DataGridViewHitTestInfo"]
+		["System.Windows.Forms.DataGridView+HitTestInfo","DataGridViewHitTestInfo"],
+		["System.Windows.Forms.ListViewItem+ListViewSubItem","ListViewSubItem"],
+		["System.Windows.Forms.ListViewItem+ListViewSubItemCollection","ListViewSubItemCollection"],
+		["System.Windows.Forms.TabControl+TabPageCollection","TabPageCollection"],
+		["System.Windows.Forms.ImageList+ImageCollection","ImageCollection"],
+		["System.Windows.Forms.CheckedListBox+ObjectCollection","CheckedListBoxObjectCollection"],
+		["System.Windows.Forms.CheckedListBox+CheckedItemCollection","CheckedItemCollection"],
+		["System.Windows.Forms.CheckedListBox+CheckedIndexCollection","CheckedIndexCollection"]
 	  ] ],
 
 	[ :namespace = "System.Windows.Forms.VisualStyles",
