@@ -61,6 +61,7 @@ aPackageInfo = [
 		"libraries/dotnetlib/generated\StringSet.ring",
 		"libraries/dotnetlib/generated\StringStack.ring",
 		"samples/UsingDotNet/test03_collections.ring",
+		"samples/UsingDotNet/test04_callbacks.ring",
 		"tools/gendotnet.ring",
 		"tools/ring2exe/libs/dotnet.ring"
 	],

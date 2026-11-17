@@ -49,6 +49,23 @@ oDict.SetItem("two","2")
 
 Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
+## Calling Ring functions from .NET (callbacks)
+
+Pass `dnCallback("functionName")` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type; when .NET invokes it, your Ring function runs with ONE parameter, the list of the delegate arguments, and its return value is converted to the delegate's return type:
+
+```ring
+oList.ForEach_(dnCallback("show"))            # ForEach is a Ring keyword, so it is ForEach_
+oList.Sort_1(dnCallback("byLength"))
+oList.FindAll(dnCallback("startsWithA"))
+
+func show aArgs
+	? aArgs[1]
+func byLength aArgs
+	return len(aArgs[1]) - len(aArgs[2])
+```
+
+Errors raised in the Ring function reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
+
 ## Architecture
 
 ```
@@ -81,5 +98,5 @@ Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `bui
 
 ## Not yet supported (ideas)
 
-* Calling Ring code from .NET (delegates/events), generic methods, `ref`/`out` parameters, indexers
+* Callbacks from other threads or after the call returned, generic methods, `ref`/`out` parameters, indexers
 * Automatic release of handles (use `release()`)

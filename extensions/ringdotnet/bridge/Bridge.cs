@@ -18,6 +18,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq.Expressions;
+using System.Threading;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,8 +33,21 @@ namespace RingDotNet
 		public TypeRef(Type t) { Type = t; }
 	}
 
+	/* A Ring function that .NET code can call back (arrives as item tag 'c') */
+	internal sealed class CallbackRef
+	{
+		public string Name;
+		public CallbackRef(string name) { Name = name; }
+	}
+
 	public static unsafe class Bridge
 	{
+		/* Native function that runs a Ring callback: (request, size, out buffer, capacity) -> result size;
+		   called with request = NULL it copies the result that did not fit */
+		private static delegate* unmanaged<byte*, int, byte*, int, int> NativeCallback;
+		private static int Depth;
+		private static int RingThread;
+
 		private static readonly Dictionary<long, object> Handles = new Dictionary<long, object>();
 		private static readonly object Sync = new object();
 		private static long NextHandle = 1;
@@ -44,6 +59,12 @@ namespace RingDotNet
 		public static byte* Invoke(byte* request, int length, int* outLength)
 		{
 			byte[] response;
+			bool outer = Depth == 0;
+			if (outer)
+			{
+				RingThread = Environment.CurrentManagedThreadId;
+			}
+			Depth++;
 			try
 			{
 				List<object> items = Decode(new ReadOnlySpan<byte>(request, length));
@@ -58,10 +79,20 @@ namespace RingDotNet
 			{
 				response = EncodeError(Unwrap(ex));
 			}
+			finally
+			{
+				Depth--;
+			}
 			byte* buffer = (byte*)NativeMemory.Alloc((nuint)Math.Max(response.Length, 1));
 			response.AsSpan().CopyTo(new Span<byte>(buffer, response.Length));
 			*outLength = response.Length;
 			return buffer;
+		}
+
+		[UnmanagedCallersOnly]
+		public static void SetCallback(IntPtr function)
+		{
+			NativeCallback = (delegate* unmanaged<byte*, int, byte*, int, int>)function;
 		}
 
 		[UnmanagedCallersOnly]
@@ -99,6 +130,8 @@ namespace RingDotNet
 					case 'z': items.Add(null); break;
 					case 'o': items.Add(Lookup(long.Parse(Encoding.ASCII.GetString(body), Inv))); break;
 					case 'l': items.Add(Decode(body).ToArray()); break;
+					case 'c': items.Add(new CallbackRef(Encoding.UTF8.GetString(body))); break;
+					case 'e': throw new InvalidOperationException("Ring error: " + Encoding.UTF8.GetString(body));
 					default: throw new ArgumentException("Unknown item tag '" + tag + "'");
 				}
 			}
@@ -326,6 +359,75 @@ namespace RingDotNet
 			return null;
 		}
 
+		/* ---------------------------------------------------------------- Ring callbacks */
+
+		private static Delegate MakeDelegate(Type delegateType, string ringFunction)
+		{
+			MethodInfo invoke = delegateType.GetMethod("Invoke");
+			ParameterInfo[] ps = invoke.GetParameters();
+			ParameterExpression[] pe = new ParameterExpression[ps.Length];
+			Expression[] boxed = new Expression[ps.Length];
+			for (int i = 0; i < ps.Length; i++)
+			{
+				if (ps[i].ParameterType.IsByRef)
+				{
+					throw new NotSupportedException("Ring callbacks can't use ref/out parameters");
+				}
+				pe[i] = Expression.Parameter(ps[i].ParameterType, ps[i].Name);
+				boxed[i] = Expression.Convert(pe[i], typeof(object));
+			}
+			Expression call = Expression.Call(typeof(Bridge).GetMethod(nameof(RaiseCallback), BindingFlags.NonPublic | BindingFlags.Static),
+				Expression.Constant(ringFunction), Expression.Constant(invoke.ReturnType, typeof(Type)),
+				Expression.NewArrayInit(typeof(object), boxed));
+			Expression body = invoke.ReturnType == typeof(void)
+				? call
+				: (Expression)Expression.Convert(call, invoke.ReturnType);
+			return Expression.Lambda(delegateType, body, pe).Compile();
+		}
+
+		/* Called by the generated delegates: run the Ring function and convert its result */
+		private static object RaiseCallback(string ringFunction, Type returnType, object[] args)
+		{
+			if (NativeCallback == null || Depth == 0 || Environment.CurrentManagedThreadId != RingThread)
+			{
+				Console.Error.WriteLine("RingDotNet: the callback '" + ringFunction + "' was ignored (Ring callbacks only run on the Ring thread during a call)");
+				return returnType.IsValueType && returnType != typeof(void) ? Activator.CreateInstance(returnType) : null;
+			}
+			MemoryStream ms = new MemoryStream();
+			WriteItem(ms, 's', Encoding.UTF8.GetBytes(ringFunction));
+			foreach (object arg in args)
+			{
+				Encode(ms, arg);
+			}
+			byte[] request = ms.ToArray();
+			byte[] response = new byte[4096];
+			int size;
+			fixed (byte* req = request)
+			fixed (byte* resp = response)
+			{
+				size = NativeCallback(req, request.Length, resp, response.Length);
+			}
+			if (size > response.Length)
+			{
+				response = new byte[size];
+				fixed (byte* resp = response)
+				{
+					NativeCallback(null, 0, resp, response.Length);
+				}
+			}
+			List<object> items = Decode(new ReadOnlySpan<byte>(response, 0, size));
+			if (returnType == typeof(void))
+			{
+				return null;
+			}
+			object value = items.Count > 0 ? items[0] : null;
+			if (!TryConvert(value, returnType, out object converted, out int _))
+			{
+				throw new InvalidCastException("Can't convert the Ring callback result to " + returnType.FullName);
+			}
+			return converted;
+		}
+
 		private static string TName(Type t)
 		{
 			return t.FullName ?? t.Name;
@@ -461,6 +563,16 @@ namespace RingDotNet
 			}
 			v = Plain(v);
 			Type ut = Nullable.GetUnderlyingType(t) ?? t;
+			if (v is CallbackRef cb)
+			{
+				if (typeof(Delegate).IsAssignableFrom(ut) && ut != typeof(Delegate) && ut != typeof(MulticastDelegate))
+				{
+					result = MakeDelegate(ut, cb.Name);
+					score = 3;
+					return true;
+				}
+				return false;
+			}
 			if (v == null)
 			{
 				if (!t.IsValueType || ut != t)

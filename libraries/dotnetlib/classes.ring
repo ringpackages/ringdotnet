@@ -48,3 +48,12 @@ class DotNetObject
 			dnRequest("release",[nHandle])
 			nHandle = 0
 		ok
+
+# A Ring function that .NET code can call (pass it where a .NET delegate is expected).
+# The function receives ONE parameter: the list of the delegate arguments, and returns the result.
+class DotNetCallback
+
+	cFunction = ""
+
+	func init  cFunction
+		this.cFunction = cFunction

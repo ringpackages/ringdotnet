@@ -46,6 +46,14 @@ typedef int32_t (DN_CALLTYPE *dn_loadassembly_fn)(const dn_char *cAssembly, cons
 typedef unsigned char *(DN_CALLTYPE *dn_invoke_fn)(const unsigned char *pRequest, int nSize, int *pOutSize);
 typedef void (DN_CALLTYPE *dn_free_fn)(unsigned char *pBuffer);
 
+/* Ring callbacks: the managed side asks us to run the Ring function dnDispatchCallback() */
+static void *g_pVM = NULL ;
+static int g_nDepth = 0 ;
+static char *g_pCallbackRequest = NULL ;
+static int g_nCallbackRequestSize = 0 ;
+static char *g_pCallbackResult = NULL ;
+static int g_nCallbackResultSize = 0 ;
+
 static int g_nStarted = 0 ;
 static dn_invoke_fn g_pInvoke = NULL ;
 static dn_free_fn g_pFree = NULL ;
@@ -211,6 +219,38 @@ static int ringdotnet_findhostfxr ( char *cOut, size_t nSize )
 	#define DN_SYM(lib,name) dlsym(lib,name)
 #endif
 
+static void ringdotnet_setresult ( const char *pData, int nSize )
+{
+	free(g_pCallbackResult);
+	g_pCallbackResult = (char *) malloc(nSize > 0 ? nSize : 1);
+	if ( g_pCallbackResult && (nSize > 0) ) {
+		memcpy(g_pCallbackResult,pData,nSize);
+	}
+	g_nCallbackResultSize = g_pCallbackResult ? nSize : 0 ;
+}
+
+/* Called by the managed bridge: run a Ring callback and return the size of the packed result */
+static int DN_CALLTYPE ringdotnet_callback ( const unsigned char *pRequest, int nSize, unsigned char *pOut, int nCapacity )
+{
+	static const char cNoRing[] = "e42:No active Ring call to run the callback in" ;
+	if ( pRequest ) {
+		if ( (! g_pVM) || (g_nDepth == 0) ) {
+			ringdotnet_setresult(cNoRing,(int) sizeof(cNoRing) - 1);
+		} else {
+			free(g_pCallbackRequest);
+			g_pCallbackRequest = (char *) malloc(nSize > 0 ? nSize : 1);
+			memcpy(g_pCallbackRequest,pRequest,nSize);
+			g_nCallbackRequestSize = nSize ;
+			ringdotnet_setresult("z0:",3);
+			ring_vm_runcode((VM *) g_pVM,"dnDispatchCallback()");
+		}
+	}
+	if ( pOut && (g_nCallbackResultSize <= nCapacity) ) {
+		memcpy(pOut,g_pCallbackResult,g_nCallbackResultSize);
+	}
+	return g_nCallbackResultSize ;
+}
+
 /* Start the runtime and bind the bridge entry points, returns 1 on success */
 static int ringdotnet_startruntime ( void )
 {
@@ -291,6 +331,14 @@ static int ringdotnet_startruntime ( void )
 		return 0 ;
 	}
 	g_pFree = (dn_free_fn) pFn ;
+	pFn = NULL ;
+	nRC = pLoad(wPath,DN_STR(DN_BRIDGE_TYPE),DN_STR("SetCallback"),DN_UNMANAGEDCALLERSONLY,NULL,&pFn);
+	if ( (nRC < 0) || (! pFn) ) {
+		snprintf(cNum,sizeof(cNum),"0x%08X",(unsigned) nRC);
+		ringdotnet_seterror("Can't bind Bridge.SetCallback",cNum);
+		return 0 ;
+	}
+	((void (DN_CALLTYPE *)(void *)) pFn)((void *) ringdotnet_callback);
 	g_nStarted = 1 ;
 	return 1 ;
 }
@@ -313,6 +361,7 @@ RING_FUNC(ring_dotnet_start)
 RING_FUNC(ring_dotnet_invoke)
 {
 	unsigned char *pOut ;
+	void *pOldVM ;
 	int nOutSize = 0 ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -328,7 +377,12 @@ RING_FUNC(ring_dotnet_invoke)
 	}
 	/* Keep the output order between Ring (C stdio) and .NET (Console) */
 	fflush(stdout);
+	pOldVM = g_pVM ;
+	g_pVM = pPointer ;
+	g_nDepth++ ;
 	pOut = g_pInvoke((const unsigned char *) RING_API_GETSTRING(1),(int) RING_API_GETSTRINGSIZE(1),&nOutSize);
+	g_nDepth-- ;
+	g_pVM = pOldVM ;
 	if ( ! pOut ) {
 		RING_API_ERROR("The .NET bridge returned no response");
 		return ;
@@ -343,9 +397,27 @@ RING_FUNC(ring_dotnet_info)
 	RING_API_RETSTRING(g_cHostFxr);
 }
 
+/* dotnet_callbackrequest() --> the packed request of the running callback (function name, arguments) */
+RING_FUNC(ring_dotnet_callbackrequest)
+{
+	RING_API_RETSTRING2(g_pCallbackRequest ? g_pCallbackRequest : "",g_pCallbackRequest ? g_nCallbackRequestSize : 0);
+}
+
+/* dotnet_callbackresult(cPackedResult) */
+RING_FUNC(ring_dotnet_callbackresult)
+{
+	if ( (RING_API_PARACOUNT != 1) || (! RING_API_ISSTRING(1)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ringdotnet_setresult(RING_API_GETSTRING(1),(int) RING_API_GETSTRINGSIZE(1));
+}
+
 RING_LIBINIT
 {
 	RING_API_REGISTER("dotnet_start",ring_dotnet_start);
 	RING_API_REGISTER("dotnet_invoke",ring_dotnet_invoke);
 	RING_API_REGISTER("dotnet_info",ring_dotnet_info);
+	RING_API_REGISTER("dotnet_callbackrequest",ring_dotnet_callbackrequest);
+	RING_API_REGISTER("dotnet_callbackresult",ring_dotnet_callbackresult);
 }

@@ -16,6 +16,9 @@ func dnPackItem  xValue
 		cData = dnPack(xValue)
 		return C_DOTNET_LIST + len(cData) + ":" + cData
 	ok
+	if isobject(xValue) and isattribute(xValue,"cFunction")
+		return C_DOTNET_CALLBACK + len(xValue.cFunction) + ":" + xValue.cFunction
+	ok
 	if isobject(xValue) and isattribute(xValue,"nHandle")
 		if xValue.nHandle = 0
 			return C_DOTNET_NULL + "0:"
@@ -134,3 +137,22 @@ func dnCreate  cTypeName, aParameters
 # Public API of a type (used by tools/gendotnet.ring)
 func dnDescribe  cTypeName
 	return dnRequest("describe",[cTypeName])
+
+# Make a Ring function callable from .NET: dnCallback("myfunc"), then pass it where a delegate is expected
+func dnCallback  cFunction
+	return new DotNetCallback(cFunction)
+
+# Runs one Ring callback requested by .NET (called by the extension, don't call it directly)
+func dnDispatchCallback
+	aItems = dnUnpack(dotnet_callbackrequest())
+	aDotNetCbArgs = []
+	for x = 2 to len(aItems)
+		aDotNetCbArgs + aItems[x]
+	next
+	try
+		eval("aDotNetCbResult = " + aItems[1] + "(aDotNetCbArgs)")
+		cOut = dnPackItem(aDotNetCbResult)
+	catch
+		cOut = C_DOTNET_ERROR + len(cCatchError) + ":" + cCatchError
+	done
+	dotnet_callbackresult(cOut)
