@@ -17,6 +17,25 @@ oSB.callMethod("Append",[", Ring!"])
 ? oSB.getProp("Length")                         # 12
 ```
 
+## Natural syntax (generated classes)
+
+Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
+
+```ring
+load "dotnetlib.ring"
+
+oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
+oSB.Append(", Ring").Append("!")        # methods that return a generated class return that class
+? oSB.ToString()
+? oSB.getLength()                       # properties and fields: getName() / setName(value)
+new Console().WriteLine("Hi")
+? new Math().Max(3,9)                   # static members are called on an instance
+```
+
+Ring has no overloading, so for each name the overload arity with the most overloads gets the plain name (`Append`, `WriteLine`) and the others get `Name_N` (`Next_2(1,10)`); constructors work the same way (`init` plus `New_N`). Names that are Ring keywords get a trailing `_` (`Exit_`). The bridge still picks the real overload from the argument types.
+
+Generated types: Console, Math, Environment, Random, Guid, DateTime, TimeSpan, StringBuilder, File, Directory, Path, Stopwatch, HttpClient. To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
+
 ## Architecture
 
 ```
@@ -50,4 +69,4 @@ Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `bui
 ## Not yet supported (ideas)
 
 * Calling Ring code from .NET (delegates/events), generic methods, `ref`/`out` parameters, indexers
-* Automatic release of handles (use `release()`), natural `oObj.Method(...)` syntax
+* Automatic release of handles (use `release()`)

@@ -116,3 +116,21 @@ func dnJoin  aFirst, aRest
 		aFirst + xItem
 	next
 	return aFirst
+
+# Type object for static members, cached per type name
+func dnTypeCached  cTypeName
+	nPos = find(aDotNetTypes,cTypeName,1)
+	if nPos > 0
+		return aDotNetTypes[nPos][2]
+	ok
+	oType = dnType(cTypeName)
+	aDotNetTypes + [cTypeName,oType]
+	return oType
+
+# Create a .NET object and return its handle (used by the generated classes)
+func dnCreate  cTypeName, aParameters
+	return dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters)).nHandle
+
+# Public API of a type (used by tools/gendotnet.ring)
+func dnDescribe  cTypeName
+	return dnRequest("describe",[cTypeName])

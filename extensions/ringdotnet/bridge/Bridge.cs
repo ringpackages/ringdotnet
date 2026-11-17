@@ -220,6 +220,8 @@ namespace RingDotNet
 					return a[0] is TypeRef tr ? tr.Type.FullName : a[0]?.GetType().FullName;
 				case "tolist":
 					return ToList(a[0]);
+				case "describe":
+					return Describe(TypeOf(a, 0));
 				case "isnull":
 					return a[0] == null;
 				default:
@@ -300,6 +302,77 @@ namespace RingDotNet
 				}
 			} while (dot > 0);
 			throw new TypeLoadException("Can't find the .NET type: " + name);
+		}
+
+		private static string TName(Type t)
+		{
+			return t.FullName ?? t.Name;
+		}
+
+		private static bool Usable(MethodBase m)
+		{
+			if (m.ContainsGenericParameters)
+			{
+				return false;
+			}
+			foreach (ParameterInfo p in m.GetParameters())
+			{
+				if (p.ParameterType.IsByRef || p.ParameterType.IsPointer || p.ParameterType.IsByRefLike)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
+		private static List<object> ParamTypes(MethodBase m)
+		{
+			List<object> list = new List<object>();
+			foreach (ParameterInfo p in m.GetParameters())
+			{
+				list.Add(TName(p.ParameterType));
+			}
+			return list;
+		}
+
+		/* Public API of a type, used by the Ring class generator:
+		   [fullName, isStaticClass, [ctor:[paramTypes]], [method:[name,isStatic,returnType,[paramTypes]]],
+		    [member:[name,canRead,canWrite,isStatic,type]]] */
+		private static List<object> Describe(Type t)
+		{
+			List<object> ctors = new List<object>();
+			if (!t.IsAbstract)
+			{
+				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
+				{
+					if (Usable(c)) ctors.Add(ParamTypes(c));
+				}
+			}
+			List<object> methods = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (MethodInfo m in t.GetMethods(f))
+				{
+					if (m.IsSpecialName || !Usable(m)) continue;
+					methods.Add(new List<object> { m.Name, m.IsStatic, TName(m.ReturnType), ParamTypes(m) });
+				}
+			}
+			List<object> members = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (PropertyInfo p in t.GetProperties(f))
+				{
+					if (p.GetIndexParameters().Length > 0) continue;
+					bool canRead = p.GetMethod != null && p.GetMethod.IsPublic;
+					bool canWrite = p.SetMethod != null && p.SetMethod.IsPublic;
+					members.Add(new List<object> { p.Name, canRead, canWrite, (p.GetMethod ?? p.SetMethod).IsStatic, TName(p.PropertyType) });
+				}
+				foreach (FieldInfo fi in t.GetFields(f))
+				{
+					members.Add(new List<object> { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
+				}
+			}
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members };
 		}
 
 		private static List<object> ToList(object target)
