@@ -34,6 +34,7 @@ PAGES = [
     ("testing", "Testing", "Project"),
     ("gotchas", "Gotchas & limits", "Project"),
     ("reference", "Function index", "Project"),
+    ("api", "Class reference", "Reference"),
 ]
 TITLES = {p[0]: p[1] for p in PAGES}
 
@@ -398,22 +399,24 @@ def stats():
 
 
 # ---------------------------------------------------------------- templates
-def sidebar(current):
+def sidebar(current, root=""):
     out, section = [], None
     for name, title, sec in PAGES:
         if sec != section:
             out.append("<h4>%s</h4>" % sec)
             section = sec
-        out.append('<a href="%s.html"%s>%s</a>' % (name, ' class="cur"' if name == current else "", title))
+        out.append('<a href="%s%s.html"%s>%s</a>' % (root, name, ' class="cur"' if name == current else "", title))
     return "\n".join(out)
 
 
-def page_html(name, title, lead, body, current):
+def page_html(name, title, lead, body, current, root="", toc=True, heading=None):
     idx = [p[0] for p in PAGES]
-    n = idx.index(name)
+    n = idx.index(name) if name in idx else -1
     prev = '<a href="%s.html"><small>Previous</small>%s</a>' % (idx[n - 1], TITLES[idx[n - 1]]) if n > 0 else "<span></span>"
     nxt = '<a class="next" href="%s.html"><small>Next</small>%s</a>' % (idx[n + 1], TITLES[idx[n + 1]]) if n < len(idx) - 1 else "<span></span>"
-    head = "" if name == "index" else '<h1>%s</h1>%s' % (esc(title), '<p class="lead">%s</p>' % inline(lead) if lead else "")
+    head = "" if name == "index" else '<h1>%s</h1>%s' % (esc(heading or title), '<p class="lead">%s</p>' % inline(lead) if lead else "")
+    if n < 0 or name == "api":
+        prev = nxt = ""
     return """<!doctype html>
 <html lang="en">
 <head>
@@ -421,14 +424,16 @@ def page_html(name, title, lead, body, current):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s · RingDotNet</title>
 <meta name="description" content="%(lead)s">
-<link rel="stylesheet" href="assets/style.css">
-<script src="assets/search-index.js"></script>
-<script src="assets/site.js"></script>
+<link rel="stylesheet" href="%(root)sassets/style.css">
+<script>window.SITE_ROOT="%(root)s";</script>
+<script src="%(root)sassets/search-index.js"></script>
+<script src="%(root)sassets/api-index.js"></script>
+<script src="%(root)sassets/site.js"></script>
 </head>
 <body>
 <header class="topbar">
 	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
-	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<a class="brand" href="%(root)sindex.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
 	<span class="spacer"></span>
 	<div class="search">
 		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
@@ -447,11 +452,11 @@ def page_html(name, title, lead, body, current):
 <div class="pager">%(prev)s%(next)s</div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
-<aside class="toc" id="toc"></aside>
+%(tocaside)s
 </main>
 </body>
 </html>
-""" % {"title": esc(title), "lead": esc(re.sub(r"[`*]", "", lead or "Use .NET classes and methods from Ring programs")), "sidebar": sidebar(current), "head": head, "body": body, "prev": prev, "next": nxt}
+""" % {"title": esc(title), "lead": esc(re.sub(r"[`*]", "", lead or "Use .NET classes and methods from Ring programs")), "sidebar": sidebar(current, root), "head": head, "root": root, "tocaside": '<aside class="toc" id="toc"></aside>' if toc else "", "body": body, "prev": prev, "next": nxt}
 
 
 def parse_front(text):
@@ -476,13 +481,15 @@ def main():
     index = []
     count = 0
     for name, title, _ in PAGES:
+        if name == "api":
+            continue
         path = os.path.join(SRC, name + ".md")
         if not os.path.exists(path):
             print("missing", path)
             continue
         meta, text = parse_front(read(path))
         body, heads = markdown(text, {"directive": directive})
-        body = body.replace("@APPS@", str(gallery("apps")[1]))
+        body = body.replace("@APPS@", str(gallery("apps")[1])).replace("@CLASSES@", stats()["classes"])
         title = meta.get("title", title)
         with open(os.path.join(DOCS, name + ".html"), "w", encoding="utf-8") as f:
             f.write(page_html(name, title, meta.get("lead", ""), body, name))
@@ -493,6 +500,11 @@ def main():
             hid, htitle = (m.group(1), plain(m.group(2))) if m else ("", "")
             index.append({"u": name + ".html" + ("#" + hid if hid else ""), "t": title, "h": htitle, "x": plain(sec)[:600]})
         count += 1
+    if os.path.exists(os.path.join(HERE, "api-data", "api.jsonl")):
+        sys.path.insert(0, HERE)
+        import apipages
+        total, nns = apipages.build(page_html, DOCS)
+        print("class reference:", total, "classes in", nns, "namespaces")
     with open(os.path.join(DOCS, "assets", "search-index.js"), "w", encoding="utf-8") as f:
         f.write("window.SEARCH_INDEX = " + json.dumps(index) + ";")
     print("built", count, "pages,", len(index), "search entries")

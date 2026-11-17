@@ -332,6 +332,8 @@ namespace RingDotNet
 					return ListNamespaces(Str(a, 0));
 				case "enumnames":
 					return new List<object>(Enum.GetNames(TypeOf(a, 0)));
+				case "apidoc":
+					return ApiDoc(ResolveType(Str(a, 0)));
 				case "describe":
 					return Describe(TypeOf(a, 0));
 				case "isnull":
@@ -706,6 +708,162 @@ namespace RingDotNet
 				}
 			}
 			return true;
+		}
+
+		/* ---------------------------------------------------------------- API documentation (JSON) */
+
+		private static string Pretty(Type t)
+		{
+			if (t.IsByRef) t = t.GetElementType();
+			if (t == typeof(void)) return "void";
+			if (t == typeof(string)) return "string";
+			if (t == typeof(int)) return "int";
+			if (t == typeof(long)) return "long";
+			if (t == typeof(short)) return "short";
+			if (t == typeof(byte)) return "byte";
+			if (t == typeof(sbyte)) return "sbyte";
+			if (t == typeof(uint)) return "uint";
+			if (t == typeof(ulong)) return "ulong";
+			if (t == typeof(ushort)) return "ushort";
+			if (t == typeof(bool)) return "bool";
+			if (t == typeof(double)) return "double";
+			if (t == typeof(float)) return "float";
+			if (t == typeof(decimal)) return "decimal";
+			if (t == typeof(char)) return "char";
+			if (t == typeof(object)) return "object";
+			if (t.IsArray) return Pretty(t.GetElementType()) + "[]";
+			Type nullable = Nullable.GetUnderlyingType(t);
+			if (nullable != null) return Pretty(nullable) + "?";
+			if (t.IsGenericParameter) return t.Name;
+			if (t.IsGenericType)
+			{
+				string name = t.Name;
+				int tick = name.IndexOf('`');
+				if (tick >= 0) name = name.Substring(0, tick);
+				return name + "<" + string.Join(", ", t.GetGenericArguments().Select(Pretty)) + ">";
+			}
+			return t.DeclaringType != null ? Pretty(t.DeclaringType) + "." + t.Name : t.Name;
+		}
+
+		private static bool SkipDeclaring(Type d)
+		{
+			return d == typeof(object) || d == typeof(ValueType) || d == typeof(Enum) || d == typeof(MarshalByRefObject);
+		}
+
+		private static List<object> ApiParams(MethodBase m)
+		{
+			List<object> list = new List<object>();
+			foreach (ParameterInfo p in m.GetParameters())
+			{
+				Dictionary<string, object> d = new Dictionary<string, object>();
+				d["t"] = Pretty(p.ParameterType);
+				d["n"] = p.Name ?? "";
+				if (p.IsOptional) d["o"] = 1;
+				if (p.ParameterType.IsByRef) d["m"] = p.IsOut ? "out" : "ref";
+				list.Add(d);
+			}
+			return list;
+		}
+
+		/* Everything about a type for the documentation, as JSON */
+		private static string ApiDoc(Type t)
+		{
+			Dictionary<string, object> r = new Dictionary<string, object>();
+			r["full"] = t.FullName ?? t.Name;
+			r["name"] = Pretty(t);
+			r["ns"] = t.Namespace ?? "";
+			r["asm"] = t.Assembly.GetName().Name;
+			string kind = t.IsEnum ? "enum" : t.IsInterface ? "interface" : t.IsValueType ? "struct" : typeof(Delegate).IsAssignableFrom(t) ? "delegate" : "class";
+			r["kind"] = kind;
+			if (t.IsAbstract && t.IsSealed) r["static"] = 1;
+			else if (t.IsAbstract && !t.IsInterface) r["abstract"] = 1;
+			else if (t.IsSealed && !t.IsValueType && !t.IsEnum) r["sealed"] = 1;
+			if (t.BaseType != null && !SkipDeclaring(t.BaseType)) { r["base"] = Pretty(t.BaseType); r["basefull"] = t.BaseType.FullName ?? ""; }
+			r["interfaces"] = t.GetInterfaces().Where(i => i.IsPublic && (i.Namespace ?? "").StartsWith("System") && !i.IsGenericType).Select(Pretty).Take(12).ToList();
+			if (t.IsEnum) r["values"] = Enum.GetNames(t).ToList();
+			List<object> ctors = new List<object>();
+			if (!t.IsAbstract)
+			{
+				foreach (ConstructorInfo c in t.GetConstructors(BindingFlags.Public | BindingFlags.Instance))
+				{
+					if (Usable(c)) ctors.Add(ApiParams(c));
+				}
+			}
+			r["ctors"] = ctors;
+			List<object> methods = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (MethodInfo m in t.GetMethods(f))
+				{
+					if (m.IsSpecialName || !Usable(m) || SkipDeclaring(m.DeclaringType)) continue;
+					Dictionary<string, object> d = new Dictionary<string, object>();
+					d["n"] = m.Name;
+					d["r"] = Pretty(m.ReturnType);
+					d["p"] = ApiParams(m);
+					if (m.IsStatic) d["s"] = 1;
+					if (m.IsGenericMethodDefinition) d["g"] = string.Join(", ", m.GetGenericArguments().Select(x => x.Name));
+					if (m.DeclaringType != t) d["from"] = Pretty(m.DeclaringType);
+					methods.Add(d);
+				}
+			}
+			r["methods"] = methods;
+			List<object> props = new List<object>();
+			List<object> fields = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (PropertyInfo p in t.GetProperties(f))
+				{
+					if (p.GetIndexParameters().Length > 0 || SkipDeclaring(p.DeclaringType)) continue;
+					Dictionary<string, object> d = new Dictionary<string, object>();
+					d["n"] = p.Name;
+					d["t"] = Pretty(p.PropertyType);
+					d["r"] = p.GetMethod != null && p.GetMethod.IsPublic ? 1 : 0;
+					d["w"] = p.SetMethod != null && p.SetMethod.IsPublic ? 1 : 0;
+					if ((p.GetMethod ?? p.SetMethod).IsStatic) d["s"] = 1;
+					if (p.DeclaringType != t) d["from"] = Pretty(p.DeclaringType);
+					props.Add(d);
+				}
+				foreach (FieldInfo fi in t.GetFields(f))
+				{
+					if (SkipDeclaring(fi.DeclaringType) || (t.IsEnum && fi.IsLiteral)) continue;
+					Dictionary<string, object> d = new Dictionary<string, object>();
+					d["n"] = fi.Name;
+					d["t"] = Pretty(fi.FieldType);
+					d["w"] = !fi.IsInitOnly && !fi.IsLiteral ? 1 : 0;
+					if (fi.IsStatic) d["s"] = 1;
+					if (fi.IsLiteral) d["c"] = 1;
+					if (fi.DeclaringType != t) d["from"] = Pretty(fi.DeclaringType);
+					fields.Add(d);
+				}
+			}
+			r["props"] = props;
+			r["fields"] = fields;
+			List<object> indexers = new List<object>();
+			foreach (PropertyInfo p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+			{
+				ParameterInfo[] ips = p.GetIndexParameters();
+				if (ips.Length == 1 && p.GetMethod != null && p.GetMethod.IsPublic)
+				{
+					indexers.Add(new Dictionary<string, object> { { "i", Pretty(ips[0].ParameterType) }, { "n", ips[0].Name ?? "" }, { "t", Pretty(p.PropertyType) }, { "w", p.SetMethod != null && p.SetMethod.IsPublic ? 1 : 0 } });
+					break;
+				}
+			}
+			r["indexers"] = indexers;
+			List<object> events = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (EventInfo ev in t.GetEvents(f))
+				{
+					Dictionary<string, object> d = new Dictionary<string, object>();
+					d["n"] = ev.Name;
+					d["t"] = Pretty(ev.EventHandlerType);
+					if (f.HasFlag(BindingFlags.Static)) d["s"] = 1;
+					if (ev.DeclaringType != t) d["from"] = Pretty(ev.DeclaringType);
+					events.Add(d);
+				}
+			}
+			r["events"] = events;
+			return System.Text.Json.JsonSerializer.Serialize(r);
 		}
 
 		private static bool IsOutOnly(ParameterInfo p)

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>System.Net.Mail · RingDotNet</title>
+<meta name="description" content="Use .NET classes and methods from Ring programs">
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.SITE_ROOT="../";</script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/api-index.js"></script>
+<script src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="../index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="../index.html">Overview</a>
+<a href="../getting-started.html">Getting started</a>
+<a href="../how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="../concepts.html">Core concepts</a>
+<a href="../core-api.html">Core functions</a>
+<a href="../collections-linq.html">Collections & LINQ</a>
+<a href="../callbacks-events.html">Callbacks & events</a>
+<a href="../foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="../winforms.html">Windows Forms</a>
+<a href="../gallery-forms.html">Forms samples</a>
+<a href="../gallery-apps.html">Applications</a>
+<a href="../wpf.html">WPF</a>
+<a href="../gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="../aspnet.html">ASP.NET Core</a>
+<a href="../ef.html">Entity Framework Core</a>
+<a href="../ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="../own-assemblies.html">Your own assemblies</a>
+<a href="../generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="../testing.html">Testing</a>
+<a href="../gotchas.html">Gotchas & limits</a>
+<a href="../reference.html">Function index</a>
+<h4>Reference</h4>
+<a href="../api.html" class="cur">Class reference</a>
+</nav>
+<main>
+<article>
+<h1>System.Net.Mail</h1>
+<p class="lead">11 wrapped types. Load them with <code>using { "System.Net.Mail" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-AlternateView">AlternateView</a> <a href="#c-AlternateViewCollection">AlternateViewCollection</a> <a href="#c-Attachment">Attachment</a> <a href="#c-AttachmentBase">AttachmentBase</a> <a href="#c-AttachmentCollection">AttachmentCollection</a> <a href="#c-LinkedResource">LinkedResource</a> <a href="#c-LinkedResourceCollection">LinkedResourceCollection</a> <a href="#c-MailAddress">MailAddress</a> <a href="#c-MailAddressCollection">MailAddressCollection</a> <a href="#c-MailMessage">MailMessage</a> <a href="#c-SmtpClient">SmtpClient</a></div><details class="cls" id="c-AlternateView"><summary><b>AlternateView</b> <span class="muted">class · extends <a href="#c-AttachmentBase">AttachmentBase</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.AlternateView</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new AlternateView(string fileName)</code></td></tr><tr><td><code>new AlternateView(string fileName, string mediaType)</code></td></tr><tr><td><code>new AlternateView(string fileName, ContentType contentType)</code></td></tr><tr><td><code>new AlternateView(Stream contentStream)</code></td></tr><tr><td><code>new AlternateView(Stream contentStream, string mediaType)</code></td></tr><tr><td><code>new AlternateView(Stream contentStream, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new AlternateView(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("AlternateView",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>LinkedResources</code></td><td><code>LinkedResourceCollection</code></td><td>read</td><td><code>o.LinkedResources</code></td></tr><tr><td><code>BaseUri</code></td><td><code>Uri</code></td><td>read, write</td><td><code>o.BaseUri</code> <code>o.BaseUri = v</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>CreateAlternateViewFromString</code></td><td><code>CreateAlternateViewFromString(value)</code><br><code>CreateAlternateViewFromString([ :name = value ])</code><br><code>CreateAlternateViewFromString_3(p1,p2,p3)</code><br><code>CreateAlternateViewFromString_2(p1,p2)</code></td><td><code>static AlternateView CreateAlternateViewFromString(string content)</code><br><code>static AlternateView CreateAlternateViewFromString(string content, Encoding contentEncoding, string mediaType)</code><br><code>static AlternateView CreateAlternateViewFromString(string content, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-AlternateViewCollection"><summary><b>AlternateViewCollection</b> <span class="muted">class sealed · extends Collection&lt;AlternateView&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.AlternateViewCollection</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection, IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>AlternateView</code> · <code>o.SetItem(index,value)</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><code>Add(p1)</code></td><td><code>void Add(AlternateView item)</code></td></tr><tr><td><code>Clear</code></td><td><code>Clear()</code></td><td><code>void Clear()</code></td></tr><tr><td><code>Contains</code></td><td><code>Contains(p1)</code></td><td><code>bool Contains(AlternateView item)</code></td></tr><tr><td><code>CopyTo</code></td><td><code>CopyTo(p1,p2)</code></td><td><code>void CopyTo(AlternateView[] array, int index)</code></td></tr><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;AlternateView&gt; GetEnumerator()</code></td></tr><tr><td><code>IndexOf</code></td><td><code>IndexOf(p1)</code></td><td><code>int IndexOf(AlternateView item)</code></td></tr><tr><td><code>Insert</code></td><td><code>Insert(p1,p2)</code></td><td><code>void Insert(int index, AlternateView item)</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>bool Remove(AlternateView item)</code></td></tr><tr><td><code>RemoveAt</code></td><td><code>RemoveAt(p1)</code></td><td><code>void RemoveAt(int index)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-Attachment"><summary><b>Attachment</b> <span class="muted">class · extends <a href="#c-AttachmentBase">AttachmentBase</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.Attachment</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new Attachment(string fileName)</code></td></tr><tr><td><code>new Attachment(string fileName, string mediaType)</code></td></tr><tr><td><code>new Attachment(string fileName, ContentType contentType)</code></td></tr><tr><td><code>new Attachment(Stream contentStream, string name)</code></td></tr><tr><td><code>new Attachment(Stream contentStream, string name, string mediaType)</code></td></tr><tr><td><code>new Attachment(Stream contentStream, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new Attachment(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("Attachment",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Name</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Name</code> <code>o.Name = v</code></td></tr><tr><td><code>NameEncoding</code></td><td><code>Encoding</code></td><td>read, write</td><td><code>o.NameEncoding</code> <code>o.NameEncoding = v</code></td></tr><tr><td><code>ContentDisposition</code></td><td><code>ContentDisposition</code></td><td>read</td><td><code>o.ContentDisposition</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>CreateAttachmentFromString</code></td><td><code>CreateAttachmentFromString(p1,p2)</code><br><code>CreateAttachmentFromString_4(p1,p2,p3,p4)</code></td><td><code>static Attachment CreateAttachmentFromString(string content, string name)</code><br><code>static Attachment CreateAttachmentFromString(string content, string name, Encoding contentEncoding, string mediaType)</code><br><code>static Attachment CreateAttachmentFromString(string content, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-AttachmentBase"><summary><b>AttachmentBase</b> <span class="muted">class abstract</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.AttachmentBase</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ContentStream</code></td><td><code>Stream</code></td><td>read</td><td><code>o.ContentStream</code></td></tr><tr><td><code>ContentId</code></td><td><code>string</code></td><td>read, write</td><td><code>o.ContentId</code> <code>o.ContentId = v</code></td></tr><tr><td><code>ContentType</code></td><td><code>ContentType</code></td><td>read, write</td><td><code>o.ContentType</code> <code>o.ContentType = v</code></td></tr><tr><td><code>TransferEncoding</code></td><td><code>TransferEncoding</code></td><td>read, write</td><td><code>o.TransferEncoding</code> <code>o.TransferEncoding = v</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-AttachmentCollection"><summary><b>AttachmentCollection</b> <span class="muted">class sealed · extends Collection&lt;Attachment&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.AttachmentCollection</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection, IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>Attachment</code> · <code>o.SetItem(index,value)</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><code>Add(p1)</code></td><td><code>void Add(Attachment item)</code></td></tr><tr><td><code>Clear</code></td><td><code>Clear()</code></td><td><code>void Clear()</code></td></tr><tr><td><code>Contains</code></td><td><code>Contains(p1)</code></td><td><code>bool Contains(Attachment item)</code></td></tr><tr><td><code>CopyTo</code></td><td><code>CopyTo(p1,p2)</code></td><td><code>void CopyTo(Attachment[] array, int index)</code></td></tr><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;Attachment&gt; GetEnumerator()</code></td></tr><tr><td><code>IndexOf</code></td><td><code>IndexOf(p1)</code></td><td><code>int IndexOf(Attachment item)</code></td></tr><tr><td><code>Insert</code></td><td><code>Insert(p1,p2)</code></td><td><code>void Insert(int index, Attachment item)</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>bool Remove(Attachment item)</code></td></tr><tr><td><code>RemoveAt</code></td><td><code>RemoveAt(p1)</code></td><td><code>void RemoveAt(int index)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-LinkedResource"><summary><b>LinkedResource</b> <span class="muted">class · extends <a href="#c-AttachmentBase">AttachmentBase</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.LinkedResource</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new LinkedResource(string fileName)</code></td></tr><tr><td><code>new LinkedResource(string fileName, string mediaType)</code></td></tr><tr><td><code>new LinkedResource(string fileName, ContentType contentType)</code></td></tr><tr><td><code>new LinkedResource(Stream contentStream)</code></td></tr><tr><td><code>new LinkedResource(Stream contentStream, string mediaType)</code></td></tr><tr><td><code>new LinkedResource(Stream contentStream, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new LinkedResource(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("LinkedResource",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>ContentLink</code></td><td><code>Uri</code></td><td>read, write</td><td><code>o.ContentLink</code> <code>o.ContentLink = v</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>CreateLinkedResourceFromString</code></td><td><code>CreateLinkedResourceFromString(value)</code><br><code>CreateLinkedResourceFromString([ :name = value ])</code><br><code>CreateLinkedResourceFromString_3(p1,p2,p3)</code><br><code>CreateLinkedResourceFromString_2(p1,p2)</code></td><td><code>static LinkedResource CreateLinkedResourceFromString(string content)</code><br><code>static LinkedResource CreateLinkedResourceFromString(string content, Encoding contentEncoding, string mediaType)</code><br><code>static LinkedResource CreateLinkedResourceFromString(string content, ContentType contentType)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-LinkedResourceCollection"><summary><b>LinkedResourceCollection</b> <span class="muted">class sealed · extends Collection&lt;LinkedResource&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.LinkedResourceCollection</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection, IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>LinkedResource</code> · <code>o.SetItem(index,value)</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><code>Add(p1)</code></td><td><code>void Add(LinkedResource item)</code></td></tr><tr><td><code>Clear</code></td><td><code>Clear()</code></td><td><code>void Clear()</code></td></tr><tr><td><code>Contains</code></td><td><code>Contains(p1)</code></td><td><code>bool Contains(LinkedResource item)</code></td></tr><tr><td><code>CopyTo</code></td><td><code>CopyTo(p1,p2)</code></td><td><code>void CopyTo(LinkedResource[] array, int index)</code></td></tr><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;LinkedResource&gt; GetEnumerator()</code></td></tr><tr><td><code>IndexOf</code></td><td><code>IndexOf(p1)</code></td><td><code>int IndexOf(LinkedResource item)</code></td></tr><tr><td><code>Insert</code></td><td><code>Insert(p1,p2)</code></td><td><code>void Insert(int index, LinkedResource item)</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>bool Remove(LinkedResource item)</code></td></tr><tr><td><code>RemoveAt</code></td><td><code>RemoveAt(p1)</code></td><td><code>void RemoveAt(int index)</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-MailAddress"><summary><b>MailAddress</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.MailAddress</code> · assembly <code>System.Net.Mail</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MailAddress(string address)</code></td></tr><tr><td><code>new MailAddress(string address, string displayName)</code></td></tr><tr><td><code>new MailAddress(string address, string displayName, Encoding displayNameEncoding)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MailAddress(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MailAddress",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>DisplayName</code></td><td><code>string</code></td><td>read</td><td><code>o.DisplayName</code></td></tr><tr><td><code>User</code></td><td><code>string</code></td><td>read</td><td><code>o.User</code></td></tr><tr><td><code>Host</code></td><td><code>string</code></td><td>read</td><td><code>o.Host</code></td></tr><tr><td><code>Address</code></td><td><code>string</code></td><td>read</td><td><code>o.Address</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Equals</code></td><td><code>Equals(p1)</code></td><td><code>bool Equals(object value)</code></td></tr><tr><td><code>GetHashCode</code></td><td><span class="muted">—</span></td><td><code>int GetHashCode()</code></td></tr><tr><td><code>ToString</code></td><td><span class="muted">—</span></td><td><code>string ToString()</code></td></tr><tr><td><code>TryCreate</code></td><td><code>TryCreate(value)</code><br><code>TryCreate([ :name = value ])</code><br><code>TryCreate_2(p1,p2)</code><br><code>TryCreate_3(p1,p2,p3)</code></td><td><code>static bool TryCreate(string address, out MailAddress result)</code><br><code>static bool TryCreate(string address, string displayName, out MailAddress result)</code><br><code>static bool TryCreate(string address, string displayName, Encoding displayNameEncoding, out MailAddress result)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MailAddressCollection"><summary><b>MailAddressCollection</b> <span class="muted">class · extends Collection&lt;MailAddress&gt;</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.MailAddressCollection</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IEnumerable, IList, ICollection</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MailAddressCollection()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MailAddressCollection(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MailAddressCollection",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr></tbody></table></div>
+<h4>Indexer</h4><p><code>o.Item(int index)</code> → <code>MailAddress</code> · <code>o.SetItem(index,value)</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Add</code></td><td><code>Add(p1)</code></td><td><code>void Add(string addresses)</code><br><code>void Add(MailAddress item)</code></td></tr><tr><td><code>Clear</code></td><td><code>Clear()</code></td><td><code>void Clear()</code></td></tr><tr><td><code>Contains</code></td><td><code>Contains(p1)</code></td><td><code>bool Contains(MailAddress item)</code></td></tr><tr><td><code>CopyTo</code></td><td><code>CopyTo(p1,p2)</code></td><td><code>void CopyTo(MailAddress[] array, int index)</code></td></tr><tr><td><code>GetEnumerator</code></td><td><code>GetEnumerator()</code></td><td><code>IEnumerator&lt;MailAddress&gt; GetEnumerator()</code></td></tr><tr><td><code>IndexOf</code></td><td><code>IndexOf(p1)</code></td><td><code>int IndexOf(MailAddress item)</code></td></tr><tr><td><code>Insert</code></td><td><code>Insert(p1,p2)</code></td><td><code>void Insert(int index, MailAddress item)</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>bool Remove(MailAddress item)</code></td></tr><tr><td><code>RemoveAt</code></td><td><code>RemoveAt(p1)</code></td><td><code>void RemoveAt(int index)</code></td></tr><tr><td><code>ToString</code></td><td><code>ToString()</code></td><td><code>string ToString()</code></td></tr></tbody></table></div>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-MailMessage"><summary><b>MailMessage</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.MailMessage</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MailMessage()</code></td></tr><tr><td><code>new MailMessage(string from, string to)</code></td></tr><tr><td><code>new MailMessage(string from, string to, string subject, string body)</code></td></tr><tr><td><code>new MailMessage(MailAddress from, MailAddress to)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MailMessage(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MailMessage",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>From</code></td><td><code>MailAddress</code></td><td>read, write</td><td><code>o.getFrom()</code> <code>o.setFrom(v)</code></td></tr><tr><td><code>Sender</code></td><td><code>MailAddress</code></td><td>read, write</td><td><code>o.Sender</code> <code>o.Sender = v</code></td></tr><tr><td><code>ReplyTo</code></td><td><code>MailAddress</code></td><td>read, write</td><td><code>o.ReplyTo</code> <code>o.ReplyTo = v</code></td></tr><tr><td><code>ReplyToList</code></td><td><code>MailAddressCollection</code></td><td>read</td><td><code>o.ReplyToList</code></td></tr><tr><td><code>To</code></td><td><code>MailAddressCollection</code></td><td>read</td><td><code>o.getTo()</code></td></tr><tr><td><code>Bcc</code></td><td><code>MailAddressCollection</code></td><td>read</td><td><code>o.Bcc</code></td></tr><tr><td><code>CC</code></td><td><code>MailAddressCollection</code></td><td>read</td><td><code>o.CC</code></td></tr><tr><td><code>Priority</code></td><td><code>MailPriority</code></td><td>read, write</td><td><code>o.Priority</code> <code>o.Priority = v</code></td></tr><tr><td><code>DeliveryNotificationOptions</code></td><td><code>DeliveryNotificationOptions</code></td><td>read, write</td><td><code>o.DeliveryNotificationOptions</code> <code>o.DeliveryNotificationOptions = v</code></td></tr><tr><td><code>Subject</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Subject</code> <code>o.Subject = v</code></td></tr><tr><td><code>SubjectEncoding</code></td><td><code>Encoding</code></td><td>read, write</td><td><code>o.SubjectEncoding</code> <code>o.SubjectEncoding = v</code></td></tr><tr><td><code>Headers</code></td><td><code>NameValueCollection</code></td><td>read</td><td><code>o.Headers</code></td></tr><tr><td><code>HeadersEncoding</code></td><td><code>Encoding</code></td><td>read, write</td><td><code>o.HeadersEncoding</code> <code>o.HeadersEncoding = v</code></td></tr><tr><td><code>Body</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Body</code> <code>o.Body = v</code></td></tr><tr><td><code>BodyEncoding</code></td><td><code>Encoding</code></td><td>read, write</td><td><code>o.BodyEncoding</code> <code>o.BodyEncoding = v</code></td></tr><tr><td><code>BodyTransferEncoding</code></td><td><code>TransferEncoding</code></td><td>read, write</td><td><code>o.BodyTransferEncoding</code> <code>o.BodyTransferEncoding = v</code></td></tr><tr><td><code>IsBodyHtml</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.IsBodyHtml</code> <code>o.IsBodyHtml = v</code></td></tr><tr><td><code>Attachments</code></td><td><code>AttachmentCollection</code></td><td>read</td><td><code>o.Attachments</code></td></tr><tr><td><code>AlternateViews</code></td><td><code>AlternateViewCollection</code></td><td>read</td><td><code>o.AlternateViews</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-SmtpClient"><summary><b>SmtpClient</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>System.Net.Mail.SmtpClient</code> · assembly <code>System.Net.Mail</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new SmtpClient()</code></td></tr><tr><td><code>new SmtpClient(string host)</code></td></tr><tr><td><code>new SmtpClient(string host, int port)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new SmtpClient(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("SmtpClient",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Host</code></td><td><code>string</code></td><td>read, write</td><td><code>o.Host</code> <code>o.Host = v</code></td></tr><tr><td><code>Port</code></td><td><code>int</code></td><td>read, write</td><td><code>o.Port</code> <code>o.Port = v</code></td></tr><tr><td><code>UseDefaultCredentials</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.UseDefaultCredentials</code> <code>o.UseDefaultCredentials = v</code></td></tr><tr><td><code>Credentials</code></td><td><code>ICredentialsByHost</code></td><td>read, write</td><td><code>o.Credentials</code> <code>o.Credentials = v</code></td></tr><tr><td><code>Timeout</code></td><td><code>int</code></td><td>read, write</td><td><code>o.Timeout</code> <code>o.Timeout = v</code></td></tr><tr><td><code>ServicePoint</code></td><td><code>ServicePoint</code></td><td>read</td><td><code>o.ServicePoint</code></td></tr><tr><td><code>DeliveryMethod</code></td><td><code>SmtpDeliveryMethod</code></td><td>read, write</td><td><code>o.DeliveryMethod</code> <code>o.DeliveryMethod = v</code></td></tr><tr><td><code>DeliveryFormat</code></td><td><code>SmtpDeliveryFormat</code></td><td>read, write</td><td><code>o.DeliveryFormat</code> <code>o.DeliveryFormat = v</code></td></tr><tr><td><code>PickupDirectoryLocation</code></td><td><code>string</code></td><td>read, write</td><td><code>o.PickupDirectoryLocation</code> <code>o.PickupDirectoryLocation = v</code></td></tr><tr><td><code>EnableSsl</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.EnableSsl</code> <code>o.EnableSsl = v</code></td></tr><tr><td><code>ClientCertificates</code></td><td><code>X509CertificateCollection</code></td><td>read</td><td><code>o.ClientCertificates</code></td></tr><tr><td><code>TargetName</code></td><td><code>string</code></td><td>read, write</td><td><code>o.TargetName</code> <code>o.TargetName = v</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr><tr><td><code>Send</code></td><td><code>Send(value)</code><br><code>Send([ :name = value ])</code><br><code>Send_4(p1,p2,p3,p4)</code></td><td><code>void Send(string from, string recipients, string subject, string body)</code><br><code>void Send(MailMessage message)</code></td></tr><tr><td><code>SendAsync</code></td><td><code>SendAsync(p1,p2)</code><br><code>SendAsync_5(p1,p2,p3,p4,p5)</code></td><td><code>void SendAsync(string from, string recipients, string subject, string body, object userToken)</code><br><code>void SendAsync(MailMessage message, object userToken)</code></td></tr><tr><td><code>SendAsyncCancel</code></td><td><code>SendAsyncCancel()</code></td><td><code>void SendAsyncCancel()</code></td></tr><tr><td><code>SendMailAsync</code></td><td><code>SendMailAsync(value)</code><br><code>SendMailAsync([ :name = value ])</code><br><code>SendMailAsync_4(p1,p2,p3,p4)</code><br><code>SendMailAsync_5(p1,p2,p3,p4,p5)</code><br><code>SendMailAsync_2(p1,p2)</code></td><td><code>Task SendMailAsync(string from, string recipients, string subject, string body)</code><br><code>Task SendMailAsync(MailMessage message)</code><br><code>Task SendMailAsync(string from, string recipients, string subject, string body, CancellationToken cancellationToken)</code><br><code>Task SendMailAsync(MailMessage message, CancellationToken cancellationToken)</code></td></tr></tbody></table></div>
+<h4>Events</h4><div class="tablewrap"><table class="api"><thead><tr><th>Event</th><th>Handler type</th><th>In Ring</th></tr></thead><tbody><tr><td><code>SendCompleted</code></td><td><code>SendCompletedEventHandler</code></td><td><code>o.setSendCompletedEvent(code)</code> · <code>o.clearSendCompletedEvent()</code></td></tr></tbody></table></div>
+</div></details>
+<div class="pager"></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+
+</main>
+</body>
+</html>

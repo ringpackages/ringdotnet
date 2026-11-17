@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft.Extensions.Caching.Memory · RingDotNet</title>
+<meta name="description" content="Use .NET classes and methods from Ring programs">
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.SITE_ROOT="../";</script>
+<script src="../assets/search-index.js"></script>
+<script src="../assets/api-index.js"></script>
+<script src="../assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="../index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="../index.html">Overview</a>
+<a href="../getting-started.html">Getting started</a>
+<a href="../how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="../concepts.html">Core concepts</a>
+<a href="../core-api.html">Core functions</a>
+<a href="../collections-linq.html">Collections & LINQ</a>
+<a href="../callbacks-events.html">Callbacks & events</a>
+<a href="../foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="../winforms.html">Windows Forms</a>
+<a href="../gallery-forms.html">Forms samples</a>
+<a href="../gallery-apps.html">Applications</a>
+<a href="../wpf.html">WPF</a>
+<a href="../gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="../aspnet.html">ASP.NET Core</a>
+<a href="../ef.html">Entity Framework Core</a>
+<a href="../ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="../own-assemblies.html">Your own assemblies</a>
+<a href="../generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="../testing.html">Testing</a>
+<a href="../gotchas.html">Gotchas & limits</a>
+<a href="../reference.html">Function index</a>
+<h4>Reference</h4>
+<a href="../api.html" class="cur">Class reference</a>
+</nav>
+<main>
+<article>
+<h1>Microsoft.Extensions.Caching.Memory</h1>
+<p class="lead">11 wrapped types. Load them with <code>using { "Microsoft.Extensions.Caching.Memory" }</code>. Click a class to open it.</p><div class="chips"><a href="#c-CacheEntryExtensions">CacheEntryExtensions</a> <a href="#c-CacheExtensions">CacheExtensions</a> <a href="#c-ICacheEntry">ICacheEntry</a> <a href="#c-IMemoryCache">IMemoryCache</a> <a href="#c-MemoryCache">MemoryCache</a> <a href="#c-MemoryCacheEntryExtensions">MemoryCacheEntryExtensions</a> <a href="#c-MemoryCacheEntryOptions">MemoryCacheEntryOptions</a> <a href="#c-MemoryCacheOptions">MemoryCacheOptions</a> <a href="#c-MemoryCacheStatistics">MemoryCacheStatistics</a> <a href="#c-MemoryDistributedCacheOptions">MemoryDistributedCacheOptions</a> <a href="#c-PostEvictionCallbackRegistration">PostEvictionCallbackRegistration</a></div><details class="cls" id="c-CacheEntryExtensions"><summary><b>CacheEntryExtensions</b> <span class="muted">class static</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.CacheEntryExtensions</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddExpirationToken</code></td><td><code>AddExpirationToken(p1,p2)</code></td><td><code>static ICacheEntry AddExpirationToken(ICacheEntry entry, IChangeToken expirationToken)</code></td></tr><tr><td><code>RegisterPostEvictionCallback</code></td><td><code>RegisterPostEvictionCallback(p1,p2)</code><br><code>RegisterPostEvictionCallback_3(p1,p2,p3)</code></td><td><code>static ICacheEntry RegisterPostEvictionCallback(ICacheEntry entry, PostEvictionDelegate callback)</code><br><code>static ICacheEntry RegisterPostEvictionCallback(ICacheEntry entry, PostEvictionDelegate callback, object state)</code></td></tr><tr><td><code>SetAbsoluteExpiration</code></td><td><code>SetAbsoluteExpiration(p1,p2)</code></td><td><code>static ICacheEntry SetAbsoluteExpiration(ICacheEntry entry, TimeSpan relative)</code><br><code>static ICacheEntry SetAbsoluteExpiration(ICacheEntry entry, DateTimeOffset absolute)</code></td></tr><tr><td><code>SetOptions</code></td><td><code>SetOptions(p1,p2)</code></td><td><code>static ICacheEntry SetOptions(ICacheEntry entry, MemoryCacheEntryOptions options)</code></td></tr><tr><td><code>SetPriority</code></td><td><code>SetPriority(p1,p2)</code></td><td><code>static ICacheEntry SetPriority(ICacheEntry entry, CacheItemPriority priority)</code></td></tr><tr><td><code>SetSize</code></td><td><code>SetSize(p1,p2)</code></td><td><code>static ICacheEntry SetSize(ICacheEntry entry, long size)</code></td></tr><tr><td><code>SetSlidingExpiration</code></td><td><code>SetSlidingExpiration(p1,p2)</code></td><td><code>static ICacheEntry SetSlidingExpiration(ICacheEntry entry, TimeSpan offset)</code></td></tr><tr><td><code>SetValue</code></td><td><code>SetValue(p1,p2)</code></td><td><code>static ICacheEntry SetValue(ICacheEntry entry, object value)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-CacheExtensions"><summary><b>CacheExtensions</b> <span class="muted">class static</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.CacheExtensions</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Get</code></td><td><code>Get_(p1,p2)</code></td><td><code>static object Get(IMemoryCache cache, object key)</code><br><code>static TItem Get&lt;TItem&gt;(IMemoryCache cache, object key)</code></td></tr><tr><td><code>GetOrCreate</code></td><td><code>GetOrCreate(p1,p2,p3)</code><br><code>GetOrCreate_4(p1,p2,p3,p4)</code></td><td><code>static TItem GetOrCreate&lt;TItem&gt;(IMemoryCache cache, object key, Func&lt;ICacheEntry, TItem&gt; factory)</code><br><code>static TItem GetOrCreate&lt;TItem&gt;(IMemoryCache cache, object key, Func&lt;ICacheEntry, TItem&gt; factory, MemoryCacheEntryOptions createOptions)</code></td></tr><tr><td><code>GetOrCreateAsync</code></td><td><code>GetOrCreateAsync(p1,p2,p3)</code><br><code>GetOrCreateAsync_4(p1,p2,p3,p4)</code></td><td><code>static Task&lt;TItem&gt; GetOrCreateAsync&lt;TItem&gt;(IMemoryCache cache, object key, Func&lt;ICacheEntry, Task&lt;TItem&gt;&gt; factory)</code><br><code>static Task&lt;TItem&gt; GetOrCreateAsync&lt;TItem&gt;(IMemoryCache cache, object key, Func&lt;ICacheEntry, Task&lt;TItem&gt;&gt; factory, MemoryCacheEntryOptions createOptions)</code></td></tr><tr><td><code>Set</code></td><td><code>Set_(p1,p2,p3)</code><br><code>Set_4(p1,p2,p3,p4)</code></td><td><code>static TItem Set&lt;TItem&gt;(IMemoryCache cache, object key, TItem value)</code><br><code>static TItem Set&lt;TItem&gt;(IMemoryCache cache, object key, TItem value, DateTimeOffset absoluteExpiration)</code><br><code>static TItem Set&lt;TItem&gt;(IMemoryCache cache, object key, TItem value, TimeSpan absoluteExpirationRelativeToNow)</code><br><code>static TItem Set&lt;TItem&gt;(IMemoryCache cache, object key, TItem value, IChangeToken expirationToken)</code><br><code>static TItem Set&lt;TItem&gt;(IMemoryCache cache, object key, TItem value, MemoryCacheEntryOptions options)</code></td></tr><tr><td><code>TryGetValue</code></td><td><code>TryGetValue(p1,p2)</code></td><td><code>static bool TryGetValue&lt;TItem&gt;(IMemoryCache cache, object key, out TItem value)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-ICacheEntry"><summary><b>ICacheEntry</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.ICacheEntry</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Key</code></td><td><code>object</code></td><td>read</td><td><code>o.Key</code></td></tr><tr><td><code>Value</code></td><td><code>object</code></td><td>read, write</td><td><code>o.Value</code> <code>o.Value = v</code></td></tr><tr><td><code>AbsoluteExpiration</code></td><td><code>DateTimeOffset?</code></td><td>read, write</td><td><code>o.AbsoluteExpiration</code> <code>o.AbsoluteExpiration = v</code></td></tr><tr><td><code>AbsoluteExpirationRelativeToNow</code></td><td><code>TimeSpan?</code></td><td>read, write</td><td><code>o.AbsoluteExpirationRelativeToNow</code> <code>o.AbsoluteExpirationRelativeToNow = v</code></td></tr><tr><td><code>SlidingExpiration</code></td><td><code>TimeSpan?</code></td><td>read, write</td><td><code>o.SlidingExpiration</code> <code>o.SlidingExpiration = v</code></td></tr><tr><td><code>ExpirationTokens</code></td><td><code>IList&lt;IChangeToken&gt;</code></td><td>read</td><td><code>o.ExpirationTokens</code></td></tr><tr><td><code>PostEvictionCallbacks</code></td><td><code>IList&lt;PostEvictionCallbackRegistration&gt;</code></td><td>read</td><td><code>o.PostEvictionCallbacks</code></td></tr><tr><td><code>Priority</code></td><td><code>CacheItemPriority</code></td><td>read, write</td><td><code>o.Priority</code> <code>o.Priority = v</code></td></tr><tr><td><code>Size</code></td><td><code>long?</code></td><td>read, write</td><td><code>o.Size</code> <code>o.Size = v</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-IMemoryCache"><summary><b>IMemoryCache</b> <span class="muted">interface</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.IMemoryCache</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>CreateEntry</code></td><td><code>CreateEntry(p1)</code></td><td><code>ICacheEntry CreateEntry(object key)</code></td></tr><tr><td><code>GetCurrentStatistics</code></td><td><code>GetCurrentStatistics()</code></td><td><code>MemoryCacheStatistics GetCurrentStatistics()</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>void Remove(object key)</code></td></tr><tr><td><code>TryGetValue</code></td><td><code>TryGetValue(p1)</code></td><td><code>bool TryGetValue(object key, out object value)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryCache"><summary><b>MemoryCache</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryCache</code> · assembly <code>Microsoft.Extensions.Caching.Memory</code></p>
+<p class="muted">Implements: IDisposable</p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MemoryCache(IOptions&lt;MemoryCacheOptions&gt; optionsAccessor)</code></td></tr><tr><td><code>new MemoryCache(IOptions&lt;MemoryCacheOptions&gt; optionsAccessor, ILoggerFactory loggerFactory)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MemoryCache(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MemoryCache",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Count</code></td><td><code>int</code></td><td>read</td><td><code>o.Count</code></td></tr><tr><td><code>Keys</code></td><td><code>IEnumerable&lt;object&gt;</code></td><td>read</td><td><code>o.Keys</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Clear</code></td><td><code>Clear()</code></td><td><code>void Clear()</code></td></tr><tr><td><code>Compact</code></td><td><code>Compact(p1)</code></td><td><code>void Compact(double percentage)</code></td></tr><tr><td><code>CreateEntry</code></td><td><code>CreateEntry(p1)</code></td><td><code>ICacheEntry CreateEntry(object key)</code></td></tr><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr><tr><td><code>GetCurrentStatistics</code></td><td><code>GetCurrentStatistics()</code></td><td><code>MemoryCacheStatistics GetCurrentStatistics()</code></td></tr><tr><td><code>Remove</code></td><td><code>Remove(p1)</code></td><td><code>void Remove(object key)</code></td></tr><tr><td><code>TryGetValue</code></td><td><code>TryGetValue(p1)</code></td><td><code>bool TryGetValue(object key, out object result)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryCacheEntryExtensions"><summary><b>MemoryCacheEntryExtensions</b> <span class="muted">class static</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryCacheEntryExtensions</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddExpirationToken</code></td><td><code>AddExpirationToken(p1,p2)</code></td><td><code>static MemoryCacheEntryOptions AddExpirationToken(MemoryCacheEntryOptions options, IChangeToken expirationToken)</code></td></tr><tr><td><code>RegisterPostEvictionCallback</code></td><td><code>RegisterPostEvictionCallback(p1,p2)</code><br><code>RegisterPostEvictionCallback_3(p1,p2,p3)</code></td><td><code>static MemoryCacheEntryOptions RegisterPostEvictionCallback(MemoryCacheEntryOptions options, PostEvictionDelegate callback)</code><br><code>static MemoryCacheEntryOptions RegisterPostEvictionCallback(MemoryCacheEntryOptions options, PostEvictionDelegate callback, object state)</code></td></tr><tr><td><code>SetAbsoluteExpiration</code></td><td><code>SetAbsoluteExpiration(p1,p2)</code></td><td><code>static MemoryCacheEntryOptions SetAbsoluteExpiration(MemoryCacheEntryOptions options, TimeSpan relative)</code><br><code>static MemoryCacheEntryOptions SetAbsoluteExpiration(MemoryCacheEntryOptions options, DateTimeOffset absolute)</code></td></tr><tr><td><code>SetPriority</code></td><td><code>SetPriority(p1,p2)</code></td><td><code>static MemoryCacheEntryOptions SetPriority(MemoryCacheEntryOptions options, CacheItemPriority priority)</code></td></tr><tr><td><code>SetSize</code></td><td><code>SetSize(p1,p2)</code></td><td><code>static MemoryCacheEntryOptions SetSize(MemoryCacheEntryOptions options, long size)</code></td></tr><tr><td><code>SetSlidingExpiration</code></td><td><code>SetSlidingExpiration(p1,p2)</code></td><td><code>static MemoryCacheEntryOptions SetSlidingExpiration(MemoryCacheEntryOptions options, TimeSpan offset)</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryCacheEntryOptions"><summary><b>MemoryCacheEntryOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MemoryCacheEntryOptions()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MemoryCacheEntryOptions(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MemoryCacheEntryOptions",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>AbsoluteExpiration</code></td><td><code>DateTimeOffset?</code></td><td>read, write</td><td><code>o.AbsoluteExpiration</code> <code>o.AbsoluteExpiration = v</code></td></tr><tr><td><code>AbsoluteExpirationRelativeToNow</code></td><td><code>TimeSpan?</code></td><td>read, write</td><td><code>o.AbsoluteExpirationRelativeToNow</code> <code>o.AbsoluteExpirationRelativeToNow = v</code></td></tr><tr><td><code>SlidingExpiration</code></td><td><code>TimeSpan?</code></td><td>read, write</td><td><code>o.SlidingExpiration</code> <code>o.SlidingExpiration = v</code></td></tr><tr><td><code>ExpirationTokens</code></td><td><code>IList&lt;IChangeToken&gt;</code></td><td>read</td><td><code>o.ExpirationTokens</code></td></tr><tr><td><code>PostEvictionCallbacks</code></td><td><code>IList&lt;PostEvictionCallbackRegistration&gt;</code></td><td>read</td><td><code>o.PostEvictionCallbacks</code></td></tr><tr><td><code>Priority</code></td><td><code>CacheItemPriority</code></td><td>read, write</td><td><code>o.Priority</code> <code>o.Priority = v</code></td></tr><tr><td><code>Size</code></td><td><code>long?</code></td><td>read, write</td><td><code>o.Size</code> <code>o.Size = v</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryCacheOptions"><summary><b>MemoryCacheOptions</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryCacheOptions</code> · assembly <code>Microsoft.Extensions.Caching.Memory</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MemoryCacheOptions()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MemoryCacheOptions(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MemoryCacheOptions",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Clock</code></td><td><code>ISystemClock</code></td><td>read, write</td><td><code>o.Clock</code> <code>o.Clock = v</code></td></tr><tr><td><code>ExpirationScanFrequency</code></td><td><code>TimeSpan</code></td><td>read, write</td><td><code>o.ExpirationScanFrequency</code> <code>o.ExpirationScanFrequency = v</code></td></tr><tr><td><code>SizeLimit</code></td><td><code>long?</code></td><td>read, write</td><td><code>o.SizeLimit</code> <code>o.SizeLimit = v</code></td></tr><tr><td><code>CompactOnMemoryPressure</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.CompactOnMemoryPressure</code> <code>o.CompactOnMemoryPressure = v</code></td></tr><tr><td><code>CompactionPercentage</code></td><td><code>double</code></td><td>read, write</td><td><code>o.CompactionPercentage</code> <code>o.CompactionPercentage = v</code></td></tr><tr><td><code>TrackLinkedCacheEntries</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.TrackLinkedCacheEntries</code> <code>o.TrackLinkedCacheEntries = v</code></td></tr><tr><td><code>TrackStatistics</code></td><td><code>bool</code></td><td>read, write</td><td><code>o.TrackStatistics</code> <code>o.TrackStatistics = v</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryCacheStatistics"><summary><b>MemoryCacheStatistics</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryCacheStatistics</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MemoryCacheStatistics()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MemoryCacheStatistics(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MemoryCacheStatistics",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>CurrentEntryCount</code></td><td><code>long</code></td><td>read, write</td><td><code>o.CurrentEntryCount</code> <code>o.CurrentEntryCount = v</code></td></tr><tr><td><code>CurrentEstimatedSize</code></td><td><code>long?</code></td><td>read, write</td><td><code>o.CurrentEstimatedSize</code> <code>o.CurrentEstimatedSize = v</code></td></tr><tr><td><code>TotalMisses</code></td><td><code>long</code></td><td>read, write</td><td><code>o.TotalMisses</code> <code>o.TotalMisses = v</code></td></tr><tr><td><code>TotalHits</code></td><td><code>long</code></td><td>read, write</td><td><code>o.TotalHits</code> <code>o.TotalHits = v</code></td></tr></tbody></table></div>
+</div></details>
+<details class="cls" id="c-MemoryDistributedCacheOptions"><summary><b>MemoryDistributedCacheOptions</b> <span class="muted">class · extends <a href="#c-MemoryCacheOptions">MemoryCacheOptions</a></span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.MemoryDistributedCacheOptions</code> · assembly <code>Microsoft.Extensions.Caching.Memory</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new MemoryDistributedCacheOptions()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new MemoryDistributedCacheOptions(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("MemoryDistributedCacheOptions",[ :param = value ])</code> by parameter names.</p>
+<p class="muted">Members of the base class are inherited.</p>
+</div></details>
+<details class="cls" id="c-PostEvictionCallbackRegistration"><summary><b>PostEvictionCallbackRegistration</b> <span class="muted">class</span></summary>
+<div class="clsbody">
+<p class="net"><code>Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration</code> · assembly <code>Microsoft.Extensions.Caching.Abstractions</code></p>
+<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PostEvictionCallbackRegistration()</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new PostEvictionCallbackRegistration(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("PostEvictionCallbackRegistration",[ :param = value ])</code> by parameter names.</p>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>EvictionCallback</code></td><td><code>PostEvictionDelegate</code></td><td>read, write</td><td><code>o.EvictionCallback</code> <code>o.EvictionCallback = v</code></td></tr><tr><td><code>State</code></td><td><code>object</code></td><td>read, write</td><td><code>o.State</code> <code>o.State = v</code></td></tr></tbody></table></div>
+</div></details>
+<div class="pager"></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+
+</main>
+</body>
+</html>

@@ -227,3 +227,19 @@ figure.shot figcaption { margin-top: 10px; color: var(--muted); font-size: 13.5p
 footer.site { margin: 70px 0 0; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13.5px; }
 kbd { background: var(--soft); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; font-size: .85em; }
 .pill { display: inline-block; padding: 1px 9px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 600; vertical-align: middle; }
+
+/* ---- class reference */
+details.cls { margin: 10px 0; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+details.cls > summary { cursor: pointer; padding: 11px 16px; list-style: none; font-size: 15.5px; user-select: none; }
+details.cls > summary::before { content: "▸ "; color: var(--accent); } details.cls[open] > summary::before { content: "▾ "; }
+details.cls[open] > summary { border-bottom: 1px solid var(--line); background: var(--soft); border-radius: var(--radius) var(--radius) 0 0; }
+.muted { color: var(--muted); font-weight: 400; font-size: .88em; }
+.clsbody { padding: 4px 16px 14px; }
+.clsbody h4 { margin: 18px 0 6px; }
+p.net { margin: 10px 0 4px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px 8px; margin: 12px 0 22px; font-size: 13px; line-height: 1.7; }
+.chips a { background: var(--soft); padding: 1px 8px; border-radius: 6px; color: var(--text); }
+.chips a:hover { background: var(--accent-soft); text-decoration: none; }
+table.api td, table.api th { padding: 6px 10px; font-size: 13.3px; }
+table.api code { white-space: pre-wrap; word-break: break-word; }
+.results small { font-weight: 400; color: var(--accent); margin-left: 6px; text-transform: uppercase; font-size: 10.5px; letter-spacing: .05em; }

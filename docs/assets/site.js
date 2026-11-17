@@ -56,6 +56,15 @@
 			spy();
 		} else if (toc) toc.style.display = "none";
 
+		/* a link to a class of the reference opens it */
+		function openHash() {
+			var h = decodeURIComponent(location.hash.slice(1));
+			var e = h ? document.getElementById(h) : null;
+			if (e && e.tagName === "DETAILS") { e.open = true; setTimeout(function () { e.scrollIntoView(); }, 30); }
+		}
+		openHash();
+		window.addEventListener("hashchange", openHash);
+
 		/* lightbox */
 		var box = document.createElement("div");
 		box.className = "lightbox";
@@ -76,7 +85,7 @@
 		function run() {
 			var q = input.value.trim().toLowerCase();
 			if (q.length < 2) { results.style.display = "none"; return; }
-			var words = q.split(/\s+/), found = [];
+			var words = q.split(/\s+/), found = [], root = window.SITE_ROOT || "";
 			index.forEach(function (e) {
 				var hay = (e.t + " " + e.h + " " + e.x).toLowerCase(), score = 0;
 				for (var i = 0; i < words.length; i++) {
@@ -88,12 +97,29 @@
 				found.push({ e: e, s: score });
 			});
 			found.sort(function (a, b) { return b.s - a.s; });
-			found = found.slice(0, 12);
-			if (!found.length) { results.innerHTML = "<a><b>No results</b><span>Try another word</span></a>"; results.style.display = "block"; return; }
-			results.innerHTML = found.map(function (f) {
+			found = found.slice(0, 10);
+			/* classes of the reference */
+			var classes = [], api = window.API_INDEX || [];
+			if (words.length === 1) {
+				for (var k = 0; k < api.length && classes.length < 30; k++) {
+					var nm = api[k][0].toLowerCase();
+					if (nm === words[0]) classes.unshift(api[k]);
+					else if (nm.indexOf(words[0]) === 0) classes.push(api[k]);
+				}
+				for (var k2 = 0; k2 < api.length && classes.length < 30; k2++) {
+					var nm2 = api[k2][0].toLowerCase();
+					if (nm2.indexOf(words[0]) > 0) classes.push(api[k2]);
+				}
+				classes = classes.slice(0, 8);
+			}
+			if (!found.length && !classes.length) { results.innerHTML = "<a><b>No results</b><span>Try another word</span></a>"; results.style.display = "block"; return; }
+			var classHtml = classes.map(function (c) {
+				return '<a href="' + root + 'api/' + c[1] + '.html#c-' + c[0] + '"><b>' + c[0] + ' <small>' + c[2] + '</small></b><span>' + c[1] + '</span></a>';
+			}).join("");
+			results.innerHTML = classHtml + found.map(function (f) {
 				var e = f.e, snip = e.x, p = snip.toLowerCase().indexOf(words[0]);
 				if (p > 40) snip = "…" + snip.substr(p - 40);
-				return '<a href="' + e.u + '"><b>' + e.t + (e.h ? " › " + e.h : "") + "</b><span>" + snip.substr(0, 110).replace(/</g, "&lt;") + "</span></a>";
+				return '<a href="' + root + e.u + '"><b>' + e.t + (e.h ? " › " + e.h : "") + "</b><span>" + snip.substr(0, 110).replace(/</g, "&lt;") + "</span></a>";
 			}).join("");
 			results.style.display = "block";
 		}
