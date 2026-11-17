@@ -245,3 +245,114 @@ class RingDatabase
 
 	func close
 		dnRequest("call",[db_oContext,"Close"])
+
+# Entity Framework Core with real entity classes. The tables of the schema (same format as RingDatabase) become .NET classes with one
+# property per column, a navigation property to the parent for each foreign key (AuthorId --> Author) and a collection on the parent
+# (Authors.Books). Entities are DotNetObjects: oBook.getProp("Title"), oBook.setProp("Title","x"), oBook.getProp("Author").
+#
+#   oDb = new RingEntityDb("Data Source=books.db",aSchema)
+#   oBook = oDb.newEntity("Books")
+#   oDb.fill(oBook,[["Title","The Hobbit"],["AuthorId",1]])
+#   oDb.add(oBook)                                    # saved (autoSave)
+#   for oB in oDb.query("Books",[ ["include",["Author"]], ["where",["Title","contains","Hobbit"]] ])
+#       ? oB.getProp("Author").getProp("Name")
+#   next
+#   oBook.setProp("Title","The Hobbit, or There and Back Again")    # tracked: saved by save()
+#   oDb.save()
+class RingEntityDb
+
+	db_oContext = ""
+
+	func init  cConnection, aSchema
+		db_cProvider = "sqlite"
+		for db_cName in ["sqlite","inmemory","sqlserver","postgres","mysql"]
+			if left(lower(cConnection),len(db_cName) + 1) = db_cName + ":"
+				db_cProvider = db_cName
+				cConnection = substr(cConnection,len(db_cName) + 2)
+				exit
+			ok
+		next
+		db_oContext = dnRequest("call",[dnType("RingDotNet.RingTypedDb, RingDotNet.Data"),"Create",db_cProvider,cConnection,aSchema])
+
+	# a new entity (a DotNetObject of the generated class)
+	func newEntity  cTable
+		return dnRequest("call",[db_oContext,"New",cTable])
+
+	# the .NET class (System.Type) of a table
+	func entityType  cTable
+		return dnRequest("call",[db_oContext,"EntityType",cTable])
+
+	# the names of the properties of a table (columns, then navigations)
+	func properties  cTable
+		return dnRequest("call",[db_oContext,"Properties",cTable])
+
+	# add an entity (with the entities it refers to); returns the key
+	func add  oEntity
+		return dnRequest("call",[db_oContext,"Add",oEntity])
+
+	func remove  oEntity
+		dnRequest("call",[db_oContext,"Remove",oEntity])
+
+	# the entity with the key (a list for a composite key), or ""
+	func find  cTable, xKey
+		db_xEntity = dnRequest("call",[db_oContext,"FindEntity",cTable,xKey])
+		if isobject(db_xEntity) and db_xEntity.isNull()
+			return ""
+		ok
+		return db_xEntity
+
+	# the entities that match a query: same specification as RingDatabase.query, plus ["include",["Navigation","Other.Nested"]]
+	func query  cTable, aSpec
+		return dnRequest("call",[db_oContext,"Query",cTable,aSpec])
+
+	func all  cTable
+		return dnRequest("call",[db_oContext,"All",cTable])
+
+	func count  cTable, aCondition
+		if not islist(aCondition)
+			aCondition = []
+		ok
+		return dnRequest("call",[db_oContext,"Count",cTable,aCondition])
+
+	# read / write a property of an entity (dates are texts, bytes are hex texts)
+	func getValue  oEntity, cProperty
+		db_xValue = dnRequest("call",[db_oContext,"Get",oEntity,cProperty])
+		if isobject(db_xValue) and db_xValue.isNull()
+			return ""
+		ok
+		return db_xValue
+
+	func setValue  oEntity, cProperty, xValue
+		dnRequest("call",[db_oContext,"Set",oEntity,cProperty,xValue])
+
+	# the columns of an entity as [[name, value], ...]; fill() sets columns from such a list
+	func toRow  oEntity
+		return dnRequest("call",[db_oContext,"ToRow",oEntity])
+
+	func fill  oEntity, aValues
+		dnRequest("call",[db_oContext,"Fill",oEntity,aValues])
+
+	func save
+		dnRequest("call",[db_oContext,"Save"])
+
+	func autoSave  lAuto
+		dnRequest("set",[db_oContext,"AutoSave",lAuto])
+
+	func discard
+		dnRequest("call",[db_oContext,"Discard"])
+
+	func begin
+		dnRequest("call",[db_oContext,"Begin"])
+
+	func commit
+		dnRequest("call",[db_oContext,"Commit"])
+
+	func rollback
+		dnRequest("call",[db_oContext,"Rollback"])
+
+	# the EF Core DbContext (a DotNetObject) for everything else
+	func context
+		return db_oContext
+
+	func close
+		dnRequest("call",[db_oContext,"Close"])

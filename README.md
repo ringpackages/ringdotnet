@@ -115,15 +115,18 @@ oForm { Height = 300  Text += "!" }
 
 `dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`, `samples/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
 
-## Entity Framework Core (SQLite)
+## Entity Framework Core
 
-`dnUseData()` loads Entity Framework Core 9 with the SQLite provider. A Ring program cannot declare entity classes, so the model is described with data and the entities are EF Core shared-type entities; rows are lists of `[name, value]` pairs:
+`dnUseData()` loads Entity Framework Core 9 (SQLite and in-memory providers bundled). A Ring program cannot write C# classes, so the model is described with data (tables, columns, options) and EF Core works on it in two ways:
+
+- `RingDatabase`: rows are lists of `[name, value]` pairs (EF shared-type entities).
+- `RingEntityDb`: the tables become real .NET classes (Reflection.Emit) with navigation properties, tracked by EF like classes written in C#.
 
 ```ring
 load "dotnetlib.ring"
 dnUseData()
 oDb = new RingDatabase("Data Source=people.db",[
-	["Customers",[ ["Id","int",1], ["Name","string",0], ["Age","int",0], ["City","string",0] ]]
+	["Customers",[ ["Id","int",1], ["Name","string",0,[["required",1],["unique",1],["maxlength",40]]], ["Age","int",0,[["nullable",1]]], ["City","string",0,[["index",1]]] ]]
 ])
 nId = oDb.insert("Customers",[["Name","Ann"],["Age",31],["City","Cairo"]])
 ? dbValue(oDb.byKey("Customers",nId),"Name")
@@ -135,7 +138,20 @@ oDb.remove("Customers",nId)
 oDb.close()
 ```
 
-Column types: int long double decimal string bool datetime bytes; `"Data Source=:memory:"` gives an in-memory database. `oDb.context()` is the wrapped EF `DbContext` (`oContext = oDb.context()` then `oContext.Database.ProviderName`). The classes of `Microsoft.EntityFrameworkCore(.ChangeTracking/.Infrastructure/.Metadata/.Metadata.Builders/.Storage/.Query/.Migrations/.Diagnostics)` and `Microsoft.Data.Sqlite` are wrapped too (clashing names start with `Ef`). Example: `applications/Contacts`, test: `tests/test_data_ef.ring`. Not supported: your own C# entity classes, LINQ expression trees, migrations written in C#. The packages add about 10 MB to `bin` (SQLite native libraries for Windows, Linux and macOS).
+| Feature | How | Test |
+|---|---|---|
+| Column options | 4th item of a column: `required nullable unique index maxlength default`; several key columns = composite key (`byKey("T",[1,2])`) | `test_data_schema.ring` |
+| Relationships | `["references","Authors"]`, `["ondelete","cascade"/"restrict"/"setnull"]`; `children()`, `parent()`, `include()` | `test_data_relations.ring` |
+| Transactions, async | `begin()` `commit()` `rollback()`, `autoSave(false)` + `save()`, `insertAsync()` `allAsync()` ... + `dbWait(task)` | `test_data_transactions.ring` |
+| Migrations | `migrate()` adds the missing tables, columns and indexes of an existing SQLite database; `apply("name",sql)` runs a change once | `test_data_migrations.ring` |
+| Providers | `"Data Source=..."` SQLite, `"inmemory:name"`; `"sqlserver:..."`, `"postgres:..."`, `"mysql:..."` load the EF provider package from the DLLs folder (not bundled, not tested here) | `test_data_providers.ring` |
+| Queries | `query("T",[["where",["and",["Age",">",30],["City","in",["A","B"]]]],["orderby",[["Age","desc"]]],["skip",1],["take",5],["select",["Name"]]])` builds a LINQ expression tree (all providers); `sum/min/max/average/countWhere/groupCount`; `sqlRows(sql,params)` any SELECT shape | `test_data_queries.ring` |
+| Hooks | `onSaving(dnCallback("f"))` (return a text to cancel), `onSaved`, `onLog` (SQL text), `pendingChanges()`; table option `["filter",cond]` = global query filter; column option `["convert","upper"]` or `["convert",[dnCallback("toDb"),dnCallback("fromDb")]]` | `test_data_hooks.ring` |
+| Entity classes | `RingEntityDb`: `newEntity`, `add`, `remove`, `find`, `query` (with `["include",["Author"]]`), tracked changes saved by `save()`, `getProp/setProp`, navigation properties | `test_data_entities.ring` |
+
+`datetime` columns are `"yyyy-MM-dd HH:mm:ss"` texts and `bytes` columns hex texts (`str2hex`/`hex2str`). `oDb.context()` is the wrapped EF `DbContext`; the classes of `Microsoft.EntityFrameworkCore(.ChangeTracking/.Infrastructure/.Metadata/.Metadata.Builders/.Storage/.Query/.Migrations/.Diagnostics)` and `Microsoft.Data.Sqlite` are wrapped too (clashing names start with `Ef`). Example: `applications/Contacts`.
+
+Not supported: classes written in C# source (the entity classes are generated from the schema; there is no C# compiler), lambdas written by hand (queries are data), migrations that alter or drop columns (use `execute`), a typed `RingEntityDb` with hooks/converters/`migrate()`, and the SQL Server / PostgreSQL / MySQL providers were not tested. The packages add about 10 MB to `bin`.
 
 ## ASP.NET Core
 

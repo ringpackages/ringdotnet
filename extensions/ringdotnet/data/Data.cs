@@ -22,7 +22,7 @@ namespace RingDotNet
 {
 	public sealed class RingDb : DbContext
 	{
-		private sealed class Column
+		internal sealed class Column
 		{
 			public string Name;
 			public Type Type;
@@ -39,7 +39,7 @@ namespace RingDotNet
 			public ValueConverter Converter;
 		}
 
-		private sealed class Table
+		internal sealed class Table
 		{
 			public string Name;
 			public List<Column> Columns = new List<Column>();
@@ -86,6 +86,20 @@ namespace RingDotNet
 		{
 			provider = string.IsNullOrEmpty(provider) ? "sqlite" : provider.ToLowerInvariant();
 			RingDb db = new RingDb { connection = connection, provider = provider, SchemaKey = provider + "|" + Describe(schema) };
+			db.tables.AddRange(ParseSchema(schema));
+			if (db.IsSqlite && connection.IndexOf(":memory:", StringComparison.OrdinalIgnoreCase) >= 0)
+			{
+				/* an in-memory database lives as long as its connection: keep it open */
+				db.Database.OpenConnection();
+			}
+			db.Database.EnsureCreated();
+			return db;
+		}
+
+		/* [ [table, [ [column, type, isKey, options], ... ], options], ... ] --> tables */
+		internal static List<Table> ParseSchema(object[] schema)
+		{
+			List<Table> result = new List<Table>();
 			foreach (object item in schema)
 			{
 				object[] def = (object[])item;
@@ -114,19 +128,13 @@ namespace RingDotNet
 				{
 					throw new ArgumentException("The table " + table.Name + " needs a key column");
 				}
-				db.tables.Add(table);
+				result.Add(table);
 			}
-			if (db.IsSqlite && connection.IndexOf(":memory:", StringComparison.OrdinalIgnoreCase) >= 0)
-			{
-				/* an in-memory database lives as long as its connection: keep it open */
-				db.Database.OpenConnection();
-			}
-			db.Database.EnsureCreated();
-			return db;
+			return result;
 		}
 
 		/* options: [ [name, value], ... ] with required, nullable, unique, index, maxlength, default */
-		private static void ReadOptions(Column column, object[] options)
+		internal static void ReadOptions(Column column, object[] options)
 		{
 			foreach (object o in options)
 			{
@@ -151,7 +159,7 @@ namespace RingDotNet
 			if (column.Nullable && column.Type.IsValueType) column.Type = typeof(Nullable<>).MakeGenericType(column.Type);
 		}
 
-		private static object CallRing(object callback, Type returnType, params object[] args)
+		internal static object CallRing(object callback, Type returnType, params object[] args)
 		{
 			/* the Bridge of the assembly that made the callback (there may be more than one copy of the assembly loaded) */
 			Type bridge = callback.GetType().Assembly.GetType("RingDotNet.Bridge", true);
@@ -166,7 +174,7 @@ namespace RingDotNet
 		}
 
 		/* "upper", "lower", "trim", or [toDatabase, fromDatabase] made with dnCallback(): Ring functions that receive the value and return the new one */
-		private static ValueConverter MakeConverter(Column column, object value)
+		internal static ValueConverter MakeConverter(Column column, object value)
 		{
 			if (column.Type != typeof(string)) throw new ArgumentException("A converter is for string columns (" + column.Name + ")");
 			if (value is string name)
@@ -186,7 +194,7 @@ namespace RingDotNet
 				v => Convert.ToString(CallRing(fromDb, typeof(string), v), CultureInfo.InvariantCulture));
 		}
 
-		private static DeleteBehavior ParseDelete(string name)
+		internal static DeleteBehavior ParseDelete(string name)
 		{
 			switch (name.ToLowerInvariant())
 			{
@@ -198,21 +206,21 @@ namespace RingDotNet
 			}
 		}
 
-		private void UseProvider(DbContextOptionsBuilder options)
+		internal static void UseProvider(DbContextOptionsBuilder options, string provider, string connection)
 		{
 			switch (provider)
 			{
 				case "sqlite": options.UseSqlite(connection); return;
 				case "inmemory": options.UseInMemoryDatabase(connection); return;
-				case "sqlserver": UseByName(options, "Microsoft.EntityFrameworkCore.SqlServer", "Microsoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions", "UseSqlServer"); return;
-				case "postgres": UseByName(options, "Npgsql.EntityFrameworkCore.PostgreSQL", "Microsoft.EntityFrameworkCore.NpgsqlDbContextOptionsBuilderExtensions", "UseNpgsql"); return;
-				case "mysql": UseByName(options, "Pomelo.EntityFrameworkCore.MySql", "Microsoft.EntityFrameworkCore.MySqlDbContextOptionsExtensions", "UseMySql"); return;
+				case "sqlserver": UseByName(options, provider, connection, "Microsoft.EntityFrameworkCore.SqlServer", "Microsoft.EntityFrameworkCore.SqlServerDbContextOptionsExtensions", "UseSqlServer"); return;
+				case "postgres": UseByName(options, provider, connection, "Npgsql.EntityFrameworkCore.PostgreSQL", "Microsoft.EntityFrameworkCore.NpgsqlDbContextOptionsBuilderExtensions", "UseNpgsql"); return;
+				case "mysql": UseByName(options, provider, connection, "Pomelo.EntityFrameworkCore.MySql", "Microsoft.EntityFrameworkCore.MySqlDbContextOptionsExtensions", "UseMySql"); return;
 				default: throw new ArgumentException("Unknown provider: " + provider + " (sqlite, inmemory, sqlserver, postgres, mysql)");
 			}
 		}
 
 		/* a provider whose package is not bundled: call its UseXxx(options, connection) extension method by reflection */
-		private void UseByName(DbContextOptionsBuilder options, string assemblyName, string typeName, string methodName)
+		internal static void UseByName(DbContextOptionsBuilder options, string provider, string connection, string assemblyName, string typeName, string methodName)
 		{
 			System.Reflection.Assembly assembly;
 			try { assembly = System.Reflection.Assembly.Load(assemblyName); }
@@ -239,7 +247,7 @@ namespace RingDotNet
 			throw new InvalidOperationException("No " + methodName + "(options, connection) method in " + typeName);
 		}
 
-		private static string Describe(object[] items)
+		internal static string Describe(object[] items)
 		{
 			System.Text.StringBuilder text = new System.Text.StringBuilder();
 			foreach (object item in items)
@@ -252,7 +260,7 @@ namespace RingDotNet
 			return text.ToString();
 		}
 
-		private static Type ClrType(string name)
+		internal static Type ClrType(string name)
 		{
 			switch (name.ToLowerInvariant())
 			{
@@ -270,7 +278,7 @@ namespace RingDotNet
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			UseProvider(options);
+			UseProvider(options, provider, connection);
 			options.AddInterceptors(SharedSaveHooks, SharedCommandHooks);
 			/* the model depends on the schema: do not share the cached model between contexts with different schemas */
 			options.ReplaceService<Microsoft.EntityFrameworkCore.Infrastructure.IModelCacheKeyFactory, SchemaCacheKeyFactory>();
@@ -348,7 +356,7 @@ namespace RingDotNet
 			return Set<Dictionary<string, object>>(table.Name);
 		}
 
-		private static object Coerce(object value, Type type)
+		internal static object Coerce(object value, Type type)
 		{
 			if (value == null) return null;
 			type = Nullable.GetUnderlyingType(type) ?? type;
@@ -406,7 +414,7 @@ namespace RingDotNet
 		}
 
 		/* an update error with the message of the database */
-		private static Exception Explain(Exception e)
+		internal static Exception Explain(Exception e)
 		{
 			return e is DbUpdateException && e.InnerException != null ? new InvalidOperationException(e.Message + " " + e.InnerException.Message, e) : e;
 		}
@@ -521,7 +529,7 @@ namespace RingDotNet
 			}
 		}
 
-		private static Column ForeignKeyTo(Table child, Table parent)
+		internal static Column ForeignKeyTo(Table child, Table parent)
 		{
 			foreach (Column c in child.Columns)
 			{
@@ -676,7 +684,7 @@ namespace RingDotNet
 			return Database.SqlQueryRaw<string>(sql).ToList();
 		}
 
-		private static string SqlType(Type type)
+		internal static string SqlType(Type type)
 		{
 			type = Nullable.GetUnderlyingType(type) ?? type;
 			if (type == typeof(int) || type == typeof(long) || type == typeof(bool)) return "INTEGER";
@@ -685,7 +693,7 @@ namespace RingDotNet
 			return "TEXT";
 		}
 
-		private static string SqlLiteral(object value, Type type)
+		internal static string SqlLiteral(object value, Type type)
 		{
 			value = Coerce(value, type);
 			if (value is bool b) return b ? "1" : "0";
@@ -778,14 +786,14 @@ namespace RingDotNet
 
 		// ------------------------------------------------------------------ queries built as LINQ expression trees
 
-		private static readonly MethodInfo EfProperty = typeof(EF).GetMethod("Property");
+		internal static readonly MethodInfo EfProperty = typeof(EF).GetMethod("Property");
 
-		private static Expression PropertyOf(ParameterExpression row, Column column)
+		internal static Expression PropertyOf(Expression row, Column column)
 		{
-			return Expression.Call(EfProperty.MakeGenericMethod(column.Type), row, Expression.Constant(column.Name));
+			return Expression.Call(EfProperty.MakeGenericMethod(column.Type), Expression.Convert(row, typeof(object)), Expression.Constant(column.Name));
 		}
 
-		private Column ColumnOf(Table table, object name)
+		internal static Column ColumnOf(Table table, object name)
 		{
 			string n = (string)name;
 			Column c = table.Columns.Find(x => string.Equals(x.Name, n, StringComparison.OrdinalIgnoreCase));
@@ -793,12 +801,12 @@ namespace RingDotNet
 			return c;
 		}
 
-		private static Expression Constant(object value, Type type)
+		internal static Expression Constant(object value, Type type)
 		{
 			return Expression.Constant(Coerce(value, type), type);
 		}
 
-		private static bool CanBeNull(Type type)
+		internal static bool CanBeNull(Type type)
 		{
 			return !type.IsValueType || Nullable.GetUnderlyingType(type) != null;
 		}
@@ -807,7 +815,7 @@ namespace RingDotNet
 		**  A condition as data: [column, op, value]   op: = != < <= > >= contains startswith endswith in isnull notnull
 		**                       ["and", c1, c2, ...]  ["or", c1, c2, ...]  ["not", c]
 		*/
-		private Expression Condition(Table table, ParameterExpression row, object[] condition)
+		internal static Expression Condition(Table table, Expression row, object[] condition)
 		{
 			string first = Convert.ToString(condition[0], CultureInfo.InvariantCulture);
 			switch (first.ToLowerInvariant())
