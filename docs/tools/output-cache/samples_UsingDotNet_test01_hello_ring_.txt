@@ -1,0 +1,14 @@
+Runtime : .NET 9.0.15
+Hello from .NET (Console.WriteLine)
+Math.Max(3,9)    = 9
+Math.Sqrt(144)   = 12
+Math.PI          = 3.14
+Environment.OS   = Microsoft Windows NT 10.0.26200.0
+Hello, Ring!
+Length = 12
+Type   = System.Text.StringBuilder
+Count = 2
+one
+two
+
+Caught: DotNet Error: System.FormatException: The input string 'abc' was not in a correct format.

@@ -2,6 +2,8 @@
 
 Use .NET classes and methods from Ring programs.
 
+**Documentation:** open [`docs/index.html`](docs/index.html) — a complete HTML manual with samples, real output and screenshots (rebuild it with `python docs/tools/build.py`).
+
 The package hosts the .NET runtime inside the Ring process (through `hostfxr`) and talks to it through a small managed bridge, so any installed .NET (Core) runtime, 6.0 or newer, and any assembly (the framework or your own `.dll`) can be used.
 
 ```ring

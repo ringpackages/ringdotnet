@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gotchas &amp; limits · RingDotNet</title>
+<meta name="description" content="The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/search-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html" class="cur">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+</nav>
+<main>
+<article>
+<h1>Gotchas &amp; limits</h1><p class="lead">The things that surprise people the first time, why they happen, and what to do — plus what RingDotNet does not support.</p>
+<h2 id="ring-gotchas">Ring gotchas<a class="anchor" href="#ring-gotchas">#</a></h2>
+<h3 id="use-parentheses-with-new">Use parentheses with <code>new</code><a class="anchor" href="#use-parentheses-with-new">#</a></h3>
+<p><code>new StringBuilder("x")</code> — <strong>with</strong> parentheses. Without them Ring does not call <code>init()</code>.</p>
+<h3 id="strings-and-numbers">Strings and numbers<a class="anchor" href="#strings-and-numbers">#</a></h3>
+<p><code>"text" + number</code> works. <code>number + "text"</code> is an error. Write <code>string(n) + " items"</code>.</p>
+<h3 id="do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">Do not call a method on a new object on the right of an attribute assignment<a class="anchor" href="#do-not-call-a-method-on-a-new-object-on-the-right-of-an-attribute-assignment">#</a></h3>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm.Text = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFile)        <span class="c"># Ring loses the assignment!</span></code></pre></div>
+<p>Use a variable first:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oPath = <span class="k">new</span> <span class="t">Path</span>()
+oForm.Text = oPath.<span class="f">GetFileName</span>(cFile)</code></pre></div>
+<h3 id="event-code-can-only-see-global-variables">Event code can only see global variables<a class="anchor" href="#event-code-can-only-see-global-variables">#</a></h3>
+<p>The code of an event (<code>setClickEvent("...")</code>) runs outside the function that set it up. Create the widgets and the program state as <strong>globals</strong> at the top, then assign them inside <code>func main</code>:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm = <span class="s">""</span>
+oCount = <span class="s">""</span>
+nClicks = <span class="n">0</span>
+
+<span class="k">func</span> <span class="f">main</span>
+	oForm = <span class="f">uiForm</span>(<span class="s">"Counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
+	oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
+	<span class="f">uiButton</span>(oForm,<span class="s">"Click"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"nClicks++ oCount.Text = '' + nClicks"</span>)</code></pre></div>
+<h3 id="put-the-program-in-functions">Put the program in functions<a class="anchor" href="#put-the-program-in-functions">#</a></h3>
+<p>In Ring a <strong>global variable named like an attribute</strong> (<code>x</code>, <code>width</code>, <code>text</code>...) makes <code>obj.x</code> fail, and a function that assigns a name that exists as a global changes the global. Write <code>func main</code> and keep only what event code needs global.</p>
+<h3 id="keywords-can-not-be-names">Keywords can not be names<a class="anchor" href="#keywords-can-not-be-names">#</a></h3>
+<p><code>ok</code>, <code>step</code>, <code>from</code>, <code>to</code>, <code>load</code>, <code>call</code>, <code>get</code>, <code>set</code>, <code>put</code>, <code>on</code>, <code>off</code>... can not be variable or function names, in any letter case. <code>oK</code> is <code>ok</code>. Names that are keywords get a trailing <code>_</code> in the generated classes (<code>ForEach_</code>, <code>Exit_</code>) and properties with a keyword name use <code>getFrom()</code> / <code>setFrom(value)</code>.</p>
+<p>Do not define your own functions named like built-ins the library uses (<code>isNumber</code>, <code>len</code>...).</p>
+<h3 id="define-functions-after-the-main-code">Define functions after the main code<a class="anchor" href="#define-functions-after-the-main-code">#</a></h3>
+<p>A <code>func</code> at the top of a file swallows the rest of the file into its body. Put the main code first (or put it in <code>func main</code> and call it at the end).</p>
+<h3 id="side-effects-inside-for-in-call">Side effects inside <code>for ... in call()</code><a class="anchor" href="#side-effects-inside-for-in-call">#</a></h3>
+<p>When the expression of a <code>for x in oDb.migrate()</code> has side effects, assign it to a variable first:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>aChanges = oDb.<span class="f">migrate</span>()
+<span class="k">for</span> cChange <span class="k">in</span> aChanges
+	? cChange
+<span class="k">next</span></code></pre></div>
+<h3 id="dnnull"><code>dnNull()</code><a class="anchor" href="#dnnull">#</a></h3>
+<p><code>dnNull()</code> is the .NET null: <code>oPictureBox.Image = dnNull()</code>.</p>
+<h2 id="net-gotchas">.NET gotchas<a class="anchor" href="#net-gotchas">#</a></h2>
+<h3 id="always-call-the-mode-function-first">Always call the mode function first<a class="anchor" href="#always-call-the-mode-function-first">#</a></h3>
+<p><code>dnUseDesktop()</code>, <code>dnUseWeb()</code> and <code>dnUseAll()</code> must come <strong>before any other .NET call</strong>: the first call starts the runtime and the mode can not change afterwards.</p>
+<h3 id="callbacks-run-on-the-ring-thread-only">Callbacks run on the Ring thread only<a class="anchor" href="#callbacks-run-on-the-ring-thread-only">#</a></h3>
+<p>Events from timers on other threads (<code>System.Threading.Timer</code>, <code>Task.Run(...)</code>) can not run Ring code; they print a message on stderr and do nothing. Use the Windows Forms <code>Timer</code> (<code>uiTimer</code>) or wait for tasks on the Ring thread. The web server queues requests for the same reason.</p>
+<h3 id="value-types-are-returned-by-value">Value types are returned by value<a class="anchor" href="#value-types-are-returned-by-value">#</a></h3>
+<p><code>oForm.Location</code> returns a copy of the <code>Point</code>. Change it by assigning a new value: <code>oForm.Location = new Point(10,20)</code>.</p>
+<h3 id="enums-are-strings">Enums are strings<a class="anchor" href="#enums-are-strings">#</a></h3>
+<p><code>oForm.WindowState = "Maximized"</code>, <code>oForm.FormBorderStyle = "FixedDialog"</code>.</p>
+<h3 id="binary-data">Binary data<a class="anchor" href="#binary-data">#</a></h3>
+<p><code>byte[]</code> travels as a Ring string, so it is binary safe — except through the Entity Framework layer, where <code>bytes</code> columns are hex texts.</p>
+<h3 id="tracked-ef-rows">Tracked EF rows<a class="anchor" href="#tracked-ef-rows">#</a></h3>
+<p><code>RingDatabase.byKey</code> returns the tracked row. After a raw SQL change (<code>execute</code>, <code>apply</code>) call <code>discard()</code> to read the new values.</p>
+<h2 id="limits">Limits<a class="anchor" href="#limits">#</a></h2>
+<div class="tablewrap"><table><thead><tr><th>Not supported</th><th>Why / what to do</th></tr></thead><tbody><tr><td>Declaring .NET classes or interfaces in Ring</td><td>Ring is not compiled to .NET. Write them in C#, build a DLL and <a href="own-assemblies.html">wrap it</a>.</td></tr><tr><td>Ring code on .NET threads</td><td>One Ring thread. Use callbacks only during calls, or queue work as the web server does.</td></tr><tr><td><code>ref</code> struct and pointer parameters, <code>Span&lt;T&gt;</code></td><td>The bridge converts values, not memory. Use arrays and strings.</td></tr><tr><td>Lambdas and expression trees written in Ring</td><td>Callbacks give delegates; EF queries are data (<a href="ef.html">Entity Framework</a>).</td></tr><tr><td>Linux/macOS Windows Forms and WPF</td><td>Those frameworks are Windows-only. The rest of the bridge is portable but only tested on Windows.</td></tr><tr><td>EF providers other than SQLite and in-memory</td><td>Loaded by name from their packages; untested.</td></tr><tr><td>MVC controllers and Razor written in C#</td><td>The web server is the Ring one.</td></tr></tbody></table></div>
+<h2 id="troubleshooting">Troubleshooting<a class="anchor" href="#troubleshooting">#</a></h2>
+<div class="tablewrap"><table><thead><tr><th>Message</th><th>Cause</th></tr></thead><tbody><tr><td><code>Runtime Error in loading the dynamic library</code></td><td><code>ring_dotnet.dll</code> is not on the PATH. Add the package <code>bin</code> folder, or install the package into the Ring folder.</td></tr><tr><td><code>DotNet Error: No generated classes for the namespace X</code></td><td>the name is wrong, or the namespace is not in the manifest — see <a href="generator.html">Class generator</a>.</td></tr><tr><td><code>Error in property name, property not found: x</code></td><td>a global variable named like the attribute, or an object that is a plain <code>DotNetObject</code> (use <code>getProp("x")</code>).</td></tr><tr><td><code>Calling function with less number of parameters</code></td><td>a constructor that needs arguments: <code>new DateTime(2024,12,25)</code>.</td></tr><tr><td><code>Trying to destroy the object using the self reference</code></td><td>an attribute of a library class has the same name as a global variable of your program.</td></tr><tr><td>An event handler does nothing</td><td>the code uses a local variable — only globals are visible; or the handler runs on another thread.</td></tr><tr><td><code>The callback '...' was ignored</code></td><td>a callback fired outside a call or from another thread.</td></tr></tbody></table></div>
+<p>Set <code>RINGDOTNET_TRACE=1</code> to see the .NET stack trace of an error.</p>
+<div class="pager"><a href="testing.html"><small>Previous</small>Testing</a><a class="next" href="reference.html"><small>Next</small>Function index</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>

@@ -1,0 +1,12 @@
+books by Tolkien:
+  The Hobbit
+  The Silmarillion
+
+Narnia was written by Lewis
+
+include:
+  Tolkien has 2 book(s)
+  Lewis has 1 book(s)
+
+a foreign key to nothing is rejected
+cascade: 2 books left

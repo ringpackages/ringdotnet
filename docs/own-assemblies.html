@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your own assemblies · RingDotNet</title>
+<meta name="description" content="Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same natural syntax as the built-in ones.">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/search-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html" class="cur">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+</nav>
+<main>
+<article>
+<h1>Your own assemblies</h1><p class="lead">Wrap any .NET DLL — your own library or a NuGet package — with one command, and use its classes with the same natural syntax as the built-in ones.</p>
+<h2 id="two-ways-to-use-an-assembly">Two ways to use an assembly<a class="anchor" href="#two-ways-to-use-an-assembly">#</a></h2>
+<div class="tablewrap"><table><thead><tr><th>Way</th><th>When</th></tr></thead><tbody><tr><td><strong>Generic calls</strong> — <code>dnLoad</code>, <code>dnType</code>, <code>dnNew</code>, <code>callMethod</code></td><td>a quick call, nothing to generate</td></tr><tr><td><strong>Generated classes</strong> — <code>wrapassembly.ring</code></td><td>natural <code>oObj.Method()</code> syntax, properties, events, enums, inheritance</td></tr></tbody></table></div>
+<h2 id="generic-calls">Generic calls<a class="anchor" href="#generic-calls">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)                       <span class="c"># dependencies are found next to the dll</span>
+
+oCalc = <span class="f">dnNew</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,[<span class="n">10</span>])
+oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span class="n">5</span>])
+? oCalc.<span class="f">getProp</span>(<span class="s">"Total"</span>)                              <span class="c"># 15</span>
+? <span class="f">dnStatic</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,<span class="s">"Square"</span>,[<span class="n">7</span>]) <span class="c"># 49</span></code></pre></div>
+<h2 id="generated-classes">Generated classes<a class="anchor" href="#generated-classes">#</a></h2>
+<p>Generate Ring classes for every public type of the DLL:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools
+ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses</code></pre></div>
+<p>This writes one loader per namespace and one file per class into <code>myclasses/</code>. Use them like any other wrapped namespace:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)
+<span class="f">dnImportFrom</span>(<span class="s">"myclasses/"</span>,<span class="s">"MyCompany.Tools"</span>)
+
+oCalc = <span class="k">new</span> <span class="t">Calculator</span>()
+oCalc.<span class="f">Add</span>(<span class="n">10</span>).<span class="f">Multiply</span>(<span class="n">3</span>)                             <span class="c"># fluent: methods that return a wrapped class return that class</span>
+? oCalc.Total                                         <span class="c"># 30</span>
+oCalc.Name = <span class="s">"mine"</span>                                   <span class="c"># a property</span>
+? <span class="k">new</span> <span class="t">Calculator</span>().<span class="f">Square</span>(<span class="n">7</span>)                          <span class="c"># a static method</span>
+? oCalc.<span class="f">Describe_2</span>(<span class="s">"High"</span>,<span class="s">"Sum"</span>)                      <span class="c"># an enum as a string, an optional parameter</span>
+aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)                          <span class="c"># out parameters come back in a list</span>
+? aDivide[<span class="n">2</span>]</code></pre></div>
+<p>The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, <code>setXXXEvent()</code> for events, enums as strings, overload naming (<code>Name</code>, <code>Name_N</code>), optional parameters and <code>out</code> / <code>ref</code> results.</p>
+<h3 id="the-example-in-the-package">The example in the package<a class="anchor" href="#the-example-in-the-package">#</a></h3>
+<p><code>tests/UserLib</code> is a complete example — a small C# library, the generator run on it, and a test that uses it (<code>tests/test_userassembly.ring</code>).</p>
+<details class="src"><summary>tests/UserLib/Library.cs</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>tests/UserLib/Library.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
+<span class="k">using</span> System.Collections.Generic;
+
+<span class="k">namespace</span> MyCompany.Tools
+{
+	<span class="k">public</span> <span class="k">enum</span> <span class="t">Level</span> { Low, Medium, <span class="t">High</span> }
+
+	<span class="k">public</span> <span class="k">class</span> Calculator
+	{
+		<span class="k">public</span> <span class="k">double</span> <span class="t">Total</span> { <span class="k">get</span>; <span class="k">private</span> <span class="k">set</span>; }
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Name</span> { <span class="k">get</span>; <span class="k">set</span>; } = <span class="s">"calc"</span>;
+		<span class="k">public</span> event <span class="t">EventHandler</span> Changed;
+
+		<span class="k">public</span> <span class="t">Calculator</span>() { }
+		<span class="k">public</span> <span class="t">Calculator</span>(<span class="k">double</span> start) { <span class="t">Total</span> = start; }
+
+		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Add</span>(<span class="k">double</span> value) { <span class="t">Total</span> += value; Changed?.<span class="f">Invoke</span>(this, EventArgs.Empty); <span class="k">return</span> this; }
+		<span class="k">public</span> <span class="t">Calculator</span> <span class="t">Multiply</span>(<span class="k">double</span> value) { <span class="t">Total</span> *= value; <span class="k">return</span> this; }
+		<span class="k">public</span> <span class="k">static</span> <span class="k">int</span> <span class="t">Square</span>(<span class="k">int</span> x) { <span class="k">return</span> x * x; }
+		<span class="k">public</span> <span class="k">string</span> <span class="t">Describe</span>(<span class="t">Level</span> level, <span class="k">string</span> prefix = <span class="s">"Total"</span>) { <span class="k">return</span> prefix + <span class="s">"="</span> + <span class="t">Total</span> + <span class="s">" ("</span> + level + <span class="s">")"</span>; }
+		<span class="k">public</span> <span class="k">bool</span> <span class="t">TryDivide</span>(<span class="k">double</span> by, <span class="k">out</span> <span class="k">double</span> result)
+		{
+			result = <span class="n">0</span>;
+			<span class="k">if</span> (by == <span class="n">0</span>) <span class="k">return</span> <span class="k">false</span>;
+			result = <span class="t">Total</span> / by;
+			<span class="k">return</span> <span class="k">true</span>;
+		}
+		<span class="k">public</span> List&lt;<span class="k">string</span>&gt; <span class="t">Words</span>(<span class="k">string</span> text) { <span class="k">return</span> <span class="k">new</span> <span class="t">List</span>&lt;<span class="k">string</span>&gt;(text.<span class="f">Split</span>(<span class="s">' '</span>)); }
+	}
+
+	<span class="k">public</span> <span class="k">class</span> <span class="t">Counter</span> : Calculator
+	{
+		<span class="k">public</span> <span class="k">int</span> <span class="t">Count</span> { <span class="k">get</span>; <span class="k">set</span>; }
+		<span class="k">public</span> <span class="k">void</span> <span class="t">Increment</span>() { Count++; }
+	}
+}</code></pre></div></details>
+<details class="src"><summary>tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
+<span class="k">load</span> <span class="s">"../libraries/dotnetlib/dotnetlib.ring"</span>
+
+cHere = currentdir()
+cLib = cHere + <span class="s">"/UserLib/bin/UserLib.dll"</span>
+<span class="k">if</span> <span class="k">not</span> fexists(cLib)
+	system(<span class="s">"dotnet build UserLib -c Release -o UserLib/bin -nologo -v q"</span>)
+<span class="k">ok</span>
+cOut = cHere + <span class="s">"/UserLib/generated"</span>
+<span class="c"># the generator loads its files relative to the folder it runs from</span>
+chdir(<span class="s">"../tools"</span>)
+system(exefilename() + <span class="s">" wrapassembly.ring "</span> + cLib + <span class="s">" "</span> + cOut + <span class="s">" &gt; nul"</span>)
+chdir(cHere)
+<span class="f">dnAssert</span>(<span class="s">"generated loader exists"</span>,fexists(cOut + <span class="s">"/MyCompany.Tools.ring"</span>),<span class="n">1</span>)
+
+<span class="f">dnLoad</span>(cLib)
+<span class="f">dnImportFrom</span>(cOut + <span class="s">"/"</span>,<span class="s">"MyCompany.Tools"</span>)
+
+oCalc = <span class="k">new</span> <span class="t">Calculator</span>()
+oCalc.<span class="f">Add</span>(<span class="n">10</span>).<span class="f">Multiply</span>(<span class="n">3</span>)
+<span class="f">dnAssert</span>(<span class="s">"fluent calls return the class"</span>,oCalc.Total,<span class="n">30</span>)
+<span class="f">dnAssert</span>(<span class="s">"property read/write"</span>,oCalc.Name,<span class="s">"calc"</span>)
+oCalc.Name = <span class="s">"mine"</span>
+<span class="f">dnAssert</span>(<span class="s">"property write"</span>,oCalc.Name,<span class="s">"mine"</span>)
+<span class="f">dnAssert</span>(<span class="s">"constructor with parameters"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">New_1</span>(<span class="n">5</span>).Total,<span class="n">5</span>)
+<span class="f">dnAssert</span>(<span class="s">"static method"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">Square</span>(<span class="n">7</span>),<span class="n">49</span>)
+<span class="f">dnAssert</span>(<span class="s">"enum as string and optional parameter"</span>,oCalc.<span class="f">Describe_2</span>(<span class="s">"High"</span>,<span class="s">"Sum"</span>),<span class="s">"Sum=30 (High)"</span>)
+aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)
+<span class="f">dnAssert</span>(<span class="s">"out parameter ok"</span>,aDivide[<span class="n">1</span>],<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"out parameter value"</span>,aDivide[<span class="n">2</span>],<span class="n">7.5</span>)
+<span class="f">dnAssert</span>(<span class="s">"out parameter fails"</span>,oCalc.<span class="f">TryDivide</span>(<span class="n">0</span>)[<span class="n">1</span>],<span class="n">0</span>)
+<span class="f">dnAssert</span>(<span class="s">"returns generic list"</span>,len(oCalc.<span class="f">Words</span>(<span class="s">"a b c"</span>).<span class="f">toList</span>()),<span class="n">3</span>)
+
+nEvents = <span class="n">0</span>
+oCalc.<span class="f">setChangedEvent</span>(<span class="s">"nEvents++"</span>)
+oCalc.<span class="f">Add</span>(<span class="n">1</span>)
+<span class="f">dnAssert</span>(<span class="s">"user event"</span>,nEvents,<span class="n">1</span>)
+
+oCounter = <span class="k">new</span> <span class="t">Counter</span>()
+oCounter.<span class="f">Increment</span>()
+oCounter.<span class="f">Increment</span>()
+oCounter.<span class="f">Add</span>(<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"derived class property"</span>,oCounter.Count,<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"inherited method"</span>,oCounter.Total,<span class="n">2</span>)
+<span class="f">dnAssert</span>(<span class="s">"objects come back as the derived class"</span>,classname(oCalc.<span class="f">Add</span>(<span class="n">0</span>)),<span class="s">"calculator"</span>)
+
+nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
+<h2 id="nuget-packages">NuGet packages<a class="anchor" href="#nuget-packages">#</a></h2>
+<p>A NuGet package is a set of DLL files. Copy the DLLs of the package (for example from <code>~/.nuget/packages/&lt;name&gt;/&lt;version&gt;/lib/net8.0/</code>) and the DLLs it depends on next to each other, then wrap and load as above:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring wrapassembly.ring Newtonsoft.Json.dll ../json</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnLoad</span>(<span class="s">"Newtonsoft.Json.dll"</span>)
+<span class="f">dnImportFrom</span>(<span class="s">"json/"</span>,<span class="s">"Newtonsoft.Json"</span>)</code></pre></div>
+<p>Entity Framework Core is wrapped the same way — that is how its classes were generated.</p>
+<h2 id="which-namespaces-to-wrap">Which namespaces to wrap<a class="anchor" href="#which-namespaces-to-wrap">#</a></h2>
+<p><code>wrapassembly.ring &lt;dll&gt; &lt;folder&gt; [namespace ...]</code> wraps only the namespaces you list. Without names, every namespace of the assembly is wrapped.</p>
+<h2 id="rules">Rules<a class="anchor" href="#rules">#</a></h2>
+<ul><li>Generated loaders use the names of the .NET classes. When a class name is also a name Ring or another namespace already uses, the generator can add a prefix — see <a href="generator.html">Class generator</a>.</li><li>Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.</li><li>The runtime mode matters: a DLL that needs Windows Forms requires <code>dnUseDesktop()</code> first.</li></ul>
+<div class="pager"><a href="ef-reference.html"><small>Previous</small>Entity Framework reference</a><a class="next" href="generator.html"><small>Next</small>Class generator</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>

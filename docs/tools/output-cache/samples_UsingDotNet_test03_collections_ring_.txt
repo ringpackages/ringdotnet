@@ -1,0 +1,20 @@
+Count = 3
+First = apple
+Contains(apple) = 0
+  avocado
+  banana
+  cherry
+Numbers : 1
+4
+9
+16
+25
+Dict count = 2
+two = 2
+has one = 1
+keys = one
+two
+3.14 Ring
+Set count = 2
+Dequeue = first
+Pop = top

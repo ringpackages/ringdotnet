@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The .NET class library · RingDotNet</title>
+<meta name="description" content="A tour of the base class library as seen from Ring — dates, text, files, regex, compression, networking, cryptography, XML, JSON, data tables, reflection and big numbers. Every program on this page is a real sample and the output is real.">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/search-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html" class="cur">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+</nav>
+<main>
+<article>
+<h1>The .NET class library</h1><p class="lead">A tour of the base class library as seen from Ring — dates, text, files, regex, compression, networking, cryptography, XML, JSON, data tables, reflection and big numbers. Every program on this page is a real sample and the output is real.</p>
+<h2 id="what-is-wrapped">What is wrapped<a class="anchor" href="#what-is-wrapped">#</a></h2>
+<p>Every namespace below has generated classes, loaded on demand with <code>dnImport("Name")</code>.</p>
+<div class="tablewrap"><table><thead><tr><th>Area</th><th>Namespaces</th></tr></thead><tbody><tr><td>Core</td><td><code>System</code>, <code>System.Globalization</code>, <code>System.Numerics</code>, <code>System.Reflection</code>, <code>System.Runtime.InteropServices</code>, <code>System.Runtime.Loader</code>, <code>System.ComponentModel</code>, <code>System.Resources</code></td></tr><tr><td>Text</td><td><code>System.Text</code>, <code>System.Text.RegularExpressions</code>, <code>System.Text.Json</code>, <code>System.Text.Json.Nodes</code>, <code>System.Text.Encodings.Web</code>, <code>System.Text.Unicode</code></td></tr><tr><td>Files and streams</td><td><code>System.IO</code>, <code>System.IO.Compression</code>, <code>System.IO.Pipes</code>, <code>System.IO.MemoryMappedFiles</code>, <code>System.Formats.Tar</code></td></tr><tr><td>Collections</td><td><code>System.Collections</code>, <code>.Generic</code>, <code>.Specialized</code>, <code>.Concurrent</code>, <code>.ObjectModel</code></td></tr><tr><td>Networking</td><td><code>System.Net</code>, <code>.Http</code>, <code>.Http.Headers</code>, <code>.Sockets</code>, <code>.NetworkInformation</code>, <code>.Mail</code>, <code>.WebSockets</code>, <code>.Security</code>, <code>.Mime</code></td></tr><tr><td>Security</td><td><code>System.Security.Cryptography</code>, <code>.X509Certificates</code>, <code>System.Security.Claims</code>, <code>System.Security.Principal</code></td></tr><tr><td>XML and data</td><td><code>System.Xml</code>, <code>.Linq</code>, <code>.XPath</code>, <code>.Schema</code>, <code>.Serialization</code>, <code>.Xsl</code>, <code>System.Data</code>, <code>.Common</code>, <code>.SqlTypes</code></td></tr><tr><td>Processes and threads</td><td><code>System.Diagnostics</code>, <code>System.Threading</code>, <code>System.Threading.Tasks</code>, <code>System.Timers</code></td></tr><tr><td>Graphics</td><td><code>System.Drawing</code>, <code>.Drawing2D</code>, <code>.Imaging</code>, <code>.Text</code>, <code>.Printing</code></td></tr><tr><td>UI</td><td><code>System.Windows.Forms</code>, WPF — see <a href="winforms.html">Windows Forms</a> and <a href="wpf.html">WPF</a></td></tr><tr><td>Web and data</td><td>ASP.NET Core, Entity Framework Core — see <a href="aspnet.html">ASP.NET Core</a> and <a href="ef.html">Entity Framework</a></td></tr></tbody></table></div>
+<p>Other namespaces and any DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
+<h2 id="dates-strings-conversions-math">Dates, strings, conversions, math<a class="anchor" href="#dates-strings-conversions-math">#</a></h2>
+<p><code>DateTime</code>, <code>TimeSpan</code>, <code>Convert</code>, <code>Math</code>, <code>String</code> helpers, <code>Guid</code>, <code>Random</code>, <code>Environment</code>:</p>
+<details class="src"><summary>samples/UsingDotNet/test08_system.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test08_system.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System"</span>)
+
+<span class="c"># Dates and times</span>
+oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>).<span class="f">AddHours</span>(<span class="n">18.5</span>)
+? <span class="s">"Christmas 2024 : "</span> + oNow.<span class="f">ToString_1</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
+? <span class="s">"Plus 10 days   : "</span> + oNow.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
+? <span class="s">"Day of week    : "</span> + oNow.DayOfWeek
+oSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMinutes</span>(<span class="n">135</span>)
+? <span class="s">"135 minutes    : "</span> + oSpan.<span class="f">ToString</span>() + <span class="s">" ("</span> + oSpan.TotalHours + <span class="s">" hours)"</span>
+
+<span class="c"># Strings, conversions, math</span>
+oStr = <span class="k">new</span> <span class="t">String</span>()
+? oStr.<span class="f">Join</span>(<span class="s">" | "</span>,[<span class="s">"Ring"</span>,<span class="s">"loves"</span>,<span class="s">".NET"</span>])
+? <span class="s">"Base64         : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToBase64String</span>(<span class="s">"Hello Ring"</span>)
+? <span class="s">"Hex of 255     : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">16</span>)
+? <span class="s">"2 ^ 20         : "</span> + <span class="k">new</span> <span class="t">Math</span>().<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">20</span>)
+
+<span class="c"># Uri, Guid, Version, Environment</span>
+oUri = <span class="k">new</span> <span class="t">Uri</span>(<span class="s">"https://ring-lang.github.io:8443/docs/index.html?lang=en"</span>)
+? <span class="s">"Host / Port    : "</span> + oUri.Host + <span class="s">" / "</span> + oUri.Port
+? <span class="s">"Path / Query   : "</span> + oUri.AbsolutePath + <span class="s">" / "</span> + oUri.Query
+? <span class="s">"Guid length    : "</span> + len(<span class="k">new</span> <span class="t">Guid</span>().<span class="f">NewGuid</span>().<span class="f">ToString</span>())
+? <span class="s">"Version        : "</span> + <span class="k">new</span> <span class="t">Version</span>(<span class="s">"1.28.3"</span>).Minor
+? <span class="s">"Processors &gt; 0 : "</span> + (<span class="k">new</span> <span class="t">Environment</span>().ProcessorCount &gt; <span class="n">0</span>)
+
+<span class="c"># out parameters return a list</span>
+aParsed = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"123"</span>)
+? <span class="s">"TryParse       : "</span> + aParsed[<span class="n">1</span>] + <span class="s">" -&gt; "</span> + aParsed[<span class="n">2</span>]
+aParsed = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"12x"</span>)
+? <span class="s">"TryParse bad   : "</span> + aParsed[<span class="n">1</span>]</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Christmas 2024 : Wednesday, 25 December 2024 18:30
+Plus 10 days   : 2025-01-04
+Day of week    : Wednesday
+135 minutes    : 02:15:00 (2.25 hours)
+Ring | loves | .NET
+Base64         : SGVsbG8gUmluZw==
+Hex of 255     : ff
+2 ^ 20         : 1048576
+Host / Port    : ring-lang.github.io / 8443
+Path / Query   : /docs/index.html / ?lang=en
+Guid length    : 36
+Version        : 28
+Processors &gt; 0 : 1
+TryParse       : 1 -&gt; 123
+TryParse bad   : 0</code></pre></div>
+<h2 id="files-regular-expressions-and-compression">Files, regular expressions and compression<a class="anchor" href="#files-regular-expressions-and-compression">#</a></h2>
+<p><code>File</code>, <code>Directory</code>, <code>Path</code>, <code>StreamReader</code>/<code>StreamWriter</code>, <code>MemoryStream</code>, <code>Regex</code>, <code>GZipStream</code>:</p>
+<details class="src"><summary>samples/UsingDotNet/test09_io_regex.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test09_io_regex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.IO"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.IO.Compression"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Text.RegularExpressions"</span>)
+
+oPath = <span class="k">new</span> <span class="t">Path</span>()
+oFile = <span class="k">new</span> <span class="t">File</span>()
+cDir = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo"</span>)
+<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cDir)
+
+<span class="c"># Text files</span>
+cLog = oPath.<span class="f">Combine</span>(cDir,<span class="s">"log.txt"</span>)
+oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(cLog)
+oWriter.<span class="f">WriteLine</span>(<span class="s">"2024-05-17 ERROR disk full"</span>)
+oWriter.<span class="f">WriteLine</span>(<span class="s">"2024-05-18 INFO backup done"</span>)
+oWriter.<span class="f">WriteLine</span>(<span class="s">"2024-06-01 ERROR network down"</span>)
+oWriter.<span class="f">Close</span>()
+? <span class="s">"Lines in file : "</span> + len(oFile.<span class="f">ReadAllLines</span>(cLog).<span class="f">toList</span>())
+? <span class="s">"File size     : "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cLog).Length + <span class="s">" bytes"</span>
+
+<span class="c"># Regular expressions: find the errors and their month</span>
+oRegex = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"(?&lt;month&gt;\d{4}-\d{2})-\d{2} ERROR (?&lt;what&gt;.+)"</span>)
+oMatches = oRegex.<span class="f">Matches</span>(oFile.<span class="f">ReadAllText</span>(cLog))
+? <span class="s">"Errors found  : "</span> + oMatches.Count
+<span class="k">for</span> nLoop = <span class="n">0</span> <span class="k">to</span> oMatches.Count - <span class="n">1</span>
+	oMatch = oMatches.<span class="f">Item</span>(nLoop)
+	? <span class="s">"  "</span> + oMatch.Groups.<span class="f">Item</span>(<span class="s">"month"</span>).Value + <span class="s">" -&gt; "</span> + trim(oMatch.Groups.<span class="f">Item</span>(<span class="s">"what"</span>).Value)
+<span class="k">next</span>
+? <span class="s">"Cleaned       : "</span> + <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\s+"</span>).<span class="f">Replace</span>(<span class="s">"too    many   spaces"</span>,<span class="s">" "</span>)
+
+<span class="c"># Compression</span>
+oPacked = <span class="k">new</span> <span class="t">MemoryStream</span>()
+oGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oPacked,<span class="s">"Compress"</span>)
+cData = copy(<span class="s">"Ring and .NET "</span>,<span class="n">200</span>)
+oGzip.<span class="f">Write</span>(cData,<span class="n">0</span>,len(cData))
+oGzip.<span class="f">Close</span>()
+? <span class="s">"GZip          : "</span> + len(cData) + <span class="s">" -&gt; "</span> + len(oPacked.<span class="f">ToArray</span>()) + <span class="s">" bytes"</span>
+
+cZip = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo.zip"</span>)
+<span class="k">if</span> oFile.<span class="f">Exists</span>(cZip) oFile.<span class="f">Delete</span>(cZip) <span class="k">ok</span>
+<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>(cDir,cZip)
+? <span class="s">"Zip created   : "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cZip).Length + <span class="s">" bytes"</span>
+
+<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete_2</span>(cDir,<span class="n">1</span>)
+oFile.<span class="f">Delete</span>(cZip)</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Lines in file : 3
+File size     : 88 bytes
+Errors found  : 2
+  2024-05 -&gt; disk full
+
+  2024-06 -&gt; network down
+
+Cleaned       : too many spaces
+GZip          : 2800 -&gt; 57 bytes
+Zip created   : 184 bytes</code></pre></div>
+<h2 id="networking">Networking<a class="anchor" href="#networking">#</a></h2>
+<p><code>Uri</code>, <code>IPAddress</code>, <code>Dns</code>, <code>HttpClient</code>, <code>WebUtility</code>, <code>Encoding</code> — a program that does not need the internet to run:</p>
+<details class="src"><summary>samples/UsingDotNet/test12_network.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test12_network.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Text"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Net"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Net.Http"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Threading.Tasks"</span>)
+
+<span class="c"># A tiny web server and client in one Ring program: .NET runs the requests on its thread pool,</span>
+<span class="c"># Ring waits for the tasks and answers</span>
+cPrefix = <span class="s">"http://localhost:"</span> + (<span class="n">20000</span> + random(<span class="n">20000</span>)) + <span class="s">"/"</span>
+oServer = <span class="k">new</span> <span class="t">HttpListener</span>()
+oServer.Prefixes.<span class="f">Add</span>(cPrefix)
+oServer.<span class="f">Start</span>()
+? <span class="s">"Listening on "</span> + cPrefix
+
+oWaiting = oServer.<span class="f">GetContextAsync</span>()
+oClient = <span class="k">new</span> <span class="t">HttpClient</span>()
+oRequest = oClient.<span class="f">GetStringAsync</span>(cPrefix + <span class="s">"greet?name=Ring"</span>)
+
+oWaiting.<span class="f">Wait</span>()
+oContext = oWaiting.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+? <span class="s">"Request        : "</span> + oContext.Request.HttpMethod + <span class="s">" "</span> + oContext.Request.Url.PathAndQuery
+cReply = <span class="s">"Hello "</span> + oContext.Request.QueryString.<span class="f">Item</span>(<span class="s">"name"</span>) + <span class="s">", this is .NET speaking Ring!"</span>
+aBytes = <span class="k">new</span> <span class="t">UTF8Encoding</span>().<span class="f">GetBytes</span>(cReply)
+oContext.Response.OutputStream.<span class="f">Write</span>(aBytes,<span class="n">0</span>,len(aBytes))
+oContext.Response.<span class="f">Close</span>()
+
+oRequest.<span class="f">Wait</span>()
+? <span class="s">"Response       : "</span> + oRequest.<span class="f">getProp</span>(<span class="s">"Result"</span>)
+oServer.<span class="f">Stop</span>()
+
+<span class="c"># URL and address helpers</span>
+? <span class="s">"UrlEncode      : "</span> + <span class="k">new</span> <span class="t">WebUtility</span>().<span class="f">UrlEncode</span>(<span class="s">"ring &amp; .net = fun"</span>)
+? <span class="s">"Loopback       : "</span> + <span class="k">new</span> <span class="t">IPAddress</span>().Loopback.<span class="f">ToString</span>()
+? <span class="s">"Host name set  : "</span> + (len(<span class="k">new</span> <span class="t">Dns</span>().<span class="f">GetHostName</span>()) &gt; <span class="n">0</span>)</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Listening on http://localhost:30408/
+Request        : GET /greet?name=Ring
+Response       : Hello Ring, this is .NET speaking Ring!
+UrlEncode      : ring+%26+.net+%3D+fun
+Loopback       : 127.0.0.1
+Host name set  : 1</code></pre></div>
+<div class="callout tip"><span class="t">Tip</span><p>For HTTP requests use <code>HttpClient</code>. Methods that return a <code>Task</code> give you an object: call <code>Wait()</code> and read <code>getProp("Result")</code>. A complete example is the self test of [<code>applications/WebApi</code>](aspnet.html).</p></div>
+<h2 id="cryptography-and-globalization">Cryptography and globalization<a class="anchor" href="#cryptography-and-globalization">#</a></h2>
+<p>Hashes (<code>SHA256</code>, <code>MD5</code>), HMAC, random bytes, AES, culture-aware formatting:</p>
+<details class="src"><summary>samples/UsingDotNet/test13_security.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test13_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Globalization"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Security.Cryptography"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
+
+<span class="c"># Hashes and HMAC</span>
+oConvert = <span class="k">new</span> <span class="t">Convert</span>()
+? <span class="s">"SHA256(abc)    : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">SHA256</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
+? <span class="s">"MD5(abc)       : "</span> + lower(oConvert.<span class="f">ToHexString</span>(<span class="k">new</span> <span class="t">MD5</span>().<span class="f">HashData</span>(<span class="s">"abc"</span>)))
+oHmac = <span class="k">new</span> <span class="t">HMACSHA256</span>().<span class="f">New_1</span>(<span class="s">"secret key"</span>)
+? <span class="s">"HMAC           : "</span> + left(lower(oConvert.<span class="f">ToHexString</span>(oHmac.<span class="f">ComputeHash</span>(<span class="s">"message"</span>))),<span class="n">32</span>) + <span class="s">"..."</span>
+
+<span class="c"># AES encryption round trip</span>
+oAes = <span class="k">new</span> <span class="t">Aes</span>().<span class="f">Create</span>()
+oAes.<span class="f">GenerateKey</span>()
+oAes.<span class="f">GenerateIV</span>()
+cText = <span class="s">"Ring talks to .NET crypto"</span>
+cCipher = oAes.<span class="f">CreateEncryptor</span>().<span class="f">TransformFinalBlock</span>(cText,<span class="n">0</span>,len(cText))
+? <span class="s">"AES            : "</span> + len(cText) + <span class="s">" bytes -&gt; "</span> + len(cCipher) + <span class="s">" bytes encrypted"</span>
+? <span class="s">"Decrypted      : "</span> + oAes.<span class="f">CreateDecryptor</span>().<span class="f">TransformFinalBlock</span>(cCipher,<span class="n">0</span>,len(cCipher))
+
+<span class="c"># Cultures</span>
+oUS = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
+oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">7</span>,<span class="n">4</span>)
+? <span class="s">"US date        : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,oUS)
+? <span class="s">"German date    : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>))
+? <span class="s">"Title case     : "</span> + oUS.TextInfo.<span class="f">ToTitleCase</span>(<span class="s">"ring meets dot net"</span>)
+
+<span class="c"># Start a process and read its output</span>
+oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>()
+<span class="k">if</span> iswindows()
+	oInfo.FileName = <span class="s">"cmd"</span>
+	oInfo.Arguments = <span class="s">"/c ver"</span>
+<span class="k">else</span>
+	oInfo.FileName = <span class="s">"uname"</span>
+<span class="k">ok</span>
+oInfo.RedirectStandardOutput = <span class="n">1</span>
+oInfo.UseShellExecute = <span class="n">0</span>
+oInfo.CreateNoWindow = <span class="n">1</span>
+oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start_1</span>(oInfo)
+? <span class="s">"Process says   : "</span> + trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
+oProcess.<span class="f">WaitForExit</span>()</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>SHA256(abc)    : ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+MD5(abc)       : 900150983cd24fb0d6963f7d28e17f72
+HMAC           : c431e4857a6b817f9eeaab86b00f78e2...
+AES            : 25 bytes -&gt; 32 bytes encrypted
+Decrypted      : Ring talks to .NET crypto
+US date        : Thursday, July 4, 2024
+German date    : Donnerstag, 4. Juli 2024
+Title case     : Ring Meets Dot Net
+Process says   : 
+
+Microsoft Windows [Version 10.0.26200.9974]</code></pre></div>
+<h2 id="xml-json-and-data-tables">XML, JSON and data tables<a class="anchor" href="#xml-json-and-data-tables">#</a></h2>
+<p><code>XmlDocument</code>, <code>XPath</code>, <code>System.Text.Json</code>, <code>DataTable</code> and <code>DataView</code> — no database needed:</p>
+<details class="src"><summary>samples/UsingDotNet/test14_xml_json_data.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test14_xml_json_data.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System.Xml"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Text.Json"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Data"</span>)
+
+<span class="c"># XML with XPath</span>
+oDoc = <span class="k">new</span> <span class="t">XmlDocument</span>()
+oDoc.<span class="f">LoadXml</span>(<span class="s">"&lt;shop&gt;&lt;item price='3.5'&gt;apple&lt;/item&gt;&lt;item price='1.2'&gt;fig&lt;/item&gt;&lt;item price='9'&gt;melon&lt;/item&gt;&lt;/shop&gt;"</span>)
+oItems = oDoc.<span class="f">SelectNodes</span>(<span class="s">"//item[@price &gt; 2]"</span>)
+? <span class="s">"Items over 2    : "</span> + oItems.Count
+<span class="k">for</span> nLoop = <span class="n">0</span> <span class="k">to</span> oItems.Count - <span class="n">1</span>
+	oItem = oItems.<span class="f">Item</span>(nLoop)
+	? <span class="s">"  "</span> + oItem.InnerText + <span class="s">" costs "</span> + oItem.<span class="f">GetAttribute</span>(<span class="s">"price"</span>)
+<span class="k">next</span>
+
+<span class="c"># JSON: serialize Ring lists, read documents</span>
+oJson = <span class="k">new</span> <span class="t">JsonSerializer</span>()
+? <span class="s">"Serialize       : "</span> + oJson.<span class="f">Serialize</span>([<span class="n">1</span>,<span class="s">"two"</span>,[<span class="n">3</span>,<span class="n">4</span>]])
+oDocument = <span class="k">new</span> <span class="t">JsonDocument</span>().<span class="f">Parse</span>(<span class="s">'{"user":"ring","langs":["ring","c","lua"],"stars":123}'</span>)
+oRoot = oDocument.RootElement
+? <span class="s">"user / stars    : "</span> + oRoot.<span class="f">GetProperty</span>(<span class="s">"user"</span>).<span class="f">GetString</span>() + <span class="s">" / "</span> + oRoot.<span class="f">GetProperty</span>(<span class="s">"stars"</span>).<span class="f">GetInt32</span>()
+? <span class="s">"languages       : "</span> + oRoot.<span class="f">GetProperty</span>(<span class="s">"langs"</span>).<span class="f">GetArrayLength</span>()
+
+<span class="c"># DataTable with SQL-like filtering and sorting</span>
+oTable = <span class="k">new</span> <span class="t">DataTable</span>()
+oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Product"</span>,<span class="s">"System.String"</span>)
+oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Qty"</span>,<span class="s">"System.Int32"</span>)
+oTable.Rows.<span class="f">Add</span>([<span class="s">"pens"</span>,<span class="n">120</span>])
+oTable.Rows.<span class="f">Add</span>([<span class="s">"paper"</span>,<span class="n">15</span>])
+oTable.Rows.<span class="f">Add</span>([<span class="s">"ink"</span>,<span class="n">60</span>])
+? <span class="s">"Total quantity  : "</span> + oTable.<span class="f">Compute</span>(<span class="s">"SUM(Qty)"</span>,<span class="s">""</span>)
+oView = oTable.DefaultView
+oView.Sort = <span class="s">"Qty DESC"</span>
+? <span class="s">"Biggest stock   : "</span> + oView.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">Item</span>(<span class="s">"Product"</span>)
+? <span class="s">"Low stock rows  : "</span> + len(oTable.<span class="f">Select_1</span>(<span class="s">"Qty &lt; 100"</span>).<span class="f">toList</span>())</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Items over 2    : 2
+  apple costs 3.5
+  melon costs 9
+Serialize       : [1,"two",[3,4]]
+user / stars    : ring / 123
+languages       : 3
+Total quantity  : 195
+Biggest stock   : pens
+Low stock rows  : 2</code></pre></div>
+<h2 id="reflection-and-big-numbers">Reflection and big numbers<a class="anchor" href="#reflection-and-big-numbers">#</a></h2>
+<p><code>Type</code>, <code>Assembly</code>, <code>MethodInfo</code>, <code>BigInteger</code>, <code>Complex</code>:</p>
+<details class="src"><summary>samples/UsingDotNet/test15_reflection_numbers.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test15_reflection_numbers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="f">dnImport</span>(<span class="s">"System"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Reflection"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Numerics"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Text.Encodings.Web"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Collections.Concurrent"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Runtime.InteropServices"</span>)
+
+<span class="c"># Big integers: factorial of 40</span>
+oBig = <span class="k">new</span> <span class="t">BigInteger</span>()
+nFactorial = oBig.<span class="f">Parse</span>(<span class="s">"1"</span>)
+<span class="k">for</span> nLoop = <span class="n">2</span> <span class="k">to</span> <span class="n">40</span>
+	nFactorial = oBig.<span class="f">Multiply</span>(nFactorial,nLoop)
+<span class="k">next</span>
+? <span class="s">"40!            : "</span> + nFactorial.<span class="f">ToString</span>()
+? <span class="s">"2^200          : "</span> + oBig.<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">200</span>).<span class="f">ToString</span>()
+oZ = <span class="k">new</span> <span class="t">Complex</span>().<span class="f">New_2</span>(<span class="n">3</span>,<span class="n">4</span>)
+? <span class="s">"|3+4i|         : "</span> + oZ.Magnitude
+
+<span class="c"># Reflection: explore a type</span>
+oMath = <span class="k">new</span> <span class="t">Type</span>().<span class="f">GetType_1</span>(<span class="s">"System.Math"</span>)
+aNames = []
+<span class="k">for</span> oMethod <span class="k">in</span> oMath.<span class="f">GetMethods</span>().<span class="f">toList</span>()
+	<span class="k">if</span> find(aNames,oMethod.Name) = <span class="n">0</span> aNames + oMethod.Name <span class="k">ok</span>
+<span class="k">next</span>
+? <span class="s">"Math methods   : "</span> + len(aNames) + <span class="s">" names, e.g. "</span> + aNames[<span class="n">1</span>] + <span class="s">", "</span> + aNames[<span class="n">2</span>] + <span class="s">", "</span> + aNames[<span class="n">3</span>]
+oAsm = <span class="k">new</span> <span class="t">Assembly</span>().<span class="f">Load_</span>(<span class="s">"System.Linq"</span>)
+? <span class="s">"Assembly       : "</span> + oAsm.<span class="f">GetName</span>().Name + <span class="s">" "</span> + oAsm.<span class="f">GetName</span>().Version.<span class="f">ToString</span>()
+
+<span class="c"># Environment and encoders</span>
+? <span class="s">"OS             : "</span> + <span class="k">new</span> <span class="t">RuntimeInformation</span>().OSDescription
+? <span class="s">"HTML encoded   : "</span> + <span class="k">new</span> <span class="t">HtmlEncoder</span>().Default.<span class="f">Encode</span>(<span class="s">"&lt;script&gt;alert('x')&lt;/script&gt;"</span>)
+oQueue = <span class="k">new</span> <span class="t">ConcurrentStringQueue</span>()
+oQueue.<span class="f">Enqueue</span>(<span class="s">"first"</span>)  oQueue.<span class="f">Enqueue</span>(<span class="s">"second"</span>)
+? <span class="s">"Concurrent     : "</span> + oQueue.<span class="f">TryDequeue</span>()[<span class="n">2</span>] + <span class="s">", left "</span> + oQueue.Count</code></pre></div></details>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>40!            : 815915283247897734345611269596115894272000000000
+2^200          : 1606938044258990275541962092341162602522202993782792835301376
+|3+4i|         : 5
+Math methods   : 47 names, e.g. Acos, Acosh, Asin
+Assembly       : System.Linq 9.0.0.0
+OS             : Microsoft Windows 10.0.26200
+HTML encoded   : &amp;lt;script&amp;gt;alert(&amp;#x27;x&amp;#x27;)&amp;lt;/script&amp;gt;
+Concurrent     : first, left 1</code></pre></div>
+<h2 id="processes-and-threads">Processes and threads<a class="anchor" href="#processes-and-threads">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.Diagnostics"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Threading.Tasks"</span>)
+
+oInfo = <span class="k">new</span> <span class="t">ProcessStartInfo</span>()
+oInfo.FileName = <span class="s">"cmd"</span>
+oInfo.Arguments = <span class="s">"/c ver"</span>
+oInfo.RedirectStandardOutput = <span class="n">1</span>
+oInfo.UseShellExecute = <span class="n">0</span>
+oInfo.CreateNoWindow = <span class="n">1</span>
+oProcess = <span class="k">new</span> <span class="t">Process</span>().<span class="f">Start_1</span>(oInfo)
+? trim(oProcess.StandardOutput.<span class="f">ReadToEnd</span>())
+oProcess.<span class="f">WaitForExit</span>()
+
+oTask = <span class="k">new</span> <span class="t">Task</span>().<span class="f">Delay</span>(<span class="n">30</span>)                    <span class="c"># a Task: wait for it on the Ring thread</span>
+oTask.<span class="f">Wait</span>()
+? oTask.IsCompleted
+
+oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="f">FromResult</span>(<span class="s">"done"</span>)
+? oResult.<span class="f">getProp</span>(<span class="s">"Result"</span>)                      <span class="c"># the Result of a Task&lt;T&gt;</span></code></pre></div>
+<div class="callout warn"><span class="t">Warning</span><p>.NET threads can <strong>not</strong> run Ring code. A callback invoked from a pool thread prints a message on stderr and does nothing. Use tasks for pure .NET work (HTTP, files, hashing), then <code>Wait()</code> for them on the Ring thread.</p></div>
+<h2 id="a-bigger-example">A bigger example<a class="anchor" href="#a-bigger-example">#</a></h2>
+<p><code>samples/UsingDotNet/test16_forms_app.ring</code> and <code>demo_todo.ring</code> combine collections, files, JSON and a form. For complete programs see <a href="gallery-apps.html">Applications</a>.</p>
+<div class="pager"><a href="callbacks-events.html"><small>Previous</small>Callbacks & events</a><a class="next" href="winforms.html"><small>Next</small>Windows Forms</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>

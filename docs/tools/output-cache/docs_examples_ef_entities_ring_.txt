@@ -1,0 +1,6 @@
+properties of Books: Id Title Year AuthorId Author 
+author key: 1
+AuthorId of the book: 1
+The Hobbit by Tolkien
+after save: The Hobbit (1st edition)
+books of the author: 1

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Windows Forms · RingDotNet</title>
+<meta name="description" content="Build desktop programs with every Windows Forms control, plus a few short helpers that keep small programs small.">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/search-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html" class="cur">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+</nav>
+<main>
+<article>
+<h1>Windows Forms</h1><p class="lead">Build desktop programs with every Windows Forms control, plus a few short helpers that keep small programs small.</p>
+<h2 id="the-shape-of-a-program">The shape of a program<a class="anchor" href="#the-shape-of-a-program">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="f">dnUseDesktop</span>()                         <span class="c"># the Windows Desktop runtime, and an STA Ring thread</span>
+<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
+<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)       <span class="c"># also loads the GUI helpers</span>
+
+oForm = <span class="s">""</span>                             <span class="c"># globals used by event code</span>
+oCount = <span class="s">""</span>
+nClicks = <span class="n">0</span>
+
+<span class="k">func</span> <span class="f">main</span>
+	oForm = <span class="f">uiForm</span>(<span class="s">"Click counter"</span>,<span class="n">260</span>,<span class="n">130</span>)
+	oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,<span class="n">20</span>,<span class="n">15</span>,<span class="n">220</span>,<span class="n">24</span>)
+	<span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span>,<span class="n">20</span>,<span class="n">50</span>,<span class="n">100</span>,<span class="n">32</span>,<span class="s">"clicked()"</span>)
+	<span class="f">uiRun</span>(oForm)
+
+<span class="k">func</span> <span class="f">clicked</span>
+	nClicks++
+	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div>
+<figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="A form with a label and a button" loading="lazy"><figcaption>A label and a button: the whole program is about 15 lines</figcaption></figure>
+<p><code>dnUseDesktop()</code> first, then the imports, then the form. <code>uiRun(oForm)</code> shows the form and runs the message loop (<code>Application.Run</code>). When the form closes the program continues after <code>uiRun</code>.</p>
+<div class="callout note"><span class="t">Note</span><p>Programs that start with <code>main()</code> at the top of the file can put the main code before the functions. Define functions <strong>after</strong> the main code: in Ring a <code>func</code> at the top would swallow the rest of the file.</p></div>
+<h2 id="the-helpers">The helpers<a class="anchor" href="#the-helpers">#</a></h2>
+<p>Everything the helpers do can also be written with the plain classes (see the next section); they exist to keep small programs short. They are loaded together with <code>System.Windows.Forms</code>.</p>
+<div class="tablewrap"><table><thead><tr><th>Helper</th><th>What it creates</th></tr></thead><tbody><tr><td><code>uiForm(title, w, h)</code></td><td>a form with a client area of w × h, centered</td></tr><tr><td><code>uiLabel(parent, text, x, y, w, h)</code></td><td>a label</td></tr><tr><td><code>uiButton(parent, text, x, y, w, h, clickCode)</code></td><td>a button; <code>clickCode</code> is Ring code or a function call</td></tr><tr><td><code>uiTextBox(parent, x, y, w, h)</code></td><td>a text box</td></tr><tr><td><code>uiMemo(parent, x, y, w, h)</code></td><td>a multi-line text box with scroll bars</td></tr><tr><td><code>uiCheckBox(parent, text, x, y, w, h, clickCode)</code></td><td>a check box</td></tr><tr><td><code>uiListBox(parent, x, y, w, h)</code></td><td>a list box</td></tr><tr><td><code>uiComboBox(parent, x, y, w, aItems)</code></td><td>a combo box filled from a Ring list</td></tr><tr><td><code>uiPanel(parent, x, y, w, h)</code></td><td>a panel</td></tr><tr><td><code>uiPictureBox(parent, x, y, w, h)</code></td><td>a picture box</td></tr><tr><td><code>uiTimer(milliseconds, code)</code></td><td>a timer (<code>.Start()</code>, <code>.Stop()</code>)</td></tr><tr><td><code>uiMenu(form, menus)</code></td><td>a menu bar from a Ring list</td></tr><tr><td><code>uiRGB(r,g,b)</code>, <code>uiColor("Red")</code>, <code>uiFont(name,size,bold)</code></td><td>colors and fonts</td></tr><tr><td><code>uiMessage(text,title)</code>, <code>uiAsk(text,title)</code></td><td>message box, yes/no question</td></tr><tr><td><code>uiOpenFileName(title,filter)</code>, <code>uiSaveFileName(title,filter)</code></td><td>file dialogs (file name or <code>""</code>)</td></tr><tr><td><code>uiNumber(value)</code></td><td>a number as text without trailing fixed decimals</td></tr></tbody></table></div>
+<h3 id="menus">Menus<a class="anchor" href="#menus">#</a></h3>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">uiMenu</span>(oForm,[
+	[<span class="s">"File"</span>,[[<span class="s">"New"</span>,<span class="s">"say('New file')"</span>],[<span class="s">"Open"</span>,<span class="s">"say('Open file')"</span>],[<span class="s">"-"</span>,<span class="s">""</span>],[<span class="s">"Exit"</span>,<span class="s">"oForm.Close()"</span>]]],
+	[<span class="s">"Help"</span>,[[<span class="s">"About"</span>,<span class="s">"say('About this program')"</span>]]]
+])</code></pre></div>
+<figure class="shot"><img src="img/shots/forms-11_menu_status.png" alt="A menu bar and a status bar" loading="lazy"><figcaption>samples/Forms/11_menu_status.ring</figcaption></figure>
+<h3 id="drawing-with-uicanvas">Drawing with UiCanvas<a class="anchor" href="#drawing-with-uicanvas">#</a></h3>
+<p><code>UiCanvas</code> draws on a bitmap shown by a picture box. A color is a name (<code>"Red"</code>), <code>"#RRGGBB"</code> or a .NET <code>Color</code>.</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oPicture = <span class="f">uiPictureBox</span>(oForm,<span class="n">10</span>,<span class="n">10</span>,<span class="n">300</span>,<span class="n">220</span>)
+oCanvas = <span class="k">new</span> <span class="t">UiCanvas</span>(oPicture)
+oCanvas.<span class="f">clear</span>(<span class="s">"White"</span>)
+oCanvas.<span class="f">fillRect</span>(<span class="n">20</span>,<span class="n">20</span>,<span class="n">100</span>,<span class="n">60</span>,<span class="s">"SteelBlue"</span>)
+oCanvas.<span class="f">fillCircle</span>(<span class="n">200</span>,<span class="n">70</span>,<span class="n">40</span>,<span class="s">"Orange"</span>)
+oCanvas.<span class="f">drawRect</span>(<span class="n">20</span>,<span class="n">110</span>,<span class="n">120</span>,<span class="n">80</span>,<span class="s">"Black"</span>)
+oCanvas.<span class="f">line</span>(<span class="n">150</span>,<span class="n">120</span>,<span class="n">290</span>,<span class="n">200</span>,<span class="s">"Red"</span>,<span class="n">4</span>)
+oCanvas.<span class="f">text</span>(<span class="s">"Drawn from Ring"</span>,<span class="n">150</span>,<span class="n">10</span>,<span class="s">"Black"</span>,<span class="n">12</span>)
+oCanvas.<span class="f">show</span>()                         <span class="c"># refresh the picture box</span></code></pre></div>
+<figure class="shot"><img src="img/shots/forms-15_picturebox_drawing.png" alt="Shapes and text drawn with UiCanvas" loading="lazy"><figcaption>samples/Forms/15_picturebox_drawing.ring</figcaption></figure>
+<div class="tablewrap"><table><thead><tr><th>Method</th><th>Does</th></tr></thead><tbody><tr><td><code>clear(color)</code></td><td>fill the whole bitmap</td></tr><tr><td><code>fillRect(x,y,w,h,color)</code>, <code>drawRect(...)</code></td><td>rectangles</td></tr><tr><td><code>fillCircle(x,y,r,color)</code>, <code>drawCircle(...)</code></td><td>circles around the center</td></tr><tr><td><code>fillEllipse(x,y,w,h,color)</code></td><td>ellipse</td></tr><tr><td><code>line(x1,y1,x2,y2,color,width)</code></td><td>line</td></tr><tr><td><code>text(text,x,y,color,size)</code></td><td>text</td></tr><tr><td><code>show()</code></td><td>refresh the picture box</td></tr><tr><td><code>pixel(x,y)</code></td><td>the color of a pixel as a hex text (for tests)</td></tr><tr><td><code>brush(color)</code>, <code>pen(color,width)</code>, <code>color(x)</code></td><td>the .NET objects, for anything the helpers don't cover</td></tr></tbody></table></div>
+<h2 id="every-control-is-available">Every control is available<a class="anchor" href="#every-control-is-available">#</a></h2>
+<p>The helpers are optional. The whole of <code>System.Windows.Forms</code> (414 classes), <code>System.Drawing</code> and its sub-namespaces are wrapped, so you can use any control directly:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTree = <span class="k">new</span> <span class="t">TreeView</span>()
+oTree.Dock = <span class="s">"Fill"</span>
+oRoot = oTree.Nodes.<span class="f">Add</span>(<span class="s">"Fruit"</span>)
+oRoot.Nodes.<span class="f">Add</span>(<span class="s">"Apple"</span>)
+oRoot.Nodes.<span class="f">Add</span>(<span class="s">"Pear"</span>)
+oTree.<span class="f">ExpandAll</span>()
+oForm.Controls.<span class="f">Add</span>(oTree)</code></pre></div>
+<div class="tablewrap"><table><thead><tr><th>Group</th><th>Controls</th></tr></thead><tbody><tr><td>Text and input</td><td><code>Label</code>, <code>TextBox</code>, <code>RichTextBox</code>, <code>MaskedTextBox</code>, <code>NumericUpDown</code>, <code>DateTimePicker</code>, <code>MonthCalendar</code></td></tr><tr><td>Buttons and choices</td><td><code>Button</code>, <code>CheckBox</code>, <code>RadioButton</code>, <code>ComboBox</code>, <code>ListBox</code>, <code>CheckedListBox</code>, <code>TrackBar</code>, <code>ProgressBar</code></td></tr><tr><td>Lists and trees</td><td><code>ListView</code>, <code>TreeView</code>, <code>DataGridView</code></td></tr><tr><td>Containers and layout</td><td><code>Panel</code>, <code>GroupBox</code>, <code>TabControl</code>, <code>SplitContainer</code>, <code>FlowLayoutPanel</code>, <code>TableLayoutPanel</code>; <code>Anchor</code> and <code>Dock</code></td></tr><tr><td>Menus and bars</td><td><code>MenuStrip</code>, <code>ContextMenuStrip</code>, <code>ToolStrip</code>, <code>StatusStrip</code>, <code>ToolTip</code></td></tr><tr><td>Dialogs</td><td><code>OpenFileDialog</code>, <code>SaveFileDialog</code>, <code>ColorDialog</code>, <code>FontDialog</code>, <code>FolderBrowserDialog</code>, <code>MessageBox</code>, your own modal <code>Form</code></td></tr><tr><td>Graphics</td><td><code>PictureBox</code>, <code>Bitmap</code>, <code>Graphics</code>, <code>Pen</code>, <code>Brush</code>, <code>Font</code></td></tr><tr><td>System</td><td><code>Clipboard</code>, <code>Timer</code>, <code>Screen</code>, <code>Cursor</code>, <code>Application</code></td></tr></tbody></table></div>
+<p>See the <a href="gallery-forms.html">32 samples</a> — one idea each, with a screenshot and the source.</p>
+<h2 id="events">Events<a class="anchor" href="#events">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oButton.<span class="f">setClickEvent</span>(<span class="s">"clicked()"</span>)
+oText.<span class="f">setTextChangedEvent</span>(<span class="s">"textChanged()"</span>)
+oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing()"</span>)
+oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"? aDotNetArgs[2].X"</span>)</code></pre></div>
+<p>The code of an event runs on the Ring thread when the message loop dispatches it. Details and warnings: <a href="callbacks-events.html">Callbacks &amp; events</a>.</p>
+<h2 id="keyboard-in-games">Keyboard in games<a class="anchor" href="#keyboard-in-games">#</a></h2>
+<p>A button (or any control that takes the focus) steals the arrow keys, Space and Enter from the form, so the form's <code>KeyDown</code> never sees them. <code>uiGameKeys</code> fixes that:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oForm.<span class="f">setKeyDownEvent</span>(<span class="s">"keyPressed(aDotNetArgs[2].KeyCode)"</span>)
+<span class="f">uiGameKeys</span>(oForm,<span class="s">"keyPressed(aDotNetArgs[2].KeyCode)"</span>)     <span class="c"># after the controls were added</span></code></pre></div>
+<p>Every control then reports the arrows as normal keys and the form handles them. Tetris, 2048, Sokoban, Snake and Pong use it.</p>
+<figure class="shot"><img src="img/shots/app-Tetris.png" alt="Tetris" loading="lazy"><figcaption>applications/Tetris — keys are handled by the form</figcaption></figure>
+<h2 id="self-testing-programs">Self-testing programs<a class="anchor" href="#self-testing-programs">#</a></h2>
+<p>Every sample and application can drive itself and check its results — the same program, no separate test harness:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">uiTest</span>(oForm,<span class="s">"selfTest()"</span>)        <span class="c"># when started with --selftest: run selfTest() once the form is shown</span>
+<span class="f">uiRun</span>(oForm)
+<span class="f">uiEnd</span>()                            <span class="c"># prints SELFTEST OK, or the failures</span>
+
+<span class="k">func</span> <span class="f">selfTest</span>
+	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
+	<span class="f">dnAssert</span>(<span class="s">"one click"</span>,oCount.Text,<span class="s">"1 clicks"</span>)</code></pre></div>
+<p><code>uiSendKeys(oForm,"12{+}30{ENTER}")</code> types into the focused control <strong>through the real key processing</strong> by posting window messages to your own form — it can never type into another program. See <a href="testing.html">Testing</a>.</p>
+<h2 id="more">More<a class="anchor" href="#more">#</a></h2>
+<ul><li><a href="gallery-forms.html">Forms samples</a> — 32 short samples.</li><li><a href="gallery-apps.html">Applications</a> — 43 complete programs.</li><li><a href="wpf.html">WPF</a> — the other desktop UI framework.</li></ul>
+<div class="pager"><a href="foundation.html"><small>Previous</small>The .NET class library</a><a class="next" href="gallery-forms.html"><small>Next</small>Forms samples</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>

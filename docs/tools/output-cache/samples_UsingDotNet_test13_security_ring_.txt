@@ -1,0 +1,11 @@
+SHA256(abc)    : ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad
+MD5(abc)       : 900150983cd24fb0d6963f7d28e17f72
+HMAC           : c431e4857a6b817f9eeaab86b00f78e2...
+AES            : 25 bytes -> 32 bytes encrypted
+Decrypted      : Ring talks to .NET crypto
+US date        : Thursday, July 4, 2024
+German date    : Donnerstag, 4. Juli 2024
+Title case     : Ring Meets Dot Net
+Process says   : 
+
+Microsoft Windows [Version 10.0.26200.9974]

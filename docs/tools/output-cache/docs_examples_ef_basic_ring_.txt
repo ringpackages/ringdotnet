@@ -1,0 +1,11 @@
+keys generated: 1, 2
+rows: 3
+row 1: Ann, 31, Cairo
+
+adults in Cairo:
+  Ann (31)
+  Cy (45)
+
+Bob now: Bergen
+after delete: 2 rows
+missing row: []

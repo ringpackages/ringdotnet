@@ -1,0 +1,9 @@
+migrating:
+  add column Users.Email
+  add column Users.Level
+  create table Notes
+  create index IX_Notes_UserId
+existing row: Ann, level 3
+named change applied: 1
+applied again:        0
+level now: 9

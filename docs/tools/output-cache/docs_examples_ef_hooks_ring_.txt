@@ -1,0 +1,7 @@
+stored in uppercase: KEEP ME
+visible notes (global filter): 1
+all notes: 2
+the saving hook cancelled the save
+notes after the cancelled save: 1
+after rollback: 1
+SQL statements logged: 7

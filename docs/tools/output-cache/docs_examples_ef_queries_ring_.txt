@@ -1,0 +1,17 @@
+top two adults in Cairo or Giza:
+  Cy 45
+  Ann 31
+
+count   : 2
+sum age : 121
+average : 7.75
+max     : 9
+
+people per city:
+  Cairo: 2
+  Giza: 1
+  Oslo: 1
+
+any SELECT shape:
+  Cairo n=2 avg=38
+  Giza n=1 avg=28

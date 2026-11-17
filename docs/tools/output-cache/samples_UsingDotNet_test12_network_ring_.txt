@@ -1,0 +1,6 @@
+Listening on http://localhost:30408/
+Request        : GET /greet?name=Ring
+Response       : Hello Ring, this is .NET speaking Ring!
+UrlEncode      : ring+%26+.net+%3D+fun
+Loopback       : 127.0.0.1
+Host name set  : 1
