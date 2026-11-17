@@ -28,6 +28,8 @@ namespace RingDotNet
 			public int MaxLength;
 			public object Default;
 			public bool HasDefault;
+			public string References;
+			public DeleteBehavior OnDelete = DeleteBehavior.Restrict;
 		}
 
 		private sealed class Table
@@ -96,10 +98,24 @@ namespace RingDotNet
 					case "index": column.Index = flag; break;
 					case "maxlength": column.MaxLength = Convert.ToInt32(value, CultureInfo.InvariantCulture); break;
 					case "default": column.Default = value; column.HasDefault = true; break;
+					case "references": column.References = (string)value; break;
+					case "ondelete": column.OnDelete = ParseDelete((string)value); break;
 					default: throw new ArgumentException("Unknown column option: " + name);
 				}
 			}
 			if (column.Nullable && column.Type.IsValueType) column.Type = typeof(Nullable<>).MakeGenericType(column.Type);
+		}
+
+		private static DeleteBehavior ParseDelete(string name)
+		{
+			switch (name.ToLowerInvariant())
+			{
+				case "cascade": return DeleteBehavior.Cascade;
+				case "restrict": return DeleteBehavior.Restrict;
+				case "setnull": return DeleteBehavior.SetNull;
+				case "noaction": return DeleteBehavior.NoAction;
+				default: throw new ArgumentException("Unknown ondelete: " + name + " (cascade, restrict, setnull, noaction)");
+			}
 		}
 
 		private static Type ClrType(string name)
@@ -149,6 +165,19 @@ namespace RingDotNet
 						foreach (Column key in table.Keys) builder.Property(key.Name).ValueGeneratedNever();
 					}
 				});
+			}
+			/* the relationships: a column that references the key of another table */
+			foreach (Table table in tables)
+			{
+				foreach (Column column in table.Columns)
+				{
+					if (column.References == null) continue;
+					Table principal = Find(column.References);
+					modelBuilder.SharedTypeEntity<Dictionary<string, object>>(table.Name, builder =>
+					{
+						builder.HasOne(principal.Name, (string)null).WithMany((string)null).HasForeignKey(column.Name).OnDelete(column.OnDelete);
+					});
+				}
 			}
 		}
 
@@ -337,6 +366,80 @@ namespace RingDotNet
 			{
 				if (wasClosed) connection.Close();
 			}
+		}
+
+		private static Column ForeignKeyTo(Table child, Table parent)
+		{
+			foreach (Column c in child.Columns)
+			{
+				if (c.References != null && string.Equals(c.References, parent.Name, StringComparison.OrdinalIgnoreCase)) return c;
+			}
+			return null;
+		}
+
+		/* The rows of childEntity that belong to the row of parentEntity with this key */
+		public List<object> Children(string parentEntity, object key, string childEntity)
+		{
+			Table parent = Find(parentEntity);
+			Table child = Find(childEntity);
+			Column fk = ForeignKeyTo(child, parent);
+			if (fk == null) throw new ArgumentException(child.Name + " has no column that references " + parent.Name);
+			string sql = "SELECT * FROM \"" + child.Name + "\" WHERE \"" + fk.Name + "\" = {0}";
+			return Rows(child, SetOf(child).FromSqlRaw(sql, KeyValues(parent, key)[0]).AsNoTracking().ToList());
+		}
+
+		/* The row of parentEntity that the row of childEntity with this key belongs to, or null */
+		public List<object> Parent(string childEntity, object key, string parentEntity)
+		{
+			Table parent = Find(parentEntity);
+			Table child = Find(childEntity);
+			Column fk = ForeignKeyTo(child, parent);
+			if (fk == null) throw new ArgumentException(child.Name + " has no column that references " + parent.Name);
+			Dictionary<string, object> row = SetOf(child).Find(KeyValues(child, key));
+			if (row == null || !row.TryGetValue(fk.Name, out object value) || value == null) return null;
+			Dictionary<string, object> found = SetOf(parent).Find(Coerce(value, parent.KeyColumn.Type));
+			return found == null ? null : ToPairs(parent, found);
+		}
+
+		/* All the rows of entity with their related rows (two queries): [ [row, related], ... ]
+		   related is the list of child rows when relatedEntity references entity, or the parent row (or null) when entity references relatedEntity */
+		public List<object> Include(string entity, string relatedEntity)
+		{
+			Table table = Find(entity);
+			Table related = Find(relatedEntity);
+			List<Dictionary<string, object>> rows = SetOf(table).AsNoTracking().ToList();
+			List<Dictionary<string, object>> others = SetOf(related).AsNoTracking().ToList();
+			List<object> result = new List<object>();
+			Column down = ForeignKeyTo(related, table);
+			Column up = ForeignKeyTo(table, related);
+			if (down == null && up == null) throw new ArgumentException(table.Name + " and " + related.Name + " are not related");
+			foreach (Dictionary<string, object> row in rows)
+			{
+				object link;
+				if (down != null)
+				{
+					object id = row[table.KeyColumn.Name];
+					List<object> children = new List<object>();
+					foreach (Dictionary<string, object> other in others)
+					{
+						if (other.TryGetValue(down.Name, out link) && link != null && Convert.ToString(link, CultureInfo.InvariantCulture) == Convert.ToString(id, CultureInfo.InvariantCulture)) children.Add(ToPairs(related, other));
+					}
+					result.Add(new List<object> { ToPairs(table, row), children });
+				}
+				else
+				{
+					List<object> parentRow = null;
+					if (row.TryGetValue(up.Name, out link) && link != null)
+					{
+						foreach (Dictionary<string, object> other in others)
+						{
+							if (Convert.ToString(other[related.KeyColumn.Name], CultureInfo.InvariantCulture) == Convert.ToString(link, CultureInfo.InvariantCulture)) { parentRow = ToPairs(related, other); break; }
+						}
+					}
+					result.Add(new List<object> { ToPairs(table, row), parentRow });
+				}
+			}
+			return result;
 		}
 
 		public void Save()
