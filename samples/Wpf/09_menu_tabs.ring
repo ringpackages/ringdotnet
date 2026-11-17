@@ -1,0 +1,50 @@
+# A menu and tab pages
+
+load "../../libraries/dotnetlib/dotnetlib.ring"
+dnUseDesktop()
+dnImport("System.Windows")
+dnImport("System.Windows.Controls")
+dnImport("System.Windows.Controls.Primitives")
+dnImport("System.Windows.Media")
+dnImport("System.Windows.Shapes")
+dnImport("System.Windows.Data")
+dnImport("System.Windows.Threading")
+dnImport("System")
+
+
+cLast = ""
+oWindow = wpfWindow("Menu and tabs",360,240)
+oDock = new DockPanel()
+oWindow.Content = oDock
+oMenu = new Menu()
+oFile = new MenuItem()
+oFile.Header = "File"
+oOpen = new MenuItem()
+oOpen.Header = "Open"
+oOpen.setClickEvent("cLast = 'open'")
+oFile.Items.Add(oOpen)
+oMenu.Items.Add(oFile)
+oDock.Children.Add(oMenu)
+oDock.SetDock(oMenu,"Top")
+oTabs = new WpfTabControl()
+for cName in ["First","Second"]
+	oTab = new TabItem()
+	oTab.Header = cName
+	oTab.Content = wpfLabel("Page " + cName)
+	oTabs.Items.Add(oTab)
+next
+oDock.Children.Add(oTabs)
+
+wpfTest(oWindow,"selfTest()")
+wpfRun(oWindow)
+wpfEnd()
+
+# --------------------------------------------------------------------------
+
+func selfTest
+	oEvent = new RoutedEventArgs().New_1(new MenuItem().ClickEvent)
+	oOpen.RaiseEvent(oEvent)
+	dnAssert("menu item click",cLast,"open")
+	oTabs.SelectedIndex = 1
+	dnAssert("second tab selected",oTabs.SelectedIndex,1)
+	dnAssert("tabs",oTabs.Items.Count,2)
