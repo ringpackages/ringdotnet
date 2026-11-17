@@ -24,73 +24,172 @@ Class Path from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func ChangeExtension P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"ChangeExtension",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"ChangeExtension",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Exists P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Exists",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Exists",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetDirectoryName P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetDirectoryName",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetDirectoryName",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetExtension P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetExtension",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetExtension",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetFileName P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileName",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileName",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetFileNameWithoutExtension P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileNameWithoutExtension",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFileNameWithoutExtension",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetRandomFileName 
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRandomFileName"])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRandomFileName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func IsPathFullyQualified P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathFullyQualified",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathFullyQualified",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func HasExtension P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"HasExtension",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"HasExtension",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Combine P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Combine_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Combine_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3,P4])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1,P2,P3,P4])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Combine_1 P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Combine",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Join P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Join_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Join_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3,P4])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1,P2,P3,P4])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Join_1 P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"Join",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetRelativePath P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRelativePath",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetRelativePath",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func TrimEndingDirectorySeparator P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"TrimEndingDirectorySeparator",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"TrimEndingDirectorySeparator",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func EndsInDirectorySeparator P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"EndsInDirectorySeparator",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"EndsInDirectorySeparator",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetInvalidFileNameChars 
 		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetInvalidFileNameChars"])
@@ -99,43 +198,83 @@ Class Path from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetInvalidPathChars"])
 
 	Func GetFullPath P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetFullPath_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetFullPath",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetTempPath 
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempPath"])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetTempFileName 
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempFileName"])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetTempFileName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func IsPathRooted P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathRooted",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"IsPathRooted",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetPathRoot P1
-		return dnRequest("call",[dnTypeCached('System.IO.Path'),"GetPathRoot",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Path'),"GetPathRoot",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func getDirectorySeparatorChar
-		return dnRequest("get",[dnTypeCached('System.IO.Path'),"DirectorySeparatorChar"])
+		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"DirectorySeparatorChar"])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func setDirectorySeparatorChar P1
 		raise("DotNet Error: DirectorySeparatorChar is a read-only property")
 
 	Func getAltDirectorySeparatorChar
-		return dnRequest("get",[dnTypeCached('System.IO.Path'),"AltDirectorySeparatorChar"])
+		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"AltDirectorySeparatorChar"])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func setAltDirectorySeparatorChar P1
 		raise("DotNet Error: AltDirectorySeparatorChar is a read-only property")
 
 	Func getVolumeSeparatorChar
-		return dnRequest("get",[dnTypeCached('System.IO.Path'),"VolumeSeparatorChar"])
+		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"VolumeSeparatorChar"])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func setVolumeSeparatorChar P1
 		raise("DotNet Error: VolumeSeparatorChar is a read-only property")
 
 	Func getPathSeparator
-		return dnRequest("get",[dnTypeCached('System.IO.Path'),"PathSeparator"])
+		xResult = dnRequest("get",[dnTypeCached('System.IO.Path'),"PathSeparator"])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func setPathSeparator P1
 		raise("DotNet Error: PathSeparator is a read-only property")

@@ -23,7 +23,11 @@ Class ControlCollection from DotNetObject
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		xResult = dnRequest("call",[self,"ContainsKey",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Add P1
 		dnRequest("call",[self,"Add",P1])
@@ -34,7 +38,11 @@ Class ControlCollection from DotNetObject
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		xResult = dnRequest("call",[self,"Contains",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Find P1,P2
 		return dnRequest("call",[self,"Find",P1,P2])
@@ -43,10 +51,18 @@ Class ControlCollection from DotNetObject
 		return dnRequest("call",[self,"GetEnumerator"])
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		xResult = dnRequest("call",[self,"IndexOf",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func IndexOfKey P1
-		return dnRequest("call",[self,"IndexOfKey",P1])
+		xResult = dnRequest("call",[self,"IndexOfKey",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Remove P1
 		dnRequest("call",[self,"Remove",P1])
@@ -65,27 +81,54 @@ Class ControlCollection from DotNetObject
 		return self
 
 	Func GetChildIndex P1
-		return dnRequest("call",[self,"GetChildIndex",P1])
+		xResult = dnRequest("call",[self,"GetChildIndex",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func GetChildIndex_2 P1,P2
-		return dnRequest("call",[self,"GetChildIndex",P1,P2])
+		xResult = dnRequest("call",[self,"GetChildIndex",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func SetChildIndex P1,P2
 		dnRequest("call",[self,"SetChildIndex",P1,P2])
 		return self
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func CopyTo P1,P2
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
@@ -97,13 +140,21 @@ Class ControlCollection from DotNetObject
 		raise("DotNet Error: Owner is a read-only property")
 
 	Func getIsReadOnly
-		return dnRequest("get",[self,"IsReadOnly"])
+		xResult = dnRequest("get",[self,"IsReadOnly"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsReadOnly P1
 		raise("DotNet Error: IsReadOnly is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		xResult = dnRequest("get",[self,"Count"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

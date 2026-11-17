@@ -18,13 +18,32 @@ Class Directory from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func GetParent P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetParent",P1])
@@ -39,7 +58,11 @@ Class Directory from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"CreateTempSubdirectory",P1])
 
 	Func Exists P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"Exists",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"Exists",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func SetCreationTime P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetCreationTime",P1,P2])
@@ -162,10 +185,18 @@ Class Directory from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"EnumerateFileSystemEntries",P1,P2,P3])
 
 	Func GetDirectoryRoot P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectoryRoot",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetDirectoryRoot",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetCurrentDirectory 
-		return dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCurrentDirectory"])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.Directory'),"GetCurrentDirectory"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func SetCurrentDirectory P1
 		dnRequest("call",[dnTypeCached('System.IO.Directory'),"SetCurrentDirectory",P1])

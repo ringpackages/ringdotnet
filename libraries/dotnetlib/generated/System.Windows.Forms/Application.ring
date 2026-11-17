@@ -43,13 +43,32 @@ Class Application from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func SetColorMode P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetColorMode",P1])
@@ -126,10 +145,18 @@ Class Application from DotNetObject
 		return self
 
 	Func SetHighDpiMode P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetHighDpiMode",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetHighDpiMode",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func SetSuspendState P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetSuspendState",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetSuspendState",P1,P2,P3])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func SetUnhandledExceptionMode P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application'),"SetUnhandledExceptionMode",P1])
@@ -188,7 +215,11 @@ Class Application from DotNetObject
 		return self
 
 	Func getAllowQuit
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"AllowQuit"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"AllowQuit"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setAllowQuit P1
 		raise("DotNet Error: AllowQuit is a read-only property")
@@ -200,13 +231,21 @@ Class Application from DotNetObject
 		raise("DotNet Error: CommonAppDataRegistry is a read-only property")
 
 	Func getCommonAppDataPath
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CommonAppDataPath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CommonAppDataPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setCommonAppDataPath P1
 		raise("DotNet Error: CommonAppDataPath is a read-only property")
 
 	Func getCompanyName
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CompanyName"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CompanyName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setCompanyName P1
 		raise("DotNet Error: CompanyName is a read-only property")
@@ -235,13 +274,21 @@ Class Application from DotNetObject
 		raise("DotNet Error: SystemColorMode is a read-only property")
 
 	Func getIsDarkModeEnabled
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"IsDarkModeEnabled"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"IsDarkModeEnabled"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsDarkModeEnabled P1
 		raise("DotNet Error: IsDarkModeEnabled is a read-only property")
 
 	Func getExecutablePath
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ExecutablePath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ExecutablePath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setExecutablePath P1
 		raise("DotNet Error: ExecutablePath is a read-only property")
@@ -250,13 +297,21 @@ Class Application from DotNetObject
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"HighDpiMode"])
 
 	Func getLocalUserAppDataPath
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"LocalUserAppDataPath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"LocalUserAppDataPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setLocalUserAppDataPath P1
 		raise("DotNet Error: LocalUserAppDataPath is a read-only property")
 
 	Func getMessageLoop
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"MessageLoop"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"MessageLoop"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setMessageLoop P1
 		raise("DotNet Error: MessageLoop is a read-only property")
@@ -268,45 +323,73 @@ Class Application from DotNetObject
 		raise("DotNet Error: OpenForms is a read-only property")
 
 	Func getProductName
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductName"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductVersion"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductVersion"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
 
 	Func getRenderWithVisualStyles
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"RenderWithVisualStyles"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"RenderWithVisualStyles"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setRenderWithVisualStyles P1
 		raise("DotNet Error: RenderWithVisualStyles is a read-only property")
 
 	Func getSafeTopLevelCaptionFormat
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"SafeTopLevelCaptionFormat"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"SafeTopLevelCaptionFormat"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setSafeTopLevelCaptionFormat P1
 		dnRequest("set",[dnTypeCached('System.Windows.Forms.Application'),"SafeTopLevelCaptionFormat",P1])
 		return self
 
 	Func getStartupPath
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"StartupPath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"StartupPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setStartupPath P1
 		raise("DotNet Error: StartupPath is a read-only property")
 
 	Func getUseWaitCursor
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseWaitCursor"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseWaitCursor"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseWaitCursor P1
 		dnRequest("set",[dnTypeCached('System.Windows.Forms.Application'),"UseWaitCursor",P1])
 		return self
 
 	Func getUserAppDataPath
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UserAppDataPath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UserAppDataPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setUserAppDataPath P1
 		raise("DotNet Error: UserAppDataPath is a read-only property")
@@ -318,7 +401,11 @@ Class Application from DotNetObject
 		raise("DotNet Error: UserAppDataRegistry is a read-only property")
 
 	Func getUseVisualStyles
-		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseVisualStyles"])
+		xResult = dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseVisualStyles"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseVisualStyles P1
 		raise("DotNet Error: UseVisualStyles is a read-only property")

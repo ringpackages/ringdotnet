@@ -21,13 +21,32 @@ Class CompositeFormat from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Parse P1
 		xResult = dnRequest("call",[dnTypeCached('System.Text.CompositeFormat'),"Parse",P1])
@@ -37,13 +56,21 @@ Class CompositeFormat from DotNetObject
 		return xResult
 
 	Func getFormat
-		return dnRequest("get",[self,"Format"])
+		xResult = dnRequest("get",[self,"Format"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setFormat P1
 		raise("DotNet Error: Format is a read-only property")
 
 	Func getMinimumArgumentCount
-		return dnRequest("get",[self,"MinimumArgumentCount"])
+		xResult = dnRequest("get",[self,"MinimumArgumentCount"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMinimumArgumentCount P1
 		raise("DotNet Error: MinimumArgumentCount is a read-only property")

@@ -41,10 +41,18 @@ Class ObjectDictionary from DotNetObject
 		return self
 
 	Func ContainsKey P1
-		return dnRequest("call",[self,"ContainsKey",P1])
+		xResult = dnRequest("call",[self,"ContainsKey",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func ContainsValue P1
-		return dnRequest("call",[self,"ContainsValue",P1])
+		xResult = dnRequest("call",[self,"ContainsValue",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
@@ -58,16 +66,28 @@ Class ObjectDictionary from DotNetObject
 		return self
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		xResult = dnRequest("call",[self,"Remove",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
 	Func TryAdd P1,P2
-		return dnRequest("call",[self,"TryAdd",P1,P2])
+		xResult = dnRequest("call",[self,"TryAdd",P1,P2])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func TrimExcess_0 
 		dnRequest("call",[self,"TrimExcess"])
@@ -78,16 +98,39 @@ Class ObjectDictionary from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		xResult = dnRequest("call",[self,"get_Item",P1])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func SetItem P1,P2
 		dnRequest("call",[self,"set_Item",P1,P2])
@@ -100,13 +143,21 @@ Class ObjectDictionary from DotNetObject
 		raise("DotNet Error: Comparer is a read-only property")
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		xResult = dnRequest("get",[self,"Count"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		xResult = dnRequest("get",[self,"Capacity"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

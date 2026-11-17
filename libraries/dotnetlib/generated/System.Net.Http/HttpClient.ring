@@ -112,13 +112,32 @@ Class HttpClient from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func getDefaultRequestHeaders
 		return dnRequest("get",[self,"DefaultRequestHeaders"])
@@ -127,7 +146,11 @@ Class HttpClient from DotNetObject
 		raise("DotNet Error: DefaultRequestHeaders is a read-only property")
 
 	Func getDefaultRequestVersion
-		return dnRequest("get",[self,"DefaultRequestVersion"])
+		xResult = dnRequest("get",[self,"DefaultRequestVersion"])
+		if isfunction('DotNetWrap_Version')
+			return DotNetWrap_Version(xResult)
+		ok
+		return xResult
 
 	Func setDefaultRequestVersion P1
 		dnRequest("set",[self,"DefaultRequestVersion",P1])
@@ -141,7 +164,11 @@ Class HttpClient from DotNetObject
 		return self
 
 	Func getBaseAddress
-		return dnRequest("get",[self,"BaseAddress"])
+		xResult = dnRequest("get",[self,"BaseAddress"])
+		if isfunction('DotNetWrap_Uri')
+			return DotNetWrap_Uri(xResult)
+		ok
+		return xResult
 
 	Func setBaseAddress P1
 		dnRequest("set",[self,"BaseAddress",P1])
@@ -159,7 +186,11 @@ Class HttpClient from DotNetObject
 		return self
 
 	Func getMaxResponseContentBufferSize
-		return dnRequest("get",[self,"MaxResponseContentBufferSize"])
+		xResult = dnRequest("get",[self,"MaxResponseContentBufferSize"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setMaxResponseContentBufferSize P1
 		dnRequest("set",[self,"MaxResponseContentBufferSize",P1])

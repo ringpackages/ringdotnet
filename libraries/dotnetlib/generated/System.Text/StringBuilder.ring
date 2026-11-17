@@ -35,7 +35,25 @@ Class StringBuilder from DotNetObject
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString_2 P1,P2
+		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Clear 
 		xResult = dnRequest("call",[self,"Clear"])
@@ -160,7 +178,11 @@ Class StringBuilder from DotNetObject
 		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Replace_4 P1,P2,P3,P4
 		xResult = dnRequest("call",[self,"Replace",P1,P2,P3,P4])
@@ -170,33 +192,57 @@ Class StringBuilder from DotNetObject
 		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		xResult = dnRequest("call",[self,"get_Item",P1])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func SetItem P1,P2
 		dnRequest("call",[self,"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		xResult = dnRequest("get",[self,"Capacity"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCapacity P1
 		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getMaxCapacity
-		return dnRequest("get",[self,"MaxCapacity"])
+		xResult = dnRequest("get",[self,"MaxCapacity"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMaxCapacity P1
 		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
-		return dnRequest("get",[self,"Length"])
+		xResult = dnRequest("get",[self,"Length"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setLength P1
 		dnRequest("set",[self,"Length",P1])

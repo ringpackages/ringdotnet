@@ -5,7 +5,7 @@ Func DotNetWrap_Guid xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new Guid(0)
+	return new Guid()
 
 Class Guid from DotNetObject
 
@@ -14,12 +14,16 @@ Class Guid from DotNetObject
 	AllBitsSet
 	Empty
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		nHandle = dnCreate('System.Guid',[])
+		return self
+
+	Func New_1 P1
 		nHandle = dnCreate('System.Guid',[P1])
 		return self
 
@@ -38,16 +42,53 @@ Class Guid from DotNetObject
 		return dnRequest("call",[self,"ToByteArray",P1])
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		xResult = dnRequest("call",[self,"CompareTo",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString_1 P1
+		xResult = dnRequest("call",[self,"ToString",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString_2 P1,P2
+		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func CreateVersion7_0 
 		xResult = dnRequest("call",[dnTypeCached('System.Guid'),"CreateVersion7"])
@@ -101,13 +142,21 @@ Class Guid from DotNetObject
 		return xResult
 
 	Func getVariant
-		return dnRequest("get",[self,"Variant"])
+		xResult = dnRequest("get",[self,"Variant"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setVariant P1
 		raise("DotNet Error: Variant is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[self,"Version"])
+		xResult = dnRequest("get",[self,"Version"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

@@ -37,20 +37,36 @@ Class NumberList from DotNetObject
 		return dnRequest("call",[self,"AsReadOnly"])
 
 	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[self,"BinarySearch",P1,P2,P3,P4])
+		xResult = dnRequest("call",[self,"BinarySearch",P1,P2,P3,P4])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func BinarySearch P1
-		return dnRequest("call",[self,"BinarySearch",P1])
+		xResult = dnRequest("call",[self,"BinarySearch",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[self,"BinarySearch",P1,P2])
+		xResult = dnRequest("call",[self,"BinarySearch",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Clear 
 		dnRequest("call",[self,"Clear"])
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		xResult = dnRequest("call",[self,"Contains",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func CopyTo P1
 		dnRequest("call",[self,"CopyTo",P1])
@@ -65,13 +81,25 @@ Class NumberList from DotNetObject
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Exists P1
-		return dnRequest("call",[self,"Exists",P1])
+		xResult = dnRequest("call",[self,"Exists",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Find P1
-		return dnRequest("call",[self,"Find",P1])
+		xResult = dnRequest("call",[self,"Find",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func FindAll P1
 		xResult = dnRequest("call",[self,"FindAll",P1])
@@ -81,25 +109,53 @@ Class NumberList from DotNetObject
 		return xResult
 
 	Func FindIndex P1
-		return dnRequest("call",[self,"FindIndex",P1])
+		xResult = dnRequest("call",[self,"FindIndex",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func FindIndex_2 P1,P2
-		return dnRequest("call",[self,"FindIndex",P1,P2])
+		xResult = dnRequest("call",[self,"FindIndex",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[self,"FindIndex",P1,P2,P3])
+		xResult = dnRequest("call",[self,"FindIndex",P1,P2,P3])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func FindLast P1
-		return dnRequest("call",[self,"FindLast",P1])
+		xResult = dnRequest("call",[self,"FindLast",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func FindLastIndex P1
-		return dnRequest("call",[self,"FindLastIndex",P1])
+		xResult = dnRequest("call",[self,"FindLastIndex",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[self,"FindLastIndex",P1,P2])
+		xResult = dnRequest("call",[self,"FindLastIndex",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[self,"FindLastIndex",P1,P2,P3])
+		xResult = dnRequest("call",[self,"FindLastIndex",P1,P2,P3])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func ForEach_ P1
 		dnRequest("call",[self,"ForEach",P1])
@@ -123,13 +179,25 @@ Class NumberList from DotNetObject
 		return xResult
 
 	Func IndexOf P1
-		return dnRequest("call",[self,"IndexOf",P1])
+		xResult = dnRequest("call",[self,"IndexOf",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func IndexOf_2 P1,P2
-		return dnRequest("call",[self,"IndexOf",P1,P2])
+		xResult = dnRequest("call",[self,"IndexOf",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[self,"IndexOf",P1,P2,P3])
+		xResult = dnRequest("call",[self,"IndexOf",P1,P2,P3])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Insert P1,P2
 		dnRequest("call",[self,"Insert",P1,P2])
@@ -140,19 +208,39 @@ Class NumberList from DotNetObject
 		return self
 
 	Func LastIndexOf P1
-		return dnRequest("call",[self,"LastIndexOf",P1])
+		xResult = dnRequest("call",[self,"LastIndexOf",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[self,"LastIndexOf",P1,P2])
+		xResult = dnRequest("call",[self,"LastIndexOf",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[self,"LastIndexOf",P1,P2,P3])
+		xResult = dnRequest("call",[self,"LastIndexOf",P1,P2,P3])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Remove P1
-		return dnRequest("call",[self,"Remove",P1])
+		xResult = dnRequest("call",[self,"Remove",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func RemoveAll P1
-		return dnRequest("call",[self,"RemoveAll",P1])
+		xResult = dnRequest("call",[self,"RemoveAll",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func RemoveAt P1
 		dnRequest("call",[self,"RemoveAt",P1])
@@ -190,33 +278,68 @@ Class NumberList from DotNetObject
 		return self
 
 	Func TrueForAll P1
-		return dnRequest("call",[self,"TrueForAll",P1])
+		xResult = dnRequest("call",[self,"TrueForAll",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Item P1
-		return dnRequest("call",[self,"get_Item",P1])
+		xResult = dnRequest("call",[self,"get_Item",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func SetItem P1,P2
 		dnRequest("call",[self,"set_Item",P1,P2])
 		return self
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		xResult = dnRequest("get",[self,"Capacity"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCapacity P1
 		dnRequest("set",[self,"Capacity",P1])
 		return self
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		xResult = dnRequest("get",[self,"Count"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")

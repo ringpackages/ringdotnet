@@ -21,32 +21,71 @@ Class EncoderExceptionFallbackBuffer from DotNetObject
 		return self
 
 	Func Fallback P1,P2
-		return dnRequest("call",[self,"Fallback",P1,P2])
+		xResult = dnRequest("call",[self,"Fallback",P1,P2])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Fallback_3 P1,P2,P3
-		return dnRequest("call",[self,"Fallback",P1,P2,P3])
+		xResult = dnRequest("call",[self,"Fallback",P1,P2,P3])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetNextChar 
-		return dnRequest("call",[self,"GetNextChar"])
+		xResult = dnRequest("call",[self,"GetNextChar"])
+		if isfunction('DotNetWrap_Char')
+			return DotNetWrap_Char(xResult)
+		ok
+		return xResult
 
 	Func MovePrevious 
-		return dnRequest("call",[self,"MovePrevious"])
+		xResult = dnRequest("call",[self,"MovePrevious"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Reset 
 		dnRequest("call",[self,"Reset"])
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func getRemaining
-		return dnRequest("get",[self,"Remaining"])
+		xResult = dnRequest("get",[self,"Remaining"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setRemaining P1
 		raise("DotNet Error: Remaining is a read-only property")

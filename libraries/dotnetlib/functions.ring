@@ -132,7 +132,11 @@ func dnTypeCached  cTypeName
 
 # Create a .NET object and return its handle (used by the generated classes)
 func dnCreate  cTypeName, aParameters
-	return dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters)).nHandle
+	xNew = dnRequest("new",dnJoin([dnTypeCached(cTypeName)],aParameters))
+	if isobject(xNew)
+		return xNew.nHandle
+	ok
+	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
 
 # Public API of a type (used by tools/gendotnet.ring)
 func dnDescribe  cTypeName

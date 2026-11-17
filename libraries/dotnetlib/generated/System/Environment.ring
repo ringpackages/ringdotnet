@@ -44,13 +44,32 @@ Class Environment from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Exit_ P1
 		dnRequest("call",[dnTypeCached('System.Environment'),"Exit",P1])
@@ -65,10 +84,18 @@ Class Environment from DotNetObject
 		return self
 
 	Func GetEnvironmentVariable P1
-		return dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariable",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariable",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetEnvironmentVariable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariable",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariable",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetEnvironmentVariables P1
 		return dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariables",P1])
@@ -85,13 +112,25 @@ Class Environment from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Environment'),"GetCommandLineArgs"])
 
 	Func ExpandEnvironmentVariables P1
-		return dnRequest("call",[dnTypeCached('System.Environment'),"ExpandEnvironmentVariables",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Environment'),"ExpandEnvironmentVariables",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetFolderPath P1
-		return dnRequest("call",[dnTypeCached('System.Environment'),"GetFolderPath",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Environment'),"GetFolderPath",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetFolderPath_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Environment'),"GetFolderPath",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Environment'),"GetFolderPath",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetLogicalDrives 
 		return dnRequest("call",[dnTypeCached('System.Environment'),"GetLogicalDrives"])
@@ -100,141 +139,233 @@ Class Environment from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Environment'),"GetEnvironmentVariables"])
 
 	Func getCurrentManagedThreadId
-		return dnRequest("get",[dnTypeCached('System.Environment'),"CurrentManagedThreadId"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"CurrentManagedThreadId"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCurrentManagedThreadId P1
 		raise("DotNet Error: CurrentManagedThreadId is a read-only property")
 
 	Func getExitCode
-		return dnRequest("get",[dnTypeCached('System.Environment'),"ExitCode"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"ExitCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setExitCode P1
 		dnRequest("set",[dnTypeCached('System.Environment'),"ExitCode",P1])
 		return self
 
 	Func getTickCount
-		return dnRequest("get",[dnTypeCached('System.Environment'),"TickCount"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"TickCount"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setTickCount P1
 		raise("DotNet Error: TickCount is a read-only property")
 
 	Func getTickCount64
-		return dnRequest("get",[dnTypeCached('System.Environment'),"TickCount64"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"TickCount64"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setTickCount64 P1
 		raise("DotNet Error: TickCount64 is a read-only property")
 
 	Func getProcessorCount
-		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessorCount"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"ProcessorCount"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setProcessorCount P1
 		raise("DotNet Error: ProcessorCount is a read-only property")
 
 	Func getIsPrivilegedProcess
-		return dnRequest("get",[dnTypeCached('System.Environment'),"IsPrivilegedProcess"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"IsPrivilegedProcess"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsPrivilegedProcess P1
 		raise("DotNet Error: IsPrivilegedProcess is a read-only property")
 
 	Func getHasShutdownStarted
-		return dnRequest("get",[dnTypeCached('System.Environment'),"HasShutdownStarted"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"HasShutdownStarted"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setHasShutdownStarted P1
 		raise("DotNet Error: HasShutdownStarted is a read-only property")
 
 	Func getCommandLine
-		return dnRequest("get",[dnTypeCached('System.Environment'),"CommandLine"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"CommandLine"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setCommandLine P1
 		raise("DotNet Error: CommandLine is a read-only property")
 
 	Func getCurrentDirectory
-		return dnRequest("get",[dnTypeCached('System.Environment'),"CurrentDirectory"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"CurrentDirectory"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setCurrentDirectory P1
 		dnRequest("set",[dnTypeCached('System.Environment'),"CurrentDirectory",P1])
 		return self
 
 	Func getProcessId
-		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessId"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"ProcessId"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setProcessId P1
 		raise("DotNet Error: ProcessId is a read-only property")
 
 	Func getProcessPath
-		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessPath"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"ProcessPath"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setProcessPath P1
 		raise("DotNet Error: ProcessPath is a read-only property")
 
 	Func getIs64BitProcess
-		return dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitProcess"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitProcess"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIs64BitProcess P1
 		raise("DotNet Error: Is64BitProcess is a read-only property")
 
 	Func getIs64BitOperatingSystem
-		return dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitOperatingSystem"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitOperatingSystem"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIs64BitOperatingSystem P1
 		raise("DotNet Error: Is64BitOperatingSystem is a read-only property")
 
 	Func getNewLine
-		return dnRequest("get",[dnTypeCached('System.Environment'),"NewLine"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"NewLine"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setNewLine P1
 		raise("DotNet Error: NewLine is a read-only property")
 
 	Func getOSVersion
-		return dnRequest("get",[dnTypeCached('System.Environment'),"OSVersion"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"OSVersion"])
+		if isfunction('DotNetWrap_OperatingSystem')
+			return DotNetWrap_OperatingSystem(xResult)
+		ok
+		return xResult
 
 	Func setOSVersion P1
 		raise("DotNet Error: OSVersion is a read-only property")
 
 	Func getStackTrace
-		return dnRequest("get",[dnTypeCached('System.Environment'),"StackTrace"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"StackTrace"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setStackTrace P1
 		raise("DotNet Error: StackTrace is a read-only property")
 
 	Func getSystemPageSize
-		return dnRequest("get",[dnTypeCached('System.Environment'),"SystemPageSize"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"SystemPageSize"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setSystemPageSize P1
 		raise("DotNet Error: SystemPageSize is a read-only property")
 
 	Func getUserName
-		return dnRequest("get",[dnTypeCached('System.Environment'),"UserName"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"UserName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setUserName P1
 		raise("DotNet Error: UserName is a read-only property")
 
 	Func getUserDomainName
-		return dnRequest("get",[dnTypeCached('System.Environment'),"UserDomainName"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"UserDomainName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setUserDomainName P1
 		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getMachineName
-		return dnRequest("get",[dnTypeCached('System.Environment'),"MachineName"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"MachineName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setMachineName P1
 		raise("DotNet Error: MachineName is a read-only property")
 
 	Func getSystemDirectory
-		return dnRequest("get",[dnTypeCached('System.Environment'),"SystemDirectory"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"SystemDirectory"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setSystemDirectory P1
 		raise("DotNet Error: SystemDirectory is a read-only property")
 
 	Func getUserInteractive
-		return dnRequest("get",[dnTypeCached('System.Environment'),"UserInteractive"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"UserInteractive"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUserInteractive P1
 		raise("DotNet Error: UserInteractive is a read-only property")
 
 	Func getWorkingSet
-		return dnRequest("get",[dnTypeCached('System.Environment'),"WorkingSet"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"WorkingSet"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setWorkingSet P1
 		raise("DotNet Error: WorkingSet is a read-only property")
@@ -246,7 +377,11 @@ Class Environment from DotNetObject
 		raise("DotNet Error: CpuUsage is a read-only property")
 
 	Func getVersion
-		return dnRequest("get",[dnTypeCached('System.Environment'),"Version"])
+		xResult = dnRequest("get",[dnTypeCached('System.Environment'),"Version"])
+		if isfunction('DotNetWrap_Version')
+			return DotNetWrap_Version(xResult)
+		ok
+		return xResult
 
 	Func setVersion P1
 		raise("DotNet Error: Version is a read-only property")

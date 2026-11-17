@@ -18,13 +18,32 @@ Class File from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func OpenText P1
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenText",P1])
@@ -57,7 +76,11 @@ Class File from DotNetObject
 		return self
 
 	Func Exists P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"Exists",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"Exists",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Open P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"Open",P1,P2])
@@ -158,10 +181,18 @@ Class File from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.IO.File'),"OpenWrite",P1])
 
 	Func ReadAllText P1
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func ReadAllText_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.IO.File'),"ReadAllText",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func WriteAllText P1,P2
 		dnRequest("call",[dnTypeCached('System.IO.File'),"WriteAllText",P1,P2])

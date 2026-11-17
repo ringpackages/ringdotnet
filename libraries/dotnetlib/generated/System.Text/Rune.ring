@@ -5,7 +5,7 @@ Func DotNetWrap_Rune xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new Rune(0)
+	return new Rune()
 
 Class Rune from DotNetObject
 
@@ -17,12 +17,16 @@ Class Rune from DotNetObject
 	Value
 	ReplacementChar
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		nHandle = dnCreate('System.Text.Rune',[])
+		return self
+
+	Func New_1 P1
 		nHandle = dnCreate('System.Text.Rune',[P1])
 		return self
 
@@ -31,16 +35,39 @@ Class Rune from DotNetObject
 		return self
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		xResult = dnRequest("call",[self,"CompareTo",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func GetRuneAt P1,P2
 		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"GetRuneAt",P1,P2])
@@ -50,7 +77,11 @@ Class Rune from DotNetObject
 		return xResult
 
 	Func IsValid P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsValid",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsValid",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func TryCreate P1
 		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"TryCreate",P1])
@@ -62,43 +93,91 @@ Class Rune from DotNetObject
 		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"TryGetRuneAt",P1,P2])
 
 	Func GetNumericValue P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"GetNumericValue",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"GetNumericValue",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func GetUnicodeCategory P1
 		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"GetUnicodeCategory",P1])
 
 	Func IsControl P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsControl",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsControl",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsDigit P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsDigit",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsDigit",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsLetter P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLetter",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLetter",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsLetterOrDigit P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLetterOrDigit",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLetterOrDigit",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsLower P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLower",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsLower",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsNumber P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsNumber",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsNumber",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsPunctuation P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsPunctuation",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsPunctuation",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsSeparator P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsSeparator",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsSeparator",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsSymbol P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsSymbol",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsSymbol",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsUpper P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsUpper",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsUpper",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsWhiteSpace P1
-		return dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsWhiteSpace",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"IsWhiteSpace",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func ToLower P1,P2
 		xResult = dnRequest("call",[dnTypeCached('System.Text.Rune'),"ToLower",P1,P2])
@@ -129,37 +208,61 @@ Class Rune from DotNetObject
 		return xResult
 
 	Func getIsAscii
-		return dnRequest("get",[self,"IsAscii"])
+		xResult = dnRequest("get",[self,"IsAscii"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsAscii P1
 		raise("DotNet Error: IsAscii is a read-only property")
 
 	Func getIsBmp
-		return dnRequest("get",[self,"IsBmp"])
+		xResult = dnRequest("get",[self,"IsBmp"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsBmp P1
 		raise("DotNet Error: IsBmp is a read-only property")
 
 	Func getPlane
-		return dnRequest("get",[self,"Plane"])
+		xResult = dnRequest("get",[self,"Plane"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setPlane P1
 		raise("DotNet Error: Plane is a read-only property")
 
 	Func getUtf16SequenceLength
-		return dnRequest("get",[self,"Utf16SequenceLength"])
+		xResult = dnRequest("get",[self,"Utf16SequenceLength"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setUtf16SequenceLength P1
 		raise("DotNet Error: Utf16SequenceLength is a read-only property")
 
 	Func getUtf8SequenceLength
-		return dnRequest("get",[self,"Utf8SequenceLength"])
+		xResult = dnRequest("get",[self,"Utf8SequenceLength"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setUtf8SequenceLength P1
 		raise("DotNet Error: Utf8SequenceLength is a read-only property")
 
 	Func getValue
-		return dnRequest("get",[self,"Value"])
+		xResult = dnRequest("get",[self,"Value"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setValue P1
 		raise("DotNet Error: Value is a read-only property")

@@ -143,19 +143,39 @@ Class DateTime from DotNetObject
 		return xResult
 
 	Func CompareTo P1
-		return dnRequest("call",[self,"CompareTo",P1])
+		xResult = dnRequest("call",[self,"CompareTo",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func IsDaylightSavingTime 
-		return dnRequest("call",[self,"IsDaylightSavingTime"])
+		xResult = dnRequest("call",[self,"IsDaylightSavingTime"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func ToBinary 
-		return dnRequest("call",[self,"ToBinary"])
+		xResult = dnRequest("call",[self,"ToBinary"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Subtract P1
 		xResult = dnRequest("call",[self,"Subtract",P1])
@@ -165,13 +185,25 @@ Class DateTime from DotNetObject
 		return xResult
 
 	Func ToOADate 
-		return dnRequest("call",[self,"ToOADate"])
+		xResult = dnRequest("call",[self,"ToOADate"])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func ToFileTime 
-		return dnRequest("call",[self,"ToFileTime"])
+		xResult = dnRequest("call",[self,"ToFileTime"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func ToFileTimeUtc 
-		return dnRequest("call",[self,"ToFileTimeUtc"])
+		xResult = dnRequest("call",[self,"ToFileTimeUtc"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func ToLocalTime 
 		xResult = dnRequest("call",[self,"ToLocalTime"])
@@ -181,16 +213,53 @@ Class DateTime from DotNetObject
 		return xResult
 
 	Func ToLongDateString 
-		return dnRequest("call",[self,"ToLongDateString"])
+		xResult = dnRequest("call",[self,"ToLongDateString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func ToLongTimeString 
-		return dnRequest("call",[self,"ToLongTimeString"])
+		xResult = dnRequest("call",[self,"ToLongTimeString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func ToShortDateString 
-		return dnRequest("call",[self,"ToShortDateString"])
+		xResult = dnRequest("call",[self,"ToShortDateString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func ToShortTimeString 
-		return dnRequest("call",[self,"ToShortTimeString"])
+		xResult = dnRequest("call",[self,"ToShortTimeString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString_1 P1
+		xResult = dnRequest("call",[self,"ToString",P1])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
+	Func ToString_2 P1,P2
+		xResult = dnRequest("call",[self,"ToString",P1,P2])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func ToUniversalTime 
 		xResult = dnRequest("call",[self,"ToUniversalTime"])
@@ -215,16 +284,32 @@ Class DateTime from DotNetObject
 		return dnRequest("call",[self,"GetTypeCode"])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime'),"Compare",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"Compare",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func DaysInMonth P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime'),"DaysInMonth",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"DaysInMonth",P1,P2])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime'),"Equals",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"Equals",P1,P2])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func FromBinary P1
 		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"FromBinary",P1])
@@ -262,7 +347,11 @@ Class DateTime from DotNetObject
 		return xResult
 
 	Func IsLeapYear P1
-		return dnRequest("call",[dnTypeCached('System.DateTime'),"IsLeapYear",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"IsLeapYear",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Parse P1
 		xResult = dnRequest("call",[dnTypeCached('System.DateTime'),"Parse",P1])
@@ -322,7 +411,11 @@ Class DateTime from DotNetObject
 		raise("DotNet Error: Date is a read-only property")
 
 	Func getDay
-		return dnRequest("get",[self,"Day"])
+		xResult = dnRequest("get",[self,"Day"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setDay P1
 		raise("DotNet Error: Day is a read-only property")
@@ -334,13 +427,21 @@ Class DateTime from DotNetObject
 		raise("DotNet Error: DayOfWeek is a read-only property")
 
 	Func getDayOfYear
-		return dnRequest("get",[self,"DayOfYear"])
+		xResult = dnRequest("get",[self,"DayOfYear"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setDayOfYear P1
 		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
-		return dnRequest("get",[self,"Hour"])
+		xResult = dnRequest("get",[self,"Hour"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setHour P1
 		raise("DotNet Error: Hour is a read-only property")
@@ -352,43 +453,71 @@ Class DateTime from DotNetObject
 		raise("DotNet Error: Kind is a read-only property")
 
 	Func getMillisecond
-		return dnRequest("get",[self,"Millisecond"])
+		xResult = dnRequest("get",[self,"Millisecond"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMillisecond P1
 		raise("DotNet Error: Millisecond is a read-only property")
 
 	Func getMicrosecond
-		return dnRequest("get",[self,"Microsecond"])
+		xResult = dnRequest("get",[self,"Microsecond"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMicrosecond P1
 		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
-		return dnRequest("get",[self,"Nanosecond"])
+		xResult = dnRequest("get",[self,"Nanosecond"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setNanosecond P1
 		raise("DotNet Error: Nanosecond is a read-only property")
 
 	Func getMinute
-		return dnRequest("get",[self,"Minute"])
+		xResult = dnRequest("get",[self,"Minute"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMinute P1
 		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
-		return dnRequest("get",[self,"Month"])
+		xResult = dnRequest("get",[self,"Month"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setMonth P1
 		raise("DotNet Error: Month is a read-only property")
 
 	Func getSecond
-		return dnRequest("get",[self,"Second"])
+		xResult = dnRequest("get",[self,"Second"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setSecond P1
 		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
-		return dnRequest("get",[self,"Ticks"])
+		xResult = dnRequest("get",[self,"Ticks"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setTicks P1
 		raise("DotNet Error: Ticks is a read-only property")
@@ -404,7 +533,11 @@ Class DateTime from DotNetObject
 		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
-		return dnRequest("get",[self,"Year"])
+		xResult = dnRequest("get",[self,"Year"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setYear P1
 		raise("DotNet Error: Year is a read-only property")

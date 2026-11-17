@@ -622,7 +622,7 @@ namespace RingDotNet
 					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
 				}
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events };
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events, t.IsValueType };
 		}
 
 		private static List<object> ToList(object target)

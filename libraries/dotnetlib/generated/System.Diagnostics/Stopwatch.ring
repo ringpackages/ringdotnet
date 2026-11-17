@@ -41,14 +41,33 @@ Class Stopwatch from DotNetObject
 		dnRequest("call",[self,"Restart"])
 		return self
 
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func StartNew 
 		xResult = dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch'),"StartNew"])
@@ -58,7 +77,11 @@ Class Stopwatch from DotNetObject
 		return xResult
 
 	Func GetTimestamp 
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch'),"GetTimestamp"])
+		xResult = dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch'),"GetTimestamp"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func GetElapsedTime P1
 		xResult = dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch'),"GetElapsedTime",P1])
@@ -75,7 +98,11 @@ Class Stopwatch from DotNetObject
 		return xResult
 
 	Func getIsRunning
-		return dnRequest("get",[self,"IsRunning"])
+		xResult = dnRequest("get",[self,"IsRunning"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsRunning P1
 		raise("DotNet Error: IsRunning is a read-only property")
@@ -91,25 +118,41 @@ Class Stopwatch from DotNetObject
 		raise("DotNet Error: Elapsed is a read-only property")
 
 	Func getElapsedMilliseconds
-		return dnRequest("get",[self,"ElapsedMilliseconds"])
+		xResult = dnRequest("get",[self,"ElapsedMilliseconds"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setElapsedMilliseconds P1
 		raise("DotNet Error: ElapsedMilliseconds is a read-only property")
 
 	Func getElapsedTicks
-		return dnRequest("get",[self,"ElapsedTicks"])
+		xResult = dnRequest("get",[self,"ElapsedTicks"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setElapsedTicks P1
 		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
-		return dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"Frequency"])
+		xResult = dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"Frequency"])
+		if isfunction('DotNetWrap_Int64')
+			return DotNetWrap_Int64(xResult)
+		ok
+		return xResult
 
 	Func setFrequency P1
 		raise("DotNet Error: Frequency is a read-only property")
 
 	Func getIsHighResolution
-		return dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"IsHighResolution"])
+		xResult = dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"IsHighResolution"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsHighResolution P1
 		raise("DotNet Error: IsHighResolution is a read-only property")

@@ -17,6 +17,7 @@ Class StringRuneEnumerator from DotNetObject
 			nDotNetWrapHandle = 0
 			return self
 		ok
+		nHandle = dnCreate('System.Text.StringRuneEnumerator',[])
 		return self
 
 	Func GetEnumerator 
@@ -27,16 +28,39 @@ Class StringRuneEnumerator from DotNetObject
 		return xResult
 
 	Func MoveNext 
-		return dnRequest("call",[self,"MoveNext"])
+		xResult = dnRequest("call",[self,"MoveNext"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func getCurrent
 		xResult = dnRequest("get",[self,"Current"])

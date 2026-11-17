@@ -30,7 +30,11 @@ Class StringStack from DotNetObject
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		xResult = dnRequest("call",[self,"Contains",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func CopyTo P1,P2
 		dnRequest("call",[self,"CopyTo",P1,P2])
@@ -48,13 +52,21 @@ Class StringStack from DotNetObject
 		return self
 
 	Func Peek 
-		return dnRequest("call",[self,"Peek"])
+		xResult = dnRequest("call",[self,"Peek"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func TryPeek 
 		return dnRequest("call",[self,"TryPeek"])
 
 	Func Pop 
-		return dnRequest("call",[self,"Pop"])
+		xResult = dnRequest("call",[self,"Pop"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func TryPop 
 		return dnRequest("call",[self,"TryPop"])
@@ -64,28 +76,59 @@ Class StringStack from DotNetObject
 		return self
 
 	Func EnsureCapacity P1
-		return dnRequest("call",[self,"EnsureCapacity",P1])
+		xResult = dnRequest("call",[self,"EnsureCapacity",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func getCount
-		return dnRequest("get",[self,"Count"])
+		xResult = dnRequest("get",[self,"Count"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCount P1
 		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
-		return dnRequest("get",[self,"Capacity"])
+		xResult = dnRequest("get",[self,"Capacity"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCapacity P1
 		raise("DotNet Error: Capacity is a read-only property")

@@ -22,166 +22,373 @@ Class Math from DotNetObject
 		return self
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Acos P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Acos",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Acos",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Acosh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Acosh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Acosh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Asin P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Asin",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Asin",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Asinh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Asinh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Asinh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Atan P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Atan",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Atan",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Atanh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Atanh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Atanh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Atan2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Atan2",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Atan2",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Cbrt P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Cbrt",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Cbrt",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Ceiling P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Ceiling",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Ceiling",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Cos P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Cos",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Cos",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Cosh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Cosh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Cosh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Exp P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Exp",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Exp",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Floor P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Floor",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Floor",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func FusedMultiplyAdd P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math'),"FusedMultiplyAdd",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"FusedMultiplyAdd",P1,P2,P3])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Log P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Log",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Log",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Log2 P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Log2",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Log2",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Log10 P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Log10",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Log10",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Pow P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Pow",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Pow",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Sin P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Sin",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Sin",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func SinCos P1
 		return dnRequest("call",[dnTypeCached('System.Math'),"SinCos",P1])
 
 	Func Sinh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Sinh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Sinh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Sqrt P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Sqrt",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Sqrt",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Tan P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Tan",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Tan",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Tanh P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Tanh",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Tanh",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Abs P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Abs",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Abs",P1])
+		if isfunction('DotNetWrap_Int16')
+			return DotNetWrap_Int16(xResult)
+		ok
+		return xResult
 
 	Func BigMul P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"BigMul",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"BigMul",P1,P2])
+		if isfunction('DotNetWrap_UInt64')
+			return DotNetWrap_UInt64(xResult)
+		ok
+		return xResult
 
 	Func BitDecrement P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"BitDecrement",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"BitDecrement",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func BitIncrement P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"BitIncrement",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"BitIncrement",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func CopySign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"CopySign",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"CopySign",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Math'),"DivRem",P1,P2])
 
 	Func Clamp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math'),"Clamp",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Clamp",P1,P2,P3])
+		if isfunction('DotNetWrap_Byte')
+			return DotNetWrap_Byte(xResult)
+		ok
+		return xResult
 
 	Func IEEERemainder P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"IEEERemainder",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"IEEERemainder",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func ILogB P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"ILogB",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"ILogB",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Log",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Log",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Max P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Max",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Max",P1,P2])
+		if isfunction('DotNetWrap_Byte')
+			return DotNetWrap_Byte(xResult)
+		ok
+		return xResult
 
 	Func MaxMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"MaxMagnitude",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"MaxMagnitude",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Min P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Min",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Min",P1,P2])
+		if isfunction('DotNetWrap_Byte')
+			return DotNetWrap_Byte(xResult)
+		ok
+		return xResult
 
 	Func MinMagnitude P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"MinMagnitude",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"MinMagnitude",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func ReciprocalEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"ReciprocalEstimate",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"ReciprocalEstimate",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func ReciprocalSqrtEstimate P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"ReciprocalSqrtEstimate",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"ReciprocalSqrtEstimate",P1])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func Round_1 P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Round",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Round",P1])
+		if isfunction('DotNetWrap_Decimal')
+			return DotNetWrap_Decimal(xResult)
+		ok
+		return xResult
 
 	Func Round P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"Round",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Round",P1,P2])
+		if isfunction('DotNetWrap_Decimal')
+			return DotNetWrap_Decimal(xResult)
+		ok
+		return xResult
 
 	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math'),"Round",P1,P2,P3])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Round",P1,P2,P3])
+		if isfunction('DotNetWrap_Decimal')
+			return DotNetWrap_Decimal(xResult)
+		ok
+		return xResult
 
 	Func Sign P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Sign",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Sign",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func Truncate P1
-		return dnRequest("call",[dnTypeCached('System.Math'),"Truncate",P1])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"Truncate",P1])
+		if isfunction('DotNetWrap_Decimal')
+			return DotNetWrap_Decimal(xResult)
+		ok
+		return xResult
 
 	Func ScaleB P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math'),"ScaleB",P1,P2])
+		xResult = dnRequest("call",[dnTypeCached('System.Math'),"ScaleB",P1,P2])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func getE
-		return dnRequest("get",[dnTypeCached('System.Math'),"E"])
+		xResult = dnRequest("get",[dnTypeCached('System.Math'),"E"])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func setE P1
 		raise("DotNet Error: E is a read-only property")
 
 	Func getPI
-		return dnRequest("get",[dnTypeCached('System.Math'),"PI"])
+		xResult = dnRequest("get",[dnTypeCached('System.Math'),"PI"])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func setPI P1
 		raise("DotNet Error: PI is a read-only property")
 
 	Func getTau
-		return dnRequest("get",[dnTypeCached('System.Math'),"Tau"])
+		xResult = dnRequest("get",[dnTypeCached('System.Math'),"Tau"])
+		if isfunction('DotNetWrap_Double')
+			return DotNetWrap_Double(xResult)
+		ok
+		return xResult
 
 	Func setTau P1
 		raise("DotNet Error: Tau is a read-only property")

@@ -116,6 +116,13 @@ Class CheckBox from DotNetObject
 		nHandle = dnCreate('System.Windows.Forms.CheckBox',[])
 		return self
 
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
+
 	Func GetPreferredSize P1
 		return dnRequest("call",[self,"GetPreferredSize",P1])
 
@@ -134,7 +141,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func Contains P1
-		return dnRequest("call",[self,"Contains",P1])
+		xResult = dnRequest("call",[self,"Contains",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func CreateGraphics 
 		return dnRequest("call",[self,"CreateGraphics"])
@@ -154,7 +165,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func EndInvoke P1
-		return dnRequest("call",[self,"EndInvoke",P1])
+		xResult = dnRequest("call",[self,"EndInvoke",P1])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func FindForm 
 		xResult = dnRequest("call",[self,"FindForm"])
@@ -164,7 +179,11 @@ Class CheckBox from DotNetObject
 		return xResult
 
 	Func Focus 
-		return dnRequest("call",[self,"Focus"])
+		xResult = dnRequest("call",[self,"Focus"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetChildAtPoint_2 P1,P2
 		return dnRequest("call",[self,"GetChildAtPoint",P1,P2])
@@ -199,10 +218,18 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func Invoke_2 P1,P2
-		return dnRequest("call",[self,"Invoke",P1,P2])
+		xResult = dnRequest("call",[self,"Invoke",P1,P2])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func LogicalToDeviceUnits P1
-		return dnRequest("call",[self,"LogicalToDeviceUnits",P1])
+		xResult = dnRequest("call",[self,"LogicalToDeviceUnits",P1])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func ScaleBitmapLogicalToDevice P1
 		return dnRequest("call",[self,"ScaleBitmapLogicalToDevice",P1])
@@ -282,7 +309,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func SelectNextControl P1,P2,P3,P4,P5
-		return dnRequest("call",[self,"SelectNextControl",P1,P2,P3,P4,P5])
+		xResult = dnRequest("call",[self,"SelectNextControl",P1,P2,P3,P4,P5])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func SendToBack 
 		dnRequest("call",[self,"SendToBack"])
@@ -320,19 +351,39 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func GetLifetimeService 
-		return dnRequest("call",[self,"GetLifetimeService"])
+		xResult = dnRequest("call",[self,"GetLifetimeService"])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func InitializeLifetimeService 
-		return dnRequest("call",[self,"InitializeLifetimeService"])
+		xResult = dnRequest("call",[self,"InitializeLifetimeService"])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setAppearanceChangedEvent P1
 		dnRequest("setevent",[self,"AppearanceChanged",dnCallback(P1)])
@@ -958,7 +1009,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getAutoCheck
-		return dnRequest("get",[self,"AutoCheck"])
+		xResult = dnRequest("get",[self,"AutoCheck"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setAutoCheck P1
 		dnRequest("set",[self,"AutoCheck",P1])
@@ -972,7 +1027,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getChecked
-		return dnRequest("get",[self,"Checked"])
+		xResult = dnRequest("get",[self,"Checked"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setChecked P1
 		dnRequest("set",[self,"Checked",P1])
@@ -993,21 +1052,33 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getThreeState
-		return dnRequest("get",[self,"ThreeState"])
+		xResult = dnRequest("get",[self,"ThreeState"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setThreeState P1
 		dnRequest("set",[self,"ThreeState",P1])
 		return self
 
 	Func getAutoEllipsis
-		return dnRequest("get",[self,"AutoEllipsis"])
+		xResult = dnRequest("get",[self,"AutoEllipsis"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setAutoEllipsis P1
 		dnRequest("set",[self,"AutoEllipsis",P1])
 		return self
 
 	Func getAutoSize
-		return dnRequest("get",[self,"AutoSize"])
+		xResult = dnRequest("get",[self,"AutoSize"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setAutoSize P1
 		dnRequest("set",[self,"AutoSize",P1])
@@ -1028,7 +1099,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getCommandParameter
-		return dnRequest("get",[self,"CommandParameter"])
+		xResult = dnRequest("get",[self,"CommandParameter"])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func setCommandParameter P1
 		dnRequest("set",[self,"CommandParameter",P1])
@@ -1062,14 +1137,22 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getImageIndex
-		return dnRequest("get",[self,"ImageIndex"])
+		xResult = dnRequest("get",[self,"ImageIndex"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setImageIndex P1
 		dnRequest("set",[self,"ImageIndex",P1])
 		return self
 
 	Func getImageKey
-		return dnRequest("get",[self,"ImageKey"])
+		xResult = dnRequest("get",[self,"ImageKey"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setImageKey P1
 		dnRequest("set",[self,"ImageKey",P1])
@@ -1090,7 +1173,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getText
-		return dnRequest("get",[self,"Text"])
+		xResult = dnRequest("get",[self,"Text"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setText P1
 		dnRequest("set",[self,"Text",P1])
@@ -1104,21 +1191,33 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getUseMnemonic
-		return dnRequest("get",[self,"UseMnemonic"])
+		xResult = dnRequest("get",[self,"UseMnemonic"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseMnemonic P1
 		dnRequest("set",[self,"UseMnemonic",P1])
 		return self
 
 	Func getUseCompatibleTextRendering
-		return dnRequest("get",[self,"UseCompatibleTextRendering"])
+		xResult = dnRequest("get",[self,"UseCompatibleTextRendering"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseCompatibleTextRendering P1
 		dnRequest("set",[self,"UseCompatibleTextRendering",P1])
 		return self
 
 	Func getUseVisualStyleBackColor
-		return dnRequest("get",[self,"UseVisualStyleBackColor"])
+		xResult = dnRequest("get",[self,"UseVisualStyleBackColor"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseVisualStyleBackColor P1
 		dnRequest("set",[self,"UseVisualStyleBackColor",P1])
@@ -1131,21 +1230,33 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: AccessibilityObject is a read-only property")
 
 	Func getAccessibleDefaultActionDescription
-		return dnRequest("get",[self,"AccessibleDefaultActionDescription"])
+		xResult = dnRequest("get",[self,"AccessibleDefaultActionDescription"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setAccessibleDefaultActionDescription P1
 		dnRequest("set",[self,"AccessibleDefaultActionDescription",P1])
 		return self
 
 	Func getAccessibleDescription
-		return dnRequest("get",[self,"AccessibleDescription"])
+		xResult = dnRequest("get",[self,"AccessibleDescription"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setAccessibleDescription P1
 		dnRequest("set",[self,"AccessibleDescription",P1])
 		return self
 
 	Func getAccessibleName
-		return dnRequest("get",[self,"AccessibleName"])
+		xResult = dnRequest("get",[self,"AccessibleName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setAccessibleName P1
 		dnRequest("set",[self,"AccessibleName",P1])
@@ -1159,7 +1270,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getAllowDrop
-		return dnRequest("get",[self,"AllowDrop"])
+		xResult = dnRequest("get",[self,"AllowDrop"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setAllowDrop P1
 		dnRequest("set",[self,"AllowDrop",P1])
@@ -1186,7 +1301,11 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: LayoutEngine is a read-only property")
 
 	Func getDataContext
-		return dnRequest("get",[self,"DataContext"])
+		xResult = dnRequest("get",[self,"DataContext"])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func setDataContext P1
 		dnRequest("set",[self,"DataContext",P1])
@@ -1214,7 +1333,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getBottom
-		return dnRequest("get",[self,"Bottom"])
+		xResult = dnRequest("get",[self,"Bottom"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setBottom P1
 		raise("DotNet Error: Bottom is a read-only property")
@@ -1223,26 +1346,42 @@ Class CheckBox from DotNetObject
 		return dnRequest("get",[self,"Bounds"])
 
 	Func getCanFocus
-		return dnRequest("get",[self,"CanFocus"])
+		xResult = dnRequest("get",[self,"CanFocus"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setCanFocus P1
 		raise("DotNet Error: CanFocus is a read-only property")
 
 	Func getCanSelect
-		return dnRequest("get",[self,"CanSelect"])
+		xResult = dnRequest("get",[self,"CanSelect"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setCanSelect P1
 		raise("DotNet Error: CanSelect is a read-only property")
 
 	Func getCapture
-		return dnRequest("get",[self,"Capture"])
+		xResult = dnRequest("get",[self,"Capture"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setCapture P1
 		dnRequest("set",[self,"Capture",P1])
 		return self
 
 	Func getCausesValidation
-		return dnRequest("get",[self,"CausesValidation"])
+		xResult = dnRequest("get",[self,"CausesValidation"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setCausesValidation P1
 		dnRequest("set",[self,"CausesValidation",P1])
@@ -1262,13 +1401,21 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getCompanyName
-		return dnRequest("get",[self,"CompanyName"])
+		xResult = dnRequest("get",[self,"CompanyName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setCompanyName P1
 		raise("DotNet Error: CompanyName is a read-only property")
 
 	Func getContainsFocus
-		return dnRequest("get",[self,"ContainsFocus"])
+		xResult = dnRequest("get",[self,"ContainsFocus"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setContainsFocus P1
 		raise("DotNet Error: ContainsFocus is a read-only property")
@@ -1291,7 +1438,11 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: Controls is a read-only property")
 
 	Func getCreated
-		return dnRequest("get",[self,"Created"])
+		xResult = dnRequest("get",[self,"Created"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setCreated P1
 		raise("DotNet Error: Created is a read-only property")
@@ -1310,7 +1461,11 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: DataBindings is a read-only property")
 
 	Func getDeviceDpi
-		return dnRequest("get",[self,"DeviceDpi"])
+		xResult = dnRequest("get",[self,"DeviceDpi"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setDeviceDpi P1
 		raise("DotNet Error: DeviceDpi is a read-only property")
@@ -1322,13 +1477,21 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: DisplayRectangle is a read-only property")
 
 	Func getIsDisposed
-		return dnRequest("get",[self,"IsDisposed"])
+		xResult = dnRequest("get",[self,"IsDisposed"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsDisposed P1
 		raise("DotNet Error: IsDisposed is a read-only property")
 
 	Func getDisposing
-		return dnRequest("get",[self,"Disposing"])
+		xResult = dnRequest("get",[self,"Disposing"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setDisposing P1
 		raise("DotNet Error: Disposing is a read-only property")
@@ -1341,14 +1504,22 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getEnabled
-		return dnRequest("get",[self,"Enabled"])
+		xResult = dnRequest("get",[self,"Enabled"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setEnabled P1
 		dnRequest("set",[self,"Enabled",P1])
 		return self
 
 	Func getFocused
-		return dnRequest("get",[self,"Focused"])
+		xResult = dnRequest("get",[self,"Focused"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setFocused P1
 		raise("DotNet Error: Focused is a read-only property")
@@ -1368,57 +1539,93 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getHandle
-		return dnRequest("get",[self,"Handle"])
+		xResult = dnRequest("get",[self,"Handle"])
+		if isfunction('DotNetWrap_IntPtr')
+			return DotNetWrap_IntPtr(xResult)
+		ok
+		return xResult
 
 	Func setHandle P1
 		raise("DotNet Error: Handle is a read-only property")
 
 	Func getHasChildren
-		return dnRequest("get",[self,"HasChildren"])
+		xResult = dnRequest("get",[self,"HasChildren"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setHasChildren P1
 		raise("DotNet Error: HasChildren is a read-only property")
 
 	Func getHeight
-		return dnRequest("get",[self,"Height"])
+		xResult = dnRequest("get",[self,"Height"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setHeight P1
 		dnRequest("set",[self,"Height",P1])
 		return self
 
 	Func getIsHandleCreated
-		return dnRequest("get",[self,"IsHandleCreated"])
+		xResult = dnRequest("get",[self,"IsHandleCreated"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsHandleCreated P1
 		raise("DotNet Error: IsHandleCreated is a read-only property")
 
 	Func getInvokeRequired
-		return dnRequest("get",[self,"InvokeRequired"])
+		xResult = dnRequest("get",[self,"InvokeRequired"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setInvokeRequired P1
 		raise("DotNet Error: InvokeRequired is a read-only property")
 
 	Func getIsAccessible
-		return dnRequest("get",[self,"IsAccessible"])
+		xResult = dnRequest("get",[self,"IsAccessible"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsAccessible P1
 		dnRequest("set",[self,"IsAccessible",P1])
 		return self
 
 	Func getIsAncestorSiteInDesignMode
-		return dnRequest("get",[self,"IsAncestorSiteInDesignMode"])
+		xResult = dnRequest("get",[self,"IsAncestorSiteInDesignMode"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsAncestorSiteInDesignMode P1
 		raise("DotNet Error: IsAncestorSiteInDesignMode is a read-only property")
 
 	Func getIsMirrored
-		return dnRequest("get",[self,"IsMirrored"])
+		xResult = dnRequest("get",[self,"IsMirrored"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setIsMirrored P1
 		raise("DotNet Error: IsMirrored is a read-only property")
 
 	Func getLeft
-		return dnRequest("get",[self,"Left"])
+		xResult = dnRequest("get",[self,"Left"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setLeft P1
 		dnRequest("set",[self,"Left",P1])
@@ -1453,7 +1660,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		xResult = dnRequest("get",[self,"Name"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setName P1
 		dnRequest("set",[self,"Name",P1])
@@ -1467,19 +1678,31 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getProductName
-		return dnRequest("get",[self,"ProductName"])
+		xResult = dnRequest("get",[self,"ProductName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setProductName P1
 		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
-		return dnRequest("get",[self,"ProductVersion"])
+		xResult = dnRequest("get",[self,"ProductVersion"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setProductVersion P1
 		raise("DotNet Error: ProductVersion is a read-only property")
 
 	Func getRecreatingHandle
-		return dnRequest("get",[self,"RecreatingHandle"])
+		xResult = dnRequest("get",[self,"RecreatingHandle"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setRecreatingHandle P1
 		raise("DotNet Error: RecreatingHandle is a read-only property")
@@ -1492,7 +1715,11 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getRight
-		return dnRequest("get",[self,"Right"])
+		xResult = dnRequest("get",[self,"Right"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setRight P1
 		raise("DotNet Error: Right is a read-only property")
@@ -1519,28 +1746,44 @@ Class CheckBox from DotNetObject
 		return self
 
 	Func getTabIndex
-		return dnRequest("get",[self,"TabIndex"])
+		xResult = dnRequest("get",[self,"TabIndex"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setTabIndex P1
 		dnRequest("set",[self,"TabIndex",P1])
 		return self
 
 	Func getTabStop
-		return dnRequest("get",[self,"TabStop"])
+		xResult = dnRequest("get",[self,"TabStop"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setTabStop P1
 		dnRequest("set",[self,"TabStop",P1])
 		return self
 
 	Func getTag
-		return dnRequest("get",[self,"Tag"])
+		xResult = dnRequest("get",[self,"Tag"])
+		if isfunction('DotNetWrap_Object')
+			return DotNetWrap_Object(xResult)
+		ok
+		return xResult
 
 	Func setTag P1
 		dnRequest("set",[self,"Tag",P1])
 		return self
 
 	Func getTop
-		return dnRequest("get",[self,"Top"])
+		xResult = dnRequest("get",[self,"Top"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setTop P1
 		dnRequest("set",[self,"Top",P1])
@@ -1553,21 +1796,33 @@ Class CheckBox from DotNetObject
 		raise("DotNet Error: TopLevelControl is a read-only property")
 
 	Func getUseWaitCursor
-		return dnRequest("get",[self,"UseWaitCursor"])
+		xResult = dnRequest("get",[self,"UseWaitCursor"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setUseWaitCursor P1
 		dnRequest("set",[self,"UseWaitCursor",P1])
 		return self
 
 	Func getVisible
-		return dnRequest("get",[self,"Visible"])
+		xResult = dnRequest("get",[self,"Visible"])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func setVisible P1
 		dnRequest("set",[self,"Visible",P1])
 		return self
 
 	Func getWidth
-		return dnRequest("get",[self,"Width"])
+		xResult = dnRequest("get",[self,"Width"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setWidth P1
 		dnRequest("set",[self,"Width",P1])

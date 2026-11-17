@@ -30,28 +30,59 @@ Class EncodingInfo from DotNetObject
 		return xResult
 
 	Func Equals P1
-		return dnRequest("call",[self,"Equals",P1])
+		xResult = dnRequest("call",[self,"Equals",P1])
+		if isfunction('DotNetWrap_Boolean')
+			return DotNetWrap_Boolean(xResult)
+		ok
+		return xResult
 
 	Func GetHashCode 
-		return dnRequest("call",[self,"GetHashCode"])
+		xResult = dnRequest("call",[self,"GetHashCode"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func GetType 
-		return dnRequest("call",[self,"GetType"])
+		xResult = dnRequest("call",[self,"GetType"])
+		if isfunction('DotNetWrap_Type')
+			return DotNetWrap_Type(xResult)
+		ok
+		return xResult
+
+	Func ToString 
+		xResult = dnRequest("call",[self,"ToString"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func getCodePage
-		return dnRequest("get",[self,"CodePage"])
+		xResult = dnRequest("get",[self,"CodePage"])
+		if isfunction('DotNetWrap_Int32')
+			return DotNetWrap_Int32(xResult)
+		ok
+		return xResult
 
 	Func setCodePage P1
 		raise("DotNet Error: CodePage is a read-only property")
 
 	Func getName
-		return dnRequest("get",[self,"Name"])
+		xResult = dnRequest("get",[self,"Name"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
 
 	Func getDisplayName
-		return dnRequest("get",[self,"DisplayName"])
+		xResult = dnRequest("get",[self,"DisplayName"])
+		if isfunction('DotNetWrap_String')
+			return DotNetWrap_String(xResult)
+		ok
+		return xResult
 
 	Func setDisplayName P1
 		raise("DotNet Error: DisplayName is a read-only property")

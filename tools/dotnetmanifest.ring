@@ -14,10 +14,9 @@
 aDotNetManifest = [
 
 	[ :namespace = "System",
-	  :types = [
-		["System.Console"], ["System.Math"], ["System.Environment"], ["System.Random","Random",1],
-		["System.Guid"], ["System.DateTime","DateTime",3], ["System.TimeSpan"]
-	  ] ],
+	  :assemblies = ["System.Private.CoreLib","System.Private.Uri"],
+	  :all = true,
+	  :types = [ ["System.Random","Random",1], ["System.DateTime","DateTime",3], ["System.String","String",0], ["System.Guid","Guid",0], ["System.DateOnly","DateOnly",3] ] ],
 
 	[ :namespace = "System.Text",
 	  :all = true ],
