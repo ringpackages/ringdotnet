@@ -47,7 +47,13 @@ func openDialog
 	ok
 
 func loadFile cFile
-	oImage = new Bitmap(cFile,0)
+	try
+		oLoaded = new Bitmap(cFile,0)
+	catch
+		uiMessage("Can't open " + cFile + nl + "(is it a picture?)","Image viewer")
+		return
+	done
+	oImage = oLoaded
 	nZoom = 100
 	cName = new Path().GetFileName(cFile)
 	oForm.Text = cName + " - Image viewer"

@@ -44,6 +44,10 @@ uiButton(oForm,"Delete selected",155,350,120,30,"deleteSelected()")
 uiButton(oForm,"Save",285,350,70,30,"saveBook()")
 uiButton(oForm,"Load",365,350,70,30,"loadBook()")
 oCount = uiLabel(oForm,"",450,357,140,22)
+oMessage = uiLabel(oForm,"",10,392,580,22)
+if new File().Exists(cFile) and not uiSelfTest()
+	loadBook()
+ok
 showCount()
 
 uiTest(oForm,"selfTest()")
@@ -84,11 +88,25 @@ func applyFilter
 	showCount()
 
 func saveBook
-	oTable.WriteXml(cFile)
+	try
+		oTable.WriteXml(cFile)
+		oMessage.Text = "Saved " + oTable.Rows.Count + " contacts to " + cFile
+	catch
+		oMessage.Text = "Can't save: " + cCatchError
+	done
 
 func loadBook
-	oTable.Clear()
-	oTable.ReadXml(cFile)
+	if not new File().Exists(cFile)
+		oMessage.Text = "Nothing to load yet: save the address book first (" + cFile + ")"
+		return
+	ok
+	try
+		oTable.Clear()
+		oTable.ReadXml(cFile)
+		oMessage.Text = "Loaded " + oTable.Rows.Count + " contacts"
+	catch
+		oMessage.Text = "Can't load: " + cCatchError
+	done
 	showCount()
 
 func selfTest
@@ -119,4 +137,14 @@ func selfTest
 	dnAssert("loaded again",oTable.Rows.Count,3)
 	dnAssert("data is back",oTable.Rows.Item(1).Item("Name"),"Bob Stone")
 	dnAssert("count text",oCount.Text,"3 of 3 contacts")
+	new File().Delete(cFile)
+	# loading without a saved file is a message, not a crash
+	oTable.Clear()
+	loadBook()
+	dnAssert("no file message",left(oMessage.Text,15),"Nothing to load")
+	dnAssert("nothing was loaded",oTable.Rows.Count,0)
+	oName.Text = "Zed"
+	addContact()
+	saveBook()
+	dnAssert("save message",left(oMessage.Text,7),"Saved 1")
 	new File().Delete(cFile)

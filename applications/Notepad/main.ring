@@ -102,7 +102,13 @@ func openDialog
 	ok
 
 func loadFile cName
-	setText(new File().ReadAllText(cName),false)
+	try
+		cContent = new File().ReadAllText(cName)
+	catch
+		uiMessage("Can't open " + cName + nl + cCatchError,"Notepad")
+		return
+	done
+	setText(cContent,false)
 	cFileName = cName
 	lModified = false
 	updateTitle()
@@ -121,7 +127,12 @@ func saveAsDialog
 	ok
 
 func saveTo cName
-	new File().WriteAllText(cName,oEditor.Text)
+	try
+		new File().WriteAllText(cName,oEditor.Text)
+	catch
+		uiMessage("Can't save " + cName + nl + cCatchError,"Notepad")
+		return
+	done
 	cFileName = cName
 	lModified = false
 	updateTitle()
