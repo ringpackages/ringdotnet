@@ -156,6 +156,14 @@ namespace RingDotNet
 			{
 				sb.Append('|').Append(t.FullName ?? t.Name);
 			}
+			/* then the interfaces (a class that is not generated can still be wrapped as ICryptoTransform, IDisposable...) */
+			foreach (Type i in value.GetType().GetInterfaces())
+			{
+				if (i.IsVisible && count++ < 40)
+				{
+					sb.Append('|').Append(i.FullName ?? i.Name);
+				}
+			}
 			return sb.ToString();
 		}
 
@@ -533,7 +541,7 @@ namespace RingDotNet
 				catch (Exception) { continue; }
 				foreach (Type t in types)
 				{
-					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsInterface || t.IsGenericTypeDefinition || t.IsByRefLike)
+					if (t.Namespace != ns || t.IsNested || t.IsEnum || t.IsGenericTypeDefinition || t.IsByRefLike)
 					{
 						continue;
 					}

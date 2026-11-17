@@ -70,10 +70,10 @@ Class Encoding from DotNetObject
 	Func GetChars_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetChars",P1,P2,P3,P4,P5])
 
-	Func IsAlwaysNormalized_0 
+	Func IsAlwaysNormalized 
 		return dnRequest("call",[self,"IsAlwaysNormalized"])
 
-	Func IsAlwaysNormalized P1
+	Func IsAlwaysNormalized_1 P1
 		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
 
 	Func GetDecoder 

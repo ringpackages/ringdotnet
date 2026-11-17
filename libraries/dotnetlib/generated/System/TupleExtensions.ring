@@ -22,3 +22,12 @@ Class TupleExtensions from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func Deconstruct P1
+		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"Deconstruct",P1])
+
+	Func ToValueTuple P1
+		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToValueTuple",P1])
+
+	Func ToTuple P1
+		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToTuple",P1])
+

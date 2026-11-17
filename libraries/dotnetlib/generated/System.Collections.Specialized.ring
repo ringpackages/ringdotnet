@@ -2,6 +2,7 @@
 dnRegisterClass("System.Collections.Specialized.BitVector32","BitVector32",0)
 dnRegisterClass("System.Collections.Specialized.CollectionsUtil","CollectionsUtil",0)
 dnRegisterClass("System.Collections.Specialized.HybridDictionary","HybridDictionary",0)
+dnRegisterClass("System.Collections.Specialized.IOrderedDictionary","IOrderedDictionary",0)
 dnRegisterClass("System.Collections.Specialized.ListDictionary","ListDictionary",0)
 dnRegisterClass("System.Collections.Specialized.NameObjectCollectionBase","NameObjectCollectionBase",0)
 dnRegisterClass("System.Collections.Specialized.NameValueCollection","NameValueCollection",0)
@@ -12,6 +13,7 @@ dnRegisterClass("System.Collections.Specialized.StringEnumerator","StringEnumera
 load "System.Collections.Specialized/BitVector32.ring"
 load "System.Collections.Specialized/CollectionsUtil.ring"
 load "System.Collections.Specialized/HybridDictionary.ring"
+load "System.Collections.Specialized/IOrderedDictionary.ring"
 load "System.Collections.Specialized/ListDictionary.ring"
 load "System.Collections.Specialized/NameObjectCollectionBase.ring"
 load "System.Collections.Specialized/NameValueCollection.ring"

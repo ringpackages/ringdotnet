@@ -70,11 +70,11 @@ Class FileStream from DotNetObject
 	Func WriteAsync_2 P1,P2
 		return dnRequest("call",[self,"WriteAsync",P1,P2])
 
-	Func Flush_0 
+	Func Flush 
 		dnRequest("call",[self,"Flush"])
 		return self
 
-	Func Flush P1
+	Func Flush_1 P1
 		dnRequest("call",[self,"Flush",P1])
 		return self
 

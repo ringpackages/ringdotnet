@@ -29,10 +29,10 @@ Class BitVector32 from DotNetObject
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
 
-	Func CreateMask_0 
+	Func CreateMask 
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask"])
 
-	Func CreateMask P1
+	Func CreateMask_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
 
 	Func CreateSection P1

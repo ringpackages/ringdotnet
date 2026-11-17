@@ -7,6 +7,16 @@ dnRegisterClass("System.Collections.Comparer","Comparer",1)
 dnRegisterClass("System.Collections.DictionaryBase","DictionaryBase",0)
 dnRegisterClass("System.Collections.DictionaryEntry","DictionaryEntry",0)
 dnRegisterClass("System.Collections.Hashtable","Hashtable",0)
+dnRegisterClass("System.Collections.ICollection","ICollection",0)
+dnRegisterClass("System.Collections.IComparer","IComparer",0)
+dnRegisterClass("System.Collections.IDictionary","IDictionary",0)
+dnRegisterClass("System.Collections.IDictionaryEnumerator","IDictionaryEnumerator",0)
+dnRegisterClass("System.Collections.IEnumerable","IEnumerable",0)
+dnRegisterClass("System.Collections.IEnumerator","IEnumerator",0)
+dnRegisterClass("System.Collections.IEqualityComparer","IEqualityComparer",0)
+dnRegisterClass("System.Collections.IList","IList",0)
+dnRegisterClass("System.Collections.IStructuralComparable","IStructuralComparable",0)
+dnRegisterClass("System.Collections.IStructuralEquatable","IStructuralEquatable",0)
 dnRegisterClass("System.Collections.ListDictionaryInternal","ListDictionaryInternal",0)
 dnRegisterClass("System.Collections.Queue","Queue",0)
 dnRegisterClass("System.Collections.ReadOnlyCollectionBase","ReadOnlyCollectionBase",0)
@@ -21,6 +31,16 @@ load "System.Collections/Comparer.ring"
 load "System.Collections/DictionaryBase.ring"
 load "System.Collections/DictionaryEntry.ring"
 load "System.Collections/Hashtable.ring"
+load "System.Collections/ICollection.ring"
+load "System.Collections/IComparer.ring"
+load "System.Collections/IDictionary.ring"
+load "System.Collections/IDictionaryEnumerator.ring"
+load "System.Collections/IEnumerable.ring"
+load "System.Collections/IEnumerator.ring"
+load "System.Collections/IEqualityComparer.ring"
+load "System.Collections/IList.ring"
+load "System.Collections/IStructuralComparable.ring"
+load "System.Collections/IStructuralEquatable.ring"
 load "System.Collections/ListDictionaryInternal.ring"
 load "System.Collections/Queue.ring"
 load "System.Collections/ReadOnlyCollectionBase.ring"

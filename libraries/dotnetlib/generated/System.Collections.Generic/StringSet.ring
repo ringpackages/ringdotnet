@@ -33,6 +33,12 @@ Class StringSet from DotNetObject
 	Func Remove P1
 		return dnRequest("call",[self,"Remove",P1])
 
+	Func GetAlternateLookup 
+		return dnRequest("call",[self,"GetAlternateLookup"])
+
+	Func TryGetAlternateLookup 
+		return dnRequest("call",[self,"TryGetAlternateLookup"])
+
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
@@ -102,11 +108,11 @@ Class StringSet from DotNetObject
 	Func EnsureCapacity P1
 		return dnRequest("call",[self,"EnsureCapacity",P1])
 
-	Func TrimExcess_0 
+	Func TrimExcess 
 		dnRequest("call",[self,"TrimExcess"])
 		return self
 
-	Func TrimExcess P1
+	Func TrimExcess_1 P1
 		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 

@@ -88,10 +88,10 @@ Class UTF7Encoding from DotNetObject
 	Func GetChars_3 P1,P2,P3
 		return dnRequest("call",[self,"GetChars",P1,P2,P3])
 
-	Func IsAlwaysNormalized_0 
+	Func IsAlwaysNormalized 
 		return dnRequest("call",[self,"IsAlwaysNormalized"])
 
-	Func IsAlwaysNormalized P1
+	Func IsAlwaysNormalized_1 P1
 		return dnRequest("call",[self,"IsAlwaysNormalized",P1])
 
 	Func GetString P1

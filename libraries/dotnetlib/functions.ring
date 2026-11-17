@@ -251,16 +251,35 @@ func dnRegisterClass  cType, cClass, nInit
 		aDotNetClasses + [cType,cClass,cDummies]
 	ok
 
-# A .NET object received from the bridge ("<handle>|<type>|<base type>|...") as the generated class of its type
+# A .NET object received from the bridge ("<handle>|<type>|<base type>|...") as the generated class of its type.
+# When no class is registered yet, the namespace of the first known type of the chain is imported automatically.
 func dnWrapObject  cInfo
 	dn_aParts = str2list(substr(cInfo,"|",nl))
 	nHandle = number(dn_aParts[1])
-	for dn_x = 2 to len(dn_aParts)
-		dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
-		if dn_nPos > 0
-			nDotNetWrapHandle = nHandle
-			eval("dn_oWrapped = new " + aDotNetClasses[dn_nPos][2] + "(" + aDotNetClasses[dn_nPos][3] + ")")
-			return dn_oWrapped
+	for dn_nPass = 1 to 2
+		for dn_x = 2 to len(dn_aParts)
+			dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
+			if dn_nPos > 0
+				nDotNetWrapHandle = nHandle
+				eval("dn_oWrapped = new " + aDotNetClasses[dn_nPos][2] + "(" + aDotNetClasses[dn_nPos][3] + ")")
+				return dn_oWrapped
+			ok
+		next
+		if dn_nPass = 1
+			dn_lImported = false
+			for dn_x = 2 to len(dn_aParts)
+				dn_nPos = find(aDotNetClassIndex,dn_aParts[dn_x],1)
+				if dn_nPos > 0
+					if find(aDotNetImported,aDotNetClassIndex[dn_nPos][2]) = 0
+						dnImport(aDotNetClassIndex[dn_nPos][2])
+						dn_lImported = true
+					ok
+					exit
+				ok
+			next
+			if not dn_lImported
+				exit
+			ok
 		ok
 	next
 	return new DotNetObject(nHandle)

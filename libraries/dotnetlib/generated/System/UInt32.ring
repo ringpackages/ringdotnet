@@ -92,6 +92,15 @@ Class UInt32 from DotNetObject
 	Func Sign P1
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Sign",P1])
 
+	Func CreateChecked P1
+		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateChecked",P1])
+
+	Func CreateSaturating P1
+		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateSaturating",P1])
+
+	Func CreateTruncating P1
+		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"CreateTruncating",P1])
+
 	Func IsEvenInteger P1
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"IsEvenInteger",P1])
 

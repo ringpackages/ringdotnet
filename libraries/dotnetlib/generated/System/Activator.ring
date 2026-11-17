@@ -31,7 +31,7 @@ Class Activator from DotNetObject
 	Func CreateInstance_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3])
 
-	Func CreateInstance P1
+	Func CreateInstance_1 P1
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
 
 	Func CreateInstanceFrom P1,P2
@@ -48,4 +48,7 @@ Class Activator from DotNetObject
 
 	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
+
+	Func CreateInstance 
+		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
 

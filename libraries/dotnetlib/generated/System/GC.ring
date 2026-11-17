@@ -24,10 +24,10 @@ Class GC from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func GetGCMemoryInfo_0 
+	Func GetGCMemoryInfo 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo"])
 
-	Func GetGCMemoryInfo P1
+	Func GetGCMemoryInfo_1 P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
 
 	Func AddMemoryPressure P1
@@ -41,11 +41,11 @@ Class GC from DotNetObject
 	Func GetGeneration P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGeneration",P1])
 
-	Func Collect P1
+	Func Collect_1 P1
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
 		return self
 
-	Func Collect_0 
+	Func Collect 
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect"])
 		return self
 
@@ -97,16 +97,16 @@ Class GC from DotNetObject
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"CancelFullGCNotification"])
 		return self
 
-	Func WaitForFullGCApproach_0 
+	Func WaitForFullGCApproach 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach"])
 
-	Func WaitForFullGCApproach P1
+	Func WaitForFullGCApproach_1 P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
 
-	Func WaitForFullGCComplete_0 
+	Func WaitForFullGCComplete 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete"])
 
-	Func WaitForFullGCComplete P1
+	Func WaitForFullGCComplete_1 P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
 
 	Func TryStartNoGCRegion P1
@@ -125,6 +125,12 @@ Class GC from DotNetObject
 	Func RegisterNoGCRegionCallback P1,P2
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterNoGCRegionCallback",P1,P2])
 		return self
+
+	Func AllocateUninitializedArray P1,P2
+		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1,P2])
+
+	Func AllocateArray P1,P2
+		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1,P2])
 
 	Func GetTotalPauseDuration 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalPauseDuration"])

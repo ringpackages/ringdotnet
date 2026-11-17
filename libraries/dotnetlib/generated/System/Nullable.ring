@@ -22,6 +22,15 @@ Class Nullable from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func Compare P1,P2
+		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Compare",P1,P2])
+
+	Func Equals_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Equals",P1,P2])
+
 	Func GetUnderlyingType P1
 		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetUnderlyingType",P1])
+
+	Func GetValueRefOrDefaultRef P1
+		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetValueRefOrDefaultRef",P1])
 

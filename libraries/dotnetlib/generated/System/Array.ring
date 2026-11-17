@@ -90,6 +90,12 @@ Class Array from DotNetObject
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1,P2,P3])
 		return self
 
+	Func AsReadOnly P1
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"AsReadOnly",P1])
+
+	Func Resize P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Resize",P1,P2])
+
 	Func CreateInstance P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1,P2])
 
@@ -124,6 +130,54 @@ Class Array from DotNetObject
 
 	Func BinarySearch_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1,P2,P3,P4,P5])
+
+	Func ConvertAll P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ConvertAll",P1,P2])
+
+	Func Empty 
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Empty"])
+
+	Func Exists P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Exists",P1,P2])
+
+	Func Fill P1,P2
+		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1,P2])
+		return self
+
+	Func Fill_4 P1,P2,P3,P4
+		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1,P2,P3,P4])
+		return self
+
+	Func Find P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Find",P1,P2])
+
+	Func FindAll P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindAll",P1,P2])
+
+	Func FindIndex P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2])
+
+	Func FindIndex_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2,P3])
+
+	Func FindIndex_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2,P3,P4])
+
+	Func FindLast P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLast",P1,P2])
+
+	Func FindLastIndex P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2])
+
+	Func FindLastIndex_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2,P3])
+
+	Func FindLastIndex_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2,P3,P4])
+
+	Func ForEach_ P1,P2
+		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ForEach",P1,P2])
+		return self
 
 	Func IndexOf P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1,P2])
@@ -170,6 +224,9 @@ Class Array from DotNetObject
 	Func Sort_5 P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1,P2,P3,P4,P5])
 		return self
+
+	Func TrueForAll P1,P2
+		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
 
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")

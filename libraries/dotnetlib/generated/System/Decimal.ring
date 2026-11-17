@@ -146,6 +146,12 @@ Class Decimal from DotNetObject
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Truncate",P1])
 
+	Func ConvertToInteger P1
+		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ConvertToInteger",P1])
+
+	Func ConvertToIntegerNative P1
+		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"ConvertToIntegerNative",P1])
+
 	Func Clamp P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Clamp",P1,P2,P3])
 
@@ -163,6 +169,15 @@ Class Decimal from DotNetObject
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Abs",P1])
+
+	Func CreateChecked P1
+		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateChecked",P1])
+
+	Func CreateSaturating P1
+		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateSaturating",P1])
+
+	Func CreateTruncating P1
+		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"CreateTruncating",P1])
 
 	Func IsCanonical P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"IsCanonical",P1])

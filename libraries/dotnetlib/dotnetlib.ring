@@ -10,6 +10,7 @@ cDotNetLibFolder = filename()
 
 load "../../extensions/ringdotnet/dotnet.ring"
 load "globals.ring"
+load "generated/classindex.ring"
 load "functions.ring"
 load "classes.ring"
 

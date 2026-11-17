@@ -22,3 +22,27 @@ Class Tuple from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func Create P1
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
+
+	Func Create_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2])
+
+	Func Create_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3])
+
+	Func Create_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4])
+
+	Func Create_5 P1,P2,P3,P4,P5
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5])
+
+	Func Create_6 P1,P2,P3,P4,P5,P6
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6])
+
+	Func Create_7 P1,P2,P3,P4,P5,P6,P7
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7])
+
+	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
+		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
+

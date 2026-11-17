@@ -51,10 +51,10 @@ Class StringBuilder from DotNetObject
 	Func Append P1
 		return dnRequest("call",[self,"Append",P1])
 
-	Func AppendLine_0 
+	Func AppendLine 
 		return dnRequest("call",[self,"AppendLine"])
 
-	Func AppendLine P1
+	Func AppendLine_1 P1
 		return dnRequest("call",[self,"AppendLine",P1])
 
 	Func CopyTo P1,P2,P3,P4

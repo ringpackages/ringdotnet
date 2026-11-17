@@ -37,35 +37,56 @@ Class Enum from DotNetObject
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
 
-	Func GetName P1,P2
+	Func GetName P1
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1])
+
+	Func GetName_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1,P2])
 
-	Func GetNames P1
+	Func GetNames 
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames"])
+
+	Func GetNames_1 P1
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
 
 	Func GetUnderlyingType P1
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetUnderlyingType",P1])
 
-	Func GetValues P1
+	Func GetValues 
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues"])
+
+	Func GetValues_1 P1
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
 
-	Func GetValuesAsUnderlyingType P1
+	Func GetValuesAsUnderlyingType 
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType"])
+
+	Func GetValuesAsUnderlyingType_1 P1
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
 
-	Func IsDefined P1,P2
+	Func IsDefined P1
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
+
+	Func IsDefined_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1,P2])
 
-	Func Parse P1,P2
+	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1,P2])
 
 	Func Parse_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1,P2,P3])
 
-	Func TryParse P1,P2
+	Func Parse P1
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func TryParse_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1,P2,P3])
+
+	Func TryParse P1
+		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1])
 
 	Func Format P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Format",P1,P2,P3])

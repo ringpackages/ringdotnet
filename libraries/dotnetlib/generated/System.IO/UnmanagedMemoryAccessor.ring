@@ -62,8 +62,18 @@ Class UnmanagedMemoryAccessor from DotNetObject
 	Func ReadUInt64 P1
 		return dnRequest("call",[self,"ReadUInt64",P1])
 
+	Func Read P1
+		return dnRequest("call",[self,"Read",P1])
+
+	Func ReadArray P1,P2,P3,P4
+		return dnRequest("call",[self,"ReadArray",P1,P2,P3,P4])
+
 	Func Write P1,P2
 		dnRequest("call",[self,"Write",P1,P2])
+		return self
+
+	Func WriteArray P1,P2,P3,P4
+		dnRequest("call",[self,"WriteArray",P1,P2,P3,P4])
 		return self
 
 	Func GetType 

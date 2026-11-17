@@ -172,42 +172,42 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"SetDesktopLocation",P1,P2])
 		return self
 
-	Func Show P1
+	Func Show_1 P1
 		dnRequest("call",[self,"Show",P1])
 		return self
 
 	Func ShowAsync P1
 		return dnRequest("call",[self,"ShowAsync",P1])
 
-	Func ShowDialog_0 
+	Func ShowDialog 
 		return dnRequest("call",[self,"ShowDialog"])
 
-	Func ShowDialog P1
+	Func ShowDialog_1 P1
 		return dnRequest("call",[self,"ShowDialog",P1])
 
-	Func ShowDialogAsync_0 
+	Func ShowDialogAsync 
 		return dnRequest("call",[self,"ShowDialogAsync"])
 
-	Func ShowDialogAsync P1
+	Func ShowDialogAsync_1 P1
 		return dnRequest("call",[self,"ShowDialogAsync",P1])
 
 	Func ToString 
 		return dnRequest("call",[self,"ToString"])
 
-	Func ValidateChildren_0 
+	Func ValidateChildren 
 		return dnRequest("call",[self,"ValidateChildren"])
 
-	Func ValidateChildren P1
+	Func ValidateChildren_1 P1
 		return dnRequest("call",[self,"ValidateChildren",P1])
 
 	Func PerformAutoScale 
 		dnRequest("call",[self,"PerformAutoScale"])
 		return self
 
-	Func Validate_0 
+	Func Validate 
 		return dnRequest("call",[self,"Validate"])
 
-	Func Validate P1
+	Func Validate_1 P1
 		return dnRequest("call",[self,"Validate",P1])
 
 	Func ScrollControlIntoView P1
@@ -280,7 +280,7 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"Hide"])
 		return self
 
-	Func Invalidate P1
+	Func Invalidate_1 P1
 		dnRequest("call",[self,"Invalidate",P1])
 		return self
 
@@ -288,7 +288,7 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"Invalidate",P1,P2])
 		return self
 
-	Func Invalidate_0 
+	Func Invalidate 
 		dnRequest("call",[self,"Invalidate"])
 		return self
 
@@ -359,11 +359,11 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"ResetText"])
 		return self
 
-	Func ResumeLayout_0 
+	Func ResumeLayout 
 		dnRequest("call",[self,"ResumeLayout"])
 		return self
 
-	Func ResumeLayout P1
+	Func ResumeLayout_1 P1
 		dnRequest("call",[self,"ResumeLayout",P1])
 		return self
 
@@ -394,7 +394,7 @@ Class Form from DotNetObject
 		dnRequest("call",[self,"SetBounds",P1,P2,P3,P4,P5])
 		return self
 
-	Func Show_0 
+	Func Show 
 		dnRequest("call",[self,"Show"])
 		return self
 

@@ -152,10 +152,10 @@ Class DateTime from DotNetObject
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
-	Func GetDateTimeFormats_0 
+	Func GetDateTimeFormats 
 		return dnRequest("call",[self,"GetDateTimeFormats"])
 
-	Func GetDateTimeFormats P1
+	Func GetDateTimeFormats_1 P1
 		return dnRequest("call",[self,"GetDateTimeFormats",P1])
 
 	Func GetDateTimeFormats_2 P1,P2

@@ -41,6 +41,9 @@ Class String from DotNetObject
 		return dnRequest("call",[self,"Equals",P1])
 
 	Func Equals_2 P1,P2
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1,P2])
+		ok
 		return dnRequest("call",[self,"Equals",P1,P2])
 
 	Func GetHashCode 
@@ -89,16 +92,16 @@ Class String from DotNetObject
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
-	Func IsNormalized_0 
+	Func IsNormalized 
 		return dnRequest("call",[self,"IsNormalized"])
 
-	Func IsNormalized P1
+	Func IsNormalized_1 P1
 		return dnRequest("call",[self,"IsNormalized",P1])
 
-	Func Normalize_0 
+	Func Normalize 
 		return dnRequest("call",[self,"Normalize"])
 
-	Func Normalize P1
+	Func Normalize_1 P1
 		return dnRequest("call",[self,"Normalize",P1])
 
 	Func Insert P1,P2
@@ -131,10 +134,10 @@ Class String from DotNetObject
 	Func Replace P1,P2
 		return dnRequest("call",[self,"Replace",P1,P2])
 
-	Func ReplaceLineEndings_0 
+	Func ReplaceLineEndings 
 		return dnRequest("call",[self,"ReplaceLineEndings"])
 
-	Func ReplaceLineEndings P1
+	Func ReplaceLineEndings_1 P1
 		return dnRequest("call",[self,"ReplaceLineEndings",P1])
 
 	Func Split_2 P1,P2
@@ -152,40 +155,40 @@ Class String from DotNetObject
 	Func Substring_2 P1,P2
 		return dnRequest("call",[self,"Substring",P1,P2])
 
-	Func ToLower_0 
+	Func ToLower 
 		return dnRequest("call",[self,"ToLower"])
 
-	Func ToLower P1
+	Func ToLower_1 P1
 		return dnRequest("call",[self,"ToLower",P1])
 
 	Func ToLowerInvariant 
 		return dnRequest("call",[self,"ToLowerInvariant"])
 
-	Func ToUpper_0 
+	Func ToUpper 
 		return dnRequest("call",[self,"ToUpper"])
 
-	Func ToUpper P1
+	Func ToUpper_1 P1
 		return dnRequest("call",[self,"ToUpper",P1])
 
 	Func ToUpperInvariant 
 		return dnRequest("call",[self,"ToUpperInvariant"])
 
-	Func Trim_0 
+	Func Trim 
 		return dnRequest("call",[self,"Trim"])
 
-	Func Trim P1
+	Func Trim_1 P1
 		return dnRequest("call",[self,"Trim",P1])
 
-	Func TrimStart_0 
+	Func TrimStart 
 		return dnRequest("call",[self,"TrimStart"])
 
-	Func TrimStart P1
+	Func TrimStart_1 P1
 		return dnRequest("call",[self,"TrimStart",P1])
 
-	Func TrimEnd_0 
+	Func TrimEnd 
 		return dnRequest("call",[self,"TrimEnd"])
 
-	Func TrimEnd P1
+	Func TrimEnd_1 P1
 		return dnRequest("call",[self,"TrimEnd",P1])
 
 	Func Contains P1
@@ -271,6 +274,9 @@ Class String from DotNetObject
 
 	Func Equals_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1,P2,P3])
+
+	Func Create P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Create",P1,P2,P3])
 
 	Func Copy P1
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Copy",P1])

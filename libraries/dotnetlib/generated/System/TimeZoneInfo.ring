@@ -90,10 +90,10 @@ Class TimeZoneInfo from DotNetObject
 	Func FromSerializedString P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"FromSerializedString",P1])
 
-	Func GetSystemTimeZones_0 
+	Func GetSystemTimeZones 
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones"])
 
-	Func GetSystemTimeZones P1
+	Func GetSystemTimeZones_1 P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
 
 	Func CreateCustomTimeZone P1,P2,P3,P4

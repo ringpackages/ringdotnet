@@ -51,11 +51,11 @@ Class ObjectQueue from DotNetObject
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
-	Func TrimExcess_0 
+	Func TrimExcess 
 		dnRequest("call",[self,"TrimExcess"])
 		return self
 
-	Func TrimExcess P1
+	Func TrimExcess_1 P1
 		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 

@@ -23,10 +23,10 @@ Class CollectionsUtil from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func CreateCaseInsensitiveHashtable_0 
+	Func CreateCaseInsensitiveHashtable 
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable"])
 
-	Func CreateCaseInsensitiveHashtable P1
+	Func CreateCaseInsensitiveHashtable_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 
 	Func CreateCaseInsensitiveSortedList 

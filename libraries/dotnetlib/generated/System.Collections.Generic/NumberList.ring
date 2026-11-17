@@ -45,6 +45,9 @@ Class NumberList from DotNetObject
 	Func Contains P1
 		return dnRequest("call",[self,"Contains",P1])
 
+	Func ConvertAll P1
+		return dnRequest("call",[self,"ConvertAll",P1])
+
 	Func CopyTo P1
 		dnRequest("call",[self,"CopyTo",P1])
 		return self

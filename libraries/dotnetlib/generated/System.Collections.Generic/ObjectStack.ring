@@ -32,11 +32,11 @@ Class ObjectStack from DotNetObject
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func TrimExcess_0 
+	Func TrimExcess 
 		dnRequest("call",[self,"TrimExcess"])
 		return self
 
-	Func TrimExcess P1
+	Func TrimExcess_1 P1
 		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 

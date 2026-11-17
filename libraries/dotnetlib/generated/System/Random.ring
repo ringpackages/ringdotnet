@@ -17,19 +17,19 @@ Class Random from DotNetObject
 		nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
 		return self
 
-	Func Next_0 
+	Func Next_ 
 		return dnRequest("call",[self,"Next"])
 
-	Func Next_ P1
+	Func Next_1 P1
 		return dnRequest("call",[self,"Next",P1])
 
 	Func Next_2 P1,P2
 		return dnRequest("call",[self,"Next",P1,P2])
 
-	Func NextInt64_0 
+	Func NextInt64 
 		return dnRequest("call",[self,"NextInt64"])
 
-	Func NextInt64 P1
+	Func NextInt64_1 P1
 		return dnRequest("call",[self,"NextInt64",P1])
 
 	Func NextInt64_2 P1,P2
@@ -43,6 +43,13 @@ Class Random from DotNetObject
 
 	Func NextBytes P1
 		dnRequest("call",[self,"NextBytes",P1])
+		return self
+
+	Func GetItems P1,P2
+		return dnRequest("call",[self,"GetItems",P1,P2])
+
+	Func Shuffle P1
+		dnRequest("call",[self,"Shuffle",P1])
 		return self
 
 	Func GetType 

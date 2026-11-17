@@ -74,11 +74,11 @@ Class Application from DotNetObject
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"EnableVisualStyles"])
 		return self
 
-	Func Exit_0 
+	Func Exit_ 
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit"])
 		return self
 
-	Func Exit_ P1
+	Func Exit_1 P1
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
 		return self
 

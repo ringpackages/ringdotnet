@@ -114,7 +114,7 @@ Class TextBox from DotNetObject
 		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
 		return self
 
-	Func Paste P1
+	Func Paste_1 P1
 		dnRequest("call",[self,"Paste",P1])
 		return self
 
@@ -138,7 +138,7 @@ Class TextBox from DotNetObject
 		dnRequest("call",[self,"Cut"])
 		return self
 
-	Func Paste_0 
+	Func Paste 
 		dnRequest("call",[self,"Paste"])
 		return self
 
@@ -245,7 +245,7 @@ Class TextBox from DotNetObject
 		dnRequest("call",[self,"Hide"])
 		return self
 
-	Func Invalidate P1
+	Func Invalidate_1 P1
 		dnRequest("call",[self,"Invalidate",P1])
 		return self
 
@@ -253,7 +253,7 @@ Class TextBox from DotNetObject
 		dnRequest("call",[self,"Invalidate",P1,P2])
 		return self
 
-	Func Invalidate_0 
+	Func Invalidate 
 		dnRequest("call",[self,"Invalidate"])
 		return self
 
@@ -324,11 +324,11 @@ Class TextBox from DotNetObject
 		dnRequest("call",[self,"ResetText"])
 		return self
 
-	Func ResumeLayout_0 
+	Func ResumeLayout 
 		dnRequest("call",[self,"ResumeLayout"])
 		return self
 
-	Func ResumeLayout P1
+	Func ResumeLayout_1 P1
 		dnRequest("call",[self,"ResumeLayout",P1])
 		return self
 

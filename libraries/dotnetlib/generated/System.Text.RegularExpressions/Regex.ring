@@ -47,39 +47,63 @@ Class Regex from DotNetObject
 		return dnRequest("call",[self,"IsMatch",P1])
 
 	Func IsMatch_2 P1,P2
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1,P2])
+		ok
 		return dnRequest("call",[self,"IsMatch",P1,P2])
 
 	Func Match P1
 		return dnRequest("call",[self,"Match",P1])
 
 	Func Match_2 P1,P2
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2])
+		ok
 		return dnRequest("call",[self,"Match",P1,P2])
 
 	Func Match_3 P1,P2,P3
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2,P3])
+		ok
 		return dnRequest("call",[self,"Match",P1,P2,P3])
 
 	Func Matches P1
 		return dnRequest("call",[self,"Matches",P1])
 
 	Func Matches_2 P1,P2
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1,P2])
+		ok
 		return dnRequest("call",[self,"Matches",P1,P2])
 
 	Func Replace P1,P2
 		return dnRequest("call",[self,"Replace",P1,P2])
 
 	Func Replace_3 P1,P2,P3
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3])
+		ok
 		return dnRequest("call",[self,"Replace",P1,P2,P3])
 
 	Func Replace_4 P1,P2,P3,P4
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3,P4])
+		ok
 		return dnRequest("call",[self,"Replace",P1,P2,P3,P4])
 
 	Func Split P1
 		return dnRequest("call",[self,"Split",P1])
 
 	Func Split_2 P1,P2
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2])
+		ok
 		return dnRequest("call",[self,"Split",P1,P2])
 
 	Func Split_3 P1,P2,P3
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3])
+		ok
 		return dnRequest("call",[self,"Split",P1,P2,P3])
 
 	Func GetType 

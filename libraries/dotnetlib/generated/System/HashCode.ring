@@ -11,6 +11,14 @@ Class HashCode from DotNetObject
 		nHandle = dnCreate('System.HashCode, System.Private.CoreLib',[])
 		return self
 
+	Func Add P1
+		dnRequest("call",[self,"Add",P1])
+		return self
+
+	Func Add_2 P1,P2
+		dnRequest("call",[self,"Add",P1,P2])
+		return self
+
 	Func ToHashCode 
 		return dnRequest("call",[self,"ToHashCode"])
 
@@ -25,4 +33,28 @@ Class HashCode from DotNetObject
 
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
+
+	Func Combine P1
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
+
+	Func Combine_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2])
+
+	Func Combine_3 P1,P2,P3
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3])
+
+	Func Combine_4 P1,P2,P3,P4
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4])
+
+	Func Combine_5 P1,P2,P3,P4,P5
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5])
+
+	Func Combine_6 P1,P2,P3,P4,P5,P6
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6])
+
+	Func Combine_7 P1,P2,P3,P4,P5,P6,P7
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7])
+
+	Func Combine_8 P1,P2,P3,P4,P5,P6,P7,P8
+		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7,P8])
 

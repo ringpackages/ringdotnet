@@ -34,55 +34,55 @@ Class DirectoryInfo from DotNetObject
 		dnRequest("call",[self,"Create"])
 		return self
 
-	Func GetFiles_0 
+	Func GetFiles 
 		return dnRequest("call",[self,"GetFiles"])
 
-	Func GetFiles P1
+	Func GetFiles_1 P1
 		return dnRequest("call",[self,"GetFiles",P1])
 
 	Func GetFiles_2 P1,P2
 		return dnRequest("call",[self,"GetFiles",P1,P2])
 
-	Func GetFileSystemInfos_0 
+	Func GetFileSystemInfos 
 		return dnRequest("call",[self,"GetFileSystemInfos"])
 
-	Func GetFileSystemInfos P1
+	Func GetFileSystemInfos_1 P1
 		return dnRequest("call",[self,"GetFileSystemInfos",P1])
 
 	Func GetFileSystemInfos_2 P1,P2
 		return dnRequest("call",[self,"GetFileSystemInfos",P1,P2])
 
-	Func GetDirectories_0 
+	Func GetDirectories 
 		return dnRequest("call",[self,"GetDirectories"])
 
-	Func GetDirectories P1
+	Func GetDirectories_1 P1
 		return dnRequest("call",[self,"GetDirectories",P1])
 
 	Func GetDirectories_2 P1,P2
 		return dnRequest("call",[self,"GetDirectories",P1,P2])
 
-	Func EnumerateDirectories_0 
+	Func EnumerateDirectories 
 		return dnRequest("call",[self,"EnumerateDirectories"])
 
-	Func EnumerateDirectories P1
+	Func EnumerateDirectories_1 P1
 		return dnRequest("call",[self,"EnumerateDirectories",P1])
 
 	Func EnumerateDirectories_2 P1,P2
 		return dnRequest("call",[self,"EnumerateDirectories",P1,P2])
 
-	Func EnumerateFiles_0 
+	Func EnumerateFiles 
 		return dnRequest("call",[self,"EnumerateFiles"])
 
-	Func EnumerateFiles P1
+	Func EnumerateFiles_1 P1
 		return dnRequest("call",[self,"EnumerateFiles",P1])
 
 	Func EnumerateFiles_2 P1,P2
 		return dnRequest("call",[self,"EnumerateFiles",P1,P2])
 
-	Func EnumerateFileSystemInfos_0 
+	Func EnumerateFileSystemInfos 
 		return dnRequest("call",[self,"EnumerateFileSystemInfos"])
 
-	Func EnumerateFileSystemInfos P1
+	Func EnumerateFileSystemInfos_1 P1
 		return dnRequest("call",[self,"EnumerateFileSystemInfos",P1])
 
 	Func EnumerateFileSystemInfos_2 P1,P2
@@ -92,11 +92,11 @@ Class DirectoryInfo from DotNetObject
 		dnRequest("call",[self,"MoveTo",P1])
 		return self
 
-	Func Delete_0 
+	Func Delete 
 		dnRequest("call",[self,"Delete"])
 		return self
 
-	Func Delete P1
+	Func Delete_1 P1
 		dnRequest("call",[self,"Delete",P1])
 		return self
 

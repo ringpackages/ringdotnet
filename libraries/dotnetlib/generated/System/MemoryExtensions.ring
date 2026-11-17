@@ -22,11 +22,11 @@ Class MemoryExtensions from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func AsSpan P1
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
-
 	Func AsSpan_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2])
+
+	Func AsSpan P1
+		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
 
 	Func AsSpan_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2,P3])
@@ -39,6 +39,19 @@ Class MemoryExtensions from DotNetObject
 
 	Func AsMemory_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1,P2,P3])
+
+	Func CopyTo P1,P2
+		dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"CopyTo",P1,P2])
+		return self
+
+	Func Trim_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1,P2])
+
+	Func TrimStart_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1,P2])
+
+	Func TrimEnd_2 P1,P2
+		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1,P2])
 
 	Func Trim P1
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])

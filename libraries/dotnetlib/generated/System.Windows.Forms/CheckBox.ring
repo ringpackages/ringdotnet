@@ -174,7 +174,7 @@ Class CheckBox from DotNetObject
 		dnRequest("call",[self,"Hide"])
 		return self
 
-	Func Invalidate P1
+	Func Invalidate_1 P1
 		dnRequest("call",[self,"Invalidate",P1])
 		return self
 
@@ -182,7 +182,7 @@ Class CheckBox from DotNetObject
 		dnRequest("call",[self,"Invalidate",P1,P2])
 		return self
 
-	Func Invalidate_0 
+	Func Invalidate 
 		dnRequest("call",[self,"Invalidate"])
 		return self
 
@@ -253,11 +253,11 @@ Class CheckBox from DotNetObject
 		dnRequest("call",[self,"ResetText"])
 		return self
 
-	Func ResumeLayout_0 
+	Func ResumeLayout 
 		dnRequest("call",[self,"ResumeLayout"])
 		return self
 
-	Func ResumeLayout P1
+	Func ResumeLayout_1 P1
 		dnRequest("call",[self,"ResumeLayout",P1])
 		return self
 

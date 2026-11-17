@@ -91,7 +91,7 @@ Class Type from DotNetObject
 		ok
 		return self
 
-	Func GetType_0 
+	Func GetType 
 		return dnRequest("call",[self,"GetType"])
 
 	Func GetElementType 
@@ -130,10 +130,10 @@ Class Type from DotNetObject
 	Func GetConstructor_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"GetConstructor",P1,P2,P3,P4,P5])
 
-	Func GetConstructors_0 
+	Func GetConstructors 
 		return dnRequest("call",[self,"GetConstructors"])
 
-	Func GetConstructors P1
+	Func GetConstructors_1 P1
 		return dnRequest("call",[self,"GetConstructors",P1])
 
 	Func GetEvent P1
@@ -142,10 +142,10 @@ Class Type from DotNetObject
 	Func GetEvent_2 P1,P2
 		return dnRequest("call",[self,"GetEvent",P1,P2])
 
-	Func GetEvents_0 
+	Func GetEvents 
 		return dnRequest("call",[self,"GetEvents"])
 
-	Func GetEvents P1
+	Func GetEvents_1 P1
 		return dnRequest("call",[self,"GetEvents",P1])
 
 	Func GetField P1
@@ -154,10 +154,10 @@ Class Type from DotNetObject
 	Func GetField_2 P1,P2
 		return dnRequest("call",[self,"GetField",P1,P2])
 
-	Func GetFields_0 
+	Func GetFields 
 		return dnRequest("call",[self,"GetFields"])
 
-	Func GetFields P1
+	Func GetFields_1 P1
 		return dnRequest("call",[self,"GetFields",P1])
 
 	Func GetFunctionPointerCallingConventions 
@@ -178,13 +178,13 @@ Class Type from DotNetObject
 	Func GetMember_3 P1,P2,P3
 		return dnRequest("call",[self,"GetMember",P1,P2,P3])
 
-	Func GetMembers_0 
+	Func GetMembers 
 		return dnRequest("call",[self,"GetMembers"])
 
 	Func GetMemberWithSameMetadataDefinitionAs P1
 		return dnRequest("call",[self,"GetMemberWithSameMetadataDefinitionAs",P1])
 
-	Func GetMembers P1
+	Func GetMembers_1 P1
 		return dnRequest("call",[self,"GetMembers",P1])
 
 	Func GetMethod P1
@@ -208,10 +208,10 @@ Class Type from DotNetObject
 	Func GetMethod_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"GetMethod",P1,P2,P3,P4,P5,P6,P7])
 
-	Func GetMethods_0 
+	Func GetMethods 
 		return dnRequest("call",[self,"GetMethods"])
 
-	Func GetMethods P1
+	Func GetMethods_1 P1
 		return dnRequest("call",[self,"GetMethods",P1])
 
 	Func GetNestedType P1
@@ -220,10 +220,10 @@ Class Type from DotNetObject
 	Func GetNestedType_2 P1,P2
 		return dnRequest("call",[self,"GetNestedType",P1,P2])
 
-	Func GetNestedTypes_0 
+	Func GetNestedTypes 
 		return dnRequest("call",[self,"GetNestedTypes"])
 
-	Func GetNestedTypes P1
+	Func GetNestedTypes_1 P1
 		return dnRequest("call",[self,"GetNestedTypes",P1])
 
 	Func GetProperty P1
@@ -241,10 +241,10 @@ Class Type from DotNetObject
 	Func GetProperty_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"GetProperty",P1,P2,P3,P4,P5,P6])
 
-	Func GetProperties_0 
+	Func GetProperties 
 		return dnRequest("call",[self,"GetProperties"])
 
-	Func GetProperties P1
+	Func GetProperties_1 P1
 		return dnRequest("call",[self,"GetProperties",P1])
 
 	Func GetDefaultMembers 
@@ -286,10 +286,10 @@ Class Type from DotNetObject
 	Func GetEnumValuesAsUnderlyingType 
 		return dnRequest("call",[self,"GetEnumValuesAsUnderlyingType"])
 
-	Func MakeArrayType_0 
+	Func MakeArrayType 
 		return dnRequest("call",[self,"MakeArrayType"])
 
-	Func MakeArrayType P1
+	Func MakeArrayType_1 P1
 		return dnRequest("call",[self,"MakeArrayType",P1])
 
 	Func MakeByRefType 
@@ -352,7 +352,7 @@ Class Type from DotNetObject
 	Func GetType_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1,P2])
 
-	Func GetType P1
+	Func GetType_1 P1
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
 
 	Func GetType_4 P1,P2,P3,P4

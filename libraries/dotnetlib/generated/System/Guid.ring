@@ -28,10 +28,10 @@ Class Guid from DotNetObject
 		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
-	Func ToByteArray_0 
+	Func ToByteArray 
 		return dnRequest("call",[self,"ToByteArray"])
 
-	Func ToByteArray P1
+	Func ToByteArray_1 P1
 		return dnRequest("call",[self,"ToByteArray",P1])
 
 	Func GetHashCode 
@@ -55,10 +55,10 @@ Class Guid from DotNetObject
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
 
-	Func CreateVersion7_0 
+	Func CreateVersion7 
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7"])
 
-	Func CreateVersion7 P1
+	Func CreateVersion7_1 P1
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
 
 	Func Parse P1

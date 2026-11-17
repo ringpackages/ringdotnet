@@ -27,6 +27,9 @@ Class Char from DotNetObject
 		return dnRequest("call",[self,"ToString"])
 
 	Func ToString_1 P1
+		if nHandle = 0
+			return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
+		ok
 		return dnRequest("call",[self,"ToString",P1])
 
 	Func GetTypeCode 

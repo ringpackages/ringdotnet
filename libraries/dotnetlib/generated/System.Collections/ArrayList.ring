@@ -131,10 +131,10 @@ Class ArrayList from DotNetObject
 		dnRequest("call",[self,"Sort",P1,P2,P3])
 		return self
 
-	Func ToArray_0 
+	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
-	Func ToArray P1
+	Func ToArray_1 P1
 		return dnRequest("call",[self,"ToArray",P1])
 
 	Func TrimToSize 

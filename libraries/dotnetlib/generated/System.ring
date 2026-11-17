@@ -39,6 +39,17 @@ dnRegisterClass("System.Guid","Guid",0)
 dnRegisterClass("System.Half","Half",0)
 dnRegisterClass("System.HashCode","HashCode",0)
 dnRegisterClass("System.HttpStyleUriParser","HttpStyleUriParser",0)
+dnRegisterClass("System.IAsyncDisposable","IAsyncDisposable",0)
+dnRegisterClass("System.IAsyncResult","IAsyncResult",0)
+dnRegisterClass("System.ICloneable","ICloneable",0)
+dnRegisterClass("System.IComparable","IComparable",0)
+dnRegisterClass("System.IConvertible","IConvertible",0)
+dnRegisterClass("System.ICustomFormatter","ICustomFormatter",0)
+dnRegisterClass("System.IDisposable","IDisposable",0)
+dnRegisterClass("System.IFormatProvider","IFormatProvider",0)
+dnRegisterClass("System.IFormattable","IFormattable",0)
+dnRegisterClass("System.ISpanFormattable","ISpanFormattable",0)
+dnRegisterClass("System.IUtf8SpanFormattable","IUtf8SpanFormattable",0)
 dnRegisterClass("System.Index","Index",0)
 dnRegisterClass("System.Int128","Int128",0)
 dnRegisterClass("System.Int16","Int16",0)
@@ -132,6 +143,17 @@ load "System/Guid.ring"
 load "System/Half.ring"
 load "System/HashCode.ring"
 load "System/HttpStyleUriParser.ring"
+load "System/IAsyncDisposable.ring"
+load "System/IAsyncResult.ring"
+load "System/ICloneable.ring"
+load "System/IComparable.ring"
+load "System/IConvertible.ring"
+load "System/ICustomFormatter.ring"
+load "System/IDisposable.ring"
+load "System/IFormatProvider.ring"
+load "System/IFormattable.ring"
+load "System/ISpanFormattable.ring"
+load "System/IUtf8SpanFormattable.ring"
 load "System/Index.ring"
 load "System/Int128.ring"
 load "System/Int16.ring"

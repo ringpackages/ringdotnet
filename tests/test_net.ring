@@ -1,0 +1,80 @@
+# Batch: System.Threading, System.Threading.Tasks, System.Net, System.Net.Http, System.Net.Sockets, System.Net.NetworkInformation
+load "../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System")
+dnImport("System.IO")
+dnImport("System.Threading")
+dnImport("System.Threading.Tasks")
+dnImport("System.Net")
+dnImport("System.Net.Http")
+dnImport("System.Net.Sockets")
+dnImport("System.Net.NetworkInformation")
+dnImport("System.Text")
+
+# Threading primitives
+new Thread().Sleep(20)
+oCancel = new CancellationTokenSource()
+dnAssert("CancellationTokenSource",oCancel.IsCancellationRequested,0)
+oCancel.Cancel()
+dnAssert("CancellationTokenSource cancelled",oCancel.IsCancellationRequested,1)
+oEvent = new ManualResetEvent(0)
+dnAssert("ManualResetEvent not set",oEvent.WaitOne_1(0),0)
+oEvent.Set_()
+dnAssert("ManualResetEvent set",oEvent.WaitOne_1(0),1)
+oSem = new SemaphoreSlim(2)
+oSem.Wait()
+dnAssert("SemaphoreSlim count",oSem.CurrentCount,1)
+aInc = new Interlocked().Increment(5)
+dnAssert("Interlocked.Increment ref",aInc[2],6)
+dnAssert("Environment.CurrentManagedThreadId",new Thread().CurrentThread.ManagedThreadId > 0,1)
+
+# Tasks
+oTask = new Task().Delay(30)
+oTask.Wait()
+dnAssert("Task.Delay completed",oTask.IsCompleted,1)
+oResult = new Task().FromResult("done")
+dnAssert("Task.FromResult",oResult.getProp("Result"),"done")
+
+# Net utilities
+oIp = new IPAddress().Parse("192.168.1.20")
+dnAssert("IPAddress.ToString",oIp.ToString(),"192.168.1.20")
+dnAssert("IPAddress family",oIp.AddressFamily,"InterNetwork")
+dnAssert("IPAddress loopback",new IPAddress().Loopback.ToString(),"127.0.0.1")
+dnAssert("WebUtility.UrlEncode",new WebUtility().UrlEncode("a b&c"),"a+b%26c")
+dnAssert("WebUtility.HtmlEncode",new WebUtility().HtmlEncode("<b>"),"&lt;b&gt;")
+dnAssert("Dns.GetHostName",len(new Dns().GetHostName()) > 0,1)
+dnAssert("NetworkInterface available",new NetworkInterface().GetAllNetworkInterfaces().getProp("Length") > 0,1)
+
+# A TCP echo over the loopback (one thread: the connection waits in the listener backlog)
+oListener = new TcpListener(new IPAddress().Loopback,0)
+oListener.Start()
+nPort = oListener.LocalEndpoint.Port
+oClient = new TcpClient()
+oClient.Connect("127.0.0.1",nPort)
+oServerSide = oListener.AcceptTcpClient()
+oWriter = new StreamWriter(oClient.GetStream())
+oWriter.AutoFlush = 1
+oWriter.WriteLine("ping")
+oReader = new StreamReader(oServerSide.GetStream())
+dnAssert("TCP line",oReader.ReadLine(),"ping")
+oClient.Close()  oServerSide.Close()  oListener.Stop()
+
+# HTTP: HttpListener serves, HttpClient requests (the tasks run in the .NET thread pool)
+cPrefix = "http://localhost:" + (20000 + random(20000)) + "/"
+oHttpd = new HttpListener()
+oHttpd.Prefixes.Add(cPrefix)
+oHttpd.Start()
+oServerTask = oHttpd.GetContextAsync()
+oHttp = new HttpClient()
+oClientTask = oHttp.GetStringAsync(cPrefix + "hello")
+oServerTask.Wait()
+oContext = oServerTask.getProp("Result")
+dnAssert("HttpListener request path",oContext.Request.Url.AbsolutePath,"/hello")
+cBody = "hello from Ring"
+aBytes = new UTF8Encoding().GetBytes(cBody)
+oContext.Response.OutputStream.Write(aBytes,0,len(aBytes))
+oContext.Response.Close()
+oClientTask.Wait()
+dnAssert("HttpClient.GetStringAsync",oClientTask.getProp("Result"),"hello from Ring")
+oHttpd.Stop()
+
+nFail = dnTestSummary()

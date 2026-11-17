@@ -66,7 +66,7 @@ Class Environment from DotNetObject
 	Func GetEnvironmentVariable_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1,P2])
 
-	Func GetEnvironmentVariables P1
+	Func GetEnvironmentVariables_1 P1
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
 
 	Func SetEnvironmentVariable P1,P2
@@ -92,7 +92,7 @@ Class Environment from DotNetObject
 	Func GetLogicalDrives 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetLogicalDrives"])
 
-	Func GetEnvironmentVariables_0 
+	Func GetEnvironmentVariables 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
 
 	Func getCurrentManagedThreadId

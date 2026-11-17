@@ -49,10 +49,10 @@ Class Console from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func ReadKey_0 
+	Func ReadKey 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey"])
 
-	Func ReadKey P1
+	Func ReadKey_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
 
 	Func ResetColor 
@@ -98,22 +98,22 @@ Class Console from DotNetObject
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"SetCursorPosition",P1,P2])
 		return self
 
-	Func OpenStandardInput_0 
+	Func OpenStandardInput 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput"])
 
-	Func OpenStandardInput P1
+	Func OpenStandardInput_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
 
-	Func OpenStandardOutput_0 
+	Func OpenStandardOutput 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput"])
 
-	Func OpenStandardOutput P1
+	Func OpenStandardOutput_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
 
-	Func OpenStandardError_0 
+	Func OpenStandardError 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError"])
 
-	Func OpenStandardError P1
+	Func OpenStandardError_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
 
 	Func SetIn P1

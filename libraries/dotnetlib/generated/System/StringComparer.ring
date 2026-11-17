@@ -23,7 +23,7 @@ Class StringComparer from DotNetObject
 	Func Equals_2 P1,P2
 		return dnRequest("call",[self,"Equals",P1,P2])
 
-	Func GetHashCode P1
+	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
 	Func GetType 
@@ -35,7 +35,7 @@ Class StringComparer from DotNetObject
 	Func Equals P1
 		return dnRequest("call",[self,"Equals",P1])
 
-	Func GetHashCode_0 
+	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
 	Func FromComparison P1

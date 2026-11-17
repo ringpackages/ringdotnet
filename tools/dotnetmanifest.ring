@@ -9,6 +9,7 @@
 		:types       extra or explicit types: [.NET type name, (optional) Ring class name, (optional) init() parameters]
 		             (closed generic types and nested types are listed here)
 		:prefer      ["Namespace.Type.Method=arity", ...]: the overload that gets the plain method name (the others are Name_N)
+		:uses        namespaces to import together with this one (their classes are returned by its methods)
 		:extra       Ring files (relative to the generated folder) that the namespace loader also loads
 		:desktop     true when the namespace needs the Windows Desktop runtime (dnUseDesktop())
 */
@@ -29,6 +30,7 @@ aDotNetManifest = [
 	  :all = true ],
 
 	[ :namespace = "System.IO.Compression",
+	  :uses = ["System.IO"],
 	  :assemblies = ["System.IO.Compression","System.IO.Compression.ZipFile","System.IO.Compression.Brotli"],
 	  :all = true ],
 
@@ -36,18 +38,70 @@ aDotNetManifest = [
 	  :assemblies = ["System.Text.RegularExpressions"],
 	  :all = true ],
 
-	[ :namespace = "System.Diagnostics",
-	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib"],
-	  :types = [ ["System.Diagnostics.Stopwatch"] ] ],
 
-	[ :namespace = "System.Net.Http",
-	  :assemblies = ["System.Net.Http"],
-	  :types = [ ["System.Net.Http.HttpClient"] ] ],
 
 	[ :namespace = "System.Linq",
+	  :uses = ["System.Collections.Generic"],
 	  :assemblies = ["System.Linq"],
 	  :all = true,
 	  :extra = ["../linq.ring"] ],
+
+	[ :namespace = "System.Threading",
+	  :uses = ["System.Threading.Tasks"],
+	  :assemblies = ["System.Private.CoreLib","System.Threading","System.Threading.Thread","System.Threading.ThreadPool"],
+	  :all = true,
+	  :types = [ ["System.Threading.Thread","Thread",0] ] ],
+
+	[ :namespace = "System.Threading.Tasks",
+	  :uses = ["System.Threading"],
+	  :assemblies = ["System.Private.CoreLib","System.Threading.Tasks.Parallel","System.Threading.Tasks"],
+	  :all = true,
+	  :types = [
+		["System.Threading.Tasks.Task","Task",0],
+		["System.Threading.Tasks.Task`1[[System.String]]","StringTask"],
+		["System.Threading.Tasks.Task`1[[System.Object]]","ObjectTask"],
+		["System.Threading.Tasks.Task`1[[System.Double]]","NumberTask"],
+		["System.Threading.Tasks.Task`1[[System.Int32]]","IntTask"],
+		["System.Threading.Tasks.Task`1[[System.Boolean]]","BoolTask"],
+		["System.Threading.Tasks.Task`1[[System.Byte[]]]","BytesTask"]
+	  ] ],
+
+	[ :namespace = "System.Net",
+	  :uses = ["System.IO","System.Collections.Specialized","System.Security.Cryptography"],
+	  :assemblies = ["System.Net.Primitives","System.Net.NameResolution","System.Net.HttpListener","System.Net.Requests","System.Net.WebClient","System.Net.WebHeaderCollection","System.Net.Security","System.Private.Uri","System.Private.CoreLib","System.Net.Http"],
+	  :all = true,
+	  :types = [ ["System.Net.IPAddress","IPAddress",0] ] ],
+
+	[ :namespace = "System.Net.Http",
+	  :uses = ["System.IO","System.Net","System.Threading.Tasks"],
+	  :assemblies = ["System.Net.Http"],
+	  :all = true ],
+
+	[ :namespace = "System.Net.Sockets",
+	  :uses = ["System.IO","System.Net"],
+	  :assemblies = ["System.Net.Sockets"],
+	  :all = true,
+	  :prefer = ["System.Net.Sockets.TcpClient.Connect=2","System.Net.Sockets.UdpClient.Connect=2","System.Net.Sockets.UdpClient.Send=2"],
+	  :types = [ ["System.Net.Sockets.TcpListener","TcpListener",2] ] ],
+
+	[ :namespace = "System.Net.NetworkInformation",
+	  :uses = ["System.Net"],
+	  :assemblies = ["System.Net.NetworkInformation","System.Net.Ping"],
+	  :all = true ],
+
+	[ :namespace = "System.Globalization",
+	  :assemblies = ["System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Security.Cryptography",
+	  :uses = ["System.IO"],
+	  :assemblies = ["System.Security.Cryptography","System.Private.CoreLib"],
+	  :all = true ],
+
+	[ :namespace = "System.Diagnostics",
+	  :uses = ["System.IO","System.Collections.Specialized"],
+	  :assemblies = ["System.Diagnostics.Process","System.Private.CoreLib","System.ComponentModel.Primitives","System.Diagnostics.StackTrace","System.Diagnostics.TraceSource"],
+	  :all = true ],
 
 	[ :namespace = "System.Collections",
 	  :assemblies = ["System.Private.CoreLib","System.Collections","System.Collections.NonGeneric"],
@@ -95,6 +149,7 @@ aDotNetManifest = [
 
 	[ :namespace = "System.Windows.Forms",
 	  :desktop = true,
+	  :prefer = ["System.Windows.Forms.Application.Run=1"],
 	  :types = [
 		["System.Windows.Forms.Application"], ["System.Windows.Forms.MessageBox"],
 		["System.Windows.Forms.Form","Form",0], ["System.Windows.Forms.Button","Button",0], ["System.Windows.Forms.Label","Label",0],
