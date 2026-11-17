@@ -1,0 +1,35 @@
+# A data grid bound to a DataTable
+
+load "../../libraries/dotnetlib/dotnetlib.ring"
+dnUseDesktop()
+dnImport("System.Drawing")
+dnImport("System.Windows.Forms")
+
+
+dnImport("System.Data")
+oTable = new DataTable()
+oTable.Columns.Add_2("Name","System.String")
+oTable.Columns.Add_2("Age","System.Int32")
+oTable.Rows.Add(["Ann",31])
+oTable.Rows.Add(["Bob",17])
+oTable.Rows.Add(["Cy",45])
+oForm = uiForm("Data grid",340,200)
+oGrid = new DataGridView()
+oGrid.Dock = "Fill"
+oGrid.DataSource = oTable
+oGrid.ReadOnly = 1
+oGrid.AllowUserToAddRows = 0
+oForm.Controls.Add(oGrid)
+
+uiTest(oForm,"selfTest()")
+uiRun(oForm)
+uiEnd()
+
+# --------------------------------------------------------------------------
+
+func selfTest
+	dnAssert("three rows",oGrid.Rows.Count,3)
+	dnAssert("two columns",oGrid.Columns.Count,2)
+	dnAssert("cell value",oGrid.Rows.Item(1).Cells.Item(0).Value,"Bob")
+	oGrid.Sort(oGrid.Columns.Item(1),"Descending")
+	dnAssert("sorted by age",oGrid.Rows.Item(0).Cells.Item(0).Value,"Cy")

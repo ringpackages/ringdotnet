@@ -104,7 +104,8 @@ oForm { Height = 300  Text += "!" }
 ## Ring gotchas when writing GUI programs
 
 * `"text" + number` works, `number + "text"` is an error (`string(n) + " items"`).
-* Do not create objects (`new X()`) in the right side of an attribute assignment (`oForm.Text = new Path().GetFileName(f)`): Ring loses the assignment. Use a variable first.
+* Do not call a method on a new object on the right side of an attribute assignment (`oForm.Text = new Path().GetFileName(f)`): Ring loses the assignment. Use a variable first (`oPath = new Path()` then `oForm.Text = oPath.GetFileName(f)`).
+* The code of an event runs outside the function that set it up: it can only use global variables (create them at the top of the program, then assign them in the function).
 * Ring keywords can't be variable or function names, in any case: `oK` is `ok`, `step()` is `step`, `To`, `From`, `Load`... Do not define functions named like the built-ins the library uses (`isNumber`, `len`, ...).
 * Define the functions after the main code (a `func` at the top would swallow the rest of the file).
 * `dnNull()` is the .NET null (`oPictureBox.Image = dnNull()`).

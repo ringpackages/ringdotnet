@@ -33,3 +33,6 @@ aDotNetClassIndex = []
 
 # Compiled callbacks: [code, function name] (see dnCallback)
 aDotNetCallbacks = []
+
+# The object made by the DotNetNew_<Class> function of the class that wraps a returned .NET object
+oDotNetNew = ""

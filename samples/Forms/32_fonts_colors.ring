@@ -1,0 +1,22 @@
+# Fonts, styles and colors
+
+load "../../libraries/dotnetlib/dotnetlib.ring"
+dnUseDesktop()
+dnImport("System.Drawing")
+dnImport("System.Windows.Forms")
+
+
+oForm = uiForm("Fonts and colors",360,230)
+nY = 10
+for cName in ["Segoe UI","Consolas","Georgia","Arial Black"]
+	oLabel = uiLabel(oForm,cName + " - The quick brown fox",15,nY,330,30)
+	oLabel.Font = uiFont(cName,14,false)
+	nY += 36
+next
+oBold = uiLabel(oForm,"Bold dark red",15,nY,330,30)
+oBold.Font = uiFont("Segoe UI",14,true)
+oBold.ForeColor = uiColor("DarkRed")
+
+uiTest(oForm,"dnAssert('font name',oForm.Controls.Item(1).Font.Name,'Consolas') dnAssert('bold',oBold.Font.Bold,1) dnAssert('color',oBold.ForeColor.Name,'DarkRed')")
+uiRun(oForm)
+uiEnd()

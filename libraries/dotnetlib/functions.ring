@@ -290,8 +290,9 @@ func dnWrapObject  cInfo
 			dn_nPos = find(aDotNetClasses,dn_aParts[dn_x],1)
 			if dn_nPos > 0
 				nDotNetWrapHandle = nHandle
-				eval("dn_oWrapped = new " + aDotNetClasses[dn_nPos][2] + "(" + aDotNetClasses[dn_nPos][3] + ")")
-				return dn_oWrapped
+				dn_cFactory = "dotnetnew_" + aDotNetClasses[dn_nPos][2]
+				call dn_cFactory()
+				return oDotNetNew
 			ok
 		next
 		if dn_nPass = 1
