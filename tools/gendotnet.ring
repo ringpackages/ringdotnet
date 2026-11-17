@@ -11,10 +11,11 @@ load "../libraries/dotnetlib/dotnetlib.ring"
 C_OUTDIR = "../libraries/dotnetlib/generated/"
 
 aTypes = [
+	# [.NET type, Ring class, (optional) number of init() parameters]
 	["System.Console","Console"],
 	["System.Math","Math"],
 	["System.Environment","Environment"],
-	["System.Random","Random"],
+	["System.Random","Random",1],
 	["System.Guid","Guid"],
 	["System.DateTime","DateTime"],
 	["System.TimeSpan","TimeSpan"],
@@ -23,21 +24,35 @@ aTypes = [
 	["System.IO.Directory","Directory"],
 	["System.IO.Path","Path"],
 	["System.Diagnostics.Stopwatch","Stopwatch"],
-	["System.Net.Http.HttpClient","HttpClient"]
+	["System.Net.Http.HttpClient","HttpClient"],
+	# Generic collections: one Ring class per closed type
+	["System.Collections.Generic.List`1[[System.String]]","StringList",0],
+	["System.Collections.Generic.List`1[[System.Double]]","NumberList",0],
+	["System.Collections.Generic.List`1[[System.Object]]","ObjectList",0],
+	["System.Collections.Generic.Dictionary`2[[System.String],[System.String]]","StringDictionary",0],
+	["System.Collections.Generic.Dictionary`2[[System.String],[System.Double]]","NumberDictionary",0],
+	["System.Collections.Generic.Dictionary`2[[System.String],[System.Object]]","ObjectDictionary",0],
+	["System.Collections.Generic.HashSet`1[[System.String]]","StringSet",0],
+	["System.Collections.Generic.Queue`1[[System.String]]","StringQueue",0],
+	["System.Collections.Generic.Stack`1[[System.String]]","StringStack",0]
 ]
 
 # Ring keywords can't be method names: add "_" at the end
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
 
 func main
-	aMap = []
+	aMap = []	# [canonical .NET name, Ring class] (canonical = the name the bridge reports for return types)
 	for aType in aTypes
-		aMap + aType
+		aMap + [dnDescribe(aType[1])[1],aType[2]]
 	next
 	cList = ""
 	for aType in aTypes
 		? "Generating " + aType[2] + " from " + aType[1]
-		cCode = genClass(aType[1],aType[2],aMap)
+		nInitArity = -1
+		if len(aType) >= 3
+			nInitArity = aType[3]
+		ok
+		cCode = genClass(aType[1],aType[2],aMap,nInitArity)
 		write(C_OUTDIR + aType[2] + ".ring",cCode)
 		cList += 'load "' + aType[2] + '.ring"' + nl
 	next
@@ -81,7 +96,7 @@ func returnCode cRequest, cReturnType, aMap
 	ok
 	return "return dnRequest(" + cRequest + ")" + nl
 
-func genClass cTypeName, cClass, aMap
+func genClass cTypeName, cClass, aMap, nForceInit
 	aInfo = dnDescribe(cTypeName)
 	lStatic = aInfo[2]
 	aCtors = aInfo[3]
@@ -99,11 +114,14 @@ func genClass cTypeName, cClass, aMap
 				nCount++
 			ok
 		next
-		if (nCount > nBest) or ((nCount = nBest) and (rankArity(len(aCtor)) < rankArity(nInit)))
+		if (nCount > nBest) or ((nCount = nBest) and (len(aCtor) < nInit))
 			nInit = len(aCtor)
 			nBest = nCount
 		ok
 	next
+	if nForceInit >= 0
+		nInit = nForceInit
+	ok
 	cWrap = ""
 	# Wrap an existing .NET object (a returned value) as this class
 	cWrap += "Func DotNetWrap_" + cClass + " xResult" + nl
@@ -145,8 +163,8 @@ func genClass cTypeName, cClass, aMap
 		nPos = find(aCount,cKey,1)
 		nWeight = 1
 		for cType in aMethod[4]
-			if right(cType,2) = "[]"
-				nWeight = 0	# array (params) overloads don't decide the plain name
+			if isExoticType(cType)
+				nWeight = 0	# overloads that need arrays, delegates or comparers don't decide the plain name
 			ok
 		next
 		if nPos = 0
@@ -200,6 +218,20 @@ func genClass cTypeName, cClass, aMap
 		cCode += "		" + returnCode(cReq,aMethod[3],aMap) + nl
 	next
 
+	# Indexer: Item(index) / SetItem(index,value)
+	aIndexer = aInfo[6]
+	if len(aIndexer) = 3
+		cCode += "	Func Item P1" + nl
+		cCode += "		" + returnCode('"call",[self,"get_Item",P1]',aIndexer[2],aMap) + nl
+		if aIndexer[3]
+			cCode += "	Func SetItem P1,P2" + nl
+			cCode += '		dnRequest("call",[self,"set_Item",P1,P2])' + nl
+			cCode += "		return self" + nl + nl
+		ok
+		aNames + "item"
+		aNames + "setitem"
+	ok
+
 	# Properties and fields: getName() / setName(value)
 	for aMember in aMembers
 		cName = aMember[1]
@@ -243,3 +275,11 @@ func rankArity nArity
 		return 99
 	ok
 	return nArity
+
+func isExoticType cType
+	for cPart in ["[]","Comparison","Func`","Action","Comparer","Predicate","Converter","Span","Memory","IFormatProvider","CancellationToken"]
+		if substr(cType,cPart)
+			return true
+		ok
+	next
+	return false

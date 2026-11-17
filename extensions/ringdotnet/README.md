@@ -34,7 +34,20 @@ new Console().WriteLine("Hi")
 
 Ring has no overloading, so for each name the overload arity with the most overloads gets the plain name (`Append`, `WriteLine`) and the others get `Name_N` (`Next_2(1,10)`); constructors work the same way (`init` plus `New_N`). Names that are Ring keywords get a trailing `_` (`Exit_`). The bridge still picks the real overload from the argument types.
 
-Generated types: Console, Math, Environment, Random, Guid, DateTime, TimeSpan, StringBuilder, File, Directory, Path, Stopwatch, HttpClient. To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
+Generated types: Console, Math, Environment, Random, Guid, DateTime, TimeSpan, StringBuilder, File, Directory, Path, Stopwatch, HttpClient, and the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
+
+```ring
+oList = new StringList()
+oList.Add("banana") oList.Add("apple")
+oList.Sort()
+for cItem in oList.toList() ? cItem next
+
+oDict = new StringDictionary()
+oDict.SetItem("two","2")
+? oDict.Item("two")
+```
+
+Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
 ## Architecture
 

@@ -5,21 +5,21 @@ Func DotNetWrap_HttpClient xResult
 		return xResult
 	ok
 	nDotNetWrapHandle = xResult.nHandle
-	return new HttpClient(0)
+	return new HttpClient()
 
 Class HttpClient from DotNetObject
 
-	Func init P1
+	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		nHandle = dnCreate('System.Net.Http.HttpClient',[P1])
+		nHandle = dnCreate('System.Net.Http.HttpClient',[])
 		return self
 
-	Func New_0 
-		nHandle = dnCreate('System.Net.Http.HttpClient',[])
+	Func New_1 P1
+		nHandle = dnCreate('System.Net.Http.HttpClient',[P1])
 		return self
 
 	Func New_2 P1,P2
@@ -44,10 +44,10 @@ Class HttpClient from DotNetObject
 	Func GetStreamAsync_2 P1,P2
 		return dnRequest("call",[self,"GetStreamAsync",P1,P2])
 
-	Func GetAsync_1 P1
+	Func GetAsync P1
 		return dnRequest("call",[self,"GetAsync",P1])
 
-	Func GetAsync P1,P2
+	Func GetAsync_2 P1,P2
 		return dnRequest("call",[self,"GetAsync",P1,P2])
 
 	Func GetAsync_3 P1,P2,P3
@@ -77,19 +77,19 @@ Class HttpClient from DotNetObject
 	Func DeleteAsync_2 P1,P2
 		return dnRequest("call",[self,"DeleteAsync",P1,P2])
 
-	Func Send_1 P1
+	Func Send P1
 		return dnRequest("call",[self,"Send",P1])
 
-	Func Send P1,P2
+	Func Send_2 P1,P2
 		return dnRequest("call",[self,"Send",P1,P2])
 
 	Func Send_3 P1,P2,P3
 		return dnRequest("call",[self,"Send",P1,P2,P3])
 
-	Func SendAsync_1 P1
+	Func SendAsync P1
 		return dnRequest("call",[self,"SendAsync",P1])
 
-	Func SendAsync P1,P2
+	Func SendAsync_2 P1,P2
 		return dnRequest("call",[self,"SendAsync",P1,P2])
 
 	Func SendAsync_3 P1,P2,P3

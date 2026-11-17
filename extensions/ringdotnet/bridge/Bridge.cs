@@ -267,7 +267,28 @@ namespace RingDotNet
 		/* Find a type by name, loading the framework assembly named by the namespace when needed */
 		private static Type ResolveType(string name)
 		{
-			Type t = Type.GetType(name, false);
+			Type t = ResolveSimple(name);
+			if (t == null && name.IndexOfAny(new[] { '`', '[' }) > 0)
+			{
+				/* Closed generic types (List`1[[System.String]]): resolve each part with ResolveSimple */
+				try
+				{
+					t = Type.GetType(name, null, (asm, n, ic) => asm != null ? asm.GetType(n, false, ic) : ResolveSimple(n));
+				}
+				catch (Exception) { }
+			}
+			if (t == null)
+			{
+				throw new TypeLoadException("Can't find the .NET type: " + name);
+			}
+			return t;
+		}
+
+		/* Find a type by name, loading the framework assembly named by the namespace when needed */
+		private static Type ResolveSimple(string name)
+		{
+			Type t = null;
+			try { t = Type.GetType(name, false); } catch (Exception) { }
 			if (t != null)
 			{
 				return t;
@@ -281,7 +302,8 @@ namespace RingDotNet
 				}
 			}
 			/* System.Console -> try the assemblies System.Console, System (type forwarders included) */
-			string prefix = name;
+			int generic = name.IndexOfAny(new[] { '`', '[' });
+			string prefix = generic > 0 ? name.Substring(0, generic) : name;
 			int dot;
 			do
 			{
@@ -301,7 +323,7 @@ namespace RingDotNet
 					prefix = prefix.Substring(0, dot);
 				}
 			} while (dot > 0);
-			throw new TypeLoadException("Can't find the .NET type: " + name);
+			return null;
 		}
 
 		private static string TName(Type t)
@@ -372,7 +394,18 @@ namespace RingDotNet
 					members.Add(new List<object> { fi.Name, true, !fi.IsInitOnly && !fi.IsLiteral, fi.IsStatic, TName(fi.FieldType) });
 				}
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members };
+			/* Indexer (like List[i] or Dictionary[key]): [indexType, valueType, canWrite] */
+			List<object> indexer = new List<object>();
+			foreach (PropertyInfo p in t.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+			{
+				ParameterInfo[] ips = p.GetIndexParameters();
+				if (ips.Length == 1 && p.GetMethod != null && p.GetMethod.IsPublic)
+				{
+					indexer = new List<object> { TName(ips[0].ParameterType), TName(p.PropertyType), p.SetMethod != null && p.SetMethod.IsPublic };
+					break;
+				}
+			}
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer };
 		}
 
 		private static List<object> ToList(object target)

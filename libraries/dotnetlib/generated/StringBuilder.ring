@@ -73,10 +73,10 @@ Class StringBuilder from DotNetObject
 	Func Insert_4 P1,P2,P3,P4
 		return DotNetWrap_StringBuilder(dnRequest("call",[self,"Insert",P1,P2,P3,P4]))
 
-	Func AppendFormat_2 P1,P2
+	Func AppendFormat P1,P2
 		return DotNetWrap_StringBuilder(dnRequest("call",[self,"AppendFormat",P1,P2]))
 
-	Func AppendFormat P1,P2,P3
+	Func AppendFormat_3 P1,P2,P3
 		return DotNetWrap_StringBuilder(dnRequest("call",[self,"AppendFormat",P1,P2,P3]))
 
 	Func AppendFormat_4 P1,P2,P3,P4
@@ -99,6 +99,13 @@ Class StringBuilder from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
+
+	Func Item P1
+		return dnRequest("call",[self,"get_Item",P1])
+
+	Func SetItem P1,P2
+		dnRequest("call",[self,"set_Item",P1,P2])
+		return self
 
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
