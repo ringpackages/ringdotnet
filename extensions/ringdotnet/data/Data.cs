@@ -11,6 +11,8 @@ using System.Data.Common;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Linq.Expressions;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 
 namespace RingDotNet
@@ -290,7 +292,7 @@ namespace RingDotNet
 			if (value == null) return null;
 			type = Nullable.GetUnderlyingType(type) ?? type;
 			if (type == typeof(DateTime)) return value is DateTime ? value : DateTime.Parse(Convert.ToString(value, CultureInfo.InvariantCulture), CultureInfo.InvariantCulture);
-			if (type == typeof(byte[])) return value is byte[] ? value : System.Text.Encoding.Latin1.GetBytes(Convert.ToString(value, CultureInfo.InvariantCulture));
+			if (type == typeof(byte[])) return value is byte[] ? value : Convert.FromHexString(Convert.ToString(value, CultureInfo.InvariantCulture));
 			if (type == typeof(bool)) return value is bool ? value : Convert.ToDouble(value, CultureInfo.InvariantCulture) != 0;
 			return Convert.ChangeType(value, type, CultureInfo.InvariantCulture);
 		}
@@ -314,6 +316,7 @@ namespace RingDotNet
 			{
 				object value = row.TryGetValue(column.Name, out object v) ? v : null;
 				if (value is DateTime date) value = date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+				else if (value is byte[] bytes) value = Convert.ToHexString(bytes).ToLowerInvariant();
 				pairs.Add(new List<object> { column.Name, value });
 			}
 			return pairs;
@@ -704,6 +707,256 @@ namespace RingDotNet
 			RequireSqlite("Applied");
 			Database.ExecuteSqlRaw("CREATE TABLE IF NOT EXISTS \"RingMigrations\" (\"Name\" TEXT NOT NULL PRIMARY KEY, \"AppliedAt\" TEXT NOT NULL)");
 			return Names("SELECT Name AS Value FROM RingMigrations ORDER BY AppliedAt, Name").Cast<object>().ToList();
+		}
+
+		// ------------------------------------------------------------------ queries built as LINQ expression trees
+
+		private static readonly MethodInfo EfProperty = typeof(EF).GetMethod("Property");
+
+		private static Expression PropertyOf(ParameterExpression row, Column column)
+		{
+			return Expression.Call(EfProperty.MakeGenericMethod(column.Type), row, Expression.Constant(column.Name));
+		}
+
+		private Column ColumnOf(Table table, object name)
+		{
+			string n = (string)name;
+			Column c = table.Columns.Find(x => string.Equals(x.Name, n, StringComparison.OrdinalIgnoreCase));
+			if (c == null) throw new ArgumentException("Unknown column " + n + " in " + table.Name);
+			return c;
+		}
+
+		private static Expression Constant(object value, Type type)
+		{
+			return Expression.Constant(Coerce(value, type), type);
+		}
+
+		private static bool CanBeNull(Type type)
+		{
+			return !type.IsValueType || Nullable.GetUnderlyingType(type) != null;
+		}
+
+		/*
+		**  A condition as data: [column, op, value]   op: = != < <= > >= contains startswith endswith in isnull notnull
+		**                       ["and", c1, c2, ...]  ["or", c1, c2, ...]  ["not", c]
+		*/
+		private Expression Condition(Table table, ParameterExpression row, object[] condition)
+		{
+			string first = Convert.ToString(condition[0], CultureInfo.InvariantCulture);
+			switch (first.ToLowerInvariant())
+			{
+				case "and":
+				case "or":
+				{
+					Expression result = null;
+					for (int i = 1; i < condition.Length; i++)
+					{
+						Expression part = Condition(table, row, (object[])condition[i]);
+						result = result == null ? part : (first.ToLowerInvariant() == "and" ? Expression.AndAlso(result, part) : Expression.OrElse(result, part));
+					}
+					return result ?? Expression.Constant(true);
+				}
+				case "not":
+					return Expression.Not(Condition(table, row, (object[])condition[1]));
+			}
+			Column column = ColumnOf(table, condition[0]);
+			string op = ((string)condition[1]).ToLowerInvariant();
+			Expression property = PropertyOf(row, column);
+			Type type = column.Type;
+			if (op == "isnull") return CanBeNull(type) ? Expression.Equal(property, Expression.Constant(null, type)) : Expression.Constant(false);
+			if (op == "notnull") return CanBeNull(type) ? Expression.NotEqual(property, Expression.Constant(null, type)) : Expression.Constant(true);
+			object value = condition[2];
+			switch (op)
+			{
+				case "=": return Expression.Equal(property, Constant(value, type));
+				case "!=": return Expression.NotEqual(property, Constant(value, type));
+				case "<": return Expression.LessThan(property, Constant(value, type));
+				case "<=": return Expression.LessThanOrEqual(property, Constant(value, type));
+				case ">": return Expression.GreaterThan(property, Constant(value, type));
+				case ">=": return Expression.GreaterThanOrEqual(property, Constant(value, type));
+				case "contains":
+				case "startswith":
+				case "endswith":
+				{
+					string method = op == "contains" ? "Contains" : op == "startswith" ? "StartsWith" : "EndsWith";
+					return Expression.Call(property, typeof(string).GetMethod(method, new[] { typeof(string) }), Expression.Constant(Convert.ToString(value, CultureInfo.InvariantCulture)));
+				}
+				case "in":
+				{
+					object[] items = (object[])value;
+					Array array = Array.CreateInstance(type, items.Length);
+					for (int i = 0; i < items.Length; i++) array.SetValue(Coerce(items[i], type), i);
+					MethodInfo contains = typeof(Enumerable).GetMethods().First(m => m.Name == "Contains" && m.GetParameters().Length == 2).MakeGenericMethod(type);
+					return Expression.Call(contains, Expression.Constant(array), property);
+				}
+				default: throw new ArgumentException("Unknown operator: " + op);
+			}
+		}
+
+		private IQueryable<Dictionary<string, object>> Filtered(Table table, object[] condition)
+		{
+			IQueryable<Dictionary<string, object>> query = SetOf(table).AsNoTracking();
+			if (condition != null && condition.Length > 0)
+			{
+				ParameterExpression row = Expression.Parameter(typeof(Dictionary<string, object>), "e");
+				query = query.Where(Expression.Lambda<Func<Dictionary<string, object>, bool>>(Condition(table, row, condition), row));
+			}
+			return query;
+		}
+
+		private IQueryable<Dictionary<string, object>> Ordered(Table table, IQueryable<Dictionary<string, object>> query, object[] orders)
+		{
+			bool first = true;
+			foreach (object o in orders)
+			{
+				object[] order = o is object[] pair ? pair : new object[] { o, "asc" };
+				Column column = ColumnOf(table, order[0]);
+				bool descending = order.Length > 1 && string.Equals(Convert.ToString(order[1], CultureInfo.InvariantCulture), "desc", StringComparison.OrdinalIgnoreCase);
+				ParameterExpression row = Expression.Parameter(typeof(Dictionary<string, object>), "e");
+				LambdaExpression key = Expression.Lambda(PropertyOf(row, column), row);
+				string name = first ? (descending ? "OrderByDescending" : "OrderBy") : (descending ? "ThenByDescending" : "ThenBy");
+				MethodInfo method = typeof(Queryable).GetMethods().First(m => m.Name == name && m.GetParameters().Length == 2).MakeGenericMethod(typeof(Dictionary<string, object>), column.Type);
+				query = (IQueryable<Dictionary<string, object>>)method.Invoke(null, new object[] { query, key });
+				first = false;
+			}
+			return query;
+		}
+
+		/*
+		**  A query as data: [ ["where", condition], ["orderby", [ [column, "desc"], ... ]], ["skip", n], ["take", n], ["select", [columns]] ]
+		**  Works with every provider (EF translates the expression tree to SQL).
+		*/
+		public List<object> Query(string entity, object[] spec)
+		{
+			Table table = Find(entity);
+			object[] condition = null, orders = new object[0], select = null;
+			int skip = 0, take = -1;
+			foreach (object item in spec)
+			{
+				object[] pair = (object[])item;
+				switch (((string)pair[0]).ToLowerInvariant())
+				{
+					case "where": condition = (object[])pair[1]; break;
+					case "orderby": orders = pair[1] is object[] list ? list : new object[] { pair[1] }; break;
+					case "skip": skip = Convert.ToInt32(pair[1], CultureInfo.InvariantCulture); break;
+					case "take": take = Convert.ToInt32(pair[1], CultureInfo.InvariantCulture); break;
+					case "select": select = (object[])pair[1]; break;
+					default: throw new ArgumentException("Unknown query item: " + pair[0]);
+				}
+			}
+			IQueryable<Dictionary<string, object>> query = Ordered(table, Filtered(table, condition), orders);
+			if (skip > 0) query = query.Skip(skip);
+			if (take >= 0) query = query.Take(take);
+			List<object> rows = Rows(table, query.ToList());
+			if (select == null) return rows;
+			List<object> projected = new List<object>();
+			foreach (object r in rows)
+			{
+				List<object> kept = new List<object>();
+				foreach (object o in select)
+				{
+					string name = ColumnOf(table, o).Name;
+					kept.Add(((List<object>)r).First(p => (string)((List<object>)p)[0] == name));
+				}
+				projected.Add(kept);
+			}
+			return projected;
+		}
+
+		/* count, sum, min, max or average of a column (the column is ignored for count) of the rows that match a condition (may be null) */
+		public object Aggregate(string entity, string function, string columnName, object[] condition)
+		{
+			Table table = Find(entity);
+			IQueryable<Dictionary<string, object>> query = Filtered(table, condition);
+			string f = function.ToLowerInvariant();
+			if (f == "count") return query.LongCount();
+			Column column = ColumnOf(table, columnName);
+			Type type = column.Type;
+			ParameterExpression row = Expression.Parameter(typeof(Dictionary<string, object>), "e");
+			LambdaExpression selector = Expression.Lambda(PropertyOf(row, column), row);
+			MethodInfo method;
+			switch (f)
+			{
+				case "sum":
+				case "average":
+					method = typeof(Queryable).GetMethods().First(m => m.Name == (f == "sum" ? "Sum" : "Average") && m.GetParameters().Length == 2 && m.GetParameters()[1].ParameterType.GetGenericArguments()[0].GetGenericArguments()[1] == type);
+					return method.MakeGenericMethod(typeof(Dictionary<string, object>)).Invoke(null, new object[] { query, selector });
+				case "min":
+				case "max":
+					method = typeof(Queryable).GetMethods().First(m => m.Name == (f == "min" ? "Min" : "Max") && m.GetParameters().Length == 2 && m.GetGenericArguments().Length == 2);
+					object result = method.MakeGenericMethod(typeof(Dictionary<string, object>), type).Invoke(null, new object[] { query, selector });
+					if (result is DateTime date) return date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+					return result;
+				default: throw new ArgumentException("Unknown aggregate: " + function + " (count, sum, min, max, average)");
+			}
+		}
+
+		/* [ [value, count], ... ] for each value of a column, for the rows that match a condition (may be null) */
+		public List<object> GroupCount(string entity, string columnName, object[] condition)
+		{
+			Table table = Find(entity);
+			Column column = ColumnOf(table, columnName);
+			List<object> result = new List<object>();
+			var groups = Filtered(table, condition).ToList().GroupBy(r => r.TryGetValue(column.Name, out object v) ? v : null);
+			foreach (var g in groups.OrderBy(g => Convert.ToString(g.Key, CultureInfo.InvariantCulture)))
+			{
+				object key = g.Key is DateTime d ? d.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture) : g.Key;
+				result.Add(new List<object> { key, (long)g.Count() });
+			}
+			return result;
+		}
+
+		// ------------------------------------------------------------------ SQL with any result shape
+
+		private DbCommand SqlCommand(DbConnection connection, string sql, object[] parameters)
+		{
+			DbCommand command = connection.CreateCommand();
+			object[] values = parameters ?? new object[0];
+			command.CommandText = Regex.Replace(sql, @"\{(\d+)\}", m => "@p" + m.Groups[1].Value);
+			for (int i = 0; i < values.Length; i++)
+			{
+				DbParameter p = command.CreateParameter();
+				p.ParameterName = "@p" + i;
+				p.Value = values[i] ?? DBNull.Value;
+				command.Parameters.Add(p);
+			}
+			return command;
+		}
+
+		/* The rows of any SELECT as lists of [column, value] pairs: SqlRows("SELECT City, COUNT(*) AS N FROM Customers WHERE Age > {0} GROUP BY City", [18]) */
+		public List<object> SqlRows(string sql, object[] parameters)
+		{
+			if (provider == "inmemory") throw new NotSupportedException("The inmemory provider cannot run SQL");
+			DbConnection connection = Database.GetDbConnection();
+			bool wasClosed = connection.State != System.Data.ConnectionState.Open;
+			if (wasClosed) connection.Open();
+			try
+			{
+				using (DbCommand command = SqlCommand(connection, sql, parameters))
+				using (DbDataReader reader = command.ExecuteReader())
+				{
+					List<object> rows = new List<object>();
+					while (reader.Read())
+					{
+						List<object> row = new List<object>();
+						for (int i = 0; i < reader.FieldCount; i++)
+						{
+							object value = reader.GetValue(i);
+							if (value == DBNull.Value) value = null;
+							else if (value is DateTime date) value = date.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+							else if (value is byte[] bytes) value = Convert.ToHexString(bytes).ToLowerInvariant();
+							else if (value is long l && l >= int.MinValue && l <= int.MaxValue) value = (int)l;
+							row.Add(new List<object> { reader.GetName(i), value });
+						}
+						rows.Add(row);
+					}
+					return rows;
+				}
+			}
+			finally
+			{
+				if (wasClosed) connection.Close();
+			}
 		}
 
 		public void Save()
