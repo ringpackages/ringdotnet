@@ -62,6 +62,19 @@ aPackageInfo = [
 		"libraries/dotnetlib/generated\StringStack.ring",
 		"samples/UsingDotNet/test03_collections.ring",
 		"samples/UsingDotNet/test04_callbacks.ring",
+		"libraries/dotnetlib/generated\Application.ring",
+		"libraries/dotnetlib/generated\Button.ring",
+		"libraries/dotnetlib/generated\CheckBox.ring",
+		"libraries/dotnetlib/generated\ControlCollection.ring",
+		"libraries/dotnetlib/generated\Form.ring",
+		"libraries/dotnetlib/generated\Label.ring",
+		"libraries/dotnetlib/generated\ListBox.ring",
+		"libraries/dotnetlib/generated\MessageBox.ring",
+		"libraries/dotnetlib/generated\ObservableStringList.ring",
+		"libraries/dotnetlib/generated\TextBox.ring",
+		"samples/UsingDotNet/test05_events.ring",
+		"samples/UsingDotNet/test06_winforms_click.ring",
+		"extensions/ringdotnet/bridge/RingDotNet.Desktop.runtimeconfig.json",
 		"tools/gendotnet.ring",
 		"tools/ring2exe/libs/dotnet.ring"
 	],
@@ -87,6 +100,7 @@ aPackageInfo = [
 		"bin/ring_dotnet.dll",
 		"bin/RingDotNet.Bridge.dll",
 		"bin/RingDotNet.Bridge.runtimeconfig.json",
+		"bin/RingDotNet.Desktop.runtimeconfig.json",
 		"bin/RingDotNet.Bridge.deps.json"
 	],
 	:linuxringfolderfiles = 	[

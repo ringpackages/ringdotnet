@@ -70,6 +70,32 @@ func show aArgs
 
 Errors raised by the Ring code reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
 
+## Events (like Click)
+
+Every public .NET event gets `setXXXEvent(cRingCode)` and `clearXXXEvent()` methods, as in RingQt. The code runs when the event is raised and can read `aDotNetArgs` (`[sender, eventArgs]`, both .NET objects). Each event has one handler; setting it again replaces it.
+
+```ring
+oList = new ObservableStringList()
+oList.setCollectionChangedEvent("? 'changed: ' + aDotNetArgs[2].getProp('Action')")
+oList.Add("one")
+```
+
+### Windows Forms
+
+Call `dnUseDesktop()` first (it adds the Windows Desktop runtime and makes the Ring thread an STA thread). The Ring thread then runs the message loop in `Application.Run(form)`, so event code runs normally:
+
+```ring
+dnUseDesktop()
+oForm = new Form()
+oButton = new Button()
+oButton.setText("Click me")
+oButton.setClickEvent("oForm.setText('Clicked!')")
+oForm.getControls().Add(oButton)
+new Application().Run(oForm)
+```
+
+Generated desktop classes: Application, MessageBox, Form, Button, Label, TextBox, CheckBox, ListBox, ControlCollection (add more in `tools/gendotnet.ring`). Events must be raised on the Ring thread (UI events are; timers and tasks are not).
+
 ## Architecture
 
 ```

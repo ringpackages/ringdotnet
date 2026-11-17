@@ -147,6 +147,14 @@ Class Console from DotNetObject
 		dnRequest("call",[dnTypeCached('System.Console'),"Write",P1])
 		return self
 
+	Func setCancelKeyPressEvent P1
+		dnRequest("setevent",[dnTypeCached('System.Console'),"CancelKeyPress",dnCallback(P1)])
+		return self
+
+	Func clearCancelKeyPressEvent
+		dnRequest("clearevent",[dnTypeCached('System.Console'),"CancelKeyPress"])
+		return self
+
 	Func getIn
 		return dnRequest("get",[dnTypeCached('System.Console'),"In"])
 

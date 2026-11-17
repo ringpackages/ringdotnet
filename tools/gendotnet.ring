@@ -34,13 +34,25 @@ aTypes = [
 	["System.Collections.Generic.Dictionary`2[[System.String],[System.Object]]","ObjectDictionary",0],
 	["System.Collections.Generic.HashSet`1[[System.String]]","StringSet",0],
 	["System.Collections.Generic.Queue`1[[System.String]]","StringQueue",0],
-	["System.Collections.Generic.Stack`1[[System.String]]","StringStack",0]
+	["System.Collections.Generic.Stack`1[[System.String]]","StringStack",0],
+	["System.Collections.ObjectModel.ObservableCollection`1[[System.String]]","ObservableStringList",0],
+	# Windows Forms (needs dnUseDesktop() before the first .NET call)
+	["System.Windows.Forms.Application","Application"],
+	["System.Windows.Forms.MessageBox","MessageBox"],
+	["System.Windows.Forms.Form","Form",0],
+	["System.Windows.Forms.Button","Button",0],
+	["System.Windows.Forms.Label","Label",0],
+	["System.Windows.Forms.TextBox","TextBox",0],
+	["System.Windows.Forms.CheckBox","CheckBox",0],
+	["System.Windows.Forms.ListBox","ListBox",0],
+	["System.Windows.Forms.Control+ControlCollection","ControlCollection"]
 ]
 
 # Ring keywords can't be method names: add "_" at the end
 aKeywords = split("if to or and not for foreach new func from next load else see while ok class return but end give bye exit try catch done switch on other off in loop package import private step do again call elseif put get set case def endfunc endclass endpackage endif endfor endwhile endswitch endtry function endfunction break continue this self super main init operator"," ")
 
 func main
+	dnUseDesktop()
 	aMap = []	# [canonical .NET name, Ring class] (canonical = the name the bridge reports for return types)
 	for aType in aTypes
 		aMap + [dnDescribe(aType[1])[1],aType[2]]
@@ -231,6 +243,25 @@ func genClass cTypeName, cClass, aMap, nForceInit
 		aNames + "item"
 		aNames + "setitem"
 	ok
+
+	# Events: setClickEvent(cRingCode) / clearClickEvent()
+	for aEvent in aInfo[7]
+		cName = aEvent[1]
+		if aEvent[2]
+			cTarget = "dnTypeCached('" + cTypeName + "')"
+		else
+			cTarget = "self"
+		ok
+		if find(aNames,lower("set" + cName + "Event")) = 0
+			aNames + lower("set" + cName + "Event")
+			cCode += "	Func set" + cName + "Event P1" + nl
+			cCode += '		dnRequest("setevent",[' + cTarget + ',"' + cName + '",dnCallback(P1)])' + nl
+			cCode += "		return self" + nl + nl
+			cCode += "	Func clear" + cName + "Event" + nl
+			cCode += '		dnRequest("clearevent",[' + cTarget + ',"' + cName + '"])' + nl
+			cCode += "		return self" + nl + nl
+		ok
+	next
 
 	# Properties and fields: getName() / setName(value)
 	for aMember in aMembers

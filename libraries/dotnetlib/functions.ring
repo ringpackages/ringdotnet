@@ -177,3 +177,7 @@ func dnIsIdentifier  cText
 		ok
 	next
 	return true
+
+# Use Windows Forms / WPF (adds the Windows Desktop runtime). Call it before any other .NET call.
+func dnUseDesktop
+	return dotnet_start("desktop")

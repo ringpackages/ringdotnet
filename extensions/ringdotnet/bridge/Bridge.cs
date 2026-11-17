@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -253,6 +254,12 @@ namespace RingDotNet
 					return a[0] is TypeRef tr ? tr.Type.FullName : a[0]?.GetType().FullName;
 				case "tolist":
 					return ToList(a[0]);
+				case "setevent":
+					SetEvent(a[0], Str(a, 1), a[2]);
+					return null;
+				case "clearevent":
+					SetEvent(a[0], Str(a, 1), null);
+					return null;
 				case "describe":
 					return Describe(TypeOf(a, 0));
 				case "isnull":
@@ -357,6 +364,45 @@ namespace RingDotNet
 				}
 			} while (dot > 0);
 			return null;
+		}
+
+		/* ---------------------------------------------------------------- events */
+
+		/* The handlers set from Ring, per object and event name (one handler per event, like RingQt) */
+		private static readonly ConditionalWeakTable<object, Dictionary<string, Delegate>> EventHandlers =
+			new ConditionalWeakTable<object, Dictionary<string, Delegate>>();
+
+		private static void SetEvent(object target, string name, object callback)
+		{
+			Type t = target is TypeRef tr ? tr.Type : target?.GetType();
+			object instance = target is TypeRef ? null : target;
+			if (t == null)
+			{
+				throw new NullReferenceException("Can't use the event '" + name + "' of a null object");
+			}
+			BindingFlags flags = (target is TypeRef ? BindingFlags.Static : BindingFlags.Instance) | BindingFlags.Public;
+			EventInfo ev = t.GetEvent(name, flags) ?? t.GetEvent(name, flags | BindingFlags.IgnoreCase);
+			if (ev == null)
+			{
+				throw new MissingMemberException("No public event " + t.FullName + "." + name);
+			}
+			object key = target is TypeRef ? (object)t : target;
+			Dictionary<string, Delegate> map = EventHandlers.GetOrCreateValue(key);
+			if (map.TryGetValue(ev.Name, out Delegate old))
+			{
+				ev.RemoveEventHandler(instance, old);
+				map.Remove(ev.Name);
+			}
+			if (callback is CallbackRef cb)
+			{
+				Delegate handler = MakeDelegate(ev.EventHandlerType, cb.Name);
+				ev.AddEventHandler(instance, handler);
+				map[ev.Name] = handler;
+			}
+			else if (callback != null)
+			{
+				throw new ArgumentException("The event handler must be created with dnCallback()");
+			}
 		}
 
 		/* ---------------------------------------------------------------- Ring callbacks */
@@ -507,7 +553,16 @@ namespace RingDotNet
 					break;
 				}
 			}
-			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer };
+			/* Events: [name, isStatic, handlerType] */
+			List<object> events = new List<object>();
+			foreach (BindingFlags f in new[] { BindingFlags.Public | BindingFlags.Instance, BindingFlags.Public | BindingFlags.Static })
+			{
+				foreach (EventInfo ev in t.GetEvents(f))
+				{
+					events.Add(new List<object> { ev.Name, f.HasFlag(BindingFlags.Static), TName(ev.EventHandlerType) });
+				}
+			}
+			return new List<object> { TName(t), t.IsAbstract && t.IsSealed, ctors, methods, members, indexer, events };
 		}
 
 		private static List<object> ToList(object target)

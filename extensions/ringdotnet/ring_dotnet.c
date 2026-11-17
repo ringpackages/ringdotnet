@@ -34,6 +34,7 @@
 
 #define DN_BRIDGE_ASSEMBLY  "RingDotNet.Bridge.dll"
 #define DN_BRIDGE_CONFIG    "RingDotNet.Bridge.runtimeconfig.json"
+#define DN_DESKTOP_CONFIG   "RingDotNet.Desktop.runtimeconfig.json"
 #define DN_BRIDGE_TYPE      "RingDotNet.Bridge, RingDotNet.Bridge"
 #define DN_PATHSIZE         2048
 #define DN_HDT_LOAD_ASSEMBLY_AND_GET_FUNCTION_POINTER 5
@@ -55,6 +56,7 @@ static char *g_pCallbackResult = NULL ;
 static int g_nCallbackResultSize = 0 ;
 
 static int g_nStarted = 0 ;
+static int g_nDesktop = 0 ;
 static dn_invoke_fn g_pInvoke = NULL ;
 static dn_free_fn g_pFree = NULL ;
 static char g_cHostFxr[DN_PATHSIZE] = "" ;
@@ -252,7 +254,7 @@ static int DN_CALLTYPE ringdotnet_callback ( const unsigned char *pRequest, int 
 }
 
 /* Start the runtime and bind the bridge entry points, returns 1 on success */
-static int ringdotnet_startruntime ( void )
+static int ringdotnet_startruntime ( const char *cMode )
 {
 	char cFolder[DN_PATHSIZE], cPath[DN_PATHSIZE], cNum[32] ;
 	dn_char wPath[DN_PATHSIZE], wConfig[DN_PATHSIZE] ;
@@ -295,7 +297,15 @@ static int ringdotnet_startruntime ( void )
 		ringdotnet_seterror("hostfxr does not export the hosting API",g_cHostFxr);
 		return 0 ;
 	}
-	snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_CONFIG);
+	if ( cMode && (strcmp(cMode,"desktop") == 0) ) {
+		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_DESKTOP_CONFIG);
+	#ifdef _WIN32
+		/* Windows Forms needs the thread that runs the UI to be an STA thread */
+		CoInitializeEx(NULL,COINIT_APARTMENTTHREADED);
+	#endif
+	} else {
+		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_CONFIG);
+	}
 	ringdotnet_tochar(cPath,wConfig,DN_PATHSIZE);
 	nRC = pInit(wConfig,NULL,&pHandle);
 	if ( (nRC < 0) || (! pHandle) ) {
@@ -340,17 +350,30 @@ static int ringdotnet_startruntime ( void )
 	}
 	((void (DN_CALLTYPE *)(void *)) pFn)((void *) ringdotnet_callback);
 	g_nStarted = 1 ;
+	g_nDesktop = (cMode && (strcmp(cMode,"desktop") == 0)) ;
 	return 1 ;
 }
 
-/* dotnet_start() --> 1 */
+/* dotnet_start([cMode]) --> 1   (cMode "desktop" adds Windows Forms / WPF, call it first) */
 RING_FUNC(ring_dotnet_start)
 {
-	if ( RING_API_PARACOUNT != 0 ) {
+	const char *cMode = NULL ;
+	if ( RING_API_PARACOUNT > 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	if ( ! ringdotnet_startruntime() ) {
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( ! RING_API_ISSTRING(1) ) {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		cMode = RING_API_GETSTRING(1);
+		if ( g_nStarted && (strcmp(cMode,"desktop") == 0) && (! g_nDesktop) ) {
+			RING_API_ERROR("dnUseDesktop() must be called before any other .NET call");
+			return ;
+		}
+	}
+	if ( ! ringdotnet_startruntime(cMode) ) {
 		RING_API_ERROR(g_cError);
 		return ;
 	}
@@ -371,7 +394,7 @@ RING_FUNC(ring_dotnet_invoke)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! ringdotnet_startruntime() ) {
+	if ( ! ringdotnet_startruntime(NULL) ) {
 		RING_API_ERROR(g_cError);
 		return ;
 	}

@@ -15,4 +15,9 @@
     <RollForward>LatestMajor</RollForward>
   </PropertyGroup>
 
+  <ItemGroup>
+    <!-- Runtime configuration used by dnUseDesktop() (adds Windows Forms / WPF) -->
+    <None Include="RingDotNet.Desktop.runtimeconfig.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>
