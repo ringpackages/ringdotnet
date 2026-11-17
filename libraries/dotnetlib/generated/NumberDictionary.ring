@@ -9,6 +9,12 @@ Func DotNetWrap_NumberDictionary xResult
 
 Class NumberDictionary from DotNetObject
 
+	Comparer
+	Count
+	Capacity
+	Keys
+	Values
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -87,15 +93,30 @@ Class NumberDictionary from DotNetObject
 	Func getComparer
 		return dnRequest("get",[self,"Comparer"])
 
+	Func setComparer P1
+		raise("DotNet Error: Comparer is a read-only property")
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
 
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
 
+	Func setCapacity P1
+		raise("DotNet Error: Capacity is a read-only property")
+
 	Func getKeys
 		return dnRequest("get",[self,"Keys"])
 
+	Func setKeys P1
+		raise("DotNet Error: Keys is a read-only property")
+
 	Func getValues
 		return dnRequest("get",[self,"Values"])
+
+	Func setValues P1
+		raise("DotNet Error: Values is a read-only property")
 

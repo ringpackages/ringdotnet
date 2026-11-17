@@ -9,6 +9,8 @@ Func DotNetWrap_Random xResult
 
 Class Random from DotNetObject
 
+	Shared
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -61,4 +63,7 @@ Class Random from DotNetObject
 
 	Func getShared
 		return DotNetWrap_Random(dnRequest("get",[dnTypeCached('System.Random'),"Shared"]))
+
+	Func setShared P1
+		raise("DotNet Error: Shared is a read-only property")
 

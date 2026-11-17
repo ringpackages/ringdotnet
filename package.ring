@@ -75,6 +75,7 @@ aPackageInfo = [
 		"samples/UsingDotNet/test05_events.ring",
 		"samples/UsingDotNet/test06_winforms_click.ring",
 		"extensions/ringdotnet/bridge/RingDotNet.Desktop.runtimeconfig.json",
+		"samples/UsingDotNet/test07_properties.ring",
 		"tools/gendotnet.ring",
 		"tools/ring2exe/libs/dotnet.ring"
 	],

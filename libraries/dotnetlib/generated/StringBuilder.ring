@@ -9,6 +9,10 @@ Func DotNetWrap_StringBuilder xResult
 
 Class StringBuilder from DotNetObject
 
+	Capacity
+	MaxCapacity
+	Length
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -116,6 +120,9 @@ Class StringBuilder from DotNetObject
 
 	Func getMaxCapacity
 		return dnRequest("get",[self,"MaxCapacity"])
+
+	Func setMaxCapacity P1
+		raise("DotNet Error: MaxCapacity is a read-only property")
 
 	Func getLength
 		return dnRequest("get",[self,"Length"])

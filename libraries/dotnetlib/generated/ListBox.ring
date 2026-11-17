@@ -9,6 +9,113 @@ Func DotNetWrap_ListBox xResult
 
 Class ListBox from DotNetObject
 
+	BackColor
+	BackgroundImage
+	BackgroundImageLayout
+	BorderStyle
+	ColumnWidth
+	UseCustomTabOffsets
+	DrawMode
+	Font
+	ForeColor
+	HorizontalExtent
+	HorizontalScrollbar
+	IntegralHeight
+	ItemHeight
+	Items
+	MultiColumn
+	PreferredHeight
+	ScrollAlwaysVisible
+	SelectedIndex
+	SelectedIndices
+	SelectedItem
+	SelectedItems
+	SelectionMode
+	Sorted
+	Text
+	TopIndex
+	UseTabStops
+	CustomTabOffsets
+	Padding
+	DataSource
+	DisplayMember
+	FormatInfo
+	FormatString
+	FormattingEnabled
+	ValueMember
+	SelectedValue
+	AccessibilityObject
+	AccessibleDefaultActionDescription
+	AccessibleDescription
+	AccessibleName
+	AccessibleRole
+	AllowDrop
+	Anchor
+	AutoSize
+	AutoScrollOffset
+	LayoutEngine
+	DataContext
+	BindingContext
+	Bottom
+	Bounds
+	CanFocus
+	CanSelect
+	Capture
+	CausesValidation
+	ClientRectangle
+	ClientSize
+	CompanyName
+	ContainsFocus
+	ContextMenuStrip
+	Controls
+	Created
+	Cursor
+	DataBindings
+	DeviceDpi
+	DisplayRectangle
+	IsDisposed
+	Disposing
+	Dock
+	Enabled
+	Focused
+	Handle
+	HasChildren
+	Height
+	IsHandleCreated
+	InvokeRequired
+	IsAccessible
+	IsAncestorSiteInDesignMode
+	IsMirrored
+	Left
+	Location
+	Margin
+	MaximumSize
+	MinimumSize
+	Name
+	Parent
+	ProductName
+	ProductVersion
+	RecreatingHandle
+	Region
+	Right
+	RightToLeft
+	Site
+	Size
+	TabIndex
+	TabStop
+	Tag
+	Top
+	TopLevelControl
+	UseWaitCursor
+	Visible
+	Width
+	WindowTarget
+	PreferredSize
+	ImeMode
+	Container
+	NoMatches
+	DefaultItemHeight
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -1016,6 +1123,9 @@ Class ListBox from DotNetObject
 	Func getItems
 		return dnRequest("get",[self,"Items"])
 
+	Func setItems P1
+		raise("DotNet Error: Items is a read-only property")
+
 	Func getMultiColumn
 		return dnRequest("get",[self,"MultiColumn"])
 
@@ -1025,6 +1135,9 @@ Class ListBox from DotNetObject
 
 	Func getPreferredHeight
 		return dnRequest("get",[self,"PreferredHeight"])
+
+	Func setPreferredHeight P1
+		raise("DotNet Error: PreferredHeight is a read-only property")
 
 	Func getScrollAlwaysVisible
 		return dnRequest("get",[self,"ScrollAlwaysVisible"])
@@ -1043,6 +1156,9 @@ Class ListBox from DotNetObject
 	Func getSelectedIndices
 		return dnRequest("get",[self,"SelectedIndices"])
 
+	Func setSelectedIndices P1
+		raise("DotNet Error: SelectedIndices is a read-only property")
+
 	Func getSelectedItem
 		return dnRequest("get",[self,"SelectedItem"])
 
@@ -1052,6 +1168,9 @@ Class ListBox from DotNetObject
 
 	Func getSelectedItems
 		return dnRequest("get",[self,"SelectedItems"])
+
+	Func setSelectedItems P1
+		raise("DotNet Error: SelectedItems is a read-only property")
 
 	Func getSelectionMode
 		return dnRequest("get",[self,"SelectionMode"])
@@ -1090,6 +1209,9 @@ Class ListBox from DotNetObject
 
 	Func getCustomTabOffsets
 		return dnRequest("get",[self,"CustomTabOffsets"])
+
+	Func setCustomTabOffsets P1
+		raise("DotNet Error: CustomTabOffsets is a read-only property")
 
 	Func getPadding
 		return dnRequest("get",[self,"Padding"])
@@ -1150,6 +1272,9 @@ Class ListBox from DotNetObject
 	Func getAccessibilityObject
 		return dnRequest("get",[self,"AccessibilityObject"])
 
+	Func setAccessibilityObject P1
+		raise("DotNet Error: AccessibilityObject is a read-only property")
+
 	Func getAccessibleDefaultActionDescription
 		return dnRequest("get",[self,"AccessibleDefaultActionDescription"])
 
@@ -1209,6 +1334,9 @@ Class ListBox from DotNetObject
 	Func getLayoutEngine
 		return dnRequest("get",[self,"LayoutEngine"])
 
+	Func setLayoutEngine P1
+		raise("DotNet Error: LayoutEngine is a read-only property")
+
 	Func getDataContext
 		return dnRequest("get",[self,"DataContext"])
 
@@ -1226,14 +1354,23 @@ Class ListBox from DotNetObject
 	Func getBottom
 		return dnRequest("get",[self,"Bottom"])
 
+	Func setBottom P1
+		raise("DotNet Error: Bottom is a read-only property")
+
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
 
 	Func getCanFocus
 		return dnRequest("get",[self,"CanFocus"])
 
+	Func setCanFocus P1
+		raise("DotNet Error: CanFocus is a read-only property")
+
 	Func getCanSelect
 		return dnRequest("get",[self,"CanSelect"])
+
+	Func setCanSelect P1
+		raise("DotNet Error: CanSelect is a read-only property")
 
 	Func getCapture
 		return dnRequest("get",[self,"Capture"])
@@ -1252,6 +1389,9 @@ Class ListBox from DotNetObject
 	Func getClientRectangle
 		return dnRequest("get",[self,"ClientRectangle"])
 
+	Func setClientRectangle P1
+		raise("DotNet Error: ClientRectangle is a read-only property")
+
 	Func getClientSize
 		return dnRequest("get",[self,"ClientSize"])
 
@@ -1262,8 +1402,14 @@ Class ListBox from DotNetObject
 	Func getCompanyName
 		return dnRequest("get",[self,"CompanyName"])
 
+	Func setCompanyName P1
+		raise("DotNet Error: CompanyName is a read-only property")
+
 	Func getContainsFocus
 		return dnRequest("get",[self,"ContainsFocus"])
+
+	Func setContainsFocus P1
+		raise("DotNet Error: ContainsFocus is a read-only property")
 
 	Func getContextMenuStrip
 		return dnRequest("get",[self,"ContextMenuStrip"])
@@ -1275,8 +1421,14 @@ Class ListBox from DotNetObject
 	Func getControls
 		return DotNetWrap_ControlCollection(dnRequest("get",[self,"Controls"]))
 
+	Func setControls P1
+		raise("DotNet Error: Controls is a read-only property")
+
 	Func getCreated
 		return dnRequest("get",[self,"Created"])
+
+	Func setCreated P1
+		raise("DotNet Error: Created is a read-only property")
 
 	Func getCursor
 		return dnRequest("get",[self,"Cursor"])
@@ -1288,17 +1440,32 @@ Class ListBox from DotNetObject
 	Func getDataBindings
 		return dnRequest("get",[self,"DataBindings"])
 
+	Func setDataBindings P1
+		raise("DotNet Error: DataBindings is a read-only property")
+
 	Func getDeviceDpi
 		return dnRequest("get",[self,"DeviceDpi"])
+
+	Func setDeviceDpi P1
+		raise("DotNet Error: DeviceDpi is a read-only property")
 
 	Func getDisplayRectangle
 		return dnRequest("get",[self,"DisplayRectangle"])
 
+	Func setDisplayRectangle P1
+		raise("DotNet Error: DisplayRectangle is a read-only property")
+
 	Func getIsDisposed
 		return dnRequest("get",[self,"IsDisposed"])
 
+	Func setIsDisposed P1
+		raise("DotNet Error: IsDisposed is a read-only property")
+
 	Func getDisposing
 		return dnRequest("get",[self,"Disposing"])
+
+	Func setDisposing P1
+		raise("DotNet Error: Disposing is a read-only property")
 
 	Func getDock
 		return dnRequest("get",[self,"Dock"])
@@ -1317,11 +1484,20 @@ Class ListBox from DotNetObject
 	Func getFocused
 		return dnRequest("get",[self,"Focused"])
 
+	Func setFocused P1
+		raise("DotNet Error: Focused is a read-only property")
+
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
 
+	Func setHandle P1
+		raise("DotNet Error: Handle is a read-only property")
+
 	Func getHasChildren
 		return dnRequest("get",[self,"HasChildren"])
+
+	Func setHasChildren P1
+		raise("DotNet Error: HasChildren is a read-only property")
 
 	Func getHeight
 		return dnRequest("get",[self,"Height"])
@@ -1333,8 +1509,14 @@ Class ListBox from DotNetObject
 	Func getIsHandleCreated
 		return dnRequest("get",[self,"IsHandleCreated"])
 
+	Func setIsHandleCreated P1
+		raise("DotNet Error: IsHandleCreated is a read-only property")
+
 	Func getInvokeRequired
 		return dnRequest("get",[self,"InvokeRequired"])
+
+	Func setInvokeRequired P1
+		raise("DotNet Error: InvokeRequired is a read-only property")
 
 	Func getIsAccessible
 		return dnRequest("get",[self,"IsAccessible"])
@@ -1346,8 +1528,14 @@ Class ListBox from DotNetObject
 	Func getIsAncestorSiteInDesignMode
 		return dnRequest("get",[self,"IsAncestorSiteInDesignMode"])
 
+	Func setIsAncestorSiteInDesignMode P1
+		raise("DotNet Error: IsAncestorSiteInDesignMode is a read-only property")
+
 	Func getIsMirrored
 		return dnRequest("get",[self,"IsMirrored"])
+
+	Func setIsMirrored P1
+		raise("DotNet Error: IsMirrored is a read-only property")
 
 	Func getLeft
 		return dnRequest("get",[self,"Left"])
@@ -1401,11 +1589,20 @@ Class ListBox from DotNetObject
 	Func getProductName
 		return dnRequest("get",[self,"ProductName"])
 
+	Func setProductName P1
+		raise("DotNet Error: ProductName is a read-only property")
+
 	Func getProductVersion
 		return dnRequest("get",[self,"ProductVersion"])
 
+	Func setProductVersion P1
+		raise("DotNet Error: ProductVersion is a read-only property")
+
 	Func getRecreatingHandle
 		return dnRequest("get",[self,"RecreatingHandle"])
+
+	Func setRecreatingHandle P1
+		raise("DotNet Error: RecreatingHandle is a read-only property")
 
 	Func getRegion
 		return dnRequest("get",[self,"Region"])
@@ -1416,6 +1613,9 @@ Class ListBox from DotNetObject
 
 	Func getRight
 		return dnRequest("get",[self,"Right"])
+
+	Func setRight P1
+		raise("DotNet Error: Right is a read-only property")
 
 	Func getRightToLeft
 		return dnRequest("get",[self,"RightToLeft"])
@@ -1469,6 +1669,9 @@ Class ListBox from DotNetObject
 	Func getTopLevelControl
 		return dnRequest("get",[self,"TopLevelControl"])
 
+	Func setTopLevelControl P1
+		raise("DotNet Error: TopLevelControl is a read-only property")
+
 	Func getUseWaitCursor
 		return dnRequest("get",[self,"UseWaitCursor"])
 
@@ -1497,6 +1700,9 @@ Class ListBox from DotNetObject
 		dnRequest("set",[self,"WindowTarget",P1])
 		return self
 
+	Func setPreferredSize P1
+		raise("DotNet Error: PreferredSize is a read-only property")
+
 	Func getImeMode
 		return dnRequest("get",[self,"ImeMode"])
 
@@ -1507,9 +1713,18 @@ Class ListBox from DotNetObject
 	Func getContainer
 		return dnRequest("get",[self,"Container"])
 
+	Func setContainer P1
+		raise("DotNet Error: Container is a read-only property")
+
 	Func getNoMatches
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ListBox'),"NoMatches"])
 
+	Func setNoMatches P1
+		raise("DotNet Error: NoMatches is a read-only property")
+
 	Func getDefaultItemHeight
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ListBox'),"DefaultItemHeight"])
+
+	Func setDefaultItemHeight P1
+		raise("DotNet Error: DefaultItemHeight is a read-only property")
 

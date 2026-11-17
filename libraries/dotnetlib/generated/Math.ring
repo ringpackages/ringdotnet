@@ -9,6 +9,10 @@ Func DotNetWrap_Math xResult
 
 Class Math from DotNetObject
 
+	E
+	PI
+	Tau
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -167,9 +171,18 @@ Class Math from DotNetObject
 	Func getE
 		return dnRequest("get",[dnTypeCached('System.Math'),"E"])
 
+	Func setE P1
+		raise("DotNet Error: E is a read-only property")
+
 	Func getPI
 		return dnRequest("get",[dnTypeCached('System.Math'),"PI"])
 
+	Func setPI P1
+		raise("DotNet Error: PI is a read-only property")
+
 	Func getTau
 		return dnRequest("get",[dnTypeCached('System.Math'),"Tau"])
+
+	Func setTau P1
+		raise("DotNet Error: Tau is a read-only property")
 

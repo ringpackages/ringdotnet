@@ -9,6 +9,11 @@ Func DotNetWrap_Guid xResult
 
 Class Guid from DotNetObject
 
+	Variant
+	Version
+	AllBitsSet
+	Empty
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -65,12 +70,24 @@ Class Guid from DotNetObject
 	Func getVariant
 		return dnRequest("get",[self,"Variant"])
 
+	Func setVariant P1
+		raise("DotNet Error: Variant is a read-only property")
+
 	Func getVersion
 		return dnRequest("get",[self,"Version"])
+
+	Func setVersion P1
+		raise("DotNet Error: Version is a read-only property")
 
 	Func getAllBitsSet
 		return DotNetWrap_Guid(dnRequest("get",[dnTypeCached('System.Guid'),"AllBitsSet"]))
 
+	Func setAllBitsSet P1
+		raise("DotNet Error: AllBitsSet is a read-only property")
+
 	Func getEmpty
 		return DotNetWrap_Guid(dnRequest("get",[dnTypeCached('System.Guid'),"Empty"]))
+
+	Func setEmpty P1
+		raise("DotNet Error: Empty is a read-only property")
 

@@ -9,6 +9,28 @@ Func DotNetWrap_DateTime xResult
 
 Class DateTime from DotNetObject
 
+	Date
+	Day
+	DayOfWeek
+	DayOfYear
+	Hour
+	Kind
+	Millisecond
+	Microsecond
+	Nanosecond
+	Minute
+	Month
+	Second
+	Ticks
+	TimeOfDay
+	Year
+	Now
+	Today
+	UtcNow
+	MinValue
+	MaxValue
+	UnixEpoch
+
 	Func init P1,P2,P3,P4,P5,P6,P7
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -185,63 +207,126 @@ Class DateTime from DotNetObject
 	Func getDate
 		return DotNetWrap_DateTime(dnRequest("get",[self,"Date"]))
 
+	Func setDate P1
+		raise("DotNet Error: Date is a read-only property")
+
 	Func getDay
 		return dnRequest("get",[self,"Day"])
+
+	Func setDay P1
+		raise("DotNet Error: Day is a read-only property")
 
 	Func getDayOfWeek
 		return dnRequest("get",[self,"DayOfWeek"])
 
+	Func setDayOfWeek P1
+		raise("DotNet Error: DayOfWeek is a read-only property")
+
 	Func getDayOfYear
 		return dnRequest("get",[self,"DayOfYear"])
+
+	Func setDayOfYear P1
+		raise("DotNet Error: DayOfYear is a read-only property")
 
 	Func getHour
 		return dnRequest("get",[self,"Hour"])
 
+	Func setHour P1
+		raise("DotNet Error: Hour is a read-only property")
+
 	Func getKind
 		return dnRequest("get",[self,"Kind"])
+
+	Func setKind P1
+		raise("DotNet Error: Kind is a read-only property")
 
 	Func getMillisecond
 		return dnRequest("get",[self,"Millisecond"])
 
+	Func setMillisecond P1
+		raise("DotNet Error: Millisecond is a read-only property")
+
 	Func getMicrosecond
 		return dnRequest("get",[self,"Microsecond"])
+
+	Func setMicrosecond P1
+		raise("DotNet Error: Microsecond is a read-only property")
 
 	Func getNanosecond
 		return dnRequest("get",[self,"Nanosecond"])
 
+	Func setNanosecond P1
+		raise("DotNet Error: Nanosecond is a read-only property")
+
 	Func getMinute
 		return dnRequest("get",[self,"Minute"])
+
+	Func setMinute P1
+		raise("DotNet Error: Minute is a read-only property")
 
 	Func getMonth
 		return dnRequest("get",[self,"Month"])
 
+	Func setMonth P1
+		raise("DotNet Error: Month is a read-only property")
+
 	Func getSecond
 		return dnRequest("get",[self,"Second"])
+
+	Func setSecond P1
+		raise("DotNet Error: Second is a read-only property")
 
 	Func getTicks
 		return dnRequest("get",[self,"Ticks"])
 
+	Func setTicks P1
+		raise("DotNet Error: Ticks is a read-only property")
+
 	Func getTimeOfDay
 		return DotNetWrap_TimeSpan(dnRequest("get",[self,"TimeOfDay"]))
+
+	Func setTimeOfDay P1
+		raise("DotNet Error: TimeOfDay is a read-only property")
 
 	Func getYear
 		return dnRequest("get",[self,"Year"])
 
+	Func setYear P1
+		raise("DotNet Error: Year is a read-only property")
+
 	Func getNow
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"Now"]))
+
+	Func setNow P1
+		raise("DotNet Error: Now is a read-only property")
 
 	Func getToday
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"Today"]))
 
+	Func setToday P1
+		raise("DotNet Error: Today is a read-only property")
+
 	Func getUtcNow
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"UtcNow"]))
+
+	Func setUtcNow P1
+		raise("DotNet Error: UtcNow is a read-only property")
 
 	Func getMinValue
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"MinValue"]))
 
+	Func setMinValue P1
+		raise("DotNet Error: MinValue is a read-only property")
+
 	Func getMaxValue
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"MaxValue"]))
 
+	Func setMaxValue P1
+		raise("DotNet Error: MaxValue is a read-only property")
+
 	Func getUnixEpoch
 		return DotNetWrap_DateTime(dnRequest("get",[dnTypeCached('System.DateTime'),"UnixEpoch"]))
+
+	Func setUnixEpoch P1
+		raise("DotNet Error: UnixEpoch is a read-only property")
 

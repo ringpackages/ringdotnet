@@ -9,6 +9,47 @@ Func DotNetWrap_TimeSpan xResult
 
 Class TimeSpan from DotNetObject
 
+	Ticks
+	Days
+	Hours
+	Milliseconds
+	Microseconds
+	Nanoseconds
+	Minutes
+	Seconds
+	TotalDays
+	TotalHours
+	TotalMilliseconds
+	TotalMicroseconds
+	TotalNanoseconds
+	TotalMinutes
+	TotalSeconds
+	Zero
+	MaxValue
+	MinValue
+	NanosecondsPerTick
+	TicksPerMicrosecond
+	TicksPerMillisecond
+	TicksPerSecond
+	TicksPerMinute
+	TicksPerHour
+	TicksPerDay
+	MicrosecondsPerMillisecond
+	MicrosecondsPerSecond
+	MicrosecondsPerMinute
+	MicrosecondsPerHour
+	MicrosecondsPerDay
+	MillisecondsPerSecond
+	MillisecondsPerMinute
+	MillisecondsPerHour
+	MillisecondsPerDay
+	SecondsPerMinute
+	SecondsPerHour
+	SecondsPerDay
+	MinutesPerHour
+	MinutesPerDay
+	HoursPerDay
+
 	Func init P1
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -121,120 +162,240 @@ Class TimeSpan from DotNetObject
 	Func getTicks
 		return dnRequest("get",[self,"Ticks"])
 
+	Func setTicks P1
+		raise("DotNet Error: Ticks is a read-only property")
+
 	Func getDays
 		return dnRequest("get",[self,"Days"])
+
+	Func setDays P1
+		raise("DotNet Error: Days is a read-only property")
 
 	Func getHours
 		return dnRequest("get",[self,"Hours"])
 
+	Func setHours P1
+		raise("DotNet Error: Hours is a read-only property")
+
 	Func getMilliseconds
 		return dnRequest("get",[self,"Milliseconds"])
+
+	Func setMilliseconds P1
+		raise("DotNet Error: Milliseconds is a read-only property")
 
 	Func getMicroseconds
 		return dnRequest("get",[self,"Microseconds"])
 
+	Func setMicroseconds P1
+		raise("DotNet Error: Microseconds is a read-only property")
+
 	Func getNanoseconds
 		return dnRequest("get",[self,"Nanoseconds"])
+
+	Func setNanoseconds P1
+		raise("DotNet Error: Nanoseconds is a read-only property")
 
 	Func getMinutes
 		return dnRequest("get",[self,"Minutes"])
 
+	Func setMinutes P1
+		raise("DotNet Error: Minutes is a read-only property")
+
 	Func getSeconds
 		return dnRequest("get",[self,"Seconds"])
+
+	Func setSeconds P1
+		raise("DotNet Error: Seconds is a read-only property")
 
 	Func getTotalDays
 		return dnRequest("get",[self,"TotalDays"])
 
+	Func setTotalDays P1
+		raise("DotNet Error: TotalDays is a read-only property")
+
 	Func getTotalHours
 		return dnRequest("get",[self,"TotalHours"])
+
+	Func setTotalHours P1
+		raise("DotNet Error: TotalHours is a read-only property")
 
 	Func getTotalMilliseconds
 		return dnRequest("get",[self,"TotalMilliseconds"])
 
+	Func setTotalMilliseconds P1
+		raise("DotNet Error: TotalMilliseconds is a read-only property")
+
 	Func getTotalMicroseconds
 		return dnRequest("get",[self,"TotalMicroseconds"])
+
+	Func setTotalMicroseconds P1
+		raise("DotNet Error: TotalMicroseconds is a read-only property")
 
 	Func getTotalNanoseconds
 		return dnRequest("get",[self,"TotalNanoseconds"])
 
+	Func setTotalNanoseconds P1
+		raise("DotNet Error: TotalNanoseconds is a read-only property")
+
 	Func getTotalMinutes
 		return dnRequest("get",[self,"TotalMinutes"])
+
+	Func setTotalMinutes P1
+		raise("DotNet Error: TotalMinutes is a read-only property")
 
 	Func getTotalSeconds
 		return dnRequest("get",[self,"TotalSeconds"])
 
+	Func setTotalSeconds P1
+		raise("DotNet Error: TotalSeconds is a read-only property")
+
 	Func getZero
 		return DotNetWrap_TimeSpan(dnRequest("get",[dnTypeCached('System.TimeSpan'),"Zero"]))
+
+	Func setZero P1
+		raise("DotNet Error: Zero is a read-only property")
 
 	Func getMaxValue
 		return DotNetWrap_TimeSpan(dnRequest("get",[dnTypeCached('System.TimeSpan'),"MaxValue"]))
 
+	Func setMaxValue P1
+		raise("DotNet Error: MaxValue is a read-only property")
+
 	Func getMinValue
 		return DotNetWrap_TimeSpan(dnRequest("get",[dnTypeCached('System.TimeSpan'),"MinValue"]))
+
+	Func setMinValue P1
+		raise("DotNet Error: MinValue is a read-only property")
 
 	Func getNanosecondsPerTick
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"NanosecondsPerTick"])
 
+	Func setNanosecondsPerTick P1
+		raise("DotNet Error: NanosecondsPerTick is a read-only property")
+
 	Func getTicksPerMicrosecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerMicrosecond"])
+
+	Func setTicksPerMicrosecond P1
+		raise("DotNet Error: TicksPerMicrosecond is a read-only property")
 
 	Func getTicksPerMillisecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerMillisecond"])
 
+	Func setTicksPerMillisecond P1
+		raise("DotNet Error: TicksPerMillisecond is a read-only property")
+
 	Func getTicksPerSecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerSecond"])
+
+	Func setTicksPerSecond P1
+		raise("DotNet Error: TicksPerSecond is a read-only property")
 
 	Func getTicksPerMinute
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerMinute"])
 
+	Func setTicksPerMinute P1
+		raise("DotNet Error: TicksPerMinute is a read-only property")
+
 	Func getTicksPerHour
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerHour"])
+
+	Func setTicksPerHour P1
+		raise("DotNet Error: TicksPerHour is a read-only property")
 
 	Func getTicksPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"TicksPerDay"])
 
+	Func setTicksPerDay P1
+		raise("DotNet Error: TicksPerDay is a read-only property")
+
 	Func getMicrosecondsPerMillisecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MicrosecondsPerMillisecond"])
+
+	Func setMicrosecondsPerMillisecond P1
+		raise("DotNet Error: MicrosecondsPerMillisecond is a read-only property")
 
 	Func getMicrosecondsPerSecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MicrosecondsPerSecond"])
 
+	Func setMicrosecondsPerSecond P1
+		raise("DotNet Error: MicrosecondsPerSecond is a read-only property")
+
 	Func getMicrosecondsPerMinute
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MicrosecondsPerMinute"])
+
+	Func setMicrosecondsPerMinute P1
+		raise("DotNet Error: MicrosecondsPerMinute is a read-only property")
 
 	Func getMicrosecondsPerHour
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MicrosecondsPerHour"])
 
+	Func setMicrosecondsPerHour P1
+		raise("DotNet Error: MicrosecondsPerHour is a read-only property")
+
 	Func getMicrosecondsPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MicrosecondsPerDay"])
+
+	Func setMicrosecondsPerDay P1
+		raise("DotNet Error: MicrosecondsPerDay is a read-only property")
 
 	Func getMillisecondsPerSecond
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MillisecondsPerSecond"])
 
+	Func setMillisecondsPerSecond P1
+		raise("DotNet Error: MillisecondsPerSecond is a read-only property")
+
 	Func getMillisecondsPerMinute
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MillisecondsPerMinute"])
+
+	Func setMillisecondsPerMinute P1
+		raise("DotNet Error: MillisecondsPerMinute is a read-only property")
 
 	Func getMillisecondsPerHour
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MillisecondsPerHour"])
 
+	Func setMillisecondsPerHour P1
+		raise("DotNet Error: MillisecondsPerHour is a read-only property")
+
 	Func getMillisecondsPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MillisecondsPerDay"])
+
+	Func setMillisecondsPerDay P1
+		raise("DotNet Error: MillisecondsPerDay is a read-only property")
 
 	Func getSecondsPerMinute
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"SecondsPerMinute"])
 
+	Func setSecondsPerMinute P1
+		raise("DotNet Error: SecondsPerMinute is a read-only property")
+
 	Func getSecondsPerHour
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"SecondsPerHour"])
+
+	Func setSecondsPerHour P1
+		raise("DotNet Error: SecondsPerHour is a read-only property")
 
 	Func getSecondsPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"SecondsPerDay"])
 
+	Func setSecondsPerDay P1
+		raise("DotNet Error: SecondsPerDay is a read-only property")
+
 	Func getMinutesPerHour
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MinutesPerHour"])
+
+	Func setMinutesPerHour P1
+		raise("DotNet Error: MinutesPerHour is a read-only property")
 
 	Func getMinutesPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"MinutesPerDay"])
 
+	Func setMinutesPerDay P1
+		raise("DotNet Error: MinutesPerDay is a read-only property")
+
 	Func getHoursPerDay
 		return dnRequest("get",[dnTypeCached('System.TimeSpan'),"HoursPerDay"])
+
+	Func setHoursPerDay P1
+		raise("DotNet Error: HoursPerDay is a read-only property")
 

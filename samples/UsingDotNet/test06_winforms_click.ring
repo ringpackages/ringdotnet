@@ -8,23 +8,23 @@ oApp = new Application()
 oApp.EnableVisualStyles()
 
 oForm = new Form()
-oForm.setText("RingDotNet - Click event")
-oForm.setWidth(360)
-oForm.setHeight(160)
+oForm.Text = "RingDotNet - Click event"
+oForm.Width = 360
+oForm.Height = 160
 
 oLabel = new Label()
-oLabel.setText("Waiting for a click...")
-oLabel.setLeft(20)  oLabel.setTop(20)  oLabel.setWidth(300)
+oLabel.Text = "Waiting for a click..."
+oLabel.Left = 20  oLabel.Top = 20  oLabel.Width = 300
 
 oButton = new Button()
-oButton.setText("Click me")
-oButton.setLeft(20)  oButton.setTop(60)
+oButton.Text = "Click me"
+oButton.Left = 20  oButton.Top = 60
 
 nClicks = 0
-oButton.setClickEvent("nClicks++ oLabel.setText('Clicked ' + nClicks + ' time(s)') ? 'Click event: ' + oLabel.getText() oForm.Close()")
+oButton.setClickEvent("nClicks++ oLabel.Text = 'Clicked ' + nClicks + ' time(s)' ? 'Click event: ' + oLabel.Text oForm.Close()")
 
-oForm.getControls().Add(oLabel)
-oForm.getControls().Add(oButton)
+oForm.Controls.Add(oLabel)
+oForm.Controls.Add(oButton)
 
 # Remove this line to use the form yourself (click the button, then close the window)
 oForm.setShownEvent("oButton.PerformClick()")

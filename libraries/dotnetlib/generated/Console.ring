@@ -9,6 +9,33 @@ Func DotNetWrap_Console xResult
 
 Class Console from DotNetObject
 
+	InputEncoding
+	OutputEncoding
+	KeyAvailable
+	Out
+	Error
+	IsInputRedirected
+	IsOutputRedirected
+	IsErrorRedirected
+	CursorSize
+	NumberLock
+	CapsLock
+	BackgroundColor
+	ForegroundColor
+	BufferWidth
+	BufferHeight
+	WindowLeft
+	WindowTop
+	WindowWidth
+	WindowHeight
+	LargestWindowWidth
+	LargestWindowHeight
+	CursorVisible
+	CursorLeft
+	CursorTop
+	Title
+	TreatControlCAsInput
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -175,6 +202,9 @@ Class Console from DotNetObject
 	Func getKeyAvailable
 		return dnRequest("get",[dnTypeCached('System.Console'),"KeyAvailable"])
 
+	Func setKeyAvailable P1
+		raise("DotNet Error: KeyAvailable is a read-only property")
+
 	Func getOut
 		return dnRequest("get",[dnTypeCached('System.Console'),"Out"])
 
@@ -184,11 +214,20 @@ Class Console from DotNetObject
 	Func getIsInputRedirected
 		return dnRequest("get",[dnTypeCached('System.Console'),"IsInputRedirected"])
 
+	Func setIsInputRedirected P1
+		raise("DotNet Error: IsInputRedirected is a read-only property")
+
 	Func getIsOutputRedirected
 		return dnRequest("get",[dnTypeCached('System.Console'),"IsOutputRedirected"])
 
+	Func setIsOutputRedirected P1
+		raise("DotNet Error: IsOutputRedirected is a read-only property")
+
 	Func getIsErrorRedirected
 		return dnRequest("get",[dnTypeCached('System.Console'),"IsErrorRedirected"])
+
+	Func setIsErrorRedirected P1
+		raise("DotNet Error: IsErrorRedirected is a read-only property")
 
 	Func getCursorSize
 		return dnRequest("get",[dnTypeCached('System.Console'),"CursorSize"])
@@ -200,8 +239,14 @@ Class Console from DotNetObject
 	Func getNumberLock
 		return dnRequest("get",[dnTypeCached('System.Console'),"NumberLock"])
 
+	Func setNumberLock P1
+		raise("DotNet Error: NumberLock is a read-only property")
+
 	Func getCapsLock
 		return dnRequest("get",[dnTypeCached('System.Console'),"CapsLock"])
+
+	Func setCapsLock P1
+		raise("DotNet Error: CapsLock is a read-only property")
 
 	Func getBackgroundColor
 		return dnRequest("get",[dnTypeCached('System.Console'),"BackgroundColor"])
@@ -262,8 +307,14 @@ Class Console from DotNetObject
 	Func getLargestWindowWidth
 		return dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowWidth"])
 
+	Func setLargestWindowWidth P1
+		raise("DotNet Error: LargestWindowWidth is a read-only property")
+
 	Func getLargestWindowHeight
 		return dnRequest("get",[dnTypeCached('System.Console'),"LargestWindowHeight"])
+
+	Func setLargestWindowHeight P1
+		raise("DotNet Error: LargestWindowHeight is a read-only property")
 
 	Func getCursorVisible
 		return dnRequest("get",[dnTypeCached('System.Console'),"CursorVisible"])

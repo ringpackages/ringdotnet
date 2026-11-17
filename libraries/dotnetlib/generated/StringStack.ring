@@ -9,6 +9,9 @@ Func DotNetWrap_StringStack xResult
 
 Class StringStack from DotNetObject
 
+	Count
+	Capacity
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -72,6 +75,12 @@ Class StringStack from DotNetObject
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
+
+	Func setCapacity P1
+		raise("DotNet Error: Capacity is a read-only property")
 

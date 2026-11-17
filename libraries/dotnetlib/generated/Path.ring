@@ -9,6 +9,12 @@ Func DotNetWrap_Path xResult
 
 Class Path from DotNetObject
 
+	DirectorySeparatorChar
+	AltDirectorySeparatorChar
+	VolumeSeparatorChar
+	PathSeparator
+	InvalidPathChars
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -113,12 +119,27 @@ Class Path from DotNetObject
 	Func getDirectorySeparatorChar
 		return dnRequest("get",[dnTypeCached('System.IO.Path'),"DirectorySeparatorChar"])
 
+	Func setDirectorySeparatorChar P1
+		raise("DotNet Error: DirectorySeparatorChar is a read-only property")
+
 	Func getAltDirectorySeparatorChar
 		return dnRequest("get",[dnTypeCached('System.IO.Path'),"AltDirectorySeparatorChar"])
+
+	Func setAltDirectorySeparatorChar P1
+		raise("DotNet Error: AltDirectorySeparatorChar is a read-only property")
 
 	Func getVolumeSeparatorChar
 		return dnRequest("get",[dnTypeCached('System.IO.Path'),"VolumeSeparatorChar"])
 
+	Func setVolumeSeparatorChar P1
+		raise("DotNet Error: VolumeSeparatorChar is a read-only property")
+
 	Func getPathSeparator
 		return dnRequest("get",[dnTypeCached('System.IO.Path'),"PathSeparator"])
+
+	Func setPathSeparator P1
+		raise("DotNet Error: PathSeparator is a read-only property")
+
+	Func setInvalidPathChars P1
+		raise("DotNet Error: InvalidPathChars is a read-only property")
 

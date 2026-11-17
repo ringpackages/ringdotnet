@@ -9,6 +9,9 @@ Func DotNetWrap_StringList xResult
 
 Class StringList from DotNetObject
 
+	Capacity
+	Count
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -202,4 +205,7 @@ Class StringList from DotNetObject
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
 

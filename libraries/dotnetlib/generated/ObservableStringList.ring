@@ -9,6 +9,8 @@ Func DotNetWrap_ObservableStringList xResult
 
 Class ObservableStringList from DotNetObject
 
+	Count
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -84,4 +86,7 @@ Class ObservableStringList from DotNetObject
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
+
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
 

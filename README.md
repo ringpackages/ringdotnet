@@ -27,7 +27,7 @@ load "dotnetlib.ring"
 oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
 oSB.Append(", Ring").Append("!")        # methods that return a generated class return that class
 ? oSB.ToString()
-? oSB.getLength()                       # properties and fields: getName() / setName(value)
+? oSB.Length                            # properties and fields are attributes: oObj.Length, oObj.Text = "x"
 new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
@@ -48,6 +48,18 @@ oDict.SetItem("two","2")
 ```
 
 Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
+
+## Properties
+
+.NET properties and fields are Ring attributes (Ring calls the generated `getName()` / `setName(value)` automatically, see "Setter and Getter" in the Ring docs), so they read and write naturally, also inside `{ }`; `getName()` / `setName()` can still be called explicitly. Assigning a read-only property raises an error.
+
+```ring
+oForm = new Form()
+oForm.Text = "Hello"
+oForm.Width = 400
+? oForm.Controls.Count            # chained: Controls returns a ControlCollection
+oForm { Height = 300  Text += "!" }
+```
 
 ## Calling Ring code from .NET (callbacks)
 

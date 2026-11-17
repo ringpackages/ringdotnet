@@ -9,6 +9,10 @@ Func DotNetWrap_StringSet xResult
 
 Class StringSet from DotNetObject
 
+	Count
+	Capacity
+	Comparer
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -125,9 +129,18 @@ Class StringSet from DotNetObject
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 
+	Func setCount P1
+		raise("DotNet Error: Count is a read-only property")
+
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
 
+	Func setCapacity P1
+		raise("DotNet Error: Capacity is a read-only property")
+
 	Func getComparer
 		return dnRequest("get",[self,"Comparer"])
+
+	Func setComparer P1
+		raise("DotNet Error: Comparer is a read-only property")
 

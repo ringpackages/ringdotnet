@@ -142,7 +142,24 @@ func genClass cTypeName, cClass, aMap, nForceInit
 	cWrap += "	ok" + nl
 	cWrap += "	nDotNetWrapHandle = xResult.nHandle" + nl
 	cWrap += "	return new " + cClass + "(" + copyParams(maxz(nInit)) + ")" + nl
+	# Properties and fields become attributes, so that oObj.Text = "x" calls setText() and oObj.Text calls getText()
+	aMethodNames = ["init","nhandle"]
+	for aMethod in aMethods
+		aMethodNames + lower(aMethod[1])
+	next
+	aAttrs = []
+	cAttrs = ""
+	for aMember in aMembers
+		cLowerName = lower(aMember[1])
+		if (find(aMethodNames,cLowerName) = 0) and (find(aAttrs,cLowerName) = 0) and (find(aKeywords,cLowerName) = 0) and (not substr(cReserved,"|" + cLowerName + "|"))
+			aAttrs + cLowerName
+			cAttrs += "	" + aMember[1] + nl
+		ok
+	next
 	cCode += cWrap + nl + "Class " + cClass + " from DotNetObject" + nl + nl
+	if cAttrs != ""
+		cCode += cAttrs + nl
+	ok
 
 	# Constructors: init uses the overload with fewer parameters, New_N the others
 	cCode += "	Func init " + paraList(maxz(nInit)) + nl
@@ -281,6 +298,11 @@ func genClass cTypeName, cClass, aMap, nForceInit
 			cCode += "	Func set" + cName + " P1" + nl
 			cCode += '		dnRequest("set",[' + cTarget + ',"' + cName + '",P1])' + nl
 			cCode += "		return self" + nl + nl
+		but (not aMember[3]) and (find(aAttrs,lower(cName)) > 0) and (find(aNames,lower("set" + cName)) = 0)
+			# read-only property: assigning to the attribute is an error
+			aNames + lower("set" + cName)
+			cCode += "	Func set" + cName + " P1" + nl
+			cCode += '		raise("DotNet Error: ' + cName + ' is a read-only property")' + nl + nl
 		ok
 	next
 

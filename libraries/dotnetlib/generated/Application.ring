@@ -9,6 +9,31 @@ Func DotNetWrap_Application xResult
 
 Class Application from DotNetObject
 
+	AllowQuit
+	CommonAppDataRegistry
+	CommonAppDataPath
+	CompanyName
+	CurrentCulture
+	CurrentInputLanguage
+	ColorMode
+	SystemColorMode
+	IsDarkModeEnabled
+	ExecutablePath
+	HighDpiMode
+	LocalUserAppDataPath
+	MessageLoop
+	OpenForms
+	ProductName
+	ProductVersion
+	RenderWithVisualStyles
+	SafeTopLevelCaptionFormat
+	StartupPath
+	UseWaitCursor
+	UserAppDataPath
+	UserAppDataRegistry
+	UseVisualStyles
+	VisualStyleState
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -162,14 +187,26 @@ Class Application from DotNetObject
 	Func getAllowQuit
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"AllowQuit"])
 
+	Func setAllowQuit P1
+		raise("DotNet Error: AllowQuit is a read-only property")
+
 	Func getCommonAppDataRegistry
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CommonAppDataRegistry"])
+
+	Func setCommonAppDataRegistry P1
+		raise("DotNet Error: CommonAppDataRegistry is a read-only property")
 
 	Func getCommonAppDataPath
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CommonAppDataPath"])
 
+	Func setCommonAppDataPath P1
+		raise("DotNet Error: CommonAppDataPath is a read-only property")
+
 	Func getCompanyName
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CompanyName"])
+
+	Func setCompanyName P1
+		raise("DotNet Error: CompanyName is a read-only property")
 
 	Func getCurrentCulture
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"CurrentCulture"])
@@ -191,11 +228,20 @@ Class Application from DotNetObject
 	Func getSystemColorMode
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"SystemColorMode"])
 
+	Func setSystemColorMode P1
+		raise("DotNet Error: SystemColorMode is a read-only property")
+
 	Func getIsDarkModeEnabled
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"IsDarkModeEnabled"])
 
+	Func setIsDarkModeEnabled P1
+		raise("DotNet Error: IsDarkModeEnabled is a read-only property")
+
 	Func getExecutablePath
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ExecutablePath"])
+
+	Func setExecutablePath P1
+		raise("DotNet Error: ExecutablePath is a read-only property")
 
 	Func getHighDpiMode
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"HighDpiMode"])
@@ -203,20 +249,38 @@ Class Application from DotNetObject
 	Func getLocalUserAppDataPath
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"LocalUserAppDataPath"])
 
+	Func setLocalUserAppDataPath P1
+		raise("DotNet Error: LocalUserAppDataPath is a read-only property")
+
 	Func getMessageLoop
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"MessageLoop"])
+
+	Func setMessageLoop P1
+		raise("DotNet Error: MessageLoop is a read-only property")
 
 	Func getOpenForms
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"OpenForms"])
 
+	Func setOpenForms P1
+		raise("DotNet Error: OpenForms is a read-only property")
+
 	Func getProductName
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductName"])
+
+	Func setProductName P1
+		raise("DotNet Error: ProductName is a read-only property")
 
 	Func getProductVersion
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"ProductVersion"])
 
+	Func setProductVersion P1
+		raise("DotNet Error: ProductVersion is a read-only property")
+
 	Func getRenderWithVisualStyles
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"RenderWithVisualStyles"])
+
+	Func setRenderWithVisualStyles P1
+		raise("DotNet Error: RenderWithVisualStyles is a read-only property")
 
 	Func getSafeTopLevelCaptionFormat
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"SafeTopLevelCaptionFormat"])
@@ -228,6 +292,9 @@ Class Application from DotNetObject
 	Func getStartupPath
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"StartupPath"])
 
+	Func setStartupPath P1
+		raise("DotNet Error: StartupPath is a read-only property")
+
 	Func getUseWaitCursor
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseWaitCursor"])
 
@@ -238,11 +305,20 @@ Class Application from DotNetObject
 	Func getUserAppDataPath
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UserAppDataPath"])
 
+	Func setUserAppDataPath P1
+		raise("DotNet Error: UserAppDataPath is a read-only property")
+
 	Func getUserAppDataRegistry
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UserAppDataRegistry"])
 
+	Func setUserAppDataRegistry P1
+		raise("DotNet Error: UserAppDataRegistry is a read-only property")
+
 	Func getUseVisualStyles
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"UseVisualStyles"])
+
+	Func setUseVisualStyles P1
+		raise("DotNet Error: UseVisualStyles is a read-only property")
 
 	Func getVisualStyleState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.Application'),"VisualStyleState"])

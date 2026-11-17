@@ -9,6 +9,14 @@ Func DotNetWrap_HttpClient xResult
 
 Class HttpClient from DotNetObject
 
+	DefaultRequestHeaders
+	DefaultRequestVersion
+	DefaultVersionPolicy
+	BaseAddress
+	Timeout
+	MaxResponseContentBufferSize
+	DefaultProxy
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -114,6 +122,9 @@ Class HttpClient from DotNetObject
 
 	Func getDefaultRequestHeaders
 		return dnRequest("get",[self,"DefaultRequestHeaders"])
+
+	Func setDefaultRequestHeaders P1
+		raise("DotNet Error: DefaultRequestHeaders is a read-only property")
 
 	Func getDefaultRequestVersion
 		return dnRequest("get",[self,"DefaultRequestVersion"])

@@ -9,6 +9,13 @@ Func DotNetWrap_Stopwatch xResult
 
 Class Stopwatch from DotNetObject
 
+	IsRunning
+	Elapsed
+	ElapsedMilliseconds
+	ElapsedTicks
+	Frequency
+	IsHighResolution
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -58,18 +65,36 @@ Class Stopwatch from DotNetObject
 	Func getIsRunning
 		return dnRequest("get",[self,"IsRunning"])
 
+	Func setIsRunning P1
+		raise("DotNet Error: IsRunning is a read-only property")
+
 	Func getElapsed
 		return DotNetWrap_TimeSpan(dnRequest("get",[self,"Elapsed"]))
+
+	Func setElapsed P1
+		raise("DotNet Error: Elapsed is a read-only property")
 
 	Func getElapsedMilliseconds
 		return dnRequest("get",[self,"ElapsedMilliseconds"])
 
+	Func setElapsedMilliseconds P1
+		raise("DotNet Error: ElapsedMilliseconds is a read-only property")
+
 	Func getElapsedTicks
 		return dnRequest("get",[self,"ElapsedTicks"])
+
+	Func setElapsedTicks P1
+		raise("DotNet Error: ElapsedTicks is a read-only property")
 
 	Func getFrequency
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"Frequency"])
 
+	Func setFrequency P1
+		raise("DotNet Error: Frequency is a read-only property")
+
 	Func getIsHighResolution
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.Stopwatch'),"IsHighResolution"])
+
+	Func setIsHighResolution P1
+		raise("DotNet Error: IsHighResolution is a read-only property")
 

@@ -9,6 +9,32 @@ Func DotNetWrap_Environment xResult
 
 Class Environment from DotNetObject
 
+	CurrentManagedThreadId
+	ExitCode
+	TickCount
+	TickCount64
+	ProcessorCount
+	IsPrivilegedProcess
+	HasShutdownStarted
+	CommandLine
+	CurrentDirectory
+	ProcessId
+	ProcessPath
+	Is64BitProcess
+	Is64BitOperatingSystem
+	NewLine
+	OSVersion
+	StackTrace
+	SystemPageSize
+	UserName
+	UserDomainName
+	MachineName
+	SystemDirectory
+	UserInteractive
+	WorkingSet
+	CpuUsage
+	Version
+
 	Func init 
 		if nDotNetWrapHandle != 0
 			nHandle = nDotNetWrapHandle
@@ -76,6 +102,9 @@ Class Environment from DotNetObject
 	Func getCurrentManagedThreadId
 		return dnRequest("get",[dnTypeCached('System.Environment'),"CurrentManagedThreadId"])
 
+	Func setCurrentManagedThreadId P1
+		raise("DotNet Error: CurrentManagedThreadId is a read-only property")
+
 	Func getExitCode
 		return dnRequest("get",[dnTypeCached('System.Environment'),"ExitCode"])
 
@@ -86,20 +115,38 @@ Class Environment from DotNetObject
 	Func getTickCount
 		return dnRequest("get",[dnTypeCached('System.Environment'),"TickCount"])
 
+	Func setTickCount P1
+		raise("DotNet Error: TickCount is a read-only property")
+
 	Func getTickCount64
 		return dnRequest("get",[dnTypeCached('System.Environment'),"TickCount64"])
+
+	Func setTickCount64 P1
+		raise("DotNet Error: TickCount64 is a read-only property")
 
 	Func getProcessorCount
 		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessorCount"])
 
+	Func setProcessorCount P1
+		raise("DotNet Error: ProcessorCount is a read-only property")
+
 	Func getIsPrivilegedProcess
 		return dnRequest("get",[dnTypeCached('System.Environment'),"IsPrivilegedProcess"])
+
+	Func setIsPrivilegedProcess P1
+		raise("DotNet Error: IsPrivilegedProcess is a read-only property")
 
 	Func getHasShutdownStarted
 		return dnRequest("get",[dnTypeCached('System.Environment'),"HasShutdownStarted"])
 
+	Func setHasShutdownStarted P1
+		raise("DotNet Error: HasShutdownStarted is a read-only property")
+
 	Func getCommandLine
 		return dnRequest("get",[dnTypeCached('System.Environment'),"CommandLine"])
+
+	Func setCommandLine P1
+		raise("DotNet Error: CommandLine is a read-only property")
 
 	Func getCurrentDirectory
 		return dnRequest("get",[dnTypeCached('System.Environment'),"CurrentDirectory"])
@@ -111,48 +158,96 @@ Class Environment from DotNetObject
 	Func getProcessId
 		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessId"])
 
+	Func setProcessId P1
+		raise("DotNet Error: ProcessId is a read-only property")
+
 	Func getProcessPath
 		return dnRequest("get",[dnTypeCached('System.Environment'),"ProcessPath"])
+
+	Func setProcessPath P1
+		raise("DotNet Error: ProcessPath is a read-only property")
 
 	Func getIs64BitProcess
 		return dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitProcess"])
 
+	Func setIs64BitProcess P1
+		raise("DotNet Error: Is64BitProcess is a read-only property")
+
 	Func getIs64BitOperatingSystem
 		return dnRequest("get",[dnTypeCached('System.Environment'),"Is64BitOperatingSystem"])
+
+	Func setIs64BitOperatingSystem P1
+		raise("DotNet Error: Is64BitOperatingSystem is a read-only property")
 
 	Func getNewLine
 		return dnRequest("get",[dnTypeCached('System.Environment'),"NewLine"])
 
+	Func setNewLine P1
+		raise("DotNet Error: NewLine is a read-only property")
+
 	Func getOSVersion
 		return dnRequest("get",[dnTypeCached('System.Environment'),"OSVersion"])
+
+	Func setOSVersion P1
+		raise("DotNet Error: OSVersion is a read-only property")
 
 	Func getStackTrace
 		return dnRequest("get",[dnTypeCached('System.Environment'),"StackTrace"])
 
+	Func setStackTrace P1
+		raise("DotNet Error: StackTrace is a read-only property")
+
 	Func getSystemPageSize
 		return dnRequest("get",[dnTypeCached('System.Environment'),"SystemPageSize"])
+
+	Func setSystemPageSize P1
+		raise("DotNet Error: SystemPageSize is a read-only property")
 
 	Func getUserName
 		return dnRequest("get",[dnTypeCached('System.Environment'),"UserName"])
 
+	Func setUserName P1
+		raise("DotNet Error: UserName is a read-only property")
+
 	Func getUserDomainName
 		return dnRequest("get",[dnTypeCached('System.Environment'),"UserDomainName"])
+
+	Func setUserDomainName P1
+		raise("DotNet Error: UserDomainName is a read-only property")
 
 	Func getMachineName
 		return dnRequest("get",[dnTypeCached('System.Environment'),"MachineName"])
 
+	Func setMachineName P1
+		raise("DotNet Error: MachineName is a read-only property")
+
 	Func getSystemDirectory
 		return dnRequest("get",[dnTypeCached('System.Environment'),"SystemDirectory"])
+
+	Func setSystemDirectory P1
+		raise("DotNet Error: SystemDirectory is a read-only property")
 
 	Func getUserInteractive
 		return dnRequest("get",[dnTypeCached('System.Environment'),"UserInteractive"])
 
+	Func setUserInteractive P1
+		raise("DotNet Error: UserInteractive is a read-only property")
+
 	Func getWorkingSet
 		return dnRequest("get",[dnTypeCached('System.Environment'),"WorkingSet"])
+
+	Func setWorkingSet P1
+		raise("DotNet Error: WorkingSet is a read-only property")
 
 	Func getCpuUsage
 		return dnRequest("get",[dnTypeCached('System.Environment'),"CpuUsage"])
 
+	Func setCpuUsage P1
+		raise("DotNet Error: CpuUsage is a read-only property")
+
 	Func getVersion
 		return dnRequest("get",[dnTypeCached('System.Environment'),"Version"])
+
+	Func setVersion P1
+		raise("DotNet Error: Version is a read-only property")
 
