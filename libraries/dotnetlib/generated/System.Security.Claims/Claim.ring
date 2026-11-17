@@ -55,6 +55,9 @@ Class Claim from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
+	Func CloneWith P1
+		return dnRequest("callnamed",[self,"Clone",P1])
+
 	Func getIssuer
 		return dnRequest("get",[self,"Issuer"])
 

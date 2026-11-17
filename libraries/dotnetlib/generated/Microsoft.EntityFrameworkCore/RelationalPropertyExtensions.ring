@@ -294,3 +294,96 @@ Class RelationalPropertyExtensions from Object
 	Func GetJsonPropertyNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyNameConfigurationSource",P1])
 
+	Func GetColumnNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1])
+
+	Func GetDefaultColumnNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1])
+
+	Func SetColumnNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1])
+
+	Func GetColumnNameConfigurationSourceWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1])
+
+	Func GetColumnOrderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
+
+	Func SetColumnOrderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnOrder",P1])
+
+	Func GetColumnTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1])
+
+	Func SetColumnTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnType",P1])
+
+	Func GetDefaultValueSqlWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1])
+
+	Func SetDefaultValueSqlWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValueSql",P1])
+
+	Func GetComputedColumnSqlWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1])
+
+	Func SetComputedColumnSqlWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComputedColumnSql",P1])
+
+	Func GetIsStoredWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1])
+
+	Func SetIsStoredWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsStored",P1])
+
+	Func GetDefaultValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValue",P1])
+
+	Func TryGetDefaultValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1])
+
+	Func SetDefaultValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValue",P1])
+
+	Func IsFixedLengthWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
+
+	Func SetIsFixedLengthWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1])
+
+	Func IsColumnNullableWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1])
+
+	Func GetCommentWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
+
+	Func SetCommentWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1])
+
+	Func GetCollationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
+
+	Func SetCollationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1])
+
+	Func FindRelationalTypeMappingWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
+
+	Func FindSharedStoreObjectRootPropertyWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSharedStoreObjectRootProperty",P1])
+
+	Func GetOverridesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOverrides",P1])
+
+	Func FindOverridesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindOverrides",P1])
+
+	Func GetOrCreateOverridesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateOverrides",P1])
+
+	Func RemoveOverridesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveOverrides",P1])
+
+	Func SetJsonPropertyNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1])
+

@@ -30,6 +30,9 @@ Class ConnectionInfo from Object
 		dnRequest("call",[self,"RequestClose"])
 		return self
 
+	Func GetClientCertificateAsyncWith P1
+		return dnRequest("callnamed",[self,"GetClientCertificateAsync",P1])
+
 	Func getId
 		return dnRequest("get",[self,"Id"])
 

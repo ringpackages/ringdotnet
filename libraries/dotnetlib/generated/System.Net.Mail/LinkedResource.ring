@@ -29,6 +29,9 @@ Class LinkedResource from AttachmentBase
 	Func CreateLinkedResourceFromString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1,P2])
 
+	Func CreateLinkedResourceFromStringWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
+
 	Func getContentLink
 		return dnRequest("get",[self,"ContentLink"])
 

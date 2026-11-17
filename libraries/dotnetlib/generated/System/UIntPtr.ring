@@ -116,6 +116,21 @@ Class UIntPtr from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"IsOddInteger",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1])
+
 	Func getSize
 		return dnRequest("get",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Size"])
 

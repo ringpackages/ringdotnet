@@ -257,6 +257,58 @@ Class XPathNavigator from XPathItem
 		dnRequest("call",[self,"CreateAttribute",P1,P2,P3,P4])
 		return self
 
+	Func MoveToFirstNamespaceWith P1
+		return dnRequest("callnamed",[self,"MoveToFirstNamespace",P1])
+
+	Func MoveToNextNamespaceWith P1
+		return dnRequest("callnamed",[self,"MoveToNextNamespace",P1])
+
+	Func MoveToNextWith P1
+		return dnRequest("callnamed",[self,"MoveToNext",P1])
+
+	Func MoveToChildWith P1
+		return dnRequest("callnamed",[self,"MoveToChild",P1])
+
+	Func MoveToFollowingWith P1
+		return dnRequest("callnamed",[self,"MoveToFollowing",P1])
+
+	Func SelectSingleNodeWith P1
+		return dnRequest("callnamed",[self,"SelectSingleNode",P1])
+
+	Func SelectWith P1
+		return dnRequest("callnamed",[self,"Select",P1])
+
+	Func EvaluateWith P1
+		return dnRequest("callnamed",[self,"Evaluate",P1])
+
+	Func MatchesWith P1
+		return dnRequest("callnamed",[self,"Matches",P1])
+
+	Func SelectChildrenWith P1
+		return dnRequest("callnamed",[self,"SelectChildren",P1])
+
+	Func SelectAncestorsWith P1
+		return dnRequest("callnamed",[self,"SelectAncestors",P1])
+
+	Func SelectDescendantsWith P1
+		return dnRequest("callnamed",[self,"SelectDescendants",P1])
+
+	Func PrependChildWith P1
+		return dnRequest("callnamed",[self,"PrependChild",P1])
+
+	Func AppendChildWith P1
+		return dnRequest("callnamed",[self,"AppendChild",P1])
+
+	Func InsertAfterWith P1
+		return dnRequest("callnamed",[self,"InsertAfter",P1])
+
+	Func InsertBeforeWith P1
+		return dnRequest("callnamed",[self,"InsertBefore",P1])
+
+	Func ReplaceSelfWith P1
+		dnRequest("callnamed",[self,"ReplaceSelf",P1])
+		return self
+
 	Func getNameTable
 		return dnRequest("get",[self,"NameTable"])
 

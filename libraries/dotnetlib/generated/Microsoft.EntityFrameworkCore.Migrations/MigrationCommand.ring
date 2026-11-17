@@ -37,6 +37,12 @@ Class MigrationCommand from Object
 	Func ExecuteNonQueryAsync P1
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1])
 
+	Func ExecuteNonQueryWith P1
+		return dnRequest("callnamed",[self,"ExecuteNonQuery",P1])
+
+	Func ExecuteNonQueryAsyncWith P1
+		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+
 	Func getTransactionSuppressed
 		return dnRequest("get",[self,"TransactionSuppressed"])
 

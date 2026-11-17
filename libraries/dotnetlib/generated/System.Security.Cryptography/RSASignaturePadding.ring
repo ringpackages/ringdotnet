@@ -17,6 +17,9 @@ Class RSASignaturePadding from Object
 		ok
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getMode
 		return dnRequest("get",[self,"Mode"])
 

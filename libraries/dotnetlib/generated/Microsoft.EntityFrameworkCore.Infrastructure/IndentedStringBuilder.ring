@@ -53,6 +53,18 @@ Class IndentedStringBuilder from Object
 	Func SuspendIndent 
 		return dnRequest("call",[self,"SuspendIndent"])
 
+	Func AppendWith P1
+		return dnRequest("callnamed",[self,"Append",P1])
+
+	Func AppendLineWith P1
+		return dnRequest("callnamed",[self,"AppendLine",P1])
+
+	Func AppendLinesWith P1
+		return dnRequest("callnamed",[self,"AppendLines",P1])
+
+	Func AppendJoinWith P1
+		return dnRequest("callnamed",[self,"AppendJoin",P1])
+
 	Func getIndentCount
 		return dnRequest("get",[self,"IndentCount"])
 

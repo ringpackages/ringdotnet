@@ -34,6 +34,15 @@ Class AuthorizationBuilder from Object
 	Func AddFallbackPolicy P1,P2
 		return dnRequest("call",[self,"AddFallbackPolicy",P1,P2])
 
+	Func AddPolicyWith P1
+		return dnRequest("callnamed",[self,"AddPolicy",P1])
+
+	Func AddDefaultPolicyWith P1
+		return dnRequest("callnamed",[self,"AddDefaultPolicy",P1])
+
+	Func AddFallbackPolicyWith P1
+		return dnRequest("callnamed",[self,"AddFallbackPolicy",P1])
+
 	Func getServices
 		return dnRequest("get",[self,"Services"])
 

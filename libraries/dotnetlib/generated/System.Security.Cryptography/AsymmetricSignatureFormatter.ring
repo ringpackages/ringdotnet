@@ -24,3 +24,6 @@ Class AsymmetricSignatureFormatter from Object
 	Func CreateSignature P1
 		return dnRequest("call",[self,"CreateSignature",P1])
 
+	Func CreateSignatureWith P1
+		return dnRequest("callnamed",[self,"CreateSignature",P1])
+

@@ -39,6 +39,9 @@ Class ViewComponent from Object
 	Func View_2 P1,P2
 		return dnRequest("call",[self,"View",P1,P2])
 
+	Func ViewWith P1
+		return dnRequest("callnamed",[self,"View",P1])
+
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
 

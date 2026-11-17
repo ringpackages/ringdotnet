@@ -39,6 +39,12 @@ Class Screen from Object
 	Func GetBounds_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
 
+	Func GetWorkingAreaWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetWorkingArea",P1])
+
+	Func GetBoundsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
+
 	Func getBitsPerPixel
 		return dnRequest("get",[self,"BitsPerPixel"])
 

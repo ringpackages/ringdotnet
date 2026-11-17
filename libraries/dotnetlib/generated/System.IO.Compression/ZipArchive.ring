@@ -43,6 +43,9 @@ Class ZipArchive from Object
 	Func GetEntry P1
 		return dnRequest("call",[self,"GetEntry",P1])
 
+	Func CreateEntryWith P1
+		return dnRequest("callnamed",[self,"CreateEntry",P1])
+
 	Func getComment
 		return dnRequest("get",[self,"Comment"])
 

@@ -53,3 +53,18 @@ Class MemoryExtensions from Object
 	Func TrimEnd P1
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
 
+	Func AsSpanWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
+
+	Func AsMemoryWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
+
+	Func TrimWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1])
+
+	Func TrimStartWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1])
+
+	Func TrimEndWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1])
+

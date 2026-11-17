@@ -39,6 +39,9 @@ Class DataGridLength from ValueType
 		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[P1,P2,P3,P4])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getIsAbsolute
 		return dnRequest("get",[self,"IsAbsolute"])
 

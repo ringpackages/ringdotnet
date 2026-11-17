@@ -19,3 +19,6 @@ Class ChainedBuilderExtensions from Object
 	Func AddConfiguration_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1,P2,P3])
 
+	Func AddConfigurationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1])
+

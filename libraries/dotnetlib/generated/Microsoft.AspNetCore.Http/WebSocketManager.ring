@@ -22,6 +22,9 @@ Class WebSocketManager from Object
 	Func AcceptWebSocketAsync_1 P1
 		return dnRequest("call",[self,"AcceptWebSocketAsync",P1])
 
+	Func AcceptWebSocketAsyncWith P1
+		return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
+
 	Func getIsWebSocketRequest
 		return dnRequest("get",[self,"IsWebSocketRequest"])
 

@@ -35,6 +35,9 @@ Class TimeProvider from Object
 	Func CreateTimer P1,P2,P3,P4
 		return dnRequest("call",[self,"CreateTimer",P1,P2,P3,P4])
 
+	Func GetElapsedTimeWith P1
+		return dnRequest("callnamed",[self,"GetElapsedTime",P1])
+
 	Func getLocalTimeZone
 		return dnRequest("get",[self,"LocalTimeZone"])
 

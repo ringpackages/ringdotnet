@@ -81,6 +81,15 @@ Class ClaimsIdentity from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
+	Func FindAllWith P1
+		return dnRequest("callnamed",[self,"FindAll",P1])
+
+	Func FindFirstWith P1
+		return dnRequest("callnamed",[self,"FindFirst",P1])
+
+	Func HasClaimWith P1
+		return dnRequest("callnamed",[self,"HasClaim",P1])
+
 	Func getAuthenticationType
 		return dnRequest("get",[self,"AuthenticationType"])
 

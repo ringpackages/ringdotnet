@@ -62,6 +62,9 @@ Class Frame from ContentControl
 		dnRequest("call",[self,"Refresh"])
 		return self
 
+	Func NavigateWith P1
+		return dnRequest("callnamed",[self,"Navigate",P1])
+
 	Func setContentRenderedEvent P1
 		dnRequest("setevent",[self,"ContentRendered",dnCallback(P1)])
 		return self

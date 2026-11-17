@@ -44,5 +44,5 @@ if oFile.Exists(cZip) oFile.Delete(cZip) ok
 new ZipFile().CreateFromDirectory(cDir,cZip)
 ? "Zip created   : " + new FileInfo(cZip).Length + " bytes"
 
-new Directory().Delete_2(cDir,1)
+new Directory().DeleteWith([ :path = cDir, :recursive = True ])
 oFile.Delete(cZip)

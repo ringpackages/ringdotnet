@@ -55,6 +55,22 @@ Class XDocument from XContainer
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1,P2])
 
+	Func SaveWith P1
+		dnRequest("callnamed",[self,"Save",P1])
+		return self
+
+	Func SaveAsyncWith P1
+		return dnRequest("callnamed",[self,"SaveAsync",P1])
+
+	Func LoadWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
+
+	Func LoadAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"LoadAsync",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
+
 	Func getDeclaration
 		return dnRequest("get",[self,"Declaration"])
 

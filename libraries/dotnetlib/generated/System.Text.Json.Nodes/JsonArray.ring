@@ -61,6 +61,13 @@ Class JsonArray from JsonNode
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1])
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

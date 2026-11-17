@@ -25,3 +25,6 @@ Class SqliteDbContextOptionsBuilderExtensions from Object
 	Func UseSqlite_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1,P2,P3,P4])
 
+	Func UseSqliteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1])
+

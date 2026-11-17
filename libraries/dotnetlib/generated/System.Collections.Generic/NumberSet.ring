@@ -122,6 +122,14 @@ Class NumberSet from Object
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
 
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func TrimExcessWith P1
+		dnRequest("callnamed",[self,"TrimExcess",P1])
+		return self
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

@@ -22,6 +22,12 @@ Class RouteValueEqualityComparer from Object
 	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func GetHashCodeWith P1
+		return dnRequest("callnamed",[self,"GetHashCode",P1])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components'),"Default"])
 

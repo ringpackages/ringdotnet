@@ -34,3 +34,12 @@ Class HKDF from Object
 	Func DeriveKey P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3])
 
+	Func ExtractWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1])
+
+	Func ExpandWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1])
+
+	Func DeriveKeyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1])
+

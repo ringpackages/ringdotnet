@@ -30,6 +30,9 @@ Class ExecutionStrategy from Object
 	Func CallOnWrappedException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy, Microsoft.EntityFrameworkCore'),"CallOnWrappedException",P1,P2])
 
+	Func ExecuteAsyncWith P1
+		return dnRequest("callnamed",[self,"ExecuteAsync",P1])
+
 	Func getMaxRetryCount
 		return dnRequest("get",[self,"MaxRetryCount"])
 

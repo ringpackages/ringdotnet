@@ -51,6 +51,9 @@ Class Barrier from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func SignalAndWaitWith P1
+		return dnRequest("callnamed",[self,"SignalAndWait",P1])
+
 	Func getParticipantsRemaining
 		return dnRequest("get",[self,"ParticipantsRemaining"])
 

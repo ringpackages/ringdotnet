@@ -25,3 +25,6 @@ Class MvcRazorMvcCoreBuilderExtensions from Object
 	Func InitializeTagHelper P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"InitializeTagHelper",P1,P2])
 
+	Func AddRazorViewEngineWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Razor'),"AddRazorViewEngine",P1])
+

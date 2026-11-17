@@ -22,3 +22,6 @@ Class EncodingProvider from Object
 	Func GetEncodings 
 		return dnRequest("call",[self,"GetEncodings"])
 
+	Func GetEncodingWith P1
+		return dnRequest("callnamed",[self,"GetEncoding",P1])
+

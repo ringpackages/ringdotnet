@@ -64,6 +64,16 @@ Class NameValueCollection from NameObjectCollectionBase
 	Func GetKey P1
 		return dnRequest("call",[self,"GetKey",P1])
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func GetWith P1
+		return dnRequest("callnamed",[self,"Get",P1])
+
+	Func GetValuesWith P1
+		return dnRequest("callnamed",[self,"GetValues",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

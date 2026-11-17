@@ -16,6 +16,9 @@ Class RelationalTypeMappingSourceDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getPlugins
 		return dnRequest("get",[self,"Plugins"])
 

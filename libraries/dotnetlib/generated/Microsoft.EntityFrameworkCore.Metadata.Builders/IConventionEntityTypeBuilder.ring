@@ -348,6 +348,141 @@ Class IConventionEntityTypeBuilder from DotNetObject
 	Func GetTargetEntityTypeBuilder P1,P2
 		return dnRequest("call",[self,"GetTargetEntityTypeBuilder",P1,P2])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func HasBaseTypeWith P1
+		return dnRequest("callnamed",[self,"HasBaseType",P1])
+
+	Func CanSetBaseTypeWith P1
+		return dnRequest("callnamed",[self,"CanSetBaseType",P1])
+
+	Func HasNoPropertyWith P1
+		return dnRequest("callnamed",[self,"HasNoProperty",P1])
+
+	Func HasNoComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
+
+	Func ServicePropertyWith P1
+		return dnRequest("callnamed",[self,"ServiceProperty",P1])
+
+	Func CanHaveServicePropertyWith P1
+		return dnRequest("callnamed",[self,"CanHaveServiceProperty",P1])
+
+	Func HasNoServicePropertyWith P1
+		return dnRequest("callnamed",[self,"HasNoServiceProperty",P1])
+
+	Func CanRemoveServicePropertyWith P1
+		return dnRequest("callnamed",[self,"CanRemoveServiceProperty",P1])
+
+	Func IgnoreWith P1
+		return dnRequest("callnamed",[self,"Ignore",P1])
+
+	Func PrimaryKeyWith P1
+		return dnRequest("callnamed",[self,"PrimaryKey",P1])
+
+	Func CanSetPrimaryKeyWith P1
+		return dnRequest("callnamed",[self,"CanSetPrimaryKey",P1])
+
+	Func HasKeyWith P1
+		return dnRequest("callnamed",[self,"HasKey",P1])
+
+	Func HasNoKeyWith P1
+		return dnRequest("callnamed",[self,"HasNoKey",P1])
+
+	Func CanRemoveKeyWith P1
+		return dnRequest("callnamed",[self,"CanRemoveKey",P1])
+
+	Func HasIndexWith P1
+		return dnRequest("callnamed",[self,"HasIndex",P1])
+
+	Func CanHaveIndexWith P1
+		return dnRequest("callnamed",[self,"CanHaveIndex",P1])
+
+	Func HasNoIndexWith P1
+		return dnRequest("callnamed",[self,"HasNoIndex",P1])
+
+	Func CanRemoveIndexWith P1
+		return dnRequest("callnamed",[self,"CanRemoveIndex",P1])
+
+	Func HasRelationshipWith P1
+		return dnRequest("callnamed",[self,"HasRelationship",P1])
+
+	Func HasOwnershipWith P1
+		return dnRequest("callnamed",[self,"HasOwnership",P1])
+
+	Func HasNoRelationshipWith P1
+		return dnRequest("callnamed",[self,"HasNoRelationship",P1])
+
+	Func CanRemoveRelationshipWith P1
+		return dnRequest("callnamed",[self,"CanRemoveRelationship",P1])
+
+	Func CanHaveNavigationWith P1
+		return dnRequest("callnamed",[self,"CanHaveNavigation",P1])
+
+	Func HasNoNavigationWith P1
+		return dnRequest("callnamed",[self,"HasNoNavigation",P1])
+
+	Func CanRemoveNavigationWith P1
+		return dnRequest("callnamed",[self,"CanRemoveNavigation",P1])
+
+	Func CanHaveSkipNavigationWith P1
+		return dnRequest("callnamed",[self,"CanHaveSkipNavigation",P1])
+
+	Func HasSkipNavigationWith P1
+		return dnRequest("callnamed",[self,"HasSkipNavigation",P1])
+
+	Func HasNoSkipNavigationWith P1
+		return dnRequest("callnamed",[self,"HasNoSkipNavigation",P1])
+
+	Func CanRemoveSkipNavigationWith P1
+		return dnRequest("callnamed",[self,"CanRemoveSkipNavigation",P1])
+
+	Func HasTriggerWith P1
+		return dnRequest("callnamed",[self,"HasTrigger",P1])
+
+	Func CanHaveTriggerWith P1
+		return dnRequest("callnamed",[self,"CanHaveTrigger",P1])
+
+	Func HasQueryFilterWith P1
+		return dnRequest("callnamed",[self,"HasQueryFilter",P1])
+
+	Func CanSetQueryFilterWith P1
+		return dnRequest("callnamed",[self,"CanSetQueryFilter",P1])
+
+	Func HasDefiningQueryWith P1
+		return dnRequest("callnamed",[self,"HasDefiningQuery",P1])
+
+	Func CanSetDefiningQueryWith P1
+		return dnRequest("callnamed",[self,"CanSetDefiningQuery",P1])
+
+	Func HasChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+
+	Func UsePropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+
+	Func HasDiscriminatorWith P1
+		return dnRequest("callnamed",[self,"HasDiscriminator",P1])
+
+	Func HasNoDiscriminatorWith P1
+		return dnRequest("callnamed",[self,"HasNoDiscriminator",P1])
+
+	Func CanSetDiscriminatorWith P1
+		return dnRequest("callnamed",[self,"CanSetDiscriminator",P1])
+
+	Func CanRemoveDiscriminatorWith P1
+		return dnRequest("callnamed",[self,"CanRemoveDiscriminator",P1])
+
+	Func GetTargetEntityTypeBuilderWith P1
+		return dnRequest("callnamed",[self,"GetTargetEntityTypeBuilder",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

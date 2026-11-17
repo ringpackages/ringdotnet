@@ -31,3 +31,9 @@ Class IConventionNavigationBase from DotNetObject
 	Func GetLazyLoadingEnabledConfigurationSource 
 		return dnRequest("call",[self,"GetLazyLoadingEnabledConfigurationSource"])
 
+	Func SetIsEagerLoadedWith P1
+		return dnRequest("callnamed",[self,"SetIsEagerLoaded",P1])
+
+	Func SetLazyLoadingEnabledWith P1
+		return dnRequest("callnamed",[self,"SetLazyLoadingEnabled",P1])
+

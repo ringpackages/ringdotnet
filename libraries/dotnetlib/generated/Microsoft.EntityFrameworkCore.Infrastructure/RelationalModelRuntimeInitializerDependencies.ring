@@ -17,6 +17,9 @@ Class RelationalModelRuntimeInitializerDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelRuntimeInitializerDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getRelationalModelDependencies
 		return dnRequest("get",[self,"RelationalModelDependencies"])
 

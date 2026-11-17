@@ -35,6 +35,10 @@ Class NotifyIcon from Component
 		dnRequest("call",[self,"ShowBalloonTip",P1,P2,P3,P4])
 		return self
 
+	Func ShowBalloonTipWith P1
+		dnRequest("callnamed",[self,"ShowBalloonTip",P1])
+		return self
+
 	Func setBalloonTipClickedEvent P1
 		dnRequest("setevent",[self,"BalloonTipClicked",dnCallback(P1)])
 		return self

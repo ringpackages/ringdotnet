@@ -18,6 +18,12 @@ Class Rotation3D from Animatable
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getIdentity
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Media3D.Rotation3D, PresentationCore'),"Identity"])
 

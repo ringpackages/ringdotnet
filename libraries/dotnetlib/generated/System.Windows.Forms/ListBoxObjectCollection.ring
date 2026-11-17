@@ -57,6 +57,10 @@ Class ListBoxObjectCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
+	Func AddRangeWith P1
+		dnRequest("callnamed",[self,"AddRange",P1])
+		return self
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

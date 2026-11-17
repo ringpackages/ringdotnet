@@ -19,6 +19,9 @@ Class MaterializerLiftableConstantContext from Object
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getDependencies
 		return dnRequest("get",[self,"Dependencies"])
 

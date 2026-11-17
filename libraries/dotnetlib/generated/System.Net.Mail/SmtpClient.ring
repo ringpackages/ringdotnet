@@ -71,6 +71,17 @@ Class SmtpClient from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func SendWith P1
+		dnRequest("callnamed",[self,"Send",P1])
+		return self
+
+	Func SendAsyncWith P1
+		dnRequest("callnamed",[self,"SendAsync",P1])
+		return self
+
+	Func SendMailAsyncWith P1
+		return dnRequest("callnamed",[self,"SendMailAsync",P1])
+
 	Func setSendCompletedEvent P1
 		dnRequest("setevent",[self,"SendCompleted",dnCallback(P1)])
 		return self

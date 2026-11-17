@@ -17,3 +17,6 @@ Class CheckedListBoxObjectCollection from ListBoxObjectCollection
 	Func Add_2 P1,P2
 		return dnRequest("call",[self,"Add",P1,P2])
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+

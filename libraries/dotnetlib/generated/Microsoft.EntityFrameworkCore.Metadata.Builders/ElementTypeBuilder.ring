@@ -49,6 +49,18 @@ Class ElementTypeBuilder from Object
 	Func HasConversion_2 P1,P2
 		return dnRequest("call",[self,"HasConversion",P1,P2])
 
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+
+	Func HasPrecisionWith P1
+		return dnRequest("callnamed",[self,"HasPrecision",P1])
+
+	Func IsUnicodeWith P1
+		return dnRequest("callnamed",[self,"IsUnicode",P1])
+
+	Func HasConversionWith P1
+		return dnRequest("callnamed",[self,"HasConversion",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

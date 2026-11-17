@@ -61,6 +61,15 @@ Class TypeDescriptionProvider from Object
 	Func IsSupportedType P1
 		return dnRequest("call",[self,"IsSupportedType",P1])
 
+	Func GetReflectionTypeWith P1
+		return dnRequest("callnamed",[self,"GetReflectionType",P1])
+
+	Func GetTypeDescriptorWith P1
+		return dnRequest("callnamed",[self,"GetTypeDescriptor",P1])
+
+	Func GetTypeDescriptorFromRegisteredTypeWith P1
+		return dnRequest("callnamed",[self,"GetTypeDescriptorFromRegisteredType",P1])
+
 	Func getRequireRegisteredTypes
 		return dnRequest("get",[self,"RequireRegisteredTypes"])
 

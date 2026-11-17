@@ -19,3 +19,6 @@ Class SessionServiceCollectionExtensions from Object
 	Func AddSession_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session'),"AddSession",P1,P2])
 
+	Func AddSessionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SessionServiceCollectionExtensions, Microsoft.AspNetCore.Session'),"AddSession",P1])
+

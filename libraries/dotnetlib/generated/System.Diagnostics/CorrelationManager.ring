@@ -28,6 +28,10 @@ Class CorrelationManager from Object
 		dnRequest("call",[self,"StartLogicalOperation",P1])
 		return self
 
+	Func StartLogicalOperationWith P1
+		dnRequest("callnamed",[self,"StartLogicalOperation",P1])
+		return self
+
 	Func getLogicalOperationStack
 		return dnRequest("get",[self,"LogicalOperationStack"])
 

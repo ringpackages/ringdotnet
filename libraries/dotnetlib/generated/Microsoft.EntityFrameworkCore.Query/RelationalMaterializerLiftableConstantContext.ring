@@ -17,6 +17,9 @@ Class RelationalMaterializerLiftableConstantContext from MaterializerLiftableCon
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalMaterializerLiftableConstantContext, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
+	Func DeconstructWith P1
+		return dnRequest("callnamed",[self,"Deconstruct",P1])
+
 	Func getRelationalDependencies
 		return dnRequest("get",[self,"RelationalDependencies"])
 

@@ -18,6 +18,9 @@ Class ModelSourceDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelSourceDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModelCustomizer
 		return dnRequest("get",[self,"ModelCustomizer"])
 

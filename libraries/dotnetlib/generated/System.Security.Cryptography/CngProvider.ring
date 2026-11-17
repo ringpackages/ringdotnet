@@ -19,6 +19,9 @@ Class CngProvider from Object
 		nHandle = dnCreate('System.Security.Cryptography.CngProvider, System.Security.Cryptography',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getProvider
 		return dnRequest("get",[self,"Provider"])
 

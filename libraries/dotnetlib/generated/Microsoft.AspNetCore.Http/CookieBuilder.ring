@@ -31,6 +31,9 @@ Class CookieBuilder from Object
 	Func Build_2 P1,P2
 		return dnRequest("call",[self,"Build",P1,P2])
 
+	Func BuildWith P1
+		return dnRequest("callnamed",[self,"Build",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

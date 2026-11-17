@@ -43,3 +43,9 @@ Class IItemContainerGenerator from DotNetObject
 	Func IndexFromGeneratorPosition P1
 		return dnRequest("call",[self,"IndexFromGeneratorPosition",P1])
 
+	Func StartAtWith P1
+		return dnRequest("callnamed",[self,"StartAt",P1])
+
+	Func GenerateNextWith P1
+		return dnRequest("callnamed",[self,"GenerateNext",P1])
+

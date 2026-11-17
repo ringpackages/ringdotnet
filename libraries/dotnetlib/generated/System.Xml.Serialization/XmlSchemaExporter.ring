@@ -29,3 +29,13 @@ Class XmlSchemaExporter from Object
 	Func ExportAnyType P1
 		return dnRequest("call",[self,"ExportAnyType",P1])
 
+	Func ExportTypeMappingWith P1
+		return dnRequest("callnamed",[self,"ExportTypeMapping",P1])
+
+	Func ExportMembersMappingWith P1
+		dnRequest("callnamed",[self,"ExportMembersMapping",P1])
+		return self
+
+	Func ExportAnyTypeWith P1
+		return dnRequest("callnamed",[self,"ExportAnyType",P1])
+

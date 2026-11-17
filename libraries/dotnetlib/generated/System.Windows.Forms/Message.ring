@@ -26,6 +26,9 @@ Class Message from ValueType
 	Func Create P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Message, System.Windows.Forms.Primitives'),"Create",P1,P2,P3,P4])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getHWnd
 		return dnRequest("get",[self,"HWnd"])
 

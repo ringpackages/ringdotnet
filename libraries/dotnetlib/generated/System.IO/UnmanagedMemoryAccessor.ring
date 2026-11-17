@@ -79,6 +79,9 @@ Class UnmanagedMemoryAccessor from Object
 		dnRequest("call",[self,"WriteArray",P1,P2,P3,P4])
 		return self
 
+	Func WriteWith P1
+		return dnRequest("callnamed",[self,"Write",P1])
+
 	Func getCapacity
 		return dnRequest("get",[self,"Capacity"])
 

@@ -26,6 +26,12 @@ Class GradientStop from Animatable
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getColor
 		return dnRequest("get",[self,"Color"])
 

@@ -144,6 +144,66 @@ Class IConventionModelBuilder from DotNetObject
 	Func CanSetEmbeddedDiscriminatorName P1
 		return dnRequest("call",[self,"CanSetEmbeddedDiscriminatorName",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func EntityWith P1
+		return dnRequest("callnamed",[self,"Entity",P1])
+
+	Func SharedTypeEntityWith P1
+		return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
+
+	Func OwnedWith P1
+		return dnRequest("callnamed",[self,"Owned",P1])
+
+	Func ComplexTypeWith P1
+		return dnRequest("callnamed",[self,"ComplexType",P1])
+
+	Func IsIgnoredWith P1
+		return dnRequest("callnamed",[self,"IsIgnored",P1])
+
+	Func IgnoreWith P1
+		return dnRequest("callnamed",[self,"Ignore",P1])
+
+	Func CanHaveEntityWith P1
+		return dnRequest("callnamed",[self,"CanHaveEntity",P1])
+
+	Func CanHaveSharedTypeEntityWith P1
+		return dnRequest("callnamed",[self,"CanHaveSharedTypeEntity",P1])
+
+	Func HasNoEntityTypeWith P1
+		return dnRequest("callnamed",[self,"HasNoEntityType",P1])
+
+	Func CanRemoveEntityWith P1
+		return dnRequest("callnamed",[self,"CanRemoveEntity",P1])
+
+	Func CanIgnoreWith P1
+		return dnRequest("callnamed",[self,"CanIgnore",P1])
+
+	Func HasChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+
+	Func CanSetChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"CanSetChangeTrackingStrategy",P1])
+
+	Func UsePropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+
+	Func CanSetPropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"CanSetPropertyAccessMode",P1])
+
+	Func HasEmbeddedDiscriminatorNameWith P1
+		return dnRequest("callnamed",[self,"HasEmbeddedDiscriminatorName",P1])
+
+	Func CanSetEmbeddedDiscriminatorNameWith P1
+		return dnRequest("callnamed",[self,"CanSetEmbeddedDiscriminatorName",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

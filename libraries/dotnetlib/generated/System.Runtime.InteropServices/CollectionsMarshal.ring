@@ -26,3 +26,9 @@ Class CollectionsMarshal from Object
 		dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"SetCount",P1,P2])
 		return self
 
+	Func GetValueRefOrNullRefWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"GetValueRefOrNullRef",P1])
+
+	Func GetValueRefOrAddDefaultWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.CollectionsMarshal, System.Private.CoreLib'),"GetValueRefOrAddDefault",P1])
+

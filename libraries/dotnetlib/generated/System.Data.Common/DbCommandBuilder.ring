@@ -50,6 +50,15 @@ Class DbCommandBuilder from Component
 	Func UnquoteIdentifier P1
 		return dnRequest("call",[self,"UnquoteIdentifier",P1])
 
+	Func GetInsertCommandWith P1
+		return dnRequest("callnamed",[self,"GetInsertCommand",P1])
+
+	Func GetUpdateCommandWith P1
+		return dnRequest("callnamed",[self,"GetUpdateCommand",P1])
+
+	Func GetDeleteCommandWith P1
+		return dnRequest("callnamed",[self,"GetDeleteCommand",P1])
+
 	Func getConflictOption
 		return dnRequest("get",[self,"ConflictOption"])
 

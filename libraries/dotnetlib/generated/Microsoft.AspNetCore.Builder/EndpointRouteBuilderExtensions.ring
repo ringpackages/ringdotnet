@@ -43,3 +43,30 @@ Class EndpointRouteBuilderExtensions from Object
 	Func MapFallback_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1,P2,P3])
 
+	Func MapGroupWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGroup",P1])
+
+	Func MapGetWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGet",P1])
+
+	Func MapPostWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPost",P1])
+
+	Func MapPutWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPut",P1])
+
+	Func MapDeleteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapDelete",P1])
+
+	Func MapPatchWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPatch",P1])
+
+	Func MapMethodsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapMethods",P1])
+
+	Func MapWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"Map",P1])
+
+	Func MapFallbackWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.EndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1])
+

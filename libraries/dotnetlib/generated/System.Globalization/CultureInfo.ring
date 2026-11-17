@@ -77,6 +77,9 @@ Class CultureInfo from Object
 	Func GetCultureInfoByIetfLanguageTag P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfoByIetfLanguageTag",P1])
 
+	Func GetCultureInfoWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CultureInfo, System.Private.CoreLib'),"GetCultureInfo",P1])
+
 	Func getParent
 		return dnRequest("get",[self,"Parent"])
 

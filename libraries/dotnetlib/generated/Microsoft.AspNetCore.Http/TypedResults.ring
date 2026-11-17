@@ -337,6 +337,87 @@ Class TypedResults from Object
 	Func AcceptedAtRoute_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1,P2,P3])
 
+	Func ChallengeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
+
+	Func ForbidWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Forbid",P1])
+
+	Func SignInWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignIn",P1])
+
+	Func SignOutWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignOut",P1])
+
+	Func ContentWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1])
+
+	Func TextWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Text",P1])
+
+	Func JsonWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1])
+
+	Func FileWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1])
+
+	Func BytesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1])
+
+	Func StreamWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1])
+
+	Func PhysicalFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1])
+
+	Func VirtualFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1])
+
+	Func RedirectWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Redirect",P1])
+
+	Func LocalRedirectWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1])
+
+	Func RedirectToRouteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1])
+
+	Func NotFoundWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"NotFound",P1])
+
+	Func BadRequestWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
+
+	Func ConflictWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Conflict",P1])
+
+	Func OkWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
+
+	Func UnprocessableEntityWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity",P1])
+
+	Func InternalServerErrorWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"InternalServerError",P1])
+
+	Func ProblemWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
+
+	Func ValidationProblemWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1])
+
+	Func CreatedWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Created",P1])
+
+	Func CreatedAtRouteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
+
+	Func AcceptedWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
+
+	Func AcceptedAtRouteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1])
+
 	Func getEmpty
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Empty"])
 

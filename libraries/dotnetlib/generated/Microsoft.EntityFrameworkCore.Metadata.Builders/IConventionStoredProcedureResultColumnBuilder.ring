@@ -45,6 +45,21 @@ Class IConventionStoredProcedureResultColumnBuilder from DotNetObject
 	Func CanSetName P1
 		return dnRequest("call",[self,"CanSetName",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func HasNameWith P1
+		return dnRequest("callnamed",[self,"HasName",P1])
+
+	Func CanSetNameWith P1
+		return dnRequest("callnamed",[self,"CanSetName",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

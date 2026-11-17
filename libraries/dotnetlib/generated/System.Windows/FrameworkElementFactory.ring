@@ -61,6 +61,10 @@ Class FrameworkElementFactory from Object
 	Func GetType_0 
 		return dnRequest("call",[self,"GetType"])
 
+	Func AddHandlerWith P1
+		dnRequest("callnamed",[self,"AddHandler",P1])
+		return self
+
 	Func getType
 		return dnRequest("get",[self,"Type"])
 

@@ -409,6 +409,112 @@ Class Marshal from Object
 	Func GetPInvokeErrorMessage P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetPInvokeErrorMessage",P1])
 
+	Func OffsetOfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"OffsetOf",P1])
+
+	Func ReadByteWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ReadByte",P1])
+
+	Func ReadInt16With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ReadInt16",P1])
+
+	Func ReadInt32With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ReadInt32",P1])
+
+	Func ReadInt64With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ReadInt64",P1])
+
+	Func WriteByteWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"WriteByte",P1])
+		return self
+
+	Func WriteInt16With P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"WriteInt16",P1])
+		return self
+
+	Func WriteInt32With P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"WriteInt32",P1])
+		return self
+
+	Func WriteInt64With P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"WriteInt64",P1])
+		return self
+
+	Func StructureToPtrWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"StructureToPtr",P1])
+		return self
+
+	Func DestroyStructureWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"DestroyStructure",P1])
+		return self
+
+	Func GetComInterfaceForObjectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetComInterfaceForObject",P1])
+
+	Func CreateAggregatedObjectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"CreateAggregatedObject",P1])
+
+	Func CreateWrapperOfTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"CreateWrapperOfType",P1])
+
+	Func GetNativeVariantForObjectWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetNativeVariantForObject",P1])
+		return self
+
+	Func GetObjectForNativeVariantWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetObjectForNativeVariant",P1])
+
+	Func GetObjectsForNativeVariantsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetObjectsForNativeVariants",P1])
+
+	Func AllocHGlobalWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"AllocHGlobal",P1])
+
+	Func PtrToStringAnsiWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"PtrToStringAnsi",P1])
+
+	Func PtrToStringUniWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"PtrToStringUni",P1])
+
+	Func PtrToStringUTF8With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"PtrToStringUTF8",P1])
+
+	Func SizeOfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"SizeOf",P1])
+
+	Func UnsafeAddrOfPinnedArrayElementWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"UnsafeAddrOfPinnedArrayElement",P1])
+
+	Func CopyWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"Copy",P1])
+		return self
+
+	Func ReadIntPtrWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ReadIntPtr",P1])
+
+	Func WriteIntPtrWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"WriteIntPtr",P1])
+		return self
+
+	Func PtrToStructureWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"PtrToStructure",P1])
+
+	Func GetExceptionForHRWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetExceptionForHR",P1])
+
+	Func ThrowExceptionForHRWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"ThrowExceptionForHR",P1])
+		return self
+
+	Func GetDelegateForFunctionPointerWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetDelegateForFunctionPointer",P1])
+
+	Func GetFunctionPointerForDelegateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"GetFunctionPointerForDelegate",P1])
+
+	Func PtrToStringAutoWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"PtrToStringAuto",P1])
+
 	Func getSystemDefaultCharSize
 		return dnRequest("get",[dnTypeCached('System.Runtime.InteropServices.Marshal, System.Private.CoreLib'),"SystemDefaultCharSize"])
 

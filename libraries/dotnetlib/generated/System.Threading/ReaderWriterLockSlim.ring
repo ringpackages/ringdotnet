@@ -67,6 +67,15 @@ Class ReaderWriterLockSlim from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func TryEnterReadLockWith P1
+		return dnRequest("callnamed",[self,"TryEnterReadLock",P1])
+
+	Func TryEnterWriteLockWith P1
+		return dnRequest("callnamed",[self,"TryEnterWriteLock",P1])
+
+	Func TryEnterUpgradeableReadLockWith P1
+		return dnRequest("callnamed",[self,"TryEnterUpgradeableReadLock",P1])
+
 	Func getIsReadLockHeld
 		return dnRequest("get",[self,"IsReadLockHeld"])
 

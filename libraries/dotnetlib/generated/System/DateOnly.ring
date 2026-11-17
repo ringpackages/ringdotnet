@@ -99,6 +99,30 @@ Class DateOnly from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])
 
+	Func ToDateTimeWith P1
+		return dnRequest("callnamed",[self,"ToDateTime",P1])
+
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
+
+	Func ParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
+
+	Func TryParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1])
+
 	Func getYear
 		return dnRequest("get",[self,"Year"])
 

@@ -116,6 +116,42 @@ Class Trace from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Unindent"])
 		return self
 
+	Func AssertWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Assert",P1])
+		return self
+
+	Func FailWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Fail",P1])
+		return self
+
+	Func TraceInformationWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceInformation",P1])
+		return self
+
+	Func TraceWarningWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceWarning",P1])
+		return self
+
+	Func TraceErrorWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceError",P1])
+		return self
+
+	Func WriteWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Write",P1])
+		return self
+
+	Func WriteLineWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLine",P1])
+		return self
+
+	Func WriteIfWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteIf",P1])
+		return self
+
+	Func WriteLineIfWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLineIf",P1])
+		return self
+
 	Func setRefreshingEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Refreshing",dnCallback(P1)])
 		return self

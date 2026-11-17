@@ -38,6 +38,10 @@ Class GroupBoxRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
+	Func DrawGroupBoxWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1])
+		return self
+
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])
 

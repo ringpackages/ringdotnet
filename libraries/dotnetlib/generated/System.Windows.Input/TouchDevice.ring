@@ -35,6 +35,9 @@ Class TouchDevice from InputDevice
 		dnRequest("call",[self,"Synchronize"])
 		return self
 
+	Func CaptureWith P1
+		return dnRequest("callnamed",[self,"Capture",P1])
+
 	Func setActivatedEvent P1
 		dnRequest("setevent",[self,"Activated",dnCallback(P1)])
 		return self

@@ -145,3 +145,45 @@ Class IDbTransactionInterceptor from DotNetObject
 	Func TransactionFailedAsync P1,P2
 		return dnRequest("call",[self,"TransactionFailedAsync",P1,P2])
 
+	Func TransactionStartingAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionStartingAsync",P1])
+
+	Func TransactionStartedAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionStartedAsync",P1])
+
+	Func TransactionUsedAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionUsedAsync",P1])
+
+	Func TransactionCommittingAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionCommittingAsync",P1])
+
+	Func TransactionCommittedAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionCommittedAsync",P1])
+
+	Func TransactionRollingBackAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionRollingBackAsync",P1])
+
+	Func TransactionRolledBackAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionRolledBackAsync",P1])
+
+	Func CreatingSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"CreatingSavepointAsync",P1])
+
+	Func CreatedSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"CreatedSavepointAsync",P1])
+
+	Func RollingBackToSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"RollingBackToSavepointAsync",P1])
+
+	Func RolledBackToSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"RolledBackToSavepointAsync",P1])
+
+	Func ReleasingSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"ReleasingSavepointAsync",P1])
+
+	Func ReleasedSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"ReleasedSavepointAsync",P1])
+
+	Func TransactionFailedAsyncWith P1
+		return dnRequest("callnamed",[self,"TransactionFailedAsync",P1])
+

@@ -40,3 +40,9 @@ Class TarReader from Object
 	Func GetNextEntryAsync 
 		return dnRequest("call",[self,"GetNextEntryAsync"])
 
+	Func GetNextEntryWith P1
+		return dnRequest("callnamed",[self,"GetNextEntry",P1])
+
+	Func GetNextEntryAsyncWith P1
+		return dnRequest("callnamed",[self,"GetNextEntryAsync",P1])
+

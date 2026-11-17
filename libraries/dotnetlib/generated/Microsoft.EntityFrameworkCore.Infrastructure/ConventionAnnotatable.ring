@@ -22,3 +22,15 @@ Class ConventionAnnotatable from Annotatable
 	Func SetOrRemoveAnnotation P1,P2,P3
 		return dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2,P3])
 
+	Func GetAnnotationsWith P1
+		return dnRequest("callnamed",[self,"GetAnnotations",P1])
+
+	Func AddAnnotationWith P1
+		return dnRequest("callnamed",[self,"AddAnnotation",P1])
+
+	Func SetAnnotationWith P1
+		return dnRequest("callnamed",[self,"SetAnnotation",P1])
+
+	Func FindAnnotationWith P1
+		return dnRequest("callnamed",[self,"FindAnnotation",P1])
+

@@ -19,3 +19,6 @@ Class ControllerActionEndpointConventionBuilderResourceCollectionExtensions from
 	Func WithStaticAssets P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"WithStaticAssets",P1])
 
+	Func WithStaticAssetsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"WithStaticAssets",P1])
+

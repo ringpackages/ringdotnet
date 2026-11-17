@@ -23,6 +23,9 @@ Class Thickness from ValueType
 		nHandle = dnCreate('System.Windows.Thickness, PresentationFramework',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getLeft
 		return dnRequest("get",[self,"Left"])
 

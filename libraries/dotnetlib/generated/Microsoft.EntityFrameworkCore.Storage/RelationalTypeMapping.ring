@@ -60,6 +60,15 @@ Class RelationalTypeMapping from CoreTypeMapping
 	Func GetDataReaderMethod_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
+	Func CreateParameterWith P1
+		return dnRequest("callnamed",[self,"CreateParameter",P1])
+
+	Func GetDataReaderMethodWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
+		ok
+		return dnRequest("callnamed",[self,"GetDataReaderMethod",P1])
+
 	Func getStoreTypePostfix
 		return dnRequest("get",[self,"StoreTypePostfix"])
 

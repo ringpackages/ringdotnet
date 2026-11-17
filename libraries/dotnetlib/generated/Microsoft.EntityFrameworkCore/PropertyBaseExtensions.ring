@@ -19,3 +19,6 @@ Class PropertyBaseExtensions from Object
 	Func Format P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.PropertyBaseExtensions, Microsoft.EntityFrameworkCore'),"Format",P1])
 
+	Func FormatWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.PropertyBaseExtensions, Microsoft.EntityFrameworkCore'),"Format",P1])
+

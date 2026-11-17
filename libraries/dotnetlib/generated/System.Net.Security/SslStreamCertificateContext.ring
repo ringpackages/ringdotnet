@@ -25,6 +25,9 @@ Class SslStreamCertificateContext from Object
 	Func Create P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"Create",P1,P2])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslStreamCertificateContext, System.Net.Security'),"Create",P1])
+
 	Func getTargetCertificate
 		return dnRequest("get",[self,"TargetCertificate"])
 

@@ -43,7 +43,7 @@ oCalc.Add(10).Multiply(3)                             # fluent: methods that ret
 ? oCalc.Total                                         # 30
 oCalc.Name = "mine"                                   # a property
 ? new Calculator().Square(7)                          # a static method
-? oCalc.Describe_2("High","Sum")                      # an enum as a string, an optional parameter
+? oCalc.DescribeWith([ :level = "High", :prefix = "Sum" ])                      # an enum as a string, an optional parameter
 aDivide = oCalc.TryDivide(4)                          # out parameters come back in a list
 ? aDivide[2]
 ```

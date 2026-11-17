@@ -29,6 +29,9 @@ Class X500DistinguishedName from AsnEncodedData
 	Func EnumerateRelativeDistinguishedNames 
 		return dnRequest("call",[self,"EnumerateRelativeDistinguishedNames"])
 
+	Func EnumerateRelativeDistinguishedNamesWith P1
+		return dnRequest("callnamed",[self,"EnumerateRelativeDistinguishedNames",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

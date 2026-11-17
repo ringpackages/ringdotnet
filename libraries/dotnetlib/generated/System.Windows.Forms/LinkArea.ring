@@ -22,6 +22,9 @@ Class LinkArea from ValueType
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getStart
 		return dnRequest("get",[self,"Start"])
 

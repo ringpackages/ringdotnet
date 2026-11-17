@@ -25,3 +25,6 @@ Class IEntityMaterializerSource from DotNetObject
 	Func GetEmptyMaterializer P1
 		return dnRequest("call",[self,"GetEmptyMaterializer",P1])
 
+	Func CreateMaterializeExpressionWith P1
+		return dnRequest("callnamed",[self,"CreateMaterializeExpression",P1])
+

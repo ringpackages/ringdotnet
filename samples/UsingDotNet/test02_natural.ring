@@ -36,4 +36,4 @@ oEnv = new Environment()
 ? oEnv.getMachineName() != ""
 
 oRnd = new Random(42)
-? oRnd.Next_2(1,10) >= 1
+? oRnd.NextWith([ :minValue = 1, :maxValue = 10 ]) >= 1

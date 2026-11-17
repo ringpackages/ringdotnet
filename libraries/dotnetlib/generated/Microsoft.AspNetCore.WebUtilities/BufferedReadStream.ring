@@ -38,6 +38,12 @@ Class BufferedReadStream from Stream
 	Func ReadLineAsync P1,P2
 		return dnRequest("call",[self,"ReadLineAsync",P1,P2])
 
+	Func EnsureBufferedWith P1
+		return dnRequest("callnamed",[self,"EnsureBuffered",P1])
+
+	Func EnsureBufferedAsyncWith P1
+		return dnRequest("callnamed",[self,"EnsureBufferedAsync",P1])
+
 	Func getBufferedData
 		return dnRequest("get",[self,"BufferedData"])
 

@@ -31,3 +31,9 @@ Class SqlExpressionVisitor from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func VisitWith P1
+		return dnRequest("callnamed",[self,"Visit",P1])
+
+	Func VisitAndConvertWith P1
+		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
+

@@ -19,3 +19,6 @@ Class ServerRazorComponentsBuilderExtensions from Object
 	Func AddInteractiveServerComponents P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerComponents",P1])
 
+	Func AddInteractiveServerComponentsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServerRazorComponentsBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerComponents",P1])
+

@@ -19,3 +19,6 @@ Class JsonProtocolDependencyInjectionExtensions from Object
 	Func AddJsonProtocol_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1,P2])
 
+	Func AddJsonProtocolWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.JsonProtocolDependencyInjectionExtensions, Microsoft.AspNetCore.SignalR.Protocols.Json'),"AddJsonProtocol",P1])
+

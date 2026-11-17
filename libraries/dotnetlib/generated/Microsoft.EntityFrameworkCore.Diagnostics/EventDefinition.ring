@@ -25,3 +25,7 @@ Class EventDefinition from EventDefinitionBase
 		dnRequest("call",[self,"Log",P1])
 		return self
 
+	Func LogWith P1
+		dnRequest("callnamed",[self,"Log",P1])
+		return self
+

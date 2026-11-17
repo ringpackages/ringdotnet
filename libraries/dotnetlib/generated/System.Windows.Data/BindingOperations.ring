@@ -75,6 +75,10 @@ Class BindingOperations from Object
 	Func GetSourceUpdatingBindingGroups P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"GetSourceUpdatingBindingGroups",P1])
 
+	Func EnableCollectionSynchronizationWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"EnableCollectionSynchronization",P1])
+		return self
+
 	Func setCollectionRegisteringEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"CollectionRegistering",dnCallback(P1)])
 		return self

@@ -33,6 +33,12 @@ Class AttributeCollection from Object
 	Func FromExisting P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.AttributeCollection, System.ComponentModel.TypeConverter'),"FromExisting",P1,P2])
 
+	Func ContainsWith P1
+		return dnRequest("callnamed",[self,"Contains",P1])
+
+	Func MatchesWith P1
+		return dnRequest("callnamed",[self,"Matches",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

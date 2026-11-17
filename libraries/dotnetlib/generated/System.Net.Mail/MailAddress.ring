@@ -36,6 +36,9 @@ Class MailAddress from Object
 	Func TryCreate_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1,P2,P3])
 
+	Func TryCreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
+
 	Func getDisplayName
 		return dnRequest("get",[self,"DisplayName"])
 

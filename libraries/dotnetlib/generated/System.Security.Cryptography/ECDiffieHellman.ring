@@ -42,6 +42,15 @@ Class ECDiffieHellman from ECAlgorithm
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
+	Func DeriveKeyFromHashWith P1
+		return dnRequest("callnamed",[self,"DeriveKeyFromHash",P1])
+
+	Func DeriveKeyFromHmacWith P1
+		return dnRequest("callnamed",[self,"DeriveKeyFromHmac",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
+
 	Func getPublicKey
 		return dnRequest("get",[self,"PublicKey"])
 

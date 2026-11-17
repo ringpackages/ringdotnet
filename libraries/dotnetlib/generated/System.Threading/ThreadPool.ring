@@ -56,6 +56,21 @@ Class ThreadPool from Object
 	Func GetAvailableThreads 
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"GetAvailableThreads"])
 
+	Func RegisterWaitForSingleObjectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"RegisterWaitForSingleObject",P1])
+
+	Func UnsafeRegisterWaitForSingleObjectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeRegisterWaitForSingleObject",P1])
+
+	Func QueueUserWorkItemWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1])
+
+	Func UnsafeQueueUserWorkItemWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeQueueUserWorkItem",P1])
+
+	Func BindHandleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"BindHandle",P1])
+
 	Func getPendingWorkItemCount
 		return dnRequest("get",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"PendingWorkItemCount"])
 

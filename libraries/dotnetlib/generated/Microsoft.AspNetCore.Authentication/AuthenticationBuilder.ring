@@ -28,6 +28,9 @@ Class AuthenticationBuilder from Object
 	Func AddPolicyScheme P1,P2,P3
 		return dnRequest("call",[self,"AddPolicyScheme",P1,P2,P3])
 
+	Func AddSchemeWith P1
+		return dnRequest("callnamed",[self,"AddScheme",P1])
+
 	Func getServices
 		return dnRequest("get",[self,"Services"])
 

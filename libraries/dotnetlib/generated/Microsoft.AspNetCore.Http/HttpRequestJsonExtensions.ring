@@ -28,3 +28,6 @@ Class HttpRequestJsonExtensions from Object
 	Func HasJsonContentType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"HasJsonContentType",P1])
 
+	Func ReadFromJsonAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1])
+

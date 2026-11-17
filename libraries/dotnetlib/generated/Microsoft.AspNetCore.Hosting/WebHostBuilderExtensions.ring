@@ -34,3 +34,15 @@ Class WebHostBuilderExtensions from Object
 	Func UseStaticWebAssets P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStaticWebAssets",P1])
 
+	Func ConfigureWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"Configure",P1])
+
+	Func UseStartupWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStartup",P1])
+
+	Func UseDefaultServiceProviderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseDefaultServiceProvider",P1])
+
+	Func ConfigureLoggingWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureLogging",P1])
+

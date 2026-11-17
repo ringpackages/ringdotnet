@@ -162,3 +162,48 @@ Class RelationalDatabaseFacadeExtensions from Object
 	Func HasPendingModelChanges P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasPendingModelChanges",P1])
 
+	Func GetAppliedMigrationsAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetAppliedMigrationsAsync",P1])
+
+	Func GetPendingMigrationsAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetPendingMigrationsAsync",P1])
+
+	Func MigrateWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"Migrate",P1])
+		return self
+
+	Func MigrateAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"MigrateAsync",P1])
+
+	Func ExecuteSqlRawWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRaw",P1])
+
+	Func ExecuteSqlInterpolatedAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlInterpolatedAsync",P1])
+
+	Func ExecuteSqlAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlAsync",P1])
+
+	Func ExecuteSqlRawAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRawAsync",P1])
+
+	Func SetDbConnectionWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDbConnection",P1])
+		return self
+
+	Func OpenConnectionAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"OpenConnectionAsync",P1])
+
+	Func BeginTransactionAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"BeginTransactionAsync",P1])
+
+	Func UseTransactionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransaction",P1])
+
+	Func UseTransactionAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransactionAsync",P1])
+
+	Func SetCommandTimeoutWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCommandTimeout",P1])
+		return self
+

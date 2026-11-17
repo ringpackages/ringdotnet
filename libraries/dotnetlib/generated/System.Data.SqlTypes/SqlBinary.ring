@@ -58,6 +58,15 @@ Class SqlBinary from ValueType
 	Func WrapBytes P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"WrapBytes",P1])
 
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

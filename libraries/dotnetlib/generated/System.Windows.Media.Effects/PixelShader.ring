@@ -23,6 +23,9 @@ Class PixelShader from Animatable
 		dnRequest("call",[self,"SetStreamSource",P1])
 		return self
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
 	Func setInvalidPixelShaderEncounteredEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Media.Effects.PixelShader, PresentationCore'),"InvalidPixelShaderEncountered",dnCallback(P1)])
 		return self

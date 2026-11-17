@@ -94,6 +94,42 @@ Class Geometry from Animatable
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Parse",P1])
 
+	Func GetRenderBoundsWith P1
+		return dnRequest("callnamed",[self,"GetRenderBounds",P1])
+
+	Func GetAreaWith P1
+		return dnRequest("callnamed",[self,"GetArea",P1])
+
+	Func FillContainsWith P1
+		return dnRequest("callnamed",[self,"FillContains",P1])
+
+	Func StrokeContainsWith P1
+		return dnRequest("callnamed",[self,"StrokeContains",P1])
+
+	Func FillContainsWithDetailWith P1
+		return dnRequest("callnamed",[self,"FillContainsWithDetail",P1])
+
+	Func StrokeContainsWithDetailWith P1
+		return dnRequest("callnamed",[self,"StrokeContainsWithDetail",P1])
+
+	Func GetFlattenedPathGeometryWith P1
+		return dnRequest("callnamed",[self,"GetFlattenedPathGeometry",P1])
+
+	Func GetWidenedPathGeometryWith P1
+		return dnRequest("callnamed",[self,"GetWidenedPathGeometry",P1])
+
+	Func GetOutlinedPathGeometryWith P1
+		return dnRequest("callnamed",[self,"GetOutlinedPathGeometry",P1])
+
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func CombineWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1])
+
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
 

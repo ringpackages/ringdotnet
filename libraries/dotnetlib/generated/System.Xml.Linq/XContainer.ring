@@ -56,6 +56,24 @@ Class XContainer from XNode
 		dnRequest("call",[self,"ReplaceNodes",P1])
 		return self
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func AddFirstWith P1
+		dnRequest("callnamed",[self,"AddFirst",P1])
+		return self
+
+	Func DescendantsWith P1
+		return dnRequest("callnamed",[self,"Descendants",P1])
+
+	Func ElementsWith P1
+		return dnRequest("callnamed",[self,"Elements",P1])
+
+	Func ReplaceNodesWith P1
+		dnRequest("callnamed",[self,"ReplaceNodes",P1])
+		return self
+
 	Func getFirstNode
 		return dnRequest("get",[self,"FirstNode"])
 

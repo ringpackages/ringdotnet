@@ -322,6 +322,44 @@ Class Control from Component
 	Func IsMnemonic P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Control, System.Windows.Forms'),"IsMnemonic",P1,P2])
 
+	Func BeginInvokeWith P1
+		return dnRequest("callnamed",[self,"BeginInvoke",P1])
+
+	Func DoDragDropWith P1
+		return dnRequest("callnamed",[self,"DoDragDrop",P1])
+
+	Func GetChildAtPointWith P1
+		return dnRequest("callnamed",[self,"GetChildAtPoint",P1])
+
+	Func InvalidateWith P1
+		dnRequest("callnamed",[self,"Invalidate",P1])
+		return self
+
+	Func InvokeWith P1
+		return dnRequest("callnamed",[self,"Invoke",P1])
+
+	Func LogicalToDeviceUnitsWith P1
+		return dnRequest("callnamed",[self,"LogicalToDeviceUnits",P1])
+
+	Func PerformLayoutWith P1
+		dnRequest("callnamed",[self,"PerformLayout",P1])
+		return self
+
+	Func ResumeLayoutWith P1
+		dnRequest("callnamed",[self,"ResumeLayout",P1])
+		return self
+
+	Func ScaleWith P1
+		dnRequest("callnamed",[self,"Scale",P1])
+		return self
+
+	Func SetBoundsWith P1
+		dnRequest("callnamed",[self,"SetBounds",P1])
+		return self
+
+	Func InvokeAsyncWith P1
+		return dnRequest("callnamed",[self,"InvokeAsync",P1])
+
 	Func setAutoSizeChangedEvent P1
 		dnRequest("setevent",[self,"AutoSizeChanged",dnCallback(P1)])
 		return self

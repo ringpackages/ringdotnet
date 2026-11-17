@@ -19,3 +19,6 @@ Class RazorComponentsServiceCollectionExtensions from Object
 	Func AddRazorComponents P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddRazorComponents",P1])
 
+	Func AddRazorComponentsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RazorComponentsServiceCollectionExtensions, Microsoft.AspNetCore.Components.Endpoints'),"AddRazorComponents",P1])
+

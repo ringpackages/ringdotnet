@@ -20,6 +20,9 @@ Class ViewBuilder from Object
 	Func Property P1
 		return dnRequest("call",[self,"Property",P1])
 
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

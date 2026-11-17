@@ -47,6 +47,15 @@ Class AuthorizationPolicyBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func RequireClaimWith P1
+		return dnRequest("callnamed",[self,"RequireClaim",P1])
+
+	Func RequireRoleWith P1
+		return dnRequest("callnamed",[self,"RequireRole",P1])
+
+	Func RequireAssertionWith P1
+		return dnRequest("callnamed",[self,"RequireAssertion",P1])
+
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])
 

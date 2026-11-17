@@ -22,3 +22,6 @@ Class DbFunctionsExtensions from Object
 	Func Random P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Random",P1])
 
+	Func LikeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Like",P1])
+

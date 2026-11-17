@@ -15,6 +15,9 @@ Class Effect from Animatable
 		ok
 		return self
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
 	Func getImplicitInput
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Effects.Effect, PresentationCore'),"ImplicitInput"])
 

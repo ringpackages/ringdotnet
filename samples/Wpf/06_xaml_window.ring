@@ -30,6 +30,6 @@ wpfEnd()
 
 func selfTest
 	dnAssert("title from XAML",oWindow.Title,"From XAML")
-	oEvent = new RoutedEventArgs().New_1(new WpfButtonBase().ClickEvent)
+	oEvent = dnNewWith("RoutedEventArgs",[ :routedEvent = new WpfButtonBase().ClickEvent ])
 	oPress.RaiseEvent(oEvent)
 	dnAssert("event handler",oMessage.Text,"The XAML button was pressed")

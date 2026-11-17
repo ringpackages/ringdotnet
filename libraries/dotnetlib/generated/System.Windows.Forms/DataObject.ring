@@ -102,3 +102,30 @@ Class DataObject from Object
 		dnRequest("call",[self,"SetText",P1,P2])
 		return self
 
+	Func GetDataWith P1
+		return dnRequest("callnamed",[self,"GetData",P1])
+
+	Func GetDataPresentWith P1
+		return dnRequest("callnamed",[self,"GetDataPresent",P1])
+
+	Func GetFormatsWith P1
+		return dnRequest("callnamed",[self,"GetFormats",P1])
+
+	Func SetDataWith P1
+		dnRequest("callnamed",[self,"SetData",P1])
+		return self
+
+	Func ContainsTextWith P1
+		return dnRequest("callnamed",[self,"ContainsText",P1])
+
+	Func GetTextWith P1
+		return dnRequest("callnamed",[self,"GetText",P1])
+
+	Func SetAudioWith P1
+		dnRequest("callnamed",[self,"SetAudio",P1])
+		return self
+
+	Func SetTextWith P1
+		dnRequest("callnamed",[self,"SetText",P1])
+		return self
+

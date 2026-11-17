@@ -74,6 +74,18 @@ Class DataView from MarshalByValueComponent
 	Func ToTable_3 P1,P2,P3
 		return dnRequest("call",[self,"ToTable",P1,P2,P3])
 
+	Func FindWith P1
+		return dnRequest("callnamed",[self,"Find",P1])
+
+	Func FindRowsWith P1
+		return dnRequest("callnamed",[self,"FindRows",P1])
+
+	Func ToTableWith P1
+		return dnRequest("callnamed",[self,"ToTable",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

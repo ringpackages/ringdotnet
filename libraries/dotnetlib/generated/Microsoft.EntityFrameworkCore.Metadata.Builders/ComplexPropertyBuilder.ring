@@ -73,6 +73,21 @@ Class ComplexPropertyBuilder from Object
 	Func UseDefaultPropertyAccessMode P1
 		return dnRequest("call",[self,"UseDefaultPropertyAccessMode",P1])
 
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
+	Func PrimitiveCollectionWith P1
+		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+
+	Func IndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"IndexerProperty",P1])
+
+	Func ComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"ComplexProperty",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

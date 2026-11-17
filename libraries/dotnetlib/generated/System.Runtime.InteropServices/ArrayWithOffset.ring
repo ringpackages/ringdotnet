@@ -24,3 +24,6 @@ Class ArrayWithOffset from ValueType
 	Func GetOffset 
 		return dnRequest("call",[self,"GetOffset"])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+

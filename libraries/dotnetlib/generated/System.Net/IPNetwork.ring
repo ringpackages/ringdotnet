@@ -30,6 +30,9 @@ Class IPNetwork from ValueType
 	Func TryParse P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPNetwork, System.Net.Primitives'),"TryParse",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getBaseAddress
 		return dnRequest("get",[self,"BaseAddress"])
 

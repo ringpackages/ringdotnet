@@ -22,3 +22,6 @@ Class TripleDES from SymmetricAlgorithm
 	Func IsWeakKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"IsWeakKey",P1])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"Create",P1])
+

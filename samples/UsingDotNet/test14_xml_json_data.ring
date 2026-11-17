@@ -25,8 +25,8 @@ oRoot = oDocument.RootElement
 
 # DataTable with SQL-like filtering and sorting
 oTable = new DataTable()
-oTable.Columns.Add_2("Product","System.String")
-oTable.Columns.Add_2("Qty","System.Int32")
+oTable.Columns.AddWith([ :columnName = "Product", :type = "System.String" ])
+oTable.Columns.AddWith([ :columnName = "Qty", :type = "System.Int32" ])
 oTable {
 	Rows.Add(["pens",120])
 	Rows.Add(["paper",15])
@@ -36,4 +36,4 @@ oTable {
 oView = oTable.DefaultView
 oView.Sort = "Qty DESC"
 ? "Biggest stock   : " + oView.Item(0).Item("Product")
-? "Low stock rows  : " + len(oTable.Select_1("Qty < 100").toList())
+? "Low stock rows  : " + len(oTable.SelectWith([ :filterExpression = "Qty < 100" ]).toList())

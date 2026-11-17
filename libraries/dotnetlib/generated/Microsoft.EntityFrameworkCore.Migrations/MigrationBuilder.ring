@@ -440,6 +440,96 @@ Class MigrationBuilder from Object
 	Func UpdateData_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"UpdateData",P1,P2,P3,P4,P5,P6,P7])
 
+	Func AddColumnWith P1
+		return dnRequest("callnamed",[self,"AddColumn",P1])
+
+	Func AddForeignKeyWith P1
+		return dnRequest("callnamed",[self,"AddForeignKey",P1])
+
+	Func AddPrimaryKeyWith P1
+		return dnRequest("callnamed",[self,"AddPrimaryKey",P1])
+
+	Func AddUniqueConstraintWith P1
+		return dnRequest("callnamed",[self,"AddUniqueConstraint",P1])
+
+	Func AlterColumnWith P1
+		return dnRequest("callnamed",[self,"AlterColumn",P1])
+
+	Func AlterDatabaseWith P1
+		return dnRequest("callnamed",[self,"AlterDatabase",P1])
+
+	Func AlterSequenceWith P1
+		return dnRequest("callnamed",[self,"AlterSequence",P1])
+
+	Func AlterTableWith P1
+		return dnRequest("callnamed",[self,"AlterTable",P1])
+
+	Func CreateIndexWith P1
+		return dnRequest("callnamed",[self,"CreateIndex",P1])
+
+	Func CreateSequenceWith P1
+		return dnRequest("callnamed",[self,"CreateSequence",P1])
+
+	Func CreateCheckConstraintWith P1
+		return dnRequest("callnamed",[self,"CreateCheckConstraint",P1])
+
+	Func AddCheckConstraintWith P1
+		return dnRequest("callnamed",[self,"AddCheckConstraint",P1])
+
+	Func CreateTableWith P1
+		return dnRequest("callnamed",[self,"CreateTable",P1])
+
+	Func DropColumnWith P1
+		return dnRequest("callnamed",[self,"DropColumn",P1])
+
+	Func DropForeignKeyWith P1
+		return dnRequest("callnamed",[self,"DropForeignKey",P1])
+
+	Func DropIndexWith P1
+		return dnRequest("callnamed",[self,"DropIndex",P1])
+
+	Func DropPrimaryKeyWith P1
+		return dnRequest("callnamed",[self,"DropPrimaryKey",P1])
+
+	Func DropSequenceWith P1
+		return dnRequest("callnamed",[self,"DropSequence",P1])
+
+	Func DropCheckConstraintWith P1
+		return dnRequest("callnamed",[self,"DropCheckConstraint",P1])
+
+	Func DropTableWith P1
+		return dnRequest("callnamed",[self,"DropTable",P1])
+
+	Func DropUniqueConstraintWith P1
+		return dnRequest("callnamed",[self,"DropUniqueConstraint",P1])
+
+	Func RenameColumnWith P1
+		return dnRequest("callnamed",[self,"RenameColumn",P1])
+
+	Func RenameIndexWith P1
+		return dnRequest("callnamed",[self,"RenameIndex",P1])
+
+	Func RenameSequenceWith P1
+		return dnRequest("callnamed",[self,"RenameSequence",P1])
+
+	Func RenameTableWith P1
+		return dnRequest("callnamed",[self,"RenameTable",P1])
+
+	Func RestartSequenceWith P1
+		return dnRequest("callnamed",[self,"RestartSequence",P1])
+
+	Func SqlWith P1
+		return dnRequest("callnamed",[self,"Sql",P1])
+
+	Func InsertDataWith P1
+		return dnRequest("callnamed",[self,"InsertData",P1])
+
+	Func DeleteDataWith P1
+		return dnRequest("callnamed",[self,"DeleteData",P1])
+
+	Func UpdateDataWith P1
+		return dnRequest("callnamed",[self,"UpdateData",P1])
+
 	Func getActiveProvider
 		return dnRequest("get",[self,"ActiveProvider"])
 

@@ -86,6 +86,19 @@ Class JsonNode from Object
 	Func ParseAsync P1
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
 
+	Func ToJsonStringWith P1
+		return dnRequest("callnamed",[self,"ToJsonString",P1])
+
+	Func WriteToWith P1
+		dnRequest("callnamed",[self,"WriteTo",P1])
+		return self
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
+
+	Func ParseAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

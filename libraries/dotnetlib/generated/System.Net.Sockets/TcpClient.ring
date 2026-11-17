@@ -68,6 +68,16 @@ Class TcpClient from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func ConnectWith P1
+		dnRequest("callnamed",[self,"Connect",P1])
+		return self
+
+	Func ConnectAsyncWith P1
+		return dnRequest("callnamed",[self,"ConnectAsync",P1])
+
+	Func BeginConnectWith P1
+		return dnRequest("callnamed",[self,"BeginConnect",P1])
+
 	Func getAvailable
 		return dnRequest("get",[self,"Available"])
 

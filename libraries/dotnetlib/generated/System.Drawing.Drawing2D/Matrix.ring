@@ -108,6 +108,38 @@ Class Matrix from MarshalByRefObject
 		dnRequest("call",[self,"VectorTransformPoints",P1])
 		return self
 
+	Func MultiplyWith P1
+		dnRequest("callnamed",[self,"Multiply",P1])
+		return self
+
+	Func TranslateWith P1
+		dnRequest("callnamed",[self,"Translate",P1])
+		return self
+
+	Func ScaleWith P1
+		dnRequest("callnamed",[self,"Scale",P1])
+		return self
+
+	Func RotateWith P1
+		dnRequest("callnamed",[self,"Rotate",P1])
+		return self
+
+	Func RotateAtWith P1
+		dnRequest("callnamed",[self,"RotateAt",P1])
+		return self
+
+	Func ShearWith P1
+		dnRequest("callnamed",[self,"Shear",P1])
+		return self
+
+	Func TransformPointsWith P1
+		dnRequest("callnamed",[self,"TransformPoints",P1])
+		return self
+
+	Func TransformVectorsWith P1
+		dnRequest("callnamed",[self,"TransformVectors",P1])
+		return self
+
 	Func getElements
 		return dnRequest("get",[self,"Elements"])
 

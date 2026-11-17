@@ -17,6 +17,9 @@ Class RelationalQueryContextDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryContextDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getRelationalConnection
 		return dnRequest("get",[self,"RelationalConnection"])
 

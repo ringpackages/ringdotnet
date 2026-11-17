@@ -108,6 +108,58 @@ Class DbContext from Object
 	Func FromExpression P1
 		return dnRequest("call",[self,"FromExpression",P1])
 
+	Func SetWith P1
+		return dnRequest("callnamed",[self,"Set",P1])
+
+	Func SaveChangesWith P1
+		return dnRequest("callnamed",[self,"SaveChanges",P1])
+
+	Func SaveChangesAsyncWith P1
+		return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
+
+	Func EntryWith P1
+		return dnRequest("callnamed",[self,"Entry",P1])
+
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func AddAsyncWith P1
+		return dnRequest("callnamed",[self,"AddAsync",P1])
+
+	Func AttachWith P1
+		return dnRequest("callnamed",[self,"Attach",P1])
+
+	Func UpdateWith P1
+		return dnRequest("callnamed",[self,"Update",P1])
+
+	Func RemoveWith P1
+		return dnRequest("callnamed",[self,"Remove",P1])
+
+	Func AddRangeWith P1
+		dnRequest("callnamed",[self,"AddRange",P1])
+		return self
+
+	Func AddRangeAsyncWith P1
+		return dnRequest("callnamed",[self,"AddRangeAsync",P1])
+
+	Func AttachRangeWith P1
+		dnRequest("callnamed",[self,"AttachRange",P1])
+		return self
+
+	Func UpdateRangeWith P1
+		dnRequest("callnamed",[self,"UpdateRange",P1])
+		return self
+
+	Func RemoveRangeWith P1
+		dnRequest("callnamed",[self,"RemoveRange",P1])
+		return self
+
+	Func FindWith P1
+		return dnRequest("callnamed",[self,"Find",P1])
+
+	Func FindAsyncWith P1
+		return dnRequest("callnamed",[self,"FindAsync",P1])
+
 	Func setSavingChangesEvent P1
 		dnRequest("setevent",[self,"SavingChanges",dnCallback(P1)])
 		return self

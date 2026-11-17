@@ -33,6 +33,12 @@ Class Timer from MarshalByRefObject
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func ChangeWith P1
+		return dnRequest("callnamed",[self,"Change",P1])
+
+	Func DisposeWith P1
+		return dnRequest("callnamed",[self,"Dispose",P1])
+
 	Func getActiveCount
 		return dnRequest("get",[dnTypeCached('System.Threading.Timer, System.Private.CoreLib'),"ActiveCount"])
 

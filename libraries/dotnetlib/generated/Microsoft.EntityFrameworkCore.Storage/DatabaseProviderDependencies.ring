@@ -14,3 +14,6 @@ Class DatabaseProviderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DatabaseProviderDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+

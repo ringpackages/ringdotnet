@@ -22,3 +22,6 @@ Class MvcCorsMvcCoreBuilderExtensions from Object
 	Func ConfigureCors P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors'),"ConfigureCors",P1,P2])
 
+	Func AddCorsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Cors'),"AddCors",P1])
+

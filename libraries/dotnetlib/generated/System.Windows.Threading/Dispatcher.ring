@@ -99,6 +99,18 @@ Class Dispatcher from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"ValidatePriority",P1,P2])
 		return self
 
+	Func BeginInvokeWith P1
+		return dnRequest("callnamed",[self,"BeginInvoke",P1])
+
+	Func InvokeWith P1
+		return dnRequest("callnamed",[self,"Invoke",P1])
+
+	Func InvokeAsyncWith P1
+		return dnRequest("callnamed",[self,"InvokeAsync",P1])
+
+	Func YieldWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
+
 	Func setShutdownStartedEvent P1
 		dnRequest("setevent",[self,"ShutdownStarted",dnCallback(P1)])
 		return self

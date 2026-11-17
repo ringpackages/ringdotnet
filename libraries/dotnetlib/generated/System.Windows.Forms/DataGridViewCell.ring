@@ -103,6 +103,9 @@ Class DataGridViewCell from DataGridViewElement
 	Func MeasureTextWidth P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"MeasureTextWidth",P1,P2,P3,P4,P5])
 
+	Func MeasureTextHeightWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.DataGridViewCell, System.Windows.Forms'),"MeasureTextHeight",P1])
+
 	Func getAccessibilityObject
 		return dnRequest("get",[self,"AccessibilityObject"])
 

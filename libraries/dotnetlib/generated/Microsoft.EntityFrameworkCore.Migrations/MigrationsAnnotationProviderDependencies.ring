@@ -14,3 +14,6 @@ Class MigrationsAnnotationProviderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsAnnotationProviderDependencies, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+

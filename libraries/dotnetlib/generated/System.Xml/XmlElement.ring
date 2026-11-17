@@ -74,6 +74,31 @@ Class XmlElement from XmlLinkedNode
 		dnRequest("call",[self,"RemoveAllAttributes"])
 		return self
 
+	Func GetAttributeWith P1
+		return dnRequest("callnamed",[self,"GetAttribute",P1])
+
+	Func SetAttributeWith P1
+		return dnRequest("callnamed",[self,"SetAttribute",P1])
+
+	Func RemoveAttributeWith P1
+		dnRequest("callnamed",[self,"RemoveAttribute",P1])
+		return self
+
+	Func GetAttributeNodeWith P1
+		return dnRequest("callnamed",[self,"GetAttributeNode",P1])
+
+	Func SetAttributeNodeWith P1
+		return dnRequest("callnamed",[self,"SetAttributeNode",P1])
+
+	Func RemoveAttributeNodeWith P1
+		return dnRequest("callnamed",[self,"RemoveAttributeNode",P1])
+
+	Func GetElementsByTagNameWith P1
+		return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
+
+	Func HasAttributeWith P1
+		return dnRequest("callnamed",[self,"HasAttribute",P1])
+
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])
 

@@ -67,6 +67,22 @@ Class DbTransaction from MarshalByRefObject
 		dnRequest("call",[self,"Rollback",P1])
 		return self
 
+	Func CommitAsyncWith P1
+		return dnRequest("callnamed",[self,"CommitAsync",P1])
+
+	Func RollbackWith P1
+		dnRequest("callnamed",[self,"Rollback",P1])
+		return self
+
+	Func RollbackAsyncWith P1
+		return dnRequest("callnamed",[self,"RollbackAsync",P1])
+
+	Func SaveAsyncWith P1
+		return dnRequest("callnamed",[self,"SaveAsync",P1])
+
+	Func ReleaseAsyncWith P1
+		return dnRequest("callnamed",[self,"ReleaseAsync",P1])
+
 	Func getConnection
 		return dnRequest("get",[self,"Connection"])
 

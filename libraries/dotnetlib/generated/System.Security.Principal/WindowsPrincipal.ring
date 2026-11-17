@@ -17,6 +17,9 @@ Class WindowsPrincipal from ClaimsPrincipal
 		nHandle = dnCreate('System.Security.Principal.WindowsPrincipal, System.Security.Principal.Windows',[P1])
 		return self
 
+	Func IsInRoleWith P1
+		return dnRequest("callnamed",[self,"IsInRole",P1])
+
 	Func getUserClaims
 		return dnRequest("get",[self,"UserClaims"])
 

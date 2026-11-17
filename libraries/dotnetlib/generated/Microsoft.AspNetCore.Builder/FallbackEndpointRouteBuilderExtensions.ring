@@ -21,6 +21,9 @@ Class FallbackEndpointRouteBuilderExtensions from Object
 	Func MapFallback_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1,P2,P3])
 
+	Func MapFallbackWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapFallback",P1])
+
 	Func getDefaultPattern
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Builder.FallbackEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"DefaultPattern"])
 

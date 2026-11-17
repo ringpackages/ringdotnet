@@ -19,3 +19,6 @@ Class RateLimiterServiceCollectionExtensions from Object
 	Func AddRateLimiter P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting'),"AddRateLimiter",P1])
 
+	Func AddRateLimiterWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterServiceCollectionExtensions, Microsoft.AspNetCore.RateLimiting'),"AddRateLimiter",P1])
+

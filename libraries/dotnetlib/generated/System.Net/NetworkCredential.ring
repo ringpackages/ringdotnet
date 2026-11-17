@@ -33,6 +33,9 @@ Class NetworkCredential from Object
 	Func GetCredential_3 P1,P2,P3
 		return dnRequest("call",[self,"GetCredential",P1,P2,P3])
 
+	Func GetCredentialWith P1
+		return dnRequest("callnamed",[self,"GetCredential",P1])
+
 	Func getUserName
 		return dnRequest("get",[self,"UserName"])
 

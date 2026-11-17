@@ -37,6 +37,17 @@ Class XPathExpression from Object
 	Func Compile_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1,P2])
 
+	Func AddSortWith P1
+		dnRequest("callnamed",[self,"AddSort",P1])
+		return self
+
+	Func SetContextWith P1
+		dnRequest("callnamed",[self,"SetContext",P1])
+		return self
+
+	Func CompileWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
+
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])
 

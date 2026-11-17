@@ -17,6 +17,9 @@ Class AdHocMapperDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Metadata.AdHocMapperDependencies, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

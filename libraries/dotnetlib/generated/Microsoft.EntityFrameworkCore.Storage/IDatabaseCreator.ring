@@ -40,3 +40,12 @@ Class IDatabaseCreator from DotNetObject
 	Func CanConnectAsync 
 		return dnRequest("call",[self,"CanConnectAsync"])
 
+	Func EnsureDeletedAsyncWith P1
+		return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+
+	Func EnsureCreatedAsyncWith P1
+		return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+
+	Func CanConnectAsyncWith P1
+		return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+

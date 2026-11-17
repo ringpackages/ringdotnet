@@ -104,11 +104,11 @@ The ASP.NET Core classes are wrapped too: `Microsoft.AspNetCore.*` (Http, Routin
 ```ring
 using { "Microsoft.AspNetCore.Http" }
 
-oPath = new PathString().New_1("/api/items")
+oPath = dnNewWith("PathString",[ :value = "/api/items" ])
 ? oPath.Value                                   # /api/items
-? oPath.StartsWithSegments(new PathString().New_1("/api"))
+? oPath.StartsWithSegments(dnNewWith("PathString",[ :value = "/api" ]))
 
-oQuery = new QueryString().Create_2("name","ring dotnet")
+oQuery = new QueryString().CreateWith([ :name = "name", :value = "ring dotnet" ])
 ? oQuery.Value                                  # ?name=ring%20dotnet
 ```
 

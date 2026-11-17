@@ -19,6 +19,9 @@ Class JavaScriptEncoder from TextEncoder
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"Create",P1])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"Create",P1])
+
 	Func getDefault
 		return dnRequest("get",[dnTypeCached('System.Text.Encodings.Web.JavaScriptEncoder, System.Text.Encodings.Web'),"Default"])
 

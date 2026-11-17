@@ -79,6 +79,12 @@ Class TreeView from Control
 		dnRequest("call",[self,"Sort"])
 		return self
 
+	Func HitTestWith P1
+		return dnRequest("callnamed",[self,"HitTest",P1])
+
+	Func GetNodeAtWith P1
+		return dnRequest("callnamed",[self,"GetNodeAt",P1])
+
 	Func setBeforeLabelEditEvent P1
 		dnRequest("setevent",[self,"BeforeLabelEdit",dnCallback(P1)])
 		return self

@@ -91,6 +91,28 @@ Class HtmlWindow from Object
 		dnRequest("call",[self,"ScrollTo",P1])
 		return self
 
+	Func MoveToWith P1
+		dnRequest("callnamed",[self,"MoveTo",P1])
+		return self
+
+	Func NavigateWith P1
+		dnRequest("callnamed",[self,"Navigate",P1])
+		return self
+
+	Func OpenWith P1
+		return dnRequest("callnamed",[self,"Open",P1])
+
+	Func OpenNewWith P1
+		return dnRequest("callnamed",[self,"OpenNew",P1])
+
+	Func ResizeToWith P1
+		dnRequest("callnamed",[self,"ResizeTo",P1])
+		return self
+
+	Func ScrollToWith P1
+		dnRequest("callnamed",[self,"ScrollTo",P1])
+		return self
+
 	Func setErrorEvent P1
 		dnRequest("setevent",[self,"Error",dnCallback(P1)])
 		return self

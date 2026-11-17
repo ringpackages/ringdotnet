@@ -30,6 +30,9 @@ Class XmlSchemaDatatype from Object
 	Func IsDerivedFrom P1
 		return dnRequest("call",[self,"IsDerivedFrom",P1])
 
+	Func ChangeTypeWith P1
+		return dnRequest("callnamed",[self,"ChangeType",P1])
+
 	Func getValueType
 		return dnRequest("get",[self,"ValueType"])
 

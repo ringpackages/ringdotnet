@@ -30,6 +30,9 @@ Class FigureLength from ValueType
 		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getIsAbsolute
 		return dnRequest("get",[self,"IsAbsolute"])
 

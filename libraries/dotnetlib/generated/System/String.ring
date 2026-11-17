@@ -308,6 +308,102 @@ Class String from Object
 	Func Join_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1,P2,P3,P4])
 
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EndsWithWith P1
+		return dnRequest("callnamed",[self,"EndsWith",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func GetHashCodeWith P1
+		return dnRequest("callnamed",[self,"GetHashCode",P1])
+
+	Func StartsWithWith P1
+		return dnRequest("callnamed",[self,"StartsWith",P1])
+
+	Func ToCharArrayWith P1
+		return dnRequest("callnamed",[self,"ToCharArray",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func IsNormalizedWith P1
+		return dnRequest("callnamed",[self,"IsNormalized",P1])
+
+	Func NormalizeWith P1
+		return dnRequest("callnamed",[self,"Normalize",P1])
+
+	Func PadLeftWith P1
+		return dnRequest("callnamed",[self,"PadLeft",P1])
+
+	Func PadRightWith P1
+		return dnRequest("callnamed",[self,"PadRight",P1])
+
+	Func RemoveWith P1
+		return dnRequest("callnamed",[self,"Remove",P1])
+
+	Func ReplaceWith P1
+		return dnRequest("callnamed",[self,"Replace",P1])
+
+	Func ReplaceLineEndingsWith P1
+		return dnRequest("callnamed",[self,"ReplaceLineEndings",P1])
+
+	Func SplitWith P1
+		return dnRequest("callnamed",[self,"Split",P1])
+
+	Func SubstringWith P1
+		return dnRequest("callnamed",[self,"Substring",P1])
+
+	Func ToLowerWith P1
+		return dnRequest("callnamed",[self,"ToLower",P1])
+
+	Func ToUpperWith P1
+		return dnRequest("callnamed",[self,"ToUpper",P1])
+
+	Func TrimWith P1
+		return dnRequest("callnamed",[self,"Trim",P1])
+
+	Func TrimStartWith P1
+		return dnRequest("callnamed",[self,"TrimStart",P1])
+
+	Func TrimEndWith P1
+		return dnRequest("callnamed",[self,"TrimEnd",P1])
+
+	Func ContainsWith P1
+		return dnRequest("callnamed",[self,"Contains",P1])
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[self,"IndexOf",P1])
+
+	Func IndexOfAnyWith P1
+		return dnRequest("callnamed",[self,"IndexOfAny",P1])
+
+	Func LastIndexOfWith P1
+		return dnRequest("callnamed",[self,"LastIndexOf",P1])
+
+	Func LastIndexOfAnyWith P1
+		return dnRequest("callnamed",[self,"LastIndexOfAny",P1])
+
+	Func CompareWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1])
+
+	Func CompareOrdinalWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1])
+
+	Func ConcatWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
+
+	Func FormatWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1])
+
+	Func JoinWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

@@ -30,6 +30,9 @@ Class FormFeature from Object
 	Func ReadFormAsync_1 P1
 		return dnRequest("call",[self,"ReadFormAsync",P1])
 
+	Func ReadFormAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+
 	Func getHasFormContentType
 		return dnRequest("get",[self,"HasFormContentType"])
 

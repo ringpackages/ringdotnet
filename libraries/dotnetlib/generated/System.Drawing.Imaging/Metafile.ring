@@ -50,3 +50,9 @@ Class Metafile from Image
 	Func GetMetafileHeader_1 P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 
+	Func GetMetafileHeaderWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
+		ok
+		return dnRequest("callnamed",[self,"GetMetafileHeader",P1])
+

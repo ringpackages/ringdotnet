@@ -17,6 +17,9 @@ Class QuerySqlGeneratorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QuerySqlGeneratorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getRelationalCommandBuilderFactory
 		return dnRequest("get",[self,"RelationalCommandBuilderFactory"])
 

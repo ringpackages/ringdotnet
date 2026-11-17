@@ -61,3 +61,21 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 	Func WithSummary P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithSummary",P1,P2])
 
+	Func ExcludeFromDescriptionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ExcludeFromDescription",P1])
+
+	Func ProducesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1])
+
+	Func ProducesProblemWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesProblem",P1])
+
+	Func ProducesValidationProblemWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesValidationProblem",P1])
+
+	Func WithTagsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithTags",P1])
+
+	Func AcceptsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Accepts",P1])
+

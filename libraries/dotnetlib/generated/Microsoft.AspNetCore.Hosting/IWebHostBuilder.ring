@@ -28,3 +28,6 @@ Class IWebHostBuilder from DotNetObject
 	Func UseSetting P1,P2
 		return dnRequest("call",[self,"UseSetting",P1,P2])
 
+	Func ConfigureServicesWith P1
+		return dnRequest("callnamed",[self,"ConfigureServices",P1])
+

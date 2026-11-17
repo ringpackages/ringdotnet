@@ -178,6 +178,36 @@ Class Complex from ValueType
 	Func TryParse P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func AddWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Add",P1])
+
+	Func SubtractWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Subtract",P1])
+
+	Func MultiplyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Multiply",P1])
+
+	Func DivideWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Divide",P1])
+
+	Func LogWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Log",P1])
+
+	Func PowWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Pow",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1])
+
 	Func getReal
 		return dnRequest("get",[self,"Real"])
 

@@ -17,6 +17,9 @@ Class SortVersion from Object
 		nHandle = dnCreate('System.Globalization.SortVersion, System.Private.CoreLib',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getFullVersion
 		return dnRequest("get",[self,"FullVersion"])
 

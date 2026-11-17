@@ -19,3 +19,6 @@ Class RequestTimeoutsIEndpointConventionBuilderExtensions from Object
 	Func DisableRequestTimeout P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"DisableRequestTimeout",P1])
 
+	Func WithRequestTimeoutWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RequestTimeoutsIEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Http'),"WithRequestTimeout",P1])
+

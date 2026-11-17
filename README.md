@@ -90,6 +90,16 @@ oDict.SetItem("two","2")
 
 Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
+## Named arguments
+
+Ring passes optional, order-independent arguments as a list of `:name = value` pairs. Every method with overloads or optional parameters also has a `With` form, and `dnNewWith` creates objects with a constructor chosen by names. The names are the .NET parameter names (not case sensitive):
+
+```ring
+? new Math().RoundWith([ :value = 3.14159, :digits = 2 ])
+oProcess = new Process().StartWith([ :startInfo = oInfo ])
+oSB = dnNewWith("StringBuilder",[ :value = "Hello" ])
+```
+
 ## LINQ
 
 `dnImport("System.Linq")` loads `Enumerable` (generic methods work: the bridge infers the type arguments from the values, callbacks become `Func<object,...>`) and a fluent wrapper that accepts Ring lists or any .NET collection:

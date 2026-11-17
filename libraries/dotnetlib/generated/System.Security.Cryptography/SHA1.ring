@@ -34,6 +34,15 @@ Class SHA1 from HashAlgorithm
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"Create",P1])
+
+	Func HashDataWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashData",P1])
+
+	Func HashDataAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1])
+
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashSizeInBits"])
 

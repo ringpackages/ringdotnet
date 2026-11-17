@@ -81,3 +81,12 @@ Class VisualTreeHelper from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"HitTest",P1,P2,P3,P4])
 		return self
 
+	Func GetContentBoundsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"GetContentBounds",P1])
+
+	Func GetDescendantBoundsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"GetDescendantBounds",P1])
+
+	Func HitTestWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"HitTest",P1])
+

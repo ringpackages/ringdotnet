@@ -18,6 +18,9 @@ Class RelationalShapedQueryCompilingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getQuerySqlGeneratorFactory
 		return dnRequest("get",[self,"QuerySqlGeneratorFactory"])
 

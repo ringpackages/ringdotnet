@@ -59,3 +59,15 @@ Class ExecutionStrategyExtensions from Object
 	Func ExecuteInTransactionAsync_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5,P6])
 
+	Func ExecuteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"Execute",P1])
+
+	Func ExecuteAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1])
+
+	Func ExecuteInTransactionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransaction",P1])
+
+	Func ExecuteInTransactionAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1])
+

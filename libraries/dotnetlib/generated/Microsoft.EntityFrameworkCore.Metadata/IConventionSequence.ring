@@ -73,6 +73,24 @@ Class IConventionSequence from DotNetObject
 	Func GetIsCyclicConfigurationSource 
 		return dnRequest("call",[self,"GetIsCyclicConfigurationSource"])
 
+	Func SetStartValueWith P1
+		return dnRequest("callnamed",[self,"SetStartValue",P1])
+
+	Func SetIncrementByWith P1
+		return dnRequest("callnamed",[self,"SetIncrementBy",P1])
+
+	Func SetMinValueWith P1
+		return dnRequest("callnamed",[self,"SetMinValue",P1])
+
+	Func SetMaxValueWith P1
+		return dnRequest("callnamed",[self,"SetMaxValue",P1])
+
+	Func SetTypeWith P1
+		return dnRequest("callnamed",[self,"SetType",P1])
+
+	Func SetIsCyclicWith P1
+		return dnRequest("callnamed",[self,"SetIsCyclic",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

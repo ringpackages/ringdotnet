@@ -116,6 +116,39 @@ Class TimeOnly from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1,P2])
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func AddHoursWith P1
+		return dnRequest("callnamed",[self,"AddHours",P1])
+
+	Func AddMinutesWith P1
+		return dnRequest("callnamed",[self,"AddMinutes",P1])
+
+	Func DeconstructWith P1
+		return dnRequest("callnamed",[self,"Deconstruct",P1])
+
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
+
+	Func ParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
+
+	Func TryParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1])
+
 	Func getHour
 		return dnRequest("get",[self,"Hour"])
 

@@ -103,6 +103,15 @@ Class Path from Object
 	Func GetPathRoot P1
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetPathRoot",P1])
 
+	Func CombineWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1])
+
+	Func JoinWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1])
+
+	Func GetFullPathWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
+
 	Func getDirectorySeparatorChar
 		return dnRequest("get",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"DirectorySeparatorChar"])
 

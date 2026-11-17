@@ -31,3 +31,15 @@ Class FeatureSupport from Object
 	Func GetVersionPresent_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"GetVersionPresent",P1,P2])
 
+	Func IsPresentWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1])
+		ok
+		return dnRequest("callnamed",[self,"IsPresent",P1])
+
+	Func GetVersionPresentWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"GetVersionPresent",P1])
+		ok
+		return dnRequest("callnamed",[self,"GetVersionPresent",P1])
+

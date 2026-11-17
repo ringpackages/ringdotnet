@@ -16,3 +16,6 @@ Class BitmapEffect from Animatable
 	Func GetOutput P1
 		return dnRequest("call",[self,"GetOutput",P1])
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+

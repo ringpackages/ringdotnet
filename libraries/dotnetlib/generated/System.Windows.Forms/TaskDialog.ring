@@ -37,6 +37,12 @@ Class TaskDialog from Object
 	Func ShowDialog_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2,P3])
 
+	Func ShowDialogAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
+
+	Func ShowDialogWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
+
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
 

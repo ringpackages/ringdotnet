@@ -39,3 +39,9 @@ Class WebUtility from Object
 	Func UrlDecodeToBytes P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Net.WebUtility, System.Private.CoreLib'),"UrlDecodeToBytes",P1,P2,P3])
 
+	Func HtmlEncodeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.WebUtility, System.Private.CoreLib'),"HtmlEncode",P1])
+
+	Func HtmlDecodeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.WebUtility, System.Private.CoreLib'),"HtmlDecode",P1])
+

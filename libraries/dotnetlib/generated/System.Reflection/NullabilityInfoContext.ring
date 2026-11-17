@@ -17,3 +17,6 @@ Class NullabilityInfoContext from Object
 	Func Create P1
 		return dnRequest("call",[self,"Create",P1])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[self,"Create",P1])
+

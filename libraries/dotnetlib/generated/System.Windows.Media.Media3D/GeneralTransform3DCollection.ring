@@ -52,6 +52,9 @@ Class GeneralTransform3DCollection from Animatable
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

@@ -39,6 +39,9 @@ Class HttpRequest from Object
 	Func ReadFormAsync 
 		return dnRequest("call",[self,"ReadFormAsync"])
 
+	Func ReadFormAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
+
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
 

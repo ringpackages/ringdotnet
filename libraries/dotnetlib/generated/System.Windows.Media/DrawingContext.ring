@@ -113,3 +113,31 @@ Class DrawingContext from DispatcherObject
 		dnRequest("call",[self,"Pop"])
 		return self
 
+	Func DrawLineWith P1
+		dnRequest("callnamed",[self,"DrawLine",P1])
+		return self
+
+	Func DrawRectangleWith P1
+		dnRequest("callnamed",[self,"DrawRectangle",P1])
+		return self
+
+	Func DrawRoundedRectangleWith P1
+		dnRequest("callnamed",[self,"DrawRoundedRectangle",P1])
+		return self
+
+	Func DrawEllipseWith P1
+		dnRequest("callnamed",[self,"DrawEllipse",P1])
+		return self
+
+	Func DrawImageWith P1
+		dnRequest("callnamed",[self,"DrawImage",P1])
+		return self
+
+	Func DrawVideoWith P1
+		dnRequest("callnamed",[self,"DrawVideo",P1])
+		return self
+
+	Func PushOpacityWith P1
+		dnRequest("callnamed",[self,"PushOpacity",P1])
+		return self
+

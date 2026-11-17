@@ -10,7 +10,7 @@ Pass `dnCallback(code)` wherever a .NET delegate is expected: `Action`, `Func`, 
 ```ring
 nTotal = 0
 oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))                # ForEach is a Ring keyword: ForEach_
-oList.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
+oList.SortWith([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])") ])
 oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 ```
 

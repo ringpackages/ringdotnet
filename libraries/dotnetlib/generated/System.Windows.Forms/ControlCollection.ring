@@ -65,6 +65,9 @@ Class ControlCollection from ArrangedElementCollection
 		dnRequest("call",[self,"SetChildIndex",P1,P2])
 		return self
 
+	Func GetChildIndexWith P1
+		return dnRequest("callnamed",[self,"GetChildIndex",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

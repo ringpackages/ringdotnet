@@ -55,6 +55,13 @@ Class ToolStrip from ScrollableControl
 		dnRequest("call",[self,"ResetMinimumSize"])
 		return self
 
+	Func GetItemAtWith P1
+		return dnRequest("callnamed",[self,"GetItemAt",P1])
+
+	Func SetAutoScrollMarginWith P1
+		dnRequest("callnamed",[self,"SetAutoScrollMargin",P1])
+		return self
+
 	Func setBeginDragEvent P1
 		dnRequest("setevent",[self,"BeginDrag",dnCallback(P1)])
 		return self

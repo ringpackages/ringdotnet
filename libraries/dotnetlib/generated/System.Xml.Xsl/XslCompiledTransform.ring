@@ -40,6 +40,14 @@ Class XslCompiledTransform from Object
 		dnRequest("call",[self,"Transform",P1,P2,P3,P4])
 		return self
 
+	Func LoadWith P1
+		dnRequest("callnamed",[self,"Load",P1])
+		return self
+
+	Func TransformWith P1
+		dnRequest("callnamed",[self,"Transform",P1])
+		return self
+
 	Func getOutputSettings
 		return dnRequest("get",[self,"OutputSettings"])
 

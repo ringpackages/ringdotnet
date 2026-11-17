@@ -158,3 +158,31 @@ Class Directory from Object
 	Func ResolveLinkTarget P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"ResolveLinkTarget",P1,P2])
 
+	Func CreateDirectoryWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateDirectory",P1])
+
+	Func CreateTempSubdirectoryWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateTempSubdirectory",P1])
+
+	Func GetFilesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFiles",P1])
+
+	Func GetDirectoriesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectories",P1])
+
+	Func GetFileSystemEntriesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFileSystemEntries",P1])
+
+	Func EnumerateDirectoriesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateDirectories",P1])
+
+	Func EnumerateFilesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFiles",P1])
+
+	Func EnumerateFileSystemEntriesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFileSystemEntries",P1])
+
+	Func DeleteWith P1
+		dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"Delete",P1])
+		return self
+

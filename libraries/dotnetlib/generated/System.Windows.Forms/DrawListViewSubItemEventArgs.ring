@@ -40,6 +40,10 @@ Class DrawListViewSubItemEventArgs from EventArgs
 		dnRequest("call",[self,"DrawText",P1])
 		return self
 
+	Func DrawTextWith P1
+		dnRequest("callnamed",[self,"DrawText",P1])
+		return self
+
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])
 

@@ -45,6 +45,18 @@ Class IConventionDiscriminatorBuilder from DotNetObject
 	Func CanSetValue_3 P1,P2,P3
 		return dnRequest("call",[self,"CanSetValue",P1,P2,P3])
 
+	Func IsCompleteWith P1
+		return dnRequest("callnamed",[self,"IsComplete",P1])
+
+	Func CanSetIsCompleteWith P1
+		return dnRequest("callnamed",[self,"CanSetIsComplete",P1])
+
+	Func HasValueWith P1
+		return dnRequest("callnamed",[self,"HasValue",P1])
+
+	Func CanSetValueWith P1
+		return dnRequest("callnamed",[self,"CanSetValue",P1])
+
 	Func getEntityType
 		return dnRequest("get",[self,"EntityType"])
 

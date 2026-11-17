@@ -24,3 +24,6 @@ Class AsymmetricSignatureDeformatter from Object
 	Func VerifySignature P1,P2
 		return dnRequest("call",[self,"VerifySignature",P1,P2])
 
+	Func VerifySignatureWith P1
+		return dnRequest("callnamed",[self,"VerifySignature",P1])
+

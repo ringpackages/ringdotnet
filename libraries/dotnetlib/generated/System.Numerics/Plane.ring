@@ -47,6 +47,12 @@ Class Plane from ValueType
 	Func Transform P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Plane, System.Private.CoreLib'),"Transform",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func TransformWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Plane, System.Private.CoreLib'),"Transform",P1])
+
 	Func getNormal
 		return dnRequest("get",[self,"Normal"])
 

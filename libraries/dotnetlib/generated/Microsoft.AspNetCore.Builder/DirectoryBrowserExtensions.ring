@@ -19,3 +19,6 @@ Class DirectoryBrowserExtensions from Object
 	Func UseDirectoryBrowser_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDirectoryBrowser",P1,P2])
 
+	Func UseDirectoryBrowserWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions, Microsoft.AspNetCore.StaticFiles'),"UseDirectoryBrowser",P1])
+

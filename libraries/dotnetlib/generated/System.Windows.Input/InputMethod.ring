@@ -91,6 +91,14 @@ Class InputMethod from DispatcherObject
 	Func GetInputScope P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.InputMethod, PresentationCore'),"GetInputScope",P1])
 
+	Func ShowConfigureUIWith P1
+		dnRequest("callnamed",[self,"ShowConfigureUI",P1])
+		return self
+
+	Func ShowRegisterWordUIWith P1
+		dnRequest("callnamed",[self,"ShowRegisterWordUI",P1])
+		return self
+
 	Func setStateChangedEvent P1
 		dnRequest("setevent",[self,"StateChanged",dnCallback(P1)])
 		return self

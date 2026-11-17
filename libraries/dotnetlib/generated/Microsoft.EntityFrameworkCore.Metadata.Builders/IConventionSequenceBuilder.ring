@@ -105,6 +105,51 @@ Class IConventionSequenceBuilder from DotNetObject
 	Func CanSetIsCyclic P1
 		return dnRequest("call",[self,"CanSetIsCyclic",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func HasTypeWith P1
+		return dnRequest("callnamed",[self,"HasType",P1])
+
+	Func CanSetTypeWith P1
+		return dnRequest("callnamed",[self,"CanSetType",P1])
+
+	Func IncrementsByWith P1
+		return dnRequest("callnamed",[self,"IncrementsBy",P1])
+
+	Func CanSetIncrementsByWith P1
+		return dnRequest("callnamed",[self,"CanSetIncrementsBy",P1])
+
+	Func StartsAtWith P1
+		return dnRequest("callnamed",[self,"StartsAt",P1])
+
+	Func CanSetStartsAtWith P1
+		return dnRequest("callnamed",[self,"CanSetStartsAt",P1])
+
+	Func HasMaxWith P1
+		return dnRequest("callnamed",[self,"HasMax",P1])
+
+	Func CanSetMaxWith P1
+		return dnRequest("callnamed",[self,"CanSetMax",P1])
+
+	Func HasMinWith P1
+		return dnRequest("callnamed",[self,"HasMin",P1])
+
+	Func CanSetMinWith P1
+		return dnRequest("callnamed",[self,"CanSetMin",P1])
+
+	Func IsCyclicWith P1
+		return dnRequest("callnamed",[self,"IsCyclic",P1])
+
+	Func CanSetIsCyclicWith P1
+		return dnRequest("callnamed",[self,"CanSetIsCyclic",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

@@ -49,6 +49,18 @@ Class ModelConfigurationBuilder from Object
 	Func CreateModelBuilder P1
 		return dnRequest("call",[self,"CreateModelBuilder",P1])
 
+	Func IgnoreAnyWith P1
+		return dnRequest("callnamed",[self,"IgnoreAny",P1])
+
+	Func PropertiesWith P1
+		return dnRequest("callnamed",[self,"Properties",P1])
+
+	Func DefaultTypeMappingWith P1
+		return dnRequest("callnamed",[self,"DefaultTypeMapping",P1])
+
+	Func ComplexPropertiesWith P1
+		return dnRequest("callnamed",[self,"ComplexProperties",P1])
+
 	Func getConventions
 		return dnRequest("get",[self,"Conventions"])
 

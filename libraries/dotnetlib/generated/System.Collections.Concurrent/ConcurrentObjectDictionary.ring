@@ -75,6 +75,15 @@ Class ConcurrentObjectDictionary from Object
 	Func AddOrUpdate P1,P2,P3
 		return dnRequest("call",[self,"AddOrUpdate",P1,P2,P3])
 
+	Func TryRemoveWith P1
+		return dnRequest("callnamed",[self,"TryRemove",P1])
+
+	Func GetOrAddWith P1
+		return dnRequest("callnamed",[self,"GetOrAdd",P1])
+
+	Func AddOrUpdateWith P1
+		return dnRequest("callnamed",[self,"AddOrUpdate",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

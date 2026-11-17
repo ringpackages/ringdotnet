@@ -141,6 +141,69 @@ Class IConventionElementTypeBuilder from DotNetObject
 	Func CanSetValueComparer P1
 		return dnRequest("call",[self,"CanSetValueComparer",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+
+	Func CanSetIsRequiredWith P1
+		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
+
+	Func HasMaxLengthWith P1
+		return dnRequest("callnamed",[self,"HasMaxLength",P1])
+
+	Func CanSetMaxLengthWith P1
+		return dnRequest("callnamed",[self,"CanSetMaxLength",P1])
+
+	Func IsUnicodeWith P1
+		return dnRequest("callnamed",[self,"IsUnicode",P1])
+
+	Func CanSetIsUnicodeWith P1
+		return dnRequest("callnamed",[self,"CanSetIsUnicode",P1])
+
+	Func HasPrecisionWith P1
+		return dnRequest("callnamed",[self,"HasPrecision",P1])
+
+	Func CanSetPrecisionWith P1
+		return dnRequest("callnamed",[self,"CanSetPrecision",P1])
+
+	Func HasScaleWith P1
+		return dnRequest("callnamed",[self,"HasScale",P1])
+
+	Func CanSetScaleWith P1
+		return dnRequest("callnamed",[self,"CanSetScale",P1])
+
+	Func HasConversionWith P1
+		return dnRequest("callnamed",[self,"HasConversion",P1])
+
+	Func CanSetConversionWith P1
+		return dnRequest("callnamed",[self,"CanSetConversion",P1])
+
+	Func HasConverterWith P1
+		return dnRequest("callnamed",[self,"HasConverter",P1])
+
+	Func CanSetConverterWith P1
+		return dnRequest("callnamed",[self,"CanSetConverter",P1])
+
+	Func HasTypeMappingWith P1
+		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
+
+	Func CanSetTypeMappingWith P1
+		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
+
+	Func HasValueComparerWith P1
+		return dnRequest("callnamed",[self,"HasValueComparer",P1])
+
+	Func CanSetValueComparerWith P1
+		return dnRequest("callnamed",[self,"CanSetValueComparer",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

@@ -46,6 +46,12 @@ Class Timeline from Animatable
 		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Timeline, PresentationCore'),"SetDesiredFrameRate",P1,P2])
 		return self
 
+	Func CreateClockWith P1
+		return dnRequest("callnamed",[self,"CreateClock",P1])
+
+	Func CloneCurrentValueWith P1
+		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
+
 	Func setCurrentStateInvalidatedEvent P1
 		dnRequest("setevent",[self,"CurrentStateInvalidated",dnCallback(P1)])
 		return self

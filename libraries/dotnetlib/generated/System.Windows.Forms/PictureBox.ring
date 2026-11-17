@@ -42,6 +42,14 @@ Class PictureBox from Control
 		dnRequest("call",[self,"LoadAsync",P1])
 		return self
 
+	Func LoadWith P1
+		dnRequest("callnamed",[self,"Load",P1])
+		return self
+
+	Func LoadAsyncWith P1
+		dnRequest("callnamed",[self,"LoadAsync",P1])
+		return self
+
 	Func setLoadCompletedEvent P1
 		dnRequest("setevent",[self,"LoadCompleted",dnCallback(P1)])
 		return self

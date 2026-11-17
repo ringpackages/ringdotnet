@@ -32,6 +32,10 @@ Class UpDownBase from ContainerControl
 		dnRequest("call",[self,"UpButton"])
 		return self
 
+	Func SelectWith P1
+		dnRequest("callnamed",[self,"Select",P1])
+		return self
+
 	Func getBorderStyle
 		return dnRequest("get",[self,"BorderStyle"])
 

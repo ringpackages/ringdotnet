@@ -18,6 +18,9 @@ Class RuntimeModelDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.RuntimeModelDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getTypeMappingSource
 		return dnRequest("get",[self,"TypeMappingSource"])
 

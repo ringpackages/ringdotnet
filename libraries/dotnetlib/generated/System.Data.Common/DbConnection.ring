@@ -97,6 +97,24 @@ Class DbConnection from Component
 	Func OpenAsync_1 P1
 		return dnRequest("call",[self,"OpenAsync",P1])
 
+	Func BeginTransactionWith P1
+		return dnRequest("callnamed",[self,"BeginTransaction",P1])
+
+	Func BeginTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+
+	Func ChangeDatabaseAsyncWith P1
+		return dnRequest("callnamed",[self,"ChangeDatabaseAsync",P1])
+
+	Func GetSchemaWith P1
+		return dnRequest("callnamed",[self,"GetSchema",P1])
+
+	Func GetSchemaAsyncWith P1
+		return dnRequest("callnamed",[self,"GetSchemaAsync",P1])
+
+	Func OpenAsyncWith P1
+		return dnRequest("callnamed",[self,"OpenAsync",P1])
+
 	Func setStateChangeEvent P1
 		dnRequest("setevent",[self,"StateChange",dnCallback(P1)])
 		return self

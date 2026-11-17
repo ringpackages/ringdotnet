@@ -73,6 +73,28 @@ Class WebApplication from Object
 	Func CreateEmptyBuilder P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateEmptyBuilder",P1])
 
+	Func StartAsyncWith P1
+		return dnRequest("callnamed",[self,"StartAsync",P1])
+
+	Func StopAsyncWith P1
+		return dnRequest("callnamed",[self,"StopAsync",P1])
+
+	Func RunAsyncWith P1
+		return dnRequest("callnamed",[self,"RunAsync",P1])
+
+	Func RunWith P1
+		dnRequest("callnamed",[self,"Run",P1])
+		return self
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"Create",P1])
+
+	Func CreateBuilderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateBuilder",P1])
+
+	Func CreateSlimBuilderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebApplication, Microsoft.AspNetCore'),"CreateSlimBuilder",P1])
+
 	Func getServices
 		return dnRequest("get",[self,"Services"])
 

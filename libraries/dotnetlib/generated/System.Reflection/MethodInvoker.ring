@@ -31,3 +31,6 @@ Class MethodInvoker from Object
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodInvoker, System.Private.CoreLib'),"Create",P1])
 
+	Func InvokeWith P1
+		return dnRequest("callnamed",[self,"Invoke",P1])
+

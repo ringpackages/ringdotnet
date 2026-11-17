@@ -22,3 +22,6 @@ Class IRawSqlCommandBuilder from DotNetObject
 	Func Build_3 P1,P2,P3
 		return dnRequest("call",[self,"Build",P1,P2,P3])
 
+	Func BuildWith P1
+		return dnRequest("callnamed",[self,"Build",P1])
+

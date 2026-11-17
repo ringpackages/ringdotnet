@@ -43,6 +43,12 @@ Class StylusDevice from InputDevice
 	Func GetPosition P1
 		return dnRequest("call",[self,"GetPosition",P1])
 
+	Func CaptureWith P1
+		return dnRequest("callnamed",[self,"Capture",P1])
+
+	Func GetStylusPointsWith P1
+		return dnRequest("callnamed",[self,"GetStylusPoints",P1])
+
 	Func getIsValid
 		return dnRequest("get",[self,"IsValid"])
 

@@ -42,6 +42,14 @@ Class ToolStripDropDown from ToolStrip
 		dnRequest("call",[self,"Show",P1])
 		return self
 
+	Func CloseWith P1
+		dnRequest("callnamed",[self,"Close",P1])
+		return self
+
+	Func ShowWith P1
+		dnRequest("callnamed",[self,"Show",P1])
+		return self
+
 	Func setClosedEvent P1
 		dnRequest("setevent",[self,"Closed",dnCallback(P1)])
 		return self

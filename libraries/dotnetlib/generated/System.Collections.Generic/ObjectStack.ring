@@ -65,6 +65,10 @@ Class ObjectStack from Object
 	Func ToArray 
 		return dnRequest("call",[self,"ToArray"])
 
+	Func TrimExcessWith P1
+		dnRequest("callnamed",[self,"TrimExcess",P1])
+		return self
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

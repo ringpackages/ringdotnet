@@ -44,6 +44,15 @@ Class IDbContextTransactionManager from DotNetObject
 	Func RollbackTransactionAsync 
 		return dnRequest("call",[self,"RollbackTransactionAsync"])
 
+	Func BeginTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+
+	Func CommitTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+
+	Func RollbackTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+
 	Func getCurrentTransaction
 		return dnRequest("get",[self,"CurrentTransaction"])
 

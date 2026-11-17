@@ -17,6 +17,9 @@ Class RelationalCommandBuilderDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderDependencies, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getExceptionDetector
 		return dnRequest("get",[self,"ExceptionDetector"])
 

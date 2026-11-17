@@ -120,6 +120,53 @@ Class Utf8JsonWriter from Object
 		dnRequest("call",[self,"WriteRawValue",P1])
 		return self
 
+	Func ResetWith P1
+		dnRequest("callnamed",[self,"Reset",P1])
+		return self
+
+	Func FlushAsyncWith P1
+		return dnRequest("callnamed",[self,"FlushAsync",P1])
+
+	Func WriteStartArrayWith P1
+		dnRequest("callnamed",[self,"WriteStartArray",P1])
+		return self
+
+	Func WriteStartObjectWith P1
+		dnRequest("callnamed",[self,"WriteStartObject",P1])
+		return self
+
+	Func WriteStringWith P1
+		dnRequest("callnamed",[self,"WriteString",P1])
+		return self
+
+	Func WriteNumberWith P1
+		dnRequest("callnamed",[self,"WriteNumber",P1])
+		return self
+
+	Func WriteNullWith P1
+		dnRequest("callnamed",[self,"WriteNull",P1])
+		return self
+
+	Func WriteBooleanWith P1
+		dnRequest("callnamed",[self,"WriteBoolean",P1])
+		return self
+
+	Func WritePropertyNameWith P1
+		dnRequest("callnamed",[self,"WritePropertyName",P1])
+		return self
+
+	Func WriteStringValueWith P1
+		dnRequest("callnamed",[self,"WriteStringValue",P1])
+		return self
+
+	Func WriteNumberValueWith P1
+		dnRequest("callnamed",[self,"WriteNumberValue",P1])
+		return self
+
+	Func WriteRawValueWith P1
+		dnRequest("callnamed",[self,"WriteRawValue",P1])
+		return self
+
 	Func getBytesPending
 		return dnRequest("get",[self,"BytesPending"])
 

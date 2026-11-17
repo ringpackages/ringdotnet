@@ -22,3 +22,6 @@ Class MvcRazorPagesMvcCoreBuilderExtensions from Object
 	Func WithRazorPagesRoot P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithRazorPagesRoot",P1,P2])
 
+	Func AddRazorPagesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcRazorPagesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"AddRazorPages",P1])
+

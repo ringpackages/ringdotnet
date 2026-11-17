@@ -30,7 +30,7 @@ oTable = new ListView() {
 	FullRowSelect = True
 }
 for aColumn in [["Month",60],["Payment",100],["Interest",100],["Principal",100],["Balance",110]]
-	oTable.Columns.Add_2(aColumn[1],aColumn[2])
+	oTable.Columns.AddWith([ :text = aColumn[1], :width = aColumn[2] ])
 next
 oForm.Controls.Add(oTable)
 
@@ -74,7 +74,7 @@ func calculate
 		nBalance -= nPrincipal
 		nTotalInterest += nInterestPart
 		if nMonth <= 12
-			oItem = new ListViewItem().New_1("" + nMonth)
+			oItem = dnNewWith("ListViewItem",[ :text = "" + nMonth ])
 			oItem.SubItems.Add(money(nPayment))
 			oItem.SubItems.Add(money(nInterestPart))
 			oItem.SubItems.Add(money(nPrincipal))

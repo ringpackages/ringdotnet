@@ -66,6 +66,16 @@ Class ComboBox from ListControl
 		dnRequest("call",[self,"SelectAll"])
 		return self
 
+	Func FindStringWith P1
+		return dnRequest("callnamed",[self,"FindString",P1])
+
+	Func FindStringExactWith P1
+		return dnRequest("callnamed",[self,"FindStringExact",P1])
+
+	Func SelectWith P1
+		dnRequest("callnamed",[self,"Select",P1])
+		return self
+
 	Func setDrawItemEvent P1
 		dnRequest("setevent",[self,"DrawItem",dnCallback(P1)])
 		return self

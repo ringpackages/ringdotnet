@@ -31,6 +31,9 @@ Class XamlTypeMapper from Object
 		dnRequest("call",[self,"SetAssemblyPath",P1,P2])
 		return self
 
+	Func GetTypeWith P1
+		return dnRequest("callnamed",[self,"GetType",P1])
+
 	Func getDefaultMapper
 		return dnRequest("get",[dnTypeCached('System.Windows.Markup.XamlTypeMapper, PresentationFramework'),"DefaultMapper"])
 

@@ -16,3 +16,6 @@ Class IValueSerializerContext from DotNetObject
 	Func GetValueSerializerFor P1
 		return dnRequest("call",[self,"GetValueSerializerFor",P1])
 
+	Func GetValueSerializerForWith P1
+		return dnRequest("callnamed",[self,"GetValueSerializerFor",P1])
+

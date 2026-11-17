@@ -201,6 +201,34 @@ Class Vector3 from ValueType
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Truncate",P1])
 
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Create",P1])
+
+	Func DivideWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Divide",P1])
+
+	Func LerpWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Lerp",P1])
+
+	Func MultiplyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Multiply",P1])
+
+	Func RoundWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Round",P1])
+
+	Func TransformWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Transform",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

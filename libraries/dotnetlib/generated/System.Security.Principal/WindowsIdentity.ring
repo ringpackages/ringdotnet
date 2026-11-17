@@ -61,6 +61,15 @@ Class WindowsIdentity from ClaimsIdentity
 	Func RunImpersonatedAsync P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1,P2])
 
+	Func GetCurrentWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
+
+	Func RunImpersonatedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonated",P1])
+
+	Func RunImpersonatedAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"RunImpersonatedAsync",P1])
+
 	Func getImpersonationLevel
 		return dnRequest("get",[self,"ImpersonationLevel"])
 

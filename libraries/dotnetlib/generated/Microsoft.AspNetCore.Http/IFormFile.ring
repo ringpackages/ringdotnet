@@ -33,6 +33,9 @@ Class IFormFile from DotNetObject
 	Func CopyToAsync P1
 		return dnRequest("call",[self,"CopyToAsync",P1])
 
+	Func CopyToAsyncWith P1
+		return dnRequest("callnamed",[self,"CopyToAsync",P1])
+
 	Func getContentType
 		return dnRequest("get",[self,"ContentType"])
 

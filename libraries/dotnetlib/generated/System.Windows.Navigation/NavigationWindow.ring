@@ -60,6 +60,9 @@ Class NavigationWindow from Window
 	Func RemoveBackEntry 
 		return dnRequest("call",[self,"RemoveBackEntry"])
 
+	Func NavigateWith P1
+		return dnRequest("callnamed",[self,"Navigate",P1])
+
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])
 		return self

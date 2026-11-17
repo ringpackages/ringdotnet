@@ -24,9 +24,9 @@ oList = new ListView() {
 	FullRowSelect = True
 	GridLines = True
 }
-oList.Columns.Add_2("Name",260)
-oList.Columns.Add_2("Size",90)
-oList.Columns.Add_2("Modified",140)
+oList.Columns.AddWith([ :text = "Name", :width = 260 ])
+oList.Columns.AddWith([ :text = "Size", :width = 90 ])
+oList.Columns.AddWith([ :text = "Modified", :width = 140 ])
 oSplit.Panel2.Controls.Add(oList)
 oStatus = new StatusStrip()
 oStatusText = new ToolStripStatusLabel()
@@ -92,9 +92,9 @@ func showFolder
 	try
 		for cFile in new Directory().GetFiles(cFolder).toList()
 			oInfo = new FileInfo(cFile)
-			oItem = new ListViewItem().New_1(oInfo.Name)
+			oItem = dnNewWith("ListViewItem",[ :text = oInfo.Name ])
 			oItem.SubItems.Add(sizeText(oInfo.Length))
-			oItem.SubItems.Add(oInfo.LastWriteTime.ToString_1("yyyy-MM-dd HH:mm"))
+			oItem.SubItems.Add(oInfo.LastWriteTime.ToStringWith([ :format = "yyyy-MM-dd HH:mm" ]))
 			oList.Items.Add(oItem)
 			nFiles++
 		next
@@ -109,7 +109,7 @@ func selfTest
 	oPath = new Path()
 	cBase = oPath.Combine(oPath.GetTempPath(),"explorer_selftest")
 	if new Directory().Exists(cBase)
-		new Directory().Delete_2(cBase,1)
+		new Directory().DeleteWith([ :path = cBase, :recursive = True ])
 	ok
 	new Directory().CreateDirectory(oPath.Combine(cBase,"docs"))
 	new Directory().CreateDirectory(oPath.Combine(cBase,"images/icons"))
@@ -132,4 +132,4 @@ func selfTest
 	dnAssert("sub folder loaded on expand",oImages.Nodes.Item(0).Text,"icons")
 	dnAssert("status text",right(oStatusText.Text,9),"(1 files)")
 	dnAssert("sizes",sizeText(3 * 1048576),"3 MB")
-	new Directory().Delete_2(cBase,1)
+	new Directory().DeleteWith([ :path = cBase, :recursive = True ])

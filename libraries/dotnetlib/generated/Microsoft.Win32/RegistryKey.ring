@@ -127,6 +127,40 @@ Class RegistryKey from MarshalByRefObject
 	Func FromHandle_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1,P2])
 
+	Func CreateSubKeyWith P1
+		return dnRequest("callnamed",[self,"CreateSubKey",P1])
+
+	Func DeleteSubKeyWith P1
+		dnRequest("callnamed",[self,"DeleteSubKey",P1])
+		return self
+
+	Func DeleteSubKeyTreeWith P1
+		dnRequest("callnamed",[self,"DeleteSubKeyTree",P1])
+		return self
+
+	Func DeleteValueWith P1
+		dnRequest("callnamed",[self,"DeleteValue",P1])
+		return self
+
+	Func OpenSubKeyWith P1
+		return dnRequest("callnamed",[self,"OpenSubKey",P1])
+
+	Func GetAccessControlWith P1
+		return dnRequest("callnamed",[self,"GetAccessControl",P1])
+
+	Func GetValueWith P1
+		return dnRequest("callnamed",[self,"GetValue",P1])
+
+	Func SetValueWith P1
+		dnRequest("callnamed",[self,"SetValue",P1])
+		return self
+
+	Func OpenRemoteBaseKeyWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1])
+
+	Func FromHandleWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
+
 	Func getSubKeyCount
 		return dnRequest("get",[self,"SubKeyCount"])
 

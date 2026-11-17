@@ -19,3 +19,6 @@ Class LocalizationServiceCollectionExtensions from Object
 	Func AddLocalization_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization'),"AddLocalization",P1,P2])
 
+	Func AddLocalizationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions, Microsoft.Extensions.Localization'),"AddLocalization",P1])
+

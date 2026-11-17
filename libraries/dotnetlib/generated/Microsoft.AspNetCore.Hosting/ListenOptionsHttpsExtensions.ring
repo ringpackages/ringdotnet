@@ -31,3 +31,6 @@ Class ListenOptionsHttpsExtensions from Object
 	Func UseHttps_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2,P3,P4,P5,P6])
 
+	Func UseHttpsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1])
+

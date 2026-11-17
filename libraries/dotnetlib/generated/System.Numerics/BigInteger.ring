@@ -177,6 +177,33 @@ Class BigInteger from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func ToByteArrayWith P1
+		return dnRequest("callnamed",[self,"ToByteArray",P1])
+
+	Func GetByteCountWith P1
+		return dnRequest("callnamed",[self,"GetByteCount",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
+
+	Func DivRemWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"DivRem",P1])
+
+	Func LogWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
+
 	Func getIsPowerOfTwo
 		return dnRequest("get",[self,"IsPowerOfTwo"])
 

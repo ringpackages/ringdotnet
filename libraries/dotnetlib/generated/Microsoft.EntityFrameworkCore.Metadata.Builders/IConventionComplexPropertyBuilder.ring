@@ -27,6 +27,12 @@ Class IConventionComplexPropertyBuilder from DotNetObject
 	Func CanSetIsRequired P1
 		return dnRequest("call",[self,"CanSetIsRequired",P1])
 
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+
+	Func CanSetIsRequiredWith P1
+		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

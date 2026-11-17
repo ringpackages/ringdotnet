@@ -25,3 +25,6 @@ Class JsonValue from JsonNode
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1,P2,P3])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1])
+

@@ -26,6 +26,12 @@ Class OSFeature from FeatureSupport
 	Func IsPresent_2 P1,P2
 		return dnRequest("call",[self,"IsPresent",P1,P2])
 
+	Func IsPresentWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"IsPresent",P1])
+		ok
+		return dnRequest("callnamed",[self,"IsPresent",P1])
+
 	Func getFeature
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"Feature"])
 

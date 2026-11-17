@@ -153,6 +153,33 @@ Class MaskedTextProvider from Object
 	Func IsValidPasswordChar P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter'),"IsValidPasswordChar",P1])
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func ClearWith P1
+		return dnRequest("callnamed",[self,"Clear",P1])
+
+	Func InsertAtWith P1
+		return dnRequest("callnamed",[self,"InsertAt",P1])
+
+	Func RemoveWith P1
+		return dnRequest("callnamed",[self,"Remove",P1])
+
+	Func RemoveAtWith P1
+		return dnRequest("callnamed",[self,"RemoveAt",P1])
+
+	Func ReplaceWith P1
+		return dnRequest("callnamed",[self,"Replace",P1])
+
+	Func SetWith P1
+		return dnRequest("callnamed",[self,"Set",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func VerifyStringWith P1
+		return dnRequest("callnamed",[self,"VerifyString",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

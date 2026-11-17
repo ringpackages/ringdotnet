@@ -44,3 +44,9 @@ Class MigrationCommandListBuilder from Object
 	Func DecrementIndent 
 		return dnRequest("call",[self,"DecrementIndent"])
 
+	Func EndCommandWith P1
+		return dnRequest("callnamed",[self,"EndCommand",P1])
+
+	Func AppendLineWith P1
+		return dnRequest("callnamed",[self,"AppendLine",P1])
+

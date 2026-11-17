@@ -54,6 +54,12 @@ Class HttpMethods from Object
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"Equals",P1,P2])
 
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getConnect
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"Connect"])
 

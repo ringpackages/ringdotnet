@@ -26,6 +26,9 @@ Class IReadOnlyComplexProperty from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
+	Func ToDebugStringWith P1
+		return dnRequest("callnamed",[self,"ToDebugString",P1])
+
 	Func getComplexType
 		return dnRequest("get",[self,"ComplexType"])
 

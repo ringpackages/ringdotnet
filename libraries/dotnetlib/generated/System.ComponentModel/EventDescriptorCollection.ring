@@ -61,6 +61,9 @@ Class EventDescriptorCollection from Object
 	Func Sort_2 P1,P2
 		return dnRequest("call",[self,"Sort",P1,P2])
 
+	Func SortWith P1
+		return dnRequest("callnamed",[self,"Sort",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

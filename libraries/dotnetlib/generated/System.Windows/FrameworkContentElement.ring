@@ -113,6 +113,13 @@ Class FrameworkContentElement from ContentElement
 		dnRequest("call",[self,"UpdateDefaultStyle"])
 		return self
 
+	Func BeginStoryboardWith P1
+		dnRequest("callnamed",[self,"BeginStoryboard",P1])
+		return self
+
+	Func SetBindingWith P1
+		return dnRequest("callnamed",[self,"SetBinding",P1])
+
 	Func setTargetUpdatedEvent P1
 		dnRequest("setevent",[self,"TargetUpdated",dnCallback(P1)])
 		return self

@@ -43,3 +43,6 @@ Class MessageBox from Object
 	Func Show P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1])
 
+	Func ShowWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1])
+

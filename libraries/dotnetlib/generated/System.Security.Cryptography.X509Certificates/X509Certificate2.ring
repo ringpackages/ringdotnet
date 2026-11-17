@@ -88,6 +88,15 @@ Class X509Certificate2 from X509Certificate
 	Func CreateFromPemFile P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1])
 
+	Func MatchesHostnameWith P1
+		return dnRequest("callnamed",[self,"MatchesHostname",P1])
+
+	Func GetCertContentTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
+
+	Func CreateFromPemFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1])
+
 	Func getArchived
 		return dnRequest("get",[self,"Archived"])
 

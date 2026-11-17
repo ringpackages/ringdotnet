@@ -100,6 +100,31 @@ Class Debug from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1,P2,P3])
 		return self
 
+	Func PrintWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1])
+		return self
+
+	Func AssertWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
+
+	Func FailWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1])
+		return self
+
+	Func WriteLineWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLine",P1])
+		return self
+
+	Func WriteWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1])
+		return self
+
+	Func WriteIfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteIf",P1])
+
+	Func WriteLineIfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1])
+
 	Func getAutoFlush
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"AutoFlush"])
 

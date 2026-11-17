@@ -483,6 +483,69 @@ func buildPlan cTypeName, nForceInit
 		aBlocks + [lower(cRing),cB]
 	next
 
+	# Named arguments: NameWith([ :param = value, ... ]) for every method that has overloads or optional parameters.
+	# The bridge picks the overload by the names of the parameters; the order does not matter and optional parameters can be left out.
+	aWithSeen = []
+	for aMethod in aMethods
+		cName = aMethod[1]
+		cLower = lower(cName)
+		if find(aWithSeen,cLower) > 0
+			loop
+		ok
+		aWithSeen + cLower
+		nFamily = 0
+		lOptional = false
+		lAllVoid = true
+		lAnyStatic = false
+		lAnyInstance = false
+		for aRec in aMethods
+			if lower(aRec[1]) = cLower
+				nFamily++
+				if aRec[6] < len(aRec[4])
+					lOptional = true
+				ok
+				if aRec[3] != "System.Void" or aRec[5] > 0
+					lAllVoid = false
+				ok
+				if aRec[2]
+					lAnyStatic = true
+				else
+					lAnyInstance = true
+				ok
+			ok
+		next
+		if nFamily < 2 and not lOptional
+			loop
+		ok
+		if substr(cReserved,"|" + cLower + "|")
+			loop
+		ok
+		cWith = ringName(cName + "With")
+		if find(aNames,lower(cWith)) > 0 or find(aAccessors,lower(cWith)) > 0
+			loop
+		ok
+		aNames + lower(cWith)
+		cB = "	Func " + cWith + " P1" + nl
+		cStaticTarget = "dnTypeCached('" + cTypeName + "')"
+		if lAnyStatic and lAnyInstance
+			cB += "		if nHandle = 0" + nl
+			cB += '			return dnRequest("callnamed",[' + cStaticTarget + ',"' + cName + '",P1])' + nl
+			cB += "		ok" + nl
+			cTarget = "self"
+		but lAnyStatic
+			cTarget = cStaticTarget
+		else
+			cTarget = "self"
+		ok
+		cReqNamed = '"callnamed",[' + cTarget + ',"' + cName + '",P1]'
+		if lAllVoid
+			cB += "		dnRequest(" + cReqNamed + ")" + nl + "		return self" + nl + nl
+		else
+			cB += "		return dnRequest(" + cReqNamed + ")" + nl + nl
+		ok
+		aBlocks + [lower(cWith),cB]
+	next
+
 	# Indexer: Item(index) / SetItem(index,value)
 	aIndexer = aInfo[6]
 	if len(aIndexer) = 3

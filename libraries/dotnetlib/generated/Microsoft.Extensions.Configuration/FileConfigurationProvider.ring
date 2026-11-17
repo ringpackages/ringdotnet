@@ -23,6 +23,10 @@ Class FileConfigurationProvider from ConfigurationProvider
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func LoadWith P1
+		dnRequest("callnamed",[self,"Load",P1])
+		return self
+
 	Func getSource
 		return dnRequest("get",[self,"Source"])
 

@@ -32,6 +32,9 @@ Class Rfc2898DeriveBytes from DeriveBytes
 	Func Pbkdf2 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography'),"Pbkdf2",P1,P2,P3,P4,P5])
 
+	Func Pbkdf2With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography'),"Pbkdf2",P1])
+
 	Func getHashAlgorithm
 		return dnRequest("get",[self,"HashAlgorithm"])
 

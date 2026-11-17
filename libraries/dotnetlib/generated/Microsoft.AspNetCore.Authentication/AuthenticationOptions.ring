@@ -28,6 +28,10 @@ Class AuthenticationOptions from Object
 		dnRequest("call",[self,"AddScheme",P1,P2])
 		return self
 
+	Func AddSchemeWith P1
+		dnRequest("callnamed",[self,"AddScheme",P1])
+		return self
+
 	Func getSchemes
 		return dnRequest("get",[self,"Schemes"])
 

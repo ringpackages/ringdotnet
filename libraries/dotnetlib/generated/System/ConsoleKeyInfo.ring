@@ -22,6 +22,9 @@ Class ConsoleKeyInfo from ValueType
 		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[P1,P2,P3,P4,P5])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getKeyChar
 		return dnRequest("get",[self,"KeyChar"])
 

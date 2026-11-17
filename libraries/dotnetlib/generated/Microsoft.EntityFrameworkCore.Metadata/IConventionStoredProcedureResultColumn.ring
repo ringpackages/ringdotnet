@@ -25,6 +25,9 @@ Class IConventionStoredProcedureResultColumn from DotNetObject
 	Func GetNameConfigurationSource 
 		return dnRequest("call",[self,"GetNameConfigurationSource"])
 
+	Func SetNameWith P1
+		return dnRequest("callnamed",[self,"SetName",P1])
+
 	Func getStoredProcedure
 		return dnRequest("get",[self,"StoredProcedure"])
 

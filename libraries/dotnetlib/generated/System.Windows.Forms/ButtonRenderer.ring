@@ -46,6 +46,10 @@ Class ButtonRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
+	Func DrawButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1])
+		return self
+
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])
 

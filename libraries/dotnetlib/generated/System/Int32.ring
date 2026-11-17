@@ -119,6 +119,21 @@ Class Int32 from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1,P2])
 
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1])
+
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MaxValue"])
 

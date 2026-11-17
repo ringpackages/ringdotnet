@@ -36,3 +36,9 @@ Class WebHostExtensions from Object
 	Func RunAsync P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
 
+	Func WaitForShutdownAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
+
+	Func RunAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1])
+

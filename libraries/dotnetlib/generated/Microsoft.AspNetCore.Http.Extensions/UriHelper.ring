@@ -58,3 +58,9 @@ Class UriHelper from Object
 	Func GetDisplayUrl P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"GetDisplayUrl",P1])
 
+	Func BuildRelativeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
+
+	Func BuildAbsoluteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1])
+

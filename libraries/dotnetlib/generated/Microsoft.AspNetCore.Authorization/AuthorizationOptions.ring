@@ -25,6 +25,10 @@ Class AuthorizationOptions from Object
 	Func GetPolicy P1
 		return dnRequest("call",[self,"GetPolicy",P1])
 
+	Func AddPolicyWith P1
+		dnRequest("callnamed",[self,"AddPolicy",P1])
+		return self
+
 	Func getInvokeHandlersAfterFailure
 		return dnRequest("get",[self,"InvokeHandlersAfterFailure"])
 

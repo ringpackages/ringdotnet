@@ -64,3 +64,18 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func GenerateCreateScript 
 		return dnRequest("call",[self,"GenerateCreateScript"])
 
+	Func ExistsAsyncWith P1
+		return dnRequest("callnamed",[self,"ExistsAsync",P1])
+
+	Func HasTablesAsyncWith P1
+		return dnRequest("callnamed",[self,"HasTablesAsync",P1])
+
+	Func CreateAsyncWith P1
+		return dnRequest("callnamed",[self,"CreateAsync",P1])
+
+	Func DeleteAsyncWith P1
+		return dnRequest("callnamed",[self,"DeleteAsync",P1])
+
+	Func CreateTablesAsyncWith P1
+		return dnRequest("callnamed",[self,"CreateTablesAsync",P1])
+

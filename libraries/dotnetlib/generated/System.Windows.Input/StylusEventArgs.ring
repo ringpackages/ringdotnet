@@ -27,6 +27,9 @@ Class StylusEventArgs from InputEventArgs
 	Func GetStylusPoints_2 P1,P2
 		return dnRequest("call",[self,"GetStylusPoints",P1,P2])
 
+	Func GetStylusPointsWith P1
+		return dnRequest("callnamed",[self,"GetStylusPoints",P1])
+
 	Func getStylusDevice
 		return dnRequest("get",[self,"StylusDevice"])
 

@@ -109,3 +109,18 @@ Class UrlHelperExtensions from Object
 	Func PageLink P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1])
 
+	Func ActionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1])
+
+	Func RouteUrlWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1])
+
+	Func PageWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1])
+
+	Func ActionLinkWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
+
+	Func PageLinkWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1])
+

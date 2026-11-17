@@ -25,3 +25,9 @@ Class RelationalForeignKeyBuilderExtensions from Object
 	Func CanSetConstraintName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetConstraintName",P1,P2])
 
+	Func HasConstraintNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasConstraintName",P1])
+
+	Func CanSetConstraintNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetConstraintName",P1])
+

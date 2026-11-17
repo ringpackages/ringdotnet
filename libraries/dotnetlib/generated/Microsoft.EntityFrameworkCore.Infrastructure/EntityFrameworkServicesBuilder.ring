@@ -34,6 +34,9 @@ Class EntityFrameworkServicesBuilder from Object
 	Func TryAdd_3 P1,P2,P3
 		return dnRequest("call",[self,"TryAdd",P1,P2,P3])
 
+	Func TryAddWith P1
+		return dnRequest("callnamed",[self,"TryAdd",P1])
+
 	Func getCoreServices
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.EntityFrameworkServicesBuilder, Microsoft.EntityFrameworkCore'),"CoreServices"])
 

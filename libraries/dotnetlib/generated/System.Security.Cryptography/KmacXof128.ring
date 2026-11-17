@@ -52,6 +52,12 @@ Class KmacXof128 from Object
 	Func HashDataAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
+	Func HashDataWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashData",P1])
+
+	Func HashDataAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1])
+
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"IsSupported"])
 

@@ -44,3 +44,9 @@ Class ValueTuple from ValueType
 	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
+

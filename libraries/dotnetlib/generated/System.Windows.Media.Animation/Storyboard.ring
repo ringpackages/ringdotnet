@@ -167,6 +167,60 @@ Class Storyboard from ParallelTimeline
 	Func GetTargetProperty_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetProperty",P1])
 
+	Func BeginWith P1
+		dnRequest("callnamed",[self,"Begin",P1])
+		return self
+
+	Func GetCurrentGlobalSpeedWith P1
+		return dnRequest("callnamed",[self,"GetCurrentGlobalSpeed",P1])
+
+	Func GetCurrentIterationWith P1
+		return dnRequest("callnamed",[self,"GetCurrentIteration",P1])
+
+	Func GetCurrentProgressWith P1
+		return dnRequest("callnamed",[self,"GetCurrentProgress",P1])
+
+	Func GetCurrentStateWith P1
+		return dnRequest("callnamed",[self,"GetCurrentState",P1])
+
+	Func GetCurrentTimeWith P1
+		return dnRequest("callnamed",[self,"GetCurrentTime",P1])
+
+	Func GetIsPausedWith P1
+		return dnRequest("callnamed",[self,"GetIsPaused",P1])
+
+	Func PauseWith P1
+		dnRequest("callnamed",[self,"Pause",P1])
+		return self
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[self,"Remove",P1])
+		return self
+
+	Func ResumeWith P1
+		dnRequest("callnamed",[self,"Resume",P1])
+		return self
+
+	Func SeekWith P1
+		dnRequest("callnamed",[self,"Seek",P1])
+		return self
+
+	Func SeekAlignedToLastTickWith P1
+		dnRequest("callnamed",[self,"SeekAlignedToLastTick",P1])
+		return self
+
+	Func SetSpeedRatioWith P1
+		dnRequest("callnamed",[self,"SetSpeedRatio",P1])
+		return self
+
+	Func SkipToFillWith P1
+		dnRequest("callnamed",[self,"SkipToFill",P1])
+		return self
+
+	Func StopWith P1
+		dnRequest("callnamed",[self,"Stop",P1])
+		return self
+
 	Func getTargetProperty
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"TargetProperty"])
 

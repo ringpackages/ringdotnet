@@ -31,6 +31,12 @@ Class IWebTransportSession from DotNetObject
 	Func OpenUnidirectionalStreamAsync 
 		return dnRequest("call",[self,"OpenUnidirectionalStreamAsync"])
 
+	Func AcceptStreamAsyncWith P1
+		return dnRequest("callnamed",[self,"AcceptStreamAsync",P1])
+
+	Func OpenUnidirectionalStreamAsyncWith P1
+		return dnRequest("callnamed",[self,"OpenUnidirectionalStreamAsync",P1])
+
 	Func getSessionId
 		return dnRequest("get",[self,"SessionId"])
 

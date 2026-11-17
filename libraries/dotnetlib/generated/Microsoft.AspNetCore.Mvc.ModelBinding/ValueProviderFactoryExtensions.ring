@@ -21,3 +21,7 @@ Class ValueProviderFactoryExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1,P2])
 		return self
 
+	Func RemoveTypeWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
+		return self
+

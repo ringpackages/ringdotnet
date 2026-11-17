@@ -36,6 +36,12 @@ Class HostString from ValueType
 	Func MatchesAny P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"MatchesAny",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func FromUriComponentWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
+
 	Func getValue
 		return dnRequest("get",[self,"Value"])
 

@@ -155,6 +155,42 @@ Class Math from Object
 	Func ScaleB P1,P2
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ScaleB",P1,P2])
 
+	Func CeilingWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Ceiling",P1])
+
+	Func FloorWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Floor",P1])
+
+	Func LogWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1])
+
+	Func AbsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Abs",P1])
+
+	Func BigMulWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"BigMul",P1])
+
+	Func DivRemWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"DivRem",P1])
+
+	Func ClampWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Clamp",P1])
+
+	Func MaxWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Max",P1])
+
+	Func MinWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Min",P1])
+
+	Func RoundWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
+
+	Func SignWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sign",P1])
+
+	Func TruncateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Truncate",P1])
+
 	Func getE
 		return dnRequest("get",[dnTypeCached('System.Math, System.Private.CoreLib'),"E"])
 

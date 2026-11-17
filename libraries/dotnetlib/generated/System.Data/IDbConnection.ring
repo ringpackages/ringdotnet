@@ -39,6 +39,9 @@ Class IDbConnection from DotNetObject
 		dnRequest("call",[self,"Open"])
 		return self
 
+	Func BeginTransactionWith P1
+		return dnRequest("callnamed",[self,"BeginTransaction",P1])
+
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])
 

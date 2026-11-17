@@ -45,6 +45,10 @@ Class RadioButtonRenderer from Object
 	Func GetGlyphSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"GetGlyphSize",P1,P2])
 
+	Func DrawRadioButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1])
+		return self
+
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])
 

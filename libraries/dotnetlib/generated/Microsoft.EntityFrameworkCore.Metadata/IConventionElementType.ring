@@ -109,6 +109,36 @@ Class IConventionElementType from DotNetObject
 	Func GetJsonValueReaderWriterTypeConfigurationSource 
 		return dnRequest("call",[self,"GetJsonValueReaderWriterTypeConfigurationSource"])
 
+	Func SetIsNullableWith P1
+		return dnRequest("callnamed",[self,"SetIsNullable",P1])
+
+	Func SetTypeMappingWith P1
+		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+
+	Func SetMaxLengthWith P1
+		return dnRequest("callnamed",[self,"SetMaxLength",P1])
+
+	Func SetPrecisionWith P1
+		return dnRequest("callnamed",[self,"SetPrecision",P1])
+
+	Func SetScaleWith P1
+		return dnRequest("callnamed",[self,"SetScale",P1])
+
+	Func SetIsUnicodeWith P1
+		return dnRequest("callnamed",[self,"SetIsUnicode",P1])
+
+	Func SetValueConverterWith P1
+		return dnRequest("callnamed",[self,"SetValueConverter",P1])
+
+	Func SetProviderClrTypeWith P1
+		return dnRequest("callnamed",[self,"SetProviderClrType",P1])
+
+	Func SetValueComparerWith P1
+		return dnRequest("callnamed",[self,"SetValueComparer",P1])
+
+	Func SetJsonValueReaderWriterTypeWith P1
+		return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
+
 	Func getCollectionProperty
 		return dnRequest("get",[self,"CollectionProperty"])
 

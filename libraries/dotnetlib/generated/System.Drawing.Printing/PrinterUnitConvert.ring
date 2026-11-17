@@ -16,3 +16,6 @@ Class PrinterUnitConvert from Object
 	Func Convert P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"Convert",P1,P2,P3])
 
+	Func ConvertWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Printing.PrinterUnitConvert, System.Drawing.Common'),"Convert",P1])
+

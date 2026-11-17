@@ -56,6 +56,15 @@ Class HashAlgorithm from Object
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
+	Func ComputeHashWith P1
+		return dnRequest("callnamed",[self,"ComputeHash",P1])
+
+	Func ComputeHashAsyncWith P1
+		return dnRequest("callnamed",[self,"ComputeHashAsync",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
+
 	Func getHashSize
 		return dnRequest("get",[self,"HashSize"])
 

@@ -31,6 +31,9 @@ Class ThreadPoolBoundHandle from Object
 	Func BindHandle P1
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPoolBoundHandle, System.Private.CoreLib'),"BindHandle",P1])
 
+	Func AllocateNativeOverlappedWith P1
+		return dnRequest("callnamed",[self,"AllocateNativeOverlapped",P1])
+
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
 

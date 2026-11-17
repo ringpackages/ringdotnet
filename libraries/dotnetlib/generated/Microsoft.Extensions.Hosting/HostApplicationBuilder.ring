@@ -35,6 +35,10 @@ Class HostApplicationBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
+	Func ConfigureContainerWith P1
+		dnRequest("callnamed",[self,"ConfigureContainer",P1])
+		return self
+
 	Func getEnvironment
 		return dnRequest("get",[self,"Environment"])
 

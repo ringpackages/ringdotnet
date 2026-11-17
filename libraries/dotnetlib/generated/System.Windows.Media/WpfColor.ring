@@ -64,6 +64,15 @@ Class WpfColor from ValueType
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1,P2])
 
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getColorContext
 		return dnRequest("get",[self,"ColorContext"])
 

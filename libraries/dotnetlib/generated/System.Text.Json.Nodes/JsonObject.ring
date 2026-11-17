@@ -76,6 +76,17 @@ Class JsonObject from JsonNode
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func SetAtWith P1
+		dnRequest("callnamed",[self,"SetAt",P1])
+		return self
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

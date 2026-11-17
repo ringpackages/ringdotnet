@@ -141,6 +141,49 @@ Class FormattedText from Object
 	Func BuildHighlightGeometry_3 P1,P2,P3
 		return dnRequest("call",[self,"BuildHighlightGeometry",P1,P2,P3])
 
+	Func SetForegroundBrushWith P1
+		dnRequest("callnamed",[self,"SetForegroundBrush",P1])
+		return self
+
+	Func SetFontFamilyWith P1
+		dnRequest("callnamed",[self,"SetFontFamily",P1])
+		return self
+
+	Func SetFontSizeWith P1
+		dnRequest("callnamed",[self,"SetFontSize",P1])
+		return self
+
+	Func SetCultureWith P1
+		dnRequest("callnamed",[self,"SetCulture",P1])
+		return self
+
+	Func SetNumberSubstitutionWith P1
+		dnRequest("callnamed",[self,"SetNumberSubstitution",P1])
+		return self
+
+	Func SetFontWeightWith P1
+		dnRequest("callnamed",[self,"SetFontWeight",P1])
+		return self
+
+	Func SetFontStyleWith P1
+		dnRequest("callnamed",[self,"SetFontStyle",P1])
+		return self
+
+	Func SetFontStretchWith P1
+		dnRequest("callnamed",[self,"SetFontStretch",P1])
+		return self
+
+	Func SetFontTypefaceWith P1
+		dnRequest("callnamed",[self,"SetFontTypeface",P1])
+		return self
+
+	Func SetTextDecorationsWith P1
+		dnRequest("callnamed",[self,"SetTextDecorations",P1])
+		return self
+
+	Func BuildHighlightGeometryWith P1
+		return dnRequest("callnamed",[self,"BuildHighlightGeometry",P1])
+
 	Func getText
 		return dnRequest("get",[self,"Text"])
 

@@ -29,6 +29,9 @@ Class TextEncoder from Object
 		dnRequest("call",[self,"Encode",P1,P2,P3,P4])
 		return self
 
+	Func EncodeWith P1
+		return dnRequest("callnamed",[self,"Encode",P1])
+
 	Func getMaxOutputCharactersPerInputCharacter
 		return dnRequest("get",[self,"MaxOutputCharactersPerInputCharacter"])
 

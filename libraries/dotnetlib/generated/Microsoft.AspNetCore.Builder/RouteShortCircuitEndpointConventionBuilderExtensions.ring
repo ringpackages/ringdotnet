@@ -19,3 +19,6 @@ Class RouteShortCircuitEndpointConventionBuilderExtensions from Object
 	Func ShortCircuit P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"ShortCircuit",P1])
 
+	Func ShortCircuitWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RouteShortCircuitEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"ShortCircuit",P1])
+

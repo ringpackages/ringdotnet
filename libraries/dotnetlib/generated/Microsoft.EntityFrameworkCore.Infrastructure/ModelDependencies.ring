@@ -16,6 +16,9 @@ Class ModelDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelDependencies, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getLogger
 		return dnRequest("get",[self,"Logger"])
 

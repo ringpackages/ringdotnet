@@ -53,6 +53,18 @@ Class EventInfo from MemberInfo
 		dnRequest("call",[self,"RemoveEventHandler",P1,P2])
 		return self
 
+	Func GetOtherMethodsWith P1
+		return dnRequest("callnamed",[self,"GetOtherMethods",P1])
+
+	Func GetAddMethodWith P1
+		return dnRequest("callnamed",[self,"GetAddMethod",P1])
+
+	Func GetRemoveMethodWith P1
+		return dnRequest("callnamed",[self,"GetRemoveMethod",P1])
+
+	Func GetRaiseMethodWith P1
+		return dnRequest("callnamed",[self,"GetRaiseMethod",P1])
+
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
 

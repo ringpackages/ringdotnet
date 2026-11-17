@@ -38,3 +38,7 @@ Class AdornerLayer from FrameworkElement
 	Func GetAdornerLayer P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.AdornerLayer, PresentationFramework'),"GetAdornerLayer",P1])
 
+	Func UpdateWith P1
+		dnRequest("callnamed",[self,"Update",P1])
+		return self
+

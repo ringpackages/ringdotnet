@@ -37,6 +37,10 @@ Class DrawToolTipEventArgs from EventArgs
 		dnRequest("call",[self,"DrawBorder"])
 		return self
 
+	Func DrawTextWith P1
+		dnRequest("callnamed",[self,"DrawText",P1])
+		return self
+
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])
 

@@ -37,6 +37,9 @@ Class MemberInfo from Object
 	Func GetCustomAttributesData 
 		return dnRequest("call",[self,"GetCustomAttributesData"])
 
+	Func GetCustomAttributesWith P1
+		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
+
 	Func getMemberType
 		return dnRequest("get",[self,"MemberType"])
 

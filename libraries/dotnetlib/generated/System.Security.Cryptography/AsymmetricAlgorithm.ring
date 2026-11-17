@@ -51,6 +51,9 @@ Class AsymmetricAlgorithm from Object
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
+
 	Func getKeySize
 		return dnRequest("get",[self,"KeySize"])
 

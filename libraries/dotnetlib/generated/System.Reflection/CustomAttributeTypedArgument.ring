@@ -25,6 +25,9 @@ Class CustomAttributeTypedArgument from ValueType
 		nHandle = dnCreate('System.Reflection.CustomAttributeTypedArgument, System.Private.CoreLib',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getArgumentType
 		return dnRequest("get",[self,"ArgumentType"])
 

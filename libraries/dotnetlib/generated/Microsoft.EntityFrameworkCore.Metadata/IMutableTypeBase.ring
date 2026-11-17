@@ -129,6 +129,27 @@ Class IMutableTypeBase from DotNetObject
 		dnRequest("call",[self,"SetPropertyAccessMode",P1])
 		return self
 
+	Func AddPropertyWith P1
+		return dnRequest("callnamed",[self,"AddProperty",P1])
+
+	Func FindPropertyWith P1
+		return dnRequest("callnamed",[self,"FindProperty",P1])
+
+	Func RemovePropertyWith P1
+		return dnRequest("callnamed",[self,"RemoveProperty",P1])
+
+	Func AddComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"AddComplexProperty",P1])
+
+	Func AddComplexIndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"AddComplexIndexerProperty",P1])
+
+	Func FindComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
+
+	Func RemoveComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"RemoveComplexProperty",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

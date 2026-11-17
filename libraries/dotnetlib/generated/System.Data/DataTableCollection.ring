@@ -58,6 +58,23 @@ Class DataTableCollection from InternalDataCollectionBase
 		dnRequest("call",[self,"Remove",P1,P2])
 		return self
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func ContainsWith P1
+		return dnRequest("callnamed",[self,"Contains",P1])
+
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[self,"IndexOf",P1])
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[self,"Remove",P1])
+		return self
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

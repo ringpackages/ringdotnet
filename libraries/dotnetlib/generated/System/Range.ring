@@ -30,6 +30,9 @@ Class Range from ValueType
 	Func EndAt P1
 		return dnRequest("call",[dnTypeCached('System.Range, System.Private.CoreLib'),"EndAt",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getStart
 		return dnRequest("get",[self,"Start"])
 

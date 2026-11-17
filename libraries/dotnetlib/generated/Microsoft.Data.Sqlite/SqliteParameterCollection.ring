@@ -25,3 +25,22 @@ Class SqliteParameterCollection from DbParameterCollection
 	Func AddWithValue P1,P2
 		return dnRequest("call",[self,"AddWithValue",P1,P2])
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func AddRangeWith P1
+		dnRequest("callnamed",[self,"AddRange",P1])
+		return self
+
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func InsertWith P1
+		dnRequest("callnamed",[self,"Insert",P1])
+		return self
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[self,"Remove",P1])
+		return self
+

@@ -26,3 +26,7 @@ Class MultipartFormDataContent from MultipartContent
 		dnRequest("call",[self,"Add",P1,P2,P3])
 		return self
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+

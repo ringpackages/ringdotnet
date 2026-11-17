@@ -25,6 +25,9 @@ Class DBNull from Object
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getValue
 		return dnRequest("get",[dnTypeCached('System.DBNull, System.Private.CoreLib'),"Value"])
 

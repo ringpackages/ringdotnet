@@ -76,6 +76,24 @@ Class Matrix3x2 from ValueType
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Subtract",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func CreateRotationWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1])
+
+	Func CreateScaleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
+
+	Func CreateSkewWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1])
+
+	Func CreateTranslationWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
+
+	Func MultiplyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Multiply",P1])
+
 	Func getIsIdentity
 		return dnRequest("get",[self,"IsIdentity"])
 

@@ -28,3 +28,9 @@ Class MvcXmlMvcCoreBuilderExtensions from Object
 	Func AddXmlSerializerFormatters_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1,P2])
 
+	Func AddXmlDataContractSerializerFormattersWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlDataContractSerializerFormatters",P1])
+
+	Func AddXmlSerializerFormattersWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcXmlMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Formatters.Xml'),"AddXmlSerializerFormatters",P1])
+

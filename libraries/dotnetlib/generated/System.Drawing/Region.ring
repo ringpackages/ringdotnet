@@ -104,3 +104,33 @@ Class Region from MarshalByRefObject
 	Func FromHrgn P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Region, System.Drawing.Common'),"FromHrgn",P1])
 
+	Func IntersectWith P1
+		dnRequest("callnamed",[self,"Intersect",P1])
+		return self
+
+	Func UnionWith P1
+		dnRequest("callnamed",[self,"Union",P1])
+		return self
+
+	Func XorWith P1
+		dnRequest("callnamed",[self,"Xor",P1])
+		return self
+
+	Func ExcludeWith P1
+		dnRequest("callnamed",[self,"Exclude",P1])
+		return self
+
+	Func ComplementWith P1
+		dnRequest("callnamed",[self,"Complement",P1])
+		return self
+
+	Func TranslateWith P1
+		dnRequest("callnamed",[self,"Translate",P1])
+		return self
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func IsVisibleWith P1
+		return dnRequest("callnamed",[self,"IsVisible",P1])
+

@@ -126,6 +126,18 @@ Class Application from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1,P2])
 		return self
 
+	Func ExitWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
+		return self
+
+	Func RunWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run",P1])
+		return self
+
+	Func SetUnhandledExceptionModeWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1])
+		return self
+
 	Func setApplicationExitEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"ApplicationExit",dnCallback(P1)])
 		return self

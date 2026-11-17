@@ -71,3 +71,12 @@ Class RSA from AsymmetricAlgorithm
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography'),"Create",P1])
 
+	Func SignDataWith P1
+		return dnRequest("callnamed",[self,"SignData",P1])
+
+	Func VerifyDataWith P1
+		return dnRequest("callnamed",[self,"VerifyData",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography'),"Create",P1])
+

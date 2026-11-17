@@ -27,3 +27,10 @@ Class CascadingValueServiceCollectionExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"TryAddCascadingValue",P1,P2,P3])
 		return self
 
+	Func AddCascadingValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"AddCascadingValue",P1])
+
+	Func TryAddCascadingValueWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CascadingValueServiceCollectionExtensions, Microsoft.AspNetCore.Components'),"TryAddCascadingValue",P1])
+		return self
+

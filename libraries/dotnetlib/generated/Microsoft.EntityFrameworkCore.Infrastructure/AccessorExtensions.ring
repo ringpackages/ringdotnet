@@ -22,3 +22,6 @@ Class AccessorExtensions from Object
 	Func GetInfrastructure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"GetInfrastructure",P1])
 
+	Func GetServiceWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"GetService",P1])
+

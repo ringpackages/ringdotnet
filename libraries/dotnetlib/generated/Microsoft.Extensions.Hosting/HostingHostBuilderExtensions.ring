@@ -58,3 +58,21 @@ Class HostingHostBuilderExtensions from Object
 	Func ConfigureMetrics P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"ConfigureMetrics",P1,P2])
 
+	Func UseDefaultServiceProviderWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"UseDefaultServiceProvider",P1])
+
+	Func ConfigureLoggingWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"ConfigureLogging",P1])
+
+	Func ConfigureHostOptionsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"ConfigureHostOptions",P1])
+
+	Func UseConsoleLifetimeWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"UseConsoleLifetime",P1])
+
+	Func RunConsoleAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"RunConsoleAsync",P1])
+
+	Func ConfigureMetricsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"ConfigureMetrics",P1])
+

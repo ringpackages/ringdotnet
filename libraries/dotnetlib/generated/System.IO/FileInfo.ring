@@ -74,6 +74,19 @@ Class FileInfo from FileSystemInfo
 		dnRequest("call",[self,"Encrypt"])
 		return self
 
+	Func OpenWith P1
+		return dnRequest("callnamed",[self,"Open",P1])
+
+	Func CopyToWith P1
+		return dnRequest("callnamed",[self,"CopyTo",P1])
+
+	Func MoveToWith P1
+		dnRequest("callnamed",[self,"MoveTo",P1])
+		return self
+
+	Func ReplaceWith P1
+		return dnRequest("callnamed",[self,"Replace",P1])
+
 	Func getLength
 		return dnRequest("get",[self,"Length"])
 

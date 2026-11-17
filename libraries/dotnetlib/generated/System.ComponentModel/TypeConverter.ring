@@ -119,3 +119,51 @@ Class TypeConverter from Object
 	Func IsValid_2 P1,P2
 		return dnRequest("call",[self,"IsValid",P1,P2])
 
+	Func CanConvertFromWith P1
+		return dnRequest("callnamed",[self,"CanConvertFrom",P1])
+
+	Func CanConvertToWith P1
+		return dnRequest("callnamed",[self,"CanConvertTo",P1])
+
+	Func ConvertFromWith P1
+		return dnRequest("callnamed",[self,"ConvertFrom",P1])
+
+	Func ConvertFromInvariantStringWith P1
+		return dnRequest("callnamed",[self,"ConvertFromInvariantString",P1])
+
+	Func ConvertFromStringWith P1
+		return dnRequest("callnamed",[self,"ConvertFromString",P1])
+
+	Func ConvertToWith P1
+		return dnRequest("callnamed",[self,"ConvertTo",P1])
+
+	Func ConvertToInvariantStringWith P1
+		return dnRequest("callnamed",[self,"ConvertToInvariantString",P1])
+
+	Func ConvertToStringWith P1
+		return dnRequest("callnamed",[self,"ConvertToString",P1])
+
+	Func CreateInstanceWith P1
+		return dnRequest("callnamed",[self,"CreateInstance",P1])
+
+	Func GetCreateInstanceSupportedWith P1
+		return dnRequest("callnamed",[self,"GetCreateInstanceSupported",P1])
+
+	Func GetPropertiesWith P1
+		return dnRequest("callnamed",[self,"GetProperties",P1])
+
+	Func GetPropertiesSupportedWith P1
+		return dnRequest("callnamed",[self,"GetPropertiesSupported",P1])
+
+	Func GetStandardValuesWith P1
+		return dnRequest("callnamed",[self,"GetStandardValues",P1])
+
+	Func GetStandardValuesExclusiveWith P1
+		return dnRequest("callnamed",[self,"GetStandardValuesExclusive",P1])
+
+	Func GetStandardValuesSupportedWith P1
+		return dnRequest("callnamed",[self,"GetStandardValuesSupported",P1])
+
+	Func IsValidWith P1
+		return dnRequest("callnamed",[self,"IsValid",P1])
+

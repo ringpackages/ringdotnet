@@ -177,6 +177,19 @@ Class DataGrid from MultiSelector
 	Func GenerateColumns P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.DataGrid, PresentationFramework'),"GenerateColumns",P1])
 
+	Func ScrollIntoViewWith P1
+		dnRequest("callnamed",[self,"ScrollIntoView",P1])
+		return self
+
+	Func BeginEditWith P1
+		return dnRequest("callnamed",[self,"BeginEdit",P1])
+
+	Func CancelEditWith P1
+		return dnRequest("callnamed",[self,"CancelEdit",P1])
+
+	Func CommitEditWith P1
+		return dnRequest("callnamed",[self,"CommitEdit",P1])
+
 	Func setColumnDisplayIndexChangedEvent P1
 		dnRequest("setevent",[self,"ColumnDisplayIndexChanged",dnCallback(P1)])
 		return self

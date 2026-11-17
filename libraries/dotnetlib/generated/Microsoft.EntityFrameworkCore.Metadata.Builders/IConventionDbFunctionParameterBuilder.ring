@@ -57,6 +57,27 @@ Class IConventionDbFunctionParameterBuilder from DotNetObject
 	Func CanSetTypeMapping P1
 		return dnRequest("call",[self,"CanSetTypeMapping",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func HasStoreTypeWith P1
+		return dnRequest("callnamed",[self,"HasStoreType",P1])
+
+	Func CanSetStoreTypeWith P1
+		return dnRequest("callnamed",[self,"CanSetStoreType",P1])
+
+	Func HasTypeMappingWith P1
+		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
+
+	Func CanSetTypeMappingWith P1
+		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

@@ -51,6 +51,15 @@ Class CaseInsensitiveValueComparer from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func GetHashCodeWith P1
+		return dnRequest("callnamed",[self,"GetHashCode",P1])
+
+	Func SnapshotWith P1
+		return dnRequest("callnamed",[self,"Snapshot",P1])
+
 	Func getObjectEqualsExpression
 		return dnRequest("get",[self,"ObjectEqualsExpression"])
 

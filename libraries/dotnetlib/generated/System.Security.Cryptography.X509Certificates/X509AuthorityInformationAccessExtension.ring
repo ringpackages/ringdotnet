@@ -35,3 +35,6 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 	Func EnumerateOcspUris 
 		return dnRequest("call",[self,"EnumerateOcspUris"])
 
+	Func EnumerateUrisWith P1
+		return dnRequest("callnamed",[self,"EnumerateUris",P1])
+

@@ -56,6 +56,14 @@ Class AxHost from Control
 		dnRequest("call",[self,"ShowPropertyPages",P1])
 		return self
 
+	Func DrawToBitmapWith P1
+		dnRequest("callnamed",[self,"DrawToBitmap",P1])
+		return self
+
+	Func ShowPropertyPagesWith P1
+		dnRequest("callnamed",[self,"ShowPropertyPages",P1])
+		return self
+
 	Func getEditMode
 		return dnRequest("get",[self,"EditMode"])
 

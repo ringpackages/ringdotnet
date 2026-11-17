@@ -96,3 +96,27 @@ Class IMutableModel from DotNetObject
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
+	Func AddEntityTypeWith P1
+		return dnRequest("callnamed",[self,"AddEntityType",P1])
+
+	Func AddOwnedEntityTypeWith P1
+		return dnRequest("callnamed",[self,"AddOwnedEntityType",P1])
+
+	Func FindEntityTypeWith P1
+		return dnRequest("callnamed",[self,"FindEntityType",P1])
+
+	Func RemoveEntityTypeWith P1
+		return dnRequest("callnamed",[self,"RemoveEntityType",P1])
+
+	Func FindLeastDerivedEntityTypesWith P1
+		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+
+	Func AddIgnoredWith P1
+		return dnRequest("callnamed",[self,"AddIgnored",P1])
+
+	Func RemoveIgnoredWith P1
+		return dnRequest("callnamed",[self,"RemoveIgnored",P1])
+
+	Func IsIgnoredWith P1
+		return dnRequest("callnamed",[self,"IsIgnored",P1])
+

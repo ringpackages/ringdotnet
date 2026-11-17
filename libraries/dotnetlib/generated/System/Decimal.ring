@@ -197,6 +197,27 @@ Class Decimal from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2])
 
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
+
+	Func RoundWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
+
 	Func getScale
 		return dnRequest("get",[self,"Scale"])
 

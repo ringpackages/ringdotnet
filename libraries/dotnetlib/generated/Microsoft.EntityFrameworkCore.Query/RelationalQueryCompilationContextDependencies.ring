@@ -16,6 +16,9 @@ Class RelationalQueryCompilationContextDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContextDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getSqlAliasManagerFactory
 		return dnRequest("get",[self,"SqlAliasManagerFactory"])
 

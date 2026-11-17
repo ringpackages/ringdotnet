@@ -18,6 +18,9 @@ Class TypeMappingSourceDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingSourceDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getValueConverterSelector
 		return dnRequest("get",[self,"ValueConverterSelector"])
 

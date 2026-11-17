@@ -16,3 +16,6 @@ Class EventSourceLoggerFactoryExtensions from Object
 	Func AddEventSourceLogger P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource'),"AddEventSourceLogger",P1])
 
+	Func AddEventSourceLoggerWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.EventSourceLoggerFactoryExtensions, Microsoft.Extensions.Logging.EventSource'),"AddEventSourceLogger",P1])
+

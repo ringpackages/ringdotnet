@@ -21,6 +21,9 @@ Class DbContextId from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getInstanceId
 		return dnRequest("get",[self,"InstanceId"])
 

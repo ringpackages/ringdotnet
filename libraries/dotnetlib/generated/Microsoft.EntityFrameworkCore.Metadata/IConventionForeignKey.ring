@@ -111,6 +111,30 @@ Class IConventionForeignKey from DotNetObject
 	Func GetNavigation P1
 		return dnRequest("call",[self,"GetNavigation",P1])
 
+	Func SetPropertiesWith P1
+		return dnRequest("callnamed",[self,"SetProperties",P1])
+
+	Func SetIsUniqueWith P1
+		return dnRequest("callnamed",[self,"SetIsUnique",P1])
+
+	Func SetIsRequiredWith P1
+		return dnRequest("callnamed",[self,"SetIsRequired",P1])
+
+	Func SetIsRequiredDependentWith P1
+		return dnRequest("callnamed",[self,"SetIsRequiredDependent",P1])
+
+	Func SetIsOwnershipWith P1
+		return dnRequest("callnamed",[self,"SetIsOwnership",P1])
+
+	Func SetDeleteBehaviorWith P1
+		return dnRequest("callnamed",[self,"SetDeleteBehavior",P1])
+
+	Func SetDependentToPrincipalWith P1
+		return dnRequest("callnamed",[self,"SetDependentToPrincipal",P1])
+
+	Func SetPrincipalToDependentWith P1
+		return dnRequest("callnamed",[self,"SetPrincipalToDependent",P1])
+
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])
 

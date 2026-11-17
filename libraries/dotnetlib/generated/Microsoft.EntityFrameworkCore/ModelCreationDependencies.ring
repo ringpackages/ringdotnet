@@ -20,6 +20,9 @@ Class ModelCreationDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelCreationDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModelSource
 		return dnRequest("get",[self,"ModelSource"])
 

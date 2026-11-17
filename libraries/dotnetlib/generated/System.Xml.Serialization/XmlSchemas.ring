@@ -57,6 +57,12 @@ Class XmlSchemas from CollectionBase
 	Func IsDataSet P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSchemas, System.Private.Xml'),"IsDataSet",P1])
 
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func ContainsWith P1
+		return dnRequest("callnamed",[self,"Contains",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

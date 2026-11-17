@@ -175,6 +175,38 @@ Class DataTable from MarshalByValueComponent
 	Func GetDataTableSchema P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataTable, System.Data.Common'),"GetDataTableSchema",P1])
 
+	Func GetChangesWith P1
+		return dnRequest("callnamed",[self,"GetChanges",P1])
+
+	Func SelectWith P1
+		return dnRequest("callnamed",[self,"Select",P1])
+
+	Func LoadDataRowWith P1
+		return dnRequest("callnamed",[self,"LoadDataRow",P1])
+
+	Func MergeWith P1
+		dnRequest("callnamed",[self,"Merge",P1])
+		return self
+
+	Func LoadWith P1
+		dnRequest("callnamed",[self,"Load",P1])
+		return self
+
+	Func WriteXmlWith P1
+		dnRequest("callnamed",[self,"WriteXml",P1])
+		return self
+
+	Func WriteXmlSchemaWith P1
+		dnRequest("callnamed",[self,"WriteXmlSchema",P1])
+		return self
+
+	Func ReadXmlWith P1
+		return dnRequest("callnamed",[self,"ReadXml",P1])
+
+	Func ReadXmlSchemaWith P1
+		dnRequest("callnamed",[self,"ReadXmlSchema",P1])
+		return self
+
 	Func setColumnChangingEvent P1
 		dnRequest("setevent",[self,"ColumnChanging",dnCallback(P1)])
 		return self

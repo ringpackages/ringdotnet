@@ -24,6 +24,9 @@ Class ModelBinderProviderContext from Object
 	Func CreateBinder_2 P1,P2
 		return dnRequest("call",[self,"CreateBinder",P1,P2])
 
+	Func CreateBinderWith P1
+		return dnRequest("callnamed",[self,"CreateBinder",P1])
+
 	Func getBindingInfo
 		return dnRequest("get",[self,"BindingInfo"])
 

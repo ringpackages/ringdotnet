@@ -43,3 +43,9 @@ Class Activator from Object
 	Func CreateInstance 
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
 
+	Func CreateInstanceWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
+
+	Func CreateInstanceFromWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1])
+

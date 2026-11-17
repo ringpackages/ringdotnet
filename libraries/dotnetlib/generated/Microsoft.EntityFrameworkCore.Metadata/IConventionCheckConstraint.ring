@@ -28,6 +28,9 @@ Class IConventionCheckConstraint from DotNetObject
 	Func GetNameConfigurationSource 
 		return dnRequest("call",[self,"GetNameConfigurationSource"])
 
+	Func SetNameWith P1
+		return dnRequest("callnamed",[self,"SetName",P1])
+
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])
 

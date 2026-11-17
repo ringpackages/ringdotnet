@@ -75,6 +75,21 @@ Class DbBatch from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func ExecuteReaderWith P1
+		return dnRequest("callnamed",[self,"ExecuteReader",P1])
+
+	Func ExecuteReaderAsyncWith P1
+		return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
+
+	Func ExecuteNonQueryAsyncWith P1
+		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
+
+	Func ExecuteScalarAsyncWith P1
+		return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
+
+	Func PrepareAsyncWith P1
+		return dnRequest("callnamed",[self,"PrepareAsync",P1])
+
 	Func getBatchCommands
 		return dnRequest("get",[self,"BatchCommands"])
 

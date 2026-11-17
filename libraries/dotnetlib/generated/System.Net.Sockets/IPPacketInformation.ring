@@ -17,6 +17,9 @@ Class IPPacketInformation from ValueType
 		nHandle = dnCreate('System.Net.Sockets.IPPacketInformation, System.Net.Sockets',[])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getAddress
 		return dnRequest("get",[self,"Address"])
 

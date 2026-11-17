@@ -18,6 +18,9 @@ Class CompiledQueryCacheKeyGeneratorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.CompiledQueryCacheKeyGeneratorDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

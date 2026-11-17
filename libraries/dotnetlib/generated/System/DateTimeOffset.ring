@@ -176,6 +176,30 @@ Class DateTimeOffset from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1,P2])
 
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func SubtractWith P1
+		return dnRequest("callnamed",[self,"Subtract",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1])
+
+	Func ParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"ParseExact",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1])
+
+	Func TryParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParseExact",P1])
+
 	Func getDateTime
 		return dnRequest("get",[self,"DateTime"])
 

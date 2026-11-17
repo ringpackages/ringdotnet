@@ -198,6 +198,51 @@ Class TimeSpan from ValueType
 	Func TryParseExact_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
 
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func DivideWith P1
+		return dnRequest("callnamed",[self,"Divide",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func FromDaysWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
+
+	Func FromHoursWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
+
+	Func FromMinutesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
+
+	Func FromSecondsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
+
+	Func FromMillisecondsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1])
+
+	Func FromMicrosecondsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMicroseconds",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
+
+	Func ParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
+
+	Func TryParseExactWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1])
+
 	Func getTicks
 		return dnRequest("get",[self,"Ticks"])
 

@@ -81,6 +81,25 @@ Class RichTextBox from TextBoxBase
 		dnRequest("call",[self,"SaveFile",P1,P2])
 		return self
 
+	Func DrawToBitmapWith P1
+		dnRequest("callnamed",[self,"DrawToBitmap",P1])
+		return self
+
+	Func FindWith P1
+		return dnRequest("callnamed",[self,"Find",P1])
+
+	Func LoadFileWith P1
+		dnRequest("callnamed",[self,"LoadFile",P1])
+		return self
+
+	Func PasteWith P1
+		dnRequest("callnamed",[self,"Paste",P1])
+		return self
+
+	Func SaveFileWith P1
+		dnRequest("callnamed",[self,"SaveFile",P1])
+		return self
+
 	Func setContentsResizedEvent P1
 		dnRequest("setevent",[self,"ContentsResized",dnCallback(P1)])
 		return self

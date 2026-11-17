@@ -22,3 +22,12 @@ Class TupleExtensions from Object
 	Func ToTuple P1
 		return dnRequest("call",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToTuple",P1])
 
+	Func DeconstructWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"Deconstruct",P1])
+
+	Func ToValueTupleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToValueTuple",P1])
+
+	Func ToTupleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.TupleExtensions, System.Private.CoreLib'),"ToTuple",P1])
+

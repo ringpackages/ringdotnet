@@ -77,9 +77,9 @@ cFile = <span class="s">""</span>
 
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
 oTable.TableName = <span class="s">"Contacts"</span>
-oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Name"</span>,<span class="s">"System.String"</span>)
-oTable.Columns.<span class="f">Add_2</span>(<span class="s">"Phone"</span>,<span class="s">"System.String"</span>)
-oTable.Columns.<span class="f">Add_2</span>(<span class="s">"City"</span>,<span class="s">"System.String"</span>)
+oTable.Columns.<span class="f">AddWith</span>([ :columnName = <span class="s">"Name"</span>, :type = <span class="s">"System.String"</span> ])
+oTable.Columns.<span class="f">AddWith</span>([ :columnName = <span class="s">"Phone"</span>, :type = <span class="s">"System.String"</span> ])
+oTable.Columns.<span class="f">AddWith</span>([ :columnName = <span class="s">"City"</span>, :type = <span class="s">"System.String"</span> ])
 
 oForm = <span class="f">uiForm</span>(<span class="s">"Address book"</span>,<span class="n">600</span>,<span class="n">420</span>)
 <span class="f">uiLabel</span>(oForm,<span class="s">"Search"</span>,<span class="n">10</span>,<span class="n">14</span>,<span class="n">50</span>,<span class="n">22</span>)
@@ -316,10 +316,10 @@ oList = <span class="k">new</span> <span class="t">ListView</span>() {
 	FullRowSelect = <span class="k">True</span>
 	GridLines = <span class="k">True</span>
 }
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Dec"</span>,<span class="n">60</span>)
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Hex"</span>,<span class="n">60</span>)
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Binary"</span>,<span class="n">100</span>)
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Char"</span>,<span class="n">150</span>)
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Dec"</span>, :width = <span class="n">60</span> ])
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Hex"</span>, :width = <span class="n">60</span> ])
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Binary"</span>, :width = <span class="n">100</span> ])
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Char"</span>, :width = <span class="n">150</span> ])
 oForm.Controls.<span class="f">Add</span>(oList)
 oFilter.<span class="f">setTextChangedEvent</span>(<span class="s">"fillTable()"</span>)
 fillTable()
@@ -364,7 +364,7 @@ fillTable()
 		<span class="k">ok</span>
 		cRow = <span class="s">""</span> + nCode + <span class="s">" "</span> + lower(cHex) + <span class="s">" "</span> + lower(cName)
 		<span class="k">if</span> cFilter = <span class="s">""</span> <span class="k">or</span> substr(cRow,cFilter)
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_1</span>(<span class="s">""</span> + nCode)
+			oItem = <span class="f">dnNewWith</span>(<span class="s">"ListViewItem"</span>,[ :text = <span class="s">""</span> + nCode ])
 			oItem.SubItems.<span class="f">Add</span>(cHex)
 			oItem.SubItems.<span class="f">Add</span>(binary(nCode))
 			oItem.SubItems.<span class="f">Add</span>(cName)
@@ -776,7 +776,7 @@ showFacts()
 	oCulture = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 	nYear = oDate.Year
 	oEndOfYear = <span class="k">new</span> <span class="t">DateTime</span>(nYear,<span class="n">12</span>,<span class="n">31</span>)
-	cText = oDate.<span class="f">ToString_2</span>(<span class="s">"dddd, MMMM d, yyyy"</span>,oCulture) + nl + nl
+	cText = oDate.<span class="f">ToStringWith</span>([ :format = <span class="s">"dddd, MMMM d, yyyy"</span>, :provider = oCulture ]) + nl + nl
 	cText += <span class="s">"Day of the year: "</span> + oDate.DayOfYear + nl
 	cText += <span class="s">"ISO week: "</span> + <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetWeekOfYear</span>(oDate) + nl
 	cText += <span class="s">"Days left in the year: "</span> + floor(oEndOfYear.<span class="f">Subtract</span>(oDate).TotalDays) + nl
@@ -1369,7 +1369,7 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 
 <span class="c"># the epoch (seconds) of a UTC date text, raises an error for invalid text</span>
 <span class="k">func</span> <span class="f">epochOf</span> cDateText
-	oDate = <span class="k">new</span> <span class="t">DateTimeOffset</span>().<span class="f">Parse_3</span>(cDateText,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture,<span class="s">"AssumeUniversal"</span>)
+	oDate = <span class="k">new</span> <span class="t">DateTimeOffset</span>().<span class="f">ParseWith</span>([ :input = cDateText, :formatProvider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture, :styles = <span class="s">"AssumeUniversal"</span> ])
 	<span class="k">return</span> oDate.<span class="f">ToUnixTimeSeconds</span>()
 
 <span class="k">func</span> <span class="f">dateOf</span> nEpoch
@@ -1379,8 +1379,8 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	oMessage.Text = <span class="s">""</span>
 	<span class="k">try</span>
 		oDate = dateOf(number(oEpoch.Text))
-		oUtc.Text = oDate.UtcDateTime.<span class="f">ToString_1</span>(C_FORMAT)
-		oLocal.Text = oDate.LocalDateTime.<span class="f">ToString_1</span>(C_FORMAT)
+		oUtc.Text = oDate.UtcDateTime.<span class="f">ToStringWith</span>([ :format = C_FORMAT ])
+		oLocal.Text = oDate.LocalDateTime.<span class="f">ToStringWith</span>([ :format = C_FORMAT ])
 	<span class="k">catch</span>
 		oMessage.Text = <span class="s">"Invalid epoch value"</span>
 	<span class="k">done</span>
@@ -1576,9 +1576,9 @@ oList = <span class="k">new</span> <span class="t">ListView</span>() {
 	FullRowSelect = <span class="k">True</span>
 	GridLines = <span class="k">True</span>
 }
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Name"</span>,<span class="n">260</span>)
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Size"</span>,<span class="n">90</span>)
-oList.Columns.<span class="f">Add_2</span>(<span class="s">"Modified"</span>,<span class="n">140</span>)
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Name"</span>, :width = <span class="n">260</span> ])
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Size"</span>, :width = <span class="n">90</span> ])
+oList.Columns.<span class="f">AddWith</span>([ :text = <span class="s">"Modified"</span>, :width = <span class="n">140</span> ])
 oSplit.Panel2.Controls.<span class="f">Add</span>(oList)
 oStatus = <span class="k">new</span> <span class="t">StatusStrip</span>()
 oStatusText = <span class="k">new</span> <span class="t">ToolStripStatusLabel</span>()
@@ -1644,9 +1644,9 @@ oTree {
 	<span class="k">try</span>
 		<span class="k">for</span> cFile <span class="k">in</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>()
 			oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_1</span>(oInfo.Name)
+			oItem = <span class="f">dnNewWith</span>(<span class="s">"ListViewItem"</span>,[ :text = oInfo.Name ])
 			oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
-			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
+			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">ToStringWith</span>([ :format = <span class="s">"yyyy-MM-dd HH:mm"</span> ]))
 			oList.Items.<span class="f">Add</span>(oItem)
 			nFiles++
 		<span class="k">next</span>
@@ -1661,7 +1661,7 @@ oTree {
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	cBase = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"explorer_selftest"</span>)
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
-		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete_2</span>(cBase,<span class="n">1</span>)
+		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">DeleteWith</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"docs"</span>))
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"images/icons"</span>))
@@ -1684,7 +1684,7 @@ oTree {
 	<span class="f">dnAssert</span>(<span class="s">"sub folder loaded on expand"</span>,oImages.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Text,<span class="s">"icons"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"status text"</span>,right(oStatusText.Text,<span class="n">9</span>),<span class="s">"(1 files)"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"sizes"</span>,sizeText(<span class="n">3</span> * <span class="n">1048576</span>),<span class="s">"3 MB"</span>)
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete_2</span>(cBase,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="game2048"><div class="pic"><img src="img/shots/app-Game2048.png" alt="Game2048" loading="lazy"></div><div class="info"><h3>Game2048</h3><p>2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</p><div class="run"><code>cd applications/Game2048  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</span>
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">DeleteWith</span>([ :path = cBase, :recursive = <span class="k">True</span> ])</code></pre></div></details></div></div><div class="item" id="game2048"><div class="pic"><img src="img/shots/app-Game2048.png" alt="Game2048" loading="lazy"></div><div class="info"><h3>Game2048</h3><p>2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</p><div class="run"><code>cd applications/Game2048  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</span>
 
 <span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -2282,7 +2282,7 @@ oBox.<span class="f">BringToFront</span>()
 	<span class="k">ok</span>
 
 <span class="k">func</span> <span class="f">saveTo</span> cFile
-	oImage.<span class="f">Save_2</span>(cFile,<span class="k">new</span> <span class="t">ImageFormat</span>().Png)
+	oImage.<span class="f">SaveWith</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 
 <span class="k">func</span> <span class="f">rotate</span>
 	<span class="k">if</span> isobject(oImage)
@@ -2338,7 +2338,7 @@ oBox.<span class="f">BringToFront</span>()
 		<span class="k">next</span>
 	<span class="k">next</span>
 	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_selftest.png"</span>)
-	oSample.<span class="f">Save_2</span>(cFile,<span class="k">new</span> <span class="t">ImageFormat</span>().Png)
+	oSample.<span class="f">SaveWith</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	loadFile(cFile)
 	<span class="f">dnAssert</span>(<span class="s">"loaded size"</span>,oInfoText.Text,<span class="s">"40 x 20   zoom 100%"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"title"</span>,oForm.Text,<span class="s">"imageviewer_selftest.png - Image viewer"</span>)
@@ -2569,7 +2569,7 @@ oTable = <span class="k">new</span> <span class="t">ListView</span>() {
 	FullRowSelect = <span class="k">True</span>
 }
 <span class="k">for</span> aColumn <span class="k">in</span> [[<span class="s">"Month"</span>,<span class="n">60</span>],[<span class="s">"Payment"</span>,<span class="n">100</span>],[<span class="s">"Interest"</span>,<span class="n">100</span>],[<span class="s">"Principal"</span>,<span class="n">100</span>],[<span class="s">"Balance"</span>,<span class="n">110</span>]]
-	oTable.Columns.<span class="f">Add_2</span>(aColumn[<span class="n">1</span>],aColumn[<span class="n">2</span>])
+	oTable.Columns.<span class="f">AddWith</span>([ :text = aColumn[<span class="n">1</span>], :width = aColumn[<span class="n">2</span>] ])
 <span class="k">next</span>
 oForm.Controls.<span class="f">Add</span>(oTable)
 
@@ -2613,7 +2613,7 @@ calculate()
 		nBalance -= nPrincipal
 		nTotalInterest += nInterestPart
 		<span class="k">if</span> nMonth &lt;= <span class="n">12</span>
-			oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_1</span>(<span class="s">""</span> + nMonth)
+			oItem = <span class="f">dnNewWith</span>(<span class="s">"ListViewItem"</span>,[ :text = <span class="s">""</span> + nMonth ])
 			oItem.SubItems.<span class="f">Add</span>(money(nPayment))
 			oItem.SubItems.<span class="f">Add</span>(money(nInterestPart))
 			oItem.SubItems.<span class="f">Add</span>(money(nPrincipal))
@@ -2962,7 +2962,7 @@ oInfo.Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<sp
 	oButton = <span class="f">uiButton</span>(oForm,<span class="s">""</span>,<span class="n">10</span> + nColumn * C_SIZE,<span class="n">44</span> + nRow * C_SIZE,C_SIZE,C_SIZE,<span class="s">""</span>)
 	oButton {
 		Font = <span class="f">uiFont</span>(<span class="s">"Segoe UI"</span>,<span class="n">11</span>,<span class="k">true</span>)
-		Margin = <span class="k">new</span> <span class="t">Padding</span>().<span class="f">New_1</span>(<span class="n">0</span>)
+		Margin = <span class="f">dnNewWith</span>(<span class="s">"Padding"</span>,[ :all = <span class="n">0</span> ])
 		setMouseUpEvent(<span class="s">"cellClicked("</span> + nCell + <span class="s">",aDotNetArgs[2].Button)"</span>)
 	}
 	aButtons + oButton
@@ -3316,7 +3316,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 		oFound.Text = <span class="s">"Not found"</span>
 	<span class="k">else</span>
 		oFound.Text = <span class="s">""</span>
-		oEditor.<span class="f">Select_2</span>(nIndex,len(cWhat))
+		oEditor.<span class="f">SelectWith</span>([ :start = nIndex, :length = len(cWhat) ])
 		oEditor.<span class="f">ScrollToCaret</span>()
 		oEditor.<span class="f">Focus</span>()
 	<span class="k">ok</span>
@@ -3531,7 +3531,7 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	oCanvas.<span class="f">show</span>()
 
 <span class="k">func</span> <span class="f">saveTo</span> cFile
-	oCanvas.oBitmap.<span class="f">Save_2</span>(cFile,<span class="k">new</span> <span class="t">ImageFormat</span>().Png)
+	oCanvas.oBitmap.<span class="f">SaveWith</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 
 <span class="k">func</span> <span class="f">saveDialog</span>
 	cFile = <span class="f">uiSaveFileName</span>(<span class="s">"Save picture"</span>,<span class="s">"PNG image (*.png)|*.png"</span>)
@@ -5224,7 +5224,7 @@ loadTasks()
 <span class="k">func</span> <span class="f">addTask</span>
 	cTask = trim(oInput.Text)
 	<span class="k">if</span> cTask != <span class="s">""</span>
-		oList.Items.<span class="f">Add_2</span>(cTask,<span class="n">0</span>)
+		oList.Items.<span class="f">AddWith</span>([ :item = cTask, :isChecked = <span class="k">False</span> ])
 		oInput.Text = <span class="s">""</span>
 		updateInfo()
 	<span class="k">ok</span>
@@ -5256,7 +5256,7 @@ loadTasks()
 		<span class="k">for</span> cLine <span class="k">in</span> str2list(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile))
 			cLine = trim(cLine)
 			<span class="k">if</span> len(cLine) &gt; <span class="n">4</span>
-				oList.Items.<span class="f">Add_2</span>(substr(cLine,<span class="n">5</span>),left(cLine,<span class="n">3</span>) = <span class="s">"[x]"</span>)
+				oList.Items.<span class="f">AddWith</span>([ :item = substr(cLine,<span class="n">5</span>), :isChecked = (left(cLine,<span class="n">3</span>) = <span class="s">"[x]"</span>) ])
 			<span class="k">ok</span>
 		<span class="k">next</span>
 	<span class="k">ok</span>
@@ -5977,7 +5977,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 	<span class="c"># the buttons of the window work</span>
 	oKeys = <span class="f">wpfFind</span>(oWindow,<span class="s">"keys"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"20 buttons"</span>,oKeys.Children.Count,<span class="n">20</span>)
-	oEvent = <span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent)
+	oEvent = <span class="f">dnNewWith</span>(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ])
 	oSeven = oKeys.Children.<span class="f">Item</span>(<span class="n">4</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the 5th key is a 7"</span>,oKeys.Children.<span class="f">Item</span>(<span class="n">4</span>).Content,<span class="s">"7"</span>)
 	oSeven.<span class="f">RaiseEvent</span>(oEvent)

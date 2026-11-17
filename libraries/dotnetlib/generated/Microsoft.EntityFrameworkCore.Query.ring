@@ -57,7 +57,7 @@ dnRegisterClass("Microsoft.EntityFrameworkCore.Query.MaterializerLiftableConstan
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelper","NavigationExpansionExtensibilityHelper",1)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NavigationExpansionExtensibilityHelperDependencies","NavigationExpansionExtensibilityHelperDependencies",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.NonQueryExpression","NonQueryExpression",1)
-dnRegisterClass("Microsoft.EntityFrameworkCore.Query.PathSegment","PathSegment",0)
+dnRegisterClass("Microsoft.EntityFrameworkCore.Query.PathSegment","EfPathSegment",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.ProjectionBindingExpression","ProjectionBindingExpression",3)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.ProjectionMember","ProjectionMember",0)
 dnRegisterClass("Microsoft.EntityFrameworkCore.Query.QueryCompilationContext","QueryCompilationContext",2)
@@ -188,7 +188,7 @@ load "Microsoft.EntityFrameworkCore.Query/MaterializerLiftableConstantContext.ri
 load "Microsoft.EntityFrameworkCore.Query/NavigationExpansionExtensibilityHelper.ring"
 load "Microsoft.EntityFrameworkCore.Query/NavigationExpansionExtensibilityHelperDependencies.ring"
 load "Microsoft.EntityFrameworkCore.Query/NonQueryExpression.ring"
-load "Microsoft.EntityFrameworkCore.Query/PathSegment.ring"
+load "Microsoft.EntityFrameworkCore.Query/EfPathSegment.ring"
 load "Microsoft.EntityFrameworkCore.Query/ProjectionBindingExpression.ring"
 load "Microsoft.EntityFrameworkCore.Query/ProjectionMember.ring"
 load "Microsoft.EntityFrameworkCore.Query/QueryCompilationContext.ring"

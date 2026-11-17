@@ -67,3 +67,19 @@ Class ControllerEndpointRouteBuilderExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDynamicControllerRoute",P1,P2,P3,P4])
 		return self
 
+	Func MapControllerRouteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapControllerRoute",P1])
+
+	Func MapAreaControllerRouteWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaControllerRoute",P1])
+
+	Func MapFallbackToControllerWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToController",P1])
+
+	Func MapFallbackToAreaControllerWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapFallbackToAreaController",P1])
+
+	Func MapDynamicControllerRouteWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ControllerEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapDynamicControllerRoute",P1])
+		return self
+

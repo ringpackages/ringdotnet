@@ -31,6 +31,10 @@ Class Registry from Object
 		dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1,P2,P3,P4])
 		return self
 
+	Func SetValueWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1])
+		return self
+
 	Func getCurrentUser
 		return dnRequest("get",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"CurrentUser"])
 

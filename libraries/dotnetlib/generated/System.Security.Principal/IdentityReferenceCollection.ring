@@ -47,6 +47,9 @@ Class IdentityReferenceCollection from Object
 	Func Translate_2 P1,P2
 		return dnRequest("call",[self,"Translate",P1,P2])
 
+	Func TranslateWith P1
+		return dnRequest("callnamed",[self,"Translate",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

@@ -178,3 +178,54 @@ Class ISqlExpressionFactory from DotNetObject
 	Func Fragment P1
 		return dnRequest("call",[self,"Fragment",P1])
 
+	Func MakeUnaryWith P1
+		return dnRequest("callnamed",[self,"MakeUnary",P1])
+
+	Func MakeBinaryWith P1
+		return dnRequest("callnamed",[self,"MakeBinary",P1])
+
+	Func AddWith P1
+		return dnRequest("callnamed",[self,"Add",P1])
+
+	Func SubtractWith P1
+		return dnRequest("callnamed",[self,"Subtract",P1])
+
+	Func MultiplyWith P1
+		return dnRequest("callnamed",[self,"Multiply",P1])
+
+	Func DivideWith P1
+		return dnRequest("callnamed",[self,"Divide",P1])
+
+	Func ModuloWith P1
+		return dnRequest("callnamed",[self,"Modulo",P1])
+
+	Func AndWith P1
+		return dnRequest("callnamed",[self,"And",P1])
+
+	Func OrWith P1
+		return dnRequest("callnamed",[self,"Or",P1])
+
+	Func CoalesceWith P1
+		return dnRequest("callnamed",[self,"Coalesce",P1])
+
+	Func ConvertWith P1
+		return dnRequest("callnamed",[self,"Convert",P1])
+
+	Func CaseWith P1
+		return dnRequest("callnamed",[self,"Case",P1])
+
+	Func FunctionWith P1
+		return dnRequest("callnamed",[self,"Function",P1])
+
+	Func NiladicFunctionWith P1
+		return dnRequest("callnamed",[self,"NiladicFunction",P1])
+
+	Func InWith P1
+		return dnRequest("callnamed",[self,"In",P1])
+
+	Func LikeWith P1
+		return dnRequest("callnamed",[self,"Like",P1])
+
+	Func ConstantWith P1
+		return dnRequest("callnamed",[self,"Constant",P1])
+

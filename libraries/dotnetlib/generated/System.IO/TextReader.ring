@@ -74,6 +74,21 @@ Class TextReader from MarshalByRefObject
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Synchronized",P1])
 
+	Func ReadWith P1
+		return dnRequest("callnamed",[self,"Read",P1])
+
+	Func ReadLineAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadLineAsync",P1])
+
+	Func ReadToEndAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadToEndAsync",P1])
+
+	Func ReadAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadAsync",P1])
+
+	Func ReadBlockAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadBlockAsync",P1])
+
 	Func getNull
 		return dnRequest("get",[dnTypeCached('System.IO.TextReader, System.Private.CoreLib'),"Null"])
 

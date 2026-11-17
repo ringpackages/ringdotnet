@@ -16,3 +16,6 @@ Class TaskExtensions from Object
 	Func Unwrap P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib'),"Unwrap",P1])
 
+	Func UnwrapWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskExtensions, System.Private.CoreLib'),"Unwrap",P1])
+

@@ -31,3 +31,6 @@ Class ConstructorInvoker from Object
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.ConstructorInvoker, System.Private.CoreLib'),"Create",P1])
 
+	Func InvokeWith P1
+		return dnRequest("callnamed",[self,"Invoke",P1])
+

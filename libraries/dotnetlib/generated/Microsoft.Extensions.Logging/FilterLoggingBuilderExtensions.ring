@@ -19,3 +19,6 @@ Class FilterLoggingBuilderExtensions from Object
 	Func AddFilter P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"AddFilter",P1,P2,P3])
 
+	Func AddFilterWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.FilterLoggingBuilderExtensions, Microsoft.Extensions.Logging'),"AddFilter",P1])
+

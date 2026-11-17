@@ -57,6 +57,10 @@ Class DbConnectionStringBuilder from Object
 		dnRequest("call",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1,P2,P3,P4])
 		return self
 
+	Func AppendKeyValuePairWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1])
+		return self
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

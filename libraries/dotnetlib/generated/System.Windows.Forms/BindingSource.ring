@@ -165,6 +165,13 @@ Class BindingSource from Component
 		dnRequest("call",[self,"RemoveFilter"])
 		return self
 
+	Func FindWith P1
+		return dnRequest("callnamed",[self,"Find",P1])
+
+	Func ApplySortWith P1
+		dnRequest("callnamed",[self,"ApplySort",P1])
+		return self
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

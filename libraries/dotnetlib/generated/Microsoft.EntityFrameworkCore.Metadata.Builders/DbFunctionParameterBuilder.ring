@@ -25,6 +25,9 @@ Class DbFunctionParameterBuilder from Object
 	Func PropagatesNullability 
 		return dnRequest("call",[self,"PropagatesNullability"])
 
+	Func PropagatesNullabilityWith P1
+		return dnRequest("callnamed",[self,"PropagatesNullability",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

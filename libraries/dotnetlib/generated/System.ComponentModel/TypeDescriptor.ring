@@ -163,6 +163,74 @@ Class TypeDescriptor from Object
 		dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"SortDescriptorArray",P1])
 		return self
 
+	Func AddAttributesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddAttributes",P1])
+
+	Func AddProviderWith P1
+		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddProvider",P1])
+		return self
+
+	Func AddProviderTransparentWith P1
+		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddProviderTransparent",P1])
+		return self
+
+	Func CreateEventWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateEvent",P1])
+
+	Func CreatePropertyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateProperty",P1])
+
+	Func GetAttributesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetAttributes",P1])
+
+	Func GetClassNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetClassName",P1])
+
+	Func GetComponentNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetComponentName",P1])
+
+	Func GetConverterWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverter",P1])
+
+	Func GetConverterFromRegisteredTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverterFromRegisteredType",P1])
+
+	Func GetDefaultEventWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultEvent",P1])
+
+	Func GetDefaultPropertyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultProperty",P1])
+
+	Func GetEditorWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEditor",P1])
+
+	Func GetEventsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEvents",P1])
+
+	Func GetPropertiesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProperties",P1])
+
+	Func GetPropertiesFromRegisteredTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetPropertiesFromRegisteredType",P1])
+
+	Func GetProviderWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProvider",P1])
+
+	Func GetReflectionTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetReflectionType",P1])
+
+	Func RefreshWith P1
+		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"Refresh",P1])
+		return self
+
+	Func RemoveProviderWith P1
+		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"RemoveProvider",P1])
+		return self
+
+	Func RemoveProviderTransparentWith P1
+		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"RemoveProviderTransparent",P1])
+		return self
+
 	Func setRefreshedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"Refreshed",dnCallback(P1)])
 		return self

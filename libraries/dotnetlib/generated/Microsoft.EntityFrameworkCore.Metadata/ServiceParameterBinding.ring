@@ -19,6 +19,9 @@ Class ServiceParameterBinding from ParameterBinding
 	Func BindToParameter_2 P1,P2
 		return dnRequest("call",[self,"BindToParameter",P1,P2])
 
+	Func BindToParameterWith P1
+		return dnRequest("callnamed",[self,"BindToParameter",P1])
+
 	Func getServiceType
 		return dnRequest("get",[self,"ServiceType"])
 

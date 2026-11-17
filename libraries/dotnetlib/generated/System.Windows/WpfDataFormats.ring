@@ -40,6 +40,9 @@ Class WpfDataFormats from Object
 	Func GetDataFormat P1
 		return dnRequest("call",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"GetDataFormat",P1])
 
+	Func GetDataFormatWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"GetDataFormat",P1])
+
 	Func getText
 		return dnRequest("get",[dnTypeCached('System.Windows.DataFormats, PresentationCore'),"Text"])
 

@@ -23,6 +23,9 @@ Class HttpMethod from Object
 		nHandle = dnCreate('System.Net.Http.HttpMethod, System.Net.Http',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getMethod
 		return dnRequest("get",[self,"Method"])
 

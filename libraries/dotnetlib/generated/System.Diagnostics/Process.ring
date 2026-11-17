@@ -163,6 +163,34 @@ Class Process from Component
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"LeaveDebugMode"])
 		return self
 
+	Func WaitForInputIdleWith P1
+		return dnRequest("callnamed",[self,"WaitForInputIdle",P1])
+
+	Func StartWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
+		ok
+		return dnRequest("callnamed",[self,"Start",P1])
+
+	Func WaitForExitWith P1
+		return dnRequest("callnamed",[self,"WaitForExit",P1])
+
+	Func WaitForExitAsyncWith P1
+		return dnRequest("callnamed",[self,"WaitForExitAsync",P1])
+
+	Func KillWith P1
+		dnRequest("callnamed",[self,"Kill",P1])
+		return self
+
+	Func GetProcessByIdWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1])
+
+	Func GetProcessesByNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessesByName",P1])
+
+	Func GetProcessesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
+
 	Func setOutputDataReceivedEvent P1
 		dnRequest("setevent",[self,"OutputDataReceived",dnCallback(P1)])
 		return self

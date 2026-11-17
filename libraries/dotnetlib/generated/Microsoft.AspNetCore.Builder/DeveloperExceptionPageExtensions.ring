@@ -19,3 +19,6 @@ Class DeveloperExceptionPageExtensions from Object
 	Func UseDeveloperExceptionPage_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseDeveloperExceptionPage",P1,P2])
 
+	Func UseDeveloperExceptionPageWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseDeveloperExceptionPage",P1])
+

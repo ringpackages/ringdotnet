@@ -16,6 +16,9 @@ Class RelationalQueryTranslationPreprocessorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryTranslationPreprocessorDependencies, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getRelationalTypeMappingSource
 		return dnRequest("get",[self,"RelationalTypeMappingSource"])
 

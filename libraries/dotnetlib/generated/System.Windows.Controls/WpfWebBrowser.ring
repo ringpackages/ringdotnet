@@ -405,6 +405,51 @@ Class WpfWebBrowser from DotNetObject
 	Func ToString 
 		return dnRequest("call",[self,"ToString"])
 
+	Func NavigateWith P1
+		dnRequest("callnamed",[self,"Navigate",P1])
+		return self
+
+	Func RefreshWith P1
+		dnRequest("callnamed",[self,"Refresh",P1])
+		return self
+
+	Func InvokeScriptWith P1
+		return dnRequest("callnamed",[self,"InvokeScript",P1])
+
+	Func BeginStoryboardWith P1
+		dnRequest("callnamed",[self,"BeginStoryboard",P1])
+		return self
+
+	Func SetBindingWith P1
+		return dnRequest("callnamed",[self,"SetBinding",P1])
+
+	Func BringIntoViewWith P1
+		dnRequest("callnamed",[self,"BringIntoView",P1])
+		return self
+
+	Func ApplyAnimationClockWith P1
+		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
+		return self
+
+	Func BeginAnimationWith P1
+		dnRequest("callnamed",[self,"BeginAnimation",P1])
+		return self
+
+	Func AddHandlerWith P1
+		dnRequest("callnamed",[self,"AddHandler",P1])
+		return self
+
+	Func TransformToAncestorWith P1
+		return dnRequest("callnamed",[self,"TransformToAncestor",P1])
+
+	Func SetValueWith P1
+		dnRequest("callnamed",[self,"SetValue",P1])
+		return self
+
+	Func ClearValueWith P1
+		dnRequest("callnamed",[self,"ClearValue",P1])
+		return self
+
 	Func setNavigatingEvent P1
 		dnRequest("setevent",[self,"Navigating",dnCallback(P1)])
 		return self

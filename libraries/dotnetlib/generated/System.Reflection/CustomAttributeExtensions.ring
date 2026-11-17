@@ -37,3 +37,12 @@ Class CustomAttributeExtensions from Object
 	Func IsDefined_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"IsDefined",P1,P2,P3])
 
+	Func GetCustomAttributeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"GetCustomAttribute",P1])
+
+	Func GetCustomAttributesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"GetCustomAttributes",P1])
+
+	Func IsDefinedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Reflection.CustomAttributeExtensions, System.Private.CoreLib'),"IsDefined",P1])
+

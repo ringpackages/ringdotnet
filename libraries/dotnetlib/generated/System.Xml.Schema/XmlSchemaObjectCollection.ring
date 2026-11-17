@@ -39,6 +39,9 @@ Class XmlSchemaObjectCollection from CollectionBase
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
+	Func GetEnumeratorWith P1
+		return dnRequest("callnamed",[self,"GetEnumerator",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

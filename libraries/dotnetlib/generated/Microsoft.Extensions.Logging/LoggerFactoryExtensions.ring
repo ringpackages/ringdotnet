@@ -19,3 +19,6 @@ Class LoggerFactoryExtensions from Object
 	Func CreateLogger_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1,P2])
 
+	Func CreateLoggerWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.LoggerFactoryExtensions, Microsoft.Extensions.Logging.Abstractions'),"CreateLogger",P1])
+

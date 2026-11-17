@@ -25,6 +25,9 @@ Class AuthorizationResult from Object
 	Func Failed 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Failed"])
 
+	Func FailedWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Failed",P1])
+
 	Func getSucceeded
 		return dnRequest("get",[self,"Succeeded"])
 

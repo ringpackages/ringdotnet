@@ -99,6 +99,15 @@ Class Rune from ValueType
 	Func ToUpperInvariant P1
 		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"ToUpperInvariant",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func IsValidWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"IsValid",P1])
+
+	Func TryCreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1])
+
 	Func getIsAscii
 		return dnRequest("get",[self,"IsAscii"])
 

@@ -36,6 +36,12 @@ Class XmlNamedNodeMap from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func GetNamedItemWith P1
+		return dnRequest("callnamed",[self,"GetNamedItem",P1])
+
+	Func RemoveNamedItemWith P1
+		return dnRequest("callnamed",[self,"RemoveNamedItem",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

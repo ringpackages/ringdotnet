@@ -43,3 +43,9 @@ Class RandomAccess from Object
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"FlushToDisk",P1])
 		return self
 
+	Func ReadAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1])
+
+	Func WriteAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1])
+

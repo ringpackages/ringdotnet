@@ -35,6 +35,9 @@ Class MethodInfo from MethodBase
 	Func CreateDelegate 
 		return dnRequest("call",[self,"CreateDelegate"])
 
+	Func CreateDelegateWith P1
+		return dnRequest("callnamed",[self,"CreateDelegate",P1])
+
 	Func getReturnParameter
 		return dnRequest("get",[self,"ReturnParameter"])
 

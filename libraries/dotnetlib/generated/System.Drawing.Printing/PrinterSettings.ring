@@ -70,6 +70,15 @@ Class PrinterSettings from Object
 		dnRequest("call",[self,"SetHdevnames",P1])
 		return self
 
+	Func IsDirectPrintingSupportedWith P1
+		return dnRequest("callnamed",[self,"IsDirectPrintingSupported",P1])
+
+	Func CreateMeasurementGraphicsWith P1
+		return dnRequest("callnamed",[self,"CreateMeasurementGraphics",P1])
+
+	Func GetHdevmodeWith P1
+		return dnRequest("callnamed",[self,"GetHdevmode",P1])
+
 	Func getCanDuplex
 		return dnRequest("get",[self,"CanDuplex"])
 

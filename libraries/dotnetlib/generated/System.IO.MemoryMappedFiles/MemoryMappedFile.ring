@@ -82,6 +82,24 @@ Class MemoryMappedFile from Object
 	Func CreateOrOpen_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3,P4,P5])
 
+	Func CreateViewStreamWith P1
+		return dnRequest("callnamed",[self,"CreateViewStream",P1])
+
+	Func CreateViewAccessorWith P1
+		return dnRequest("callnamed",[self,"CreateViewAccessor",P1])
+
+	Func OpenExistingWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1])
+
+	Func CreateFromFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
+
+	Func CreateNewWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1])
+
+	Func CreateOrOpenWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1])
+
 	Func getSafeMemoryMappedFileHandle
 		return dnRequest("get",[self,"SafeMemoryMappedFileHandle"])
 

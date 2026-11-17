@@ -46,3 +46,14 @@ Class ZipFile from Object
 		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2,P3,P4])
 		return self
 
+	Func OpenWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1])
+
+	Func CreateFromDirectoryWith P1
+		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1])
+		return self
+
+	Func ExtractToDirectoryWith P1
+		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
+		return self
+

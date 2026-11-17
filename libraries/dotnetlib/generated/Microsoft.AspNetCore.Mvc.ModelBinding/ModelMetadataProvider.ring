@@ -31,3 +31,6 @@ Class ModelMetadataProvider from Object
 	Func GetMetadataForConstructor P1,P2
 		return dnRequest("call",[self,"GetMetadataForConstructor",P1,P2])
 
+	Func GetMetadataForParameterWith P1
+		return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
+

@@ -17,6 +17,9 @@ Class ModelRuntimeInitializerDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializerDependencies, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModelDependencies
 		return dnRequest("get",[self,"ModelDependencies"])
 

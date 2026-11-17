@@ -19,3 +19,6 @@ Class DebugLoggerFactoryExtensions from Object
 	Func AddDebug P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug'),"AddDebug",P1])
 
+	Func AddDebugWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions, Microsoft.Extensions.Logging.Debug'),"AddDebug",P1])
+

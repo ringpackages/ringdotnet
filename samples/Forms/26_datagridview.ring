@@ -10,8 +10,8 @@ using {
 
 using { "System.Data" }
 oTable = new DataTable()
-oTable.Columns.Add_2("Name","System.String")
-oTable.Columns.Add_2("Age","System.Int32")
+oTable.Columns.AddWith([ :columnName = "Name", :type = "System.String" ])
+oTable.Columns.AddWith([ :columnName = "Age", :type = "System.Int32" ])
 oTable {
 	Rows.Add(["Ann",31])
 	Rows.Add(["Bob",17])

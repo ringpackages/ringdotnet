@@ -19,3 +19,6 @@ Class ConnectionsDependencyInjectionExtensions from Object
 	Func AddConnections_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections'),"AddConnections",P1,P2])
 
+	Func AddConnectionsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ConnectionsDependencyInjectionExtensions, Microsoft.AspNetCore.Http.Connections'),"AddConnections",P1])
+

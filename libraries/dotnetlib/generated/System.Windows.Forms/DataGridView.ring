@@ -238,6 +238,45 @@ Class DataGridView from Control
 		dnRequest("call",[self,"UpdateRowHeightInfo",P1,P2])
 		return self
 
+	Func AutoResizeColumnWith P1
+		dnRequest("callnamed",[self,"AutoResizeColumn",P1])
+		return self
+
+	Func AutoResizeColumnHeadersHeightWith P1
+		dnRequest("callnamed",[self,"AutoResizeColumnHeadersHeight",P1])
+		return self
+
+	Func AutoResizeColumnsWith P1
+		dnRequest("callnamed",[self,"AutoResizeColumns",P1])
+		return self
+
+	Func AutoResizeRowWith P1
+		dnRequest("callnamed",[self,"AutoResizeRow",P1])
+		return self
+
+	Func AutoResizeRowHeadersWidthWith P1
+		dnRequest("callnamed",[self,"AutoResizeRowHeadersWidth",P1])
+		return self
+
+	Func AutoResizeRowsWith P1
+		dnRequest("callnamed",[self,"AutoResizeRows",P1])
+		return self
+
+	Func EndEditWith P1
+		return dnRequest("callnamed",[self,"EndEdit",P1])
+
+	Func InvalidateCellWith P1
+		dnRequest("callnamed",[self,"InvalidateCell",P1])
+		return self
+
+	Func SortWith P1
+		dnRequest("callnamed",[self,"Sort",P1])
+		return self
+
+	Func UpdateRowErrorTextWith P1
+		dnRequest("callnamed",[self,"UpdateRowErrorText",P1])
+		return self
+
 	Func setAllowUserToAddRowsChangedEvent P1
 		dnRequest("setevent",[self,"AllowUserToAddRowsChanged",dnCallback(P1)])
 		return self

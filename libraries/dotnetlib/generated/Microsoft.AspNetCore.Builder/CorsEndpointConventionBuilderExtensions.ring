@@ -19,3 +19,6 @@ Class CorsEndpointConventionBuilderExtensions from Object
 	Func RequireCors_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1,P2])
 
+	Func RequireCorsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CorsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Cors'),"RequireCors",P1])
+

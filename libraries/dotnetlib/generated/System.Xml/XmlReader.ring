@@ -326,6 +326,64 @@ Class XmlReader from Object
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1,P2,P3])
 
+	Func ReadElementContentAsObjectWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsObject",P1])
+
+	Func ReadElementContentAsBooleanWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsBoolean",P1])
+
+	Func ReadElementContentAsDateTimeWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsDateTime",P1])
+
+	Func ReadElementContentAsDoubleWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsDouble",P1])
+
+	Func ReadElementContentAsFloatWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsFloat",P1])
+
+	Func ReadElementContentAsDecimalWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsDecimal",P1])
+
+	Func ReadElementContentAsIntWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsInt",P1])
+
+	Func ReadElementContentAsLongWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsLong",P1])
+
+	Func ReadElementContentAsStringWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAsString",P1])
+
+	Func ReadElementContentAsWith P1
+		return dnRequest("callnamed",[self,"ReadElementContentAs",P1])
+
+	Func GetAttributeWith P1
+		return dnRequest("callnamed",[self,"GetAttribute",P1])
+
+	Func MoveToAttributeWith P1
+		return dnRequest("callnamed",[self,"MoveToAttribute",P1])
+
+	Func ReadStartElementWith P1
+		dnRequest("callnamed",[self,"ReadStartElement",P1])
+		return self
+
+	Func ReadElementStringWith P1
+		return dnRequest("callnamed",[self,"ReadElementString",P1])
+
+	Func IsStartElementWith P1
+		return dnRequest("callnamed",[self,"IsStartElement",P1])
+
+	Func ReadToFollowingWith P1
+		return dnRequest("callnamed",[self,"ReadToFollowing",P1])
+
+	Func ReadToDescendantWith P1
+		return dnRequest("callnamed",[self,"ReadToDescendant",P1])
+
+	Func ReadToNextSiblingWith P1
+		return dnRequest("callnamed",[self,"ReadToNextSibling",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

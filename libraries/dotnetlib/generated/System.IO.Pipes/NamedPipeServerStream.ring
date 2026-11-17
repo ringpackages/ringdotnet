@@ -64,6 +64,9 @@ Class NamedPipeServerStream from PipeStream
 		dnRequest("call",[self,"RunAsClient",P1])
 		return self
 
+	Func WaitForConnectionAsyncWith P1
+		return dnRequest("callnamed",[self,"WaitForConnectionAsync",P1])
+
 	Func getMaxAllowedServerInstances
 		return dnRequest("get",[dnTypeCached('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes'),"MaxAllowedServerInstances"])
 

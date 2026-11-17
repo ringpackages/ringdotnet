@@ -46,3 +46,9 @@ Class MvcCoreMvcCoreBuilderExtensions from Object
 	Func SetCompatibilityVersion P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"SetCompatibilityVersion",P1,P2])
 
+	Func AddFormatterMappingsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddFormatterMappings",P1])
+
+	Func AddAuthorizationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcCoreMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"AddAuthorization",P1])
+

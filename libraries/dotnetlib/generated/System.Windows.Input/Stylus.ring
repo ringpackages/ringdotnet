@@ -257,6 +257,9 @@ Class Stylus from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Synchronize"])
 		return self
 
+	Func CaptureWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
+
 	Func getDirectlyOver
 		return dnRequest("get",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"DirectlyOver"])
 

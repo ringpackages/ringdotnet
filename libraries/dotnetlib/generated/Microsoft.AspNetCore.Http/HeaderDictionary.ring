@@ -55,6 +55,13 @@ Class HeaderDictionary from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func RemoveWith P1
+		return dnRequest("callnamed",[self,"Remove",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

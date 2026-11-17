@@ -29,6 +29,9 @@ Class RuntimeMethodHandle from ValueType
 	Func ToIntPtr P1
 		return dnRequest("call",[dnTypeCached('System.RuntimeMethodHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getValue
 		return dnRequest("get",[self,"Value"])
 

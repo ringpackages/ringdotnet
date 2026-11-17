@@ -19,3 +19,6 @@ Class OutputCacheServiceCollectionExtensions from Object
 	Func AddOutputCache_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching'),"AddOutputCache",P1,P2])
 
+	Func AddOutputCacheWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheServiceCollectionExtensions, Microsoft.AspNetCore.OutputCaching'),"AddOutputCache",P1])
+

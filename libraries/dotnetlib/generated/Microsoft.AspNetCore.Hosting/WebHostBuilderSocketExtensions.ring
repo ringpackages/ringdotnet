@@ -19,3 +19,6 @@ Class WebHostBuilderSocketExtensions from Object
 	Func UseSockets_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1,P2])
 
+	Func UseSocketsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1])
+

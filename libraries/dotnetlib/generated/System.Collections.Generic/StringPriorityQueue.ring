@@ -73,6 +73,13 @@ Class StringPriorityQueue from Object
 		dnRequest("call",[self,"TrimExcess"])
 		return self
 
+	Func EnqueueRangeWith P1
+		dnRequest("callnamed",[self,"EnqueueRange",P1])
+		return self
+
+	Func RemoveWith P1
+		return dnRequest("callnamed",[self,"Remove",P1])
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

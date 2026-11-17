@@ -41,6 +41,18 @@ Class StringComparer from Object
 	Func IsWellKnownCultureAwareComparer P1
 		return dnRequest("call",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"IsWellKnownCultureAwareComparer",P1])
 
+	Func CompareWith P1
+		return dnRequest("callnamed",[self,"Compare",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func GetHashCodeWith P1
+		return dnRequest("callnamed",[self,"GetHashCode",P1])
+
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"Create",P1])
+
 	Func getInvariantCulture
 		return dnRequest("get",[dnTypeCached('System.StringComparer, System.Private.CoreLib'),"InvariantCulture"])
 

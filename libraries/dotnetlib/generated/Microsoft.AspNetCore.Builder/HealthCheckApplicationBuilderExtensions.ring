@@ -22,3 +22,6 @@ Class HealthCheckApplicationBuilderExtensions from Object
 	Func UseHealthChecks_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"UseHealthChecks",P1,P2,P3,P4])
 
+	Func UseHealthChecksWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HealthCheckApplicationBuilderExtensions, Microsoft.AspNetCore.Diagnostics.HealthChecks'),"UseHealthChecks",P1])
+

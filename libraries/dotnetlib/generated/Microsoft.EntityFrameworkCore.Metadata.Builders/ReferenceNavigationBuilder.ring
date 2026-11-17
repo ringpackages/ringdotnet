@@ -26,3 +26,9 @@ Class ReferenceNavigationBuilder from Object
 	Func WithOne 
 		return dnRequest("call",[self,"WithOne"])
 
+	Func WithManyWith P1
+		return dnRequest("callnamed",[self,"WithMany",P1])
+
+	Func WithOneWith P1
+		return dnRequest("callnamed",[self,"WithOne",P1])
+

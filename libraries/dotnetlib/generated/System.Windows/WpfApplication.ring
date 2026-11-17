@@ -67,6 +67,16 @@ Class WpfApplication from DispatcherObject
 		dnRequest("call",[dnTypeCached('System.Windows.Application, PresentationFramework'),"SetCookie",P1,P2])
 		return self
 
+	Func RunWith P1
+		return dnRequest("callnamed",[self,"Run",P1])
+
+	Func ShutdownWith P1
+		dnRequest("callnamed",[self,"Shutdown",P1])
+		return self
+
+	Func LoadComponentWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1])
+
 	Func setStartupEvent P1
 		dnRequest("setevent",[self,"Startup",dnCallback(P1)])
 		return self

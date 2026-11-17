@@ -82,6 +82,21 @@ Class ModelBuilder from Object
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
+	Func EntityWith P1
+		return dnRequest("callnamed",[self,"Entity",P1])
+
+	Func SharedTypeEntityWith P1
+		return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
+
+	Func IgnoreWith P1
+		return dnRequest("callnamed",[self,"Ignore",P1])
+
+	Func ApplyConfigurationsFromAssemblyWith P1
+		return dnRequest("callnamed",[self,"ApplyConfigurationsFromAssembly",P1])
+
+	Func OwnedWith P1
+		return dnRequest("callnamed",[self,"Owned",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

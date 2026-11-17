@@ -32,3 +32,7 @@ Class ModelStateDictionaryExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"RemoveAll",P1,P2])
 		return self
 
+	Func AddModelErrorWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1])
+		return self
+

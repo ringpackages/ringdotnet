@@ -53,6 +53,17 @@ Class XmlSchema from XmlSchemaObject
 	Func Read P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"Read",P1,P2])
 
+	Func WriteWith P1
+		dnRequest("callnamed",[self,"Write",P1])
+		return self
+
+	Func CompileWith P1
+		dnRequest("callnamed",[self,"Compile",P1])
+		return self
+
+	Func ReadWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Schema.XmlSchema, System.Private.Xml'),"Read",P1])
+
 	Func getAttributeFormDefault
 		return dnRequest("get",[self,"AttributeFormDefault"])
 

@@ -80,6 +80,22 @@ Class Stroke from Object
 	Func GetGeometry_1 P1
 		return dnRequest("call",[self,"GetGeometry",P1])
 
+	Func DrawWith P1
+		dnRequest("callnamed",[self,"Draw",P1])
+		return self
+
+	Func GetClipResultWith P1
+		return dnRequest("callnamed",[self,"GetClipResult",P1])
+
+	Func GetEraseResultWith P1
+		return dnRequest("callnamed",[self,"GetEraseResult",P1])
+
+	Func HitTestWith P1
+		return dnRequest("callnamed",[self,"HitTest",P1])
+
+	Func GetGeometryWith P1
+		return dnRequest("callnamed",[self,"GetGeometry",P1])
+
 	Func setDrawingAttributesChangedEvent P1
 		dnRequest("setevent",[self,"DrawingAttributesChanged",dnCallback(P1)])
 		return self

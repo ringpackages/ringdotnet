@@ -469,6 +469,169 @@ Class Graphics from MarshalByRefObject
 	Func GetHalftonePalette 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"GetHalftonePalette"])
 
+	Func ReleaseHdcWith P1
+		dnRequest("callnamed",[self,"ReleaseHdc",P1])
+		return self
+
+	Func FlushWith P1
+		dnRequest("callnamed",[self,"Flush",P1])
+		return self
+
+	Func SetClipWith P1
+		dnRequest("callnamed",[self,"SetClip",P1])
+		return self
+
+	Func IntersectClipWith P1
+		dnRequest("callnamed",[self,"IntersectClip",P1])
+		return self
+
+	Func ExcludeClipWith P1
+		dnRequest("callnamed",[self,"ExcludeClip",P1])
+		return self
+
+	Func TranslateClipWith P1
+		dnRequest("callnamed",[self,"TranslateClip",P1])
+		return self
+
+	Func IsVisibleWith P1
+		return dnRequest("callnamed",[self,"IsVisible",P1])
+
+	Func MultiplyTransformWith P1
+		dnRequest("callnamed",[self,"MultiplyTransform",P1])
+		return self
+
+	Func TranslateTransformWith P1
+		dnRequest("callnamed",[self,"TranslateTransform",P1])
+		return self
+
+	Func ScaleTransformWith P1
+		dnRequest("callnamed",[self,"ScaleTransform",P1])
+		return self
+
+	Func RotateTransformWith P1
+		dnRequest("callnamed",[self,"RotateTransform",P1])
+		return self
+
+	Func DrawArcWith P1
+		dnRequest("callnamed",[self,"DrawArc",P1])
+		return self
+
+	Func DrawBezierWith P1
+		dnRequest("callnamed",[self,"DrawBezier",P1])
+		return self
+
+	Func DrawRectangleWith P1
+		dnRequest("callnamed",[self,"DrawRectangle",P1])
+		return self
+
+	Func DrawRoundedRectangleWith P1
+		dnRequest("callnamed",[self,"DrawRoundedRectangle",P1])
+		return self
+
+	Func DrawRectanglesWith P1
+		dnRequest("callnamed",[self,"DrawRectangles",P1])
+		return self
+
+	Func DrawEllipseWith P1
+		dnRequest("callnamed",[self,"DrawEllipse",P1])
+		return self
+
+	Func DrawPieWith P1
+		dnRequest("callnamed",[self,"DrawPie",P1])
+		return self
+
+	Func DrawPolygonWith P1
+		dnRequest("callnamed",[self,"DrawPolygon",P1])
+		return self
+
+	Func DrawCurveWith P1
+		dnRequest("callnamed",[self,"DrawCurve",P1])
+		return self
+
+	Func DrawClosedCurveWith P1
+		dnRequest("callnamed",[self,"DrawClosedCurve",P1])
+		return self
+
+	Func FillRoundedRectangleWith P1
+		dnRequest("callnamed",[self,"FillRoundedRectangle",P1])
+		return self
+
+	Func FillRectangleWith P1
+		dnRequest("callnamed",[self,"FillRectangle",P1])
+		return self
+
+	Func FillRectanglesWith P1
+		dnRequest("callnamed",[self,"FillRectangles",P1])
+		return self
+
+	Func FillPolygonWith P1
+		dnRequest("callnamed",[self,"FillPolygon",P1])
+		return self
+
+	Func FillEllipseWith P1
+		dnRequest("callnamed",[self,"FillEllipse",P1])
+		return self
+
+	Func FillPieWith P1
+		dnRequest("callnamed",[self,"FillPie",P1])
+		return self
+
+	Func FillClosedCurveWith P1
+		dnRequest("callnamed",[self,"FillClosedCurve",P1])
+		return self
+
+	Func DrawStringWith P1
+		dnRequest("callnamed",[self,"DrawString",P1])
+		return self
+
+	Func MeasureStringWith P1
+		return dnRequest("callnamed",[self,"MeasureString",P1])
+
+	Func DrawImageWith P1
+		dnRequest("callnamed",[self,"DrawImage",P1])
+		return self
+
+	Func DrawImageUnscaledWith P1
+		dnRequest("callnamed",[self,"DrawImageUnscaled",P1])
+		return self
+
+	Func DrawLineWith P1
+		dnRequest("callnamed",[self,"DrawLine",P1])
+		return self
+
+	Func DrawLinesWith P1
+		dnRequest("callnamed",[self,"DrawLines",P1])
+		return self
+
+	Func CopyFromScreenWith P1
+		dnRequest("callnamed",[self,"CopyFromScreen",P1])
+		return self
+
+	Func EnumerateMetafileWith P1
+		dnRequest("callnamed",[self,"EnumerateMetafile",P1])
+		return self
+
+	Func TransformPointsWith P1
+		dnRequest("callnamed",[self,"TransformPoints",P1])
+		return self
+
+	Func DrawBeziersWith P1
+		dnRequest("callnamed",[self,"DrawBeziers",P1])
+		return self
+
+	Func DrawIconWith P1
+		dnRequest("callnamed",[self,"DrawIcon",P1])
+		return self
+
+	Func GetContextInfoWith P1
+		return dnRequest("callnamed",[self,"GetContextInfo",P1])
+
+	Func BeginContainerWith P1
+		return dnRequest("callnamed",[self,"BeginContainer",P1])
+
+	Func FromHdcWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"FromHdc",P1])
+
 	Func getClip
 		return dnRequest("get",[self,"Clip"])
 

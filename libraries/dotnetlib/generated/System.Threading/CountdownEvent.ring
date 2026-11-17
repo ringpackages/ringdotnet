@@ -62,6 +62,23 @@ Class CountdownEvent from Object
 	Func Wait_2 P1,P2
 		return dnRequest("call",[self,"Wait",P1,P2])
 
+	Func SignalWith P1
+		return dnRequest("callnamed",[self,"Signal",P1])
+
+	Func AddCountWith P1
+		dnRequest("callnamed",[self,"AddCount",P1])
+		return self
+
+	Func TryAddCountWith P1
+		return dnRequest("callnamed",[self,"TryAddCount",P1])
+
+	Func ResetWith P1
+		dnRequest("callnamed",[self,"Reset",P1])
+		return self
+
+	Func WaitWith P1
+		return dnRequest("callnamed",[self,"Wait",P1])
+
 	Func getCurrentCount
 		return dnRequest("get",[self,"CurrentCount"])
 

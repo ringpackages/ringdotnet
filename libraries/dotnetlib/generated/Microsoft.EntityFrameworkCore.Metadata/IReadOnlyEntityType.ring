@@ -201,6 +201,30 @@ Class IReadOnlyEntityType from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
+	Func GetSeedDataWith P1
+		return dnRequest("callnamed",[self,"GetSeedData",P1])
+
+	Func FindKeyWith P1
+		return dnRequest("callnamed",[self,"FindKey",P1])
+
+	Func FindForeignKeyWith P1
+		return dnRequest("callnamed",[self,"FindForeignKey",P1])
+
+	Func FindForeignKeysWith P1
+		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
+
+	Func FindNavigationWith P1
+		return dnRequest("callnamed",[self,"FindNavigation",P1])
+
+	Func FindSkipNavigationWith P1
+		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
+
+	Func FindIndexWith P1
+		return dnRequest("callnamed",[self,"FindIndex",P1])
+
+	Func ToDebugStringWith P1
+		return dnRequest("callnamed",[self,"ToDebugString",P1])
+
 	Func getBaseType
 		return dnRequest("get",[self,"BaseType"])
 

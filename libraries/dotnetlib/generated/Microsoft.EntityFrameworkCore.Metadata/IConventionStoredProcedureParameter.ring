@@ -34,6 +34,12 @@ Class IConventionStoredProcedureParameter from DotNetObject
 	Func GetDirectionConfigurationSource 
 		return dnRequest("call",[self,"GetDirectionConfigurationSource"])
 
+	Func SetNameWith P1
+		return dnRequest("callnamed",[self,"SetName",P1])
+
+	Func SetDirectionWith P1
+		return dnRequest("callnamed",[self,"SetDirection",P1])
+
 	Func getStoredProcedure
 		return dnRequest("get",[self,"StoredProcedure"])
 

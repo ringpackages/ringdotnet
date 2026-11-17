@@ -111,6 +111,12 @@ Class CoreOptionsExtension from Object
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
+	Func WithRootApplicationServiceProviderWith P1
+		return dnRequest("callnamed",[self,"WithRootApplicationServiceProvider",P1])
+
+	Func WithReplacedServiceWith P1
+		return dnRequest("callnamed",[self,"WithReplacedService",P1])
+
 	Func getInfo
 		return dnRequest("get",[self,"Info"])
 

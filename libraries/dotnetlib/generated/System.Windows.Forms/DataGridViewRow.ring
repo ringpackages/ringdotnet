@@ -50,6 +50,10 @@ Class DataGridViewRow from DataGridViewBand
 	Func SetValues P1
 		return dnRequest("call",[self,"SetValues",P1])
 
+	Func CreateCellsWith P1
+		dnRequest("callnamed",[self,"CreateCells",P1])
+		return self
+
 	Func getAccessibilityObject
 		return dnRequest("get",[self,"AccessibilityObject"])
 

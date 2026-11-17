@@ -22,3 +22,6 @@ Class StaticFilesEndpointRouteBuilderExtensions from Object
 	Func MapFallbackToFile_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles'),"MapFallbackToFile",P1,P2,P3,P4])
 
+	Func MapFallbackToFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFilesEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticFiles'),"MapFallbackToFile",P1])
+

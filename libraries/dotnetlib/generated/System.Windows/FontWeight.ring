@@ -23,3 +23,6 @@ Class FontWeight from ValueType
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.FontWeight, PresentationCore'),"Compare",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+

@@ -193,6 +193,33 @@ Class FormFileCollection from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func BinarySearchWith P1
+		return dnRequest("callnamed",[self,"BinarySearch",P1])
+
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func FindIndexWith P1
+		return dnRequest("callnamed",[self,"FindIndex",P1])
+
+	Func FindLastIndexWith P1
+		return dnRequest("callnamed",[self,"FindLastIndex",P1])
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[self,"IndexOf",P1])
+
+	Func LastIndexOfWith P1
+		return dnRequest("callnamed",[self,"LastIndexOf",P1])
+
+	Func ReverseWith P1
+		dnRequest("callnamed",[self,"Reverse",P1])
+		return self
+
+	Func SortWith P1
+		dnRequest("callnamed",[self,"Sort",P1])
+		return self
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

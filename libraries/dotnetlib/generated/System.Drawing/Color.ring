@@ -200,6 +200,12 @@ Class Color from ValueType
 	Func FromName P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromName",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func FromArgbWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Color, System.Drawing.Primitives'),"FromArgb",P1])
+
 	Func getR
 		return dnRequest("get",[self,"R"])
 

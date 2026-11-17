@@ -64,6 +64,9 @@ Class TypeMappingInfo from ValueType
 	Func WithConverter P1
 		return dnRequest("call",[self,"WithConverter",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getElementTypeMapping
 		return dnRequest("get",[self,"ElementTypeMapping"])
 

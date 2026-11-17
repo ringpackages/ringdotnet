@@ -219,6 +219,58 @@ Class Array from Object
 	Func TrueForAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
 
+	Func GetValueWith P1
+		return dnRequest("callnamed",[self,"GetValue",P1])
+
+	Func SetValueWith P1
+		dnRequest("callnamed",[self,"SetValue",P1])
+		return self
+
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func ClearWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
+		return self
+
+	Func CreateInstanceWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1])
+
+	Func CreateInstanceFromArrayTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1])
+
+	Func CopyWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1])
+		return self
+
+	Func BinarySearchWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1])
+
+	Func FillWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1])
+		return self
+
+	Func FindIndexWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1])
+
+	Func FindLastIndexWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1])
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1])
+
+	Func LastIndexOfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1])
+
+	Func ReverseWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
+		return self
+
+	Func SortWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
+		return self
+
 	Func getLength
 		return dnRequest("get",[self,"Length"])
 

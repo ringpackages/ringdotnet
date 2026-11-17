@@ -31,3 +31,9 @@ Class SqliteEntityTypeBuilderExtensions from Object
 	Func CanUseSqlReturningClause_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1,P2,P3,P4])
 
+	Func UseSqlReturningClauseWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
+
+	Func CanUseSqlReturningClauseWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1])
+

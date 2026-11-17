@@ -38,6 +38,9 @@ Class SizeF from ValueType
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.SizeF, System.Drawing.Primitives'),"Subtract",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])
 

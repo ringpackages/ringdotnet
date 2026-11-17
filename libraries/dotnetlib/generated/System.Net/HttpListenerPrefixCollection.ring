@@ -38,6 +38,10 @@ Class HttpListenerPrefixCollection from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 

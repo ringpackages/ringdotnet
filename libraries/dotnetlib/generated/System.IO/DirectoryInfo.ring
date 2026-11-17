@@ -86,6 +86,28 @@ Class DirectoryInfo from FileSystemInfo
 		dnRequest("call",[self,"Delete",P1])
 		return self
 
+	Func GetFilesWith P1
+		return dnRequest("callnamed",[self,"GetFiles",P1])
+
+	Func GetFileSystemInfosWith P1
+		return dnRequest("callnamed",[self,"GetFileSystemInfos",P1])
+
+	Func GetDirectoriesWith P1
+		return dnRequest("callnamed",[self,"GetDirectories",P1])
+
+	Func EnumerateDirectoriesWith P1
+		return dnRequest("callnamed",[self,"EnumerateDirectories",P1])
+
+	Func EnumerateFilesWith P1
+		return dnRequest("callnamed",[self,"EnumerateFiles",P1])
+
+	Func EnumerateFileSystemInfosWith P1
+		return dnRequest("callnamed",[self,"EnumerateFileSystemInfos",P1])
+
+	Func DeleteWith P1
+		dnRequest("callnamed",[self,"Delete",P1])
+		return self
+
 	Func getParent
 		return dnRequest("get",[self,"Parent"])
 

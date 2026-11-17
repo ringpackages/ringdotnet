@@ -28,3 +28,9 @@ Class ServiceProviderKeyedServiceExtensions from Object
 	Func GetKeyedServices_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedServices",P1,P2,P3])
 
+	Func GetRequiredKeyedServiceWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetRequiredKeyedService",P1])
+
+	Func GetKeyedServicesWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceProviderKeyedServiceExtensions, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetKeyedServices",P1])
+

@@ -37,3 +37,6 @@ Class Tuple from Object
 	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
+

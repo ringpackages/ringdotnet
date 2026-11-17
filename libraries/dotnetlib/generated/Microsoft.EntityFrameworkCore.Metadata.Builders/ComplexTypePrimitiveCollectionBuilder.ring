@@ -82,6 +82,24 @@ Class ComplexTypePrimitiveCollectionBuilder from Object
 	Func UsePropertyAccessMode P1
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
 
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+
+	Func IsUnicodeWith P1
+		return dnRequest("callnamed",[self,"IsUnicode",P1])
+
+	Func HasValueGeneratorWith P1
+		return dnRequest("callnamed",[self,"HasValueGenerator",P1])
+
+	Func HasValueGeneratorFactoryWith P1
+		return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
+
+	Func IsConcurrencyTokenWith P1
+		return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
+
+	Func ElementTypeWith P1
+		return dnRequest("callnamed",[self,"ElementType",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

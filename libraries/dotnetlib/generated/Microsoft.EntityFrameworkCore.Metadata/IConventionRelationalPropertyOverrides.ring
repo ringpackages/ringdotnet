@@ -34,6 +34,12 @@ Class IConventionRelationalPropertyOverrides from DotNetObject
 	Func GetColumnNameConfigurationSource 
 		return dnRequest("call",[self,"GetColumnNameConfigurationSource"])
 
+	Func SetColumnNameWith P1
+		return dnRequest("callnamed",[self,"SetColumnName",P1])
+
+	Func RemoveColumnNameOverrideWith P1
+		return dnRequest("callnamed",[self,"RemoveColumnNameOverride",P1])
+
 	Func getProperty
 		return dnRequest("get",[self,"Property"])
 

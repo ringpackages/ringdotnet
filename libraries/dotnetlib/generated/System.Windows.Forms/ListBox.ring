@@ -80,6 +80,15 @@ Class ListBox from ListControl
 		dnRequest("call",[self,"SetSelected",P1,P2])
 		return self
 
+	Func FindStringWith P1
+		return dnRequest("callnamed",[self,"FindString",P1])
+
+	Func FindStringExactWith P1
+		return dnRequest("callnamed",[self,"FindStringExact",P1])
+
+	Func IndexFromPointWith P1
+		return dnRequest("callnamed",[self,"IndexFromPoint",P1])
+
 	Func setDrawItemEvent P1
 		dnRequest("setevent",[self,"DrawItem",dnCallback(P1)])
 		return self

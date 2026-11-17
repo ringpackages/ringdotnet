@@ -23,6 +23,9 @@ Class ModelBindingResult from ValueType
 	Func Success P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingResult, Microsoft.AspNetCore.Mvc.Abstractions'),"Success",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

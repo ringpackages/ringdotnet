@@ -35,6 +35,21 @@ Class BitVector32 from ValueType
 	Func ToString_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
+		ok
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func CreateMaskWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
+
+	Func CreateSectionWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

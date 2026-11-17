@@ -44,6 +44,18 @@ Class ModuleHandle from ValueType
 	Func ResolveFieldHandle_3 P1,P2,P3
 		return dnRequest("call",[self,"ResolveFieldHandle",P1,P2,P3])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ResolveTypeHandleWith P1
+		return dnRequest("callnamed",[self,"ResolveTypeHandle",P1])
+
+	Func ResolveMethodHandleWith P1
+		return dnRequest("callnamed",[self,"ResolveMethodHandle",P1])
+
+	Func ResolveFieldHandleWith P1
+		return dnRequest("callnamed",[self,"ResolveFieldHandle",P1])
+
 	Func getMDStreamVersion
 		return dnRequest("get",[self,"MDStreamVersion"])
 

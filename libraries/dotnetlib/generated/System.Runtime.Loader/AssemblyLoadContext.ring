@@ -64,6 +64,15 @@ Class AssemblyLoadContext from Object
 	Func EnterContextualReflection_1 P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
+	Func LoadFromStreamWith P1
+		return dnRequest("callnamed",[self,"LoadFromStream",P1])
+
+	Func EnterContextualReflectionWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
+		ok
+		return dnRequest("callnamed",[self,"EnterContextualReflection",P1])
+
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[self,"ResolvingUnmanagedDll",dnCallback(P1)])
 		return self

@@ -38,6 +38,12 @@ Class X509BasicConstraintsExtension from X509Extension
 	Func CreateForEndEntity 
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity"])
 
+	Func CreateForCertificateAuthorityWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
+
+	Func CreateForEndEntityWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
+
 	Func getCertificateAuthority
 		return dnRequest("get",[self,"CertificateAuthority"])
 

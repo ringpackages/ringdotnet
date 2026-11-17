@@ -21,14 +21,14 @@ uiEnd()
 # --------------------------------------------------------------------------
 
 func selfTest
-	oRich.Select_2(0,4)
+	oRich.SelectWith([ :start = 0, :length = 4 ])
 	oRich.SelectionColor = uiColor("Red")
 	oBoldFont = uiFont("Segoe UI",14,true)
 	oRich.SelectionFont = oBoldFont
-	oRich.Select_2(9,4)
+	oRich.SelectWith([ :start = 9, :length = 4 ])
 	oRich.SelectionColor = uiColor("Blue")
-	oRich.Select_2(0,0)
+	oRich.SelectWith([ :start = 0, :length = 0 ])
 	dnAssert("text is kept",oRich.Text,"Ring and .NET make a good team")
-	oRich.Select_2(1,1)
+	oRich.SelectWith([ :start = 1, :length = 1 ])
 	dnAssert("first word is red",oRich.SelectionColor.Name,"Red")
 	dnAssert("rtf has formatting",substr(oRich.Rtf,"\b") > 0,True)

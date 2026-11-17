@@ -36,6 +36,12 @@ Class IConventionDbFunctionParameter from DotNetObject
 	Func GetTypeMappingConfigurationSource 
 		return dnRequest("call",[self,"GetTypeMappingConfigurationSource"])
 
+	Func SetStoreTypeWith P1
+		return dnRequest("callnamed",[self,"SetStoreType",P1])
+
+	Func SetTypeMappingWith P1
+		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
+
 	Func getFunction
 		return dnRequest("get",[self,"Function"])
 

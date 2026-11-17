@@ -45,6 +45,12 @@ Class SemaphoreSlim from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func WaitWith P1
+		return dnRequest("callnamed",[self,"Wait",P1])
+
+	Func WaitAsyncWith P1
+		return dnRequest("callnamed",[self,"WaitAsync",P1])
+
 	Func getCurrentCount
 		return dnRequest("get",[self,"CurrentCount"])
 

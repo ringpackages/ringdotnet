@@ -48,6 +48,12 @@ Class IModel from DotNetObject
 	Func FindTypeMappingConfiguration P1
 		return dnRequest("call",[self,"FindTypeMappingConfiguration",P1])
 
+	Func FindEntityTypeWith P1
+		return dnRequest("callnamed",[self,"FindEntityType",P1])
+
+	Func FindLeastDerivedEntityTypesWith P1
+		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+
 	Func getModelDependencies
 		return dnRequest("get",[self,"ModelDependencies"])
 

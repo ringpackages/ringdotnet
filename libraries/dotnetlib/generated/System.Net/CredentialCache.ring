@@ -42,6 +42,17 @@ Class CredentialCache from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[self,"Remove",P1])
+		return self
+
+	Func GetCredentialWith P1
+		return dnRequest("callnamed",[self,"GetCredential",P1])
+
 	Func getDefaultCredentials
 		return dnRequest("get",[dnTypeCached('System.Net.CredentialCache, System.Net.Primitives'),"DefaultCredentials"])
 

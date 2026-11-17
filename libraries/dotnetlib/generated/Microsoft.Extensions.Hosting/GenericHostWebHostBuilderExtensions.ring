@@ -22,3 +22,6 @@ Class GenericHostWebHostBuilderExtensions from Object
 	Func ConfigureSlimWebHost P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureSlimWebHost",P1,P2,P3])
 
+	Func ConfigureWebHostWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureWebHost",P1])
+

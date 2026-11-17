@@ -43,3 +43,9 @@ Class ResourceSet from Object
 	Func GetObject_2 P1,P2
 		return dnRequest("call",[self,"GetObject",P1,P2])
 
+	Func GetStringWith P1
+		return dnRequest("callnamed",[self,"GetString",P1])
+
+	Func GetObjectWith P1
+		return dnRequest("callnamed",[self,"GetObject",P1])
+

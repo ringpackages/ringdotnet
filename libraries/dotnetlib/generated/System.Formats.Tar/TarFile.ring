@@ -33,3 +33,17 @@ Class TarFile from Object
 	Func ExtractToDirectoryAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1,P2,P3])
 
+	Func CreateFromDirectoryWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1])
+		return self
+
+	Func CreateFromDirectoryAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1])
+
+	Func ExtractToDirectoryWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectory",P1])
+		return self
+
+	Func ExtractToDirectoryAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1])
+

@@ -34,6 +34,9 @@ Class ItemContainerGenerator from Object
 	Func ContainerFromIndex P1
 		return dnRequest("call",[self,"ContainerFromIndex",P1])
 
+	Func IndexFromContainerWith P1
+		return dnRequest("callnamed",[self,"IndexFromContainer",P1])
+
 	Func setItemsChangedEvent P1
 		dnRequest("setevent",[self,"ItemsChanged",dnCallback(P1)])
 		return self

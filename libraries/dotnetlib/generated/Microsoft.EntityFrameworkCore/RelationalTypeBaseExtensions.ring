@@ -88,3 +88,18 @@ Class RelationalTypeBaseExtensions from Object
 	Func GetJsonPropertyName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyName",P1])
 
+	Func GetDeleteStoredProcedureWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDeleteStoredProcedure",P1])
+
+	Func GetInsertStoredProcedureWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetInsertStoredProcedure",P1])
+
+	Func GetUpdateStoredProcedureWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetUpdateStoredProcedure",P1])
+
+	Func GetMappingFragmentsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
+
+	Func FindMappingFragmentWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindMappingFragment",P1])
+

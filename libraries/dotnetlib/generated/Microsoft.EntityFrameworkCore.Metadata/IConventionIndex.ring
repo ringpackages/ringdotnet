@@ -38,6 +38,12 @@ Class IConventionIndex from DotNetObject
 	Func GetIsDescendingConfigurationSource 
 		return dnRequest("call",[self,"GetIsDescendingConfigurationSource"])
 
+	Func SetIsUniqueWith P1
+		return dnRequest("callnamed",[self,"SetIsUnique",P1])
+
+	Func SetIsDescendingWith P1
+		return dnRequest("callnamed",[self,"SetIsDescending",P1])
+
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])
 

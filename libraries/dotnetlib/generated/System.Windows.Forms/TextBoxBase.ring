@@ -92,6 +92,10 @@ Class TextBoxBase from Control
 		dnRequest("call",[self,"Undo"])
 		return self
 
+	Func SelectWith P1
+		dnRequest("callnamed",[self,"Select",P1])
+		return self
+
 	Func setAcceptsTabChangedEvent P1
 		dnRequest("setevent",[self,"AcceptsTabChanged",dnCallback(P1)])
 		return self

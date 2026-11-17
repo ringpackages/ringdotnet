@@ -55,6 +55,24 @@ Class OwnedNavigationStoredProcedureBuilder from Object
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
+	Func HasParameterWith P1
+		return dnRequest("callnamed",[self,"HasParameter",P1])
+
+	Func HasOriginalValueParameterWith P1
+		return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
+
+	Func HasRowsAffectedParameterWith P1
+		return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
+
+	Func HasResultColumnWith P1
+		return dnRequest("callnamed",[self,"HasResultColumn",P1])
+
+	Func HasRowsAffectedResultColumnWith P1
+		return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
+
+	Func HasRowsAffectedReturnValueWith P1
+		return dnRequest("callnamed",[self,"HasRowsAffectedReturnValue",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

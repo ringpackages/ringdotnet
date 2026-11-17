@@ -77,6 +77,26 @@ Class TraceListener from MarshalByRefObject
 		dnRequest("call",[self,"TraceEvent",P1,P2,P3,P4,P5,P6])
 		return self
 
+	Func FailWith P1
+		dnRequest("callnamed",[self,"Fail",P1])
+		return self
+
+	Func WriteWith P1
+		dnRequest("callnamed",[self,"Write",P1])
+		return self
+
+	Func WriteLineWith P1
+		dnRequest("callnamed",[self,"WriteLine",P1])
+		return self
+
+	Func TraceDataWith P1
+		dnRequest("callnamed",[self,"TraceData",P1])
+		return self
+
+	Func TraceEventWith P1
+		dnRequest("callnamed",[self,"TraceEvent",P1])
+		return self
+
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
 

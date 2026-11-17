@@ -109,6 +109,12 @@ Class IReadOnlyProperty from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
+	Func GetPrincipalsWith P1
+		return dnRequest("callnamed",[self,"GetPrincipals",P1])
+
+	Func ToDebugStringWith P1
+		return dnRequest("callnamed",[self,"ToDebugString",P1])
+
 	Func getDeclaringEntityType
 		return dnRequest("get",[self,"DeclaringEntityType"])
 

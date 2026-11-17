@@ -62,6 +62,9 @@ Class RuntimeDbFunction from AnnotatableBase
 	Func AddParameter P1,P2,P3,P4
 		return dnRequest("call",[self,"AddParameter",P1,P2,P3,P4])
 
+	Func AddParameterWith P1
+		return dnRequest("callnamed",[self,"AddParameter",P1])
+
 	Func getModel
 		return dnRequest("get",[self,"Model"])
 

@@ -54,6 +54,10 @@ Class SocketAsyncEventArgs from EventArgs
 		dnRequest("call",[self,"Dispose"])
 		return self
 
+	Func SetBufferWith P1
+		dnRequest("callnamed",[self,"SetBuffer",P1])
+		return self
+
 	Func setCompletedEvent P1
 		dnRequest("setevent",[self,"Completed",dnCallback(P1)])
 		return self

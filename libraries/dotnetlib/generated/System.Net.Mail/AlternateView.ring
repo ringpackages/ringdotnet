@@ -30,6 +30,9 @@ Class AlternateView from AttachmentBase
 	Func CreateAlternateViewFromString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1,P2])
 
+	Func CreateAlternateViewFromStringWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1])
+
 	Func getLinkedResources
 		return dnRequest("get",[self,"LinkedResources"])
 

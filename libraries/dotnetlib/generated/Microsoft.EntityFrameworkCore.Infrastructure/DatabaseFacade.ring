@@ -79,6 +79,24 @@ Class DatabaseFacade from Object
 	Func CreateExecutionStrategy 
 		return dnRequest("call",[self,"CreateExecutionStrategy"])
 
+	Func EnsureCreatedAsyncWith P1
+		return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
+
+	Func EnsureDeletedAsyncWith P1
+		return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
+
+	Func CanConnectAsyncWith P1
+		return dnRequest("callnamed",[self,"CanConnectAsync",P1])
+
+	Func BeginTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+
+	Func CommitTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
+
+	Func RollbackTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
+
 	Func getCurrentTransaction
 		return dnRequest("get",[self,"CurrentTransaction"])
 

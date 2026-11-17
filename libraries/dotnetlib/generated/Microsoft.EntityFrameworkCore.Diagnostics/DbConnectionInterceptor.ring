@@ -74,3 +74,12 @@ Class DbConnectionInterceptor from Object
 	Func ConnectionFailedAsync P1,P2
 		return dnRequest("call",[self,"ConnectionFailedAsync",P1,P2])
 
+	Func ConnectionOpeningAsyncWith P1
+		return dnRequest("callnamed",[self,"ConnectionOpeningAsync",P1])
+
+	Func ConnectionOpenedAsyncWith P1
+		return dnRequest("callnamed",[self,"ConnectionOpenedAsync",P1])
+
+	Func ConnectionFailedAsyncWith P1
+		return dnRequest("callnamed",[self,"ConnectionFailedAsync",P1])
+

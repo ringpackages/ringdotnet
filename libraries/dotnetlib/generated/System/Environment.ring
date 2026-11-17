@@ -86,6 +86,23 @@ Class Environment from Object
 	Func GetEnvironmentVariables 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
 
+	Func FailFastWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
+		return self
+
+	Func GetEnvironmentVariableWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
+
+	Func GetEnvironmentVariablesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
+
+	Func SetEnvironmentVariableWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1])
+		return self
+
+	Func GetFolderPathWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
+
 	Func getCurrentManagedThreadId
 		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentManagedThreadId"])
 

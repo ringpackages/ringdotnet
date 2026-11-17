@@ -89,6 +89,33 @@ Class CompareInfo from Object
 	Func IsSortable P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
 
+	Func CompareWith P1
+		return dnRequest("callnamed",[self,"Compare",P1])
+
+	Func IsPrefixWith P1
+		return dnRequest("callnamed",[self,"IsPrefix",P1])
+
+	Func IsSuffixWith P1
+		return dnRequest("callnamed",[self,"IsSuffix",P1])
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[self,"IndexOf",P1])
+
+	Func LastIndexOfWith P1
+		return dnRequest("callnamed",[self,"LastIndexOf",P1])
+
+	Func GetSortKeyWith P1
+		return dnRequest("callnamed",[self,"GetSortKey",P1])
+
+	Func GetHashCodeWith P1
+		return dnRequest("callnamed",[self,"GetHashCode",P1])
+
+	Func GetCompareInfoWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"GetCompareInfo",P1])
+
+	Func IsSortableWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CompareInfo, System.Private.CoreLib'),"IsSortable",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

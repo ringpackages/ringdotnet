@@ -63,6 +63,30 @@ Class IConventionSkipNavigationBuilder from DotNetObject
 	Func EnableLazyLoading P1
 		return dnRequest("call",[self,"EnableLazyLoading",P1])
 
+	Func HasForeignKeyWith P1
+		return dnRequest("callnamed",[self,"HasForeignKey",P1])
+
+	Func CanSetForeignKeyWith P1
+		return dnRequest("callnamed",[self,"CanSetForeignKey",P1])
+
+	Func HasInverseWith P1
+		return dnRequest("callnamed",[self,"HasInverse",P1])
+
+	Func CanSetInverseWith P1
+		return dnRequest("callnamed",[self,"CanSetInverse",P1])
+
+	Func CanSetAutoIncludeWith P1
+		return dnRequest("callnamed",[self,"CanSetAutoInclude",P1])
+
+	Func AutoIncludeWith P1
+		return dnRequest("callnamed",[self,"AutoInclude",P1])
+
+	Func CanSetLazyLoadingEnabledWith P1
+		return dnRequest("callnamed",[self,"CanSetLazyLoadingEnabled",P1])
+
+	Func EnableLazyLoadingWith P1
+		return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

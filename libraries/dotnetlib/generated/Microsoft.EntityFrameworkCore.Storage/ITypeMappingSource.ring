@@ -22,3 +22,6 @@ Class ITypeMappingSource from DotNetObject
 	Func FindMapping_2 P1,P2
 		return dnRequest("call",[self,"FindMapping",P1,P2])
 
+	Func FindMappingWith P1
+		return dnRequest("callnamed",[self,"FindMapping",P1])
+

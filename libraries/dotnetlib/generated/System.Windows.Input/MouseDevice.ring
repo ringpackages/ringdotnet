@@ -42,6 +42,9 @@ Class MouseDevice from InputDevice
 		dnRequest("call",[self,"UpdateCursor"])
 		return self
 
+	Func CaptureWith P1
+		return dnRequest("callnamed",[self,"Capture",P1])
+
 	Func getDirectlyOver
 		return dnRequest("get",[self,"DirectlyOver"])
 

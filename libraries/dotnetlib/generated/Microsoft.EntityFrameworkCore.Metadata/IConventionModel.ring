@@ -142,6 +142,47 @@ Class IConventionModel from DotNetObject
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
+	Func SetPropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
+
+	Func SetEmbeddedDiscriminatorNameWith P1
+		return dnRequest("callnamed",[self,"SetEmbeddedDiscriminatorName",P1])
+
+	Func SetChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"SetChangeTrackingStrategy",P1])
+
+	Func AddEntityTypeWith P1
+		return dnRequest("callnamed",[self,"AddEntityType",P1])
+
+	Func AddOwnedEntityTypeWith P1
+		return dnRequest("callnamed",[self,"AddOwnedEntityType",P1])
+
+	Func FindEntityTypeWith P1
+		return dnRequest("callnamed",[self,"FindEntityType",P1])
+
+	Func RemoveEntityTypeWith P1
+		return dnRequest("callnamed",[self,"RemoveEntityType",P1])
+
+	Func FindLeastDerivedEntityTypesWith P1
+		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+
+	Func AddSharedWith P1
+		dnRequest("callnamed",[self,"AddShared",P1])
+		return self
+
+	Func AddOwnedWith P1
+		dnRequest("callnamed",[self,"AddOwned",P1])
+		return self
+
+	Func AddIgnoredWith P1
+		return dnRequest("callnamed",[self,"AddIgnored",P1])
+
+	Func IsIgnoredWith P1
+		return dnRequest("callnamed",[self,"IsIgnored",P1])
+
+	Func FindIgnoredConfigurationSourceWith P1
+		return dnRequest("callnamed",[self,"FindIgnoredConfigurationSource",P1])
+
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])
 

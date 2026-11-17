@@ -32,3 +32,12 @@ Class ReferenceReferenceBuilder from InvertibleRelationshipBuilderBase
 	Func OnDelete P1
 		return dnRequest("call",[self,"OnDelete",P1])
 
+	Func HasForeignKeyWith P1
+		return dnRequest("callnamed",[self,"HasForeignKey",P1])
+
+	Func HasPrincipalKeyWith P1
+		return dnRequest("callnamed",[self,"HasPrincipalKey",P1])
+
+	Func IsRequiredWith P1
+		return dnRequest("callnamed",[self,"IsRequired",P1])
+

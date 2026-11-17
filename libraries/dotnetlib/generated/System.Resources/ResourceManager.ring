@@ -56,6 +56,15 @@ Class ResourceManager from Object
 	Func CreateFileBasedResourceManager P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Resources.ResourceManager, System.Private.CoreLib'),"CreateFileBasedResourceManager",P1,P2,P3])
 
+	Func GetStringWith P1
+		return dnRequest("callnamed",[self,"GetString",P1])
+
+	Func GetObjectWith P1
+		return dnRequest("callnamed",[self,"GetObject",P1])
+
+	Func GetStreamWith P1
+		return dnRequest("callnamed",[self,"GetStream",P1])
+
 	Func getBaseName
 		return dnRequest("get",[self,"BaseName"])
 

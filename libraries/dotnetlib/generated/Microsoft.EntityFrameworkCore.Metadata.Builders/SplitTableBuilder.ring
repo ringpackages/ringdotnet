@@ -34,6 +34,12 @@ Class SplitTableBuilder from Object
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
+	Func ExcludeFromMigrationsWith P1
+		return dnRequest("callnamed",[self,"ExcludeFromMigrations",P1])
+
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

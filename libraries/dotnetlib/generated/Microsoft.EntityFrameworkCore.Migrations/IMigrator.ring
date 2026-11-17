@@ -45,3 +45,13 @@ Class IMigrator from DotNetObject
 	Func HasPendingModelChanges 
 		return dnRequest("call",[self,"HasPendingModelChanges"])
 
+	Func MigrateWith P1
+		dnRequest("callnamed",[self,"Migrate",P1])
+		return self
+
+	Func MigrateAsyncWith P1
+		return dnRequest("callnamed",[self,"MigrateAsync",P1])
+
+	Func GenerateScriptWith P1
+		return dnRequest("callnamed",[self,"GenerateScript",P1])
+

@@ -22,3 +22,6 @@ Class IFeatureSupport from DotNetObject
 	Func GetVersionPresent P1
 		return dnRequest("call",[self,"GetVersionPresent",P1])
 
+	Func IsPresentWith P1
+		return dnRequest("callnamed",[self,"IsPresent",P1])
+

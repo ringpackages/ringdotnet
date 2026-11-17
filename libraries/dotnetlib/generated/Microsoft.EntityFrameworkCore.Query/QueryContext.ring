@@ -44,6 +44,10 @@ Class QueryContext from Object
 	Func StartTracking P1,P2,P3
 		return dnRequest("call",[self,"StartTracking",P1,P2,P3])
 
+	Func InitializeStateManagerWith P1
+		dnRequest("callnamed",[self,"InitializeStateManager",P1])
+		return self
+
 	Func getContext
 		return dnRequest("get",[self,"Context"])
 

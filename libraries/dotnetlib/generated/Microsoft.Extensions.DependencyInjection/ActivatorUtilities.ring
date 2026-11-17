@@ -31,3 +31,12 @@ Class ActivatorUtilities from Object
 	Func GetServiceOrCreateInstance_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServiceOrCreateInstance",P1,P2])
 
+	Func CreateInstanceWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateInstance",P1])
+
+	Func CreateFactoryWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"CreateFactory",P1])
+
+	Func GetServiceOrCreateInstanceWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ActivatorUtilities, Microsoft.Extensions.DependencyInjection.Abstractions'),"GetServiceOrCreateInstance",P1])
+

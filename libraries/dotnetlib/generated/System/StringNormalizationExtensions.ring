@@ -25,3 +25,9 @@ Class StringNormalizationExtensions from Object
 	Func Normalize_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1,P2])
 
+	Func IsNormalizedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"IsNormalized",P1])
+
+	Func NormalizeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1])
+

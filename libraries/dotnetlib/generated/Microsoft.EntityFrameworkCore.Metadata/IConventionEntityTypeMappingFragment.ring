@@ -28,6 +28,9 @@ Class IConventionEntityTypeMappingFragment from DotNetObject
 	Func GetIsTableExcludedFromMigrationsConfigurationSource 
 		return dnRequest("call",[self,"GetIsTableExcludedFromMigrationsConfigurationSource"])
 
+	Func SetIsTableExcludedFromMigrationsWith P1
+		return dnRequest("callnamed",[self,"SetIsTableExcludedFromMigrations",P1])
+
 	Func getEntityType
 		return dnRequest("get",[self,"EntityType"])
 

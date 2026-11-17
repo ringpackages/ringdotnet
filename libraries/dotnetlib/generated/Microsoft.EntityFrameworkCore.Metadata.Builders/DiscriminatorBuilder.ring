@@ -26,3 +26,9 @@ Class DiscriminatorBuilder from Object
 	Func HasValue_2 P1,P2
 		return dnRequest("call",[self,"HasValue",P1,P2])
 
+	Func IsCompleteWith P1
+		return dnRequest("callnamed",[self,"IsComplete",P1])
+
+	Func HasValueWith P1
+		return dnRequest("callnamed",[self,"HasValue",P1])
+

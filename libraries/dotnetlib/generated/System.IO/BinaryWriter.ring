@@ -59,6 +59,10 @@ Class BinaryWriter from Object
 		dnRequest("call",[self,"Write7BitEncodedInt64",P1])
 		return self
 
+	Func WriteWith P1
+		dnRequest("callnamed",[self,"Write",P1])
+		return self
+
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])
 

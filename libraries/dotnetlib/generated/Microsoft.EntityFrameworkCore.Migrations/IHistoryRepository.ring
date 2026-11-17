@@ -82,6 +82,21 @@ Class IHistoryRepository from DotNetObject
 	Func GetEndIfScript 
 		return dnRequest("call",[self,"GetEndIfScript"])
 
+	Func ExistsAsyncWith P1
+		return dnRequest("callnamed",[self,"ExistsAsync",P1])
+
+	Func CreateAsyncWith P1
+		return dnRequest("callnamed",[self,"CreateAsync",P1])
+
+	Func CreateIfNotExistsAsyncWith P1
+		return dnRequest("callnamed",[self,"CreateIfNotExistsAsync",P1])
+
+	Func GetAppliedMigrationsAsyncWith P1
+		return dnRequest("callnamed",[self,"GetAppliedMigrationsAsync",P1])
+
+	Func AcquireDatabaseLockAsyncWith P1
+		return dnRequest("callnamed",[self,"AcquireDatabaseLockAsync",P1])
+
 	Func getLockReleaseBehavior
 		return dnRequest("get",[self,"LockReleaseBehavior"])
 

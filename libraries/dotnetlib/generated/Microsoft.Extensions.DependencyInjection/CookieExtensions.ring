@@ -25,3 +25,6 @@ Class CookieExtensions from Object
 	Func AddCookie_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies'),"AddCookie",P1,P2,P3,P4])
 
+	Func AddCookieWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CookieExtensions, Microsoft.AspNetCore.Authentication.Cookies'),"AddCookie",P1])
+

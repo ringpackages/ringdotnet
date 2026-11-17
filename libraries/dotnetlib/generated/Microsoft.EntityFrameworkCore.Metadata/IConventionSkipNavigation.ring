@@ -38,6 +38,12 @@ Class IConventionSkipNavigation from DotNetObject
 	Func GetInverseConfigurationSource 
 		return dnRequest("call",[self,"GetInverseConfigurationSource"])
 
+	Func SetForeignKeyWith P1
+		return dnRequest("callnamed",[self,"SetForeignKey",P1])
+
+	Func SetInverseWith P1
+		return dnRequest("callnamed",[self,"SetInverse",P1])
+
 	Func getBuilder
 		return dnRequest("get",[self,"Builder"])
 

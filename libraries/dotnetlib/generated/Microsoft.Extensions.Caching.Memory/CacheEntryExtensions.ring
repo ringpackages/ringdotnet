@@ -40,3 +40,9 @@ Class CacheEntryExtensions from Object
 	Func SetOptions P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetOptions",P1,P2])
 
+	Func SetAbsoluteExpirationWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"SetAbsoluteExpiration",P1])
+
+	Func RegisterPostEvictionCallbackWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheEntryExtensions, Microsoft.Extensions.Caching.Abstractions'),"RegisterPostEvictionCallback",P1])
+

@@ -39,6 +39,14 @@ Class BackgroundWorker from Component
 		dnRequest("call",[self,"RunWorkerAsync",P1])
 		return self
 
+	Func ReportProgressWith P1
+		dnRequest("callnamed",[self,"ReportProgress",P1])
+		return self
+
+	Func RunWorkerAsyncWith P1
+		dnRequest("callnamed",[self,"RunWorkerAsync",P1])
+		return self
+
 	Func setDoWorkEvent P1
 		dnRequest("setevent",[self,"DoWork",dnCallback(P1)])
 		return self

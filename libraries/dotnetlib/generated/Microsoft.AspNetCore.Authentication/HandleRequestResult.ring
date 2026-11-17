@@ -35,6 +35,9 @@ Class HandleRequestResult from AuthenticateResult
 	Func NoResult 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"NoResult"])
 
+	Func FailWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
+
 	Func getHandled
 		return dnRequest("get",[self,"Handled"])
 

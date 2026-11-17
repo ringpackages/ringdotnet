@@ -85,3 +85,30 @@ Class Enum from ValueType
 	Func ToObject P1,P2
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"ToObject",P1,P2])
 
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func GetNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1])
+
+	Func GetNamesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
+
+	Func GetValuesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
+
+	Func GetValuesAsUnderlyingTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
+
+	Func IsDefinedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1])
+
+	Func ToObjectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"ToObject",P1])
+

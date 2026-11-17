@@ -24,6 +24,9 @@ Class ShapedQueryCompilingExpressionVisitorDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitorDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getEntityMaterializerSource
 		return dnRequest("get",[self,"EntityMaterializerSource"])
 

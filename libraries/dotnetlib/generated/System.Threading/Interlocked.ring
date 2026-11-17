@@ -45,3 +45,27 @@ Class Interlocked from Object
 		dnRequest("call",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"MemoryBarrier"])
 		return self
 
+	Func IncrementWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Increment",P1])
+
+	Func DecrementWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Decrement",P1])
+
+	Func ExchangeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Exchange",P1])
+
+	Func CompareExchangeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"CompareExchange",P1])
+
+	Func AddWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Add",P1])
+
+	Func ReadWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Read",P1])
+
+	Func AndWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"And",P1])
+
+	Func OrWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.Interlocked, System.Private.CoreLib'),"Or",P1])
+

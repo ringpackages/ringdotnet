@@ -28,3 +28,6 @@ Class IniConfigurationExtensions from Object
 	Func AddIniStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniStream",P1,P2])
 
+	Func AddIniFileWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1])
+

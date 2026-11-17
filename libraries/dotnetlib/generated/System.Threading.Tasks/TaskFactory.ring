@@ -82,6 +82,18 @@ Class TaskFactory from Object
 	Func ContinueWhenAny_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"ContinueWhenAny",P1,P2,P3,P4,P5])
 
+	Func StartNewWith P1
+		return dnRequest("callnamed",[self,"StartNew",P1])
+
+	Func FromAsyncWith P1
+		return dnRequest("callnamed",[self,"FromAsync",P1])
+
+	Func ContinueWhenAllWith P1
+		return dnRequest("callnamed",[self,"ContinueWhenAll",P1])
+
+	Func ContinueWhenAnyWith P1
+		return dnRequest("callnamed",[self,"ContinueWhenAny",P1])
+
 	Func getCancellationToken
 		return dnRequest("get",[self,"CancellationToken"])
 

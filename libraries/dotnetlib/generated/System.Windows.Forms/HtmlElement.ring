@@ -84,6 +84,9 @@ Class HtmlElement from Object
 		dnRequest("call",[self,"SetAttribute",P1,P2])
 		return self
 
+	Func InvokeMemberWith P1
+		return dnRequest("callnamed",[self,"InvokeMember",P1])
+
 	Func setClickEvent P1
 		dnRequest("setevent",[self,"Click",dnCallback(P1)])
 		return self

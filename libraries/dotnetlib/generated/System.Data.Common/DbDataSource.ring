@@ -43,6 +43,12 @@ Class DbDataSource from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func OpenConnectionAsyncWith P1
+		return dnRequest("callnamed",[self,"OpenConnectionAsync",P1])
+
+	Func CreateCommandWith P1
+		return dnRequest("callnamed",[self,"CreateCommand",P1])
+
 	Func getConnectionString
 		return dnRequest("get",[self,"ConnectionString"])
 

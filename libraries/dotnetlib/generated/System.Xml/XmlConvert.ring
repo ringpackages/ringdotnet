@@ -128,3 +128,15 @@ Class XmlConvert from Object
 	Func ToGuid P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToGuid",P1])
 
+	Func ToStringWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
+		ok
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ToDateTimeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
+
+	Func ToDateTimeOffsetWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
+

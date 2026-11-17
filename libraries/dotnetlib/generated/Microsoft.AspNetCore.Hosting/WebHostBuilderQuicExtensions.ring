@@ -19,3 +19,6 @@ Class WebHostBuilderQuicExtensions from Object
 	Func UseQuic_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1,P2])
 
+	Func UseQuicWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1])
+

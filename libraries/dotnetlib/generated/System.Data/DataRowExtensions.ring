@@ -23,3 +23,10 @@ Class DataRowExtensions from Object
 		dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"SetField",P1,P2,P3])
 		return self
 
+	Func FieldWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1])
+
+	Func SetFieldWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"SetField",P1])
+		return self
+

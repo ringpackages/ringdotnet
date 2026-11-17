@@ -85,6 +85,12 @@ Class CompositeValueProvider from DotNetObject
 	Func CreateAsync_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1,P2])
 
+	Func FilterWith P1
+		return dnRequest("callnamed",[self,"Filter",P1])
+
+	Func CreateAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

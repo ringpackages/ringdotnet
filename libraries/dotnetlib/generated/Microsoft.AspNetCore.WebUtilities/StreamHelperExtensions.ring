@@ -22,3 +22,6 @@ Class StreamHelperExtensions from Object
 	Func DrainAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1,P2,P3,P4])
 
+	Func DrainAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1])
+

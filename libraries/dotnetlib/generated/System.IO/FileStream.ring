@@ -47,6 +47,10 @@ Class FileStream from Stream
 		dnRequest("call",[self,"Flush",P1])
 		return self
 
+	Func FlushWith P1
+		dnRequest("callnamed",[self,"Flush",P1])
+		return self
+
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
 

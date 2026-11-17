@@ -26,3 +26,9 @@ Class CollectionNavigationBuilder from Object
 	Func WithMany 
 		return dnRequest("call",[self,"WithMany"])
 
+	Func WithOneWith P1
+		return dnRequest("callnamed",[self,"WithOne",P1])
+
+	Func WithManyWith P1
+		return dnRequest("callnamed",[self,"WithMany",P1])
+

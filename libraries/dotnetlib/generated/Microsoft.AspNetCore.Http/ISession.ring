@@ -44,6 +44,12 @@ Class ISession from DotNetObject
 		dnRequest("call",[self,"Clear"])
 		return self
 
+	Func LoadAsyncWith P1
+		return dnRequest("callnamed",[self,"LoadAsync",P1])
+
+	Func CommitAsyncWith P1
+		return dnRequest("callnamed",[self,"CommitAsync",P1])
+
 	Func getIsAvailable
 		return dnRequest("get",[self,"IsAvailable"])
 

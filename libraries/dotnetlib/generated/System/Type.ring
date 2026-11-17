@@ -368,6 +368,72 @@ Class Type from MemberInfo
 	Func ReflectionOnlyGetType P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"ReflectionOnlyGetType",P1,P2,P3])
 
+	Func GetTypeWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
+		ok
+		return dnRequest("callnamed",[self,"GetType",P1])
+
+	Func GetConstructorWith P1
+		return dnRequest("callnamed",[self,"GetConstructor",P1])
+
+	Func GetConstructorsWith P1
+		return dnRequest("callnamed",[self,"GetConstructors",P1])
+
+	Func GetEventWith P1
+		return dnRequest("callnamed",[self,"GetEvent",P1])
+
+	Func GetEventsWith P1
+		return dnRequest("callnamed",[self,"GetEvents",P1])
+
+	Func GetFieldWith P1
+		return dnRequest("callnamed",[self,"GetField",P1])
+
+	Func GetFieldsWith P1
+		return dnRequest("callnamed",[self,"GetFields",P1])
+
+	Func GetMemberWith P1
+		return dnRequest("callnamed",[self,"GetMember",P1])
+
+	Func GetMembersWith P1
+		return dnRequest("callnamed",[self,"GetMembers",P1])
+
+	Func GetMethodWith P1
+		return dnRequest("callnamed",[self,"GetMethod",P1])
+
+	Func GetMethodsWith P1
+		return dnRequest("callnamed",[self,"GetMethods",P1])
+
+	Func GetNestedTypeWith P1
+		return dnRequest("callnamed",[self,"GetNestedType",P1])
+
+	Func GetNestedTypesWith P1
+		return dnRequest("callnamed",[self,"GetNestedTypes",P1])
+
+	Func GetPropertyWith P1
+		return dnRequest("callnamed",[self,"GetProperty",P1])
+
+	Func GetPropertiesWith P1
+		return dnRequest("callnamed",[self,"GetProperties",P1])
+
+	Func InvokeMemberWith P1
+		return dnRequest("callnamed",[self,"InvokeMember",P1])
+
+	Func GetInterfaceWith P1
+		return dnRequest("callnamed",[self,"GetInterface",P1])
+
+	Func MakeArrayTypeWith P1
+		return dnRequest("callnamed",[self,"MakeArrayType",P1])
+
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func GetTypeFromCLSIDWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
+
+	Func GetTypeFromProgIDWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
+
 	Func getNamespace
 		return dnRequest("get",[self,"Namespace"])
 

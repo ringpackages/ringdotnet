@@ -36,6 +36,12 @@ Class Overlapped from Object
 	Func UnsafePack_2 P1,P2
 		return dnRequest("call",[self,"UnsafePack",P1,P2])
 
+	Func PackWith P1
+		return dnRequest("callnamed",[self,"Pack",P1])
+
+	Func UnsafePackWith P1
+		return dnRequest("callnamed",[self,"UnsafePack",P1])
+
 	Func getAsyncResult
 		return dnRequest("get",[self,"AsyncResult"])
 

@@ -33,6 +33,9 @@ Class IDiagnosticsLogger from DotNetObject
 	Func NeedsEventData P1
 		return dnRequest("call",[self,"NeedsEventData",P1])
 
+	Func NeedsEventDataWith P1
+		return dnRequest("callnamed",[self,"NeedsEventData",P1])
+
 	Func getOptions
 		return dnRequest("get",[self,"Options"])
 

@@ -37,3 +37,12 @@ Class IRelationalTransactionManager from DotNetObject
 	Func UseTransactionAsync_3 P1,P2,P3
 		return dnRequest("call",[self,"UseTransactionAsync",P1,P2,P3])
 
+	Func BeginTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
+
+	Func UseTransactionWith P1
+		return dnRequest("callnamed",[self,"UseTransaction",P1])
+
+	Func UseTransactionAsyncWith P1
+		return dnRequest("callnamed",[self,"UseTransactionAsync",P1])
+

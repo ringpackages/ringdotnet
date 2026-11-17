@@ -37,3 +37,15 @@ Class CryptographicOperations from Object
 	Func HmacDataAsync_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1,P2,P3,P4,P5])
 
+	Func HashDataWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashData",P1])
+
+	Func HashDataAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashDataAsync",P1])
+
+	Func HmacDataWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacData",P1])
+
+	Func HmacDataAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1])
+

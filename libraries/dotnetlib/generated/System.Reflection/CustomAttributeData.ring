@@ -21,6 +21,9 @@ Class CustomAttributeData from Object
 	Func GetCustomAttributes P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.CustomAttributeData, System.Private.CoreLib'),"GetCustomAttributes",P1])
 
+	Func GetCustomAttributesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Reflection.CustomAttributeData, System.Private.CoreLib'),"GetCustomAttributes",P1])
+
 	Func getAttributeType
 		return dnRequest("get",[self,"AttributeType"])
 

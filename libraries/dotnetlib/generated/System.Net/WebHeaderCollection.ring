@@ -31,3 +31,14 @@ Class WebHeaderCollection from NameValueCollection
 	Func IsRestricted_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1,P2])
 
+	Func SetWith P1
+		dnRequest("callnamed",[self,"Set",P1])
+		return self
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[self,"Remove",P1])
+		return self
+
+	Func IsRestrictedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Net.WebHeaderCollection, System.Net.WebHeaderCollection'),"IsRestricted",P1])
+

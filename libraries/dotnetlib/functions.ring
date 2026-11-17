@@ -142,6 +142,28 @@ func dnCreate  cTypeName, aParameters
 	ok
 	return 0	# primitive values (Int32, Double...) have no object, their classes are used for static members
 
+# Create a .NET object with named arguments, the constructor is chosen by the names of its parameters (the order does not matter):
+#   oSB = dnNewWith("StringBuilder",[ :value = "Hello", :capacity = 64 ])
+#   oDate = dnNewWith("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
+# cClass is the name of a generated Ring class (see dnImport) or a full .NET type name
+func dnNewWith  cClass, aNamed
+	dn_cType = cClass
+	for dn_aRegistered in aDotNetClasses
+		if lower(dn_aRegistered[2]) = lower(cClass)
+			dn_cType = dn_aRegistered[1]
+			exit
+		ok
+	next
+	return dnRequest("newnamed",[dnTypeCached(dn_cType),aNamed])
+
+# The handle of an object created with named arguments (used by generated code)
+func dnCreateNamed  cTypeName, aNamed
+	dn_xNew = dnRequest("newnamed",[dnTypeCached(cTypeName),aNamed])
+	if isobject(dn_xNew)
+		return dn_xNew.nHandle
+	ok
+	return 0
+
 # Public API of a type (used by tools/gendotnet.ring)
 func dnDescribe  cTypeName
 	return dnRequest("describe",[cTypeName])

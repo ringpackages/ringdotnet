@@ -37,3 +37,12 @@ Class ListBindingHelper from Object
 	Func GetListItemType_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1,P2])
 
+	Func GetListWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1])
+
+	Func GetListItemPropertiesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1])
+
+	Func GetListItemTypeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
+

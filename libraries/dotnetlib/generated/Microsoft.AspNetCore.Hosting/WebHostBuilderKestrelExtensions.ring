@@ -28,3 +28,9 @@ Class WebHostBuilderKestrelExtensions from Object
 	Func ConfigureKestrel P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1,P2])
 
+	Func UseKestrelWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1])
+
+	Func ConfigureKestrelWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1])
+

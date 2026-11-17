@@ -147,6 +147,28 @@ Class Stream from MarshalByRefObject
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.IO.Stream, System.Private.CoreLib'),"Synchronized",P1])
 
+	Func CopyToWith P1
+		dnRequest("callnamed",[self,"CopyTo",P1])
+		return self
+
+	Func CopyToAsyncWith P1
+		return dnRequest("callnamed",[self,"CopyToAsync",P1])
+
+	Func FlushAsyncWith P1
+		return dnRequest("callnamed",[self,"FlushAsync",P1])
+
+	Func ReadAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadAsync",P1])
+
+	Func ReadExactlyAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadExactlyAsync",P1])
+
+	Func ReadAtLeastAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadAtLeastAsync",P1])
+
+	Func WriteAsyncWith P1
+		return dnRequest("callnamed",[self,"WriteAsync",P1])
+
 	Func getCanRead
 		return dnRequest("get",[self,"CanRead"])
 

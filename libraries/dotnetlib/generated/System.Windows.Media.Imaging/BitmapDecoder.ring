@@ -31,6 +31,9 @@ Class BitmapDecoder from DispatcherObject
 	Func Create_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1,P2,P3,P4])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1])
+
 	Func setDownloadCompletedEvent P1
 		dnRequest("setevent",[self,"DownloadCompleted",dnCallback(P1)])
 		return self

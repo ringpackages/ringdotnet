@@ -94,6 +94,14 @@ Class WebBrowser from WebBrowserBase
 		dnRequest("call",[self,"Stop"])
 		return self
 
+	Func NavigateWith P1
+		dnRequest("callnamed",[self,"Navigate",P1])
+		return self
+
+	Func RefreshWith P1
+		dnRequest("callnamed",[self,"Refresh",P1])
+		return self
+
 	Func setCanGoBackChangedEvent P1
 		dnRequest("setevent",[self,"CanGoBackChanged",dnCallback(P1)])
 		return self

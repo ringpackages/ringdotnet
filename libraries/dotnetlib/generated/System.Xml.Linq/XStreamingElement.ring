@@ -39,6 +39,17 @@ Class XStreamingElement from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
+	Func AddWith P1
+		dnRequest("callnamed",[self,"Add",P1])
+		return self
+
+	Func SaveWith P1
+		dnRequest("callnamed",[self,"Save",P1])
+		return self
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

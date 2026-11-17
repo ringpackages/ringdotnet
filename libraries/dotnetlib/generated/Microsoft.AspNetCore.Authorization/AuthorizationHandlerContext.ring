@@ -34,6 +34,10 @@ Class AuthorizationHandlerContext from Object
 		dnRequest("call",[self,"Succeed",P1])
 		return self
 
+	Func FailWith P1
+		dnRequest("callnamed",[self,"Fail",P1])
+		return self
+
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])
 

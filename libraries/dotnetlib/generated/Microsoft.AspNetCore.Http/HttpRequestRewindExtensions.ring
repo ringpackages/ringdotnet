@@ -25,3 +25,7 @@ Class HttpRequestRewindExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"EnableBuffering",P1,P2,P3])
 		return self
 
+	Func EnableBufferingWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"EnableBuffering",P1])
+		return self
+

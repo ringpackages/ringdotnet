@@ -119,6 +119,14 @@ Class InkCanvas from FrameworkElement
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.InkCanvas, PresentationFramework'),"SetRight",P1,P2])
 		return self
 
+	Func SelectWith P1
+		dnRequest("callnamed",[self,"Select",P1])
+		return self
+
+	Func PasteWith P1
+		dnRequest("callnamed",[self,"Paste",P1])
+		return self
+
 	Func setStrokeCollectedEvent P1
 		dnRequest("setevent",[self,"StrokeCollected",dnCallback(P1)])
 		return self

@@ -180,6 +180,75 @@ Class IConventionTypeBaseBuilder from DotNetObject
 	Func CanSetPropertyAccessMode P1
 		return dnRequest("call",[self,"CanSetPropertyAccessMode",P1])
 
+	Func HasAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasAnnotation",P1])
+
+	Func HasNonNullAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
+
+	Func HasNoAnnotationWith P1
+		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
+
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
+	Func CanHavePropertyWith P1
+		return dnRequest("callnamed",[self,"CanHaveProperty",P1])
+
+	Func IndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"IndexerProperty",P1])
+
+	Func CanHaveIndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"CanHaveIndexerProperty",P1])
+
+	Func GetOrCreatePropertiesWith P1
+		return dnRequest("callnamed",[self,"GetOrCreateProperties",P1])
+
+	Func HasNoPropertyWith P1
+		return dnRequest("callnamed",[self,"HasNoProperty",P1])
+
+	Func CanRemovePropertyWith P1
+		return dnRequest("callnamed",[self,"CanRemoveProperty",P1])
+
+	Func ComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"ComplexProperty",P1])
+
+	Func CanHaveComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"CanHaveComplexProperty",P1])
+
+	Func ComplexIndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"ComplexIndexerProperty",P1])
+
+	Func CanHaveComplexIndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"CanHaveComplexIndexerProperty",P1])
+
+	Func HasNoComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
+
+	Func CanRemoveComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"CanRemoveComplexProperty",P1])
+
+	Func IsIgnoredWith P1
+		return dnRequest("callnamed",[self,"IsIgnored",P1])
+
+	Func IgnoreWith P1
+		return dnRequest("callnamed",[self,"Ignore",P1])
+
+	Func CanIgnoreWith P1
+		return dnRequest("callnamed",[self,"CanIgnore",P1])
+
+	Func HasChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
+
+	Func CanSetChangeTrackingStrategyWith P1
+		return dnRequest("callnamed",[self,"CanSetChangeTrackingStrategy",P1])
+
+	Func UsePropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
+
+	Func CanSetPropertyAccessModeWith P1
+		return dnRequest("callnamed",[self,"CanSetPropertyAccessMode",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

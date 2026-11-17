@@ -19,3 +19,6 @@ Class RateLimiterEndpointConventionBuilderExtensions from Object
 	Func DisableRateLimiting P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"DisableRateLimiting",P1])
 
+	Func RequireRateLimitingWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterEndpointConventionBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"RequireRateLimiting",P1])
+

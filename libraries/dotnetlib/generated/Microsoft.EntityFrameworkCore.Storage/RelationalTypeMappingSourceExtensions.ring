@@ -25,3 +25,9 @@ Class RelationalTypeMappingSourceExtensions from Object
 	Func GetMapping_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMapping",P1,P2,P3])
 
+	Func GetMappingForValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingForValue",P1])
+
+	Func GetMappingWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMapping",P1])
+

@@ -29,6 +29,10 @@ Class NetworkStream from Stream
 		dnRequest("call",[self,"Close",P1])
 		return self
 
+	Func CloseWith P1
+		dnRequest("callnamed",[self,"Close",P1])
+		return self
+
 	Func getSocket
 		return dnRequest("get",[self,"Socket"])
 

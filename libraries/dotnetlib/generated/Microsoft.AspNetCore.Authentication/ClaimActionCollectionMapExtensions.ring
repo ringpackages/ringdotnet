@@ -53,3 +53,15 @@ Class ClaimActionCollectionMapExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"DeleteClaims",P1,P2])
 		return self
 
+	Func MapJsonKeyWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1])
+		return self
+
+	Func MapJsonSubKeyWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonSubKey",P1])
+		return self
+
+	Func MapCustomJsonWith P1
+		dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapCustomJson",P1])
+		return self
+

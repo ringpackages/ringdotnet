@@ -65,6 +65,12 @@ Class MethodBase from MemberInfo
 	Func GetCurrentMethod 
 		return dnRequest("call",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetCurrentMethod"])
 
+	Func InvokeWith P1
+		return dnRequest("callnamed",[self,"Invoke",P1])
+
+	Func GetMethodFromHandleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Reflection.MethodBase, System.Private.CoreLib'),"GetMethodFromHandle",P1])
+
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
 

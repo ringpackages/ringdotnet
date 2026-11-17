@@ -34,6 +34,14 @@ Class IAnimatable from DotNetObject
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[self,"GetAnimationBaseValue",P1])
 
+	Func ApplyAnimationClockWith P1
+		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
+		return self
+
+	Func BeginAnimationWith P1
+		dnRequest("callnamed",[self,"BeginAnimation",P1])
+		return self
+
 	Func getHasAnimatedProperties
 		return dnRequest("get",[self,"HasAnimatedProperties"])
 

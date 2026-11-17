@@ -49,6 +49,9 @@ Class Stopwatch from Object
 	Func GetElapsedTime_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1,P2])
 
+	Func GetElapsedTimeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
+
 	Func getIsRunning
 		return dnRequest("get",[self,"IsRunning"])
 

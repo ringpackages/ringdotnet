@@ -25,3 +25,9 @@ Class MemoryCacheServiceCollectionExtensions from Object
 	Func AddDistributedMemoryCache_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddDistributedMemoryCache",P1,P2])
 
+	Func AddMemoryCacheWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddMemoryCache",P1])
+
+	Func AddDistributedMemoryCacheWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions, Microsoft.Extensions.Caching.Memory'),"AddDistributedMemoryCache",P1])
+

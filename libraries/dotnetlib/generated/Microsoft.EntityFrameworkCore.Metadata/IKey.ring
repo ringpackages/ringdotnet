@@ -25,6 +25,9 @@ Class IKey from DotNetObject
 	Func GetPrincipalKeyValueFactory 
 		return dnRequest("call",[self,"GetPrincipalKeyValueFactory"])
 
+	Func GetPrincipalKeyValueFactoryWith P1
+		return dnRequest("callnamed",[self,"GetPrincipalKeyValueFactory",P1])
+
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
 

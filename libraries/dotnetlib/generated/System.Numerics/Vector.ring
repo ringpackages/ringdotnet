@@ -345,6 +345,120 @@ Class Vector from Object
 	Func AsVector3 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"AsVector3",P1])
 
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func AsVector4With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"AsVector4",P1])
+
+	Func CeilingWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Ceiling",P1])
+
+	Func ConditionalSelectWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ConditionalSelect",P1])
+
+	Func ConvertToDoubleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ConvertToDouble",P1])
+
+	Func ConvertToSingleWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ConvertToSingle",P1])
+
+	Func CosWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Cos",P1])
+
+	Func DegreesToRadiansWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"DegreesToRadians",P1])
+
+	Func DivideWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Divide",P1])
+
+	Func ExpWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Exp",P1])
+
+	Func FloorWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Floor",P1])
+
+	Func FusedMultiplyAddWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"FusedMultiplyAdd",P1])
+
+	Func GreaterThanWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"GreaterThan",P1])
+
+	Func GreaterThanOrEqualWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"GreaterThanOrEqual",P1])
+
+	Func HypotWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Hypot",P1])
+
+	Func LerpWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Lerp",P1])
+
+	Func LessThanWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"LessThan",P1])
+
+	Func LessThanOrEqualWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"LessThanOrEqual",P1])
+
+	Func LoadUnsafeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"LoadUnsafe",P1])
+
+	Func LogWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Log",P1])
+
+	Func Log2With P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Log2",P1])
+
+	Func MultiplyWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Multiply",P1])
+
+	Func MultiplyAddEstimateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"MultiplyAddEstimate",P1])
+
+	Func NarrowWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Narrow",P1])
+
+	Func RadiansToDegreesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"RadiansToDegrees",P1])
+
+	Func RoundWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Round",P1])
+
+	Func ShiftLeftWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ShiftLeft",P1])
+
+	Func ShiftRightArithmeticWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ShiftRightArithmetic",P1])
+
+	Func ShiftRightLogicalWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ShiftRightLogical",P1])
+
+	Func SinWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Sin",P1])
+
+	Func SinCosWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"SinCos",P1])
+
+	Func StoreUnsafeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"StoreUnsafe",P1])
+
+	Func TruncateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Truncate",P1])
+
+	Func WidenWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Widen",P1])
+
+	Func WidenLowerWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"WidenLower",P1])
+
+	Func WidenUpperWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"WidenUpper",P1])
+
+	Func AsVector4UnsafeWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"AsVector4Unsafe",P1])
+
 	Func getIsHardwareAccelerated
 		return dnRequest("get",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"IsHardwareAccelerated"])
 

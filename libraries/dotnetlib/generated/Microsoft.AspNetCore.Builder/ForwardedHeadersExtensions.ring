@@ -19,3 +19,6 @@ Class ForwardedHeadersExtensions from Object
 	Func UseForwardedHeaders_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseForwardedHeaders",P1,P2])
 
+	Func UseForwardedHeadersWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseForwardedHeaders",P1])
+

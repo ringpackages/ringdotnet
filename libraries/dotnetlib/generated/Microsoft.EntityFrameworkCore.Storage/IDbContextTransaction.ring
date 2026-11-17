@@ -66,6 +66,21 @@ Class IDbContextTransaction from DotNetObject
 	Func ReleaseSavepointAsync P1
 		return dnRequest("call",[self,"ReleaseSavepointAsync",P1])
 
+	Func CommitAsyncWith P1
+		return dnRequest("callnamed",[self,"CommitAsync",P1])
+
+	Func RollbackAsyncWith P1
+		return dnRequest("callnamed",[self,"RollbackAsync",P1])
+
+	Func CreateSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"CreateSavepointAsync",P1])
+
+	Func RollbackToSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"RollbackToSavepointAsync",P1])
+
+	Func ReleaseSavepointAsyncWith P1
+		return dnRequest("callnamed",[self,"ReleaseSavepointAsync",P1])
+
 	Func getTransactionId
 		return dnRequest("get",[self,"TransactionId"])
 

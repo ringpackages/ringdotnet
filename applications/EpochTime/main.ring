@@ -37,7 +37,7 @@ uiEnd()
 
 # the epoch (seconds) of a UTC date text, raises an error for invalid text
 func epochOf cDateText
-	oDate = new DateTimeOffset().Parse_3(cDateText,new CultureInfo("en-US").InvariantCulture,"AssumeUniversal")
+	oDate = new DateTimeOffset().ParseWith([ :input = cDateText, :formatProvider = new CultureInfo("en-US").InvariantCulture, :styles = "AssumeUniversal" ])
 	return oDate.ToUnixTimeSeconds()
 
 func dateOf nEpoch
@@ -47,8 +47,8 @@ func epochToDate
 	oMessage.Text = ""
 	try
 		oDate = dateOf(number(oEpoch.Text))
-		oUtc.Text = oDate.UtcDateTime.ToString_1(C_FORMAT)
-		oLocal.Text = oDate.LocalDateTime.ToString_1(C_FORMAT)
+		oUtc.Text = oDate.UtcDateTime.ToStringWith([ :format = C_FORMAT ])
+		oLocal.Text = oDate.LocalDateTime.ToStringWith([ :format = C_FORMAT ])
 	catch
 		oMessage.Text = "Invalid epoch value"
 	done

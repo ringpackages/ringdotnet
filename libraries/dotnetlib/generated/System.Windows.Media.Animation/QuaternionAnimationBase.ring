@@ -13,3 +13,6 @@ Class QuaternionAnimationBase from AnimationTimeline
 		ok
 		return self
 
+	Func GetCurrentValueWith P1
+		return dnRequest("callnamed",[self,"GetCurrentValue",P1])
+

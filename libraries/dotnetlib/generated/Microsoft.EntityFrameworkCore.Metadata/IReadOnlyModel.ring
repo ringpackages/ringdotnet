@@ -57,6 +57,15 @@ Class IReadOnlyModel from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
+	Func FindEntityTypeWith P1
+		return dnRequest("callnamed",[self,"FindEntityType",P1])
+
+	Func FindLeastDerivedEntityTypesWith P1
+		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
+
+	Func ToDebugStringWith P1
+		return dnRequest("callnamed",[self,"ToDebugString",P1])
+
 	Func getModelId
 		return dnRequest("get",[self,"ModelId"])
 

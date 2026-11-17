@@ -19,3 +19,6 @@ Class RewriteBuilderExtensions from Object
 	Func UseRewriter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1,P2])
 
+	Func UseRewriterWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RewriteBuilderExtensions, Microsoft.AspNetCore.Rewrite'),"UseRewriter",P1])
+

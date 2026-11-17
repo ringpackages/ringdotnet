@@ -49,3 +49,6 @@ Class HeaderUtilities from Object
 	Func EscapeAsQuotedString P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"EscapeAsQuotedString",P1])
 
+	Func FormatDateWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1])
+

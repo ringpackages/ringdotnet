@@ -46,6 +46,9 @@ Class IReadOnlyForeignKey from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
+	Func ToDebugStringWith P1
+		return dnRequest("callnamed",[self,"ToDebugString",P1])
+
 	Func getDeclaringEntityType
 		return dnRequest("get",[self,"DeclaringEntityType"])
 

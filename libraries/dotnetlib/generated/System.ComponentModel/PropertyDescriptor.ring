@@ -59,6 +59,9 @@ Class PropertyDescriptor from MemberDescriptor
 	Func ShouldSerializeValue P1
 		return dnRequest("call",[self,"ShouldSerializeValue",P1])
 
+	Func GetChildPropertiesWith P1
+		return dnRequest("callnamed",[self,"GetChildProperties",P1])
+
 	Func getComponentType
 		return dnRequest("get",[self,"ComponentType"])
 

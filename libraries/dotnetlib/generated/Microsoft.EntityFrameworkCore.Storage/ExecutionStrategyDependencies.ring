@@ -18,6 +18,9 @@ Class ExecutionStrategyDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ExecutionStrategyDependencies, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getOptions
 		return dnRequest("get",[self,"Options"])
 

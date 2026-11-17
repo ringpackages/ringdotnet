@@ -46,6 +46,14 @@ Class DependencyObject from DispatcherObject
 	Func GetLocalValueEnumerator 
 		return dnRequest("call",[self,"GetLocalValueEnumerator"])
 
+	Func SetValueWith P1
+		dnRequest("callnamed",[self,"SetValue",P1])
+		return self
+
+	Func ClearValueWith P1
+		dnRequest("callnamed",[self,"ClearValue",P1])
+		return self
+
 	Func getDependencyObjectType
 		return dnRequest("get",[self,"DependencyObjectType"])
 

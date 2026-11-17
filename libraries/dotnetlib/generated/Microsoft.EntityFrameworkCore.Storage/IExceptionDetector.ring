@@ -19,3 +19,6 @@ Class IExceptionDetector from DotNetObject
 	Func IsCancellation P1
 		return dnRequest("call",[self,"IsCancellation",P1])
 
+	Func IsCancellationWith P1
+		return dnRequest("callnamed",[self,"IsCancellation",P1])
+

@@ -92,3 +92,21 @@ Class Clipboard from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1,P2])
 		return self
 
+	Func SetDataObjectWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1])
+		return self
+
+	Func ContainsTextWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
+
+	Func GetTextWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
+
+	Func SetAudioWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetAudio",P1])
+		return self
+
+	Func SetTextWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1])
+		return self
+

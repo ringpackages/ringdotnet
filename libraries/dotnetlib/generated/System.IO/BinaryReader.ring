@@ -98,6 +98,9 @@ Class BinaryReader from Object
 	Func Read7BitEncodedInt64 
 		return dnRequest("call",[self,"Read7BitEncodedInt64"])
 
+	Func ReadWith P1
+		return dnRequest("callnamed",[self,"Read",P1])
+
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])
 

@@ -60,3 +60,18 @@ Class ISaveChangesInterceptor from DotNetObject
 	Func ThrowingConcurrencyExceptionAsync P1,P2
 		return dnRequest("call",[self,"ThrowingConcurrencyExceptionAsync",P1,P2])
 
+	Func SavingChangesAsyncWith P1
+		return dnRequest("callnamed",[self,"SavingChangesAsync",P1])
+
+	Func SavedChangesAsyncWith P1
+		return dnRequest("callnamed",[self,"SavedChangesAsync",P1])
+
+	Func SaveChangesFailedAsyncWith P1
+		return dnRequest("callnamed",[self,"SaveChangesFailedAsync",P1])
+
+	Func SaveChangesCanceledAsyncWith P1
+		return dnRequest("callnamed",[self,"SaveChangesCanceledAsync",P1])
+
+	Func ThrowingConcurrencyExceptionAsyncWith P1
+		return dnRequest("callnamed",[self,"ThrowingConcurrencyExceptionAsync",P1])
+

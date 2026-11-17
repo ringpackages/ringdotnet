@@ -25,3 +25,6 @@ Class LazyInitializer from Object
 	Func EnsureInitialized_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1,P2,P3,P4])
 
+	Func EnsureInitializedWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1])
+

@@ -295,6 +295,10 @@ namespace RingDotNet
 					return CreateInstance(TypeOf(a, 0), Rest(a, 1));
 				case "call":
 					return CallMethod(a[0], Str(a, 1), Rest(a, 2));
+				case "callnamed":
+					return CallMethodNamed(a[0], Str(a, 1), a.Length > 2 ? a[2] : null);
+				case "newnamed":
+					return CreateInstanceNamed(TypeOf(a, 0), a.Length > 1 ? a[1] : null);
 				case "get":
 					return GetMember(a[0], Str(a, 1));
 				case "set":
@@ -1259,12 +1263,17 @@ namespace RingDotNet
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");
 			}
+			return InvokeResult(m, instance, conv);
+		}
+
+		/* Run a method and shape its result: methods with out/ref parameters return a list [return value (if any), out/ref values...] */
+		private static object InvokeResult(MethodInfo m, object instance, object[] conv)
+		{
 			object returned = m.Invoke(instance, conv);
 			if (ByRefCount(m) == 0)
 			{
 				return returned;
 			}
-			/* Methods with out/ref parameters return a list: [return value (if any), out/ref values...] */
 			List<object> results = new List<object>();
 			if (m.ReturnType != typeof(void))
 			{
@@ -1276,6 +1285,135 @@ namespace RingDotNet
 				if (mps[i].ParameterType.IsByRef) results.Add(conv[i]);
 			}
 			return results;
+		}
+
+		/* ---------------------------------------------------------------- named arguments */
+
+		/* [ [name, value], ... ] --> names and values */
+		private static void SplitPairs(object pairs, out string[] names, out object[] values)
+		{
+			object[] list = Plain(pairs) as object[] ?? new object[0];
+			names = new string[list.Length];
+			values = new object[list.Length];
+			for (int i = 0; i < list.Length; i++)
+			{
+				object[] pair = Plain(list[i]) as object[];
+				if (pair == null || pair.Length != 2 || !(Plain(pair[0]) is string))
+				{
+					throw new ArgumentException("Named arguments must be a list of [name, value] pairs: [ :name = value, ... ]");
+				}
+				names[i] = (string)Plain(pair[0]);
+				values[i] = pair[1];
+			}
+		}
+
+		/* Choose the overload whose parameter names include all the given names and all the required parameters */
+		private static MethodBase PickNamed(IEnumerable<MethodBase> candidates, string[] names, object[] values, out object[] converted)
+		{
+			MethodBase best = null;
+			object[] bestArgs = null;
+			int bestScore = int.MinValue;
+			foreach (MethodBase m in candidates)
+			{
+				if (m.ContainsGenericParameters) continue;
+				ParameterInfo[] ps = m.GetParameters();
+				int[] given = new int[ps.Length];
+				for (int i = 0; i < given.Length; i++) given[i] = -1;
+				bool ok = true;
+				for (int k = 0; k < names.Length && ok; k++)
+				{
+					int found = -1;
+					for (int i = 0; i < ps.Length; i++)
+					{
+						if (!IsOutOnly(ps[i]) && string.Equals(ps[i].Name, names[k], StringComparison.OrdinalIgnoreCase)) { found = i; break; }
+					}
+					if (found < 0 || given[found] >= 0) ok = false;
+					else given[found] = k;
+				}
+				if (!ok) continue;
+				object[] conv = new object[ps.Length];
+				int total = 0;
+				for (int i = 0; i < ps.Length && ok; i++)
+				{
+					Type pt = ps[i].ParameterType.IsByRef ? ps[i].ParameterType.GetElementType() : ps[i].ParameterType;
+					if (IsOutOnly(ps[i]))
+					{
+						conv[i] = pt.IsValueType ? Activator.CreateInstance(pt) : null;
+					}
+					else if (given[i] >= 0)
+					{
+						ok = TryConvert(values[given[i]], pt, out conv[i], out int sc);
+						total += sc;
+					}
+					else if (ps[i].IsOptional)
+					{
+						conv[i] = ps[i].HasDefaultValue ? ps[i].DefaultValue : Type.Missing;
+					}
+					else ok = false;
+				}
+				/* fewer parameters left unset is a better match */
+				total -= ps.Count(p => !IsOutOnly(p)) - names.Length;
+				if (ok && total > bestScore)
+				{
+					best = m;
+					bestArgs = conv;
+					bestScore = total;
+				}
+			}
+			converted = bestArgs;
+			return best;
+		}
+
+		private static string Describe(string[] names)
+		{
+			return names.Length == 0 ? "no arguments" : string.Join(", ", names);
+		}
+
+		/* oObject.callMethodNamed("Round", [ ["value", 3.14159], ["digits", 2] ]): the parameter names choose the overload */
+		private static object CallMethodNamed(object target, string name, object pairs)
+		{
+			SplitPairs(pairs, out string[] names, out object[] values);
+			Type t;
+			object instance = null;
+			BindingFlags flags;
+			if (target is TypeRef tr)
+			{
+				t = tr.Type;
+				flags = StaticFlags;
+			}
+			else
+			{
+				if (target == null) throw new NullReferenceException("Can't call '" + name + "' on a null object");
+				instance = target;
+				t = target.GetType();
+				flags = InstanceFlags;
+			}
+			object[] conv;
+			MethodInfo m = PickNamed(MethodsNamed(t, name, flags), names, values, out conv) as MethodInfo;
+			if (m == null && instance != null)
+			{
+				/* an object also gives access to the static methods of its class (Process.Start(startInfo)) */
+				m = PickNamed(MethodsNamed(t, name, StaticFlags), names, values, out conv) as MethodInfo;
+				instance = null;
+			}
+			if (m == null)
+			{
+				throw new MissingMethodException("No public method " + t.FullName + "." + name + " has the parameters (" + Describe(names) + ")");
+			}
+			return InvokeResult(m, instance, conv);
+		}
+
+		private static object CreateInstanceNamed(Type t, object pairs)
+		{
+			SplitPairs(pairs, out string[] names, out object[] values);
+			if (t.IsAbstract) throw new InvalidOperationException("Can't create an instance of the abstract type " + t.FullName);
+			if (names.Length == 0 && t.IsValueType) return Activator.CreateInstance(t);
+			ConstructorInfo ctor = PickNamed(t.GetConstructors(BindingFlags.Public | BindingFlags.Instance), names, values, out object[] conv) as ConstructorInfo;
+			if (ctor == null)
+			{
+				throw new MissingMethodException("No public constructor of " + t.FullName + " has the parameters (" + Describe(names) + ")");
+			}
+			return ctor.Invoke(conv);
 		}
 
 		/* A property by name; a property that hides one of a base class (CheckedListBox.Items) is the one of the most derived type */

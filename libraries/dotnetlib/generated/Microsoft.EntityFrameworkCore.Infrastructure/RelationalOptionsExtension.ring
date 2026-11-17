@@ -82,6 +82,12 @@ Class RelationalOptionsExtension from Object
 	Func WithDefaultWarningConfiguration P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalOptionsExtension, Microsoft.EntityFrameworkCore.Relational'),"WithDefaultWarningConfiguration",P1])
 
+	Func WithConnectionWith P1
+		return dnRequest("callnamed",[self,"WithConnection",P1])
+
+	Func WithMigrationsAssemblyWith P1
+		return dnRequest("callnamed",[self,"WithMigrationsAssembly",P1])
+
 	Func getInfo
 		return dnRequest("get",[self,"Info"])
 

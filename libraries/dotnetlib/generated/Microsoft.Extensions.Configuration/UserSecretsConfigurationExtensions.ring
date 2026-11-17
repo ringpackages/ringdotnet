@@ -25,3 +25,6 @@ Class UserSecretsConfigurationExtensions from Object
 	Func AddUserSecrets_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1,P2,P3,P4])
 
+	Func AddUserSecretsWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
+

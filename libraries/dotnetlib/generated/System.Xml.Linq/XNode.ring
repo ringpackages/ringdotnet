@@ -92,6 +92,33 @@ Class XNode from XObject
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XNode, System.Private.Xml.Linq'),"DeepEquals",P1,P2])
 
+	Func AddAfterSelfWith P1
+		dnRequest("callnamed",[self,"AddAfterSelf",P1])
+		return self
+
+	Func AddBeforeSelfWith P1
+		dnRequest("callnamed",[self,"AddBeforeSelf",P1])
+		return self
+
+	Func AncestorsWith P1
+		return dnRequest("callnamed",[self,"Ancestors",P1])
+
+	Func CreateReaderWith P1
+		return dnRequest("callnamed",[self,"CreateReader",P1])
+
+	Func ElementsAfterSelfWith P1
+		return dnRequest("callnamed",[self,"ElementsAfterSelf",P1])
+
+	Func ElementsBeforeSelfWith P1
+		return dnRequest("callnamed",[self,"ElementsBeforeSelf",P1])
+
+	Func ReplaceWithWith P1
+		dnRequest("callnamed",[self,"ReplaceWith",P1])
+		return self
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getNextNode
 		return dnRequest("get",[self,"NextNode"])
 

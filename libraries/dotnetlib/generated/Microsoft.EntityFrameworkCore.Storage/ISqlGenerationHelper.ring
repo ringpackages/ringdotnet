@@ -59,6 +59,15 @@ Class ISqlGenerationHelper from DotNetObject
 	Func GenerateReleaseSavepointStatement P1
 		return dnRequest("call",[self,"GenerateReleaseSavepointStatement",P1])
 
+	Func GenerateParameterNameWith P1
+		return dnRequest("callnamed",[self,"GenerateParameterName",P1])
+
+	Func GenerateParameterNamePlaceholderWith P1
+		return dnRequest("callnamed",[self,"GenerateParameterNamePlaceholder",P1])
+
+	Func DelimitIdentifierWith P1
+		return dnRequest("callnamed",[self,"DelimitIdentifier",P1])
+
 	Func getStatementTerminator
 		return dnRequest("get",[self,"StatementTerminator"])
 

@@ -45,6 +45,15 @@ Class Point4D from ValueType
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Parse",P1])
 
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
 	Func getX
 		return dnRequest("get",[self,"X"])
 

@@ -22,3 +22,6 @@ Class ComponentEndpointRouteBuilderExtensions from Object
 	Func MapBlazorHub_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1,P2,P3])
 
+	Func MapBlazorHubWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ComponentEndpointRouteBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"MapBlazorHub",P1])
+

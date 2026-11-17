@@ -206,6 +206,64 @@ Class ControlPaint from Object
 	Func LightLight P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"LightLight",P1])
 
+	Func DarkWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"Dark",P1])
+
+	Func DrawBorderWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder",P1])
+		return self
+
+	Func DrawBorder3DWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1])
+		return self
+
+	Func DrawButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawButton",P1])
+		return self
+
+	Func DrawCaptionButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCaptionButton",P1])
+		return self
+
+	Func DrawCheckBoxWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCheckBox",P1])
+		return self
+
+	Func DrawComboButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawComboButton",P1])
+		return self
+
+	Func DrawFocusRectangleWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawFocusRectangle",P1])
+		return self
+
+	Func DrawMenuGlyphWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1])
+		return self
+
+	Func DrawMixedCheckBoxWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMixedCheckBox",P1])
+		return self
+
+	Func DrawRadioButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawRadioButton",P1])
+		return self
+
+	Func DrawScrollButtonWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawScrollButton",P1])
+		return self
+
+	Func DrawSizeGripWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawSizeGrip",P1])
+		return self
+
+	Func DrawStringDisabledWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawStringDisabled",P1])
+		return self
+
+	Func LightWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"Light",P1])
+
 	Func getContrastControlDark
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"ContrastControlDark"])
 

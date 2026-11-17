@@ -76,3 +76,22 @@ Class ExpressionPrinter from DotNetObject
 	Func PrintDebug P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionPrinter, Microsoft.EntityFrameworkCore'),"PrintDebug",P1])
 
+	Func AppendLineWith P1
+		return dnRequest("callnamed",[self,"AppendLine",P1])
+
+	Func AppendLinesWith P1
+		return dnRequest("callnamed",[self,"AppendLines",P1])
+
+	Func PrintExpressionWith P1
+		return dnRequest("callnamed",[self,"PrintExpression",P1])
+
+	Func VisitCollectionWith P1
+		dnRequest("callnamed",[self,"VisitCollection",P1])
+		return self
+
+	Func VisitWith P1
+		return dnRequest("callnamed",[self,"Visit",P1])
+
+	Func VisitAndConvertWith P1
+		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
+

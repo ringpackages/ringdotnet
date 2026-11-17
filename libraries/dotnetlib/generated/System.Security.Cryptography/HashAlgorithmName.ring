@@ -34,6 +34,9 @@ Class HashAlgorithmName from ValueType
 	Func FromOid P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography'),"FromOid",P1])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getName
 		return dnRequest("get",[self,"Name"])
 

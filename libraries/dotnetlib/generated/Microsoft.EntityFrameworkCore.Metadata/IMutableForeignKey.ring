@@ -44,6 +44,12 @@ Class IMutableForeignKey from DotNetObject
 	Func GetNavigation P1
 		return dnRequest("call",[self,"GetNavigation",P1])
 
+	Func SetDependentToPrincipalWith P1
+		return dnRequest("callnamed",[self,"SetDependentToPrincipal",P1])
+
+	Func SetPrincipalToDependentWith P1
+		return dnRequest("callnamed",[self,"SetPrincipalToDependent",P1])
+
 	Func getProperties
 		return dnRequest("get",[self,"Properties"])
 

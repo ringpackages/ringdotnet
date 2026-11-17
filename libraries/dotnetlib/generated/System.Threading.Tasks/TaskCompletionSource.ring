@@ -59,6 +59,20 @@ Class TaskCompletionSource from Object
 	Func TrySetFromTask P1
 		return dnRequest("call",[self,"TrySetFromTask",P1])
 
+	Func SetExceptionWith P1
+		dnRequest("callnamed",[self,"SetException",P1])
+		return self
+
+	Func TrySetExceptionWith P1
+		return dnRequest("callnamed",[self,"TrySetException",P1])
+
+	Func SetCanceledWith P1
+		dnRequest("callnamed",[self,"SetCanceled",P1])
+		return self
+
+	Func TrySetCanceledWith P1
+		return dnRequest("callnamed",[self,"TrySetCanceled",P1])
+
 	Func getTask
 		return dnRequest("get",[self,"Task"])
 

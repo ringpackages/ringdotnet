@@ -16,6 +16,9 @@ Class EvaluatableExpressionFilterDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EvaluatableExpressionFilterDependencies, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
 	Func getPlugins
 		return dnRequest("get",[self,"Plugins"])
 

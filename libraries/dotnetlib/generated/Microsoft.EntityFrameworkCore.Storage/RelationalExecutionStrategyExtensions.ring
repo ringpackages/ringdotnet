@@ -30,3 +30,9 @@ Class RelationalExecutionStrategyExtensions from Object
 	Func ExecuteInTransactionAsync_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5,P6])
 
+	Func ExecuteInTransactionWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1])
+
+	Func ExecuteInTransactionAsyncWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1])
+

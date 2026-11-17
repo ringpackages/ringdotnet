@@ -27,6 +27,12 @@ Class IHost from DotNetObject
 	Func StopAsync 
 		return dnRequest("call",[self,"StopAsync"])
 
+	Func StartAsyncWith P1
+		return dnRequest("callnamed",[self,"StartAsync",P1])
+
+	Func StopAsyncWith P1
+		return dnRequest("callnamed",[self,"StopAsync",P1])
+
 	Func getServices
 		return dnRequest("get",[self,"Services"])
 

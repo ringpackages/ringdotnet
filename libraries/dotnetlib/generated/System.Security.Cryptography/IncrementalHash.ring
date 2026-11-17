@@ -43,6 +43,10 @@ Class IncrementalHash from Object
 	Func CreateHMAC P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.IncrementalHash, System.Security.Cryptography'),"CreateHMAC",P1,P2])
 
+	Func AppendDataWith P1
+		dnRequest("callnamed",[self,"AppendData",P1])
+		return self
+
 	Func getHashLengthInBytes
 		return dnRequest("get",[self,"HashLengthInBytes"])
 

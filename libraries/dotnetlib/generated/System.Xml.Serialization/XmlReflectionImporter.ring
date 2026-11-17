@@ -51,3 +51,9 @@ Class XmlReflectionImporter from Object
 	Func ImportMembersMapping_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[self,"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
 
+	Func ImportTypeMappingWith P1
+		return dnRequest("callnamed",[self,"ImportTypeMapping",P1])
+
+	Func ImportMembersMappingWith P1
+		return dnRequest("callnamed",[self,"ImportMembersMapping",P1])
+

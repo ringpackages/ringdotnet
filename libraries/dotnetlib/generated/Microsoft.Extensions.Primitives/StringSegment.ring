@@ -104,6 +104,27 @@ Class StringSegment from ValueType
 	Func IsNullOrEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
 
+	Func AsSpanWith P1
+		return dnRequest("callnamed",[self,"AsSpan",P1])
+
+	Func EqualsWith P1
+		if nHandle = 0
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1])
+		ok
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func SubstringWith P1
+		return dnRequest("callnamed",[self,"Substring",P1])
+
+	Func SubsegmentWith P1
+		return dnRequest("callnamed",[self,"Subsegment",P1])
+
+	Func IndexOfWith P1
+		return dnRequest("callnamed",[self,"IndexOf",P1])
+
+	Func IndexOfAnyWith P1
+		return dnRequest("callnamed",[self,"IndexOfAny",P1])
+
 	Func Item P1
 		return dnRequest("call",[self,"get_Item",P1])
 

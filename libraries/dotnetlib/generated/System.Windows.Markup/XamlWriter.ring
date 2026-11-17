@@ -20,3 +20,6 @@ Class XamlWriter from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework'),"Save",P1,P2])
 		return self
 
+	Func SaveWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework'),"Save",P1])
+

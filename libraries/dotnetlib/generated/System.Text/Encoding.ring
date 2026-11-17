@@ -122,6 +122,33 @@ Class Encoding from Object
 	Func CreateTranscodingStream P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
 
+	Func GetByteCountWith P1
+		return dnRequest("callnamed",[self,"GetByteCount",P1])
+
+	Func GetBytesWith P1
+		return dnRequest("callnamed",[self,"GetBytes",P1])
+
+	Func GetCharCountWith P1
+		return dnRequest("callnamed",[self,"GetCharCount",P1])
+
+	Func GetCharsWith P1
+		return dnRequest("callnamed",[self,"GetChars",P1])
+
+	Func IsAlwaysNormalizedWith P1
+		return dnRequest("callnamed",[self,"IsAlwaysNormalized",P1])
+
+	Func GetStringWith P1
+		return dnRequest("callnamed",[self,"GetString",P1])
+
+	Func ConvertWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1])
+
+	Func GetEncodingWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
+
+	Func CreateTranscodingStreamWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1])
+
 	Func getPreamble
 		return dnRequest("get",[self,"Preamble"])
 

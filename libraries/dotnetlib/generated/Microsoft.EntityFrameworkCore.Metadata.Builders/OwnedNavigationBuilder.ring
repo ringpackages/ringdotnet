@@ -92,6 +92,33 @@ Class OwnedNavigationBuilder from Object
 	Func HasData P1
 		return dnRequest("call",[self,"HasData",P1])
 
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
+	Func PrimitiveCollectionWith P1
+		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
+
+	Func IndexerPropertyWith P1
+		return dnRequest("callnamed",[self,"IndexerProperty",P1])
+
+	Func HasIndexWith P1
+		return dnRequest("callnamed",[self,"HasIndex",P1])
+
+	Func WithOwnerWith P1
+		return dnRequest("callnamed",[self,"WithOwner",P1])
+
+	Func OwnsOneWith P1
+		return dnRequest("callnamed",[self,"OwnsOne",P1])
+
+	Func OwnsManyWith P1
+		return dnRequest("callnamed",[self,"OwnsMany",P1])
+
+	Func HasOneWith P1
+		return dnRequest("callnamed",[self,"HasOne",P1])
+
+	Func HasDataWith P1
+		return dnRequest("callnamed",[self,"HasData",P1])
+
 	Func getMetadata
 		return dnRequest("get",[self,"Metadata"])
 

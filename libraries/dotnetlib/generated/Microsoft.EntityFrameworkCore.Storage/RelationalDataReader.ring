@@ -46,6 +46,9 @@ Class RelationalDataReader from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
+	Func ReadAsyncWith P1
+		return dnRequest("callnamed",[self,"ReadAsync",P1])
+
 	Func getRelationalConnection
 		return dnRequest("get",[self,"RelationalConnection"])
 

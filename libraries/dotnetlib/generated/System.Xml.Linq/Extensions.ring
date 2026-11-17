@@ -65,3 +65,25 @@ Class Extensions from Object
 		dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Remove",P1])
 		return self
 
+	Func AttributesWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1])
+
+	Func AncestorsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
+
+	Func AncestorsAndSelfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
+
+	Func DescendantsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1])
+
+	Func DescendantsAndSelfWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1])
+
+	Func ElementsWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
+
+	Func RemoveWith P1
+		dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Remove",P1])
+		return self
+

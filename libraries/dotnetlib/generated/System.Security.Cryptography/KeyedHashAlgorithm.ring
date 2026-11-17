@@ -21,6 +21,9 @@ Class KeyedHashAlgorithm from HashAlgorithm
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
+	Func CreateWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
+
 	Func getKey
 		return dnRequest("get",[self,"Key"])
 

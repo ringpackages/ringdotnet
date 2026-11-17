@@ -134,6 +134,21 @@ Class IntPtr from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
+	Func EqualsWith P1
+		return dnRequest("callnamed",[self,"Equals",P1])
+
+	Func CompareToWith P1
+		return dnRequest("callnamed",[self,"CompareTo",P1])
+
+	Func ToStringWith P1
+		return dnRequest("callnamed",[self,"ToString",P1])
+
+	Func ParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
+
+	Func TryParseWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
+
 	Func getSize
 		return dnRequest("get",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Size"])
 

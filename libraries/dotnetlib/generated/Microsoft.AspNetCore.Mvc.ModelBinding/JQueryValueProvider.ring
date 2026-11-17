@@ -24,6 +24,9 @@ Class JQueryValueProvider from BindingSourceValueProvider
 	Func Filter_1 P1
 		return dnRequest("call",[self,"Filter",P1])
 
+	Func FilterWith P1
+		return dnRequest("callnamed",[self,"Filter",P1])
+
 	Func getCulture
 		return dnRequest("get",[self,"Culture"])
 

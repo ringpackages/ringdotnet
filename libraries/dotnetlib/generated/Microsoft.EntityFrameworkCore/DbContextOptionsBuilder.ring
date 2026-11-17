@@ -99,6 +99,30 @@ Class DbContextOptionsBuilder from Object
 	Func UseAsyncSeeding P1
 		return dnRequest("call",[self,"UseAsyncSeeding",P1])
 
+	Func LogToWith P1
+		return dnRequest("callnamed",[self,"LogTo",P1])
+
+	Func EnableThreadSafetyChecksWith P1
+		return dnRequest("callnamed",[self,"EnableThreadSafetyChecks",P1])
+
+	Func EnableDetailedErrorsWith P1
+		return dnRequest("callnamed",[self,"EnableDetailedErrors",P1])
+
+	Func UseRootApplicationServiceProviderWith P1
+		return dnRequest("callnamed",[self,"UseRootApplicationServiceProvider",P1])
+
+	Func EnableSensitiveDataLoggingWith P1
+		return dnRequest("callnamed",[self,"EnableSensitiveDataLogging",P1])
+
+	Func EnableServiceProviderCachingWith P1
+		return dnRequest("callnamed",[self,"EnableServiceProviderCaching",P1])
+
+	Func ReplaceServiceWith P1
+		return dnRequest("callnamed",[self,"ReplaceService",P1])
+
+	Func AddInterceptorsWith P1
+		return dnRequest("callnamed",[self,"AddInterceptors",P1])
+
 	Func getOptions
 		return dnRequest("get",[self,"Options"])
 

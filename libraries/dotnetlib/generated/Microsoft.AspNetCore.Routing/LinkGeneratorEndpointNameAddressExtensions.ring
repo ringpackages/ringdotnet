@@ -52,3 +52,9 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 	Func GetUriByName P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3])
 
+	Func GetPathByNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1])
+
+	Func GetUriByNameWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1])
+

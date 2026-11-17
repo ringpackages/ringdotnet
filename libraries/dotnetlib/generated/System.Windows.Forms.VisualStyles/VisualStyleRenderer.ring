@@ -130,6 +130,31 @@ Class VisualStyleRenderer from Object
 	Func IsElementDefined P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.VisualStyles.VisualStyleRenderer, System.Windows.Forms'),"IsElementDefined",P1])
 
+	Func SetParametersWith P1
+		dnRequest("callnamed",[self,"SetParameters",P1])
+		return self
+
+	Func DrawBackgroundWith P1
+		dnRequest("callnamed",[self,"DrawBackground",P1])
+		return self
+
+	Func DrawImageWith P1
+		dnRequest("callnamed",[self,"DrawImage",P1])
+		return self
+
+	Func DrawTextWith P1
+		dnRequest("callnamed",[self,"DrawText",P1])
+		return self
+
+	Func GetPartSizeWith P1
+		return dnRequest("callnamed",[self,"GetPartSize",P1])
+
+	Func GetTextExtentWith P1
+		return dnRequest("callnamed",[self,"GetTextExtent",P1])
+
+	Func HitTestBackgroundWith P1
+		return dnRequest("callnamed",[self,"HitTestBackground",P1])
+
 	Func getClass
 		return dnRequest("get",[self,"Class"])
 

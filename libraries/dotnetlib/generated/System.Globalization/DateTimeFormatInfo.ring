@@ -89,6 +89,9 @@ Class DateTimeFormatInfo from Object
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.DateTimeFormatInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
+	Func GetAllDateTimePatternsWith P1
+		return dnRequest("callnamed",[self,"GetAllDateTimePatterns",P1])
+
 	Func getAMDesignator
 		return dnRequest("get",[self,"AMDesignator"])
 

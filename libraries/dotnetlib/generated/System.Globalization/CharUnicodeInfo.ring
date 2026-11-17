@@ -37,3 +37,15 @@ Class CharUnicodeInfo from Object
 	Func GetUnicodeCategory_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1,P2])
 
+	Func GetDecimalDigitValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDecimalDigitValue",P1])
+
+	Func GetDigitValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetDigitValue",P1])
+
+	Func GetNumericValueWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetNumericValue",P1])
+
+	Func GetUnicodeCategoryWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.CharUnicodeInfo, System.Private.CoreLib'),"GetUnicodeCategory",P1])
+

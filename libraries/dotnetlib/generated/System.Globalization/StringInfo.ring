@@ -48,6 +48,18 @@ Class StringInfo from Object
 	Func ParseCombiningCharacters P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"ParseCombiningCharacters",P1])
 
+	Func SubstringByTextElementsWith P1
+		return dnRequest("callnamed",[self,"SubstringByTextElements",P1])
+
+	Func GetNextTextElementWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElement",P1])
+
+	Func GetNextTextElementLengthWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetNextTextElementLength",P1])
+
+	Func GetTextElementEnumeratorWith P1
+		return dnRequest("callnamed",[dnTypeCached('System.Globalization.StringInfo, System.Private.CoreLib'),"GetTextElementEnumerator",P1])
+
 	Func getString
 		return dnRequest("get",[self,"String"])
 

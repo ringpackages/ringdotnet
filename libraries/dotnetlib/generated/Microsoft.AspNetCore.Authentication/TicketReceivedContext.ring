@@ -52,6 +52,10 @@ Class TicketReceivedContext from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
+	Func FailWith P1
+		dnRequest("callnamed",[self,"Fail",P1])
+		return self
+
 	Func getReturnUri
 		return dnRequest("get",[self,"ReturnUri"])
 

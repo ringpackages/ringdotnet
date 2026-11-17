@@ -37,3 +37,11 @@ Class ValidateOptionsResultBuilder from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
+	Func AddErrorWith P1
+		dnRequest("callnamed",[self,"AddError",P1])
+		return self
+
+	Func AddResultWith P1
+		dnRequest("callnamed",[self,"AddResult",P1])
+		return self
+

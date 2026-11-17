@@ -37,6 +37,9 @@ Class Viewport3DVisual from Visual
 		dnRequest("call",[self,"HitTest",P1,P2,P3])
 		return self
 
+	Func HitTestWith P1
+		return dnRequest("callnamed",[self,"HitTest",P1])
+
 	Func getParent
 		return dnRequest("get",[self,"Parent"])
 

@@ -70,6 +70,30 @@ Class EntityEntry from Object
 	Func ReloadAsync 
 		return dnRequest("call",[self,"ReloadAsync"])
 
+	Func MemberWith P1
+		return dnRequest("callnamed",[self,"Member",P1])
+
+	Func NavigationWith P1
+		return dnRequest("callnamed",[self,"Navigation",P1])
+
+	Func PropertyWith P1
+		return dnRequest("callnamed",[self,"Property",P1])
+
+	Func ComplexPropertyWith P1
+		return dnRequest("callnamed",[self,"ComplexProperty",P1])
+
+	Func ReferenceWith P1
+		return dnRequest("callnamed",[self,"Reference",P1])
+
+	Func CollectionWith P1
+		return dnRequest("callnamed",[self,"Collection",P1])
+
+	Func GetDatabaseValuesAsyncWith P1
+		return dnRequest("callnamed",[self,"GetDatabaseValuesAsync",P1])
+
+	Func ReloadAsyncWith P1
+		return dnRequest("callnamed",[self,"ReloadAsync",P1])
+
 	Func getEntity
 		return dnRequest("get",[self,"Entity"])
 

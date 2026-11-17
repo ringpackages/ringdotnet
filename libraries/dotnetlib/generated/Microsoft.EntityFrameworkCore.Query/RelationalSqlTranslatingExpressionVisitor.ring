@@ -61,6 +61,18 @@ Class RelationalSqlTranslatingExpressionVisitor from DotNetObject
 	Func ParameterListValueExtractor P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational'),"ParameterListValueExtractor",P1,P2,P3])
 
+	Func TranslateWith P1
+		return dnRequest("callnamed",[self,"Translate",P1])
+
+	Func TranslateProjectionWith P1
+		return dnRequest("callnamed",[self,"TranslateProjection",P1])
+
+	Func VisitWith P1
+		return dnRequest("callnamed",[self,"Visit",P1])
+
+	Func VisitAndConvertWith P1
+		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
+
 	Func getTranslationErrorDetails
 		return dnRequest("get",[self,"TranslationErrorDetails"])
 

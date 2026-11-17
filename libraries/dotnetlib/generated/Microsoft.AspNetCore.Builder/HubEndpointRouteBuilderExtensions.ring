@@ -19,3 +19,6 @@ Class HubEndpointRouteBuilderExtensions from Object
 	Func MapHub_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR'),"MapHub",P1,P2,P3])
 
+	Func MapHubWith P1
+		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HubEndpointRouteBuilderExtensions, Microsoft.AspNetCore.SignalR'),"MapHub",P1])
+
