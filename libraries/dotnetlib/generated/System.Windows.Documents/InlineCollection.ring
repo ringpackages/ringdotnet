@@ -63,7 +63,7 @@ Class InlineCollection from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

@@ -57,19 +57,19 @@ Class WpfVector from ValueType
 	Func Determinant P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Determinant",P1,P2])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Add",P1])
 
-	Func MultiplyWith P1
+	Func Multiply@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Multiply",P1])
 
 	Func getX

@@ -122,10 +122,10 @@ Class RuntimeModel from RuntimeAnnotatableBase
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
-	Func AddEntityTypeWith P1
+	Func AddEntityType@ P1
 		return dnRequest("callnamed",[self,"AddEntityType",P1])
 
-	Func AddTypeMappingConfigurationWith P1
+	Func AddTypeMappingConfiguration@ P1
 		return dnRequest("callnamed",[self,"AddTypeMappingConfiguration",P1])
 
 	Func getModelId

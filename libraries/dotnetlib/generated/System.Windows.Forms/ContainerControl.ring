@@ -37,10 +37,10 @@ Class ContainerControl from ScrollableControl
 	Func ValidateChildren_1 P1
 		return dnRequest("call",[self,"ValidateChildren",P1])
 
-	Func ValidateWith P1
+	Func Validate@ P1
 		return dnRequest("callnamed",[self,"Validate",P1])
 
-	Func ValidateChildrenWith P1
+	Func ValidateChildren@ P1
 		return dnRequest("callnamed",[self,"ValidateChildren",P1])
 
 	Func setAutoValidateChangedEvent P1

@@ -19,6 +19,6 @@ Class RouteHandlerServices from Object
 	Func Map_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"Map",P1,P2,P3,P4,P5,P6,P7])
 
-	Func MapWith P1
+	Func Map@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"Map",P1])
 

@@ -71,13 +71,13 @@ Class HttpListenerBasicIdentity from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func FindAllWith P1
+	Func FindAll@ P1
 		return dnRequest("callnamed",[self,"FindAll",P1])
 
-	Func FindFirstWith P1
+	Func FindFirst@ P1
 		return dnRequest("callnamed",[self,"FindFirst",P1])
 
-	Func HasClaimWith P1
+	Func HasClaim@ P1
 		return dnRequest("callnamed",[self,"HasClaim",P1])
 
 	Func getPassword

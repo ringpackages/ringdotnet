@@ -34,9 +34,9 @@ Class MvcLocalizationMvcBuilderExtensions from Object
 	Func AddMvcLocalization_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1,P2,P3,P4])
 
-	Func AddViewLocalizationWith P1
+	Func AddViewLocalization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddViewLocalization",P1])
 
-	Func AddMvcLocalizationWith P1
+	Func AddMvcLocalization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcLocalizationMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.Localization'),"AddMvcLocalization",P1])
 

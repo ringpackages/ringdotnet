@@ -36,7 +36,7 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 		dnRequest("call",[self,"DrawText",P1])
 		return self
 
-	Func DrawTextWith P1
+	Func DrawText@ P1
 		dnRequest("callnamed",[self,"DrawText",P1])
 		return self
 

@@ -25,6 +25,6 @@ Class MvcAreaRouteBuilderExtensions from Object
 	Func MapAreaRoute_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaRoute",P1,P2,P3,P4,P5,P6,P7])
 
-	Func MapAreaRouteWith P1
+	Func MapAreaRoute@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"MapAreaRoute",P1])
 

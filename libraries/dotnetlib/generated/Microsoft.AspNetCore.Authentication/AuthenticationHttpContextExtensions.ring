@@ -61,21 +61,21 @@ Class AuthenticationHttpContextExtensions from Object
 	Func GetTokenAsync P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2])
 
-	Func AuthenticateAsyncWith P1
+	Func AuthenticateAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"AuthenticateAsync",P1])
 
-	Func ChallengeAsyncWith P1
+	Func ChallengeAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1])
 
-	Func ForbidAsyncWith P1
+	Func ForbidAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1])
 
-	Func SignInAsyncWith P1
+	Func SignInAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1])
 
-	Func SignOutAsyncWith P1
+	Func SignOutAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1])
 
-	Func GetTokenAsyncWith P1
+	Func GetTokenAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
 

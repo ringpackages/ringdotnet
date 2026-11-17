@@ -51,18 +51,18 @@ Class ToolStripManager from Object
 	Func RevertMerge_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1,P2])
 
-	Func LoadSettingsWith P1
+	Func LoadSettings@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1])
 		return self
 
-	Func SaveSettingsWith P1
+	Func SaveSettings@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
 		return self
 
-	Func MergeWith P1
+	Func Merge@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"Merge",P1])
 
-	Func RevertMergeWith P1
+	Func RevertMerge@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
 
 	Func setRendererChangedEvent P1

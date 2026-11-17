@@ -75,26 +75,26 @@ Class DependencyProperty from Object
 	Func RegisterAttached_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4,P5])
 
-	Func OverrideMetadataWith P1
+	Func OverrideMetadata@ P1
 		dnRequest("callnamed",[self,"OverrideMetadata",P1])
 		return self
 
-	Func GetMetadataWith P1
+	Func GetMetadata@ P1
 		return dnRequest("callnamed",[self,"GetMetadata",P1])
 
-	Func AddOwnerWith P1
+	Func AddOwner@ P1
 		return dnRequest("callnamed",[self,"AddOwner",P1])
 
-	Func RegisterWith P1
+	Func Register@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1])
 
-	Func RegisterReadOnlyWith P1
+	Func RegisterReadOnly@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterReadOnly",P1])
 
-	Func RegisterAttachedReadOnlyWith P1
+	Func RegisterAttachedReadOnly@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttachedReadOnly",P1])
 
-	Func RegisterAttachedWith P1
+	Func RegisterAttached@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1])
 
 	Func getName

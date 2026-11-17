@@ -63,25 +63,25 @@ Class StoreObjectIdentifier from ValueType
 	Func UpdateStoredProcedure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"UpdateStoredProcedure",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func TableWith P1
+	Func Table@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"Table",P1])
 
-	Func ViewWith P1
+	Func View@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"View",P1])
 
-	Func SqlQueryWith P1
+	Func SqlQuery@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"SqlQuery",P1])
 
-	Func InsertStoredProcedureWith P1
+	Func InsertStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"InsertStoredProcedure",P1])
 
-	Func DeleteStoredProcedureWith P1
+	Func DeleteStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"DeleteStoredProcedure",P1])
 
-	Func UpdateStoredProcedureWith P1
+	Func UpdateStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.StoreObjectIdentifier, Microsoft.EntityFrameworkCore.Relational'),"UpdateStoredProcedure",P1])
 
 	Func getStoreObjectType

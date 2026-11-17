@@ -144,40 +144,40 @@ Class DataSet from MarshalByValueComponent
 	Func GetDataSetSchema P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataSet, System.Data.Common'),"GetDataSetSchema",P1])
 
-	Func GetChangesWith P1
+	Func GetChanges@ P1
 		return dnRequest("callnamed",[self,"GetChanges",P1])
 
-	Func HasChangesWith P1
+	Func HasChanges@ P1
 		return dnRequest("callnamed",[self,"HasChanges",P1])
 
-	Func InferXmlSchemaWith P1
+	Func InferXmlSchema@ P1
 		dnRequest("callnamed",[self,"InferXmlSchema",P1])
 		return self
 
-	Func ReadXmlSchemaWith P1
+	Func ReadXmlSchema@ P1
 		dnRequest("callnamed",[self,"ReadXmlSchema",P1])
 		return self
 
-	Func WriteXmlSchemaWith P1
+	Func WriteXmlSchema@ P1
 		dnRequest("callnamed",[self,"WriteXmlSchema",P1])
 		return self
 
-	Func ReadXmlWith P1
+	Func ReadXml@ P1
 		return dnRequest("callnamed",[self,"ReadXml",P1])
 
-	Func WriteXmlWith P1
+	Func WriteXml@ P1
 		dnRequest("callnamed",[self,"WriteXml",P1])
 		return self
 
-	Func MergeWith P1
+	Func Merge@ P1
 		dnRequest("callnamed",[self,"Merge",P1])
 		return self
 
-	Func LoadWith P1
+	Func Load@ P1
 		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
-	Func CreateDataReaderWith P1
+	Func CreateDataReader@ P1
 		return dnRequest("callnamed",[self,"CreateDataReader",P1])
 
 	Func setMergeFailedEvent P1

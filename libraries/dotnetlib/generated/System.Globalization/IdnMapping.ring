@@ -35,10 +35,10 @@ Class IdnMapping from Object
 	Func GetUnicode_3 P1,P2,P3
 		return dnRequest("call",[self,"GetUnicode",P1,P2,P3])
 
-	Func GetAsciiWith P1
+	Func GetAscii@ P1
 		return dnRequest("callnamed",[self,"GetAscii",P1])
 
-	Func GetUnicodeWith P1
+	Func GetUnicode@ P1
 		return dnRequest("callnamed",[self,"GetUnicode",P1])
 
 	Func getAllowUnassigned

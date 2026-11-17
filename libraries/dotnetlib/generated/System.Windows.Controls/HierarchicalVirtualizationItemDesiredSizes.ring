@@ -27,7 +27,7 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getLogicalSize

@@ -74,19 +74,19 @@ Class RelationalTransaction from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func CommitAsyncWith P1
+	Func CommitAsync@ P1
 		return dnRequest("callnamed",[self,"CommitAsync",P1])
 
-	Func RollbackAsyncWith P1
+	Func RollbackAsync@ P1
 		return dnRequest("callnamed",[self,"RollbackAsync",P1])
 
-	Func CreateSavepointAsyncWith P1
+	Func CreateSavepointAsync@ P1
 		return dnRequest("callnamed",[self,"CreateSavepointAsync",P1])
 
-	Func RollbackToSavepointAsyncWith P1
+	Func RollbackToSavepointAsync@ P1
 		return dnRequest("callnamed",[self,"RollbackToSavepointAsync",P1])
 
-	Func ReleaseSavepointAsyncWith P1
+	Func ReleaseSavepointAsync@ P1
 		return dnRequest("callnamed",[self,"ReleaseSavepointAsync",P1])
 
 	Func getTransactionId

@@ -19,6 +19,6 @@ Class Aes from SymmetricAlgorithm
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography'),"Create",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography'),"Create",P1])
 

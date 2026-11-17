@@ -40,15 +40,15 @@ Class RelationalIndexBuilderExtensions from Object
 	Func CanSetFilter P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFilter",P1,P2])
 
-	Func HasDatabaseNameWith P1
+	Func HasDatabaseName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1])
 
-	Func CanSetDatabaseNameWith P1
+	Func CanSetDatabaseName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1])
 
-	Func HasFilterWith P1
+	Func HasFilter@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasFilter",P1])
 
-	Func CanSetFilterWith P1
+	Func CanSetFilter@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFilter",P1])
 

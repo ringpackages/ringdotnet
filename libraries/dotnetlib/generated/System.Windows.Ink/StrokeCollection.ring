@@ -133,32 +133,32 @@ Class StrokeCollection from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func SaveWith P1
+	Func Save@ P1
 		dnRequest("callnamed",[self,"Save",P1])
 		return self
 
-	Func IndexOfWith P1
+	Func IndexOf@ P1
 		return dnRequest("callnamed",[self,"IndexOf",P1])
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		return dnRequest("callnamed",[self,"Remove",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 
-	Func ReplaceWith P1
+	Func Replace@ P1
 		dnRequest("callnamed",[self,"Replace",P1])
 		return self
 
-	Func HitTestWith P1
+	Func HitTest@ P1
 		return dnRequest("callnamed",[self,"HitTest",P1])
 
-	Func ClipWith P1
+	Func Clip@ P1
 		dnRequest("callnamed",[self,"Clip",P1])
 		return self
 
-	Func EraseWith P1
+	Func Erase@ P1
 		dnRequest("callnamed",[self,"Erase",P1])
 		return self
 

@@ -62,10 +62,10 @@ Class IPAddress from Object
 	Func IsLoopback P1
 		return dnRequest("call",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"IsLoopback",P1])
 
-	Func HostToNetworkOrderWith P1
+	Func HostToNetworkOrder@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"HostToNetworkOrder",P1])
 
-	Func NetworkToHostOrderWith P1
+	Func NetworkToHostOrder@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.IPAddress, System.Net.Primitives'),"NetworkToHostOrder",P1])
 
 	Func getAddressFamily

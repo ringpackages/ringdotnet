@@ -42,6 +42,6 @@ Class ComWrappers from Object
 	Func GetIUnknownImpl 
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.ComWrappers, System.Private.CoreLib'),"GetIUnknownImpl"])
 
-	Func GetOrRegisterObjectForComInstanceWith P1
+	Func GetOrRegisterObjectForComInstance@ P1
 		return dnRequest("callnamed",[self,"GetOrRegisterObjectForComInstance",P1])
 

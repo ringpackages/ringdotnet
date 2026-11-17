@@ -29,7 +29,7 @@ Class TextBox from TextBoxBase
 		dnRequest("call",[self,"Paste",P1])
 		return self
 
-	Func PasteWith P1
+	Func Paste@ P1
 		dnRequest("callnamed",[self,"Paste",P1])
 		return self
 

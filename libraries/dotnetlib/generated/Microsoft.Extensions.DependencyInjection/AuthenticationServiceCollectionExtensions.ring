@@ -19,6 +19,6 @@ Class AuthenticationServiceCollectionExtensions from Object
 	Func AddAuthentication_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication'),"AddAuthentication",P1,P2])
 
-	Func AddAuthenticationWith P1
+	Func AddAuthentication@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions, Microsoft.AspNetCore.Authentication'),"AddAuthentication",P1])
 

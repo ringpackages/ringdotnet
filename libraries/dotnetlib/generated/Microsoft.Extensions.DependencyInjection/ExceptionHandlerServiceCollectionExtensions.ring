@@ -19,6 +19,6 @@ Class ExceptionHandlerServiceCollectionExtensions from Object
 	Func AddExceptionHandler P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics'),"AddExceptionHandler",P1])
 
-	Func AddExceptionHandlerWith P1
+	Func AddExceptionHandler@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ExceptionHandlerServiceCollectionExtensions, Microsoft.AspNetCore.Diagnostics'),"AddExceptionHandler",P1])
 

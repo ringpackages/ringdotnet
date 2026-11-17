@@ -76,27 +76,27 @@ Class HttpClientBuilderExtensions from Object
 	Func AddDefaultLogger P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddDefaultLogger",P1])
 
-	Func ConfigureHttpClientWith P1
+	Func ConfigureHttpClient@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigureHttpClient",P1])
 
-	Func AddHttpMessageHandlerWith P1
+	Func AddHttpMessageHandler@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddHttpMessageHandler",P1])
 
-	Func ConfigurePrimaryHttpMessageHandlerWith P1
+	Func ConfigurePrimaryHttpMessageHandler@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"ConfigurePrimaryHttpMessageHandler",P1])
 
-	Func UseSocketsHttpHandlerWith P1
+	Func UseSocketsHttpHandler@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"UseSocketsHttpHandler",P1])
 
-	Func AddTypedClientWith P1
+	Func AddTypedClient@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddTypedClient",P1])
 
-	Func RedactLoggedHeadersWith P1
+	Func RedactLoggedHeaders@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"RedactLoggedHeaders",P1])
 
-	Func AddAsKeyedWith P1
+	Func AddAsKeyed@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddAsKeyed",P1])
 
-	Func AddLoggerWith P1
+	Func AddLogger@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions, Microsoft.Extensions.Http'),"AddLogger",P1])
 

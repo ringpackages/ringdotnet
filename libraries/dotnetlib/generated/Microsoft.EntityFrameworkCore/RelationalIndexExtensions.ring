@@ -57,21 +57,21 @@ Class RelationalIndexExtensions from Object
 	Func FindSharedObjectRootIndex P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSharedObjectRootIndex",P1,P2])
 
-	Func GetDatabaseNameWith P1
+	Func GetDatabaseName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseName",P1])
 
-	Func GetDefaultDatabaseNameWith P1
+	Func GetDefaultDatabaseName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1])
 
-	Func SetDatabaseNameWith P1
+	Func SetDatabaseName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1])
 
-	Func GetFilterWith P1
+	Func GetFilter@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFilter",P1])
 
-	Func SetFilterWith P1
+	Func SetFilter@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFilter",P1])
 
-	Func FindSharedObjectRootIndexWith P1
+	Func FindSharedObjectRootIndex@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSharedObjectRootIndex",P1])
 

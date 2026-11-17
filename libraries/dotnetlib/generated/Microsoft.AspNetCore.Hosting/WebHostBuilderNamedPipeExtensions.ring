@@ -19,6 +19,6 @@ Class WebHostBuilderNamedPipeExtensions from Object
 	Func UseNamedPipes_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1,P2])
 
-	Func UseNamedPipesWith P1
+	Func UseNamedPipes@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1])
 

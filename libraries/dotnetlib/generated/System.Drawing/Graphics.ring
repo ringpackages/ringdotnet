@@ -469,167 +469,167 @@ Class Graphics from MarshalByRefObject
 	Func GetHalftonePalette 
 		return dnRequest("call",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"GetHalftonePalette"])
 
-	Func ReleaseHdcWith P1
+	Func ReleaseHdc@ P1
 		dnRequest("callnamed",[self,"ReleaseHdc",P1])
 		return self
 
-	Func FlushWith P1
+	Func Flush@ P1
 		dnRequest("callnamed",[self,"Flush",P1])
 		return self
 
-	Func SetClipWith P1
+	Func SetClip@ P1
 		dnRequest("callnamed",[self,"SetClip",P1])
 		return self
 
-	Func IntersectClipWith P1
+	Func IntersectClip@ P1
 		dnRequest("callnamed",[self,"IntersectClip",P1])
 		return self
 
-	Func ExcludeClipWith P1
+	Func ExcludeClip@ P1
 		dnRequest("callnamed",[self,"ExcludeClip",P1])
 		return self
 
-	Func TranslateClipWith P1
+	Func TranslateClip@ P1
 		dnRequest("callnamed",[self,"TranslateClip",P1])
 		return self
 
-	Func IsVisibleWith P1
+	Func IsVisible@ P1
 		return dnRequest("callnamed",[self,"IsVisible",P1])
 
-	Func MultiplyTransformWith P1
+	Func MultiplyTransform@ P1
 		dnRequest("callnamed",[self,"MultiplyTransform",P1])
 		return self
 
-	Func TranslateTransformWith P1
+	Func TranslateTransform@ P1
 		dnRequest("callnamed",[self,"TranslateTransform",P1])
 		return self
 
-	Func ScaleTransformWith P1
+	Func ScaleTransform@ P1
 		dnRequest("callnamed",[self,"ScaleTransform",P1])
 		return self
 
-	Func RotateTransformWith P1
+	Func RotateTransform@ P1
 		dnRequest("callnamed",[self,"RotateTransform",P1])
 		return self
 
-	Func DrawArcWith P1
+	Func DrawArc@ P1
 		dnRequest("callnamed",[self,"DrawArc",P1])
 		return self
 
-	Func DrawBezierWith P1
+	Func DrawBezier@ P1
 		dnRequest("callnamed",[self,"DrawBezier",P1])
 		return self
 
-	Func DrawRectangleWith P1
+	Func DrawRectangle@ P1
 		dnRequest("callnamed",[self,"DrawRectangle",P1])
 		return self
 
-	Func DrawRoundedRectangleWith P1
+	Func DrawRoundedRectangle@ P1
 		dnRequest("callnamed",[self,"DrawRoundedRectangle",P1])
 		return self
 
-	Func DrawRectanglesWith P1
+	Func DrawRectangles@ P1
 		dnRequest("callnamed",[self,"DrawRectangles",P1])
 		return self
 
-	Func DrawEllipseWith P1
+	Func DrawEllipse@ P1
 		dnRequest("callnamed",[self,"DrawEllipse",P1])
 		return self
 
-	Func DrawPieWith P1
+	Func DrawPie@ P1
 		dnRequest("callnamed",[self,"DrawPie",P1])
 		return self
 
-	Func DrawPolygonWith P1
+	Func DrawPolygon@ P1
 		dnRequest("callnamed",[self,"DrawPolygon",P1])
 		return self
 
-	Func DrawCurveWith P1
+	Func DrawCurve@ P1
 		dnRequest("callnamed",[self,"DrawCurve",P1])
 		return self
 
-	Func DrawClosedCurveWith P1
+	Func DrawClosedCurve@ P1
 		dnRequest("callnamed",[self,"DrawClosedCurve",P1])
 		return self
 
-	Func FillRoundedRectangleWith P1
+	Func FillRoundedRectangle@ P1
 		dnRequest("callnamed",[self,"FillRoundedRectangle",P1])
 		return self
 
-	Func FillRectangleWith P1
+	Func FillRectangle@ P1
 		dnRequest("callnamed",[self,"FillRectangle",P1])
 		return self
 
-	Func FillRectanglesWith P1
+	Func FillRectangles@ P1
 		dnRequest("callnamed",[self,"FillRectangles",P1])
 		return self
 
-	Func FillPolygonWith P1
+	Func FillPolygon@ P1
 		dnRequest("callnamed",[self,"FillPolygon",P1])
 		return self
 
-	Func FillEllipseWith P1
+	Func FillEllipse@ P1
 		dnRequest("callnamed",[self,"FillEllipse",P1])
 		return self
 
-	Func FillPieWith P1
+	Func FillPie@ P1
 		dnRequest("callnamed",[self,"FillPie",P1])
 		return self
 
-	Func FillClosedCurveWith P1
+	Func FillClosedCurve@ P1
 		dnRequest("callnamed",[self,"FillClosedCurve",P1])
 		return self
 
-	Func DrawStringWith P1
+	Func DrawString@ P1
 		dnRequest("callnamed",[self,"DrawString",P1])
 		return self
 
-	Func MeasureStringWith P1
+	Func MeasureString@ P1
 		return dnRequest("callnamed",[self,"MeasureString",P1])
 
-	Func DrawImageWith P1
+	Func DrawImage@ P1
 		dnRequest("callnamed",[self,"DrawImage",P1])
 		return self
 
-	Func DrawImageUnscaledWith P1
+	Func DrawImageUnscaled@ P1
 		dnRequest("callnamed",[self,"DrawImageUnscaled",P1])
 		return self
 
-	Func DrawLineWith P1
+	Func DrawLine@ P1
 		dnRequest("callnamed",[self,"DrawLine",P1])
 		return self
 
-	Func DrawLinesWith P1
+	Func DrawLines@ P1
 		dnRequest("callnamed",[self,"DrawLines",P1])
 		return self
 
-	Func CopyFromScreenWith P1
+	Func CopyFromScreen@ P1
 		dnRequest("callnamed",[self,"CopyFromScreen",P1])
 		return self
 
-	Func EnumerateMetafileWith P1
+	Func EnumerateMetafile@ P1
 		dnRequest("callnamed",[self,"EnumerateMetafile",P1])
 		return self
 
-	Func TransformPointsWith P1
+	Func TransformPoints@ P1
 		dnRequest("callnamed",[self,"TransformPoints",P1])
 		return self
 
-	Func DrawBeziersWith P1
+	Func DrawBeziers@ P1
 		dnRequest("callnamed",[self,"DrawBeziers",P1])
 		return self
 
-	Func DrawIconWith P1
+	Func DrawIcon@ P1
 		dnRequest("callnamed",[self,"DrawIcon",P1])
 		return self
 
-	Func GetContextInfoWith P1
+	Func GetContextInfo@ P1
 		return dnRequest("callnamed",[self,"GetContextInfo",P1])
 
-	Func BeginContainerWith P1
+	Func BeginContainer@ P1
 		return dnRequest("callnamed",[self,"BeginContainer",P1])
 
-	Func FromHdcWith P1
+	Func FromHdc@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Graphics, System.Drawing.Common'),"FromHdc",P1])
 
 	Func getClip

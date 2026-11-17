@@ -47,12 +47,12 @@ Class PropertiesConfigurationBuilder from Object
 	Func HaveConversion_3 P1,P2,P3
 		return dnRequest("call",[self,"HaveConversion",P1,P2,P3])
 
-	Func HavePrecisionWith P1
+	Func HavePrecision@ P1
 		return dnRequest("callnamed",[self,"HavePrecision",P1])
 
-	Func AreUnicodeWith P1
+	Func AreUnicode@ P1
 		return dnRequest("callnamed",[self,"AreUnicode",P1])
 
-	Func HaveConversionWith P1
+	Func HaveConversion@ P1
 		return dnRequest("callnamed",[self,"HaveConversion",P1])
 

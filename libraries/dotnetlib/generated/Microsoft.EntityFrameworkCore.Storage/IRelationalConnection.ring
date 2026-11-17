@@ -49,10 +49,10 @@ Class IRelationalConnection from DotNetObject
 		dnRequest("call",[self,"ReturnCommand",P1])
 		return self
 
-	Func OpenWith P1
+	Func Open@ P1
 		return dnRequest("callnamed",[self,"Open",P1])
 
-	Func OpenAsyncWith P1
+	Func OpenAsync@ P1
 		return dnRequest("callnamed",[self,"OpenAsync",P1])
 
 	Func getConnectionString

@@ -25,6 +25,6 @@ Class HttpClientFactoryServiceCollectionExtensions from Object
 	Func AddHttpClient_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1,P2,P3])
 
-	Func AddHttpClientWith P1
+	Func AddHttpClient@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpClientFactoryServiceCollectionExtensions, Microsoft.Extensions.Http'),"AddHttpClient",P1])
 

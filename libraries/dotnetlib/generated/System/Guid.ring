@@ -73,25 +73,25 @@ Class Guid from ValueType
 	Func NewGuid 
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
 
-	Func ToByteArrayWith P1
+	Func ToByteArray@ P1
 		return dnRequest("callnamed",[self,"ToByteArray",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func CompareToWith P1
+	Func CompareTo@ P1
 		return dnRequest("callnamed",[self,"CompareTo",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func CreateVersion7With P1
+	Func CreateVersion7@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1])
 
-	Func TryParseWith P1
+	Func TryParse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getVariant

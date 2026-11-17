@@ -48,10 +48,10 @@ Class IReflect from DotNetObject
 	Func InvokeMember P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[self,"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
 
-	Func GetMethodWith P1
+	Func GetMethod@ P1
 		return dnRequest("callnamed",[self,"GetMethod",P1])
 
-	Func GetPropertyWith P1
+	Func GetProperty@ P1
 		return dnRequest("callnamed",[self,"GetProperty",P1])
 
 	Func getUnderlyingSystemType

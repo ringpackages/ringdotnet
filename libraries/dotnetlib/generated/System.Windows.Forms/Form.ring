@@ -111,17 +111,17 @@ Class Form from ContainerControl
 	Func GetAutoScaleSize P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms'),"GetAutoScaleSize",P1])
 
-	Func ShowWith P1
+	Func Show@ P1
 		dnRequest("callnamed",[self,"Show",P1])
 		return self
 
-	Func ShowAsyncWith P1
+	Func ShowAsync@ P1
 		return dnRequest("callnamed",[self,"ShowAsync",P1])
 
-	Func ShowDialogWith P1
+	Func ShowDialog@ P1
 		return dnRequest("callnamed",[self,"ShowDialog",P1])
 
-	Func ShowDialogAsyncWith P1
+	Func ShowDialogAsync@ P1
 		return dnRequest("callnamed",[self,"ShowDialogAsync",P1])
 
 	Func setHelpButtonClickedEvent P1

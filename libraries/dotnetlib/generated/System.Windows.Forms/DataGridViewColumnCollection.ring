@@ -67,20 +67,20 @@ Class DataGridViewColumnCollection from BaseCollection
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
-	Func GetFirstColumnWith P1
+	Func GetFirstColumn@ P1
 		return dnRequest("callnamed",[self,"GetFirstColumn",P1])
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 

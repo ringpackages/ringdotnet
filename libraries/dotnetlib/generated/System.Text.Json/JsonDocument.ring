@@ -38,10 +38,10 @@ Class JsonDocument from Object
 	Func ParseAsync P1
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"Parse",P1])
 
-	Func ParseAsyncWith P1
+	Func ParseAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonDocument, System.Text.Json'),"ParseAsync",P1])
 
 	Func getRootElement

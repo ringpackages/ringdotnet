@@ -31,9 +31,9 @@ Class Uniquifier from Object
 	Func Truncate_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1,P2,P3,P4])
 
-	Func UniquifyWith P1
+	Func Uniquify@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Uniquify",P1])
 
-	Func TruncateWith P1
+	Func Truncate@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1])
 

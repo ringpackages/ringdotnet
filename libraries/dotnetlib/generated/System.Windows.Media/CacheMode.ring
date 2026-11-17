@@ -13,6 +13,6 @@ Class CacheMode from Animatable
 		ok
 		return self
 
-	Func CloneCurrentValueWith P1
+	Func CloneCurrentValue@ P1
 		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 

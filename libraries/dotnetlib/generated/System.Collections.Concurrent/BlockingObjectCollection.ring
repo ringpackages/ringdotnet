@@ -110,32 +110,32 @@ Class BlockingObjectCollection from Object
 	Func TryTakeFromAny_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2,P3])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 
-	Func TryAddWith P1
+	Func TryAdd@ P1
 		return dnRequest("callnamed",[self,"TryAdd",P1])
 
-	Func TakeWith P1
+	Func Take@ P1
 		return dnRequest("callnamed",[self,"Take",P1])
 
-	Func TryTakeWith P1
+	Func TryTake@ P1
 		return dnRequest("callnamed",[self,"TryTake",P1])
 
-	Func GetConsumingEnumerableWith P1
+	Func GetConsumingEnumerable@ P1
 		return dnRequest("callnamed",[self,"GetConsumingEnumerable",P1])
 
-	Func AddToAnyWith P1
+	Func AddToAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1])
 
-	Func TryAddToAnyWith P1
+	Func TryAddToAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1])
 
-	Func TakeFromAnyWith P1
+	Func TakeFromAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1])
 
-	Func TryTakeFromAnyWith P1
+	Func TryTakeFromAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
 
 	Func getBoundedCapacity

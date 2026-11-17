@@ -38,9 +38,9 @@ Class IMigrationCommandExecutor from DotNetObject
 	Func ExecuteNonQueryAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"ExecuteNonQueryAsync",P1,P2,P3,P4])
 
-	Func ExecuteNonQueryWith P1
+	Func ExecuteNonQuery@ P1
 		return dnRequest("callnamed",[self,"ExecuteNonQuery",P1])
 
-	Func ExecuteNonQueryAsyncWith P1
+	Func ExecuteNonQueryAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
 

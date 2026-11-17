@@ -325,25 +325,25 @@ Class NFloat from ValueType
 	Func TanPi P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"TanPi",P1])
 
-	Func CompareToWith P1
+	Func CompareTo@ P1
 		return dnRequest("callnamed",[self,"CompareTo",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"Parse",P1])
 
-	Func TryParseWith P1
+	Func TryParse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"TryParse",P1])
 
-	Func RoundWith P1
+	Func Round@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"Round",P1])
 
-	Func LogWith P1
+	Func Log@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NFloat, System.Private.CoreLib'),"Log",P1])
 
 	Func getValue

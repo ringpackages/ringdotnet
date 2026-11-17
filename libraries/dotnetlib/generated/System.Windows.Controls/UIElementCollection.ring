@@ -55,7 +55,7 @@ Class UIElementCollection from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 

@@ -19,6 +19,6 @@ Class WebSocketMiddlewareExtensions from Object
 	Func UseWebSockets_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets'),"UseWebSockets",P1,P2])
 
-	Func UseWebSocketsWith P1
+	Func UseWebSockets@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WebSocketMiddlewareExtensions, Microsoft.AspNetCore.WebSockets'),"UseWebSockets",P1])
 

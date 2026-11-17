@@ -19,6 +19,6 @@ Class StaticAssetsEndpointRouteBuilderExtensions from Object
 	Func MapStaticAssets P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets'),"MapStaticAssets",P1])
 
-	Func MapStaticAssetsWith P1
+	Func MapStaticAssets@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticAssetsEndpointRouteBuilderExtensions, Microsoft.AspNetCore.StaticAssets'),"MapStaticAssets",P1])
 

@@ -52,7 +52,7 @@ Methods that take a delegate (`Predicate`, `Comparison`, `Action`) accept `dnCal
 
 ```ring
 oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
-oList.SortWith([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])") ])
+oList.Sort@([ :comparison = dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])") ])
 oList.ForEach_(dnCallback("? aDotNetArgs[1]"))
 ```
 

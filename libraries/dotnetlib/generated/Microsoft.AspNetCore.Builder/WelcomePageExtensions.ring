@@ -19,6 +19,6 @@ Class WelcomePageExtensions from Object
 	Func UseWelcomePage P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseWelcomePage",P1])
 
-	Func UseWelcomePageWith P1
+	Func UseWelcomePage@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.WelcomePageExtensions, Microsoft.AspNetCore.Diagnostics'),"UseWelcomePage",P1])
 

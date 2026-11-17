@@ -20,7 +20,7 @@ Class ColorConverter from TypeConverter
 		ok
 		return dnRequest("call",[self,"ConvertFromString",P1])
 
-	Func ConvertFromStringWith P1
+	Func ConvertFromString@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.ColorConverter, PresentationCore'),"ConvertFromString",P1])
 		ok

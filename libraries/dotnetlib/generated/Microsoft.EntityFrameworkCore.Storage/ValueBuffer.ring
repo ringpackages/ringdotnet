@@ -22,7 +22,7 @@ Class ValueBuffer from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func Item P1

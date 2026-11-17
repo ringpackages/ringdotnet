@@ -25,7 +25,7 @@ Class DBNull from Object
 	Func GetTypeCode 
 		return dnRequest("call",[self,"GetTypeCode"])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getValue

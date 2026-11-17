@@ -90,28 +90,28 @@ Class IConventionStoredProcedure from DotNetObject
 	Func SetIsRowsAffectedReturned P1
 		return dnRequest("call",[self,"SetIsRowsAffectedReturned",P1])
 
-	Func SetNameWith P1
+	Func SetName@ P1
 		return dnRequest("callnamed",[self,"SetName",P1])
 
-	Func SetSchemaWith P1
+	Func SetSchema@ P1
 		return dnRequest("callnamed",[self,"SetSchema",P1])
 
-	Func AddParameterWith P1
+	Func AddParameter@ P1
 		return dnRequest("callnamed",[self,"AddParameter",P1])
 
-	Func AddOriginalValueParameterWith P1
+	Func AddOriginalValueParameter@ P1
 		return dnRequest("callnamed",[self,"AddOriginalValueParameter",P1])
 
-	Func AddRowsAffectedParameterWith P1
+	Func AddRowsAffectedParameter@ P1
 		return dnRequest("callnamed",[self,"AddRowsAffectedParameter",P1])
 
-	Func AddResultColumnWith P1
+	Func AddResultColumn@ P1
 		return dnRequest("callnamed",[self,"AddResultColumn",P1])
 
-	Func AddRowsAffectedResultColumnWith P1
+	Func AddRowsAffectedResultColumn@ P1
 		return dnRequest("callnamed",[self,"AddRowsAffectedResultColumn",P1])
 
-	Func SetIsRowsAffectedReturnedWith P1
+	Func SetIsRowsAffectedReturned@ P1
 		return dnRequest("callnamed",[self,"SetIsRowsAffectedReturned",P1])
 
 	Func getEntityType

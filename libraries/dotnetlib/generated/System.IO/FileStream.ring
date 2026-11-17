@@ -47,7 +47,7 @@ Class FileStream from Stream
 		dnRequest("call",[self,"Flush",P1])
 		return self
 
-	Func FlushWith P1
+	Func Flush@ P1
 		dnRequest("callnamed",[self,"Flush",P1])
 		return self
 

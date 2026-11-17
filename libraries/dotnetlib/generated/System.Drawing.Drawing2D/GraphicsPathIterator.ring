@@ -49,10 +49,10 @@ Class GraphicsPathIterator from MarshalByRefObject
 	Func CopyData P1,P2,P3,P4
 		return dnRequest("call",[self,"CopyData",P1,P2,P3,P4])
 
-	Func NextSubpathWith P1
+	Func NextSubpath@ P1
 		return dnRequest("callnamed",[self,"NextSubpath",P1])
 
-	Func NextMarkerWith P1
+	Func NextMarker@ P1
 		return dnRequest("callnamed",[self,"NextMarker",P1])
 
 	Func getCount

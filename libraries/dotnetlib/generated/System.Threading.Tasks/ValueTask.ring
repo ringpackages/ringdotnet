@@ -49,13 +49,13 @@ Class ValueTask from ValueType
 	Func FromException P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromException",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func FromCanceledWith P1
+	Func FromCanceled@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromCanceled",P1])
 
-	Func FromExceptionWith P1
+	Func FromException@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.ValueTask, System.Private.CoreLib'),"FromException",P1])
 
 	Func getIsCompleted

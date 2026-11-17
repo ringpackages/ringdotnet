@@ -26,6 +26,6 @@ Class SqliteCommand from DbCommand
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[P1,P2,P3])
 		return self
 
-	Func CreateParameterWith P1
+	Func CreateParameter@ P1
 		return dnRequest("callnamed",[self,"CreateParameter",P1])
 

@@ -25,6 +25,6 @@ Class PolicyServiceCollectionExtensions from Object
 	Func AddAuthorization_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorization",P1,P2])
 
-	Func AddAuthorizationWith P1
+	Func AddAuthorization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.PolicyServiceCollectionExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AddAuthorization",P1])
 

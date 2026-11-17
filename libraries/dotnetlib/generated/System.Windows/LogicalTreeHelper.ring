@@ -26,6 +26,6 @@ Class LogicalTreeHelper from Object
 		dnRequest("call",[dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework'),"BringIntoView",P1])
 		return self
 
-	Func GetChildrenWith P1
+	Func GetChildren@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.LogicalTreeHelper, PresentationFramework'),"GetChildren",P1])
 

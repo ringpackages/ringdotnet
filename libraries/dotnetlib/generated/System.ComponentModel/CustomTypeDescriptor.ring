@@ -60,10 +60,10 @@ Class CustomTypeDescriptor from Object
 	Func GetPropertyOwner P1
 		return dnRequest("call",[self,"GetPropertyOwner",P1])
 
-	Func GetEventsWith P1
+	Func GetEvents@ P1
 		return dnRequest("callnamed",[self,"GetEvents",P1])
 
-	Func GetPropertiesWith P1
+	Func GetProperties@ P1
 		return dnRequest("callnamed",[self,"GetProperties",P1])
 
 	Func getRequireRegisteredTypes

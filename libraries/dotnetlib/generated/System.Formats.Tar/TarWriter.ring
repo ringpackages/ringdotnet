@@ -48,11 +48,11 @@ Class TarWriter from Object
 	Func WriteEntryAsync P1
 		return dnRequest("call",[self,"WriteEntryAsync",P1])
 
-	Func WriteEntryWith P1
+	Func WriteEntry@ P1
 		dnRequest("callnamed",[self,"WriteEntry",P1])
 		return self
 
-	Func WriteEntryAsyncWith P1
+	Func WriteEntryAsync@ P1
 		return dnRequest("callnamed",[self,"WriteEntryAsync",P1])
 
 	Func getFormat

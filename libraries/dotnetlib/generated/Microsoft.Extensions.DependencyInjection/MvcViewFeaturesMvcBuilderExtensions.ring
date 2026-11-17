@@ -28,6 +28,6 @@ Class MvcViewFeaturesMvcBuilderExtensions from Object
 	Func AddCookieTempDataProvider_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1,P2])
 
-	Func AddCookieTempDataProviderWith P1
+	Func AddCookieTempDataProvider@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
 

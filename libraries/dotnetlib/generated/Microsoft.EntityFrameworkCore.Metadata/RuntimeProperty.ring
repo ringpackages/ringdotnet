@@ -87,7 +87,7 @@ Class RuntimeProperty from RuntimePropertyBase
 	Func GetElementType 
 		return dnRequest("call",[self,"GetElementType"])
 
-	Func SetElementTypeWith P1
+	Func SetElementType@ P1
 		return dnRequest("callnamed",[self,"SetElementType",P1])
 
 	Func getPrimaryKey

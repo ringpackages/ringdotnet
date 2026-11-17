@@ -33,7 +33,7 @@ for nCell = 1 to C_COLUMNS * C_ROWS
 	oButton = uiButton(oForm,"",10 + nColumn * C_SIZE,44 + nRow * C_SIZE,C_SIZE,C_SIZE,"")
 	oButton {
 		Font = uiFont("Segoe UI",11,true)
-		Margin = dnNewWith("Padding",[ :all = 0 ])
+		Margin = dnNew@("Padding",[ :all = 0 ])
 		setMouseUpEvent("cellClicked(" + nCell + ",aDotNetArgs[2].Button)")
 	}
 	aButtons + oButton

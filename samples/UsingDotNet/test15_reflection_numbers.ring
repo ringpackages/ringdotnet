@@ -16,11 +16,11 @@ for nLoop = 2 to 40
 next
 ? "40!            : " + nFactorial.ToString()
 ? "2^200          : " + oBig.Pow(2,200).ToString()
-oZ = dnNewWith("Complex",[ :real = 3, :imaginary = 4 ])
+oZ = dnNew@("Complex",[ :real = 3, :imaginary = 4 ])
 ? "|3+4i|         : " + oZ.Magnitude
 
 # Reflection: explore a type
-oMath = new Type().GetTypeWith([ :typeName = "System.Math" ])
+oMath = new Type().GetType@([ :typeName = "System.Math" ])
 aNames = []
 for oMethod in oMath.GetMethods().toList()
 	if find(aNames,oMethod.Name) = 0 aNames + oMethod.Name ok

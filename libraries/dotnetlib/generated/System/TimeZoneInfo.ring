@@ -105,37 +105,37 @@ Class TimeZoneInfo from Object
 	Func TryConvertWindowsIdToIanaId_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1,P2])
 
-	Func GetAmbiguousTimeOffsetsWith P1
+	Func GetAmbiguousTimeOffsets@ P1
 		return dnRequest("callnamed",[self,"GetAmbiguousTimeOffsets",P1])
 
-	Func GetUtcOffsetWith P1
+	Func GetUtcOffset@ P1
 		return dnRequest("callnamed",[self,"GetUtcOffset",P1])
 
-	Func IsAmbiguousTimeWith P1
+	Func IsAmbiguousTime@ P1
 		return dnRequest("callnamed",[self,"IsAmbiguousTime",P1])
 
-	Func IsDaylightSavingTimeWith P1
+	Func IsDaylightSavingTime@ P1
 		return dnRequest("callnamed",[self,"IsDaylightSavingTime",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ConvertTimeBySystemTimeZoneIdWith P1
+	Func ConvertTimeBySystemTimeZoneId@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeBySystemTimeZoneId",P1])
 
-	Func ConvertTimeWith P1
+	Func ConvertTime@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTime",P1])
 
-	Func ConvertTimeToUtcWith P1
+	Func ConvertTimeToUtc@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1])
 
-	Func GetSystemTimeZonesWith P1
+	Func GetSystemTimeZones@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
 
-	Func CreateCustomTimeZoneWith P1
+	Func CreateCustomTimeZone@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1])
 
-	Func TryConvertWindowsIdToIanaIdWith P1
+	Func TryConvertWindowsIdToIanaId@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1])
 
 	Func getId

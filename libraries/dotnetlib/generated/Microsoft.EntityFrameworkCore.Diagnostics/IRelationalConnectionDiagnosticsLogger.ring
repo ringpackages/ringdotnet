@@ -83,9 +83,9 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 	Func ShouldLogConnectionClose P1
 		return dnRequest("call",[self,"ShouldLogConnectionClose",P1])
 
-	Func ConnectionOpenedAsyncWith P1
+	Func ConnectionOpenedAsync@ P1
 		return dnRequest("callnamed",[self,"ConnectionOpenedAsync",P1])
 
-	Func ConnectionErrorAsyncWith P1
+	Func ConnectionErrorAsync@ P1
 		return dnRequest("callnamed",[self,"ConnectionErrorAsync",P1])
 

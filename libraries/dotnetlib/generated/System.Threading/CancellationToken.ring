@@ -39,13 +39,13 @@ Class CancellationToken from ValueType
 		dnRequest("call",[self,"ThrowIfCancellationRequested"])
 		return self
 
-	Func RegisterWith P1
+	Func Register@ P1
 		return dnRequest("callnamed",[self,"Register",P1])
 
-	Func UnsafeRegisterWith P1
+	Func UnsafeRegister@ P1
 		return dnRequest("callnamed",[self,"UnsafeRegister",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getIsCancellationRequested

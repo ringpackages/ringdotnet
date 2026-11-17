@@ -19,6 +19,6 @@ Class EncoderServiceCollectionExtensions from Object
 	Func AddWebEncoders_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders'),"AddWebEncoders",P1,P2])
 
-	Func AddWebEncodersWith P1
+	Func AddWebEncoders@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.EncoderServiceCollectionExtensions, Microsoft.Extensions.WebEncoders'),"AddWebEncoders",P1])
 

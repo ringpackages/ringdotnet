@@ -103,34 +103,34 @@ Class HttpClient from HttpMessageInvoker
 		dnRequest("call",[self,"CancelPendingRequests"])
 		return self
 
-	Func GetStringAsyncWith P1
+	Func GetStringAsync@ P1
 		return dnRequest("callnamed",[self,"GetStringAsync",P1])
 
-	Func GetByteArrayAsyncWith P1
+	Func GetByteArrayAsync@ P1
 		return dnRequest("callnamed",[self,"GetByteArrayAsync",P1])
 
-	Func GetStreamAsyncWith P1
+	Func GetStreamAsync@ P1
 		return dnRequest("callnamed",[self,"GetStreamAsync",P1])
 
-	Func GetAsyncWith P1
+	Func GetAsync@ P1
 		return dnRequest("callnamed",[self,"GetAsync",P1])
 
-	Func PostAsyncWith P1
+	Func PostAsync@ P1
 		return dnRequest("callnamed",[self,"PostAsync",P1])
 
-	Func PutAsyncWith P1
+	Func PutAsync@ P1
 		return dnRequest("callnamed",[self,"PutAsync",P1])
 
-	Func PatchAsyncWith P1
+	Func PatchAsync@ P1
 		return dnRequest("callnamed",[self,"PatchAsync",P1])
 
-	Func DeleteAsyncWith P1
+	Func DeleteAsync@ P1
 		return dnRequest("callnamed",[self,"DeleteAsync",P1])
 
-	Func SendWith P1
+	Func Send@ P1
 		return dnRequest("callnamed",[self,"Send",P1])
 
-	Func SendAsyncWith P1
+	Func SendAsync@ P1
 		return dnRequest("callnamed",[self,"SendAsync",P1])
 
 	Func getDefaultRequestHeaders

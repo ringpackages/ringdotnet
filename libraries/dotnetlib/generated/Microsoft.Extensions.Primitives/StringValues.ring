@@ -36,13 +36,13 @@ Class StringValues from ValueType
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1,P2])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ConcatWith P1
+	Func Concat@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Concat",P1])
 
 	Func Item P1

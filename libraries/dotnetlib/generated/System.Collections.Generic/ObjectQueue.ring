@@ -65,7 +65,7 @@ Class ObjectQueue from Object
 	Func EnsureCapacity P1
 		return dnRequest("call",[self,"EnsureCapacity",P1])
 
-	Func TrimExcessWith P1
+	Func TrimExcess@ P1
 		dnRequest("callnamed",[self,"TrimExcess",P1])
 		return self
 

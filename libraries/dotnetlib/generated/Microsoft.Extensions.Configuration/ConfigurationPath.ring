@@ -24,7 +24,7 @@ Class ConfigurationPath from Object
 	Func GetParentPath P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"GetParentPath",P1])
 
-	Func CombineWith P1
+	Func Combine@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationPath, Microsoft.Extensions.Configuration.Abstractions'),"Combine",P1])
 
 	Func getKeyDelimiter

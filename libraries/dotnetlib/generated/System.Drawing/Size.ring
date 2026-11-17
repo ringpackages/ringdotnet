@@ -38,7 +38,7 @@ Class Size from ValueType
 	Func Round P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Size, System.Drawing.Primitives'),"Round",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getIsEmpty

@@ -16,6 +16,6 @@ Class RequestLocalizationServiceCollectionExtensions from Object
 	Func AddRequestLocalization P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization'),"AddRequestLocalization",P1,P2])
 
-	Func AddRequestLocalizationWith P1
+	Func AddRequestLocalization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestLocalizationServiceCollectionExtensions, Microsoft.AspNetCore.Localization'),"AddRequestLocalization",P1])
 

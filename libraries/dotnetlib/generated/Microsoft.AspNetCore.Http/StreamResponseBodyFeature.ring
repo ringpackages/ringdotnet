@@ -42,7 +42,7 @@ Class StreamResponseBodyFeature from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func StartAsyncWith P1
+	Func StartAsync@ P1
 		return dnRequest("callnamed",[self,"StartAsync",P1])
 
 	Func getStream

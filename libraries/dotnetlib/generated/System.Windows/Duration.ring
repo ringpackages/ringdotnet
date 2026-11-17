@@ -38,7 +38,7 @@ Class Duration from ValueType
 	Func Equals_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1,P2])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1])
 		ok

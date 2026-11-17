@@ -67,10 +67,10 @@ Class CoreTypeMapping from Object
 	Func GenerateCodeLiteral P1
 		return dnRequest("call",[self,"GenerateCodeLiteral",P1])
 
-	Func WithComposedConverterWith P1
+	Func WithComposedConverter@ P1
 		return dnRequest("callnamed",[self,"WithComposedConverter",P1])
 
-	Func CloneWith P1
+	Func Clone@ P1
 		return dnRequest("callnamed",[self,"Clone",P1])
 
 	Func getClrType

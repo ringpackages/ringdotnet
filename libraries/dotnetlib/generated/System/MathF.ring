@@ -146,10 +146,10 @@ Class MathF from Object
 	Func ScaleB P1,P2
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ScaleB",P1,P2])
 
-	Func LogWith P1
+	Func Log@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1])
 
-	Func RoundWith P1
+	Func Round@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
 
 	Func getE

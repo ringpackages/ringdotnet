@@ -65,22 +65,22 @@ Class HttpContent from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func ReadAsStringAsyncWith P1
+	Func ReadAsStringAsync@ P1
 		return dnRequest("callnamed",[self,"ReadAsStringAsync",P1])
 
-	Func ReadAsByteArrayAsyncWith P1
+	Func ReadAsByteArrayAsync@ P1
 		return dnRequest("callnamed",[self,"ReadAsByteArrayAsync",P1])
 
-	Func ReadAsStreamWith P1
+	Func ReadAsStream@ P1
 		return dnRequest("callnamed",[self,"ReadAsStream",P1])
 
-	Func ReadAsStreamAsyncWith P1
+	Func ReadAsStreamAsync@ P1
 		return dnRequest("callnamed",[self,"ReadAsStreamAsync",P1])
 
-	Func CopyToAsyncWith P1
+	Func CopyToAsync@ P1
 		return dnRequest("callnamed",[self,"CopyToAsync",P1])
 
-	Func LoadIntoBufferAsyncWith P1
+	Func LoadIntoBufferAsync@ P1
 		return dnRequest("callnamed",[self,"LoadIntoBufferAsync",P1])
 
 	Func getHeaders

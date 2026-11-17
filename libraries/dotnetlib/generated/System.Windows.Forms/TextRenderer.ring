@@ -37,10 +37,10 @@ Class TextRenderer from Object
 	Func MeasureText_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1,P2,P3,P4,P5])
 
-	Func DrawTextWith P1
+	Func DrawText@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1])
 		return self
 
-	Func MeasureTextWith P1
+	Func MeasureText@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1])
 

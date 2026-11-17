@@ -36,7 +36,7 @@ Class CryptoConfig from Object
 	Func EncodeOID P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"EncodeOID",P1])
 
-	Func CreateFromNameWith P1
+	Func CreateFromName@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1])
 
 	Func getAllowOnlyFipsAlgorithms

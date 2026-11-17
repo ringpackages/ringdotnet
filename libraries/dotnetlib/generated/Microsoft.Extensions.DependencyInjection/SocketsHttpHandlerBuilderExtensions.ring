@@ -16,6 +16,6 @@ Class SocketsHttpHandlerBuilderExtensions from Object
 	Func Configure P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http'),"Configure",P1,P2])
 
-	Func ConfigureWith P1
+	Func Configure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.SocketsHttpHandlerBuilderExtensions, Microsoft.Extensions.Http'),"Configure",P1])
 

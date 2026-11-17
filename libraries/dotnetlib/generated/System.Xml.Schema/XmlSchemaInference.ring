@@ -23,7 +23,7 @@ Class XmlSchemaInference from Object
 	Func InferSchema_2 P1,P2
 		return dnRequest("call",[self,"InferSchema",P1,P2])
 
-	Func InferSchemaWith P1
+	Func InferSchema@ P1
 		return dnRequest("callnamed",[self,"InferSchema",P1])
 
 	Func getOccurrence

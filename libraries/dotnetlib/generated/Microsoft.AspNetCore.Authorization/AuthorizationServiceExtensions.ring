@@ -19,6 +19,6 @@ Class AuthorizationServiceExtensions from Object
 	Func AuthorizeAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"AuthorizeAsync",P1,P2,P3])
 
-	Func AuthorizeAsyncWith P1
+	Func AuthorizeAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"AuthorizeAsync",P1])
 

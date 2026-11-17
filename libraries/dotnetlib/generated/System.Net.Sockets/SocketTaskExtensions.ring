@@ -49,15 +49,15 @@ Class SocketTaskExtensions from Object
 	Func SendToAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendToAsync",P1,P2,P3,P4])
 
-	Func AcceptAsyncWith P1
+	Func AcceptAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
 
-	Func ConnectAsyncWith P1
+	Func ConnectAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1])
 
-	Func ReceiveAsyncWith P1
+	Func ReceiveAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1])
 
-	Func SendAsyncWith P1
+	Func SendAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1])
 

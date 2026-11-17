@@ -61,9 +61,9 @@ Class PageLinkGeneratorExtensions from Object
 	Func GetUriByPage P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2])
 
-	Func GetPathByPageWith P1
+	Func GetPathByPage@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1])
 
-	Func GetUriByPageWith P1
+	Func GetUriByPage@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1])
 

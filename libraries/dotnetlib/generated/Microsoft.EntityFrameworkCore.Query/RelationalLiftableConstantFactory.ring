@@ -16,7 +16,7 @@ Class RelationalLiftableConstantFactory from LiftableConstantFactory
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalLiftableConstantFactory, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
-	Func CreateLiftableConstantWith P1
+	Func CreateLiftableConstant@ P1
 		return dnRequest("callnamed",[self,"CreateLiftableConstant",P1])
 
 	Func getRelationalDependencies

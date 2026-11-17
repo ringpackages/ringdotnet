@@ -35,10 +35,10 @@ Class IHttpResponseBodyFeature from DotNetObject
 	Func CompleteAsync 
 		return dnRequest("call",[self,"CompleteAsync"])
 
-	Func StartAsyncWith P1
+	Func StartAsync@ P1
 		return dnRequest("callnamed",[self,"StartAsync",P1])
 
-	Func SendFileAsyncWith P1
+	Func SendFileAsync@ P1
 		return dnRequest("callnamed",[self,"SendFileAsync",P1])
 
 	Func getStream

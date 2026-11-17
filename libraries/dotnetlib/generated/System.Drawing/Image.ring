@@ -118,21 +118,21 @@ Class Image from MarshalByRefObject
 	Func IsAlphaPixelFormat P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"IsAlphaPixelFormat",P1])
 
-	Func SaveWith P1
+	Func Save@ P1
 		dnRequest("callnamed",[self,"Save",P1])
 		return self
 
-	Func SaveAddWith P1
+	Func SaveAdd@ P1
 		dnRequest("callnamed",[self,"SaveAdd",P1])
 		return self
 
-	Func FromFileWith P1
+	Func FromFile@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromFile",P1])
 
-	Func FromStreamWith P1
+	Func FromStream@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromStream",P1])
 
-	Func FromHbitmapWith P1
+	Func FromHbitmap@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Image, System.Drawing.Common'),"FromHbitmap",P1])
 
 	Func getTag

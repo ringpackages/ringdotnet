@@ -26,6 +26,6 @@ Class WarningsConfigurationBuilder from Object
 	Func Ignore P1
 		return dnRequest("call",[self,"Ignore",P1])
 
-	Func LogWith P1
+	Func Log@ P1
 		return dnRequest("callnamed",[self,"Log",P1])
 

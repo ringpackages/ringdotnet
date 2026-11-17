@@ -181,29 +181,29 @@ Class Thread from DotNetObject
 	Func GetCurrentProcessorId 
 		return dnRequest("call",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"GetCurrentProcessorId"])
 
-	Func JoinWith P1
+	Func Join@ P1
 		return dnRequest("callnamed",[self,"Join",P1])
 
-	Func StartWith P1
+	Func Start@ P1
 		dnRequest("callnamed",[self,"Start",P1])
 		return self
 
-	Func UnsafeStartWith P1
+	Func UnsafeStart@ P1
 		dnRequest("callnamed",[self,"UnsafeStart",P1])
 		return self
 
-	Func AbortWith P1
+	Func Abort@ P1
 		dnRequest("callnamed",[self,"Abort",P1])
 		return self
 
-	Func SleepWith P1
+	Func Sleep@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"Sleep",P1])
 		return self
 
-	Func VolatileReadWith P1
+	Func VolatileRead@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"VolatileRead",P1])
 
-	Func VolatileWriteWith P1
+	Func VolatileWrite@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Thread, System.Private.CoreLib'),"VolatileWrite",P1])
 
 	Func getManagedThreadId

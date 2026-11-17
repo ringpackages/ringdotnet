@@ -29,11 +29,11 @@ Class IResponseCookies from DotNetObject
 		dnRequest("call",[self,"Delete",P1,P2])
 		return self
 
-	Func AppendWith P1
+	Func Append@ P1
 		dnRequest("callnamed",[self,"Append",P1])
 		return self
 
-	Func DeleteWith P1
+	Func Delete@ P1
 		dnRequest("callnamed",[self,"Delete",P1])
 		return self
 

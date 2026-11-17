@@ -19,6 +19,6 @@ Class TraceSourceFactoryExtensions from Object
 	Func AddTraceSource P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource'),"AddTraceSource",P1,P2])
 
-	Func AddTraceSourceWith P1
+	Func AddTraceSource@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Logging.TraceSourceFactoryExtensions, Microsoft.Extensions.Logging.TraceSource'),"AddTraceSource",P1])
 

@@ -79,7 +79,7 @@ Class ModelMetadata from Object
 	Func GetMetadataForProperties P1
 		return dnRequest("call",[self,"GetMetadataForProperties",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getContainerType

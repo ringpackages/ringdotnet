@@ -25,9 +25,9 @@ Class XmlNameTable from Object
 	Func Add P1
 		return dnRequest("call",[self,"Add",P1])
 
-	Func GetWith P1
+	Func Get@ P1
 		return dnRequest("callnamed",[self,"Get",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 

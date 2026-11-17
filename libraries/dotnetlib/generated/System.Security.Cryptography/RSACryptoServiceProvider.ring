@@ -61,16 +61,16 @@ Class RSACryptoServiceProvider from RSA
 	Func VerifyData_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"VerifyData",P1,P2,P3,P4])
 
-	Func DecryptWith P1
+	Func Decrypt@ P1
 		return dnRequest("callnamed",[self,"Decrypt",P1])
 
-	Func EncryptWith P1
+	Func Encrypt@ P1
 		return dnRequest("callnamed",[self,"Encrypt",P1])
 
-	Func SignHashWith P1
+	Func SignHash@ P1
 		return dnRequest("callnamed",[self,"SignHash",P1])
 
-	Func VerifyHashWith P1
+	Func VerifyHash@ P1
 		return dnRequest("callnamed",[self,"VerifyHash",P1])
 
 	Func getCspKeyContainerInfo

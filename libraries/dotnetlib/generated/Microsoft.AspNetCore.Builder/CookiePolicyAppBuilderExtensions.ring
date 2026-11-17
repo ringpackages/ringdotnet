@@ -19,6 +19,6 @@ Class CookiePolicyAppBuilderExtensions from Object
 	Func UseCookiePolicy_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy'),"UseCookiePolicy",P1,P2])
 
-	Func UseCookiePolicyWith P1
+	Func UseCookiePolicy@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions, Microsoft.AspNetCore.CookiePolicy'),"UseCookiePolicy",P1])
 

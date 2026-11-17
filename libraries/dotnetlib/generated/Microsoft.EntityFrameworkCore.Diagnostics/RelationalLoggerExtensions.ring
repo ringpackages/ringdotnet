@@ -321,45 +321,45 @@ Class RelationalLoggerExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"UnexpectedTrailingResultSetWhenSaving",P1])
 		return self
 
-	Func TransactionStartingAsyncWith P1
+	Func TransactionStartingAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartingAsync",P1])
 
-	Func TransactionStartedAsyncWith P1
+	Func TransactionStartedAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartedAsync",P1])
 
-	Func TransactionUsedAsyncWith P1
+	Func TransactionUsedAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionUsedAsync",P1])
 
-	Func TransactionCommittingAsyncWith P1
+	Func TransactionCommittingAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittingAsync",P1])
 
-	Func TransactionCommittedAsyncWith P1
+	Func TransactionCommittedAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittedAsync",P1])
 
-	Func TransactionRolledBackAsyncWith P1
+	Func TransactionRolledBackAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRolledBackAsync",P1])
 
-	Func TransactionRollingBackAsyncWith P1
+	Func TransactionRollingBackAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRollingBackAsync",P1])
 
-	Func CreatingTransactionSavepointAsyncWith P1
+	Func CreatingTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatingTransactionSavepointAsync",P1])
 
-	Func CreatedTransactionSavepointAsyncWith P1
+	Func CreatedTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatedTransactionSavepointAsync",P1])
 
-	Func RollingBackToTransactionSavepointAsyncWith P1
+	Func RollingBackToTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RollingBackToTransactionSavepointAsync",P1])
 
-	Func RolledBackToTransactionSavepointAsyncWith P1
+	Func RolledBackToTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RolledBackToTransactionSavepointAsync",P1])
 
-	Func ReleasingTransactionSavepointAsyncWith P1
+	Func ReleasingTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasingTransactionSavepointAsync",P1])
 
-	Func ReleasedTransactionSavepointAsyncWith P1
+	Func ReleasedTransactionSavepointAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasedTransactionSavepointAsync",P1])
 
-	Func TransactionErrorAsyncWith P1
+	Func TransactionErrorAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionErrorAsync",P1])
 

@@ -21,7 +21,7 @@ Class CharacterRange from ValueType
 		nHandle = dnCreate('System.Drawing.CharacterRange, System.Drawing.Common',[P1,P2])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getFirst

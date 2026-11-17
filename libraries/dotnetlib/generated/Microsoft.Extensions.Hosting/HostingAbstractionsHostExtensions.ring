@@ -40,9 +40,9 @@ Class HostingAbstractionsHostExtensions from Object
 	Func WaitForShutdownAsync P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1])
 
-	Func RunAsyncWith P1
+	Func RunAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
 
-	Func WaitForShutdownAsyncWith P1
+	Func WaitForShutdownAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1])
 

@@ -19,6 +19,6 @@ Class MemoryConfigurationBuilderExtensions from Object
 	Func AddInMemoryCollection_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1,P2])
 
-	Func AddInMemoryCollectionWith P1
+	Func AddInMemoryCollection@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
 

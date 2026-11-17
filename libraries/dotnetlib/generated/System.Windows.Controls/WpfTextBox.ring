@@ -91,7 +91,7 @@ Class WpfTextBox from WpfTextBoxBase
 	Func ShouldSerializeText P1
 		return dnRequest("call",[self,"ShouldSerializeText",P1])
 
-	Func GetRectFromCharacterIndexWith P1
+	Func GetRectFromCharacterIndex@ P1
 		return dnRequest("callnamed",[self,"GetRectFromCharacterIndex",P1])
 
 	Func getTextWrapping

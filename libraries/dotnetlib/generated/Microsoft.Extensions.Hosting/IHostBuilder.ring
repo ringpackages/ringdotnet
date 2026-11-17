@@ -33,7 +33,7 @@ Class IHostBuilder from DotNetObject
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func UseServiceProviderFactoryWith P1
+	Func UseServiceProviderFactory@ P1
 		return dnRequest("callnamed",[self,"UseServiceProviderFactory",P1])
 
 	Func getProperties

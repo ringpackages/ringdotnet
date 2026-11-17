@@ -22,6 +22,6 @@ Class AsyncFlowControl from ValueType
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 

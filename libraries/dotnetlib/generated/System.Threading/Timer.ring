@@ -33,10 +33,10 @@ Class Timer from MarshalByRefObject
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func ChangeWith P1
+	Func Change@ P1
 		return dnRequest("callnamed",[self,"Change",P1])
 
-	Func DisposeWith P1
+	Func Dispose@ P1
 		return dnRequest("callnamed",[self,"Dispose",P1])
 
 	Func getActiveCount

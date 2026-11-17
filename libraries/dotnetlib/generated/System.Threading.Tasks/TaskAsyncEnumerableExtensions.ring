@@ -25,9 +25,9 @@ Class TaskAsyncEnumerableExtensions from Object
 	Func ToBlockingEnumerable P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1])
 
-	Func ConfigureAwaitWith P1
+	Func ConfigureAwait@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ConfigureAwait",P1])
 
-	Func ToBlockingEnumerableWith P1
+	Func ToBlockingEnumerable@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1])
 

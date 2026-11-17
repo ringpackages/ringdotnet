@@ -40,7 +40,7 @@ Class WarningsConfiguration from Object
 	Func GetServiceProviderHashCode 
 		return dnRequest("call",[self,"GetServiceProviderHashCode"])
 
-	Func WithExplicitWith P1
+	Func WithExplicit@ P1
 		return dnRequest("callnamed",[self,"WithExplicit",P1])
 
 	Func getDefaultBehavior

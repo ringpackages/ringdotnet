@@ -27,7 +27,7 @@ Class ClientWebSocket from WebSocket
 	Func SendAsync P1,P2,P3,P4
 		return dnRequest("call",[self,"SendAsync",P1,P2,P3,P4])
 
-	Func ConnectAsyncWith P1
+	Func ConnectAsync@ P1
 		return dnRequest("callnamed",[self,"ConnectAsync",P1])
 
 	Func getOptions

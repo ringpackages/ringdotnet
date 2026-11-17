@@ -97,25 +97,25 @@ Class PropertyBuilder from Object
 	Func HasConversion_3 P1,P2,P3
 		return dnRequest("call",[self,"HasConversion",P1,P2,P3])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 
-	Func HasPrecisionWith P1
+	Func HasPrecision@ P1
 		return dnRequest("callnamed",[self,"HasPrecision",P1])
 
-	Func IsUnicodeWith P1
+	Func IsUnicode@ P1
 		return dnRequest("callnamed",[self,"IsUnicode",P1])
 
-	Func HasValueGeneratorWith P1
+	Func HasValueGenerator@ P1
 		return dnRequest("callnamed",[self,"HasValueGenerator",P1])
 
-	Func HasValueGeneratorFactoryWith P1
+	Func HasValueGeneratorFactory@ P1
 		return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
 
-	Func IsConcurrencyTokenWith P1
+	Func IsConcurrencyToken@ P1
 		return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
 
-	Func HasConversionWith P1
+	Func HasConversion@ P1
 		return dnRequest("callnamed",[self,"HasConversion",P1])
 
 	Func getMetadata

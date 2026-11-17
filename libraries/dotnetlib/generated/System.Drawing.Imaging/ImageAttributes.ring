@@ -189,75 +189,75 @@ Class ImageAttributes from Object
 		dnRequest("call",[self,"GetAdjustedPalette",P1,P2])
 		return self
 
-	Func SetColorMatrixWith P1
+	Func SetColorMatrix@ P1
 		dnRequest("callnamed",[self,"SetColorMatrix",P1])
 		return self
 
-	Func ClearColorMatrixWith P1
+	Func ClearColorMatrix@ P1
 		dnRequest("callnamed",[self,"ClearColorMatrix",P1])
 		return self
 
-	Func SetColorMatricesWith P1
+	Func SetColorMatrices@ P1
 		dnRequest("callnamed",[self,"SetColorMatrices",P1])
 		return self
 
-	Func SetThresholdWith P1
+	Func SetThreshold@ P1
 		dnRequest("callnamed",[self,"SetThreshold",P1])
 		return self
 
-	Func ClearThresholdWith P1
+	Func ClearThreshold@ P1
 		dnRequest("callnamed",[self,"ClearThreshold",P1])
 		return self
 
-	Func SetGammaWith P1
+	Func SetGamma@ P1
 		dnRequest("callnamed",[self,"SetGamma",P1])
 		return self
 
-	Func ClearGammaWith P1
+	Func ClearGamma@ P1
 		dnRequest("callnamed",[self,"ClearGamma",P1])
 		return self
 
-	Func SetNoOpWith P1
+	Func SetNoOp@ P1
 		dnRequest("callnamed",[self,"SetNoOp",P1])
 		return self
 
-	Func ClearNoOpWith P1
+	Func ClearNoOp@ P1
 		dnRequest("callnamed",[self,"ClearNoOp",P1])
 		return self
 
-	Func SetColorKeyWith P1
+	Func SetColorKey@ P1
 		dnRequest("callnamed",[self,"SetColorKey",P1])
 		return self
 
-	Func ClearColorKeyWith P1
+	Func ClearColorKey@ P1
 		dnRequest("callnamed",[self,"ClearColorKey",P1])
 		return self
 
-	Func SetOutputChannelWith P1
+	Func SetOutputChannel@ P1
 		dnRequest("callnamed",[self,"SetOutputChannel",P1])
 		return self
 
-	Func ClearOutputChannelWith P1
+	Func ClearOutputChannel@ P1
 		dnRequest("callnamed",[self,"ClearOutputChannel",P1])
 		return self
 
-	Func SetOutputChannelColorProfileWith P1
+	Func SetOutputChannelColorProfile@ P1
 		dnRequest("callnamed",[self,"SetOutputChannelColorProfile",P1])
 		return self
 
-	Func ClearOutputChannelColorProfileWith P1
+	Func ClearOutputChannelColorProfile@ P1
 		dnRequest("callnamed",[self,"ClearOutputChannelColorProfile",P1])
 		return self
 
-	Func SetRemapTableWith P1
+	Func SetRemapTable@ P1
 		dnRequest("callnamed",[self,"SetRemapTable",P1])
 		return self
 
-	Func ClearRemapTableWith P1
+	Func ClearRemapTable@ P1
 		dnRequest("callnamed",[self,"ClearRemapTable",P1])
 		return self
 
-	Func SetWrapModeWith P1
+	Func SetWrapMode@ P1
 		dnRequest("callnamed",[self,"SetWrapMode",P1])
 		return self
 

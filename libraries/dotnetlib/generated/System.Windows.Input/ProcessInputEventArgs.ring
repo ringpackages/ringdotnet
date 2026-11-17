@@ -25,6 +25,6 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 	Func PeekInput 
 		return dnRequest("call",[self,"PeekInput"])
 
-	Func PushInputWith P1
+	Func PushInput@ P1
 		return dnRequest("callnamed",[self,"PushInput",P1])
 

@@ -26,10 +26,10 @@ Class AuthorizationPolicy from Object
 	Func CombineAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2,P3])
 
-	Func CombineWith P1
+	Func Combine@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
 
-	Func CombineAsyncWith P1
+	Func CombineAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1])
 
 	Func getRequirements

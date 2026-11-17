@@ -27,10 +27,10 @@ Class IConventionServicePropertyBuilder from DotNetObject
 	Func CanSetParameterBinding P1
 		return dnRequest("call",[self,"CanSetParameterBinding",P1])
 
-	Func HasParameterBindingWith P1
+	Func HasParameterBinding@ P1
 		return dnRequest("callnamed",[self,"HasParameterBinding",P1])
 
-	Func CanSetParameterBindingWith P1
+	Func CanSetParameterBinding@ P1
 		return dnRequest("callnamed",[self,"CanSetParameterBinding",P1])
 
 	Func getMetadata

@@ -44,11 +44,11 @@ Class TabControl from Control
 		dnRequest("call",[self,"SelectTab",P1])
 		return self
 
-	Func DeselectTabWith P1
+	Func DeselectTab@ P1
 		dnRequest("callnamed",[self,"DeselectTab",P1])
 		return self
 
-	Func SelectTabWith P1
+	Func SelectTab@ P1
 		dnRequest("callnamed",[self,"SelectTab",P1])
 		return self
 

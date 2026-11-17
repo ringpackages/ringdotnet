@@ -79,21 +79,21 @@ Class Dns from Object
 	Func EndResolve P1
 		return dnRequest("call",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"EndResolve",P1])
 
-	Func GetHostEntryWith P1
+	Func GetHostEntry@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntry",P1])
 
-	Func GetHostEntryAsyncWith P1
+	Func GetHostEntryAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostEntryAsync",P1])
 
-	Func BeginGetHostEntryWith P1
+	Func BeginGetHostEntry@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"BeginGetHostEntry",P1])
 
-	Func GetHostAddressesWith P1
+	Func GetHostAddresses@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddresses",P1])
 
-	Func GetHostAddressesAsyncWith P1
+	Func GetHostAddressesAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostAddressesAsync",P1])
 
-	Func GetHostByAddressWith P1
+	Func GetHostByAddress@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Dns, System.Net.NameResolution'),"GetHostByAddress",P1])
 

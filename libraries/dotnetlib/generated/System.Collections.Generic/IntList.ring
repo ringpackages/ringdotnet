@@ -179,30 +179,30 @@ Class IntList from Object
 	Func TrueForAll P1
 		return dnRequest("call",[self,"TrueForAll",P1])
 
-	Func BinarySearchWith P1
+	Func BinarySearch@ P1
 		return dnRequest("callnamed",[self,"BinarySearch",P1])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
-	Func FindIndexWith P1
+	Func FindIndex@ P1
 		return dnRequest("callnamed",[self,"FindIndex",P1])
 
-	Func FindLastIndexWith P1
+	Func FindLastIndex@ P1
 		return dnRequest("callnamed",[self,"FindLastIndex",P1])
 
-	Func IndexOfWith P1
+	Func IndexOf@ P1
 		return dnRequest("callnamed",[self,"IndexOf",P1])
 
-	Func LastIndexOfWith P1
+	Func LastIndexOf@ P1
 		return dnRequest("callnamed",[self,"LastIndexOf",P1])
 
-	Func ReverseWith P1
+	Func Reverse@ P1
 		dnRequest("callnamed",[self,"Reverse",P1])
 		return self
 
-	Func SortWith P1
+	Func Sort@ P1
 		dnRequest("callnamed",[self,"Sort",P1])
 		return self
 

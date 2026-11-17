@@ -69,16 +69,16 @@ Class ExpressionExtensions from Object
 	Func CreateEqualsExpression P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1,P2])
 
-	Func PrintWith P1
+	Func Print@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1])
 
-	Func CreateKeyValuesExpressionWith P1
+	Func CreateKeyValuesExpression@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateKeyValuesExpression",P1])
 
-	Func CreateEFPropertyExpressionWith P1
+	Func CreateEFPropertyExpression@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1])
 
-	Func CreateEqualsExpressionWith P1
+	Func CreateEqualsExpression@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1])
 
 	Func getValueBufferTryReadValueMethod

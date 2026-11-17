@@ -25,7 +25,7 @@ Class EntityMaterializerSourceParameters from ValueType
 	Func Deconstruct 
 		return dnRequest("call",[self,"Deconstruct"])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getStructuralType

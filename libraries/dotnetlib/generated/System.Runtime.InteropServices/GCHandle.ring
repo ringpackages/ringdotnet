@@ -36,10 +36,10 @@ Class GCHandle from ValueType
 	Func ToIntPtr P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"ToIntPtr",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func AllocWith P1
+	Func Alloc@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.GCHandle, System.Private.CoreLib'),"Alloc",P1])
 
 	Func getTarget

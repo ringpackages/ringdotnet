@@ -20,7 +20,7 @@ Class DiagnosticMethodInfo from Object
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"Create",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.DiagnosticMethodInfo, System.Private.CoreLib'),"Create",P1])
 
 	Func getName

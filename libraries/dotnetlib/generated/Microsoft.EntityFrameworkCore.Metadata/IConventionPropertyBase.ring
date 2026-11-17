@@ -42,13 +42,13 @@ Class IConventionPropertyBase from DotNetObject
 	Func GetPropertyAccessModeConfigurationSource 
 		return dnRequest("call",[self,"GetPropertyAccessModeConfigurationSource"])
 
-	Func SetFieldInfoWith P1
+	Func SetFieldInfo@ P1
 		return dnRequest("callnamed",[self,"SetFieldInfo",P1])
 
-	Func SetFieldWith P1
+	Func SetField@ P1
 		return dnRequest("callnamed",[self,"SetField",P1])
 
-	Func SetPropertyAccessModeWith P1
+	Func SetPropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
 
 	Func getDeclaringType

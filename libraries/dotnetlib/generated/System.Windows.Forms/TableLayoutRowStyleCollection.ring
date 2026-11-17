@@ -27,6 +27,6 @@ Class TableLayoutRowStyleCollection from TableLayoutStyleCollection
 	Func IndexOf P1
 		return dnRequest("call",[self,"IndexOf",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 

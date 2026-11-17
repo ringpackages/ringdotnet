@@ -233,80 +233,80 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[self,"Warp",P1,P2,P3,P4,P5])
 		return self
 
-	Func IsVisibleWith P1
+	Func IsVisible@ P1
 		return dnRequest("callnamed",[self,"IsVisible",P1])
 
-	Func IsOutlineVisibleWith P1
+	Func IsOutlineVisible@ P1
 		return dnRequest("callnamed",[self,"IsOutlineVisible",P1])
 
-	Func AddLineWith P1
+	Func AddLine@ P1
 		dnRequest("callnamed",[self,"AddLine",P1])
 		return self
 
-	Func AddLinesWith P1
+	Func AddLines@ P1
 		dnRequest("callnamed",[self,"AddLines",P1])
 		return self
 
-	Func AddArcWith P1
+	Func AddArc@ P1
 		dnRequest("callnamed",[self,"AddArc",P1])
 		return self
 
-	Func AddBezierWith P1
+	Func AddBezier@ P1
 		dnRequest("callnamed",[self,"AddBezier",P1])
 		return self
 
-	Func AddBeziersWith P1
+	Func AddBeziers@ P1
 		dnRequest("callnamed",[self,"AddBeziers",P1])
 		return self
 
-	Func AddCurveWith P1
+	Func AddCurve@ P1
 		dnRequest("callnamed",[self,"AddCurve",P1])
 		return self
 
-	Func AddClosedCurveWith P1
+	Func AddClosedCurve@ P1
 		dnRequest("callnamed",[self,"AddClosedCurve",P1])
 		return self
 
-	Func AddRectangleWith P1
+	Func AddRectangle@ P1
 		dnRequest("callnamed",[self,"AddRectangle",P1])
 		return self
 
-	Func AddRectanglesWith P1
+	Func AddRectangles@ P1
 		dnRequest("callnamed",[self,"AddRectangles",P1])
 		return self
 
-	Func AddRoundedRectangleWith P1
+	Func AddRoundedRectangle@ P1
 		dnRequest("callnamed",[self,"AddRoundedRectangle",P1])
 		return self
 
-	Func AddEllipseWith P1
+	Func AddEllipse@ P1
 		dnRequest("callnamed",[self,"AddEllipse",P1])
 		return self
 
-	Func AddPieWith P1
+	Func AddPie@ P1
 		dnRequest("callnamed",[self,"AddPie",P1])
 		return self
 
-	Func AddPolygonWith P1
+	Func AddPolygon@ P1
 		dnRequest("callnamed",[self,"AddPolygon",P1])
 		return self
 
-	Func AddStringWith P1
+	Func AddString@ P1
 		dnRequest("callnamed",[self,"AddString",P1])
 		return self
 
-	Func GetBoundsWith P1
+	Func GetBounds@ P1
 		return dnRequest("callnamed",[self,"GetBounds",P1])
 
-	Func FlattenWith P1
+	Func Flatten@ P1
 		dnRequest("callnamed",[self,"Flatten",P1])
 		return self
 
-	Func WidenWith P1
+	Func Widen@ P1
 		dnRequest("callnamed",[self,"Widen",P1])
 		return self
 
-	Func WarpWith P1
+	Func Warp@ P1
 		dnRequest("callnamed",[self,"Warp",P1])
 		return self
 

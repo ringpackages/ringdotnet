@@ -16,6 +16,6 @@ Class EfExpressionExtensions from Object
 	Func InferTypeMapping P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational'),"InferTypeMapping",P1])
 
-	Func InferTypeMappingWith P1
+	Func InferTypeMapping@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionExtensions, Microsoft.EntityFrameworkCore.Relational'),"InferTypeMapping",P1])
 

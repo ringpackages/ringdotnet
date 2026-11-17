@@ -14,6 +14,6 @@ Class FontStyle from ValueType
 		nHandle = dnCreate('System.Windows.FontStyle, PresentationCore',[])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 

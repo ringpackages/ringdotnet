@@ -50,7 +50,7 @@ Class BindingGroup from DependencyObject
 	Func TryGetValue P1,P2
 		return dnRequest("call",[self,"TryGetValue",P1,P2])
 
-	Func GetValueWith P1
+	Func GetValue@ P1
 		return dnRequest("callnamed",[self,"GetValue",P1])
 
 	Func getOwner

@@ -31,7 +31,7 @@ Class RowUpdatedEventArgs from EventArgs
 		dnRequest("call",[self,"CopyToRows",P1,P2])
 		return self
 
-	Func CopyToRowsWith P1
+	Func CopyToRows@ P1
 		dnRequest("callnamed",[self,"CopyToRows",P1])
 		return self
 

@@ -26,4 +26,4 @@ uiEnd()
 
 func tick
 	oNow = dnType("System.DateTime").getProp("Now")
-	oClock.Text = oNow.ToStringWith([ :format = "HH:mm:ss" ])
+	oClock.Text = oNow.ToString@([ :format = "HH:mm:ss" ])

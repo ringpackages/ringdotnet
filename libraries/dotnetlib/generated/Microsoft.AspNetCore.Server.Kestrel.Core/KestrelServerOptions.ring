@@ -96,30 +96,30 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[self,"ListenNamedPipe",P1,P2])
 		return self
 
-	Func ConfigureWith P1
+	Func Configure@ P1
 		return dnRequest("callnamed",[self,"Configure",P1])
 
-	Func ListenWith P1
+	Func Listen@ P1
 		dnRequest("callnamed",[self,"Listen",P1])
 		return self
 
-	Func ListenLocalhostWith P1
+	Func ListenLocalhost@ P1
 		dnRequest("callnamed",[self,"ListenLocalhost",P1])
 		return self
 
-	Func ListenAnyIPWith P1
+	Func ListenAnyIP@ P1
 		dnRequest("callnamed",[self,"ListenAnyIP",P1])
 		return self
 
-	Func ListenUnixSocketWith P1
+	Func ListenUnixSocket@ P1
 		dnRequest("callnamed",[self,"ListenUnixSocket",P1])
 		return self
 
-	Func ListenHandleWith P1
+	Func ListenHandle@ P1
 		dnRequest("callnamed",[self,"ListenHandle",P1])
 		return self
 
-	Func ListenNamedPipeWith P1
+	Func ListenNamedPipe@ P1
 		dnRequest("callnamed",[self,"ListenNamedPipe",P1])
 		return self
 

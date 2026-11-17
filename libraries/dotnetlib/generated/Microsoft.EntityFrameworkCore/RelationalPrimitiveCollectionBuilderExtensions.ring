@@ -58,33 +58,33 @@ Class RelationalPrimitiveCollectionBuilderExtensions from Object
 	Func HasJsonPropertyName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2])
 
-	Func HasColumnNameWith P1
+	Func HasColumnName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1])
 
-	Func HasColumnOrderWith P1
+	Func HasColumnOrder@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnOrder",P1])
 
-	Func HasColumnTypeWith P1
+	Func HasColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1])
 
-	Func IsFixedLengthWith P1
+	Func IsFixedLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func HasDefaultValueSqlWith P1
+	Func HasDefaultValueSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func HasComputedColumnSqlWith P1
+	Func HasComputedColumnSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func HasDefaultValueWith P1
+	Func HasDefaultValue@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 
-	Func HasCommentWith P1
+	Func HasComment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1])
 
-	Func UseCollationWith P1
+	Func UseCollation@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1])
 
-	Func HasJsonPropertyNameWith P1
+	Func HasJsonPropertyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1])
 

@@ -25,9 +25,9 @@ Class OptionsBuilderConfigurationExtensions from Object
 	Func BindConfiguration P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"BindConfiguration",P1,P2])
 
-	Func BindWith P1
+	Func Bind@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"Bind",P1])
 
-	Func BindConfigurationWith P1
+	Func BindConfiguration@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsBuilderConfigurationExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"BindConfiguration",P1])
 

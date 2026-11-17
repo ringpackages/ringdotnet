@@ -19,6 +19,6 @@ Class RateLimiterApplicationBuilderExtensions from Object
 	Func UseRateLimiter_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"UseRateLimiter",P1,P2])
 
-	Func UseRateLimiterWith P1
+	Func UseRateLimiter@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RateLimiterApplicationBuilderExtensions, Microsoft.AspNetCore.RateLimiting'),"UseRateLimiter",P1])
 

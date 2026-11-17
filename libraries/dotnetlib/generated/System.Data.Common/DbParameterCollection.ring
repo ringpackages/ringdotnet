@@ -55,13 +55,13 @@ Class DbParameterCollection from MarshalByRefObject
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func IndexOfWith P1
+	Func IndexOf@ P1
 		return dnRequest("callnamed",[self,"IndexOf",P1])
 
-	Func RemoveAtWith P1
+	Func RemoveAt@ P1
 		dnRequest("callnamed",[self,"RemoveAt",P1])
 		return self
 

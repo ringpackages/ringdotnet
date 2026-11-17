@@ -303,109 +303,109 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetJsonPropertyNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyNameConfigurationSource",P1])
 
-	Func GetDefaultTableNameWith P1
+	Func GetDefaultTableName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultTableName",P1])
 
-	Func SetTableNameWith P1
+	Func SetTableName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1])
 
-	Func SetSchemaWith P1
+	Func SetSchema@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSchema",P1])
 
-	Func SetViewNameWith P1
+	Func SetViewName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewName",P1])
 
-	Func SetViewSchemaWith P1
+	Func SetViewSchema@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewSchema",P1])
 
-	Func SetSqlQueryWith P1
+	Func SetSqlQuery@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSqlQuery",P1])
 
-	Func SetFunctionNameWith P1
+	Func SetFunctionName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFunctionName",P1])
 
-	Func GetDeleteStoredProcedureWith P1
+	Func GetDeleteStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDeleteStoredProcedure",P1])
 
-	Func SetDeleteStoredProcedureWith P1
+	Func SetDeleteStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDeleteStoredProcedure",P1])
 
-	Func RemoveDeleteStoredProcedureWith P1
+	Func RemoveDeleteStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveDeleteStoredProcedure",P1])
 
-	Func GetInsertStoredProcedureWith P1
+	Func GetInsertStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetInsertStoredProcedure",P1])
 
-	Func SetInsertStoredProcedureWith P1
+	Func SetInsertStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetInsertStoredProcedure",P1])
 
-	Func RemoveInsertStoredProcedureWith P1
+	Func RemoveInsertStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveInsertStoredProcedure",P1])
 
-	Func GetUpdateStoredProcedureWith P1
+	Func GetUpdateStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetUpdateStoredProcedure",P1])
 
-	Func SetUpdateStoredProcedureWith P1
+	Func SetUpdateStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetUpdateStoredProcedure",P1])
 
-	Func RemoveUpdateStoredProcedureWith P1
+	Func RemoveUpdateStoredProcedure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveUpdateStoredProcedure",P1])
 
-	Func FindCheckConstraintWith P1
+	Func FindCheckConstraint@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindCheckConstraint",P1])
 
-	Func AddCheckConstraintWith P1
+	Func AddCheckConstraint@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddCheckConstraint",P1])
 
-	Func RemoveCheckConstraintWith P1
+	Func RemoveCheckConstraint@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveCheckConstraint",P1])
 
-	Func GetCheckConstraintsWith P1
+	Func GetCheckConstraints@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCheckConstraints",P1])
 
-	Func GetDeclaredCheckConstraintsWith P1
+	Func GetDeclaredCheckConstraints@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDeclaredCheckConstraints",P1])
 
-	Func SetCommentWith P1
+	Func SetComment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1])
 
-	Func GetMappingFragmentsWith P1
+	Func GetMappingFragments@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
 
-	Func FindMappingFragmentWith P1
+	Func FindMappingFragment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindMappingFragment",P1])
 
-	Func GetOrCreateMappingFragmentWith P1
+	Func GetOrCreateMappingFragment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateMappingFragment",P1])
 
-	Func RemoveMappingFragmentWith P1
+	Func RemoveMappingFragment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveMappingFragment",P1])
 
-	Func FindRowInternalForeignKeysWith P1
+	Func FindRowInternalForeignKeys@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRowInternalForeignKeys",P1])
 
-	Func IsTableExcludedFromMigrationsWith P1
+	Func IsTableExcludedFromMigrations@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsTableExcludedFromMigrations",P1])
 
-	Func SetIsTableExcludedFromMigrationsWith P1
+	Func SetIsTableExcludedFromMigrations@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsTableExcludedFromMigrations",P1])
 
-	Func GetIsTableExcludedFromMigrationsConfigurationSourceWith P1
+	Func GetIsTableExcludedFromMigrationsConfigurationSource@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsTableExcludedFromMigrationsConfigurationSource",P1])
 
-	Func SetMappingStrategyWith P1
+	Func SetMappingStrategy@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMappingStrategy",P1])
 
-	Func SetContainerColumnNameWith P1
+	Func SetContainerColumnName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnName",P1])
 
-	Func SetContainerColumnTypeWith P1
+	Func SetContainerColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnType",P1])
 
-	Func SetContainerColumnTypeMappingWith P1
+	Func SetContainerColumnTypeMapping@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnTypeMapping",P1])
 
-	Func SetJsonPropertyNameWith P1
+	Func SetJsonPropertyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1])
 
 	Func getDefaultQueryNameBase

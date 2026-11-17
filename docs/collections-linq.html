@@ -199,7 +199,7 @@ Query values   : ring,dotnet | 2</code></pre></div>
 <h2 id="sorting-and-searching-with-ring-code">Sorting and searching with Ring code<a class="anchor" href="#sorting-and-searching-with-ring-code">#</a></h2>
 <p>Methods that take a delegate (<code>Predicate</code>, <code>Comparison</code>, <code>Action</code>) accept <code>dnCallback(...)</code>. The Ring code reads <code>aDotNetArgs</code> and sets <code>xDotNetResult</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oList.<span class="f">FindAll</span>(<span class="f">dnCallback</span>(<span class="s">"xDotNetResult = left(aDotNetArgs[1],1) = 'a'"</span>))
-oList.<span class="f">SortWith</span>([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
+oList.Sort@([ :comparison = <span class="f">dnCallback</span>(<span class="s">"xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"</span>) ])
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"? aDotNetArgs[1]"</span>))</code></pre></div>
 <p>See <a href="callbacks-events.html">Callbacks &amp; events</a>.</p>
 <h2 id="linq">LINQ<a class="anchor" href="#linq">#</a></h2>

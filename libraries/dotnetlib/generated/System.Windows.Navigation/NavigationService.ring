@@ -54,7 +54,7 @@ Class NavigationService from Object
 	Func GetNavigationService P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.NavigationService, PresentationFramework'),"GetNavigationService",P1])
 
-	Func NavigateWith P1
+	Func Navigate@ P1
 		return dnRequest("callnamed",[self,"Navigate",P1])
 
 	Func setNavigationFailedEvent P1

@@ -59,15 +59,15 @@ Class TraceSource from Object
 		dnRequest("call",[self,"TraceTransfer",P1,P2,P3])
 		return self
 
-	Func TraceEventWith P1
+	Func TraceEvent@ P1
 		dnRequest("callnamed",[self,"TraceEvent",P1])
 		return self
 
-	Func TraceDataWith P1
+	Func TraceData@ P1
 		dnRequest("callnamed",[self,"TraceData",P1])
 		return self
 
-	Func TraceInformationWith P1
+	Func TraceInformation@ P1
 		dnRequest("callnamed",[self,"TraceInformation",P1])
 		return self
 

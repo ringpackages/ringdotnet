@@ -111,31 +111,31 @@ Class JsonSerializer from Object
 	Func Serialize P1
 		return dnRequest("call",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Serialize",P1])
 
-	Func DeserializeWith P1
+	Func Deserialize@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Deserialize",P1])
 
-	Func SerializeToDocumentWith P1
+	Func SerializeToDocument@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToDocument",P1])
 
-	Func SerializeToElementWith P1
+	Func SerializeToElement@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToElement",P1])
 
-	Func SerializeToNodeWith P1
+	Func SerializeToNode@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToNode",P1])
 
-	Func DeserializeAsyncWith P1
+	Func DeserializeAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsync",P1])
 
-	Func DeserializeAsyncEnumerableWith P1
+	Func DeserializeAsyncEnumerable@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"DeserializeAsyncEnumerable",P1])
 
-	Func SerializeToUtf8BytesWith P1
+	Func SerializeToUtf8Bytes@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeToUtf8Bytes",P1])
 
-	Func SerializeAsyncWith P1
+	Func SerializeAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"SerializeAsync",P1])
 
-	Func SerializeWith P1
+	Func Serialize@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Json.JsonSerializer, System.Text.Json'),"Serialize",P1])
 
 	Func getIsReflectionEnabledByDefault

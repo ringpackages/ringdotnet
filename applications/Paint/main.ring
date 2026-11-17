@@ -73,7 +73,7 @@ func clearCanvas
 	oCanvas.show()
 
 func saveTo cFile
-	oCanvas.oBitmap.SaveWith([ :filename = cFile, :format = new ImageFormat().Png ])
+	oCanvas.oBitmap.Save@([ :filename = cFile, :format = new ImageFormat().Png ])
 
 func saveDialog
 	cFile = uiSaveFileName("Save picture","PNG image (*.png)|*.png")

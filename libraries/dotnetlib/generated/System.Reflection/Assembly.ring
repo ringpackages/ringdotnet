@@ -178,43 +178,43 @@ Class Assembly from Object
 	Func ReflectionOnlyLoadFrom P1
 		return dnRequest("call",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoadFrom",P1])
 
-	Func GetManifestResourceStreamWith P1
+	Func GetManifestResourceStream@ P1
 		return dnRequest("callnamed",[self,"GetManifestResourceStream",P1])
 
-	Func GetNameWith P1
+	Func GetName@ P1
 		return dnRequest("callnamed",[self,"GetName",P1])
 
-	Func GetTypeWith P1
+	Func GetType@ P1
 		return dnRequest("callnamed",[self,"GetType",P1])
 
-	Func GetCustomAttributesWith P1
+	Func GetCustomAttributes@ P1
 		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
 
-	Func CreateInstanceWith P1
+	Func CreateInstance@ P1
 		return dnRequest("callnamed",[self,"CreateInstance",P1])
 
-	Func GetModulesWith P1
+	Func GetModules@ P1
 		return dnRequest("callnamed",[self,"GetModules",P1])
 
-	Func GetLoadedModulesWith P1
+	Func GetLoadedModules@ P1
 		return dnRequest("callnamed",[self,"GetLoadedModules",P1])
 
-	Func GetSatelliteAssemblyWith P1
+	Func GetSatelliteAssembly@ P1
 		return dnRequest("callnamed",[self,"GetSatelliteAssembly",P1])
 
-	Func GetFilesWith P1
+	Func GetFiles@ P1
 		return dnRequest("callnamed",[self,"GetFiles",P1])
 
-	Func LoadModuleWith P1
+	Func LoadModule@ P1
 		return dnRequest("callnamed",[self,"LoadModule",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"Load",P1])
 
-	Func LoadFromWith P1
+	Func LoadFrom@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"LoadFrom",P1])
 
-	Func ReflectionOnlyLoadWith P1
+	Func ReflectionOnlyLoad@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Reflection.Assembly, System.Private.CoreLib'),"ReflectionOnlyLoad",P1])
 
 	Func setModuleResolveEvent P1

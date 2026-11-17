@@ -25,6 +25,6 @@ Class HttpLoggingServicesExtensions from Object
 	Func AddW3CLogging P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddW3CLogging",P1,P2])
 
-	Func AddHttpLoggingWith P1
+	Func AddHttpLogging@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.HttpLoggingServicesExtensions, Microsoft.AspNetCore.HttpLogging'),"AddHttpLogging",P1])
 

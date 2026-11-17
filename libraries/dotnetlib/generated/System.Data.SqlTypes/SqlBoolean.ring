@@ -94,10 +94,10 @@ Class SqlBoolean from ValueType
 	Func GetXsdType P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"GetXsdType",P1])
 
-	Func CompareToWith P1
+	Func CompareTo@ P1
 		return dnRequest("callnamed",[self,"CompareTo",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1])
 		ok

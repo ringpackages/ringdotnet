@@ -163,71 +163,71 @@ Class TypeDescriptor from Object
 		dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"SortDescriptorArray",P1])
 		return self
 
-	Func AddAttributesWith P1
+	Func AddAttributes@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddAttributes",P1])
 
-	Func AddProviderWith P1
+	Func AddProvider@ P1
 		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddProvider",P1])
 		return self
 
-	Func AddProviderTransparentWith P1
+	Func AddProviderTransparent@ P1
 		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"AddProviderTransparent",P1])
 		return self
 
-	Func CreateEventWith P1
+	Func CreateEvent@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateEvent",P1])
 
-	Func CreatePropertyWith P1
+	Func CreateProperty@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateProperty",P1])
 
-	Func GetAttributesWith P1
+	Func GetAttributes@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetAttributes",P1])
 
-	Func GetClassNameWith P1
+	Func GetClassName@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetClassName",P1])
 
-	Func GetComponentNameWith P1
+	Func GetComponentName@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetComponentName",P1])
 
-	Func GetConverterWith P1
+	Func GetConverter@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverter",P1])
 
-	Func GetConverterFromRegisteredTypeWith P1
+	Func GetConverterFromRegisteredType@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverterFromRegisteredType",P1])
 
-	Func GetDefaultEventWith P1
+	Func GetDefaultEvent@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultEvent",P1])
 
-	Func GetDefaultPropertyWith P1
+	Func GetDefaultProperty@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultProperty",P1])
 
-	Func GetEditorWith P1
+	Func GetEditor@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEditor",P1])
 
-	Func GetEventsWith P1
+	Func GetEvents@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEvents",P1])
 
-	Func GetPropertiesWith P1
+	Func GetProperties@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProperties",P1])
 
-	Func GetPropertiesFromRegisteredTypeWith P1
+	Func GetPropertiesFromRegisteredType@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetPropertiesFromRegisteredType",P1])
 
-	Func GetProviderWith P1
+	Func GetProvider@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProvider",P1])
 
-	Func GetReflectionTypeWith P1
+	Func GetReflectionType@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetReflectionType",P1])
 
-	Func RefreshWith P1
+	Func Refresh@ P1
 		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"Refresh",P1])
 		return self
 
-	Func RemoveProviderWith P1
+	Func RemoveProvider@ P1
 		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"RemoveProvider",P1])
 		return self
 
-	Func RemoveProviderTransparentWith P1
+	Func RemoveProviderTransparent@ P1
 		dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"RemoveProviderTransparent",P1])
 		return self
 

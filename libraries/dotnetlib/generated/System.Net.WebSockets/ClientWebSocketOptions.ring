@@ -42,7 +42,7 @@ Class ClientWebSocketOptions from Object
 		dnRequest("call",[self,"SetBuffer",P1,P2,P3])
 		return self
 
-	Func SetBufferWith P1
+	Func SetBuffer@ P1
 		dnRequest("callnamed",[self,"SetBuffer",P1])
 		return self
 

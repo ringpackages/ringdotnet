@@ -127,20 +127,20 @@ Class ListView from Control
 		dnRequest("call",[self,"Sort"])
 		return self
 
-	Func ArrangeIconsWith P1
+	Func ArrangeIcons@ P1
 		dnRequest("callnamed",[self,"ArrangeIcons",P1])
 		return self
 
-	Func FindItemWithTextWith P1
+	Func FindItemWithText@ P1
 		return dnRequest("callnamed",[self,"FindItemWithText",P1])
 
-	Func FindNearestItemWith P1
+	Func FindNearestItem@ P1
 		return dnRequest("callnamed",[self,"FindNearestItem",P1])
 
-	Func GetItemRectWith P1
+	Func GetItemRect@ P1
 		return dnRequest("callnamed",[self,"GetItemRect",P1])
 
-	Func HitTestWith P1
+	Func HitTest@ P1
 		return dnRequest("callnamed",[self,"HitTest",P1])
 
 	Func setRightToLeftLayoutChangedEvent P1

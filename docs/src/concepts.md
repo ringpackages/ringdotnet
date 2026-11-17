@@ -34,33 +34,33 @@ Ring has no method overloading, so overloads get predictable names:
 | `Console.WriteLine("x")` | `WriteLine("x")` | `Write*` methods keep the shortest overload with a parameter. |
 | `Next()`, `Next(int)`, `Next(int,int)` | `Next`, `Next_1`, `Next_2` | `Name_N` counts parameters. |
 | `Serialize(value, options = null)` | `Serialize(value)`, `Serialize_2(value, options)` | A method with **optional parameters** is available with every number of parameters from the required ones up. |
-| `new MemoryStream(bytes)` | `new MemoryStream().New_1(bytes)` or `dnNewWith("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is parameterless (or the shortest), the others are `New_N`. |
+| `new MemoryStream(bytes)` | `new MemoryStream().New_1(bytes)` or `dnNew@("MemoryStream",[ :buffer = bytes ])` | Constructors: `init()` is parameterless (or the shortest), the others are `New_N`. |
 | `ForEach`, `Exit`, `Step`, `Call` | `ForEach_`, `Exit_` ... | A name that is a Ring keyword gets a trailing underscore. |
 
 The bridge still **picks the real overload from the argument types**: whole numbers prefer `int`, strings prefer `string`, a .NET object prefers its own type.
 
 ## Named arguments
 
-Ring has no optional or overloaded parameters, but it has a natural replacement: a **list of `:name = value` pairs**. Every method that has overloads or optional parameters also exists in a `With` form that takes such a list. The names are the **parameter names of the .NET method**, the order does not matter, and optional parameters can be left out. The bridge picks the overload from the names:
+Ring has no optional or overloaded parameters, but it has a natural replacement: a **list of `:name = value` pairs**. Every method that has overloads or optional parameters also exists in a form with a trailing `@` that takes such a list. The names are the **parameter names of the .NET method**, the order does not matter, and optional parameters can be left out. The bridge picks the overload from the names:
 
 ```ring
 oMath = new Math()
-? oMath.RoundWith([ :value = 3.14159, :digits = 2 ])         # 3.14
-? oMath.RoundWith([ :digits = 1, :value = 2.74 ])             # 2.7 : any order
+? oMath.Round@([ :value = 3.14159, :digits = 2 ])         # 3.14
+? oMath.Round@([ :digits = 1, :value = 2.74 ])             # 2.7 : any order
 
 oDate = new DateTime(2024,7,4)
-? oDate.ToStringWith([ :format = "yyyy-MM-dd" ])              # 2024-07-04
+? oDate.ToString@([ :format = "yyyy-MM-dd" ])              # 2024-07-04
 
-oProcess = new Process().StartWith([ :startInfo = oInfo ])    # instead of Start_1(oInfo)
+oProcess = new Process().Start@([ :startInfo = oInfo ])    # instead of Start_1(oInfo)
 
-oSB = dnNewWith("StringBuilder",[ :value = "Hello" ])         # a constructor chosen by names
-oDate = dnNewWith("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
+oSB = dnNew@("StringBuilder",[ :value = "Hello" ])         # a constructor chosen by names
+oDate = dnNew@("DateTime",[ :year = 2024, :month = 12, :day = 25 ])
 ```
 
 | | |
 |---|---|
-| `oObject.NameWith([ :param = value, ... ])` | the method `Name`, overload chosen by the parameter names (static methods too: `new Math().RoundWith(...)`) |
-| `dnNewWith("Class", [ :param = value, ... ])` | a new object; the constructor is chosen by the parameter names. `Class` is a Ring class name or a full .NET type name |
+| `oObject.Name@([ :param = value, ... ])` | the method `Name`, overload chosen by the parameter names (static methods too: `new Math().RoundWith(...)`) |
+| `dnNew@("Class", [ :param = value, ... ])` | a new object; the constructor is chosen by the parameter names. `Class` is a Ring class name or a full .NET type name |
 
 A name that matches no parameter, or a missing required parameter, raises an error that lists the names you gave. Names are not case sensitive. The parameter names are shown by the .NET documentation and by `dnDescribe`; the `_N` forms stay available.
 

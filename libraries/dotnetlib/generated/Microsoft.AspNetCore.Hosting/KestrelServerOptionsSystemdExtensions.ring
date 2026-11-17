@@ -19,6 +19,6 @@ Class KestrelServerOptionsSystemdExtensions from Object
 	Func UseSystemd_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1,P2])
 
-	Func UseSystemdWith P1
+	Func UseSystemd@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1])
 

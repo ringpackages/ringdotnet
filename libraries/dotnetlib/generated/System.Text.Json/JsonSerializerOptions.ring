@@ -71,7 +71,7 @@ Class JsonSerializerOptions from Object
 		dnRequest("call",[self,"MakeReadOnly",P1])
 		return self
 
-	Func MakeReadOnlyWith P1
+	Func MakeReadOnly@ P1
 		dnRequest("callnamed",[self,"MakeReadOnly",P1])
 		return self
 

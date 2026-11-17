@@ -29,7 +29,7 @@ Class HttpListenerContext from Object
 	Func AcceptWebSocketAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"AcceptWebSocketAsync",P1,P2,P3,P4])
 
-	Func AcceptWebSocketAsyncWith P1
+	Func AcceptWebSocketAsync@ P1
 		return dnRequest("callnamed",[self,"AcceptWebSocketAsync",P1])
 
 	Func getRequest

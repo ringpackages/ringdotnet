@@ -19,6 +19,6 @@ Class CorsServiceCollectionExtensions from Object
 	Func AddCors_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors'),"AddCors",P1,P2])
 
-	Func AddCorsWith P1
+	Func AddCors@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions, Microsoft.AspNetCore.Cors'),"AddCors",P1])
 

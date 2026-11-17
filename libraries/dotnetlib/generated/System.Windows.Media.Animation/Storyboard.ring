@@ -167,57 +167,57 @@ Class Storyboard from ParallelTimeline
 	Func GetTargetProperty_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetProperty",P1])
 
-	Func BeginWith P1
+	Func Begin@ P1
 		dnRequest("callnamed",[self,"Begin",P1])
 		return self
 
-	Func GetCurrentGlobalSpeedWith P1
+	Func GetCurrentGlobalSpeed@ P1
 		return dnRequest("callnamed",[self,"GetCurrentGlobalSpeed",P1])
 
-	Func GetCurrentIterationWith P1
+	Func GetCurrentIteration@ P1
 		return dnRequest("callnamed",[self,"GetCurrentIteration",P1])
 
-	Func GetCurrentProgressWith P1
+	Func GetCurrentProgress@ P1
 		return dnRequest("callnamed",[self,"GetCurrentProgress",P1])
 
-	Func GetCurrentStateWith P1
+	Func GetCurrentState@ P1
 		return dnRequest("callnamed",[self,"GetCurrentState",P1])
 
-	Func GetCurrentTimeWith P1
+	Func GetCurrentTime@ P1
 		return dnRequest("callnamed",[self,"GetCurrentTime",P1])
 
-	Func GetIsPausedWith P1
+	Func GetIsPaused@ P1
 		return dnRequest("callnamed",[self,"GetIsPaused",P1])
 
-	Func PauseWith P1
+	Func Pause@ P1
 		dnRequest("callnamed",[self,"Pause",P1])
 		return self
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 
-	Func ResumeWith P1
+	Func Resume@ P1
 		dnRequest("callnamed",[self,"Resume",P1])
 		return self
 
-	Func SeekWith P1
+	Func Seek@ P1
 		dnRequest("callnamed",[self,"Seek",P1])
 		return self
 
-	Func SeekAlignedToLastTickWith P1
+	Func SeekAlignedToLastTick@ P1
 		dnRequest("callnamed",[self,"SeekAlignedToLastTick",P1])
 		return self
 
-	Func SetSpeedRatioWith P1
+	Func SetSpeedRatio@ P1
 		dnRequest("callnamed",[self,"SetSpeedRatio",P1])
 		return self
 
-	Func SkipToFillWith P1
+	Func SkipToFill@ P1
 		dnRequest("callnamed",[self,"SkipToFill",P1])
 		return self
 
-	Func StopWith P1
+	Func Stop@ P1
 		dnRequest("callnamed",[self,"Stop",P1])
 		return self
 

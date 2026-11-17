@@ -31,9 +31,9 @@ Class RequestDelegateFactory from Object
 	Func Create_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2,P3,P4])
 
-	Func InferMetadataWith P1
+	Func InferMetadata@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
 

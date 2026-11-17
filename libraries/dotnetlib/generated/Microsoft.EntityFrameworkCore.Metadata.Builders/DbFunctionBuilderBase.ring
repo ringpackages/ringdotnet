@@ -33,10 +33,10 @@ Class DbFunctionBuilderBase from Object
 	Func HasParameter_2 P1,P2
 		return dnRequest("call",[self,"HasParameter",P1,P2])
 
-	Func IsBuiltInWith P1
+	Func IsBuiltIn@ P1
 		return dnRequest("callnamed",[self,"IsBuiltIn",P1])
 
-	Func HasParameterWith P1
+	Func HasParameter@ P1
 		return dnRequest("callnamed",[self,"HasParameter",P1])
 
 	Func getMetadata

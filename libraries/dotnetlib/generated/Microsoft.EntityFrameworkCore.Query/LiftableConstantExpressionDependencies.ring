@@ -14,6 +14,6 @@ Class LiftableConstantExpressionDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.LiftableConstantExpressionDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 

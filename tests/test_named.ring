@@ -1,4 +1,4 @@
-# Named arguments: NameWith([ :parameter = value, ... ]) and NewWith([ ... ])
+# Named arguments: Name@([ :parameter = value, ... ]) and dnNew@("Class",[ ... ])
 load "../libraries/dotnetlib/dotnetlib.ring"
 
 func main
@@ -10,19 +10,26 @@ func main
 		"System.Collections.Generic"
 	}
 	oMath = new Math()
-	dnAssert("Round with names",oMath.RoundWith([ :value = 3.14159, :digits = 2 ]),3.14)
-	dnAssert("the order does not matter",oMath.RoundWith([ :digits = 1, :value = 2.74 ]),2.7)
-	dnAssert("Max by names",oMath.MaxWith([ :val1 = 3, :val2 = 9 ]),9)
+	dnAssert("Round with names",oMath.Round@([ :value = 3.14159, :digits = 2 ]),3.14)
+	dnAssert("the order does not matter",oMath.Round@([ :digits = 1, :value = 2.74 ]),2.7)
+	dnAssert("Max by names",oMath.Max@([ :val1 = 3, :val2 = 9 ]),9)
 
-	dnAssert("a constructor by names",dnNewWith("DateTime",[ :year = 2024, :month = 12, :day = 25 ]).DayOfWeek,"Wednesday")
-	oSB = dnNewWith("StringBuilder",[ :value = "Hello" ])
+	dnAssert("a constructor by names",dnNew@("DateTime",[ :year = 2024, :month = 12, :day = 25 ]).DayOfWeek,"Wednesday")
+	oSB = dnNew@("StringBuilder",[ :value = "Hello" ])
 	dnAssert("StringBuilder by names",oSB.ToString(),"Hello")
-	oSB.AppendWith([ :value = "!" ])
+	oSB.Append@([ :value = "!" ])
 	dnAssert("Append by names",oSB.ToString(),"Hello!")
 
 	oDate = new DateTime(2024,7,4)
-	dnAssert("ToString with a format",oDate.ToStringWith([ :format = "yyyy-MM-dd" ]),"2024-07-04")
-	dnAssert("optional parameters can be left out",new Path().CombineWith([ :path1 = "a", :path2 = "b" ]),"a" + "\" + "b")
+	dnAssert("ToString with a format",oDate.ToString@([ :format = "yyyy-MM-dd" ]),"2024-07-04")
+	dnAssert("optional parameters can be left out",new Path().Combine@([ :path1 = "a", :path2 = "b" ]),"a" + "\" + "b")
+
+	# inside braces
+	oBuilder = new StringBuilder("a") {
+		Append@([ :value = "b" ])
+		Append@([ :value = "c" ])
+	}
+	dnAssert("named arguments inside braces",oBuilder.ToString(),"abc")
 
 	# a Process started with named arguments
 	oInfo = new ProcessStartInfo() {
@@ -32,7 +39,7 @@ func main
 		UseShellExecute = False
 		CreateNoWindow = True
 	}
-	oProcess = new Process().StartWith([ :startInfo = oInfo ])
+	oProcess = new Process().Start@([ :startInfo = oInfo ])
 	dnAssert("Process.Start by names",substr(oProcess.StandardOutput.ReadToEnd(),"named") > 0,True)
 	oProcess.WaitForExit()
 
@@ -40,7 +47,7 @@ func main
 	lFailed = False
 	cMessage = ""
 	try
-		oMath.RoundWith([ :nope = 1 ])
+		oMath.Round@([ :nope = 1 ])
 	catch
 		lFailed = True
 		cMessage = cCatchError
@@ -51,7 +58,7 @@ func main
 	# a missing required parameter
 	lFailed = False
 	try
-		oMath.RoundWith([ :digits = 2 ])
+		oMath.Round@([ :digits = 2 ])
 	catch
 		lFailed = True
 	done

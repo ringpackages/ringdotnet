@@ -25,7 +25,7 @@ Class CommonDialog from Component
 	Func ShowDialog_1 P1
 		return dnRequest("call",[self,"ShowDialog",P1])
 
-	Func ShowDialogWith P1
+	Func ShowDialog@ P1
 		return dnRequest("callnamed",[self,"ShowDialog",P1])
 
 	Func setHelpRequestEvent P1

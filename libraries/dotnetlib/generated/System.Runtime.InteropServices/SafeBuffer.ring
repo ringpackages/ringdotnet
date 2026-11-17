@@ -78,7 +78,7 @@ Class SafeBuffer from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func InitializeWith P1
+	Func Initialize@ P1
 		dnRequest("callnamed",[self,"Initialize",P1])
 		return self
 

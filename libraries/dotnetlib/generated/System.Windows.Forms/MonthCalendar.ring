@@ -98,7 +98,7 @@ Class MonthCalendar from Control
 		dnRequest("call",[self,"UpdateBoldedDates"])
 		return self
 
-	Func HitTestWith P1
+	Func HitTest@ P1
 		return dnRequest("callnamed",[self,"HitTest",P1])
 
 	Func setDateChangedEvent P1

@@ -134,30 +134,30 @@ Class WpfDataObject from Object
 		dnRequest("call",[dnTypeCached('System.Windows.DataObject, PresentationCore'),"RemoveSettingDataHandler",P1,P2])
 		return self
 
-	Func GetDataWith P1
+	Func GetData@ P1
 		return dnRequest("callnamed",[self,"GetData",P1])
 
-	Func GetDataPresentWith P1
+	Func GetDataPresent@ P1
 		return dnRequest("callnamed",[self,"GetDataPresent",P1])
 
-	Func GetFormatsWith P1
+	Func GetFormats@ P1
 		return dnRequest("callnamed",[self,"GetFormats",P1])
 
-	Func SetDataWith P1
+	Func SetData@ P1
 		dnRequest("callnamed",[self,"SetData",P1])
 		return self
 
-	Func ContainsTextWith P1
+	Func ContainsText@ P1
 		return dnRequest("callnamed",[self,"ContainsText",P1])
 
-	Func GetTextWith P1
+	Func GetText@ P1
 		return dnRequest("callnamed",[self,"GetText",P1])
 
-	Func SetAudioWith P1
+	Func SetAudio@ P1
 		dnRequest("callnamed",[self,"SetAudio",P1])
 		return self
 
-	Func SetTextWith P1
+	Func SetText@ P1
 		dnRequest("callnamed",[self,"SetText",P1])
 		return self
 

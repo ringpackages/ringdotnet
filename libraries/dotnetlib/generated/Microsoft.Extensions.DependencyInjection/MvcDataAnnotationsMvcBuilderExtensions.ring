@@ -19,6 +19,6 @@ Class MvcDataAnnotationsMvcBuilderExtensions from Object
 	Func AddDataAnnotationsLocalization_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1,P2])
 
-	Func AddDataAnnotationsLocalizationWith P1
+	Func AddDataAnnotationsLocalization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcDataAnnotationsMvcBuilderExtensions, Microsoft.AspNetCore.Mvc.DataAnnotations'),"AddDataAnnotationsLocalization",P1])
 

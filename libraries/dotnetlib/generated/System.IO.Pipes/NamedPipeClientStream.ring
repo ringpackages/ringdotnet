@@ -53,11 +53,11 @@ Class NamedPipeClientStream from PipeStream
 	Func ConnectAsync_2 P1,P2
 		return dnRequest("call",[self,"ConnectAsync",P1,P2])
 
-	Func ConnectWith P1
+	Func Connect@ P1
 		dnRequest("callnamed",[self,"Connect",P1])
 		return self
 
-	Func ConnectAsyncWith P1
+	Func ConnectAsync@ P1
 		return dnRequest("callnamed",[self,"ConnectAsync",P1])
 
 	Func getNumberOfServerInstances

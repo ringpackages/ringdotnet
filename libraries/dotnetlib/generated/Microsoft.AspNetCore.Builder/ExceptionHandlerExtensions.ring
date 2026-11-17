@@ -22,6 +22,6 @@ Class ExceptionHandlerExtensions from Object
 	Func UseExceptionHandler_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1,P2,P3])
 
-	Func UseExceptionHandlerWith P1
+	Func UseExceptionHandler@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions, Microsoft.AspNetCore.Diagnostics'),"UseExceptionHandler",P1])
 

@@ -51,11 +51,11 @@ Class TraceListenerCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func AddRangeWith P1
+	Func AddRange@ P1
 		dnRequest("callnamed",[self,"AddRange",P1])
 		return self
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 

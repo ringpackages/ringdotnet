@@ -75,7 +75,7 @@ Bind a property of one element to a property of another — without code:
 oSlider = new Slider()
 oSlider.Maximum = 100
 oText = new WpfTextBox()
-oBinding = dnNewWith("WpfBinding",[ :path = "Value" ])
+oBinding = dnNew@("WpfBinding",[ :path = "Value" ])
 oBinding.Source = oSlider
 oText.SetBinding(oText.TextProperty,oBinding)
 ```

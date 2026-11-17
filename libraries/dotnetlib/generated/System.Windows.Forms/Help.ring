@@ -33,7 +33,7 @@ Class Help from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowPopup",P1,P2,P3])
 		return self
 
-	Func ShowHelpWith P1
+	Func ShowHelp@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1])
 		return self
 

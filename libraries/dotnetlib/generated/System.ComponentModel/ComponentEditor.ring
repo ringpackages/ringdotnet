@@ -19,6 +19,6 @@ Class ComponentEditor from Object
 	Func EditComponent_2 P1,P2
 		return dnRequest("call",[self,"EditComponent",P1,P2])
 
-	Func EditComponentWith P1
+	Func EditComponent@ P1
 		return dnRequest("callnamed",[self,"EditComponent",P1])
 

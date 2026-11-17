@@ -18,7 +18,7 @@ Class UrlEncoder from TextEncoder
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"Create",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Encodings.Web.UrlEncoder, System.Text.Encodings.Web'),"Create",P1])
 
 	Func getDefault

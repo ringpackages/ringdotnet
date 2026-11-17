@@ -159,76 +159,76 @@ Class IConventionForeignKeyBuilder from DotNetObject
 	Func CanSetOnDelete P1
 		return dnRequest("call",[self,"CanSetOnDelete",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func HasEntityTypesWith P1
+	Func HasEntityTypes@ P1
 		return dnRequest("callnamed",[self,"HasEntityTypes",P1])
 
-	Func CanSetEntityTypesWith P1
+	Func CanSetEntityTypes@ P1
 		return dnRequest("callnamed",[self,"CanSetEntityTypes",P1])
 
-	Func CanInvertWith P1
+	Func CanInvert@ P1
 		return dnRequest("callnamed",[self,"CanInvert",P1])
 
-	Func HasForeignKeyWith P1
+	Func HasForeignKey@ P1
 		return dnRequest("callnamed",[self,"HasForeignKey",P1])
 
-	Func CanSetForeignKeyWith P1
+	Func CanSetForeignKey@ P1
 		return dnRequest("callnamed",[self,"CanSetForeignKey",P1])
 
-	Func HasPrincipalKeyWith P1
+	Func HasPrincipalKey@ P1
 		return dnRequest("callnamed",[self,"HasPrincipalKey",P1])
 
-	Func CanSetPrincipalKeyWith P1
+	Func CanSetPrincipalKey@ P1
 		return dnRequest("callnamed",[self,"CanSetPrincipalKey",P1])
 
-	Func HasNavigationWith P1
+	Func HasNavigation@ P1
 		return dnRequest("callnamed",[self,"HasNavigation",P1])
 
-	Func HasNavigationsWith P1
+	Func HasNavigations@ P1
 		return dnRequest("callnamed",[self,"HasNavigations",P1])
 
-	Func CanSetNavigationWith P1
+	Func CanSetNavigation@ P1
 		return dnRequest("callnamed",[self,"CanSetNavigation",P1])
 
-	Func CanSetNavigationsWith P1
+	Func CanSetNavigations@ P1
 		return dnRequest("callnamed",[self,"CanSetNavigations",P1])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 
-	Func CanSetIsRequiredWith P1
+	Func CanSetIsRequired@ P1
 		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
 
-	Func IsRequiredDependentWith P1
+	Func IsRequiredDependent@ P1
 		return dnRequest("callnamed",[self,"IsRequiredDependent",P1])
 
-	Func CanSetIsRequiredDependentWith P1
+	Func CanSetIsRequiredDependent@ P1
 		return dnRequest("callnamed",[self,"CanSetIsRequiredDependent",P1])
 
-	Func IsOwnershipWith P1
+	Func IsOwnership@ P1
 		return dnRequest("callnamed",[self,"IsOwnership",P1])
 
-	Func CanSetIsOwnershipWith P1
+	Func CanSetIsOwnership@ P1
 		return dnRequest("callnamed",[self,"CanSetIsOwnership",P1])
 
-	Func IsUniqueWith P1
+	Func IsUnique@ P1
 		return dnRequest("callnamed",[self,"IsUnique",P1])
 
-	Func CanSetIsUniqueWith P1
+	Func CanSetIsUnique@ P1
 		return dnRequest("callnamed",[self,"CanSetIsUnique",P1])
 
-	Func OnDeleteWith P1
+	Func OnDelete@ P1
 		return dnRequest("callnamed",[self,"OnDelete",P1])
 
-	Func CanSetOnDeleteWith P1
+	Func CanSetOnDelete@ P1
 		return dnRequest("callnamed",[self,"CanSetOnDelete",P1])
 
 	Func getMetadata

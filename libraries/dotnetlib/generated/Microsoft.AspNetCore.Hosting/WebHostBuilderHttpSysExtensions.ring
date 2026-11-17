@@ -19,6 +19,6 @@ Class WebHostBuilderHttpSysExtensions from Object
 	Func UseHttpSys_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1,P2])
 
-	Func UseHttpSysWith P1
+	Func UseHttpSys@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1])
 

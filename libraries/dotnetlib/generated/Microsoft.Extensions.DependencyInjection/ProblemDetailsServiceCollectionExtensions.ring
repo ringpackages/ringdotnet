@@ -19,6 +19,6 @@ Class ProblemDetailsServiceCollectionExtensions from Object
 	Func AddProblemDetails_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions'),"AddProblemDetails",P1,P2])
 
-	Func AddProblemDetailsWith P1
+	Func AddProblemDetails@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ProblemDetailsServiceCollectionExtensions, Microsoft.AspNetCore.Http.Extensions'),"AddProblemDetails",P1])
 

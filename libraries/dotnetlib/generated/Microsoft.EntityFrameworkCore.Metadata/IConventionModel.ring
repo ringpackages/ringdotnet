@@ -142,45 +142,45 @@ Class IConventionModel from DotNetObject
 	Func FinalizeModel 
 		return dnRequest("call",[self,"FinalizeModel"])
 
-	Func SetPropertyAccessModeWith P1
+	Func SetPropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
 
-	Func SetEmbeddedDiscriminatorNameWith P1
+	Func SetEmbeddedDiscriminatorName@ P1
 		return dnRequest("callnamed",[self,"SetEmbeddedDiscriminatorName",P1])
 
-	Func SetChangeTrackingStrategyWith P1
+	Func SetChangeTrackingStrategy@ P1
 		return dnRequest("callnamed",[self,"SetChangeTrackingStrategy",P1])
 
-	Func AddEntityTypeWith P1
+	Func AddEntityType@ P1
 		return dnRequest("callnamed",[self,"AddEntityType",P1])
 
-	Func AddOwnedEntityTypeWith P1
+	Func AddOwnedEntityType@ P1
 		return dnRequest("callnamed",[self,"AddOwnedEntityType",P1])
 
-	Func FindEntityTypeWith P1
+	Func FindEntityType@ P1
 		return dnRequest("callnamed",[self,"FindEntityType",P1])
 
-	Func RemoveEntityTypeWith P1
+	Func RemoveEntityType@ P1
 		return dnRequest("callnamed",[self,"RemoveEntityType",P1])
 
-	Func FindLeastDerivedEntityTypesWith P1
+	Func FindLeastDerivedEntityTypes@ P1
 		return dnRequest("callnamed",[self,"FindLeastDerivedEntityTypes",P1])
 
-	Func AddSharedWith P1
+	Func AddShared@ P1
 		dnRequest("callnamed",[self,"AddShared",P1])
 		return self
 
-	Func AddOwnedWith P1
+	Func AddOwned@ P1
 		dnRequest("callnamed",[self,"AddOwned",P1])
 		return self
 
-	Func AddIgnoredWith P1
+	Func AddIgnored@ P1
 		return dnRequest("callnamed",[self,"AddIgnored",P1])
 
-	Func IsIgnoredWith P1
+	Func IsIgnored@ P1
 		return dnRequest("callnamed",[self,"IsIgnored",P1])
 
-	Func FindIgnoredConfigurationSourceWith P1
+	Func FindIgnoredConfigurationSource@ P1
 		return dnRequest("callnamed",[self,"FindIgnoredConfigurationSource",P1])
 
 	Func getBuilder

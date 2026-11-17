@@ -31,9 +31,9 @@ Class SqliteDbFunctionsExtensions from Object
 	Func Substr_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Substr",P1,P2,P3,P4])
 
-	Func UnhexWith P1
+	Func Unhex@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Unhex",P1])
 
-	Func SubstrWith P1
+	Func Substr@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Substr",P1])
 

@@ -98,19 +98,19 @@ Class UInt16 from ValueType
 	Func TryParse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1,P2])
 
-	Func CompareToWith P1
+	Func CompareTo@ P1
 		return dnRequest("callnamed",[self,"CompareTo",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1])
 
-	Func TryParseWith P1
+	Func TryParse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1])
 
 	Func getMaxValue

@@ -37,15 +37,15 @@ Class MvcServiceCollectionExtensions from Object
 	Func AddRazorPages_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddRazorPages",P1,P2])
 
-	Func AddMvcWith P1
+	Func AddMvc@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddMvc",P1])
 
-	Func AddControllersWith P1
+	Func AddControllers@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllers",P1])
 
-	Func AddControllersWithViewsWith P1
+	Func AddControllersWithViews@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddControllersWithViews",P1])
 
-	Func AddRazorPagesWith P1
+	Func AddRazorPages@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcServiceCollectionExtensions, Microsoft.AspNetCore.Mvc'),"AddRazorPages",P1])
 

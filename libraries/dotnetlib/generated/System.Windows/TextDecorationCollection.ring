@@ -55,10 +55,10 @@ Class TextDecorationCollection from Animatable
 	Func TryRemove P1
 		return dnRequest("call",[self,"TryRemove",P1])
 
-	Func CloneCurrentValueWith P1
+	Func CloneCurrentValue@ P1
 		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

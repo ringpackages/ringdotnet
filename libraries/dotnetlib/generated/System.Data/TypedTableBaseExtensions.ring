@@ -37,9 +37,9 @@ Class TypedTableBaseExtensions from Object
 	Func ElementAtOrDefault P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"ElementAtOrDefault",P1,P2])
 
-	Func OrderByWith P1
+	Func OrderBy@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderBy",P1])
 
-	Func OrderByDescendingWith P1
+	Func OrderByDescending@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderByDescending",P1])
 

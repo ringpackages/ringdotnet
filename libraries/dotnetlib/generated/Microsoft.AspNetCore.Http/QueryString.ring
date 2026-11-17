@@ -40,16 +40,16 @@ Class QueryString from ValueType
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func FromUriComponentWith P1
+	Func FromUriComponent@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 
 	Func getValue

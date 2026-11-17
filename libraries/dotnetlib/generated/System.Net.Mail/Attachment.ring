@@ -32,7 +32,7 @@ Class Attachment from AttachmentBase
 	Func CreateAttachmentFromString_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1,P2,P3,P4])
 
-	Func CreateAttachmentFromStringWith P1
+	Func CreateAttachmentFromString@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1])
 
 	Func getName

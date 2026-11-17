@@ -30,7 +30,7 @@ Class PeriodicTimer from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func WaitForNextTickAsyncWith P1
+	Func WaitForNextTickAsync@ P1
 		return dnRequest("callnamed",[self,"WaitForNextTickAsync",P1])
 
 	Func getPeriod

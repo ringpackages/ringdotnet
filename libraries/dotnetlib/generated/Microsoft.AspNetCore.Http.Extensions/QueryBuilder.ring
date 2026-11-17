@@ -28,7 +28,7 @@ Class QueryBuilder from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

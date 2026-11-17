@@ -35,7 +35,7 @@ Class HostApplicationBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func ConfigureContainerWith P1
+	Func ConfigureContainer@ P1
 		dnRequest("callnamed",[self,"ConfigureContainer",P1])
 		return self
 

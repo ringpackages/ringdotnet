@@ -52,10 +52,10 @@ Class ChangeTracker from Object
 		dnRequest("call",[self,"Clear"])
 		return self
 
-	Func EntriesWith P1
+	Func Entries@ P1
 		return dnRequest("callnamed",[self,"Entries",P1])
 
-	Func TrackGraphWith P1
+	Func TrackGraph@ P1
 		dnRequest("callnamed",[self,"TrackGraph",P1])
 		return self
 

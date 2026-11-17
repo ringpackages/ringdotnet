@@ -25,7 +25,7 @@ Class SocketAddress from Object
 	Func GetMaximumAddressSize P1
 		return dnRequest("call",[dnTypeCached('System.Net.SocketAddress, System.Net.Primitives'),"GetMaximumAddressSize",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func Item P1

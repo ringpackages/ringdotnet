@@ -95,21 +95,21 @@ Class WpfClipboard from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetDataObject",P1,P2])
 		return self
 
-	Func ContainsTextWith P1
+	Func ContainsText@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"ContainsText",P1])
 
-	Func GetTextWith P1
+	Func GetText@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"GetText",P1])
 
-	Func SetAudioWith P1
+	Func SetAudio@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetAudio",P1])
 		return self
 
-	Func SetTextWith P1
+	Func SetText@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetText",P1])
 		return self
 
-	Func SetDataObjectWith P1
+	Func SetDataObject@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetDataObject",P1])
 		return self
 

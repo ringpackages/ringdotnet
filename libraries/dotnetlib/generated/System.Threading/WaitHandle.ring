@@ -58,16 +58,16 @@ Class WaitHandle from MarshalByRefObject
 	Func SignalAndWait_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2,P3,P4])
 
-	Func WaitOneWith P1
+	Func WaitOne@ P1
 		return dnRequest("callnamed",[self,"WaitOne",P1])
 
-	Func WaitAllWith P1
+	Func WaitAll@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
 
-	Func WaitAnyWith P1
+	Func WaitAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1])
 
-	Func SignalAndWaitWith P1
+	Func SignalAndWait@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1])
 
 	Func getHandle

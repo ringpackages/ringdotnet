@@ -164,37 +164,37 @@ Class IConventionTypeBase from DotNetObject
 	Func GetPropertyAccessModeConfigurationSource 
 		return dnRequest("call",[self,"GetPropertyAccessModeConfigurationSource"])
 
-	Func AddIgnoredWith P1
+	Func AddIgnored@ P1
 		return dnRequest("callnamed",[self,"AddIgnored",P1])
 
-	Func AddPropertyWith P1
+	Func AddProperty@ P1
 		return dnRequest("callnamed",[self,"AddProperty",P1])
 
-	Func AddIndexerPropertyWith P1
+	Func AddIndexerProperty@ P1
 		return dnRequest("callnamed",[self,"AddIndexerProperty",P1])
 
-	Func FindPropertyWith P1
+	Func FindProperty@ P1
 		return dnRequest("callnamed",[self,"FindProperty",P1])
 
-	Func RemovePropertyWith P1
+	Func RemoveProperty@ P1
 		return dnRequest("callnamed",[self,"RemoveProperty",P1])
 
-	Func AddComplexPropertyWith P1
+	Func AddComplexProperty@ P1
 		return dnRequest("callnamed",[self,"AddComplexProperty",P1])
 
-	Func AddComplexIndexerPropertyWith P1
+	Func AddComplexIndexerProperty@ P1
 		return dnRequest("callnamed",[self,"AddComplexIndexerProperty",P1])
 
-	Func FindComplexPropertyWith P1
+	Func FindComplexProperty@ P1
 		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
 
-	Func RemoveComplexPropertyWith P1
+	Func RemoveComplexProperty@ P1
 		return dnRequest("callnamed",[self,"RemoveComplexProperty",P1])
 
-	Func SetChangeTrackingStrategyWith P1
+	Func SetChangeTrackingStrategy@ P1
 		return dnRequest("callnamed",[self,"SetChangeTrackingStrategy",P1])
 
-	Func SetPropertyAccessModeWith P1
+	Func SetPropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"SetPropertyAccessMode",P1])
 
 	Func getModel

@@ -10,7 +10,7 @@ using {
 oConvert = new Convert()
 ? "SHA256(abc)    : " + lower(oConvert.ToHexString(new SHA256().HashData("abc")))
 ? "MD5(abc)       : " + lower(oConvert.ToHexString(new MD5().HashData("abc")))
-oHmac = dnNewWith("HMACSHA256",[ :key = "secret key" ])
+oHmac = dnNew@("HMACSHA256",[ :key = "secret key" ])
 ? "HMAC           : " + left(lower(oConvert.ToHexString(oHmac.ComputeHash("message"))),32) + "..."
 
 # AES encryption round trip
@@ -25,8 +25,8 @@ cCipher = oAes.CreateEncryptor().TransformFinalBlock(cText,0,len(cText))
 # Cultures
 oUS = new CultureInfo("en-US")
 oDate = new DateTime(2024,7,4)
-? "US date        : " + oDate.ToStringWith([ :format = "D", :provider = oUS ])
-? "German date    : " + oDate.ToStringWith([ :format = "D", :provider = new CultureInfo("de-DE") ])
+? "US date        : " + oDate.ToString@([ :format = "D", :provider = oUS ])
+? "German date    : " + oDate.ToString@([ :format = "D", :provider = new CultureInfo("de-DE") ])
 ? "Title case     : " + oUS.TextInfo.ToTitleCase("ring meets dot net")
 
 # Start a process and read its output
@@ -44,6 +44,6 @@ oInfo {
 	UseShellExecute = False
 	CreateNoWindow = True
 }
-oProcess = new Process().StartWith([ :startInfo = oInfo ])
+oProcess = new Process().Start@([ :startInfo = oInfo ])
 ? "Process says   : " + trim(oProcess.StandardOutput.ReadToEnd())
 oProcess.WaitForExit()

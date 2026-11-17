@@ -32,7 +32,7 @@ Class ImageAnimator from Object
 		dnRequest("call",[dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common'),"StopAnimate",P1,P2])
 		return self
 
-	Func UpdateFramesWith P1
+	Func UpdateFrames@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Drawing.ImageAnimator, System.Drawing.Common'),"UpdateFrames",P1])
 		return self
 

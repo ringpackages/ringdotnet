@@ -62,7 +62,7 @@ Class HttpListenerResponse from Object
 		dnRequest("call",[self,"Close",P1,P2])
 		return self
 
-	Func CloseWith P1
+	Func Close@ P1
 		dnRequest("callnamed",[self,"Close",P1])
 		return self
 

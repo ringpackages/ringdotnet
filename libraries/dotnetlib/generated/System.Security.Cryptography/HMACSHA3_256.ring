@@ -34,10 +34,10 @@ Class HMACSHA3_256 from HMAC
 	Func HashDataAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
 
-	Func HashDataWith P1
+	Func HashData@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsyncWith P1
+	Func HashDataAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getIsSupported

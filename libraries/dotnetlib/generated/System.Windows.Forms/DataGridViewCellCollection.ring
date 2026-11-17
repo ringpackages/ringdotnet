@@ -43,7 +43,7 @@ Class DataGridViewCellCollection from BaseCollection
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 

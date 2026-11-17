@@ -66,10 +66,10 @@ Class ListViewSubItemCollection from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func AddRangeWith P1
+	Func AddRange@ P1
 		dnRequest("callnamed",[self,"AddRange",P1])
 		return self
 

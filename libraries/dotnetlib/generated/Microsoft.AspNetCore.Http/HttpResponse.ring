@@ -64,19 +64,19 @@ Class HttpResponse from Object
 	Func CompleteAsync 
 		return dnRequest("call",[self,"CompleteAsync"])
 
-	Func OnStartingWith P1
+	Func OnStarting@ P1
 		dnRequest("callnamed",[self,"OnStarting",P1])
 		return self
 
-	Func OnCompletedWith P1
+	Func OnCompleted@ P1
 		dnRequest("callnamed",[self,"OnCompleted",P1])
 		return self
 
-	Func RedirectWith P1
+	Func Redirect@ P1
 		dnRequest("callnamed",[self,"Redirect",P1])
 		return self
 
-	Func StartAsyncWith P1
+	Func StartAsync@ P1
 		return dnRequest("callnamed",[self,"StartAsync",P1])
 
 	Func getHttpContext

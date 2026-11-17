@@ -73,19 +73,19 @@ Class StringLinkedList from Object
 		dnRequest("call",[self,"OnDeserialization",P1])
 		return self
 
-	Func AddAfterWith P1
+	Func AddAfter@ P1
 		return dnRequest("callnamed",[self,"AddAfter",P1])
 
-	Func AddBeforeWith P1
+	Func AddBefore@ P1
 		return dnRequest("callnamed",[self,"AddBefore",P1])
 
-	Func AddFirstWith P1
+	Func AddFirst@ P1
 		return dnRequest("callnamed",[self,"AddFirst",P1])
 
-	Func AddLastWith P1
+	Func AddLast@ P1
 		return dnRequest("callnamed",[self,"AddLast",P1])
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		return dnRequest("callnamed",[self,"Remove",P1])
 
 	Func getCount

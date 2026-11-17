@@ -30,7 +30,7 @@ Class ConventionSetBuilder from Object
 		dnRequest("call",[self,"Remove"])
 		return self
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 

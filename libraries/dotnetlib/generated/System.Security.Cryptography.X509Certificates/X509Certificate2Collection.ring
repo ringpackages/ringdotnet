@@ -53,28 +53,28 @@ Class X509Certificate2Collection from X509CertificateCollection
 	Func ExportCertificatePems 
 		return dnRequest("call",[self,"ExportCertificatePems"])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func ExportWith P1
+	Func Export@ P1
 		return dnRequest("callnamed",[self,"Export",P1])
 
-	Func ImportWith P1
+	Func Import@ P1
 		dnRequest("callnamed",[self,"Import",P1])
 		return self
 
-	Func InsertWith P1
+	Func Insert@ P1
 		dnRequest("callnamed",[self,"Insert",P1])
 		return self
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		dnRequest("callnamed",[self,"Remove",P1])
 		return self
 
-	Func RemoveRangeWith P1
+	Func RemoveRange@ P1
 		dnRequest("callnamed",[self,"RemoveRange",P1])
 		return self
 

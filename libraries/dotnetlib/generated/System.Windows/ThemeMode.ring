@@ -24,7 +24,7 @@ Class ThemeMode from ValueType
 		nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[P1])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getValue

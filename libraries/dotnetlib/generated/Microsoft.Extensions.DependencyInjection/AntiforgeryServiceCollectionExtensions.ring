@@ -19,6 +19,6 @@ Class AntiforgeryServiceCollectionExtensions from Object
 	Func AddAntiforgery_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery'),"AddAntiforgery",P1,P2])
 
-	Func AddAntiforgeryWith P1
+	Func AddAntiforgery@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.AntiforgeryServiceCollectionExtensions, Microsoft.AspNetCore.Antiforgery'),"AddAntiforgery",P1])
 

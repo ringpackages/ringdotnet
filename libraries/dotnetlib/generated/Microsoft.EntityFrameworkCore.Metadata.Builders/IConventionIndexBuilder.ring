@@ -57,25 +57,25 @@ Class IConventionIndexBuilder from DotNetObject
 	Func CanSetIsDescending P1
 		return dnRequest("call",[self,"CanSetIsDescending",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func IsUniqueWith P1
+	Func IsUnique@ P1
 		return dnRequest("callnamed",[self,"IsUnique",P1])
 
-	Func CanSetIsUniqueWith P1
+	Func CanSetIsUnique@ P1
 		return dnRequest("callnamed",[self,"CanSetIsUnique",P1])
 
-	Func IsDescendingWith P1
+	Func IsDescending@ P1
 		return dnRequest("callnamed",[self,"IsDescending",P1])
 
-	Func CanSetIsDescendingWith P1
+	Func CanSetIsDescending@ P1
 		return dnRequest("callnamed",[self,"CanSetIsDescending",P1])
 
 	Func getMetadata

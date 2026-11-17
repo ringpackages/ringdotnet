@@ -76,7 +76,7 @@ func deleteTodo oRequest
 # ---------------------------------------------------------------- self test: a .NET client talks to the server
 
 func request cMethod, cPath, cBody
-	oMessage = dnNewWith("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = dnNew@("HttpRequestMessage",[ :method = new HttpMethod(cMethod), :requestUri = cUrl + cPath ])
 	if cBody != ""
 		oMessage.Content = new StringContent(cBody)
 	ok

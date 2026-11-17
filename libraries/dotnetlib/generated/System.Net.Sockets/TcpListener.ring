@@ -78,14 +78,14 @@ Class TcpListener from Object
 	Func Create P1
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.TcpListener, System.Net.Sockets'),"Create",P1])
 
-	Func StartWith P1
+	Func Start@ P1
 		dnRequest("callnamed",[self,"Start",P1])
 		return self
 
-	Func AcceptSocketAsyncWith P1
+	Func AcceptSocketAsync@ P1
 		return dnRequest("callnamed",[self,"AcceptSocketAsync",P1])
 
-	Func AcceptTcpClientAsyncWith P1
+	Func AcceptTcpClientAsync@ P1
 		return dnRequest("callnamed",[self,"AcceptTcpClientAsync",P1])
 
 	Func getServer

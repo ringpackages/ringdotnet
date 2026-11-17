@@ -180,25 +180,25 @@ Class Matrix4x4 from ValueType
 	Func Transpose P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Transpose",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func CreateRotationXWith P1
+	Func CreateRotationX@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1])
 
-	Func CreateRotationYWith P1
+	Func CreateRotationY@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
 
-	Func CreateRotationZWith P1
+	Func CreateRotationZ@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1])
 
-	Func CreateScaleWith P1
+	Func CreateScale@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
 
-	Func CreateTranslationWith P1
+	Func CreateTranslation@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
 
-	Func MultiplyWith P1
+	Func Multiply@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"Multiply",P1])
 
 	Func getIsIdentity

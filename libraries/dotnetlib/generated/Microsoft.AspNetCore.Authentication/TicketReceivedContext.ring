@@ -52,7 +52,7 @@ Class TicketReceivedContext from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func FailWith P1
+	Func Fail@ P1
 		dnRequest("callnamed",[self,"Fail",P1])
 		return self
 

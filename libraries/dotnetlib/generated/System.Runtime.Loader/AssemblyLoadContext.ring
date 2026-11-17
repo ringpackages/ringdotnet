@@ -64,10 +64,10 @@ Class AssemblyLoadContext from Object
 	Func EnterContextualReflection_1 P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
-	Func LoadFromStreamWith P1
+	Func LoadFromStream@ P1
 		return dnRequest("callnamed",[self,"LoadFromStream",P1])
 
-	Func EnterContextualReflectionWith P1
+	Func EnterContextualReflection@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 		ok

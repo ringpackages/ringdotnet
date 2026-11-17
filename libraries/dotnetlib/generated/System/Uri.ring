@@ -119,10 +119,10 @@ Class Uri from Object
 	Func EscapeDataString P1
 		return dnRequest("call",[dnTypeCached('System.Uri, System.Private.Uri'),"EscapeDataString",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func TryCreateWith P1
+	Func TryCreate@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Uri, System.Private.Uri'),"TryCreate",P1])
 
 	Func getAbsolutePath

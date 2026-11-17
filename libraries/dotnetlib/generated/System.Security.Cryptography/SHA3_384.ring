@@ -32,10 +32,10 @@ Class SHA3_384 from HashAlgorithm
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
-	Func HashDataWith P1
+	Func HashData@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsyncWith P1
+	Func HashDataAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getIsSupported

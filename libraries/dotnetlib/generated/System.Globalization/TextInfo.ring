@@ -38,10 +38,10 @@ Class TextInfo from Object
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.TextInfo, System.Private.CoreLib'),"ReadOnly",P1])
 
-	Func ToLowerWith P1
+	Func ToLower@ P1
 		return dnRequest("callnamed",[self,"ToLower",P1])
 
-	Func ToUpperWith P1
+	Func ToUpper@ P1
 		return dnRequest("callnamed",[self,"ToUpper",P1])
 
 	Func getANSICodePage

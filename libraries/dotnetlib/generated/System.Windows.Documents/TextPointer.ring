@@ -80,13 +80,13 @@ Class TextPointer from ContentPosition
 	Func InsertLineBreak 
 		return dnRequest("call",[self,"InsertLineBreak"])
 
-	Func GetTextInRunWith P1
+	Func GetTextInRun@ P1
 		return dnRequest("callnamed",[self,"GetTextInRun",P1])
 
-	Func GetPositionAtOffsetWith P1
+	Func GetPositionAtOffset@ P1
 		return dnRequest("callnamed",[self,"GetPositionAtOffset",P1])
 
-	Func GetLineStartPositionWith P1
+	Func GetLineStartPosition@ P1
 		return dnRequest("callnamed",[self,"GetLineStartPosition",P1])
 
 	Func getHasValidLayout

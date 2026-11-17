@@ -31,7 +31,7 @@ Class TextBoxRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6,P7])
 		return self
 
-	Func DrawTextBoxWith P1
+	Func DrawTextBox@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
 		return self
 

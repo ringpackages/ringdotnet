@@ -37,15 +37,15 @@ Class CacheExtensions from Object
 	Func GetOrCreateAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"GetOrCreateAsync",P1,P2,P3,P4])
 
-	Func GetWith P1
+	Func Get@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"Get",P1])
 
-	Func SetWith P1
+	Func Set@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"Set",P1])
 
-	Func GetOrCreateWith P1
+	Func GetOrCreate@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"GetOrCreate",P1])
 
-	Func GetOrCreateAsyncWith P1
+	Func GetOrCreateAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Caching.Memory.CacheExtensions, Microsoft.Extensions.Caching.Abstractions'),"GetOrCreateAsync",P1])
 

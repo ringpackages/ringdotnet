@@ -24,7 +24,7 @@ Class CngProperty from ValueType
 	Func GetValue 
 		return dnRequest("call",[self,"GetValue"])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getName

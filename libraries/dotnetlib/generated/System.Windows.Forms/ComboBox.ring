@@ -66,13 +66,13 @@ Class ComboBox from ListControl
 		dnRequest("call",[self,"SelectAll"])
 		return self
 
-	Func FindStringWith P1
+	Func FindString@ P1
 		return dnRequest("callnamed",[self,"FindString",P1])
 
-	Func FindStringExactWith P1
+	Func FindStringExact@ P1
 		return dnRequest("callnamed",[self,"FindStringExact",P1])
 
-	Func SelectWith P1
+	Func Select@ P1
 		dnRequest("callnamed",[self,"Select",P1])
 		return self
 

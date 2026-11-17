@@ -98,14 +98,14 @@ Class ModelStateDictionary from Object
 	Func StartsWithPrefix P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions'),"StartsWithPrefix",P1,P2])
 
-	Func AddModelErrorWith P1
+	Func AddModelError@ P1
 		dnRequest("callnamed",[self,"AddModelError",P1])
 		return self
 
-	Func TryAddModelErrorWith P1
+	Func TryAddModelError@ P1
 		return dnRequest("callnamed",[self,"TryAddModelError",P1])
 
-	Func SetModelValueWith P1
+	Func SetModelValue@ P1
 		dnRequest("callnamed",[self,"SetModelValue",P1])
 		return self
 

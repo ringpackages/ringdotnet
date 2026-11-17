@@ -112,28 +112,28 @@ Class RelationalConnection from Object
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func BeginTransactionWith P1
+	Func BeginTransaction@ P1
 		return dnRequest("callnamed",[self,"BeginTransaction",P1])
 
-	Func BeginTransactionAsyncWith P1
+	Func BeginTransactionAsync@ P1
 		return dnRequest("callnamed",[self,"BeginTransactionAsync",P1])
 
-	Func UseTransactionWith P1
+	Func UseTransaction@ P1
 		return dnRequest("callnamed",[self,"UseTransaction",P1])
 
-	Func UseTransactionAsyncWith P1
+	Func UseTransactionAsync@ P1
 		return dnRequest("callnamed",[self,"UseTransactionAsync",P1])
 
-	Func CommitTransactionAsyncWith P1
+	Func CommitTransactionAsync@ P1
 		return dnRequest("callnamed",[self,"CommitTransactionAsync",P1])
 
-	Func RollbackTransactionAsyncWith P1
+	Func RollbackTransactionAsync@ P1
 		return dnRequest("callnamed",[self,"RollbackTransactionAsync",P1])
 
-	Func OpenWith P1
+	Func Open@ P1
 		return dnRequest("callnamed",[self,"Open",P1])
 
-	Func OpenAsyncWith P1
+	Func OpenAsync@ P1
 		return dnRequest("callnamed",[self,"OpenAsync",P1])
 
 	Func getConnectionId

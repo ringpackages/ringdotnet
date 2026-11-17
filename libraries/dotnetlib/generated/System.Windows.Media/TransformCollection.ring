@@ -52,7 +52,7 @@ Class TransformCollection from Animatable
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func CloneCurrentValueWith P1
+	Func CloneCurrentValue@ P1
 		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 
 	Func Item P1

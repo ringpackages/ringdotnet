@@ -36,11 +36,11 @@ Class SpinWait from ValueType
 	Func SpinUntil_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1,P2])
 
-	Func SpinOnceWith P1
+	Func SpinOnce@ P1
 		dnRequest("callnamed",[self,"SpinOnce",P1])
 		return self
 
-	Func SpinUntilWith P1
+	Func SpinUntil@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1])
 
 	Func getCount

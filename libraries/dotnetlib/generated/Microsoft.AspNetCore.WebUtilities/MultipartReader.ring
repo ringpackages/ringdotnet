@@ -30,7 +30,7 @@ Class MultipartReader from Object
 	Func ReadNextSectionAsync 
 		return dnRequest("call",[self,"ReadNextSectionAsync"])
 
-	Func ReadNextSectionAsyncWith P1
+	Func ReadNextSectionAsync@ P1
 		return dnRequest("callnamed",[self,"ReadNextSectionAsync",P1])
 
 	Func getHeadersCountLimit

@@ -23,6 +23,6 @@ Class CollectionsUtil from Object
 	Func CreateCaseInsensitiveSortedList 
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveSortedList"])
 
-	Func CreateCaseInsensitiveHashtableWith P1
+	Func CreateCaseInsensitiveHashtable@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 

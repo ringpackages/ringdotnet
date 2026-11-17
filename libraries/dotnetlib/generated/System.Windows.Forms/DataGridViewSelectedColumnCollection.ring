@@ -24,7 +24,7 @@ Class DataGridViewSelectedColumnCollection from BaseCollection
 		dnRequest("call",[self,"Insert",P1,P2])
 		return self
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 

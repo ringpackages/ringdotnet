@@ -88,7 +88,7 @@ oInfo = new ProcessStartInfo() {
 	UseShellExecute = False
 	CreateNoWindow = True
 }
-oProcess = new Process().StartWith([ :startInfo = oInfo ])
+oProcess = new Process().Start@([ :startInfo = oInfo ])
 ? trim(oProcess.StandardOutput.ReadToEnd())
 oProcess.WaitForExit()
 

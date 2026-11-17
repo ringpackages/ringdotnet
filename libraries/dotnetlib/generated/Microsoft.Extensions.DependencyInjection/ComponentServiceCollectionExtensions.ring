@@ -19,6 +19,6 @@ Class ComponentServiceCollectionExtensions from Object
 	Func AddServerSideBlazor P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server'),"AddServerSideBlazor",P1])
 
-	Func AddServerSideBlazorWith P1
+	Func AddServerSideBlazor@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ComponentServiceCollectionExtensions, Microsoft.AspNetCore.Components.Server'),"AddServerSideBlazor",P1])
 

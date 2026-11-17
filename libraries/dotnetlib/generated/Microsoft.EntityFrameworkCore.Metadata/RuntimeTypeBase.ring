@@ -179,10 +179,10 @@ Class RuntimeTypeBase from RuntimeAnnotatableBase
 	Func FindIndexerProperty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.RuntimeTypeBase, Microsoft.EntityFrameworkCore'),"FindIndexerProperty",P1])
 
-	Func AddPropertyWith P1
+	Func AddProperty@ P1
 		return dnRequest("callnamed",[self,"AddProperty",P1])
 
-	Func AddComplexPropertyWith P1
+	Func AddComplexProperty@ P1
 		return dnRequest("callnamed",[self,"AddComplexProperty",P1])
 
 	Func getName

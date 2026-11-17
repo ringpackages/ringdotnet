@@ -23,6 +23,6 @@ Class ModelRuntimeInitializer from Object
 	Func Initialize P1
 		return dnRequest("call",[self,"Initialize",P1])
 
-	Func InitializeWith P1
+	Func Initialize@ P1
 		return dnRequest("callnamed",[self,"Initialize",P1])
 

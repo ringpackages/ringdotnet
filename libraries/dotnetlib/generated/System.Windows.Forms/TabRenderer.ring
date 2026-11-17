@@ -47,7 +47,7 @@ Class TabRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabPage",P1,P2])
 		return self
 
-	Func DrawTabItemWith P1
+	Func DrawTabItem@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1])
 		return self
 

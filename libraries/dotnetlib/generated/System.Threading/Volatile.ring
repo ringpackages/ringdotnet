@@ -19,9 +19,9 @@ Class Volatile from Object
 	Func Write P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Write",P1,P2])
 
-	Func ReadWith P1
+	Func Read@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Read",P1])
 
-	Func WriteWith P1
+	Func Write@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Volatile, System.Private.CoreLib'),"Write",P1])
 

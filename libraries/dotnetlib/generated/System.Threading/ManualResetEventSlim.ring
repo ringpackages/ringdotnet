@@ -49,7 +49,7 @@ Class ManualResetEventSlim from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func WaitWith P1
+	Func Wait@ P1
 		return dnRequest("callnamed",[self,"Wait",P1])
 
 	Func getWaitHandle

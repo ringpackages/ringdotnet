@@ -83,10 +83,10 @@ Class ITypeBase from DotNetObject
 	Func GetFlattenedPropertiesInHierarchy 
 		return dnRequest("call",[self,"GetFlattenedPropertiesInHierarchy"])
 
-	Func FindPropertyWith P1
+	Func FindProperty@ P1
 		return dnRequest("callnamed",[self,"FindProperty",P1])
 
-	Func FindComplexPropertyWith P1
+	Func FindComplexProperty@ P1
 		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
 
 	Func getModel

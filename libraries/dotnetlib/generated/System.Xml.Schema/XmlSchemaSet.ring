@@ -60,13 +60,13 @@ Class XmlSchemaSet from Object
 	Func Schemas_1 P1
 		return dnRequest("call",[self,"Schemas",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func SchemasWith P1
+	Func Schemas@ P1
 		return dnRequest("callnamed",[self,"Schemas",P1])
 
 	Func setValidationEventHandlerEvent P1

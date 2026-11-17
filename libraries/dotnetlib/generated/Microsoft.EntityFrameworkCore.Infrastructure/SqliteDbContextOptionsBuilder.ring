@@ -62,12 +62,12 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 	Func GetType 
 		return dnRequest("call",[self,"GetType"])
 
-	Func MigrationsAssemblyWith P1
+	Func MigrationsAssembly@ P1
 		return dnRequest("callnamed",[self,"MigrationsAssembly",P1])
 
-	Func MigrationsHistoryTableWith P1
+	Func MigrationsHistoryTable@ P1
 		return dnRequest("callnamed",[self,"MigrationsHistoryTable",P1])
 
-	Func UseRelationalNullsWith P1
+	Func UseRelationalNulls@ P1
 		return dnRequest("callnamed",[self,"UseRelationalNulls",P1])
 

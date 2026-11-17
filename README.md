@@ -92,12 +92,12 @@ Add your own closed generic with a line like `["System.Collections.Generic.List`
 
 ## Named arguments
 
-Ring passes optional, order-independent arguments as a list of `:name = value` pairs. Every method with overloads or optional parameters also has a `With` form, and `dnNewWith` creates objects with a constructor chosen by names. The names are the .NET parameter names (not case sensitive):
+Ring passes optional, order-independent arguments as a list of `:name = value` pairs. Every method with overloads or optional parameters also has an `@` form (`Round@(...)`), and `dnNew@` creates objects with a constructor chosen by names. The names are the .NET parameter names (not case sensitive):
 
 ```ring
-? new Math().RoundWith([ :value = 3.14159, :digits = 2 ])
-oProcess = new Process().StartWith([ :startInfo = oInfo ])
-oSB = dnNewWith("StringBuilder",[ :value = "Hello" ])
+? new Math().Round@([ :value = 3.14159, :digits = 2 ])
+oProcess = new Process().Start@([ :startInfo = oInfo ])
+oSB = dnNew@("StringBuilder",[ :value = "Hello" ])
 ```
 
 ## LINQ

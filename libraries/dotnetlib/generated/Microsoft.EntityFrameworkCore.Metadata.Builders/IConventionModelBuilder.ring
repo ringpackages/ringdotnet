@@ -144,64 +144,64 @@ Class IConventionModelBuilder from DotNetObject
 	Func CanSetEmbeddedDiscriminatorName P1
 		return dnRequest("call",[self,"CanSetEmbeddedDiscriminatorName",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func EntityWith P1
+	Func Entity@ P1
 		return dnRequest("callnamed",[self,"Entity",P1])
 
-	Func SharedTypeEntityWith P1
+	Func SharedTypeEntity@ P1
 		return dnRequest("callnamed",[self,"SharedTypeEntity",P1])
 
-	Func OwnedWith P1
+	Func Owned@ P1
 		return dnRequest("callnamed",[self,"Owned",P1])
 
-	Func ComplexTypeWith P1
+	Func ComplexType@ P1
 		return dnRequest("callnamed",[self,"ComplexType",P1])
 
-	Func IsIgnoredWith P1
+	Func IsIgnored@ P1
 		return dnRequest("callnamed",[self,"IsIgnored",P1])
 
-	Func IgnoreWith P1
+	Func Ignore@ P1
 		return dnRequest("callnamed",[self,"Ignore",P1])
 
-	Func CanHaveEntityWith P1
+	Func CanHaveEntity@ P1
 		return dnRequest("callnamed",[self,"CanHaveEntity",P1])
 
-	Func CanHaveSharedTypeEntityWith P1
+	Func CanHaveSharedTypeEntity@ P1
 		return dnRequest("callnamed",[self,"CanHaveSharedTypeEntity",P1])
 
-	Func HasNoEntityTypeWith P1
+	Func HasNoEntityType@ P1
 		return dnRequest("callnamed",[self,"HasNoEntityType",P1])
 
-	Func CanRemoveEntityWith P1
+	Func CanRemoveEntity@ P1
 		return dnRequest("callnamed",[self,"CanRemoveEntity",P1])
 
-	Func CanIgnoreWith P1
+	Func CanIgnore@ P1
 		return dnRequest("callnamed",[self,"CanIgnore",P1])
 
-	Func HasChangeTrackingStrategyWith P1
+	Func HasChangeTrackingStrategy@ P1
 		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
 
-	Func CanSetChangeTrackingStrategyWith P1
+	Func CanSetChangeTrackingStrategy@ P1
 		return dnRequest("callnamed",[self,"CanSetChangeTrackingStrategy",P1])
 
-	Func UsePropertyAccessModeWith P1
+	Func UsePropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
 
-	Func CanSetPropertyAccessModeWith P1
+	Func CanSetPropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"CanSetPropertyAccessMode",P1])
 
-	Func HasEmbeddedDiscriminatorNameWith P1
+	Func HasEmbeddedDiscriminatorName@ P1
 		return dnRequest("callnamed",[self,"HasEmbeddedDiscriminatorName",P1])
 
-	Func CanSetEmbeddedDiscriminatorNameWith P1
+	Func CanSetEmbeddedDiscriminatorName@ P1
 		return dnRequest("callnamed",[self,"CanSetEmbeddedDiscriminatorName",P1])
 
 	Func getMetadata

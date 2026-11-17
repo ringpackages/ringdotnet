@@ -123,58 +123,58 @@ Class IConventionDbFunctionBuilder from DotNetObject
 	Func HasParameter P1
 		return dnRequest("call",[self,"HasParameter",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func HasNameWith P1
+	Func HasName@ P1
 		return dnRequest("callnamed",[self,"HasName",P1])
 
-	Func CanSetNameWith P1
+	Func CanSetName@ P1
 		return dnRequest("callnamed",[self,"CanSetName",P1])
 
-	Func HasSchemaWith P1
+	Func HasSchema@ P1
 		return dnRequest("callnamed",[self,"HasSchema",P1])
 
-	Func CanSetSchemaWith P1
+	Func CanSetSchema@ P1
 		return dnRequest("callnamed",[self,"CanSetSchema",P1])
 
-	Func IsBuiltInWith P1
+	Func IsBuiltIn@ P1
 		return dnRequest("callnamed",[self,"IsBuiltIn",P1])
 
-	Func CanSetIsBuiltInWith P1
+	Func CanSetIsBuiltIn@ P1
 		return dnRequest("callnamed",[self,"CanSetIsBuiltIn",P1])
 
-	Func IsNullableWith P1
+	Func IsNullable@ P1
 		return dnRequest("callnamed",[self,"IsNullable",P1])
 
-	Func CanSetIsNullableWith P1
+	Func CanSetIsNullable@ P1
 		return dnRequest("callnamed",[self,"CanSetIsNullable",P1])
 
-	Func HasStoreTypeWith P1
+	Func HasStoreType@ P1
 		return dnRequest("callnamed",[self,"HasStoreType",P1])
 
-	Func CanSetStoreTypeWith P1
+	Func CanSetStoreType@ P1
 		return dnRequest("callnamed",[self,"CanSetStoreType",P1])
 
-	Func HasTypeMappingWith P1
+	Func HasTypeMapping@ P1
 		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
 
-	Func CanSetTypeMappingWith P1
+	Func CanSetTypeMapping@ P1
 		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
 
-	Func HasTranslationWith P1
+	Func HasTranslation@ P1
 		return dnRequest("callnamed",[self,"HasTranslation",P1])
 
-	Func CanSetTranslationWith P1
+	Func CanSetTranslation@ P1
 		return dnRequest("callnamed",[self,"CanSetTranslation",P1])
 
-	Func HasParameterWith P1
+	Func HasParameter@ P1
 		return dnRequest("callnamed",[self,"HasParameter",P1])
 
 	Func getMetadata

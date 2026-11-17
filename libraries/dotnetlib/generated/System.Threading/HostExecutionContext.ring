@@ -29,7 +29,7 @@ Class HostExecutionContext from Object
 		dnRequest("call",[self,"Dispose",P1])
 		return self
 
-	Func DisposeWith P1
+	Func Dispose@ P1
 		dnRequest("callnamed",[self,"Dispose",P1])
 		return self
 

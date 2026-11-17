@@ -308,100 +308,100 @@ Class String from Object
 	Func Join_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1,P2,P3,P4])
 
-	Func CompareToWith P1
+	Func CompareTo@ P1
 		return dnRequest("callnamed",[self,"CompareTo",P1])
 
-	Func EndsWithWith P1
+	Func EndsWith@ P1
 		return dnRequest("callnamed",[self,"EndsWith",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func GetHashCodeWith P1
+	Func GetHashCode@ P1
 		return dnRequest("callnamed",[self,"GetHashCode",P1])
 
-	Func StartsWithWith P1
+	Func StartsWith@ P1
 		return dnRequest("callnamed",[self,"StartsWith",P1])
 
-	Func ToCharArrayWith P1
+	Func ToCharArray@ P1
 		return dnRequest("callnamed",[self,"ToCharArray",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func IsNormalizedWith P1
+	Func IsNormalized@ P1
 		return dnRequest("callnamed",[self,"IsNormalized",P1])
 
-	Func NormalizeWith P1
+	Func Normalize@ P1
 		return dnRequest("callnamed",[self,"Normalize",P1])
 
-	Func PadLeftWith P1
+	Func PadLeft@ P1
 		return dnRequest("callnamed",[self,"PadLeft",P1])
 
-	Func PadRightWith P1
+	Func PadRight@ P1
 		return dnRequest("callnamed",[self,"PadRight",P1])
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		return dnRequest("callnamed",[self,"Remove",P1])
 
-	Func ReplaceWith P1
+	Func Replace@ P1
 		return dnRequest("callnamed",[self,"Replace",P1])
 
-	Func ReplaceLineEndingsWith P1
+	Func ReplaceLineEndings@ P1
 		return dnRequest("callnamed",[self,"ReplaceLineEndings",P1])
 
-	Func SplitWith P1
+	Func Split@ P1
 		return dnRequest("callnamed",[self,"Split",P1])
 
-	Func SubstringWith P1
+	Func Substring@ P1
 		return dnRequest("callnamed",[self,"Substring",P1])
 
-	Func ToLowerWith P1
+	Func ToLower@ P1
 		return dnRequest("callnamed",[self,"ToLower",P1])
 
-	Func ToUpperWith P1
+	Func ToUpper@ P1
 		return dnRequest("callnamed",[self,"ToUpper",P1])
 
-	Func TrimWith P1
+	Func Trim@ P1
 		return dnRequest("callnamed",[self,"Trim",P1])
 
-	Func TrimStartWith P1
+	Func TrimStart@ P1
 		return dnRequest("callnamed",[self,"TrimStart",P1])
 
-	Func TrimEndWith P1
+	Func TrimEnd@ P1
 		return dnRequest("callnamed",[self,"TrimEnd",P1])
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func IndexOfWith P1
+	Func IndexOf@ P1
 		return dnRequest("callnamed",[self,"IndexOf",P1])
 
-	Func IndexOfAnyWith P1
+	Func IndexOfAny@ P1
 		return dnRequest("callnamed",[self,"IndexOfAny",P1])
 
-	Func LastIndexOfWith P1
+	Func LastIndexOf@ P1
 		return dnRequest("callnamed",[self,"LastIndexOf",P1])
 
-	Func LastIndexOfAnyWith P1
+	Func LastIndexOfAny@ P1
 		return dnRequest("callnamed",[self,"LastIndexOfAny",P1])
 
-	Func CompareWith P1
+	Func Compare@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1])
 
-	Func CompareOrdinalWith P1
+	Func CompareOrdinal@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1])
 
-	Func ConcatWith P1
+	Func Concat@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
 
-	Func FormatWith P1
+	Func Format@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1])
 
-	Func JoinWith P1
+	Func Join@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1])
 
 	Func Item P1

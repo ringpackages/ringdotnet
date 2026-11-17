@@ -63,19 +63,19 @@ Class CertificateRequest from Object
 	Func LoadSigningRequest P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2])
 
-	Func CreateSigningRequestWith P1
+	Func CreateSigningRequest@ P1
 		return dnRequest("callnamed",[self,"CreateSigningRequest",P1])
 
-	Func CreateSigningRequestPemWith P1
+	Func CreateSigningRequestPem@ P1
 		return dnRequest("callnamed",[self,"CreateSigningRequestPem",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[self,"Create",P1])
 
-	Func LoadSigningRequestPemWith P1
+	Func LoadSigningRequestPem@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1])
 
-	Func LoadSigningRequestWith P1
+	Func LoadSigningRequest@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1])
 
 	Func getSubjectName

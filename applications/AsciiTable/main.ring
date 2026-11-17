@@ -20,10 +20,10 @@ oList = new ListView() {
 	FullRowSelect = True
 	GridLines = True
 }
-oList.Columns.AddWith([ :text = "Dec", :width = 60 ])
-oList.Columns.AddWith([ :text = "Hex", :width = 60 ])
-oList.Columns.AddWith([ :text = "Binary", :width = 100 ])
-oList.Columns.AddWith([ :text = "Char", :width = 150 ])
+oList.Columns.Add@([ :text = "Dec", :width = 60 ])
+oList.Columns.Add@([ :text = "Hex", :width = 60 ])
+oList.Columns.Add@([ :text = "Binary", :width = 100 ])
+oList.Columns.Add@([ :text = "Char", :width = 150 ])
 oForm.Controls.Add(oList)
 oFilter.setTextChangedEvent("fillTable()")
 fillTable()
@@ -68,7 +68,7 @@ func fillTable
 		ok
 		cRow = "" + nCode + " " + lower(cHex) + " " + lower(cName)
 		if cFilter = "" or substr(cRow,cFilter)
-			oItem = dnNewWith("ListViewItem",[ :text = "" + nCode ])
+			oItem = dnNew@("ListViewItem",[ :text = "" + nCode ])
 			oItem.SubItems.Add(cHex)
 			oItem.SubItems.Add(binary(nCode))
 			oItem.SubItems.Add(cName)

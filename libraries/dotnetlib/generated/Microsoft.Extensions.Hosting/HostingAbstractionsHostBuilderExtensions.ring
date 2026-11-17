@@ -22,6 +22,6 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 	Func StartAsync P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"StartAsync",P1])
 
-	Func StartAsyncWith P1
+	Func StartAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"StartAsync",P1])
 

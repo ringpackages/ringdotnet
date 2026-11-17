@@ -278,48 +278,48 @@ Class XmlWriter from Object
 	Func Create_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1,P2])
 
-	Func WriteStartDocumentWith P1
+	Func WriteStartDocument@ P1
 		dnRequest("callnamed",[self,"WriteStartDocument",P1])
 		return self
 
-	Func WriteStartElementWith P1
+	Func WriteStartElement@ P1
 		dnRequest("callnamed",[self,"WriteStartElement",P1])
 		return self
 
-	Func WriteAttributeStringWith P1
+	Func WriteAttributeString@ P1
 		dnRequest("callnamed",[self,"WriteAttributeString",P1])
 		return self
 
-	Func WriteStartAttributeWith P1
+	Func WriteStartAttribute@ P1
 		dnRequest("callnamed",[self,"WriteStartAttribute",P1])
 		return self
 
-	Func WriteRawWith P1
+	Func WriteRaw@ P1
 		dnRequest("callnamed",[self,"WriteRaw",P1])
 		return self
 
-	Func WriteValueWith P1
+	Func WriteValue@ P1
 		dnRequest("callnamed",[self,"WriteValue",P1])
 		return self
 
-	Func WriteNodeWith P1
+	Func WriteNode@ P1
 		dnRequest("callnamed",[self,"WriteNode",P1])
 		return self
 
-	Func WriteElementStringWith P1
+	Func WriteElementString@ P1
 		dnRequest("callnamed",[self,"WriteElementString",P1])
 		return self
 
-	Func WriteStartDocumentAsyncWith P1
+	Func WriteStartDocumentAsync@ P1
 		return dnRequest("callnamed",[self,"WriteStartDocumentAsync",P1])
 
-	Func WriteRawAsyncWith P1
+	Func WriteRawAsync@ P1
 		return dnRequest("callnamed",[self,"WriteRawAsync",P1])
 
-	Func WriteNodeAsyncWith P1
+	Func WriteNodeAsync@ P1
 		return dnRequest("callnamed",[self,"WriteNodeAsync",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
 
 	Func getSettings

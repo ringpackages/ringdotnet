@@ -21,7 +21,7 @@ Class TableLayoutPanelCellPosition from ValueType
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getRow

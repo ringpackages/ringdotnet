@@ -22,6 +22,6 @@ Class RoutingServiceCollectionExtensions from Object
 	Func AddRouting_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing'),"AddRouting",P1,P2])
 
-	Func AddRoutingWith P1
+	Func AddRouting@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions, Microsoft.AspNetCore.Routing'),"AddRouting",P1])
 

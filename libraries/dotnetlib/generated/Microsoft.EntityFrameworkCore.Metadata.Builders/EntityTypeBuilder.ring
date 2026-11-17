@@ -130,40 +130,40 @@ Class EntityTypeBuilder from Object
 	Func HasTrigger P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder, Microsoft.EntityFrameworkCore'),"HasTrigger",P1,P2])
 
-	Func HasBaseTypeWith P1
+	Func HasBaseType@ P1
 		return dnRequest("callnamed",[self,"HasBaseType",P1])
 
-	Func PropertyWith P1
+	Func Property@ P1
 		return dnRequest("callnamed",[self,"Property",P1])
 
-	Func PrimitiveCollectionWith P1
+	Func PrimitiveCollection@ P1
 		return dnRequest("callnamed",[self,"PrimitiveCollection",P1])
 
-	Func IndexerPropertyWith P1
+	Func IndexerProperty@ P1
 		return dnRequest("callnamed",[self,"IndexerProperty",P1])
 
-	Func ComplexPropertyWith P1
+	Func ComplexProperty@ P1
 		return dnRequest("callnamed",[self,"ComplexProperty",P1])
 
-	Func HasIndexWith P1
+	Func HasIndex@ P1
 		return dnRequest("callnamed",[self,"HasIndex",P1])
 
-	Func OwnsOneWith P1
+	Func OwnsOne@ P1
 		return dnRequest("callnamed",[self,"OwnsOne",P1])
 
-	Func OwnsManyWith P1
+	Func OwnsMany@ P1
 		return dnRequest("callnamed",[self,"OwnsMany",P1])
 
-	Func HasOneWith P1
+	Func HasOne@ P1
 		return dnRequest("callnamed",[self,"HasOne",P1])
 
-	Func HasManyWith P1
+	Func HasMany@ P1
 		return dnRequest("callnamed",[self,"HasMany",P1])
 
-	Func HasDataWith P1
+	Func HasData@ P1
 		return dnRequest("callnamed",[self,"HasData",P1])
 
-	Func HasDiscriminatorWith P1
+	Func HasDiscriminator@ P1
 		return dnRequest("callnamed",[self,"HasDiscriminator",P1])
 
 	Func getMetadata

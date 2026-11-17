@@ -49,10 +49,10 @@ Class HashCode from ValueType
 	Func Combine_8 P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7,P8])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 
-	Func CombineWith P1
+	Func Combine@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
 

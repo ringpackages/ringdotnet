@@ -21,7 +21,7 @@ Class CngAlgorithmGroup from Object
 		nHandle = dnCreate('System.Security.Cryptography.CngAlgorithmGroup, System.Security.Cryptography',[P1])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getAlgorithmGroup

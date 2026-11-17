@@ -42,16 +42,16 @@ Class DataRowCollection from InternalDataCollectionBase
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func FindWith P1
+	Func Find@ P1
 		return dnRequest("callnamed",[self,"Find",P1])
 
-	Func ContainsWith P1
+	Func Contains@ P1
 		return dnRequest("callnamed",[self,"Contains",P1])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 

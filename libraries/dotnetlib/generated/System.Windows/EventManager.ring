@@ -30,7 +30,7 @@ Class EventManager from Object
 	Func GetRoutedEventsForOwner P1
 		return dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"GetRoutedEventsForOwner",P1])
 
-	Func RegisterClassHandlerWith P1
+	Func RegisterClassHandler@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterClassHandler",P1])
 		return self
 

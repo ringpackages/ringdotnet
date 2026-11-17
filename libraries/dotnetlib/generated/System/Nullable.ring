@@ -25,7 +25,7 @@ Class Nullable from Object
 	Func GetValueRefOrDefaultRef P1
 		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetValueRefOrDefaultRef",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Equals",P1])
 		ok

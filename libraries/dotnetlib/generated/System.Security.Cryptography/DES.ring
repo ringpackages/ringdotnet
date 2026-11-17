@@ -25,6 +25,6 @@ Class DES from SymmetricAlgorithm
 	Func IsSemiWeakKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"IsSemiWeakKey",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
 

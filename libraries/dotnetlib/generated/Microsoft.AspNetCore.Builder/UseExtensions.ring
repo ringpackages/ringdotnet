@@ -16,6 +16,6 @@ Class UseExtensions from Object
 	Func Use P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.UseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Use",P1,P2])
 
-	Func UseWith P1
+	Func Use@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.UseExtensions, Microsoft.AspNetCore.Http.Abstractions'),"Use",P1])
 

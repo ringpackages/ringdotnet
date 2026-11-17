@@ -46,13 +46,13 @@ Class LicenseManager from Object
 	Func Validate_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1,P2])
 
-	Func CreateWithContextWith P1
+	Func CreateWithContext@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1])
 
-	Func IsValidWith P1
+	Func IsValid@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
 
-	Func ValidateWith P1
+	Func Validate@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1])
 
 	Func getCurrentContext

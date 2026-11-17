@@ -28,7 +28,7 @@ Class CorrelationManager from Object
 		dnRequest("call",[self,"StartLogicalOperation",P1])
 		return self
 
-	Func StartLogicalOperationWith P1
+	Func StartLogicalOperation@ P1
 		dnRequest("callnamed",[self,"StartLogicalOperation",P1])
 		return self
 

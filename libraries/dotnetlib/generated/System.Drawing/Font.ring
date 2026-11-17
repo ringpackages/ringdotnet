@@ -85,13 +85,13 @@ Class Font from MarshalByRefObject
 	Func FromHdc P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromHdc",P1])
 
-	Func GetHeightWith P1
+	Func GetHeight@ P1
 		return dnRequest("callnamed",[self,"GetHeight",P1])
 
-	Func ToLogFontWith P1
+	Func ToLogFont@ P1
 		return dnRequest("callnamed",[self,"ToLogFont",P1])
 
-	Func FromLogFontWith P1
+	Func FromLogFont@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.Font, System.Drawing.Common'),"FromLogFont",P1])
 
 	Func getSize

@@ -142,32 +142,32 @@ Class GC from Object
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RefreshMemoryLimit"])
 		return self
 
-	Func GetGCMemoryInfoWith P1
+	Func GetGCMemoryInfo@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
 
-	Func GetGenerationWith P1
+	Func GetGeneration@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGeneration",P1])
 
-	Func CollectWith P1
+	Func Collect@ P1
 		dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
 		return self
 
-	Func GetTotalAllocatedBytesWith P1
+	Func GetTotalAllocatedBytes@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
 
-	Func WaitForFullGCApproachWith P1
+	Func WaitForFullGCApproach@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
 
-	Func WaitForFullGCCompleteWith P1
+	Func WaitForFullGCComplete@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
 
-	Func TryStartNoGCRegionWith P1
+	Func TryStartNoGCRegion@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1])
 
-	Func AllocateUninitializedArrayWith P1
+	Func AllocateUninitializedArray@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
 
-	Func AllocateArrayWith P1
+	Func AllocateArray@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1])
 
 	Func getMaxGeneration

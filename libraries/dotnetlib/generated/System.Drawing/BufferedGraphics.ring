@@ -27,7 +27,7 @@ Class BufferedGraphics from Object
 		dnRequest("call",[self,"Render"])
 		return self
 
-	Func RenderWith P1
+	Func Render@ P1
 		dnRequest("callnamed",[self,"Render",P1])
 		return self
 

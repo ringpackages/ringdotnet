@@ -163,69 +163,69 @@ Class RelationalPropertyBuilderExtensions from Object
 	Func CanSetJsonPropertyName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1,P2])
 
-	Func HasColumnNameWith P1
+	Func HasColumnName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1])
 
-	Func CanSetColumnNameWith P1
+	Func CanSetColumnName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnName",P1])
 
-	Func HasColumnOrderWith P1
+	Func HasColumnOrder@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnOrder",P1])
 
-	Func CanSetColumnOrderWith P1
+	Func CanSetColumnOrder@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnOrder",P1])
 
-	Func HasColumnTypeWith P1
+	Func HasColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1])
 
-	Func CanSetColumnTypeWith P1
+	Func CanSetColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnType",P1])
 
-	Func IsFixedLengthWith P1
+	Func IsFixedLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func CanSetIsFixedLengthWith P1
+	Func CanSetIsFixedLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsFixedLength",P1])
 
-	Func HasDefaultValueSqlWith P1
+	Func HasDefaultValueSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func CanSetDefaultValueSqlWith P1
+	Func CanSetDefaultValueSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValueSql",P1])
 
-	Func HasComputedColumnSqlWith P1
+	Func HasComputedColumnSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func IsStoredComputedColumnWith P1
+	Func IsStoredComputedColumn@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsStoredComputedColumn",P1])
 
-	Func CanSetComputedColumnSqlWith P1
+	Func CanSetComputedColumnSql@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComputedColumnSql",P1])
 
-	Func CanSetIsStoredComputedColumnWith P1
+	Func CanSetIsStoredComputedColumn@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsStoredComputedColumn",P1])
 
-	Func HasDefaultValueWith P1
+	Func HasDefaultValue@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 
-	Func CanSetDefaultValueWith P1
+	Func CanSetDefaultValue@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValue",P1])
 
-	Func HasCommentWith P1
+	Func HasComment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1])
 
-	Func CanSetCommentWith P1
+	Func CanSetComment@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1])
 
-	Func UseCollationWith P1
+	Func UseCollation@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1])
 
-	Func CanSetCollationWith P1
+	Func CanSetCollation@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1])
 
-	Func HasJsonPropertyNameWith P1
+	Func HasJsonPropertyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1])
 
-	Func CanSetJsonPropertyNameWith P1
+	Func CanSetJsonPropertyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1])
 

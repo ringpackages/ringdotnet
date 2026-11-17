@@ -25,6 +25,6 @@ Class SendFileResponseExtensions from Object
 	Func SendFileAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1,P2,P3,P4])
 
-	Func SendFileAsyncWith P1
+	Func SendFileAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1])
 

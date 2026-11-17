@@ -20,9 +20,9 @@ Class XNodeEqualityComparer from Object
 	Func GetHashCode_1 P1
 		return dnRequest("call",[self,"GetHashCode",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func GetHashCodeWith P1
+	Func GetHashCode@ P1
 		return dnRequest("callnamed",[self,"GetHashCode",P1])
 

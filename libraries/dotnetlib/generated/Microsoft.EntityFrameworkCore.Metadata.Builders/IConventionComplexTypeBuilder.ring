@@ -66,28 +66,28 @@ Class IConventionComplexTypeBuilder from DotNetObject
 	Func UsePropertyAccessMode P1
 		return dnRequest("call",[self,"UsePropertyAccessMode",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func HasNoPropertyWith P1
+	Func HasNoProperty@ P1
 		return dnRequest("callnamed",[self,"HasNoProperty",P1])
 
-	Func HasNoComplexPropertyWith P1
+	Func HasNoComplexProperty@ P1
 		return dnRequest("callnamed",[self,"HasNoComplexProperty",P1])
 
-	Func IgnoreWith P1
+	Func Ignore@ P1
 		return dnRequest("callnamed",[self,"Ignore",P1])
 
-	Func HasChangeTrackingStrategyWith P1
+	Func HasChangeTrackingStrategy@ P1
 		return dnRequest("callnamed",[self,"HasChangeTrackingStrategy",P1])
 
-	Func UsePropertyAccessModeWith P1
+	Func UsePropertyAccessMode@ P1
 		return dnRequest("callnamed",[self,"UsePropertyAccessMode",P1])
 
 	Func getMetadata

@@ -42,11 +42,11 @@ Class PictureBox from Control
 		dnRequest("call",[self,"LoadAsync",P1])
 		return self
 
-	Func LoadWith P1
+	Func Load@ P1
 		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		dnRequest("callnamed",[self,"LoadAsync",P1])
 		return self
 

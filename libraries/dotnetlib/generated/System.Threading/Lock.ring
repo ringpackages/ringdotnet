@@ -33,7 +33,7 @@ Class Lock from Object
 		dnRequest("call",[self,"Exit"])
 		return self
 
-	Func TryEnterWith P1
+	Func TryEnter@ P1
 		return dnRequest("callnamed",[self,"TryEnter",P1])
 
 	Func getIsHeldByCurrentThread

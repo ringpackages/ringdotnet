@@ -19,6 +19,6 @@ Class EfRelationalModelExtensions from Object
 	Func GetRelationalDependencies P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetRelationalDependencies",P1])
 
-	Func GetRelationalDependenciesWith P1
+	Func GetRelationalDependencies@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetRelationalDependencies",P1])
 

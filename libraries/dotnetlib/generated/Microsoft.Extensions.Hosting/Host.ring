@@ -28,9 +28,9 @@ Class Host from Object
 	Func CreateEmptyApplicationBuilder P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateEmptyApplicationBuilder",P1])
 
-	Func CreateDefaultBuilderWith P1
+	Func CreateDefaultBuilder@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
 
-	Func CreateApplicationBuilderWith P1
+	Func CreateApplicationBuilder@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
 

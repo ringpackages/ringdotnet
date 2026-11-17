@@ -61,14 +61,14 @@ Class Ping from Component
 		dnRequest("call",[self,"SendAsyncCancel"])
 		return self
 
-	Func SendWith P1
+	Func Send@ P1
 		return dnRequest("callnamed",[self,"Send",P1])
 
-	Func SendAsyncWith P1
+	Func SendAsync@ P1
 		dnRequest("callnamed",[self,"SendAsync",P1])
 		return self
 
-	Func SendPingAsyncWith P1
+	Func SendPingAsync@ P1
 		return dnRequest("callnamed",[self,"SendPingAsync",P1])
 
 	Func setPingCompletedEvent P1

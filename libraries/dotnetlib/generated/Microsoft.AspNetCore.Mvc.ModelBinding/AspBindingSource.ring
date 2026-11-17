@@ -32,7 +32,7 @@ Class AspBindingSource from Object
 	Func CanAcceptDataFrom P1
 		return dnRequest("call",[self,"CanAcceptDataFrom",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getDisplayName

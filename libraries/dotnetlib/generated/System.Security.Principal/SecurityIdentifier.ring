@@ -39,7 +39,7 @@ Class SecurityIdentifier from IdentityReference
 	Func IsEqualDomainSid P1
 		return dnRequest("call",[self,"IsEqualDomainSid",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getBinaryLength

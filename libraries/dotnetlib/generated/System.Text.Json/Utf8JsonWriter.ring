@@ -120,50 +120,50 @@ Class Utf8JsonWriter from Object
 		dnRequest("call",[self,"WriteRawValue",P1])
 		return self
 
-	Func ResetWith P1
+	Func Reset@ P1
 		dnRequest("callnamed",[self,"Reset",P1])
 		return self
 
-	Func FlushAsyncWith P1
+	Func FlushAsync@ P1
 		return dnRequest("callnamed",[self,"FlushAsync",P1])
 
-	Func WriteStartArrayWith P1
+	Func WriteStartArray@ P1
 		dnRequest("callnamed",[self,"WriteStartArray",P1])
 		return self
 
-	Func WriteStartObjectWith P1
+	Func WriteStartObject@ P1
 		dnRequest("callnamed",[self,"WriteStartObject",P1])
 		return self
 
-	Func WriteStringWith P1
+	Func WriteString@ P1
 		dnRequest("callnamed",[self,"WriteString",P1])
 		return self
 
-	Func WriteNumberWith P1
+	Func WriteNumber@ P1
 		dnRequest("callnamed",[self,"WriteNumber",P1])
 		return self
 
-	Func WriteNullWith P1
+	Func WriteNull@ P1
 		dnRequest("callnamed",[self,"WriteNull",P1])
 		return self
 
-	Func WriteBooleanWith P1
+	Func WriteBoolean@ P1
 		dnRequest("callnamed",[self,"WriteBoolean",P1])
 		return self
 
-	Func WritePropertyNameWith P1
+	Func WritePropertyName@ P1
 		dnRequest("callnamed",[self,"WritePropertyName",P1])
 		return self
 
-	Func WriteStringValueWith P1
+	Func WriteStringValue@ P1
 		dnRequest("callnamed",[self,"WriteStringValue",P1])
 		return self
 
-	Func WriteNumberValueWith P1
+	Func WriteNumberValue@ P1
 		dnRequest("callnamed",[self,"WriteNumberValue",P1])
 		return self
 
-	Func WriteRawValueWith P1
+	Func WriteRawValue@ P1
 		dnRequest("callnamed",[self,"WriteRawValue",P1])
 		return self
 

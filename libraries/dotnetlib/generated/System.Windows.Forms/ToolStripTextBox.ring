@@ -103,7 +103,7 @@ Class ToolStripTextBox from ToolStripControlHost
 		dnRequest("call",[self,"Undo"])
 		return self
 
-	Func SelectWith P1
+	Func Select@ P1
 		dnRequest("callnamed",[self,"Select",P1])
 		return self
 

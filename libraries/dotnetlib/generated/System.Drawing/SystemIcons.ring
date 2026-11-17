@@ -30,7 +30,7 @@ Class SystemIcons from Object
 	Func GetStockIcon P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1])
 
-	Func GetStockIconWith P1
+	Func GetStockIcon@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Drawing.SystemIcons, System.Drawing.Common'),"GetStockIcon",P1])
 
 	Func getApplication

@@ -28,9 +28,9 @@ Class NativeMemory from Object
 	Func AllocZeroed_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1,P2])
 
-	Func AllocWith P1
+	Func Alloc@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"Alloc",P1])
 
-	Func AllocZeroedWith P1
+	Func AllocZeroed@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeMemory, System.Private.CoreLib'),"AllocZeroed",P1])
 

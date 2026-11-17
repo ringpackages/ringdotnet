@@ -38,7 +38,7 @@ Class DataFormats from Object
 	Func GetFormat P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms'),"GetFormat",P1])
 
-	Func GetFormatWith P1
+	Func GetFormat@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.DataFormats, System.Windows.Forms'),"GetFormat",P1])
 
 	Func getText

@@ -43,16 +43,16 @@ Class IDataObject from DotNetObject
 		dnRequest("call",[self,"SetData",P1])
 		return self
 
-	Func GetDataWith P1
+	Func GetData@ P1
 		return dnRequest("callnamed",[self,"GetData",P1])
 
-	Func GetDataPresentWith P1
+	Func GetDataPresent@ P1
 		return dnRequest("callnamed",[self,"GetDataPresent",P1])
 
-	Func GetFormatsWith P1
+	Func GetFormats@ P1
 		return dnRequest("callnamed",[self,"GetFormats",P1])
 
-	Func SetDataWith P1
+	Func SetData@ P1
 		dnRequest("callnamed",[self,"SetData",P1])
 		return self
 

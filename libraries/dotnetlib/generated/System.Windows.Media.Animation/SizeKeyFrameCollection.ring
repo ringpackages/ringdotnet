@@ -53,7 +53,7 @@ Class SizeKeyFrameCollection from Freezable
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func CloneWith P1
+	Func Clone@ P1
 		return dnRequest("callnamed",[self,"Clone",P1])
 
 	Func Item P1

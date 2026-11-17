@@ -41,12 +41,12 @@ Class TypeMappingConfigurationBuilder from Object
 	Func HasConversion_1 P1
 		return dnRequest("call",[self,"HasConversion",P1])
 
-	Func HasPrecisionWith P1
+	Func HasPrecision@ P1
 		return dnRequest("callnamed",[self,"HasPrecision",P1])
 
-	Func IsUnicodeWith P1
+	Func IsUnicode@ P1
 		return dnRequest("callnamed",[self,"IsUnicode",P1])
 
-	Func HasConversionWith P1
+	Func HasConversion@ P1
 		return dnRequest("callnamed",[self,"HasConversion",P1])
 

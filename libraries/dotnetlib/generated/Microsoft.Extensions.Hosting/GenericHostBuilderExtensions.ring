@@ -19,6 +19,6 @@ Class GenericHostBuilderExtensions from Object
 	Func ConfigureWebHostDefaults_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"ConfigureWebHostDefaults",P1,P2,P3])
 
-	Func ConfigureWebHostDefaultsWith P1
+	Func ConfigureWebHostDefaults@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"ConfigureWebHostDefaults",P1])
 

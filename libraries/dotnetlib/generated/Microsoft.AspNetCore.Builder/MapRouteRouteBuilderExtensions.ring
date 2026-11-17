@@ -25,6 +25,6 @@ Class MapRouteRouteBuilderExtensions from Object
 	Func MapRoute_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapRoute",P1,P2,P3,P4,P5,P6])
 
-	Func MapRouteWith P1
+	Func MapRoute@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapRoute",P1])
 

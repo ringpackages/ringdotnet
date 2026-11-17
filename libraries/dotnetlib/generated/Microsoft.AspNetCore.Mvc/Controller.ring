@@ -62,16 +62,16 @@ Class Controller from ControllerBase
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func ViewWith P1
+	Func View@ P1
 		return dnRequest("callnamed",[self,"View",P1])
 
-	Func PartialViewWith P1
+	Func PartialView@ P1
 		return dnRequest("callnamed",[self,"PartialView",P1])
 
-	Func ViewComponentWith P1
+	Func ViewComponent@ P1
 		return dnRequest("callnamed",[self,"ViewComponent",P1])
 
-	Func JsonWith P1
+	Func Json@ P1
 		return dnRequest("callnamed",[self,"Json",P1])
 
 	Func getViewData

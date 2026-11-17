@@ -25,9 +25,9 @@ Class IDependentKeyValueFactory from DotNetObject
 	Func CreateDependentEquatableKey P1
 		return dnRequest("call",[self,"CreateDependentEquatableKey",P1])
 
-	Func CreatePrincipalEquatableKeyWith P1
+	Func CreatePrincipalEquatableKey@ P1
 		return dnRequest("callnamed",[self,"CreatePrincipalEquatableKey",P1])
 
-	Func CreateDependentEquatableKeyWith P1
+	Func CreateDependentEquatableKey@ P1
 		return dnRequest("callnamed",[self,"CreateDependentEquatableKey",P1])
 

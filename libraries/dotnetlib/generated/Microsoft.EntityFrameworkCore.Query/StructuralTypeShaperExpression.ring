@@ -61,7 +61,7 @@ Class StructuralTypeShaperExpression from DotNetObject
 	Func CreateUnableToDiscriminateException P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.StructuralTypeShaperExpression, Microsoft.EntityFrameworkCore'),"CreateUnableToDiscriminateException",P1,P2])
 
-	Func MakeNullableWith P1
+	Func MakeNullable@ P1
 		return dnRequest("callnamed",[self,"MakeNullable",P1])
 
 	Func getStructuralType

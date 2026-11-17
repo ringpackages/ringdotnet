@@ -53,15 +53,15 @@ Class CancellationTokenSource from Object
 	Func CreateLinkedTokenSource P1
 		return dnRequest("call",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1])
 
-	Func CancelWith P1
+	Func Cancel@ P1
 		dnRequest("callnamed",[self,"Cancel",P1])
 		return self
 
-	Func CancelAfterWith P1
+	Func CancelAfter@ P1
 		dnRequest("callnamed",[self,"CancelAfter",P1])
 		return self
 
-	Func CreateLinkedTokenSourceWith P1
+	Func CreateLinkedTokenSource@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1])
 
 	Func getIsCancellationRequested

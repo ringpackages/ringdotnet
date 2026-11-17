@@ -30,7 +30,7 @@ Class XmlQualifiedName from Object
 	Func ToString_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1,P2])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1])
 		ok

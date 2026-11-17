@@ -35,11 +35,11 @@ Class NavigationEntry from MemberEntry
 	Func Query 
 		return dnRequest("call",[self,"Query"])
 
-	Func LoadWith P1
+	Func Load@ P1
 		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		return dnRequest("callnamed",[self,"LoadAsync",P1])
 
 	Func getIsLoaded

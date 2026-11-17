@@ -35,7 +35,7 @@ Class BindingInfo from Object
 	Func GetBindingInfo_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1,P2])
 
-	Func GetBindingInfoWith P1
+	Func GetBindingInfo@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
 
 	Func getBindingSource

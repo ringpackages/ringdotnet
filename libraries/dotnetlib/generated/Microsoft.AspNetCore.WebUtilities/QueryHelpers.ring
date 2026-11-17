@@ -25,6 +25,6 @@ Class QueryHelpers from Object
 	Func ParseNullableQuery P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"ParseNullableQuery",P1])
 
-	Func AddQueryStringWith P1
+	Func AddQueryString@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"AddQueryString",P1])
 

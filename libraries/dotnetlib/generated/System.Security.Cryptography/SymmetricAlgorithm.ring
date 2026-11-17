@@ -114,31 +114,31 @@ Class SymmetricAlgorithm from Object
 	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
-	Func CreateDecryptorWith P1
+	Func CreateDecryptor@ P1
 		return dnRequest("callnamed",[self,"CreateDecryptor",P1])
 
-	Func CreateEncryptorWith P1
+	Func CreateEncryptor@ P1
 		return dnRequest("callnamed",[self,"CreateEncryptor",P1])
 
-	Func GetCiphertextLengthCbcWith P1
+	Func GetCiphertextLengthCbc@ P1
 		return dnRequest("callnamed",[self,"GetCiphertextLengthCbc",P1])
 
-	Func GetCiphertextLengthCfbWith P1
+	Func GetCiphertextLengthCfb@ P1
 		return dnRequest("callnamed",[self,"GetCiphertextLengthCfb",P1])
 
-	Func DecryptCbcWith P1
+	Func DecryptCbc@ P1
 		return dnRequest("callnamed",[self,"DecryptCbc",P1])
 
-	Func EncryptCbcWith P1
+	Func EncryptCbc@ P1
 		return dnRequest("callnamed",[self,"EncryptCbc",P1])
 
-	Func DecryptCfbWith P1
+	Func DecryptCfb@ P1
 		return dnRequest("callnamed",[self,"DecryptCfb",P1])
 
-	Func EncryptCfbWith P1
+	Func EncryptCfb@ P1
 		return dnRequest("callnamed",[self,"EncryptCfb",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getFeedbackSize

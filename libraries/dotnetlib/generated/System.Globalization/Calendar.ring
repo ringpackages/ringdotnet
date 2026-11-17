@@ -135,28 +135,28 @@ Class Calendar from Object
 	Func ReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Globalization.Calendar, System.Private.CoreLib'),"ReadOnly",P1])
 
-	Func GetDaysInMonthWith P1
+	Func GetDaysInMonth@ P1
 		return dnRequest("callnamed",[self,"GetDaysInMonth",P1])
 
-	Func GetDaysInYearWith P1
+	Func GetDaysInYear@ P1
 		return dnRequest("callnamed",[self,"GetDaysInYear",P1])
 
-	Func GetMonthsInYearWith P1
+	Func GetMonthsInYear@ P1
 		return dnRequest("callnamed",[self,"GetMonthsInYear",P1])
 
-	Func IsLeapDayWith P1
+	Func IsLeapDay@ P1
 		return dnRequest("callnamed",[self,"IsLeapDay",P1])
 
-	Func IsLeapMonthWith P1
+	Func IsLeapMonth@ P1
 		return dnRequest("callnamed",[self,"IsLeapMonth",P1])
 
-	Func GetLeapMonthWith P1
+	Func GetLeapMonth@ P1
 		return dnRequest("callnamed",[self,"GetLeapMonth",P1])
 
-	Func IsLeapYearWith P1
+	Func IsLeapYear@ P1
 		return dnRequest("callnamed",[self,"IsLeapYear",P1])
 
-	Func ToDateTimeWith P1
+	Func ToDateTime@ P1
 		return dnRequest("callnamed",[self,"ToDateTime",P1])
 
 	Func getMinSupportedDateTime

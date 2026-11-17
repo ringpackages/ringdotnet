@@ -116,22 +116,22 @@ Class X509Certificate from Object
 	Func CreateFromSignedFile P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography'),"CreateFromSignedFile",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ExportWith P1
+	Func Export@ P1
 		return dnRequest("callnamed",[self,"Export",P1])
 
-	Func GetCertHashWith P1
+	Func GetCertHash@ P1
 		return dnRequest("callnamed",[self,"GetCertHash",P1])
 
-	Func GetCertHashStringWith P1
+	Func GetCertHashString@ P1
 		return dnRequest("callnamed",[self,"GetCertHashString",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func ImportWith P1
+	Func Import@ P1
 		dnRequest("callnamed",[self,"Import",P1])
 		return self
 

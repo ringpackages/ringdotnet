@@ -70,27 +70,27 @@ Class RelationalModelBuilderExtensions from Object
 	Func CanSetCollation P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1,P2])
 
-	Func HasSequenceWith P1
+	Func HasSequence@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1])
 
-	Func HasDbFunctionWith P1
+	Func HasDbFunction@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDbFunction",P1])
 
-	Func HasDefaultSchemaWith P1
+	Func HasDefaultSchema@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultSchema",P1])
 
-	Func CanSetDefaultSchemaWith P1
+	Func CanSetDefaultSchema@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultSchema",P1])
 
-	Func HasMaxIdentifierLengthWith P1
+	Func HasMaxIdentifierLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasMaxIdentifierLength",P1])
 
-	Func CanSetMaxIdentifierLengthWith P1
+	Func CanSetMaxIdentifierLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMaxIdentifierLength",P1])
 
-	Func UseCollationWith P1
+	Func UseCollation@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1])
 
-	Func CanSetCollationWith P1
+	Func CanSetCollation@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1])
 

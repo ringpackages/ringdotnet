@@ -31,7 +31,7 @@ Class FormattableString from Object
 	Func CurrentCulture P1
 		return dnRequest("call",[dnTypeCached('System.FormattableString, System.Private.CoreLib'),"CurrentCulture",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getFormat

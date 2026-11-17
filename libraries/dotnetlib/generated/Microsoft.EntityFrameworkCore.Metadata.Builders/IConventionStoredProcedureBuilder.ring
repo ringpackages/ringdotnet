@@ -120,55 +120,55 @@ Class IConventionStoredProcedureBuilder from DotNetObject
 	Func CanHaveRowsAffectedResultColumn 
 		return dnRequest("call",[self,"CanHaveRowsAffectedResultColumn"])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func HasNameWith P1
+	Func HasName@ P1
 		return dnRequest("callnamed",[self,"HasName",P1])
 
-	Func CanSetNameWith P1
+	Func CanSetName@ P1
 		return dnRequest("callnamed",[self,"CanSetName",P1])
 
-	Func HasSchemaWith P1
+	Func HasSchema@ P1
 		return dnRequest("callnamed",[self,"HasSchema",P1])
 
-	Func CanSetSchemaWith P1
+	Func CanSetSchema@ P1
 		return dnRequest("callnamed",[self,"CanSetSchema",P1])
 
-	Func HasParameterWith P1
+	Func HasParameter@ P1
 		return dnRequest("callnamed",[self,"HasParameter",P1])
 
-	Func CanHaveParameterWith P1
+	Func CanHaveParameter@ P1
 		return dnRequest("callnamed",[self,"CanHaveParameter",P1])
 
-	Func HasOriginalValueParameterWith P1
+	Func HasOriginalValueParameter@ P1
 		return dnRequest("callnamed",[self,"HasOriginalValueParameter",P1])
 
-	Func CanHaveOriginalValueParameterWith P1
+	Func CanHaveOriginalValueParameter@ P1
 		return dnRequest("callnamed",[self,"CanHaveOriginalValueParameter",P1])
 
-	Func HasRowsAffectedParameterWith P1
+	Func HasRowsAffectedParameter@ P1
 		return dnRequest("callnamed",[self,"HasRowsAffectedParameter",P1])
 
-	Func CanHaveRowsAffectedParameterWith P1
+	Func CanHaveRowsAffectedParameter@ P1
 		return dnRequest("callnamed",[self,"CanHaveRowsAffectedParameter",P1])
 
-	Func HasResultColumnWith P1
+	Func HasResultColumn@ P1
 		return dnRequest("callnamed",[self,"HasResultColumn",P1])
 
-	Func CanHaveResultColumnWith P1
+	Func CanHaveResultColumn@ P1
 		return dnRequest("callnamed",[self,"CanHaveResultColumn",P1])
 
-	Func HasRowsAffectedResultColumnWith P1
+	Func HasRowsAffectedResultColumn@ P1
 		return dnRequest("callnamed",[self,"HasRowsAffectedResultColumn",P1])
 
-	Func CanHaveRowsAffectedResultColumnWith P1
+	Func CanHaveRowsAffectedResultColumn@ P1
 		return dnRequest("callnamed",[self,"CanHaveRowsAffectedResultColumn",P1])
 
 	Func getMetadata

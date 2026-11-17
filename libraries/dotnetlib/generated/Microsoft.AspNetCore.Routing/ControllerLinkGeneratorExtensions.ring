@@ -61,9 +61,9 @@ Class ControllerLinkGeneratorExtensions from Object
 	Func GetUriByAction P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2])
 
-	Func GetPathByActionWith P1
+	Func GetPathByAction@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1])
 
-	Func GetUriByActionWith P1
+	Func GetUriByAction@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1])
 

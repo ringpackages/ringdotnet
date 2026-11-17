@@ -94,23 +94,23 @@ Class DataRow from Object
 		dnRequest("call",[self,"SetModified"])
 		return self
 
-	Func SetColumnErrorWith P1
+	Func SetColumnError@ P1
 		dnRequest("callnamed",[self,"SetColumnError",P1])
 		return self
 
-	Func GetColumnErrorWith P1
+	Func GetColumnError@ P1
 		return dnRequest("callnamed",[self,"GetColumnError",P1])
 
-	Func GetChildRowsWith P1
+	Func GetChildRows@ P1
 		return dnRequest("callnamed",[self,"GetChildRows",P1])
 
-	Func GetParentRowWith P1
+	Func GetParentRow@ P1
 		return dnRequest("callnamed",[self,"GetParentRow",P1])
 
-	Func GetParentRowsWith P1
+	Func GetParentRows@ P1
 		return dnRequest("callnamed",[self,"GetParentRows",P1])
 
-	Func SetParentRowWith P1
+	Func SetParentRow@ P1
 		dnRequest("callnamed",[self,"SetParentRow",P1])
 		return self
 

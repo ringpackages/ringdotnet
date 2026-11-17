@@ -483,7 +483,7 @@ func buildPlan cTypeName, nForceInit
 		aBlocks + [lower(cRing),cB]
 	next
 
-	# Named arguments: NameWith([ :param = value, ... ]) for every method that has overloads or optional parameters.
+	# Named arguments: Name@([ :param = value, ... ]) for every method that has overloads or optional parameters.
 	# The bridge picks the overload by the names of the parameters; the order does not matter and optional parameters can be left out.
 	aWithSeen = []
 	for aMethod in aMethods
@@ -520,7 +520,7 @@ func buildPlan cTypeName, nForceInit
 		if substr(cReserved,"|" + cLower + "|")
 			loop
 		ok
-		cWith = ringName(cName + "With")
+		cWith = cName + "@"
 		if find(aNames,lower(cWith)) > 0 or find(aAccessors,lower(cWith)) > 0
 			loop
 		ok

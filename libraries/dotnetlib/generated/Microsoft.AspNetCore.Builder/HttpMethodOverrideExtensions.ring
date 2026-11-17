@@ -19,6 +19,6 @@ Class HttpMethodOverrideExtensions from Object
 	Func UseHttpMethodOverride_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseHttpMethodOverride",P1,P2])
 
-	Func UseHttpMethodOverrideWith P1
+	Func UseHttpMethodOverride@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpMethodOverrideExtensions, Microsoft.AspNetCore.HttpOverrides'),"UseHttpMethodOverride",P1])
 

@@ -32,11 +32,11 @@ Class PropertyValues from Object
 	Func TryGetValue P1
 		return dnRequest("call",[self,"TryGetValue",P1])
 
-	Func SetValuesWith P1
+	Func SetValues@ P1
 		dnRequest("callnamed",[self,"SetValues",P1])
 		return self
 
-	Func GetValueWith P1
+	Func GetValue@ P1
 		return dnRequest("callnamed",[self,"GetValue",P1])
 
 	Func Item P1

@@ -17,6 +17,6 @@ Class TableTriggerBuilder from TriggerBuilder
 	Func HasDatabaseName P1
 		return dnRequest("call",[self,"HasDatabaseName",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 

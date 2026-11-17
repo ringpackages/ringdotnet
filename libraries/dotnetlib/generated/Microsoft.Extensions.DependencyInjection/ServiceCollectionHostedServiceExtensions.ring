@@ -19,6 +19,6 @@ Class ServiceCollectionHostedServiceExtensions from Object
 	Func AddHostedService_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions'),"AddHostedService",P1,P2])
 
-	Func AddHostedServiceWith P1
+	Func AddHostedService@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ServiceCollectionHostedServiceExtensions, Microsoft.Extensions.Hosting.Abstractions'),"AddHostedService",P1])
 

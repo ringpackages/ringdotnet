@@ -263,90 +263,90 @@ Class EntityFrameworkQueryableExtensions from Object
 	Func ExecuteUpdateAsync P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdateAsync",P1,P2])
 
-	Func AnyAsyncWith P1
+	Func AnyAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AnyAsync",P1])
 
-	Func AllAsyncWith P1
+	Func AllAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AllAsync",P1])
 
-	Func CountAsyncWith P1
+	Func CountAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"CountAsync",P1])
 
-	Func LongCountAsyncWith P1
+	Func LongCountAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LongCountAsync",P1])
 
-	Func ElementAtAsyncWith P1
+	Func ElementAtAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtAsync",P1])
 
-	Func ElementAtOrDefaultAsyncWith P1
+	Func ElementAtOrDefaultAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtOrDefaultAsync",P1])
 
-	Func FirstAsyncWith P1
+	Func FirstAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstAsync",P1])
 
-	Func FirstOrDefaultAsyncWith P1
+	Func FirstOrDefaultAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstOrDefaultAsync",P1])
 
-	Func LastAsyncWith P1
+	Func LastAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastAsync",P1])
 
-	Func LastOrDefaultAsyncWith P1
+	Func LastOrDefaultAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastOrDefaultAsync",P1])
 
-	Func SingleAsyncWith P1
+	Func SingleAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
 
-	Func SingleOrDefaultAsyncWith P1
+	Func SingleOrDefaultAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
 
-	Func MinAsyncWith P1
+	Func MinAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MinAsync",P1])
 
-	Func MaxAsyncWith P1
+	Func MaxAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MaxAsync",P1])
 
-	Func SumAsyncWith P1
+	Func SumAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SumAsync",P1])
 
-	Func AverageAsyncWith P1
+	Func AverageAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AverageAsync",P1])
 
-	Func ContainsAsyncWith P1
+	Func ContainsAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ContainsAsync",P1])
 
-	Func ToListAsyncWith P1
+	Func ToListAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToListAsync",P1])
 
-	Func ToArrayAsyncWith P1
+	Func ToArrayAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToArrayAsync",P1])
 
-	Func ToHashSetAsyncWith P1
+	Func ToHashSetAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToHashSetAsync",P1])
 
-	Func IncludeWith P1
+	Func Include@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"Include",P1])
 
-	Func ThenIncludeWith P1
+	Func ThenInclude@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ThenInclude",P1])
 
-	Func AsTrackingWith P1
+	Func AsTracking@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AsTracking",P1])
 
-	Func TagWithCallSiteWith P1
+	Func TagWithCallSite@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"TagWithCallSite",P1])
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LoadAsync",P1])
 
-	Func ToDictionaryAsyncWith P1
+	Func ToDictionaryAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1])
 
-	Func ForEachAsyncWith P1
+	Func ForEachAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ForEachAsync",P1])
 
-	Func ExecuteDeleteAsyncWith P1
+	Func ExecuteDeleteAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteDeleteAsync",P1])
 
-	Func ExecuteUpdateAsyncWith P1
+	Func ExecuteUpdateAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdateAsync",P1])
 

@@ -181,25 +181,25 @@ Class IEntityType from DotNetObject
 	Func GetDeclaredTriggers 
 		return dnRequest("call",[self,"GetDeclaredTriggers"])
 
-	Func FindKeyWith P1
+	Func FindKey@ P1
 		return dnRequest("callnamed",[self,"FindKey",P1])
 
-	Func FindForeignKeyWith P1
+	Func FindForeignKey@ P1
 		return dnRequest("callnamed",[self,"FindForeignKey",P1])
 
-	Func FindForeignKeysWith P1
+	Func FindForeignKeys@ P1
 		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
 
-	Func FindNavigationWith P1
+	Func FindNavigation@ P1
 		return dnRequest("callnamed",[self,"FindNavigation",P1])
 
-	Func FindSkipNavigationWith P1
+	Func FindSkipNavigation@ P1
 		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
 
-	Func FindIndexWith P1
+	Func FindIndex@ P1
 		return dnRequest("callnamed",[self,"FindIndex",P1])
 
-	Func FindPropertyWith P1
+	Func FindProperty@ P1
 		return dnRequest("callnamed",[self,"FindProperty",P1])
 
 	Func getBaseType

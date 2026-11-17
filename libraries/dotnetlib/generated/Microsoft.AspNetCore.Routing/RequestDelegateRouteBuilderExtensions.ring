@@ -49,18 +49,18 @@ Class RequestDelegateRouteBuilderExtensions from Object
 	Func MapMiddlewareVerb P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapMiddlewareVerb",P1,P2,P3,P4])
 
-	Func MapDeleteWith P1
+	Func MapDelete@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapDelete",P1])
 
-	Func MapGetWith P1
+	Func MapGet@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapGet",P1])
 
-	Func MapPostWith P1
+	Func MapPost@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPost",P1])
 
-	Func MapPutWith P1
+	Func MapPut@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapPut",P1])
 
-	Func MapVerbWith P1
+	Func MapVerb@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions, Microsoft.AspNetCore.Routing'),"MapVerb",P1])
 

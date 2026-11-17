@@ -33,7 +33,7 @@ Class BitmapFrame from BitmapSource
 	Func Create_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1,P2,P3,P4])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1])
 
 	Func getBaseUri

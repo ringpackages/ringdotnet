@@ -14,6 +14,6 @@ Class ModelCacheKeyFactoryDependencies from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKeyFactoryDependencies, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 

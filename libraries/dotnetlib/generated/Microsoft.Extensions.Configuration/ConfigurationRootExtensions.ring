@@ -19,6 +19,6 @@ Class ConfigurationRootExtensions from Object
 	Func GetDebugView_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1,P2])
 
-	Func GetDebugViewWith P1
+	Func GetDebugView@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
 

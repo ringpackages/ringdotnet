@@ -55,13 +55,13 @@ Class Monitor from Object
 	Func Wait_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1,P2,P3])
 
-	Func EnterWith P1
+	Func Enter@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1])
 
-	Func TryEnterWith P1
+	Func TryEnter@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1])
 
-	Func WaitWith P1
+	Func Wait@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
 
 	Func getLockContentionCount

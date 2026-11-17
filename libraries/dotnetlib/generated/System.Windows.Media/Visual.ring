@@ -37,6 +37,6 @@ Class Visual from DependencyObject
 	Func PointFromScreen P1
 		return dnRequest("call",[self,"PointFromScreen",P1])
 
-	Func TransformToAncestorWith P1
+	Func TransformToAncestor@ P1
 		return dnRequest("callnamed",[self,"TransformToAncestor",P1])
 

@@ -29,12 +29,12 @@ Class DbFunctionBuilder from DbFunctionBuilderBase
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func HasNameWith P1
+	Func HasName@ P1
 		return dnRequest("callnamed",[self,"HasName",P1])
 
-	Func HasSchemaWith P1
+	Func HasSchema@ P1
 		return dnRequest("callnamed",[self,"HasSchema",P1])
 
-	Func IsNullableWith P1
+	Func IsNullable@ P1
 		return dnRequest("callnamed",[self,"IsNullable",P1])
 

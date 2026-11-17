@@ -91,27 +91,27 @@ Class RelationalDatabaseCreator from Object
 	Func CanConnectAsync 
 		return dnRequest("call",[self,"CanConnectAsync"])
 
-	Func ExistsAsyncWith P1
+	Func ExistsAsync@ P1
 		return dnRequest("callnamed",[self,"ExistsAsync",P1])
 
-	Func CreateAsyncWith P1
+	Func CreateAsync@ P1
 		return dnRequest("callnamed",[self,"CreateAsync",P1])
 
-	Func DeleteAsyncWith P1
+	Func DeleteAsync@ P1
 		return dnRequest("callnamed",[self,"DeleteAsync",P1])
 
-	Func CreateTablesAsyncWith P1
+	Func CreateTablesAsync@ P1
 		return dnRequest("callnamed",[self,"CreateTablesAsync",P1])
 
-	Func HasTablesAsyncWith P1
+	Func HasTablesAsync@ P1
 		return dnRequest("callnamed",[self,"HasTablesAsync",P1])
 
-	Func EnsureDeletedAsyncWith P1
+	Func EnsureDeletedAsync@ P1
 		return dnRequest("callnamed",[self,"EnsureDeletedAsync",P1])
 
-	Func EnsureCreatedAsyncWith P1
+	Func EnsureCreatedAsync@ P1
 		return dnRequest("callnamed",[self,"EnsureCreatedAsync",P1])
 
-	Func CanConnectAsyncWith P1
+	Func CanConnectAsync@ P1
 		return dnRequest("callnamed",[self,"CanConnectAsync",P1])
 

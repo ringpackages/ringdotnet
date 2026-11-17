@@ -23,7 +23,7 @@ Class XName from Object
 	Func Get_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1,P2])
 
-	Func GetWith P1
+	Func Get@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
 
 	Func getLocalName

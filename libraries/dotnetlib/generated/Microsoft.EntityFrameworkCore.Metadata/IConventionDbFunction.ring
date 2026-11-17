@@ -83,25 +83,25 @@ Class IConventionDbFunction from DotNetObject
 	Func GetTranslationConfigurationSource 
 		return dnRequest("call",[self,"GetTranslationConfigurationSource"])
 
-	Func SetNameWith P1
+	Func SetName@ P1
 		return dnRequest("callnamed",[self,"SetName",P1])
 
-	Func SetSchemaWith P1
+	Func SetSchema@ P1
 		return dnRequest("callnamed",[self,"SetSchema",P1])
 
-	Func SetIsBuiltInWith P1
+	Func SetIsBuiltIn@ P1
 		return dnRequest("callnamed",[self,"SetIsBuiltIn",P1])
 
-	Func SetIsNullableWith P1
+	Func SetIsNullable@ P1
 		return dnRequest("callnamed",[self,"SetIsNullable",P1])
 
-	Func SetStoreTypeWith P1
+	Func SetStoreType@ P1
 		return dnRequest("callnamed",[self,"SetStoreType",P1])
 
-	Func SetTypeMappingWith P1
+	Func SetTypeMapping@ P1
 		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
 
-	Func SetTranslationWith P1
+	Func SetTranslation@ P1
 		return dnRequest("callnamed",[self,"SetTranslation",P1])
 
 	Func getModel

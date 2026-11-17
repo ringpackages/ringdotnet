@@ -97,28 +97,28 @@ Class StringBuilder from Object
 	Func Replace_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"Replace",P1,P2,P3,P4])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func AppendWith P1
+	Func Append@ P1
 		return dnRequest("callnamed",[self,"Append",P1])
 
-	Func AppendLineWith P1
+	Func AppendLine@ P1
 		return dnRequest("callnamed",[self,"AppendLine",P1])
 
-	Func InsertWith P1
+	Func Insert@ P1
 		return dnRequest("callnamed",[self,"Insert",P1])
 
-	Func AppendJoinWith P1
+	Func AppendJoin@ P1
 		return dnRequest("callnamed",[self,"AppendJoin",P1])
 
-	Func AppendFormatWith P1
+	Func AppendFormat@ P1
 		return dnRequest("callnamed",[self,"AppendFormat",P1])
 
-	Func ReplaceWith P1
+	Func Replace@ P1
 		return dnRequest("callnamed",[self,"Replace",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func Item P1

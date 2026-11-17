@@ -28,10 +28,10 @@ Class FragmentString from ValueType
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func FromUriComponentWith P1
+	Func FromUriComponent@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
 
 	Func getValue

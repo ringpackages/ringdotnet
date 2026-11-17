@@ -103,10 +103,10 @@ Class XmlNode from Object
 	Func GetPrefixOfNamespace P1
 		return dnRequest("call",[self,"GetPrefixOfNamespace",P1])
 
-	Func SelectSingleNodeWith P1
+	Func SelectSingleNode@ P1
 		return dnRequest("callnamed",[self,"SelectSingleNode",P1])
 
-	Func SelectNodesWith P1
+	Func SelectNodes@ P1
 		return dnRequest("callnamed",[self,"SelectNodes",P1])
 
 	Func Item P1

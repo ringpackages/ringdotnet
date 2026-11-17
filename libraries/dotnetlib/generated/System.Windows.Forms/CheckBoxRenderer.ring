@@ -45,7 +45,7 @@ Class CheckBoxRenderer from Object
 	Func GetGlyphSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"GetGlyphSize",P1,P2])
 
-	Func DrawCheckBoxWith P1
+	Func DrawCheckBox@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1])
 		return self
 

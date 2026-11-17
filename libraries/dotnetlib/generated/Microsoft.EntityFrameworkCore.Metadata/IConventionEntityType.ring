@@ -293,76 +293,76 @@ Class IConventionEntityType from DotNetObject
 	Func GetNavigationAccessModeConfigurationSource 
 		return dnRequest("call",[self,"GetNavigationAccessModeConfigurationSource"])
 
-	Func SetQueryFilterWith P1
+	Func SetQueryFilter@ P1
 		return dnRequest("callnamed",[self,"SetQueryFilter",P1])
 
-	Func SetDiscriminatorPropertyWith P1
+	Func SetDiscriminatorProperty@ P1
 		return dnRequest("callnamed",[self,"SetDiscriminatorProperty",P1])
 
-	Func SetDiscriminatorMappingCompleteWith P1
+	Func SetDiscriminatorMappingComplete@ P1
 		return dnRequest("callnamed",[self,"SetDiscriminatorMappingComplete",P1])
 
-	Func SetDiscriminatorValueWith P1
+	Func SetDiscriminatorValue@ P1
 		return dnRequest("callnamed",[self,"SetDiscriminatorValue",P1])
 
-	Func SetBaseTypeWith P1
+	Func SetBaseType@ P1
 		return dnRequest("callnamed",[self,"SetBaseType",P1])
 
-	Func SetIsKeylessWith P1
+	Func SetIsKeyless@ P1
 		return dnRequest("callnamed",[self,"SetIsKeyless",P1])
 
-	Func SetPrimaryKeyWith P1
+	Func SetPrimaryKey@ P1
 		return dnRequest("callnamed",[self,"SetPrimaryKey",P1])
 
-	Func AddKeyWith P1
+	Func AddKey@ P1
 		return dnRequest("callnamed",[self,"AddKey",P1])
 
-	Func FindKeyWith P1
+	Func FindKey@ P1
 		return dnRequest("callnamed",[self,"FindKey",P1])
 
-	Func RemoveKeyWith P1
+	Func RemoveKey@ P1
 		return dnRequest("callnamed",[self,"RemoveKey",P1])
 
-	Func AddForeignKeyWith P1
+	Func AddForeignKey@ P1
 		return dnRequest("callnamed",[self,"AddForeignKey",P1])
 
-	Func FindForeignKeyWith P1
+	Func FindForeignKey@ P1
 		return dnRequest("callnamed",[self,"FindForeignKey",P1])
 
-	Func FindForeignKeysWith P1
+	Func FindForeignKeys@ P1
 		return dnRequest("callnamed",[self,"FindForeignKeys",P1])
 
-	Func RemoveForeignKeyWith P1
+	Func RemoveForeignKey@ P1
 		return dnRequest("callnamed",[self,"RemoveForeignKey",P1])
 
-	Func FindNavigationWith P1
+	Func FindNavigation@ P1
 		return dnRequest("callnamed",[self,"FindNavigation",P1])
 
-	Func AddSkipNavigationWith P1
+	Func AddSkipNavigation@ P1
 		return dnRequest("callnamed",[self,"AddSkipNavigation",P1])
 
-	Func FindSkipNavigationWith P1
+	Func FindSkipNavigation@ P1
 		return dnRequest("callnamed",[self,"FindSkipNavigation",P1])
 
-	Func AddIndexWith P1
+	Func AddIndex@ P1
 		return dnRequest("callnamed",[self,"AddIndex",P1])
 
-	Func FindIndexWith P1
+	Func FindIndex@ P1
 		return dnRequest("callnamed",[self,"FindIndex",P1])
 
-	Func RemoveIndexWith P1
+	Func RemoveIndex@ P1
 		return dnRequest("callnamed",[self,"RemoveIndex",P1])
 
-	Func AddServicePropertyWith P1
+	Func AddServiceProperty@ P1
 		return dnRequest("callnamed",[self,"AddServiceProperty",P1])
 
-	Func RemoveServicePropertyWith P1
+	Func RemoveServiceProperty@ P1
 		return dnRequest("callnamed",[self,"RemoveServiceProperty",P1])
 
-	Func AddTriggerWith P1
+	Func AddTrigger@ P1
 		return dnRequest("callnamed",[self,"AddTrigger",P1])
 
-	Func SetNavigationAccessModeWith P1
+	Func SetNavigationAccessMode@ P1
 		return dnRequest("callnamed",[self,"SetNavigationAccessMode",P1])
 
 	Func getBuilder

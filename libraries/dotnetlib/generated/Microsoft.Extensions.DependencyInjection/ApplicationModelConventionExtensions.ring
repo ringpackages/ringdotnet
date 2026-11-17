@@ -25,11 +25,11 @@ Class ApplicationModelConventionExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"Add",P1,P2])
 		return self
 
-	Func RemoveTypeWith P1
+	Func RemoveType@ P1
 		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions, Microsoft.AspNetCore.Mvc.Core'),"Add",P1])
 		return self
 

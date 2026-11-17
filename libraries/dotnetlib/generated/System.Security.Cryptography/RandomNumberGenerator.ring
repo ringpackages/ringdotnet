@@ -50,18 +50,18 @@ Class RandomNumberGenerator from Object
 	Func GetHexString P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
 
-	Func GetBytesWith P1
+	Func GetBytes@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetBytes",P1])
 		ok
 		return dnRequest("callnamed",[self,"GetBytes",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
 
-	Func GetInt32With P1
+	Func GetInt32@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
 
-	Func GetHexStringWith P1
+	Func GetHexString@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1])
 

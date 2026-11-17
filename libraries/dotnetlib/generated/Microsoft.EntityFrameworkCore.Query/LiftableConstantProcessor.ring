@@ -40,10 +40,10 @@ Class LiftableConstantProcessor from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func VisitWith P1
+	Func Visit@ P1
 		return dnRequest("callnamed",[self,"Visit",P1])
 
-	Func VisitAndConvertWith P1
+	Func VisitAndConvert@ P1
 		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
 
 	Func getLiftedConstants

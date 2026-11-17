@@ -108,16 +108,16 @@ Class WpfMatrix from ValueType
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Parse",P1])
 
-	Func TransformWith P1
+	Func Transform@ P1
 		return dnRequest("callnamed",[self,"Transform",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getIsIdentity

@@ -16,6 +16,6 @@ Class Ascii from Object
 	Func IsValid P1
 		return dnRequest("call",[dnTypeCached('System.Text.Ascii, System.Private.CoreLib'),"IsValid",P1])
 
-	Func IsValidWith P1
+	Func IsValid@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Text.Ascii, System.Private.CoreLib'),"IsValid",P1])
 

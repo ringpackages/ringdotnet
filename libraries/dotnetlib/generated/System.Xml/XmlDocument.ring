@@ -115,27 +115,27 @@ Class XmlDocument from XmlNode
 		dnRequest("call",[self,"Validate",P1,P2])
 		return self
 
-	Func CreateAttributeWith P1
+	Func CreateAttribute@ P1
 		return dnRequest("callnamed",[self,"CreateAttribute",P1])
 
-	Func CreateElementWith P1
+	Func CreateElement@ P1
 		return dnRequest("callnamed",[self,"CreateElement",P1])
 
-	Func GetElementsByTagNameWith P1
+	Func GetElementsByTagName@ P1
 		return dnRequest("callnamed",[self,"GetElementsByTagName",P1])
 
-	Func CreateNodeWith P1
+	Func CreateNode@ P1
 		return dnRequest("callnamed",[self,"CreateNode",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
-	Func SaveWith P1
+	Func Save@ P1
 		dnRequest("callnamed",[self,"Save",P1])
 		return self
 
-	Func ValidateWith P1
+	Func Validate@ P1
 		dnRequest("callnamed",[self,"Validate",P1])
 		return self
 

@@ -28,6 +28,6 @@ Class HttpResponseJsonExtensions from Object
 	Func WriteAsJsonAsync_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2,P3,P4,P5,P6])
 
-	Func WriteAsJsonAsyncWith P1
+	Func WriteAsJsonAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1])
 

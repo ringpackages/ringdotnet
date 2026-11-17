@@ -31,7 +31,7 @@ Class DispatcherOperation from Object
 	Func Abort 
 		return dnRequest("call",[self,"Abort"])
 
-	Func WaitWith P1
+	Func Wait@ P1
 		return dnRequest("callnamed",[self,"Wait",P1])
 
 	Func setAbortedEvent P1

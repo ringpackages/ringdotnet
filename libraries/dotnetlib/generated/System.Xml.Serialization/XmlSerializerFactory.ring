@@ -26,6 +26,6 @@ Class XmlSerializerFactory from Object
 	Func CreateSerializer_6 P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[self,"CreateSerializer",P1,P2,P3,P4,P5,P6])
 
-	Func CreateSerializerWith P1
+	Func CreateSerializer@ P1
 		return dnRequest("callnamed",[self,"CreateSerializer",P1])
 

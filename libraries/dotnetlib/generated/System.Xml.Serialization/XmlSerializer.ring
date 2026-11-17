@@ -69,17 +69,17 @@ Class XmlSerializer from Object
 	Func GetXmlSerializerAssemblyName_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1,P2])
 
-	Func SerializeWith P1
+	Func Serialize@ P1
 		dnRequest("callnamed",[self,"Serialize",P1])
 		return self
 
-	Func DeserializeWith P1
+	Func Deserialize@ P1
 		return dnRequest("callnamed",[self,"Deserialize",P1])
 
-	Func FromMappingsWith P1
+	Func FromMappings@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1])
 
-	Func GetXmlSerializerAssemblyNameWith P1
+	Func GetXmlSerializerAssemblyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
 
 	Func setUnknownNodeEvent P1

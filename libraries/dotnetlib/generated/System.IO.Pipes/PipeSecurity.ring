@@ -142,11 +142,11 @@ Class PipeSecurity from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func SetSecurityDescriptorSddlFormWith P1
+	Func SetSecurityDescriptorSddlForm@ P1
 		dnRequest("callnamed",[self,"SetSecurityDescriptorSddlForm",P1])
 		return self
 
-	Func SetSecurityDescriptorBinaryFormWith P1
+	Func SetSecurityDescriptorBinaryForm@ P1
 		dnRequest("callnamed",[self,"SetSecurityDescriptorBinaryForm",P1])
 		return self
 

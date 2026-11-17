@@ -49,7 +49,7 @@ Class RouteValueDictionary from Object
 	Func FromArray P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions'),"FromArray",P1])
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		return dnRequest("callnamed",[self,"Remove",P1])
 
 	Func Item P1

@@ -30,7 +30,7 @@ Class ConfigureHostBuilder from Object
 	Func UseServiceProviderFactory P1
 		return dnRequest("call",[self,"UseServiceProviderFactory",P1])
 
-	Func UseServiceProviderFactoryWith P1
+	Func UseServiceProviderFactory@ P1
 		return dnRequest("callnamed",[self,"UseServiceProviderFactory",P1])
 
 	Func getProperties

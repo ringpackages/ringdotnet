@@ -52,17 +52,17 @@ Class ILazyLoader from DotNetObject
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func SetLoadedWith P1
+	Func SetLoaded@ P1
 		dnRequest("callnamed",[self,"SetLoaded",P1])
 		return self
 
-	Func IsLoadedWith P1
+	Func IsLoaded@ P1
 		return dnRequest("callnamed",[self,"IsLoaded",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		dnRequest("callnamed",[self,"Load",P1])
 		return self
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		return dnRequest("callnamed",[self,"LoadAsync",P1])
 

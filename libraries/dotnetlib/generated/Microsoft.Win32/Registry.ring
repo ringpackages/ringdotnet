@@ -31,7 +31,7 @@ Class Registry from Object
 		dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1,P2,P3,P4])
 		return self
 
-	Func SetValueWith P1
+	Func SetValue@ P1
 		dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1])
 		return self
 

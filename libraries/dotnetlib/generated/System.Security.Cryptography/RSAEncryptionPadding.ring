@@ -27,7 +27,7 @@ Class RSAEncryptionPadding from Object
 	Func CreateOaep P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RSAEncryptionPadding, System.Security.Cryptography'),"CreateOaep",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getMode

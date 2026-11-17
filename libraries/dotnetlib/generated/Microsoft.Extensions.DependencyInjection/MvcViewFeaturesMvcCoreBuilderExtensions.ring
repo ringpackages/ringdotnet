@@ -28,9 +28,9 @@ Class MvcViewFeaturesMvcCoreBuilderExtensions from Object
 	Func ConfigureViews P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"ConfigureViews",P1,P2])
 
-	Func AddViewsWith P1
+	Func AddViews@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddViews",P1])
 
-	Func AddCookieTempDataProviderWith P1
+	Func AddCookieTempDataProvider@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.MvcViewFeaturesMvcCoreBuilderExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddCookieTempDataProvider",P1])
 

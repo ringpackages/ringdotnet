@@ -59,7 +59,7 @@ Class BinaryWriter from Object
 		dnRequest("call",[self,"Write7BitEncodedInt64",P1])
 		return self
 
-	Func WriteWith P1
+	Func Write@ P1
 		dnRequest("callnamed",[self,"Write",P1])
 		return self
 

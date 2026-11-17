@@ -46,15 +46,15 @@ Class EnumerableRowCollectionExtensions from Object
 	Func Cast P1
 		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"Cast",P1])
 
-	Func OrderByWith P1
+	Func OrderBy@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderBy",P1])
 
-	Func OrderByDescendingWith P1
+	Func OrderByDescending@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderByDescending",P1])
 
-	Func ThenByWith P1
+	Func ThenBy@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenBy",P1])
 
-	Func ThenByDescendingWith P1
+	Func ThenByDescending@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenByDescending",P1])
 

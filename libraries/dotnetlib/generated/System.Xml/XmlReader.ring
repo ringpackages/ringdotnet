@@ -326,62 +326,62 @@ Class XmlReader from Object
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1,P2,P3])
 
-	Func ReadElementContentAsObjectWith P1
+	Func ReadElementContentAsObject@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsObject",P1])
 
-	Func ReadElementContentAsBooleanWith P1
+	Func ReadElementContentAsBoolean@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsBoolean",P1])
 
-	Func ReadElementContentAsDateTimeWith P1
+	Func ReadElementContentAsDateTime@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsDateTime",P1])
 
-	Func ReadElementContentAsDoubleWith P1
+	Func ReadElementContentAsDouble@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsDouble",P1])
 
-	Func ReadElementContentAsFloatWith P1
+	Func ReadElementContentAsFloat@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsFloat",P1])
 
-	Func ReadElementContentAsDecimalWith P1
+	Func ReadElementContentAsDecimal@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsDecimal",P1])
 
-	Func ReadElementContentAsIntWith P1
+	Func ReadElementContentAsInt@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsInt",P1])
 
-	Func ReadElementContentAsLongWith P1
+	Func ReadElementContentAsLong@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsLong",P1])
 
-	Func ReadElementContentAsStringWith P1
+	Func ReadElementContentAsString@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAsString",P1])
 
-	Func ReadElementContentAsWith P1
+	Func ReadElementContentAs@ P1
 		return dnRequest("callnamed",[self,"ReadElementContentAs",P1])
 
-	Func GetAttributeWith P1
+	Func GetAttribute@ P1
 		return dnRequest("callnamed",[self,"GetAttribute",P1])
 
-	Func MoveToAttributeWith P1
+	Func MoveToAttribute@ P1
 		return dnRequest("callnamed",[self,"MoveToAttribute",P1])
 
-	Func ReadStartElementWith P1
+	Func ReadStartElement@ P1
 		dnRequest("callnamed",[self,"ReadStartElement",P1])
 		return self
 
-	Func ReadElementStringWith P1
+	Func ReadElementString@ P1
 		return dnRequest("callnamed",[self,"ReadElementString",P1])
 
-	Func IsStartElementWith P1
+	Func IsStartElement@ P1
 		return dnRequest("callnamed",[self,"IsStartElement",P1])
 
-	Func ReadToFollowingWith P1
+	Func ReadToFollowing@ P1
 		return dnRequest("callnamed",[self,"ReadToFollowing",P1])
 
-	Func ReadToDescendantWith P1
+	Func ReadToDescendant@ P1
 		return dnRequest("callnamed",[self,"ReadToDescendant",P1])
 
-	Func ReadToNextSiblingWith P1
+	Func ReadToNextSibling@ P1
 		return dnRequest("callnamed",[self,"ReadToNextSibling",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
 
 	Func Item P1

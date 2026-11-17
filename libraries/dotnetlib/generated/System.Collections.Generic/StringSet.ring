@@ -122,11 +122,11 @@ Class StringSet from Object
 	Func CreateSetComparer 
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib'),"CreateSetComparer"])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
-	Func TrimExcessWith P1
+	Func TrimExcess@ P1
 		dnRequest("callnamed",[self,"TrimExcess",P1])
 		return self
 

@@ -59,11 +59,11 @@ Class ConcurrentObjectStack from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func PushRangeWith P1
+	Func PushRange@ P1
 		dnRequest("callnamed",[self,"PushRange",P1])
 		return self
 
-	Func TryPopRangeWith P1
+	Func TryPopRange@ P1
 		return dnRequest("callnamed",[self,"TryPopRange",P1])
 
 	Func getIsEmpty

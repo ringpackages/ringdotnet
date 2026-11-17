@@ -154,43 +154,43 @@ Class Regex from Object
 	Func Split_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3,P4])
 
-	Func CountWith P1
+	Func Count@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1])
 		ok
 		return dnRequest("callnamed",[self,"Count",P1])
 
-	Func IsMatchWith P1
+	Func IsMatch@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1])
 		ok
 		return dnRequest("callnamed",[self,"IsMatch",P1])
 
-	Func MatchWith P1
+	Func Match@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1])
 		ok
 		return dnRequest("callnamed",[self,"Match",P1])
 
-	Func MatchesWith P1
+	Func Matches@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1])
 		ok
 		return dnRequest("callnamed",[self,"Matches",P1])
 
-	Func ReplaceWith P1
+	Func Replace@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1])
 		ok
 		return dnRequest("callnamed",[self,"Replace",P1])
 
-	Func SplitWith P1
+	Func Split@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1])
 		ok
 		return dnRequest("callnamed",[self,"Split",P1])
 
-	Func CompileToAssemblyWith P1
+	Func CompileToAssembly@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1])
 		return self
 

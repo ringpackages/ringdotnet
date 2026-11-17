@@ -22,12 +22,12 @@ Class ConfigurationSourceExtensions from Object
 	Func Max P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"Max",P1,P2])
 
-	Func OverridesWith P1
+	Func Overrides@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"Overrides",P1])
 
-	Func OverridesStrictlyWith P1
+	Func OverridesStrictly@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"OverridesStrictly",P1])
 
-	Func MaxWith P1
+	Func Max@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Metadata.ConfigurationSourceExtensions, Microsoft.EntityFrameworkCore'),"Max",P1])
 

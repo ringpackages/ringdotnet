@@ -35,13 +35,13 @@ Class Int32Rect from ValueType
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Parse",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getX

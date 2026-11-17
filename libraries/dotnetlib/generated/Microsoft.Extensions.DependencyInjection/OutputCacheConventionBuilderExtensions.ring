@@ -22,6 +22,6 @@ Class OutputCacheConventionBuilderExtensions from Object
 	Func CacheOutput_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1,P2,P3])
 
-	Func CacheOutputWith P1
+	Func CacheOutput@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OutputCacheConventionBuilderExtensions, Microsoft.AspNetCore.OutputCaching'),"CacheOutput",P1])
 

@@ -38,9 +38,9 @@ Class PropertiesDataFormat from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func ProtectWith P1
+	Func Protect@ P1
 		return dnRequest("callnamed",[self,"Protect",P1])
 
-	Func UnprotectWith P1
+	Func Unprotect@ P1
 		return dnRequest("callnamed",[self,"Unprotect",P1])
 

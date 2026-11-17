@@ -19,6 +19,6 @@ Class OAuthExtensions from Object
 	Func AddOAuth_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"AddOAuth",P1,P2,P3,P4])
 
-	Func AddOAuthWith P1
+	Func AddOAuth@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OAuthExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"AddOAuth",P1])
 

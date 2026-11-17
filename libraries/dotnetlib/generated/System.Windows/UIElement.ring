@@ -287,15 +287,15 @@ Class UIElement from Visual
 		dnRequest("call",[self,"ReleaseAllTouchCaptures"])
 		return self
 
-	Func ApplyAnimationClockWith P1
+	Func ApplyAnimationClock@ P1
 		dnRequest("callnamed",[self,"ApplyAnimationClock",P1])
 		return self
 
-	Func BeginAnimationWith P1
+	Func BeginAnimation@ P1
 		dnRequest("callnamed",[self,"BeginAnimation",P1])
 		return self
 
-	Func AddHandlerWith P1
+	Func AddHandler@ P1
 		dnRequest("callnamed",[self,"AddHandler",P1])
 		return self
 

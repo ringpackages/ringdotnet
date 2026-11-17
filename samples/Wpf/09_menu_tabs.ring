@@ -46,7 +46,7 @@ wpfEnd()
 # --------------------------------------------------------------------------
 
 func selfTest
-	oEvent = dnNewWith("RoutedEventArgs",[ :routedEvent = new MenuItem().ClickEvent ])
+	oEvent = dnNew@("RoutedEventArgs",[ :routedEvent = new MenuItem().ClickEvent ])
 	oOpen.RaiseEvent(oEvent)
 	dnAssert("menu item click",cLast,"open")
 	oTabs.SelectedIndex = 1

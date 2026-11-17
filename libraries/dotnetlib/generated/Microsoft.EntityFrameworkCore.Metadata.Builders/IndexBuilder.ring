@@ -28,7 +28,7 @@ Class IndexBuilder from Object
 	Func IsDescending P1
 		return dnRequest("call",[self,"IsDescending",P1])
 
-	Func IsUniqueWith P1
+	Func IsUnique@ P1
 		return dnRequest("callnamed",[self,"IsUnique",P1])
 
 	Func getMetadata

@@ -34,7 +34,7 @@ Class FileBufferingWriteStream from Stream
 	Func DrainBufferAsync P1
 		return dnRequest("call",[self,"DrainBufferAsync",P1])
 
-	Func DrainBufferAsyncWith P1
+	Func DrainBufferAsync@ P1
 		return dnRequest("callnamed",[self,"DrainBufferAsync",P1])
 
 	Func getMemoryThreshold

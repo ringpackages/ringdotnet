@@ -43,13 +43,13 @@ Class NavigationBuilder from Object
 	Func IsRequired 
 		return dnRequest("call",[self,"IsRequired"])
 
-	Func AutoIncludeWith P1
+	Func AutoInclude@ P1
 		return dnRequest("callnamed",[self,"AutoInclude",P1])
 
-	Func EnableLazyLoadingWith P1
+	Func EnableLazyLoading@ P1
 		return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 
 	Func getMetadata

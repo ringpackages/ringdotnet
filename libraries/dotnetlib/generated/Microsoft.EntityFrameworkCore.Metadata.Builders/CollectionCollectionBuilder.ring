@@ -32,7 +32,7 @@ Class CollectionCollectionBuilder from Object
 	Func UsingEntity_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[self,"UsingEntity",P1,P2,P3,P4,P5])
 
-	Func UsingEntityWith P1
+	Func UsingEntity@ P1
 		return dnRequest("callnamed",[self,"UsingEntity",P1])
 
 	Func getLeftNavigation

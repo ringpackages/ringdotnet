@@ -16,6 +16,6 @@ Class ParameterPolicyFactory from Object
 	Func Create P1,P2
 		return dnRequest("call",[self,"Create",P1,P2])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[self,"Create",P1])
 

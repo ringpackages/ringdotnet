@@ -23,7 +23,7 @@ Class IStoreFunction from DotNetObject
 	Func FindColumn P1
 		return dnRequest("call",[self,"FindColumn",P1])
 
-	Func FindColumnWith P1
+	Func FindColumn@ P1
 		return dnRequest("callnamed",[self,"FindColumn",P1])
 
 	Func getDbFunctions

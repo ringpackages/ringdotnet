@@ -165,14 +165,14 @@ Class FrameworkElement from UIElement
 		dnRequest("call",[dnTypeCached('System.Windows.FrameworkElement, PresentationFramework'),"SetFlowDirection",P1,P2])
 		return self
 
-	Func BeginStoryboardWith P1
+	Func BeginStoryboard@ P1
 		dnRequest("callnamed",[self,"BeginStoryboard",P1])
 		return self
 
-	Func SetBindingWith P1
+	Func SetBinding@ P1
 		return dnRequest("callnamed",[self,"SetBinding",P1])
 
-	Func BringIntoViewWith P1
+	Func BringIntoView@ P1
 		dnRequest("callnamed",[self,"BringIntoView",P1])
 		return self
 

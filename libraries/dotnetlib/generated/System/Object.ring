@@ -32,7 +32,7 @@ Class Object from DotNetObject
 	Func ReferenceEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Object, System.Private.CoreLib'),"ReferenceEquals",P1,P2])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Object, System.Private.CoreLib'),"Equals",P1])
 		ok

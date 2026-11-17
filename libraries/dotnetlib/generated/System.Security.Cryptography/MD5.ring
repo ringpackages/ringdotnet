@@ -34,13 +34,13 @@ Class MD5 from HashAlgorithm
 	Func HashDataAsync_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
 
-	Func HashDataWith P1
+	Func HashData@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsyncWith P1
+	Func HashDataAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
 
 	Func getHashSizeInBits

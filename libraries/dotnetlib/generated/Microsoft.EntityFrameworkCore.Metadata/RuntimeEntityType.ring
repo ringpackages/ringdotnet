@@ -191,22 +191,22 @@ Class RuntimeEntityType from RuntimeTypeBase
 		dnRequest("call",[self,"SetShadowValuesFactory",P1])
 		return self
 
-	Func AddForeignKeyWith P1
+	Func AddForeignKey@ P1
 		return dnRequest("callnamed",[self,"AddForeignKey",P1])
 
-	Func AddNavigationWith P1
+	Func AddNavigation@ P1
 		return dnRequest("callnamed",[self,"AddNavigation",P1])
 
-	Func AddSkipNavigationWith P1
+	Func AddSkipNavigation@ P1
 		return dnRequest("callnamed",[self,"AddSkipNavigation",P1])
 
-	Func AddIndexWith P1
+	Func AddIndex@ P1
 		return dnRequest("callnamed",[self,"AddIndex",P1])
 
-	Func FindIndexWith P1
+	Func FindIndex@ P1
 		return dnRequest("callnamed",[self,"FindIndex",P1])
 
-	Func AddServicePropertyWith P1
+	Func AddServiceProperty@ P1
 		return dnRequest("callnamed",[self,"AddServiceProperty",P1])
 
 	Func getServiceOnlyConstructorBinding

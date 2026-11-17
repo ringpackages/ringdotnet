@@ -65,7 +65,7 @@ oSB.setProp("Capacity",64)
 | `dnType("Namespace.Type")` | a type object: use `callMethod` / `getProp` for static members |
 | `dnNew("Namespace.Type", [args])` | a new object (the arguments are optional) |
 | `dnStatic("Namespace.Type", "Method", [args])` | the result of a static method |
-| `dnNewWith("Class", [ :param = value ])` | a new object with **named arguments**; the constructor is chosen by the parameter names (see [Named arguments](concepts.html#named-arguments)) |
+| `dnNew@("Class", [ :param = value ])` | a new object with **named arguments**; the constructor is chosen by the parameter names (see [Named arguments](concepts.html#named-arguments)) |
 | `dnNewGeneric("System.Collections.Generic.List", ["System.Int32"], [args])` | an object of a closed generic type |
 | `dnGenericName(type, [typeArguments])` | the .NET name of a closed generic type |
 | `dnDescribe("Namespace.Type")` | the public API of a type (used by the generator) |

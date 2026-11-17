@@ -39,16 +39,16 @@ Class WpfPoint from ValueType
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Point, WindowsBase'),"Multiply",P1,P2])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Point, WindowsBase'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func SubtractWith P1
+	Func Subtract@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Point, WindowsBase'),"Subtract",P1])
 
 	Func getX

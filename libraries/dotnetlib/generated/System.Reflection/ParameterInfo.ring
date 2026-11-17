@@ -53,7 +53,7 @@ Class ParameterInfo from Object
 	Func GetRealObject P1
 		return dnRequest("call",[self,"GetRealObject",P1])
 
-	Func GetCustomAttributesWith P1
+	Func GetCustomAttributes@ P1
 		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
 
 	Func getAttributes

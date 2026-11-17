@@ -31,7 +31,7 @@ Class EncoderFallbackBuffer from Object
 		dnRequest("call",[self,"Reset"])
 		return self
 
-	Func FallbackWith P1
+	Func Fallback@ P1
 		return dnRequest("callnamed",[self,"Fallback",P1])
 
 	Func getRemaining

@@ -1327,7 +1327,6 @@ aPackageInfo = [
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/NavigationExpansionExtensibilityHelperDependencies.ring",
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/NonQueryExpression.ring",
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/ParameterQueryRootExpression.ring",
-		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/PathSegment.ring",
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/ProjectionBindingExpression.ring",
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/ProjectionMember.ring",
 		"libraries/dotnetlib/generated/Microsoft.EntityFrameworkCore.Query/QueryCompilationContext.ring",

@@ -22,6 +22,6 @@ Class MvcApplicationBuilderExtensions from Object
 	Func UseMvc_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"UseMvc",P1,P2])
 
-	Func UseMvcWith P1
+	Func UseMvc@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions, Microsoft.AspNetCore.Mvc.Core'),"UseMvc",P1])
 

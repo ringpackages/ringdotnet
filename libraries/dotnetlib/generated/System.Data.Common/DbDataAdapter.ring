@@ -35,13 +35,13 @@ Class DbDataAdapter from DataAdapter
 	Func Update_2 P1,P2
 		return dnRequest("call",[self,"Update",P1,P2])
 
-	Func FillSchemaWith P1
+	Func FillSchema@ P1
 		return dnRequest("callnamed",[self,"FillSchema",P1])
 
-	Func FillWith P1
+	Func Fill@ P1
 		return dnRequest("callnamed",[self,"Fill",P1])
 
-	Func UpdateWith P1
+	Func Update@ P1
 		return dnRequest("callnamed",[self,"Update",P1])
 
 	Func getDeleteCommand

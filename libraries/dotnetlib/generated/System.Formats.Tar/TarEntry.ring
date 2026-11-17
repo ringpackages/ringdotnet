@@ -36,7 +36,7 @@ Class TarEntry from Object
 	Func ExtractToFileAsync P1,P2
 		return dnRequest("call",[self,"ExtractToFileAsync",P1,P2])
 
-	Func ExtractToFileAsyncWith P1
+	Func ExtractToFileAsync@ P1
 		return dnRequest("callnamed",[self,"ExtractToFileAsync",P1])
 
 	Func getChecksum

@@ -25,7 +25,7 @@ Class IConventionComplexProperty from DotNetObject
 	Func GetIsNullableConfigurationSource 
 		return dnRequest("call",[self,"GetIsNullableConfigurationSource"])
 
-	Func SetIsNullableWith P1
+	Func SetIsNullable@ P1
 		return dnRequest("callnamed",[self,"SetIsNullable",P1])
 
 	Func getBuilder

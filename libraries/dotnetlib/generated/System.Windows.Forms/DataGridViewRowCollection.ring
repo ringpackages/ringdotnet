@@ -103,19 +103,19 @@ Class DataGridViewRowCollection from Object
 		dnRequest("call",[self,"RemoveAt",P1])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[self,"Add",P1])
 
-	Func GetFirstRowWith P1
+	Func GetFirstRow@ P1
 		return dnRequest("callnamed",[self,"GetFirstRow",P1])
 
-	Func GetNextRowWith P1
+	Func GetNextRow@ P1
 		return dnRequest("callnamed",[self,"GetNextRow",P1])
 
-	Func GetPreviousRowWith P1
+	Func GetPreviousRow@ P1
 		return dnRequest("callnamed",[self,"GetPreviousRow",P1])
 
-	Func InsertWith P1
+	Func Insert@ P1
 		dnRequest("callnamed",[self,"Insert",P1])
 		return self
 

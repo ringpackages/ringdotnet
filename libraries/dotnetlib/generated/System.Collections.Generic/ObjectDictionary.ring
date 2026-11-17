@@ -79,10 +79,10 @@ Class ObjectDictionary from Object
 		dnRequest("call",[self,"TrimExcess",P1])
 		return self
 
-	Func RemoveWith P1
+	Func Remove@ P1
 		return dnRequest("callnamed",[self,"Remove",P1])
 
-	Func TrimExcessWith P1
+	Func TrimExcess@ P1
 		dnRequest("callnamed",[self,"TrimExcess",P1])
 		return self
 

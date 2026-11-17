@@ -27,7 +27,7 @@ Class DataColumnMapping from MarshalByRefObject
 	Func GetDataColumnBySchemaAction_5 P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1,P2,P3,P4,P5])
 
-	Func GetDataColumnBySchemaActionWith P1
+	Func GetDataColumnBySchemaAction@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1])
 		ok

@@ -22,6 +22,6 @@ Class Partitioner from Object
 	Func Create_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1,P2,P3])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1])
 

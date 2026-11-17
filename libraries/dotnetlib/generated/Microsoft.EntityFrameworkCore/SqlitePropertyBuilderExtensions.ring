@@ -25,9 +25,9 @@ Class SqlitePropertyBuilderExtensions from Object
 	Func CanSetSrid P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanSetSrid",P1,P2])
 
-	Func HasSridWith P1
+	Func HasSrid@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1])
 
-	Func CanSetSridWith P1
+	Func CanSetSrid@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanSetSrid",P1])
 

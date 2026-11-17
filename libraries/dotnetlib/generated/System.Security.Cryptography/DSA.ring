@@ -65,18 +65,18 @@ Class DSA from AsymmetricAlgorithm
 	Func Create 
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create"])
 
-	Func CreateSignatureWith P1
+	Func CreateSignature@ P1
 		return dnRequest("callnamed",[self,"CreateSignature",P1])
 
-	Func VerifySignatureWith P1
+	Func VerifySignature@ P1
 		return dnRequest("callnamed",[self,"VerifySignature",P1])
 
-	Func SignDataWith P1
+	Func SignData@ P1
 		return dnRequest("callnamed",[self,"SignData",P1])
 
-	Func VerifyDataWith P1
+	Func VerifyData@ P1
 		return dnRequest("callnamed",[self,"VerifyData",P1])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
 

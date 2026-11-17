@@ -22,6 +22,6 @@ Class OptionsConfigurationServiceCollectionExtensions from Object
 	Func Configure_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"Configure",P1,P2,P3,P4])
 
-	Func ConfigureWith P1
+	Func Configure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsConfigurationServiceCollectionExtensions, Microsoft.Extensions.Options.ConfigurationExtensions'),"Configure",P1])
 

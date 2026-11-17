@@ -28,6 +28,6 @@ Class JsonConfigurationExtensions from Object
 	Func AddJsonStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonStream",P1,P2])
 
-	Func AddJsonFileWith P1
+	Func AddJsonFile@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1])
 

@@ -23,7 +23,7 @@ oSlider = new Slider() {
 }
 oText = new WpfTextBox()
 oText.Margin = new Thickness(10,10,10,10)
-oBinding = dnNewWith("WpfBinding",[ :path = "Value" ])
+oBinding = dnNew@("WpfBinding",[ :path = "Value" ])
 oBinding.Source = oSlider
 oText.SetBinding(oText.TextProperty,oBinding)
 oPanel {

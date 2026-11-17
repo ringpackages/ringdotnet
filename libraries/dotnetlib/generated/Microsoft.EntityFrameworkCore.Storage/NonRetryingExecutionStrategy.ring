@@ -25,7 +25,7 @@ Class NonRetryingExecutionStrategy from Object
 	Func ExecuteAsync P1,P2,P3
 		return dnRequest("call",[self,"ExecuteAsync",P1,P2,P3])
 
-	Func ExecuteAsyncWith P1
+	Func ExecuteAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteAsync",P1])
 
 	Func getRetriesOnFailure

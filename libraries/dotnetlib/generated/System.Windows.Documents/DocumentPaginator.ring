@@ -45,11 +45,11 @@ Class DocumentPaginator from Object
 		dnRequest("call",[self,"CancelAsync",P1])
 		return self
 
-	Func GetPageAsyncWith P1
+	Func GetPageAsync@ P1
 		dnRequest("callnamed",[self,"GetPageAsync",P1])
 		return self
 
-	Func ComputePageCountAsyncWith P1
+	Func ComputePageCountAsync@ P1
 		dnRequest("callnamed",[self,"ComputePageCountAsync",P1])
 		return self
 

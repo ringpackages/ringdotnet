@@ -51,7 +51,7 @@ Class CookieContainer from Object
 		dnRequest("call",[self,"SetCookies",P1,P2])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

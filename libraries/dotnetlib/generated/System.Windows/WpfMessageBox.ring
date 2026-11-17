@@ -34,6 +34,6 @@ Class WpfMessageBox from Object
 	Func Show_7 P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4,P5,P6,P7])
 
-	Func ShowWith P1
+	Func Show@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1])
 

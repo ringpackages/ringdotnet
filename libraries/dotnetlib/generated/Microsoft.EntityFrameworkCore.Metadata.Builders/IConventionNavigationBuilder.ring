@@ -51,22 +51,22 @@ Class IConventionNavigationBuilder from DotNetObject
 	Func CanSetIsRequired P1
 		return dnRequest("call",[self,"CanSetIsRequired",P1])
 
-	Func AutoIncludeWith P1
+	Func AutoInclude@ P1
 		return dnRequest("callnamed",[self,"AutoInclude",P1])
 
-	Func CanSetAutoIncludeWith P1
+	Func CanSetAutoInclude@ P1
 		return dnRequest("callnamed",[self,"CanSetAutoInclude",P1])
 
-	Func EnableLazyLoadingWith P1
+	Func EnableLazyLoading@ P1
 		return dnRequest("callnamed",[self,"EnableLazyLoading",P1])
 
-	Func CanSetLazyLoadingEnabledWith P1
+	Func CanSetLazyLoadingEnabled@ P1
 		return dnRequest("callnamed",[self,"CanSetLazyLoadingEnabled",P1])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 
-	Func CanSetIsRequiredWith P1
+	Func CanSetIsRequired@ P1
 		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
 
 	Func getMetadata

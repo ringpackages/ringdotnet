@@ -28,7 +28,7 @@ Class FormPipeReader from Object
 	Func ReadFormAsync 
 		return dnRequest("call",[self,"ReadFormAsync"])
 
-	Func ReadFormAsyncWith P1
+	Func ReadFormAsync@ P1
 		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
 
 	Func getValueCountLimit

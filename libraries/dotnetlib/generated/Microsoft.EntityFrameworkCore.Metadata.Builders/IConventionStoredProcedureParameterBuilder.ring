@@ -57,25 +57,25 @@ Class IConventionStoredProcedureParameterBuilder from DotNetObject
 	Func CanSetDirection P1
 		return dnRequest("call",[self,"CanSetDirection",P1])
 
-	Func HasAnnotationWith P1
+	Func HasAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasAnnotation",P1])
 
-	Func HasNonNullAnnotationWith P1
+	Func HasNonNullAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNonNullAnnotation",P1])
 
-	Func HasNoAnnotationWith P1
+	Func HasNoAnnotation@ P1
 		return dnRequest("callnamed",[self,"HasNoAnnotation",P1])
 
-	Func HasNameWith P1
+	Func HasName@ P1
 		return dnRequest("callnamed",[self,"HasName",P1])
 
-	Func CanSetNameWith P1
+	Func CanSetName@ P1
 		return dnRequest("callnamed",[self,"CanSetName",P1])
 
-	Func HasDirectionWith P1
+	Func HasDirection@ P1
 		return dnRequest("callnamed",[self,"HasDirection",P1])
 
-	Func CanSetDirectionWith P1
+	Func CanSetDirection@ P1
 		return dnRequest("callnamed",[self,"CanSetDirection",P1])
 
 	Func getMetadata

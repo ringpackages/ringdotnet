@@ -102,21 +102,21 @@ Class TextWriter from MarshalByRefObject
 	Func CreateBroadcasting P1
 		return dnRequest("call",[dnTypeCached('System.IO.TextWriter, System.Private.CoreLib'),"CreateBroadcasting",P1])
 
-	Func WriteWith P1
+	Func Write@ P1
 		dnRequest("callnamed",[self,"Write",P1])
 		return self
 
-	Func WriteLineWith P1
+	Func WriteLine@ P1
 		dnRequest("callnamed",[self,"WriteLine",P1])
 		return self
 
-	Func WriteAsyncWith P1
+	Func WriteAsync@ P1
 		return dnRequest("callnamed",[self,"WriteAsync",P1])
 
-	Func WriteLineAsyncWith P1
+	Func WriteLineAsync@ P1
 		return dnRequest("callnamed",[self,"WriteLineAsync",P1])
 
-	Func FlushAsyncWith P1
+	Func FlushAsync@ P1
 		return dnRequest("callnamed",[self,"FlushAsync",P1])
 
 	Func getFormatProvider

@@ -172,7 +172,7 @@ cUrl = <span class="s">""</span>
 <span class="c"># ---------------------------------------------------------------- self test: a .NET client talks to the server</span>
 
 <span class="k">func</span> <span class="f">request</span> cMethod, cPath, cBody
-	oMessage = <span class="f">dnNewWith</span>(<span class="s">"HttpRequestMessage"</span>,[ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
+	oMessage = <span class="f">dnNew</span>@(<span class="s">"HttpRequestMessage"</span>,[ :method = <span class="k">new</span> <span class="t">HttpMethod</span>(cMethod), :requestUri = cUrl + cPath ])
 	<span class="k">if</span> cBody != <span class="s">""</span>
 		oMessage.Content = <span class="k">new</span> <span class="t">StringContent</span>(cBody)
 	<span class="k">ok</span>
@@ -228,11 +228,11 @@ cUrl = <span class="s">""</span>
 <p>The ASP.NET Core classes are wrapped too: <code>Microsoft.AspNetCore.*</code> (Http, Routing, Authentication, Authorization, Mvc, Builder, Hosting, StaticFiles...), <code>Microsoft.Extensions.*</code> (DependencyInjection, Configuration, Logging, Hosting, Caching...) and <code>Microsoft.Net.Http.Headers</code>. Class names that clash with other namespaces start with <code>Asp</code>.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"Microsoft.AspNetCore.Http"</span> }
 
-oPath = <span class="f">dnNewWith</span>(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api/items"</span> ])
+oPath = <span class="f">dnNew</span>@(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api/items"</span> ])
 ? oPath.Value                                   <span class="c"># /api/items</span>
-? oPath.<span class="f">StartsWithSegments</span>(<span class="f">dnNewWith</span>(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api"</span> ]))
+? oPath.<span class="f">StartsWithSegments</span>(<span class="f">dnNew</span>@(<span class="s">"PathString"</span>,[ :value = <span class="s">"/api"</span> ]))
 
-oQuery = <span class="k">new</span> <span class="t">QueryString</span>().<span class="f">CreateWith</span>([ :name = <span class="s">"name"</span>, :value = <span class="s">"ring dotnet"</span> ])
+oQuery = <span class="k">new</span> <span class="t">QueryString</span>().Create@([ :name = <span class="s">"name"</span>, :value = <span class="s">"ring dotnet"</span> ])
 ? oQuery.Value                                  <span class="c"># ?name=ring%20dotnet</span></code></pre></div>
 <h2 id="what-is-not-supported">What is not supported<a class="anchor" href="#what-is-not-supported">#</a></h2>
 <ul><li>MVC controllers and Razor pages <strong>written in C#</strong> — the web server is the Ring one.</li><li>Handlers that run in parallel (there is one Ring thread).</li><li>Calling Ring from middleware you wrote in .NET.</li></ul>

@@ -36,7 +36,7 @@ Class ModelBindingContext from Object
 	Func EnterNestedScope 
 		return dnRequest("call",[self,"EnterNestedScope"])
 
-	Func EnterNestedScopeWith P1
+	Func EnterNestedScope@ P1
 		return dnRequest("callnamed",[self,"EnterNestedScope",P1])
 
 	Func getActionContext

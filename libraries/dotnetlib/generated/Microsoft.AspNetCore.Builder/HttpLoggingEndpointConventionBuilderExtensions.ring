@@ -22,6 +22,6 @@ Class HttpLoggingEndpointConventionBuilderExtensions from Object
 	Func WithHttpLogging P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"WithHttpLogging",P1,P2])
 
-	Func WithHttpLoggingWith P1
+	Func WithHttpLogging@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.HttpLoggingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.HttpLogging'),"WithHttpLogging",P1])
 

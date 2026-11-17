@@ -28,10 +28,10 @@ Class Fonts from Object
 	Func GetTypefaces_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1,P2])
 
-	Func GetFontFamiliesWith P1
+	Func GetFontFamilies@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1])
 
-	Func GetTypefacesWith P1
+	Func GetTypefaces@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
 
 	Func getSystemFontFamilies

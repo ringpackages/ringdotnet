@@ -54,17 +54,17 @@ Class IConventionAnnotatable from DotNetObject
 	Func SetOrRemoveAnnotation P1,P2
 		return dnRequest("call",[self,"SetOrRemoveAnnotation",P1,P2])
 
-	Func AddAnnotationWith P1
+	Func AddAnnotation@ P1
 		return dnRequest("callnamed",[self,"AddAnnotation",P1])
 
-	Func SetAnnotationWith P1
+	Func SetAnnotation@ P1
 		return dnRequest("callnamed",[self,"SetAnnotation",P1])
 
-	Func AddAnnotationsWith P1
+	Func AddAnnotations@ P1
 		dnRequest("callnamed",[self,"AddAnnotations",P1])
 		return self
 
-	Func SetOrRemoveAnnotationWith P1
+	Func SetOrRemoveAnnotation@ P1
 		return dnRequest("callnamed",[self,"SetOrRemoveAnnotation",P1])
 
 	Func getBuilder

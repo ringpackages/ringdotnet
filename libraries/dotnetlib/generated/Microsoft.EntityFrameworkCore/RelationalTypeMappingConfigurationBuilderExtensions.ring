@@ -22,9 +22,9 @@ Class RelationalTypeMappingConfigurationBuilderExtensions from Object
 	Func IsFixedLength P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeMappingConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func HasColumnTypeWith P1
+	Func HasColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeMappingConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1])
 
-	Func IsFixedLengthWith P1
+	Func IsFixedLength@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeMappingConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 

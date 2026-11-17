@@ -36,10 +36,10 @@ Class IReadOnlyCheckConstraint from DotNetObject
 	Func ToDebugString 
 		return dnRequest("call",[self,"ToDebugString"])
 
-	Func GetDefaultNameWith P1
+	Func GetDefaultName@ P1
 		return dnRequest("callnamed",[self,"GetDefaultName",P1])
 
-	Func ToDebugStringWith P1
+	Func ToDebugString@ P1
 		return dnRequest("callnamed",[self,"ToDebugString",P1])
 
 	Func getModelName

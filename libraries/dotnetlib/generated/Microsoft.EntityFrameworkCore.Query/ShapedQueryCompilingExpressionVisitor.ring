@@ -46,15 +46,15 @@ Class ShapedQueryCompilingExpressionVisitor from DotNetObject
 	Func CreateNullKeyValueInNoTrackingQuery P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"CreateNullKeyValueInNoTrackingQuery",P1,P2,P3])
 
-	Func VisitWith P1
+	Func Visit@ P1
 		return dnRequest("callnamed",[self,"Visit",P1])
 
-	Func VisitAndConvertWith P1
+	Func VisitAndConvert@ P1
 		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
 
-	Func SingleAsyncWith P1
+	Func SingleAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
 
-	Func SingleOrDefaultAsyncWith P1
+	Func SingleOrDefaultAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
 

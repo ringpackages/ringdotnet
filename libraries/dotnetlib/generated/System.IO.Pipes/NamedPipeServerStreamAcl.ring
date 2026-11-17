@@ -22,6 +22,6 @@ Class NamedPipeServerStreamAcl from Object
 	Func Create P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1])
 

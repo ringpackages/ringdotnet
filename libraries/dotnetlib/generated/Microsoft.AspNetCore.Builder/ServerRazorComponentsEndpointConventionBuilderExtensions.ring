@@ -19,6 +19,6 @@ Class ServerRazorComponentsEndpointConventionBuilderExtensions from Object
 	Func AddInteractiveServerRenderMode_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerRenderMode",P1,P2])
 
-	Func AddInteractiveServerRenderModeWith P1
+	Func AddInteractiveServerRenderMode@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ServerRazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Server'),"AddInteractiveServerRenderMode",P1])
 

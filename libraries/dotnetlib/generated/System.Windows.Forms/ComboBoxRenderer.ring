@@ -35,7 +35,7 @@ Class ComboBoxRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawDropDownButton",P1,P2,P3])
 		return self
 
-	Func DrawTextBoxWith P1
+	Func DrawTextBox@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
 		return self
 

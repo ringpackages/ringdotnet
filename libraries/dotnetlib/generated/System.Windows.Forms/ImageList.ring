@@ -39,7 +39,7 @@ Class ImageList from Component
 		dnRequest("call",[self,"Draw",P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func DrawWith P1
+	Func Draw@ P1
 		dnRequest("callnamed",[self,"Draw",P1])
 		return self
 

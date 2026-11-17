@@ -119,24 +119,24 @@ Class NegotiateStream from AuthenticatedStream
 	Func AuthenticateAsServerAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"AuthenticateAsServerAsync",P1,P2,P3,P4])
 
-	Func BeginAuthenticateAsClientWith P1
+	Func BeginAuthenticateAsClient@ P1
 		return dnRequest("callnamed",[self,"BeginAuthenticateAsClient",P1])
 
-	Func AuthenticateAsServerWith P1
+	Func AuthenticateAsServer@ P1
 		dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
 		return self
 
-	Func BeginAuthenticateAsServerWith P1
+	Func BeginAuthenticateAsServer@ P1
 		return dnRequest("callnamed",[self,"BeginAuthenticateAsServer",P1])
 
-	Func AuthenticateAsClientWith P1
+	Func AuthenticateAsClient@ P1
 		dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
 		return self
 
-	Func AuthenticateAsClientAsyncWith P1
+	Func AuthenticateAsClientAsync@ P1
 		return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
 
-	Func AuthenticateAsServerAsyncWith P1
+	Func AuthenticateAsServerAsync@ P1
 		return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
 
 	Func getImpersonationLevel

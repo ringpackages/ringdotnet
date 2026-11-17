@@ -166,22 +166,22 @@ Class DbDataReader from MarshalByRefObject
 	Func NextResultAsync_1 P1
 		return dnRequest("call",[self,"NextResultAsync",P1])
 
-	Func GetSchemaTableAsyncWith P1
+	Func GetSchemaTableAsync@ P1
 		return dnRequest("callnamed",[self,"GetSchemaTableAsync",P1])
 
-	Func GetColumnSchemaAsyncWith P1
+	Func GetColumnSchemaAsync@ P1
 		return dnRequest("callnamed",[self,"GetColumnSchemaAsync",P1])
 
-	Func GetFieldValueAsyncWith P1
+	Func GetFieldValueAsync@ P1
 		return dnRequest("callnamed",[self,"GetFieldValueAsync",P1])
 
-	Func IsDBNullAsyncWith P1
+	Func IsDBNullAsync@ P1
 		return dnRequest("callnamed",[self,"IsDBNullAsync",P1])
 
-	Func ReadAsyncWith P1
+	Func ReadAsync@ P1
 		return dnRequest("callnamed",[self,"ReadAsync",P1])
 
-	Func NextResultAsyncWith P1
+	Func NextResultAsync@ P1
 		return dnRequest("callnamed",[self,"NextResultAsync",P1])
 
 	Func Item P1

@@ -25,7 +25,7 @@ Class MaterializationInterceptionData from ValueType
 	Func GetPropertyValue P1
 		return dnRequest("call",[self,"GetPropertyValue",P1])
 
-	Func GetPropertyValueWith P1
+	Func GetPropertyValue@ P1
 		return dnRequest("callnamed",[self,"GetPropertyValue",P1])
 
 	Func getContext

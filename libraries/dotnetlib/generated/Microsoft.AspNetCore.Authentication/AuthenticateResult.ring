@@ -35,7 +35,7 @@ Class AuthenticateResult from Object
 	Func Fail_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1,P2])
 
-	Func FailWith P1
+	Func Fail@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
 
 	Func getSucceeded

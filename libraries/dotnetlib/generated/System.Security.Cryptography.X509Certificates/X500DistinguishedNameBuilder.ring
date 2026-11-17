@@ -57,7 +57,7 @@ Class X500DistinguishedNameBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

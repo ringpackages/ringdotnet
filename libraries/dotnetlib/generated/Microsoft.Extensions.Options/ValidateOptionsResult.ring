@@ -25,7 +25,7 @@ Class ValidateOptionsResult from Object
 	Func Fail P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
 
-	Func FailWith P1
+	Func Fail@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Options.ValidateOptionsResult, Microsoft.Extensions.Options'),"Fail",P1])
 
 	Func getSucceeded

@@ -37,7 +37,7 @@ Class SequenceBuilder from Object
 	Func HasAnnotation P1,P2
 		return dnRequest("call",[self,"HasAnnotation",P1,P2])
 
-	Func IsCyclicWith P1
+	Func IsCyclic@ P1
 		return dnRequest("callnamed",[self,"IsCyclic",P1])
 
 	Func getMetadata

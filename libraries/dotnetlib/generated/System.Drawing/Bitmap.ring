@@ -101,24 +101,24 @@ Class Bitmap from Image
 	Func FromResource P1,P2
 		return dnRequest("call",[dnTypeCached('System.Drawing.Bitmap, System.Drawing.Common'),"FromResource",P1,P2])
 
-	Func GetHbitmapWith P1
+	Func GetHbitmap@ P1
 		return dnRequest("callnamed",[self,"GetHbitmap",P1])
 
-	Func CloneWith P1
+	Func Clone@ P1
 		return dnRequest("callnamed",[self,"Clone",P1])
 
-	Func MakeTransparentWith P1
+	Func MakeTransparent@ P1
 		dnRequest("callnamed",[self,"MakeTransparent",P1])
 		return self
 
-	Func LockBitsWith P1
+	Func LockBits@ P1
 		return dnRequest("callnamed",[self,"LockBits",P1])
 
-	Func ApplyEffectWith P1
+	Func ApplyEffect@ P1
 		dnRequest("callnamed",[self,"ApplyEffect",P1])
 		return self
 
-	Func ConvertFormatWith P1
+	Func ConvertFormat@ P1
 		dnRequest("callnamed",[self,"ConvertFormat",P1])
 		return self
 

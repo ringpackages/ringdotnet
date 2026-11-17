@@ -79,28 +79,28 @@ Class ServiceCollectionMap from Object
 	Func TryAddEnumerable_4 P1,P2,P3,P4
 		return dnRequest("call",[self,"TryAddEnumerable",P1,P2,P3,P4])
 
-	Func TryAddTransientWith P1
+	Func TryAddTransient@ P1
 		return dnRequest("callnamed",[self,"TryAddTransient",P1])
 
-	Func TryAddScopedWith P1
+	Func TryAddScoped@ P1
 		return dnRequest("callnamed",[self,"TryAddScoped",P1])
 
-	Func TryAddSingletonWith P1
+	Func TryAddSingleton@ P1
 		return dnRequest("callnamed",[self,"TryAddSingleton",P1])
 
-	Func TryAddWith P1
+	Func TryAdd@ P1
 		return dnRequest("callnamed",[self,"TryAdd",P1])
 
-	Func TryAddTransientEnumerableWith P1
+	Func TryAddTransientEnumerable@ P1
 		return dnRequest("callnamed",[self,"TryAddTransientEnumerable",P1])
 
-	Func TryAddScopedEnumerableWith P1
+	Func TryAddScopedEnumerable@ P1
 		return dnRequest("callnamed",[self,"TryAddScopedEnumerable",P1])
 
-	Func TryAddSingletonEnumerableWith P1
+	Func TryAddSingletonEnumerable@ P1
 		return dnRequest("callnamed",[self,"TryAddSingletonEnumerable",P1])
 
-	Func TryAddEnumerableWith P1
+	Func TryAddEnumerable@ P1
 		return dnRequest("callnamed",[self,"TryAddEnumerable",P1])
 
 	Func getServiceCollection

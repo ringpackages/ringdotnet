@@ -80,27 +80,27 @@ Class PathGradientBrush from Brush
 		dnRequest("call",[self,"RotateTransform",P1,P2])
 		return self
 
-	Func SetSigmaBellShapeWith P1
+	Func SetSigmaBellShape@ P1
 		dnRequest("callnamed",[self,"SetSigmaBellShape",P1])
 		return self
 
-	Func SetBlendTriangularShapeWith P1
+	Func SetBlendTriangularShape@ P1
 		dnRequest("callnamed",[self,"SetBlendTriangularShape",P1])
 		return self
 
-	Func MultiplyTransformWith P1
+	Func MultiplyTransform@ P1
 		dnRequest("callnamed",[self,"MultiplyTransform",P1])
 		return self
 
-	Func TranslateTransformWith P1
+	Func TranslateTransform@ P1
 		dnRequest("callnamed",[self,"TranslateTransform",P1])
 		return self
 
-	Func ScaleTransformWith P1
+	Func ScaleTransform@ P1
 		dnRequest("callnamed",[self,"ScaleTransform",P1])
 		return self
 
-	Func RotateTransformWith P1
+	Func RotateTransform@ P1
 		dnRequest("callnamed",[self,"RotateTransform",P1])
 		return self
 

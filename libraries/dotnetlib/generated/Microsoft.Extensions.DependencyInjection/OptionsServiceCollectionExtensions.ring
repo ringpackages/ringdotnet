@@ -49,18 +49,18 @@ Class OptionsServiceCollectionExtensions from Object
 	Func AddOptions_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptions",P1,P2])
 
-	Func AddOptionsWith P1
+	Func AddOptions@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptions",P1])
 
-	Func AddOptionsWithValidateOnStartWith P1
+	Func AddOptionsWithValidateOnStart@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"AddOptionsWithValidateOnStart",P1])
 
-	Func ConfigureWith P1
+	Func Configure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"Configure",P1])
 
-	Func PostConfigureWith P1
+	Func PostConfigure@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"PostConfigure",P1])
 
-	Func ConfigureOptionsWith P1
+	Func ConfigureOptions@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions, Microsoft.Extensions.Options'),"ConfigureOptions",P1])
 

@@ -51,13 +51,13 @@ Class RelationalCommand from Object
 		dnRequest("call",[self,"PopulateFrom",P1])
 		return self
 
-	Func ExecuteNonQueryAsyncWith P1
+	Func ExecuteNonQueryAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
 
-	Func ExecuteScalarAsyncWith P1
+	Func ExecuteScalarAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
 
-	Func ExecuteReaderAsyncWith P1
+	Func ExecuteReaderAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
 
 	Func getCommandText

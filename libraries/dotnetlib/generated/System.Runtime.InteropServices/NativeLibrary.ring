@@ -42,9 +42,9 @@ Class NativeLibrary from Object
 	Func GetMainProgramHandle 
 		return dnRequest("call",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"GetMainProgramHandle"])
 
-	Func LoadWith P1
+	Func Load@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"Load",P1])
 
-	Func TryLoadWith P1
+	Func TryLoad@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Runtime.InteropServices.NativeLibrary, System.Private.CoreLib'),"TryLoad",P1])
 

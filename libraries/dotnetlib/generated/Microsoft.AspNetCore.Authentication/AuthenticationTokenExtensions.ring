@@ -32,6 +32,6 @@ Class AuthenticationTokenExtensions from Object
 	Func GetTokenAsync_4 P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2,P3,P4])
 
-	Func GetTokenAsyncWith P1
+	Func GetTokenAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
 

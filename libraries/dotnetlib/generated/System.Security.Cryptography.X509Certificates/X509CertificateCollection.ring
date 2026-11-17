@@ -43,11 +43,11 @@ Class X509CertificateCollection from CollectionBase
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func AddRangeWith P1
+	Func AddRange@ P1
 		dnRequest("callnamed",[self,"AddRange",P1])
 		return self
 
-	Func GetEnumeratorWith P1
+	Func GetEnumerator@ P1
 		return dnRequest("callnamed",[self,"GetEnumerator",P1])
 
 	Func Item P1

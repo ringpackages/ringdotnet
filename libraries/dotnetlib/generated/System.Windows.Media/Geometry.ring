@@ -94,40 +94,40 @@ Class Geometry from Animatable
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Parse",P1])
 
-	Func GetRenderBoundsWith P1
+	Func GetRenderBounds@ P1
 		return dnRequest("callnamed",[self,"GetRenderBounds",P1])
 
-	Func GetAreaWith P1
+	Func GetArea@ P1
 		return dnRequest("callnamed",[self,"GetArea",P1])
 
-	Func FillContainsWith P1
+	Func FillContains@ P1
 		return dnRequest("callnamed",[self,"FillContains",P1])
 
-	Func StrokeContainsWith P1
+	Func StrokeContains@ P1
 		return dnRequest("callnamed",[self,"StrokeContains",P1])
 
-	Func FillContainsWithDetailWith P1
+	Func FillContainsWithDetail@ P1
 		return dnRequest("callnamed",[self,"FillContainsWithDetail",P1])
 
-	Func StrokeContainsWithDetailWith P1
+	Func StrokeContainsWithDetail@ P1
 		return dnRequest("callnamed",[self,"StrokeContainsWithDetail",P1])
 
-	Func GetFlattenedPathGeometryWith P1
+	Func GetFlattenedPathGeometry@ P1
 		return dnRequest("callnamed",[self,"GetFlattenedPathGeometry",P1])
 
-	Func GetWidenedPathGeometryWith P1
+	Func GetWidenedPathGeometry@ P1
 		return dnRequest("callnamed",[self,"GetWidenedPathGeometry",P1])
 
-	Func GetOutlinedPathGeometryWith P1
+	Func GetOutlinedPathGeometry@ P1
 		return dnRequest("callnamed",[self,"GetOutlinedPathGeometry",P1])
 
-	Func CloneCurrentValueWith P1
+	Func CloneCurrentValue@ P1
 		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func CombineWith P1
+	Func Combine@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1])
 
 	Func getBounds

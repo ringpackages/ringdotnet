@@ -23,10 +23,10 @@ Class ComplexPropertyEntry from MemberEntry
 	Func ComplexProperty P1
 		return dnRequest("call",[self,"ComplexProperty",P1])
 
-	Func PropertyWith P1
+	Func Property@ P1
 		return dnRequest("callnamed",[self,"Property",P1])
 
-	Func ComplexPropertyWith P1
+	Func ComplexProperty@ P1
 		return dnRequest("callnamed",[self,"ComplexProperty",P1])
 
 	Func getProperties

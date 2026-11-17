@@ -114,28 +114,28 @@ Class UdpClient from Object
 	Func Send P1,P2
 		return dnRequest("call",[self,"Send",P1,P2])
 
-	Func BeginSendWith P1
+	Func BeginSend@ P1
 		return dnRequest("callnamed",[self,"BeginSend",P1])
 
-	Func JoinMulticastGroupWith P1
+	Func JoinMulticastGroup@ P1
 		dnRequest("callnamed",[self,"JoinMulticastGroup",P1])
 		return self
 
-	Func DropMulticastGroupWith P1
+	Func DropMulticastGroup@ P1
 		dnRequest("callnamed",[self,"DropMulticastGroup",P1])
 		return self
 
-	Func SendAsyncWith P1
+	Func SendAsync@ P1
 		return dnRequest("callnamed",[self,"SendAsync",P1])
 
-	Func ReceiveAsyncWith P1
+	Func ReceiveAsync@ P1
 		return dnRequest("callnamed",[self,"ReceiveAsync",P1])
 
-	Func ConnectWith P1
+	Func Connect@ P1
 		dnRequest("callnamed",[self,"Connect",P1])
 		return self
 
-	Func SendWith P1
+	Func Send@ P1
 		return dnRequest("callnamed",[self,"Send",P1])
 
 	Func getAvailable

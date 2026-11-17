@@ -82,16 +82,16 @@ Class CngKey from Object
 	Func Open_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1,P2,P3])
 
-	Func CreateWith P1
+	Func Create@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1])
 
-	Func ExistsWith P1
+	Func Exists@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
 
-	Func ImportWith P1
+	Func Import@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1])
 
-	Func OpenWith P1
+	Func Open@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
 
 	Func getAlgorithm

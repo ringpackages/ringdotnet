@@ -105,27 +105,27 @@ Class DbCommandInterceptor from Object
 	Func DataReaderDisposing P1,P2,P3
 		return dnRequest("call",[self,"DataReaderDisposing",P1,P2,P3])
 
-	Func ReaderExecutingAsyncWith P1
+	Func ReaderExecutingAsync@ P1
 		return dnRequest("callnamed",[self,"ReaderExecutingAsync",P1])
 
-	Func ScalarExecutingAsyncWith P1
+	Func ScalarExecutingAsync@ P1
 		return dnRequest("callnamed",[self,"ScalarExecutingAsync",P1])
 
-	Func NonQueryExecutingAsyncWith P1
+	Func NonQueryExecutingAsync@ P1
 		return dnRequest("callnamed",[self,"NonQueryExecutingAsync",P1])
 
-	Func ReaderExecutedAsyncWith P1
+	Func ReaderExecutedAsync@ P1
 		return dnRequest("callnamed",[self,"ReaderExecutedAsync",P1])
 
-	Func ScalarExecutedAsyncWith P1
+	Func ScalarExecutedAsync@ P1
 		return dnRequest("callnamed",[self,"ScalarExecutedAsync",P1])
 
-	Func NonQueryExecutedAsyncWith P1
+	Func NonQueryExecutedAsync@ P1
 		return dnRequest("callnamed",[self,"NonQueryExecutedAsync",P1])
 
-	Func CommandCanceledAsyncWith P1
+	Func CommandCanceledAsync@ P1
 		return dnRequest("callnamed",[self,"CommandCanceledAsync",P1])
 
-	Func CommandFailedAsyncWith P1
+	Func CommandFailedAsync@ P1
 		return dnRequest("callnamed",[self,"CommandFailedAsync",P1])
 

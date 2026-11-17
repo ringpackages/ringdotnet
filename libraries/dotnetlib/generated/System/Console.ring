@@ -161,31 +161,31 @@ Class Console from Object
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1])
 		return self
 
-	Func ReadKeyWith P1
+	Func ReadKey@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
 
-	Func BeepWith P1
+	Func Beep@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Beep",P1])
 		return self
 
-	Func MoveBufferAreaWith P1
+	Func MoveBufferArea@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1])
 		return self
 
-	Func OpenStandardInputWith P1
+	Func OpenStandardInput@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
 
-	Func OpenStandardOutputWith P1
+	Func OpenStandardOutput@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
 
-	Func OpenStandardErrorWith P1
+	Func OpenStandardError@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
 
-	Func WriteLineWith P1
+	Func WriteLine@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
 		return self
 
-	Func WriteWith P1
+	Func Write@ P1
 		dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"Write",P1])
 		return self
 

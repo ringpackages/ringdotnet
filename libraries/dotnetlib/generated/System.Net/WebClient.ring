@@ -208,95 +208,95 @@ Class WebClient from Component
 	Func UploadValuesTaskAsync_3 P1,P2,P3
 		return dnRequest("call",[self,"UploadValuesTaskAsync",P1,P2,P3])
 
-	Func DownloadDataWith P1
+	Func DownloadData@ P1
 		return dnRequest("callnamed",[self,"DownloadData",P1])
 
-	Func DownloadFileWith P1
+	Func DownloadFile@ P1
 		dnRequest("callnamed",[self,"DownloadFile",P1])
 		return self
 
-	Func OpenReadWith P1
+	Func OpenRead@ P1
 		return dnRequest("callnamed",[self,"OpenRead",P1])
 
-	Func OpenWriteWith P1
+	Func OpenWrite@ P1
 		return dnRequest("callnamed",[self,"OpenWrite",P1])
 
-	Func UploadDataWith P1
+	Func UploadData@ P1
 		return dnRequest("callnamed",[self,"UploadData",P1])
 
-	Func UploadFileWith P1
+	Func UploadFile@ P1
 		return dnRequest("callnamed",[self,"UploadFile",P1])
 
-	Func UploadValuesWith P1
+	Func UploadValues@ P1
 		return dnRequest("callnamed",[self,"UploadValues",P1])
 
-	Func UploadStringWith P1
+	Func UploadString@ P1
 		return dnRequest("callnamed",[self,"UploadString",P1])
 
-	Func DownloadStringWith P1
+	Func DownloadString@ P1
 		return dnRequest("callnamed",[self,"DownloadString",P1])
 
-	Func OpenReadAsyncWith P1
+	Func OpenReadAsync@ P1
 		dnRequest("callnamed",[self,"OpenReadAsync",P1])
 		return self
 
-	Func OpenWriteAsyncWith P1
+	Func OpenWriteAsync@ P1
 		dnRequest("callnamed",[self,"OpenWriteAsync",P1])
 		return self
 
-	Func DownloadStringAsyncWith P1
+	Func DownloadStringAsync@ P1
 		dnRequest("callnamed",[self,"DownloadStringAsync",P1])
 		return self
 
-	Func DownloadDataAsyncWith P1
+	Func DownloadDataAsync@ P1
 		dnRequest("callnamed",[self,"DownloadDataAsync",P1])
 		return self
 
-	Func DownloadFileAsyncWith P1
+	Func DownloadFileAsync@ P1
 		dnRequest("callnamed",[self,"DownloadFileAsync",P1])
 		return self
 
-	Func UploadStringAsyncWith P1
+	Func UploadStringAsync@ P1
 		dnRequest("callnamed",[self,"UploadStringAsync",P1])
 		return self
 
-	Func UploadDataAsyncWith P1
+	Func UploadDataAsync@ P1
 		dnRequest("callnamed",[self,"UploadDataAsync",P1])
 		return self
 
-	Func UploadFileAsyncWith P1
+	Func UploadFileAsync@ P1
 		dnRequest("callnamed",[self,"UploadFileAsync",P1])
 		return self
 
-	Func UploadValuesAsyncWith P1
+	Func UploadValuesAsync@ P1
 		dnRequest("callnamed",[self,"UploadValuesAsync",P1])
 		return self
 
-	Func DownloadStringTaskAsyncWith P1
+	Func DownloadStringTaskAsync@ P1
 		return dnRequest("callnamed",[self,"DownloadStringTaskAsync",P1])
 
-	Func OpenReadTaskAsyncWith P1
+	Func OpenReadTaskAsync@ P1
 		return dnRequest("callnamed",[self,"OpenReadTaskAsync",P1])
 
-	Func OpenWriteTaskAsyncWith P1
+	Func OpenWriteTaskAsync@ P1
 		return dnRequest("callnamed",[self,"OpenWriteTaskAsync",P1])
 
-	Func UploadStringTaskAsyncWith P1
+	Func UploadStringTaskAsync@ P1
 		return dnRequest("callnamed",[self,"UploadStringTaskAsync",P1])
 
-	Func DownloadDataTaskAsyncWith P1
+	Func DownloadDataTaskAsync@ P1
 		return dnRequest("callnamed",[self,"DownloadDataTaskAsync",P1])
 
-	Func DownloadFileTaskAsyncWith P1
+	Func DownloadFileTaskAsync@ P1
 		return dnRequest("callnamed",[self,"DownloadFileTaskAsync",P1])
 
-	Func UploadDataTaskAsyncWith P1
+	Func UploadDataTaskAsync@ P1
 		return dnRequest("callnamed",[self,"UploadDataTaskAsync",P1])
 
-	Func UploadFileTaskAsyncWith P1
+	Func UploadFileTaskAsync@ P1
 		return dnRequest("callnamed",[self,"UploadFileTaskAsync",P1])
 
-	Func UploadValuesTaskAsyncWith P1
+	Func UploadValuesTaskAsync@ P1
 		return dnRequest("callnamed",[self,"UploadValuesTaskAsync",P1])
 
 	Func setDownloadStringCompletedEvent P1

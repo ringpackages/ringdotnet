@@ -159,40 +159,40 @@ Class ArrayList from Object
 	Func Synchronized P1
 		return dnRequest("call",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"Synchronized",P1])
 
-	Func BinarySearchWith P1
+	Func BinarySearch@ P1
 		return dnRequest("callnamed",[self,"BinarySearch",P1])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
-	Func GetEnumeratorWith P1
+	Func GetEnumerator@ P1
 		return dnRequest("callnamed",[self,"GetEnumerator",P1])
 
-	Func IndexOfWith P1
+	Func IndexOf@ P1
 		return dnRequest("callnamed",[self,"IndexOf",P1])
 
-	Func LastIndexOfWith P1
+	Func LastIndexOf@ P1
 		return dnRequest("callnamed",[self,"LastIndexOf",P1])
 
-	Func ReverseWith P1
+	Func Reverse@ P1
 		dnRequest("callnamed",[self,"Reverse",P1])
 		return self
 
-	Func SortWith P1
+	Func Sort@ P1
 		dnRequest("callnamed",[self,"Sort",P1])
 		return self
 
-	Func ToArrayWith P1
+	Func ToArray@ P1
 		return dnRequest("callnamed",[self,"ToArray",P1])
 
-	Func FixedSizeWith P1
+	Func FixedSize@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"FixedSize",P1])
 
-	Func ReadOnlyWith P1
+	Func ReadOnly@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"ReadOnly",P1])
 
-	Func SynchronizedWith P1
+	Func Synchronized@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.ArrayList, System.Private.CoreLib'),"Synchronized",P1])
 
 	Func Item P1

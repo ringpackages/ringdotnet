@@ -27,7 +27,7 @@ Class FormMultipartSection from Object
 	Func GetValueAsync_1 P1
 		return dnRequest("call",[self,"GetValueAsync",P1])
 
-	Func GetValueAsyncWith P1
+	Func GetValueAsync@ P1
 		return dnRequest("callnamed",[self,"GetValueAsync",P1])
 
 	Func getSection

@@ -182,7 +182,7 @@ Class Mouse from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"UpdateCursor"])
 		return self
 
-	Func CaptureWith P1
+	Func Capture@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1])
 
 	Func getDirectlyOver

@@ -70,16 +70,16 @@ Class RelationalSqlGenerationHelper from Object
 	Func GenerateReleaseSavepointStatement P1
 		return dnRequest("call",[self,"GenerateReleaseSavepointStatement",P1])
 
-	Func GenerateParameterNameWith P1
+	Func GenerateParameterName@ P1
 		return dnRequest("callnamed",[self,"GenerateParameterName",P1])
 
-	Func GenerateParameterNamePlaceholderWith P1
+	Func GenerateParameterNamePlaceholder@ P1
 		return dnRequest("callnamed",[self,"GenerateParameterNamePlaceholder",P1])
 
-	Func EscapeIdentifierWith P1
+	Func EscapeIdentifier@ P1
 		return dnRequest("callnamed",[self,"EscapeIdentifier",P1])
 
-	Func DelimitIdentifierWith P1
+	Func DelimitIdentifier@ P1
 		return dnRequest("callnamed",[self,"DelimitIdentifier",P1])
 
 	Func getStatementTerminator

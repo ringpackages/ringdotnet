@@ -22,6 +22,6 @@ Class ICustomAttributeProvider from DotNetObject
 	Func IsDefined P1,P2
 		return dnRequest("call",[self,"IsDefined",P1,P2])
 
-	Func GetCustomAttributesWith P1
+	Func GetCustomAttributes@ P1
 		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
 

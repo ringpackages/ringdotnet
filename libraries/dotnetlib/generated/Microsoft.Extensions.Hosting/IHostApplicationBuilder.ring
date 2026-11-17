@@ -28,7 +28,7 @@ Class IHostApplicationBuilder from DotNetObject
 		dnRequest("call",[self,"ConfigureContainer",P1])
 		return self
 
-	Func ConfigureContainerWith P1
+	Func ConfigureContainer@ P1
 		dnRequest("callnamed",[self,"ConfigureContainer",P1])
 		return self
 

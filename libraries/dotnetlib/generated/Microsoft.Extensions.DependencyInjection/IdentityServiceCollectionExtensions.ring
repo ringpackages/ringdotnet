@@ -31,9 +31,9 @@ Class IdentityServiceCollectionExtensions from Object
 	Func ConfigureExternalCookie P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"ConfigureExternalCookie",P1,P2])
 
-	Func AddIdentityWith P1
+	Func AddIdentity@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentity",P1])
 
-	Func AddIdentityApiEndpointsWith P1
+	Func AddIdentityApiEndpoints@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.IdentityServiceCollectionExtensions, Microsoft.AspNetCore.Identity'),"AddIdentityApiEndpoints",P1])
 

@@ -231,112 +231,112 @@ Class IConventionPropertyBuilder from DotNetObject
 	Func CanSetElementType P1
 		return dnRequest("call",[self,"CanSetElementType",P1])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 
-	Func CanSetIsRequiredWith P1
+	Func CanSetIsRequired@ P1
 		return dnRequest("callnamed",[self,"CanSetIsRequired",P1])
 
-	Func ValueGeneratedWith P1
+	Func ValueGenerated@ P1
 		return dnRequest("callnamed",[self,"ValueGenerated",P1])
 
-	Func CanSetValueGeneratedWith P1
+	Func CanSetValueGenerated@ P1
 		return dnRequest("callnamed",[self,"CanSetValueGenerated",P1])
 
-	Func IsConcurrencyTokenWith P1
+	Func IsConcurrencyToken@ P1
 		return dnRequest("callnamed",[self,"IsConcurrencyToken",P1])
 
-	Func CanSetIsConcurrencyTokenWith P1
+	Func CanSetIsConcurrencyToken@ P1
 		return dnRequest("callnamed",[self,"CanSetIsConcurrencyToken",P1])
 
-	Func HasSentinelWith P1
+	Func HasSentinel@ P1
 		return dnRequest("callnamed",[self,"HasSentinel",P1])
 
-	Func CanSetSentinelWith P1
+	Func CanSetSentinel@ P1
 		return dnRequest("callnamed",[self,"CanSetSentinel",P1])
 
-	Func HasMaxLengthWith P1
+	Func HasMaxLength@ P1
 		return dnRequest("callnamed",[self,"HasMaxLength",P1])
 
-	Func CanSetMaxLengthWith P1
+	Func CanSetMaxLength@ P1
 		return dnRequest("callnamed",[self,"CanSetMaxLength",P1])
 
-	Func IsUnicodeWith P1
+	Func IsUnicode@ P1
 		return dnRequest("callnamed",[self,"IsUnicode",P1])
 
-	Func CanSetIsUnicodeWith P1
+	Func CanSetIsUnicode@ P1
 		return dnRequest("callnamed",[self,"CanSetIsUnicode",P1])
 
-	Func HasPrecisionWith P1
+	Func HasPrecision@ P1
 		return dnRequest("callnamed",[self,"HasPrecision",P1])
 
-	Func CanSetPrecisionWith P1
+	Func CanSetPrecision@ P1
 		return dnRequest("callnamed",[self,"CanSetPrecision",P1])
 
-	Func HasScaleWith P1
+	Func HasScale@ P1
 		return dnRequest("callnamed",[self,"HasScale",P1])
 
-	Func CanSetScaleWith P1
+	Func CanSetScale@ P1
 		return dnRequest("callnamed",[self,"CanSetScale",P1])
 
-	Func BeforeSaveWith P1
+	Func BeforeSave@ P1
 		return dnRequest("callnamed",[self,"BeforeSave",P1])
 
-	Func CanSetBeforeSaveWith P1
+	Func CanSetBeforeSave@ P1
 		return dnRequest("callnamed",[self,"CanSetBeforeSave",P1])
 
-	Func AfterSaveWith P1
+	Func AfterSave@ P1
 		return dnRequest("callnamed",[self,"AfterSave",P1])
 
-	Func CanSetAfterSaveWith P1
+	Func CanSetAfterSave@ P1
 		return dnRequest("callnamed",[self,"CanSetAfterSave",P1])
 
-	Func HasValueGeneratorWith P1
+	Func HasValueGenerator@ P1
 		return dnRequest("callnamed",[self,"HasValueGenerator",P1])
 
-	Func HasValueGeneratorFactoryWith P1
+	Func HasValueGeneratorFactory@ P1
 		return dnRequest("callnamed",[self,"HasValueGeneratorFactory",P1])
 
-	Func CanSetValueGeneratorWith P1
+	Func CanSetValueGenerator@ P1
 		return dnRequest("callnamed",[self,"CanSetValueGenerator",P1])
 
-	Func CanSetValueGeneratorFactoryWith P1
+	Func CanSetValueGeneratorFactory@ P1
 		return dnRequest("callnamed",[self,"CanSetValueGeneratorFactory",P1])
 
-	Func HasConversionWith P1
+	Func HasConversion@ P1
 		return dnRequest("callnamed",[self,"HasConversion",P1])
 
-	Func CanSetConversionWith P1
+	Func CanSetConversion@ P1
 		return dnRequest("callnamed",[self,"CanSetConversion",P1])
 
-	Func HasConverterWith P1
+	Func HasConverter@ P1
 		return dnRequest("callnamed",[self,"HasConverter",P1])
 
-	Func CanSetConverterWith P1
+	Func CanSetConverter@ P1
 		return dnRequest("callnamed",[self,"CanSetConverter",P1])
 
-	Func HasTypeMappingWith P1
+	Func HasTypeMapping@ P1
 		return dnRequest("callnamed",[self,"HasTypeMapping",P1])
 
-	Func CanSetTypeMappingWith P1
+	Func CanSetTypeMapping@ P1
 		return dnRequest("callnamed",[self,"CanSetTypeMapping",P1])
 
-	Func HasValueComparerWith P1
+	Func HasValueComparer@ P1
 		return dnRequest("callnamed",[self,"HasValueComparer",P1])
 
-	Func CanSetValueComparerWith P1
+	Func CanSetValueComparer@ P1
 		return dnRequest("callnamed",[self,"CanSetValueComparer",P1])
 
-	Func HasProviderValueComparerWith P1
+	Func HasProviderValueComparer@ P1
 		return dnRequest("callnamed",[self,"HasProviderValueComparer",P1])
 
-	Func CanSetProviderValueComparerWith P1
+	Func CanSetProviderValueComparer@ P1
 		return dnRequest("callnamed",[self,"CanSetProviderValueComparer",P1])
 
-	Func SetElementTypeWith P1
+	Func SetElementType@ P1
 		return dnRequest("callnamed",[self,"SetElementType",P1])
 
-	Func CanSetElementTypeWith P1
+	Func CanSetElementType@ P1
 		return dnRequest("callnamed",[self,"CanSetElementType",P1])
 
 	Func getMetadata

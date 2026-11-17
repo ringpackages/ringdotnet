@@ -19,6 +19,6 @@ Class ModelNames from Object
 	Func CreatePropertyModelName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"CreatePropertyModelName",P1,P2])
 
-	Func CreateIndexModelNameWith P1
+	Func CreateIndexModelName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelNames, Microsoft.AspNetCore.Mvc.Core'),"CreateIndexModelName",P1])
 

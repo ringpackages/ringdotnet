@@ -35,12 +35,12 @@ Class ReplacingExpressionVisitor from DotNetObject
 	Func Replace P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"Replace",P1,P2,P3])
 
-	Func VisitWith P1
+	Func Visit@ P1
 		return dnRequest("callnamed",[self,"Visit",P1])
 
-	Func VisitAndConvertWith P1
+	Func VisitAndConvert@ P1
 		return dnRequest("callnamed",[self,"VisitAndConvert",P1])
 
-	Func ReplaceWith P1
+	Func Replace@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ReplacingExpressionVisitor, Microsoft.EntityFrameworkCore'),"Replace",P1])
 

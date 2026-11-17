@@ -32,6 +32,6 @@ Class ReferenceCollectionBuilder from RelationshipBuilderBase
 	Func OnDelete P1
 		return dnRequest("call",[self,"OnDelete",P1])
 
-	Func IsRequiredWith P1
+	Func IsRequired@ P1
 		return dnRequest("callnamed",[self,"IsRequired",P1])
 

@@ -22,6 +22,6 @@ Class AuthorizationEndpointConventionBuilderExtensions from Object
 	Func AllowAnonymous P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"AllowAnonymous",P1])
 
-	Func RequireAuthorizationWith P1
+	Func RequireAuthorization@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.AuthorizationEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Authorization.Policy'),"RequireAuthorization",P1])
 

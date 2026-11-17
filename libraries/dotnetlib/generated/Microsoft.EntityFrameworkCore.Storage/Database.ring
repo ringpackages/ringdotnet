@@ -28,6 +28,6 @@ Class Database from Object
 	Func CompileQueryExpression P1,P2,P3
 		return dnRequest("call",[self,"CompileQueryExpression",P1,P2,P3])
 
-	Func SaveChangesAsyncWith P1
+	Func SaveChangesAsync@ P1
 		return dnRequest("callnamed",[self,"SaveChangesAsync",P1])
 

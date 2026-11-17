@@ -34,7 +34,7 @@ Class AuthenticationSchemeOptions from Object
 		dnRequest("call",[self,"Validate",P1])
 		return self
 
-	Func ValidateWith P1
+	Func Validate@ P1
 		dnRequest("callnamed",[self,"Validate",P1])
 		return self
 

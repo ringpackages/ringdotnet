@@ -65,7 +65,7 @@ Class PropertyDescriptorCollection from Object
 	Func GetEnumerator 
 		return dnRequest("call",[self,"GetEnumerator"])
 
-	Func SortWith P1
+	Func Sort@ P1
 		return dnRequest("callnamed",[self,"Sort",P1])
 
 	Func Item P1

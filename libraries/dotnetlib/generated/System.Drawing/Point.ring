@@ -46,10 +46,10 @@ Class Point from ValueType
 	Func Round P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.Point, System.Drawing.Primitives'),"Round",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func OffsetWith P1
+	Func Offset@ P1
 		dnRequest("callnamed",[self,"Offset",P1])
 		return self
 

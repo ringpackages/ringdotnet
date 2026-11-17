@@ -120,7 +120,7 @@ oPanel {
 	oInfo.Content = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
-	oEvent = <span class="f">dnNewWith</span>(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ])
+	oEvent = <span class="f">dnNew</span>@(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ])
 	oButton.<span class="f">RaiseEvent</span>(oEvent)
 	oButton.<span class="f">RaiseEvent</span>(oEvent)
 	<span class="f">dnAssert</span>(<span class="s">"two clicks"</span>,oInfo.Content,<span class="s">"2 clicks"</span>)</code></pre></div></details></div></div><div class="item" id="binding-slider"><div class="pic"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding slider" loading="lazy"></div><div class="info"><h3>Binding slider</h3><p>Data binding: the text follows the slider</p><div class="run"><code>ring samples/Wpf/03_binding_slider.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Data binding: the text follows the slider</span>
@@ -148,7 +148,7 @@ oSlider = <span class="k">new</span> <span class="t">Slider</span>() {
 }
 oText = <span class="k">new</span> <span class="t">WpfTextBox</span>()
 oText.Margin = <span class="k">new</span> <span class="t">Thickness</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>,<span class="n">10</span>)
-oBinding = <span class="f">dnNewWith</span>(<span class="s">"WpfBinding"</span>,[ :path = <span class="s">"Value"</span> ])
+oBinding = <span class="f">dnNew</span>@(<span class="s">"WpfBinding"</span>,[ :path = <span class="s">"Value"</span> ])
 oBinding.Source = oSlider
 oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)
 oPanel {
@@ -261,7 +261,7 @@ oPress.<span class="f">setClickEvent</span>(<span class="s">"oMessage.Text = 'Th
 
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="f">dnAssert</span>(<span class="s">"title from XAML"</span>,oWindow.Title,<span class="s">"From XAML"</span>)
-	oEvent = <span class="f">dnNewWith</span>(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ])
+	oEvent = <span class="f">dnNew</span>@(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ])
 	oPress.<span class="f">RaiseEvent</span>(oEvent)
 	<span class="f">dnAssert</span>(<span class="s">"event handler"</span>,oMessage.Text,<span class="s">"The XAML button was pressed"</span>)</code></pre></div></details></div></div><div class="item" id="shapes-pixels"><div class="pic"><img src="img/shots/wpf-07_shapes_pixels.png" alt="Shapes pixels" loading="lazy"></div><div class="info"><h3>Shapes pixels</h3><p>Shapes on a canvas, rendered to a bitmap to check the colors</p><div class="run"><code>ring samples/Wpf/07_shapes_pixels.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Shapes on a canvas, rendered to a bitmap to check the colors</span>
 
@@ -411,7 +411,7 @@ oDock.Children.<span class="f">Add</span>(oTabs)
 <span class="c"># --------------------------------------------------------------------------</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
-	oEvent = <span class="f">dnNewWith</span>(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">MenuItem</span>().ClickEvent ])
+	oEvent = <span class="f">dnNew</span>@(<span class="s">"RoutedEventArgs"</span>,[ :routedEvent = <span class="k">new</span> <span class="t">MenuItem</span>().ClickEvent ])
 	oOpen.<span class="f">RaiseEvent</span>(oEvent)
 	<span class="f">dnAssert</span>(<span class="s">"menu item click"</span>,cLast,<span class="s">"open"</span>)
 	oTabs.SelectedIndex = <span class="n">1</span>

@@ -23,6 +23,6 @@ Class MigrationsSqlGenerator from Object
 	Func Generate P1
 		return dnRequest("call",[self,"Generate",P1])
 
-	Func GenerateWith P1
+	Func Generate@ P1
 		return dnRequest("callnamed",[self,"Generate",P1])
 

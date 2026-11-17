@@ -136,30 +136,30 @@ Class SslStream from AuthenticatedStream
 		dnRequest("call",[self,"Write",P1,P2,P3])
 		return self
 
-	Func BeginAuthenticateAsClientWith P1
+	Func BeginAuthenticateAsClient@ P1
 		return dnRequest("callnamed",[self,"BeginAuthenticateAsClient",P1])
 
-	Func BeginAuthenticateAsServerWith P1
+	Func BeginAuthenticateAsServer@ P1
 		return dnRequest("callnamed",[self,"BeginAuthenticateAsServer",P1])
 
-	Func AuthenticateAsClientWith P1
+	Func AuthenticateAsClient@ P1
 		dnRequest("callnamed",[self,"AuthenticateAsClient",P1])
 		return self
 
-	Func AuthenticateAsServerWith P1
+	Func AuthenticateAsServer@ P1
 		dnRequest("callnamed",[self,"AuthenticateAsServer",P1])
 		return self
 
-	Func AuthenticateAsClientAsyncWith P1
+	Func AuthenticateAsClientAsync@ P1
 		return dnRequest("callnamed",[self,"AuthenticateAsClientAsync",P1])
 
-	Func AuthenticateAsServerAsyncWith P1
+	Func AuthenticateAsServerAsync@ P1
 		return dnRequest("callnamed",[self,"AuthenticateAsServerAsync",P1])
 
-	Func NegotiateClientCertificateAsyncWith P1
+	Func NegotiateClientCertificateAsync@ P1
 		return dnRequest("callnamed",[self,"NegotiateClientCertificateAsync",P1])
 
-	Func WriteWith P1
+	Func Write@ P1
 		dnRequest("callnamed",[self,"Write",P1])
 		return self
 

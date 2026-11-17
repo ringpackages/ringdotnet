@@ -40,6 +40,6 @@ Class SubjectAlternativeNameBuilder from Object
 	Func Build 
 		return dnRequest("call",[self,"Build"])
 
-	Func BuildWith P1
+	Func Build@ P1
 		return dnRequest("callnamed",[self,"Build",P1])
 

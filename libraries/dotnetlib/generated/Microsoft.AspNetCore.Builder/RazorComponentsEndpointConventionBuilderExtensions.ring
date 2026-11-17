@@ -22,6 +22,6 @@ Class RazorComponentsEndpointConventionBuilderExtensions from Object
 	Func WithStaticAssets P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
 
-	Func WithStaticAssetsWith P1
+	Func WithStaticAssets@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RazorComponentsEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Components.Endpoints'),"WithStaticAssets",P1])
 

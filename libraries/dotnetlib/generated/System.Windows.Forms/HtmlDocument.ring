@@ -76,7 +76,7 @@ Class HtmlDocument from Object
 		dnRequest("call",[self,"DetachEventHandler",P1,P2])
 		return self
 
-	Func InvokeScriptWith P1
+	Func InvokeScript@ P1
 		return dnRequest("callnamed",[self,"InvokeScript",P1])
 
 	Func setClickEvent P1

@@ -43,11 +43,11 @@ Class AesGcm from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func EncryptWith P1
+	Func Encrypt@ P1
 		dnRequest("callnamed",[self,"Encrypt",P1])
 		return self
 
-	Func DecryptWith P1
+	Func Decrypt@ P1
 		dnRequest("callnamed",[self,"Decrypt",P1])
 		return self
 

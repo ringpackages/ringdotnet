@@ -107,11 +107,11 @@ Class SortedNumberSet from Object
 	Func CreateSetComparer_1 P1
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 
-	Func CreateSetComparerWith P1
+	Func CreateSetComparer@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
 	Func getCount

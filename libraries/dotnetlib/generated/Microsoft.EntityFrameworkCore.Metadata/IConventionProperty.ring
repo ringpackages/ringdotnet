@@ -205,58 +205,58 @@ Class IConventionProperty from DotNetObject
 	Func GetElementTypeConfigurationSource 
 		return dnRequest("call",[self,"GetElementTypeConfigurationSource"])
 
-	Func SetIsNullableWith P1
+	Func SetIsNullable@ P1
 		return dnRequest("callnamed",[self,"SetIsNullable",P1])
 
-	Func SetValueGeneratedWith P1
+	Func SetValueGenerated@ P1
 		return dnRequest("callnamed",[self,"SetValueGenerated",P1])
 
-	Func SetIsConcurrencyTokenWith P1
+	Func SetIsConcurrencyToken@ P1
 		return dnRequest("callnamed",[self,"SetIsConcurrencyToken",P1])
 
-	Func SetTypeMappingWith P1
+	Func SetTypeMapping@ P1
 		return dnRequest("callnamed",[self,"SetTypeMapping",P1])
 
-	Func SetMaxLengthWith P1
+	Func SetMaxLength@ P1
 		return dnRequest("callnamed",[self,"SetMaxLength",P1])
 
-	Func SetPrecisionWith P1
+	Func SetPrecision@ P1
 		return dnRequest("callnamed",[self,"SetPrecision",P1])
 
-	Func SetScaleWith P1
+	Func SetScale@ P1
 		return dnRequest("callnamed",[self,"SetScale",P1])
 
-	Func SetIsUnicodeWith P1
+	Func SetIsUnicode@ P1
 		return dnRequest("callnamed",[self,"SetIsUnicode",P1])
 
-	Func SetBeforeSaveBehaviorWith P1
+	Func SetBeforeSaveBehavior@ P1
 		return dnRequest("callnamed",[self,"SetBeforeSaveBehavior",P1])
 
-	Func SetAfterSaveBehaviorWith P1
+	Func SetAfterSaveBehavior@ P1
 		return dnRequest("callnamed",[self,"SetAfterSaveBehavior",P1])
 
-	Func SetSentinelWith P1
+	Func SetSentinel@ P1
 		return dnRequest("callnamed",[self,"SetSentinel",P1])
 
-	Func SetValueGeneratorFactoryWith P1
+	Func SetValueGeneratorFactory@ P1
 		return dnRequest("callnamed",[self,"SetValueGeneratorFactory",P1])
 
-	Func SetValueConverterWith P1
+	Func SetValueConverter@ P1
 		return dnRequest("callnamed",[self,"SetValueConverter",P1])
 
-	Func SetProviderClrTypeWith P1
+	Func SetProviderClrType@ P1
 		return dnRequest("callnamed",[self,"SetProviderClrType",P1])
 
-	Func SetValueComparerWith P1
+	Func SetValueComparer@ P1
 		return dnRequest("callnamed",[self,"SetValueComparer",P1])
 
-	Func SetProviderValueComparerWith P1
+	Func SetProviderValueComparer@ P1
 		return dnRequest("callnamed",[self,"SetProviderValueComparer",P1])
 
-	Func SetJsonValueReaderWriterTypeWith P1
+	Func SetJsonValueReaderWriterType@ P1
 		return dnRequest("callnamed",[self,"SetJsonValueReaderWriterType",P1])
 
-	Func SetElementTypeWith P1
+	Func SetElementType@ P1
 		return dnRequest("callnamed",[self,"SetElementType",P1])
 
 	Func getBuilder

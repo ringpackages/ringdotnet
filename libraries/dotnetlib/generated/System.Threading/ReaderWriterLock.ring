@@ -61,15 +61,15 @@ Class ReaderWriterLock from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func AcquireReaderLockWith P1
+	Func AcquireReaderLock@ P1
 		dnRequest("callnamed",[self,"AcquireReaderLock",P1])
 		return self
 
-	Func AcquireWriterLockWith P1
+	Func AcquireWriterLock@ P1
 		dnRequest("callnamed",[self,"AcquireWriterLock",P1])
 		return self
 
-	Func UpgradeToWriterLockWith P1
+	Func UpgradeToWriterLock@ P1
 		return dnRequest("callnamed",[self,"UpgradeToWriterLock",P1])
 
 	Func getIsReaderLockHeld

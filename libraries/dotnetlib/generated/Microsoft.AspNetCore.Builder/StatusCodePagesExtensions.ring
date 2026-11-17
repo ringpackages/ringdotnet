@@ -31,9 +31,9 @@ Class StatusCodePagesExtensions from Object
 	Func UseStatusCodePagesWithReExecute P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithReExecute",P1,P2])
 
-	Func UseStatusCodePagesWith P1
+	Func UseStatusCodePages@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePages",P1])
 
-	Func UseStatusCodePagesWithReExecuteWith P1
+	Func UseStatusCodePagesWithReExecute@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StatusCodePagesExtensions, Microsoft.AspNetCore.Diagnostics'),"UseStatusCodePagesWithReExecute",P1])
 

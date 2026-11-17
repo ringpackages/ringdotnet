@@ -31,6 +31,6 @@ Class ConfigurationExtensions from Object
 	Func GetRequiredSection P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetRequiredSection",P1,P2])
 
-	Func AsEnumerableWith P1
+	Func AsEnumerable@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
 

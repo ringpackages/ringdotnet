@@ -25,12 +25,12 @@ Class RelationalOwnedNavigationBuilderExtensions from Object
 	Func HasJsonPropertyName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2])
 
-	Func ToJsonWith P1
+	Func ToJson@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToJson",P1])
 
-	Func HasColumnTypeWith P1
+	Func HasColumnType@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1])
 
-	Func HasJsonPropertyNameWith P1
+	Func HasJsonPropertyName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1])
 

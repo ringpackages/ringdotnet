@@ -79,12 +79,12 @@ Class RoutingEndpointConventionBuilderExtensions from Object
 	Func WithFormOptions P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
 
-	Func WithDisplayNameWith P1
+	Func WithDisplayName@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithDisplayName",P1])
 
-	Func WithFormMappingOptionsWith P1
+	Func WithFormMappingOptions@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormMappingOptions",P1])
 
-	Func WithFormOptionsWith P1
+	Func WithFormOptions@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.RoutingEndpointConventionBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithFormOptions",P1])
 

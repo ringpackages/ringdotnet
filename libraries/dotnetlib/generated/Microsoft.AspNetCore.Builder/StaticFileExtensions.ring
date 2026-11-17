@@ -19,6 +19,6 @@ Class StaticFileExtensions from Object
 	Func UseStaticFiles_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles'),"UseStaticFiles",P1,P2])
 
-	Func UseStaticFilesWith P1
+	Func UseStaticFiles@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.StaticFileExtensions, Microsoft.AspNetCore.StaticFiles'),"UseStaticFiles",P1])
 

@@ -51,10 +51,10 @@ Class FormReader from Object
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func ReadNextPairAsyncWith P1
+	Func ReadNextPairAsync@ P1
 		return dnRequest("callnamed",[self,"ReadNextPairAsync",P1])
 
-	Func ReadFormAsyncWith P1
+	Func ReadFormAsync@ P1
 		return dnRequest("callnamed",[self,"ReadFormAsync",P1])
 
 	Func getValueCountLimit

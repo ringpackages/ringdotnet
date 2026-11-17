@@ -42,13 +42,13 @@ Class XObject from Object
 		dnRequest("call",[self,"RemoveAnnotations"])
 		return self
 
-	Func AnnotationWith P1
+	Func Annotation@ P1
 		return dnRequest("callnamed",[self,"Annotation",P1])
 
-	Func AnnotationsWith P1
+	Func Annotations@ P1
 		return dnRequest("callnamed",[self,"Annotations",P1])
 
-	Func RemoveAnnotationsWith P1
+	Func RemoveAnnotations@ P1
 		dnRequest("callnamed",[self,"RemoveAnnotations",P1])
 		return self
 

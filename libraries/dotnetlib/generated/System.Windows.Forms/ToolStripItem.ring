@@ -135,10 +135,10 @@ Class ToolStripItem from BindableComponent
 		dnRequest("call",[self,"ResetTextDirection"])
 		return self
 
-	Func DoDragDropWith P1
+	Func DoDragDrop@ P1
 		return dnRequest("callnamed",[self,"DoDragDrop",P1])
 
-	Func InvalidateWith P1
+	Func Invalidate@ P1
 		dnRequest("callnamed",[self,"Invalidate",P1])
 		return self
 

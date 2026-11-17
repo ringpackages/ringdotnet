@@ -20,7 +20,7 @@ Class Transform3D from GeneralTransform3D
 	Func GetValue_1 P1
 		return dnRequest("call",[self,"GetValue",P1])
 
-	Func TransformWith P1
+	Func Transform@ P1
 		return dnRequest("callnamed",[self,"Transform",P1])
 
 	Func getIsAffine

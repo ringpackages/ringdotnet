@@ -58,13 +58,13 @@ Class DoubleCollection from Freezable
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.DoubleCollection, PresentationCore'),"Parse",P1])
 
-	Func CloneWith P1
+	Func Clone@ P1
 		return dnRequest("callnamed",[self,"Clone",P1])
 
-	Func CloneCurrentValueWith P1
+	Func CloneCurrentValue@ P1
 		return dnRequest("callnamed",[self,"CloneCurrentValue",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func Item P1

@@ -75,19 +75,19 @@ Class DbCommand from Component
 	Func DisposeAsync 
 		return dnRequest("call",[self,"DisposeAsync"])
 
-	Func ExecuteReaderWith P1
+	Func ExecuteReader@ P1
 		return dnRequest("callnamed",[self,"ExecuteReader",P1])
 
-	Func ExecuteNonQueryAsyncWith P1
+	Func ExecuteNonQueryAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteNonQueryAsync",P1])
 
-	Func ExecuteReaderAsyncWith P1
+	Func ExecuteReaderAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteReaderAsync",P1])
 
-	Func ExecuteScalarAsyncWith P1
+	Func ExecuteScalarAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteScalarAsync",P1])
 
-	Func PrepareAsyncWith P1
+	Func PrepareAsync@ P1
 		return dnRequest("callnamed",[self,"PrepareAsync",P1])
 
 	Func getCommandText

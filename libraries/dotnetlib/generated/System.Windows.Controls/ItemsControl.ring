@@ -73,7 +73,7 @@ Class ItemsControl from WpfControl
 	Func ContainerFromElement_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1,P2])
 
-	Func ContainerFromElementWith P1
+	Func ContainerFromElement@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1])
 		ok

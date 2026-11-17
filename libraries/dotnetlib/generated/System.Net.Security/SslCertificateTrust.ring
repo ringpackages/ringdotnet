@@ -25,9 +25,9 @@ Class SslCertificateTrust from Object
 	Func CreateForX509Collection P1
 		return dnRequest("call",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Collection",P1])
 
-	Func CreateForX509StoreWith P1
+	Func CreateForX509Store@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Store",P1])
 
-	Func CreateForX509CollectionWith P1
+	Func CreateForX509Collection@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Net.Security.SslCertificateTrust, System.Net.Security'),"CreateForX509Collection",P1])
 

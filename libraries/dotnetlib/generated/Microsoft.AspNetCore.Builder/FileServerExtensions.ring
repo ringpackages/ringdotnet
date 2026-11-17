@@ -19,6 +19,6 @@ Class FileServerExtensions from Object
 	Func UseFileServer_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles'),"UseFileServer",P1,P2])
 
-	Func UseFileServerWith P1
+	Func UseFileServer@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.FileServerExtensions, Microsoft.AspNetCore.StaticFiles'),"UseFileServer",P1])
 

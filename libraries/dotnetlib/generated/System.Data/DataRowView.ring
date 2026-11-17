@@ -41,7 +41,7 @@ Class DataRowView from Object
 		dnRequest("call",[self,"Delete"])
 		return self
 
-	Func CreateChildViewWith P1
+	Func CreateChildView@ P1
 		return dnRequest("callnamed",[self,"CreateChildView",P1])
 
 	Func Item P1

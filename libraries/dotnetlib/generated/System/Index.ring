@@ -35,7 +35,7 @@ Class Index from ValueType
 	Func FromEnd P1
 		return dnRequest("call",[dnTypeCached('System.Index, System.Private.CoreLib'),"FromEnd",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		return dnRequest("callnamed",[self,"Equals",P1])
 
 	Func getValue

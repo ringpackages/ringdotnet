@@ -62,22 +62,22 @@ Class Vector3D from ValueType
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Parse",P1])
 
-	Func EqualsWith P1
+	Func Equals@ P1
 		if nHandle = 0
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Equals",P1])
 		ok
 		return dnRequest("callnamed",[self,"Equals",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
-	Func AddWith P1
+	Func Add@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Add",P1])
 
-	Func SubtractWith P1
+	Func Subtract@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Subtract",P1])
 
-	Func MultiplyWith P1
+	Func Multiply@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Multiply",P1])
 
 	Func getLength

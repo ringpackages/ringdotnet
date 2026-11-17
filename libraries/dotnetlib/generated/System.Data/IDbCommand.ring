@@ -44,7 +44,7 @@ Class IDbCommand from DotNetObject
 	Func ExecuteScalar 
 		return dnRequest("call",[self,"ExecuteScalar"])
 
-	Func ExecuteReaderWith P1
+	Func ExecuteReader@ P1
 		return dnRequest("callnamed",[self,"ExecuteReader",P1])
 
 	Func getConnection

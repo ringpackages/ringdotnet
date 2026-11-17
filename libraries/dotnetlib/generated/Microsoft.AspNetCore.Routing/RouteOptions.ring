@@ -24,7 +24,7 @@ Class RouteOptions from Object
 		dnRequest("call",[self,"SetParameterPolicy",P1,P2])
 		return self
 
-	Func SetParameterPolicyWith P1
+	Func SetParameterPolicy@ P1
 		dnRequest("callnamed",[self,"SetParameterPolicy",P1])
 		return self
 

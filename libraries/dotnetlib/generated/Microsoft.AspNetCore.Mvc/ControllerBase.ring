@@ -435,112 +435,112 @@ Class ControllerBase from Object
 	Func TryValidateModel_2 P1,P2
 		return dnRequest("call",[self,"TryValidateModel",P1,P2])
 
-	Func StatusCodeWith P1
+	Func StatusCode@ P1
 		return dnRequest("callnamed",[self,"StatusCode",P1])
 
-	Func ContentWith P1
+	Func Content@ P1
 		return dnRequest("callnamed",[self,"Content",P1])
 
-	Func OkWith P1
+	Func Ok@ P1
 		return dnRequest("callnamed",[self,"Ok",P1])
 
-	Func RedirectToActionWith P1
+	Func RedirectToAction@ P1
 		return dnRequest("callnamed",[self,"RedirectToAction",P1])
 
-	Func RedirectToActionPreserveMethodWith P1
+	Func RedirectToActionPreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToActionPreserveMethod",P1])
 
-	Func RedirectToActionPermanentWith P1
+	Func RedirectToActionPermanent@ P1
 		return dnRequest("callnamed",[self,"RedirectToActionPermanent",P1])
 
-	Func RedirectToActionPermanentPreserveMethodWith P1
+	Func RedirectToActionPermanentPreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToActionPermanentPreserveMethod",P1])
 
-	Func RedirectToRouteWith P1
+	Func RedirectToRoute@ P1
 		return dnRequest("callnamed",[self,"RedirectToRoute",P1])
 
-	Func RedirectToRoutePreserveMethodWith P1
+	Func RedirectToRoutePreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToRoutePreserveMethod",P1])
 
-	Func RedirectToRoutePermanentWith P1
+	Func RedirectToRoutePermanent@ P1
 		return dnRequest("callnamed",[self,"RedirectToRoutePermanent",P1])
 
-	Func RedirectToRoutePermanentPreserveMethodWith P1
+	Func RedirectToRoutePermanentPreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToRoutePermanentPreserveMethod",P1])
 
-	Func RedirectToPageWith P1
+	Func RedirectToPage@ P1
 		return dnRequest("callnamed",[self,"RedirectToPage",P1])
 
-	Func RedirectToPagePermanentWith P1
+	Func RedirectToPagePermanent@ P1
 		return dnRequest("callnamed",[self,"RedirectToPagePermanent",P1])
 
-	Func RedirectToPagePreserveMethodWith P1
+	Func RedirectToPagePreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToPagePreserveMethod",P1])
 
-	Func RedirectToPagePermanentPreserveMethodWith P1
+	Func RedirectToPagePermanentPreserveMethod@ P1
 		return dnRequest("callnamed",[self,"RedirectToPagePermanentPreserveMethod",P1])
 
-	Func FileWith P1
+	Func File@ P1
 		return dnRequest("callnamed",[self,"File",P1])
 
-	Func PhysicalFileWith P1
+	Func PhysicalFile@ P1
 		return dnRequest("callnamed",[self,"PhysicalFile",P1])
 
-	Func UnauthorizedWith P1
+	Func Unauthorized@ P1
 		return dnRequest("callnamed",[self,"Unauthorized",P1])
 
-	Func NotFoundWith P1
+	Func NotFound@ P1
 		return dnRequest("callnamed",[self,"NotFound",P1])
 
-	Func BadRequestWith P1
+	Func BadRequest@ P1
 		return dnRequest("callnamed",[self,"BadRequest",P1])
 
-	Func UnprocessableEntityWith P1
+	Func UnprocessableEntity@ P1
 		return dnRequest("callnamed",[self,"UnprocessableEntity",P1])
 
-	Func ConflictWith P1
+	Func Conflict@ P1
 		return dnRequest("callnamed",[self,"Conflict",P1])
 
-	Func ProblemWith P1
+	Func Problem@ P1
 		return dnRequest("callnamed",[self,"Problem",P1])
 
-	Func ValidationProblemWith P1
+	Func ValidationProblem@ P1
 		return dnRequest("callnamed",[self,"ValidationProblem",P1])
 
-	Func CreatedWith P1
+	Func Created@ P1
 		return dnRequest("callnamed",[self,"Created",P1])
 
-	Func CreatedAtActionWith P1
+	Func CreatedAtAction@ P1
 		return dnRequest("callnamed",[self,"CreatedAtAction",P1])
 
-	Func CreatedAtRouteWith P1
+	Func CreatedAtRoute@ P1
 		return dnRequest("callnamed",[self,"CreatedAtRoute",P1])
 
-	Func AcceptedWith P1
+	Func Accepted@ P1
 		return dnRequest("callnamed",[self,"Accepted",P1])
 
-	Func AcceptedAtActionWith P1
+	Func AcceptedAtAction@ P1
 		return dnRequest("callnamed",[self,"AcceptedAtAction",P1])
 
-	Func AcceptedAtRouteWith P1
+	Func AcceptedAtRoute@ P1
 		return dnRequest("callnamed",[self,"AcceptedAtRoute",P1])
 
-	Func ChallengeWith P1
+	Func Challenge@ P1
 		return dnRequest("callnamed",[self,"Challenge",P1])
 
-	Func ForbidWith P1
+	Func Forbid@ P1
 		return dnRequest("callnamed",[self,"Forbid",P1])
 
-	Func SignInWith P1
+	Func SignIn@ P1
 		return dnRequest("callnamed",[self,"SignIn",P1])
 
-	Func SignOutWith P1
+	Func SignOut@ P1
 		return dnRequest("callnamed",[self,"SignOut",P1])
 
-	Func TryUpdateModelAsyncWith P1
+	Func TryUpdateModelAsync@ P1
 		return dnRequest("callnamed",[self,"TryUpdateModelAsync",P1])
 
-	Func TryValidateModelWith P1
+	Func TryValidateModel@ P1
 		return dnRequest("callnamed",[self,"TryValidateModel",P1])
 
 	Func getHttpContext

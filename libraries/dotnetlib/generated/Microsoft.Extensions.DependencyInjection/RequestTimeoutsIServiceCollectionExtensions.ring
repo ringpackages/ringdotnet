@@ -19,6 +19,6 @@ Class RequestTimeoutsIServiceCollectionExtensions from Object
 	Func AddRequestTimeouts_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddRequestTimeouts",P1,P2])
 
-	Func AddRequestTimeoutsWith P1
+	Func AddRequestTimeouts@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.RequestTimeoutsIServiceCollectionExtensions, Microsoft.AspNetCore.Http'),"AddRequestTimeouts",P1])
 

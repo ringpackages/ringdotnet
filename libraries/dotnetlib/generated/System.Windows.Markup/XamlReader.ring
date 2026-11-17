@@ -48,13 +48,13 @@ Class XamlReader from Object
 	Func GetWpfSchemaContext 
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"GetWpfSchemaContext"])
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		return dnRequest("callnamed",[self,"LoadAsync",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
 
 	Func setLoadCompletedEvent P1

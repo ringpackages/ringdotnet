@@ -60,10 +60,10 @@ Class ICustomTypeDescriptor from DotNetObject
 	Func GetPropertiesFromRegisteredType 
 		return dnRequest("call",[self,"GetPropertiesFromRegisteredType"])
 
-	Func GetEventsWith P1
+	Func GetEvents@ P1
 		return dnRequest("callnamed",[self,"GetEvents",P1])
 
-	Func GetPropertiesWith P1
+	Func GetProperties@ P1
 		return dnRequest("callnamed",[self,"GetProperties",P1])
 
 	Func getRequireRegisteredTypes

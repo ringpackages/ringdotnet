@@ -22,6 +22,6 @@ Class BearerTokenExtensions from Object
 	Func AddBearerToken_3 P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken'),"AddBearerToken",P1,P2,P3])
 
-	Func AddBearerTokenWith P1
+	Func AddBearerToken@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.BearerTokenExtensions, Microsoft.AspNetCore.Authentication.BearerToken'),"AddBearerToken",P1])
 

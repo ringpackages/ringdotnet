@@ -160,51 +160,51 @@ Class Task from Object
 	Func WhenEach P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenEach",P1])
 
-	Func StartWith P1
+	Func Start@ P1
 		dnRequest("callnamed",[self,"Start",P1])
 		return self
 
-	Func RunSynchronouslyWith P1
+	Func RunSynchronously@ P1
 		dnRequest("callnamed",[self,"RunSynchronously",P1])
 		return self
 
-	Func ConfigureAwaitWith P1
+	Func ConfigureAwait@ P1
 		return dnRequest("callnamed",[self,"ConfigureAwait",P1])
 
-	Func WaitWith P1
+	Func Wait@ P1
 		return dnRequest("callnamed",[self,"Wait",P1])
 
-	Func WaitAsyncWith P1
+	Func WaitAsync@ P1
 		return dnRequest("callnamed",[self,"WaitAsync",P1])
 
-	Func ContinueWithWith P1
+	Func ContinueWith@ P1
 		return dnRequest("callnamed",[self,"ContinueWith",P1])
 
-	Func WaitAllWith P1
+	Func WaitAll@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAll",P1])
 
-	Func WaitAnyWith P1
+	Func WaitAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAny",P1])
 
-	Func FromExceptionWith P1
+	Func FromException@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"FromException",P1])
 
-	Func FromCanceledWith P1
+	Func FromCanceled@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"FromCanceled",P1])
 
-	Func RunWith P1
+	Func Run@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Run",P1])
 
-	Func DelayWith P1
+	Func Delay@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Delay",P1])
 
-	Func WhenAllWith P1
+	Func WhenAll@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAll",P1])
 
-	Func WhenAnyWith P1
+	Func WhenAny@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAny",P1])
 
-	Func WhenEachWith P1
+	Func WhenEach@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenEach",P1])
 
 	Func getId

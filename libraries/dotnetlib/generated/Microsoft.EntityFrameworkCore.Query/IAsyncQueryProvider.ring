@@ -19,6 +19,6 @@ Class IAsyncQueryProvider from DotNetObject
 	Func ExecuteAsync P1
 		return dnRequest("call",[self,"ExecuteAsync",P1])
 
-	Func ExecuteAsyncWith P1
+	Func ExecuteAsync@ P1
 		return dnRequest("callnamed",[self,"ExecuteAsync",P1])
 

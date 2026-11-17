@@ -16,6 +16,6 @@ Class IAuthorizationService from DotNetObject
 	Func AuthorizeAsync P1,P2,P3
 		return dnRequest("call",[self,"AuthorizeAsync",P1,P2,P3])
 
-	Func AuthorizeAsyncWith P1
+	Func AuthorizeAsync@ P1
 		return dnRequest("callnamed",[self,"AuthorizeAsync",P1])
 

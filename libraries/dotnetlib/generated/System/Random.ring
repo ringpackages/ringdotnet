@@ -55,10 +55,10 @@ Class Random from Object
 		dnRequest("call",[self,"Shuffle",P1])
 		return self
 
-	Func NextWith P1
+	Func Next@ P1
 		return dnRequest("callnamed",[self,"Next",P1])
 
-	Func NextInt64With P1
+	Func NextInt64@ P1
 		return dnRequest("callnamed",[self,"NextInt64",P1])
 
 	Func getShared

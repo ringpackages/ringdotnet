@@ -158,25 +158,25 @@ Class AppDomain from MarshalByRefObject
 	Func GetCurrentThreadId 
 		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"GetCurrentThreadId"])
 
-	Func ExecuteAssemblyWith P1
+	Func ExecuteAssembly@ P1
 		return dnRequest("callnamed",[self,"ExecuteAssembly",P1])
 
-	Func ExecuteAssemblyByNameWith P1
+	Func ExecuteAssemblyByName@ P1
 		return dnRequest("callnamed",[self,"ExecuteAssemblyByName",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		return dnRequest("callnamed",[self,"Load",P1])
 
-	Func CreateInstanceWith P1
+	Func CreateInstance@ P1
 		return dnRequest("callnamed",[self,"CreateInstance",P1])
 
-	Func CreateInstanceAndUnwrapWith P1
+	Func CreateInstanceAndUnwrap@ P1
 		return dnRequest("callnamed",[self,"CreateInstanceAndUnwrap",P1])
 
-	Func CreateInstanceFromWith P1
+	Func CreateInstanceFrom@ P1
 		return dnRequest("callnamed",[self,"CreateInstanceFrom",P1])
 
-	Func CreateInstanceFromAndUnwrapWith P1
+	Func CreateInstanceFromAndUnwrap@ P1
 		return dnRequest("callnamed",[self,"CreateInstanceFromAndUnwrap",P1])
 
 	Func setUnhandledExceptionEvent P1

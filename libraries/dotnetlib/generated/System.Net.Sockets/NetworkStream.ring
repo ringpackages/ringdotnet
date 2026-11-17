@@ -29,7 +29,7 @@ Class NetworkStream from Stream
 		dnRequest("call",[self,"Close",P1])
 		return self
 
-	Func CloseWith P1
+	Func Close@ P1
 		dnRequest("callnamed",[self,"Close",P1])
 		return self
 

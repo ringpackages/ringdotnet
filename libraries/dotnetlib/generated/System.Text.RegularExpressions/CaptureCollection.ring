@@ -25,7 +25,7 @@ Class CaptureCollection from Object
 		dnRequest("call",[self,"CopyTo",P1,P2])
 		return self
 
-	Func CopyToWith P1
+	Func CopyTo@ P1
 		dnRequest("callnamed",[self,"CopyTo",P1])
 		return self
 

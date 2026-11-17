@@ -19,7 +19,7 @@ Class IRelationalParameter from DotNetObject
 		dnRequest("call",[self,"AddDbParameter",P1,P2])
 		return self
 
-	Func AddDbParameterWith P1
+	Func AddDbParameter@ P1
 		dnRequest("callnamed",[self,"AddDbParameter",P1])
 		return self
 

@@ -119,34 +119,34 @@ Class Module from Object
 		dnRequest("call",[self,"GetObjectData",P1,P2])
 		return self
 
-	Func GetCustomAttributesWith P1
+	Func GetCustomAttributes@ P1
 		return dnRequest("callnamed",[self,"GetCustomAttributes",P1])
 
-	Func GetMethodWith P1
+	Func GetMethod@ P1
 		return dnRequest("callnamed",[self,"GetMethod",P1])
 
-	Func GetMethodsWith P1
+	Func GetMethods@ P1
 		return dnRequest("callnamed",[self,"GetMethods",P1])
 
-	Func GetFieldWith P1
+	Func GetField@ P1
 		return dnRequest("callnamed",[self,"GetField",P1])
 
-	Func GetFieldsWith P1
+	Func GetFields@ P1
 		return dnRequest("callnamed",[self,"GetFields",P1])
 
-	Func GetTypeWith P1
+	Func GetType@ P1
 		return dnRequest("callnamed",[self,"GetType",P1])
 
-	Func ResolveFieldWith P1
+	Func ResolveField@ P1
 		return dnRequest("callnamed",[self,"ResolveField",P1])
 
-	Func ResolveMemberWith P1
+	Func ResolveMember@ P1
 		return dnRequest("callnamed",[self,"ResolveMember",P1])
 
-	Func ResolveMethodWith P1
+	Func ResolveMethod@ P1
 		return dnRequest("callnamed",[self,"ResolveMethod",P1])
 
-	Func ResolveTypeWith P1
+	Func ResolveType@ P1
 		return dnRequest("callnamed",[self,"ResolveType",P1])
 
 	Func getAssembly

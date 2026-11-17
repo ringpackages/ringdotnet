@@ -95,13 +95,13 @@ Class IReadOnlyTypeBase from DotNetObject
 	Func FindIndexerPropertyInfo 
 		return dnRequest("call",[self,"FindIndexerPropertyInfo"])
 
-	Func DisplayNameWith P1
+	Func DisplayName@ P1
 		return dnRequest("callnamed",[self,"DisplayName",P1])
 
-	Func FindPropertyWith P1
+	Func FindProperty@ P1
 		return dnRequest("callnamed",[self,"FindProperty",P1])
 
-	Func FindComplexPropertyWith P1
+	Func FindComplexProperty@ P1
 		return dnRequest("callnamed",[self,"FindComplexProperty",P1])
 
 	Func getModel

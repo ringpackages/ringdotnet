@@ -19,6 +19,6 @@ Class DataProtectionServiceCollectionExtensions from Object
 	Func AddDataProtection_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection'),"AddDataProtection",P1,P2])
 
-	Func AddDataProtectionWith P1
+	Func AddDataProtection@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions, Microsoft.AspNetCore.DataProtection'),"AddDataProtection",P1])
 

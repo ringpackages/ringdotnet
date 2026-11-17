@@ -19,6 +19,6 @@ Class ResponseCompressionServicesExtensions from Object
 	Func AddResponseCompression_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression'),"AddResponseCompression",P1,P2])
 
-	Func AddResponseCompressionWith P1
+	Func AddResponseCompression@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.ResponseCompressionServicesExtensions, Microsoft.AspNetCore.ResponseCompression'),"AddResponseCompression",P1])
 

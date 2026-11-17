@@ -117,37 +117,37 @@ Class XElement from XContainer
 	Func Parse_2 P1,P2
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1,P2])
 
-	Func SaveWith P1
+	Func Save@ P1
 		dnRequest("callnamed",[self,"Save",P1])
 		return self
 
-	Func AncestorsAndSelfWith P1
+	Func AncestorsAndSelf@ P1
 		return dnRequest("callnamed",[self,"AncestorsAndSelf",P1])
 
-	Func AttributesWith P1
+	Func Attributes@ P1
 		return dnRequest("callnamed",[self,"Attributes",P1])
 
-	Func DescendantsAndSelfWith P1
+	Func DescendantsAndSelf@ P1
 		return dnRequest("callnamed",[self,"DescendantsAndSelf",P1])
 
-	Func ReplaceAllWith P1
+	Func ReplaceAll@ P1
 		dnRequest("callnamed",[self,"ReplaceAll",P1])
 		return self
 
-	Func ReplaceAttributesWith P1
+	Func ReplaceAttributes@ P1
 		dnRequest("callnamed",[self,"ReplaceAttributes",P1])
 		return self
 
-	Func SaveAsyncWith P1
+	Func SaveAsync@ P1
 		return dnRequest("callnamed",[self,"SaveAsync",P1])
 
-	Func LoadWith P1
+	Func Load@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1])
 
-	Func LoadAsyncWith P1
+	Func LoadAsync@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"LoadAsync",P1])
 
-	Func ParseWith P1
+	Func Parse@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
 
 	Func getFirstAttribute

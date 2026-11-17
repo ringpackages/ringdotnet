@@ -44,6 +44,6 @@ Class EmptyModelMetadataProvider from DotNetObject
 	Func GetHashCode 
 		return dnRequest("call",[self,"GetHashCode"])
 
-	Func GetMetadataForParameterWith P1
+	Func GetMetadataForParameter@ P1
 		return dnRequest("callnamed",[self,"GetMetadataForParameter",P1])
 

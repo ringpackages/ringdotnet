@@ -27,7 +27,7 @@ Class IContainer from DotNetObject
 		dnRequest("call",[self,"Remove",P1])
 		return self
 
-	Func AddWith P1
+	Func Add@ P1
 		dnRequest("callnamed",[self,"Add",P1])
 		return self
 

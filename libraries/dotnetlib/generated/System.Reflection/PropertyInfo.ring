@@ -78,19 +78,19 @@ Class PropertyInfo from MemberInfo
 		dnRequest("call",[self,"SetValue",P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func GetAccessorsWith P1
+	Func GetAccessors@ P1
 		return dnRequest("callnamed",[self,"GetAccessors",P1])
 
-	Func GetGetMethodWith P1
+	Func GetGetMethod@ P1
 		return dnRequest("callnamed",[self,"GetGetMethod",P1])
 
-	Func GetSetMethodWith P1
+	Func GetSetMethod@ P1
 		return dnRequest("callnamed",[self,"GetSetMethod",P1])
 
-	Func GetValueWith P1
+	Func GetValue@ P1
 		return dnRequest("callnamed",[self,"GetValue",P1])
 
-	Func SetValueWith P1
+	Func SetValue@ P1
 		dnRequest("callnamed",[self,"SetValue",P1])
 		return self
 

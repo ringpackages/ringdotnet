@@ -19,6 +19,6 @@ Class SessionMiddlewareExtensions from Object
 	Func UseSession_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session'),"UseSession",P1,P2])
 
-	Func UseSessionWith P1
+	Func UseSession@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.SessionMiddlewareExtensions, Microsoft.AspNetCore.Session'),"UseSession",P1])
 

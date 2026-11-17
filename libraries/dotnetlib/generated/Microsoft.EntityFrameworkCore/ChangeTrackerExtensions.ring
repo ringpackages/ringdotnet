@@ -22,6 +22,6 @@ Class ChangeTrackerExtensions from Object
 	Func ToDebugString P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore'),"ToDebugString",P1])
 
-	Func ToDebugStringWith P1
+	Func ToDebugString@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore'),"ToDebugString",P1])
 

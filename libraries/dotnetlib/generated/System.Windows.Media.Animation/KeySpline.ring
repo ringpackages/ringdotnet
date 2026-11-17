@@ -31,7 +31,7 @@ Class KeySpline from Freezable
 	Func ToString_1 P1
 		return dnRequest("call",[self,"ToString",P1])
 
-	Func ToStringWith P1
+	Func ToString@ P1
 		return dnRequest("callnamed",[self,"ToString",P1])
 
 	Func getControlPoint1

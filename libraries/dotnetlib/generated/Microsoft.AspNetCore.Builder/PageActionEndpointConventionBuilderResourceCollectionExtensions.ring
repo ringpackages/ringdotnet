@@ -19,6 +19,6 @@ Class PageActionEndpointConventionBuilderResourceCollectionExtensions from Objec
 	Func WithStaticAssets P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithStaticAssets",P1])
 
-	Func WithStaticAssetsWith P1
+	Func WithStaticAssets@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Builder.PageActionEndpointConventionBuilderResourceCollectionExtensions, Microsoft.AspNetCore.Mvc.RazorPages'),"WithStaticAssets",P1])
 

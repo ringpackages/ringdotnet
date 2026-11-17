@@ -13,6 +13,6 @@ Class ImageMetadata from Freezable
 		ok
 		return self
 
-	Func CloneWith P1
+	Func Clone@ P1
 		return dnRequest("callnamed",[self,"Clone",P1])
 

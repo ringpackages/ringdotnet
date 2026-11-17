@@ -30,9 +30,9 @@ Class DataTableExtensions from Object
 	Func AsDataView P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsDataView",P1])
 
-	Func CopyToDataTableWith P1
+	Func CopyToDataTable@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1])
 
-	Func AsDataViewWith P1
+	Func AsDataView@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsDataView",P1])
 

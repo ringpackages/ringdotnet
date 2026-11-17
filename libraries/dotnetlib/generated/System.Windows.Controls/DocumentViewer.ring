@@ -117,7 +117,7 @@ Class DocumentViewer from DocumentViewerBase
 		dnRequest("call",[self,"DecreaseZoom"])
 		return self
 
-	Func FitToMaxPagesAcrossWith P1
+	Func FitToMaxPagesAcross@ P1
 		dnRequest("callnamed",[self,"FitToMaxPagesAcross",P1])
 		return self
 

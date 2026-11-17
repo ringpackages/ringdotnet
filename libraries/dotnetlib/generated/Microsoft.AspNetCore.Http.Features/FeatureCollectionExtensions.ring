@@ -19,6 +19,6 @@ Class FeatureCollectionExtensions from Object
 	Func GetRequiredFeature_2 P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"GetRequiredFeature",P1,P2])
 
-	Func GetRequiredFeatureWith P1
+	Func GetRequiredFeature@ P1
 		return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"GetRequiredFeature",P1])
 

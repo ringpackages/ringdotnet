@@ -35,14 +35,14 @@ Class ZipFileExtensions from Object
 		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1,P2,P3])
 		return self
 
-	Func CreateEntryFromFileWith P1
+	Func CreateEntryFromFile@ P1
 		return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1])
 
-	Func ExtractToDirectoryWith P1
+	Func ExtractToDirectory@ P1
 		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
 		return self
 
-	Func ExtractToFileWith P1
+	Func ExtractToFile@ P1
 		dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1])
 		return self
 
