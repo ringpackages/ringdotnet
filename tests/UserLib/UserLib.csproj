@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <AssemblyName>UserLib</AssemblyName>
+    <RootNamespace>MyCompany.Tools</RootNamespace>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+</Project>

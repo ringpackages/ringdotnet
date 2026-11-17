@@ -1856,6 +1856,14 @@ aPackageInfo = [
 		"samples/UsingDotNet/test14_xml_json_data.ring",
 		"samples/UsingDotNet/test15_reflection_numbers.ring",
 		"samples/UsingDotNet/test16_forms_app.ring",
+		"tests/UserLib/Library.cs",
+		"tests/UserLib/UserLib.csproj",
+		"tests/UserLib/bin/UserLib.deps.json",
+		"tests/UserLib/bin/UserLib.dll",
+		"tests/UserLib/generated/MyCompany.Tools.ring",
+		"tests/UserLib/generated/MyCompany.Tools/Calculator.ring",
+		"tests/UserLib/generated/MyCompany.Tools/Counter.ring",
+		"tests/UserLib/generated/classindex.ring",
 		"tests/run.sh",
 		"tests/test_collections.ring",
 		"tests/test_data.ring",
@@ -1867,9 +1875,12 @@ aPackageInfo = [
 		"tests/test_runtime.ring",
 		"tests/test_services.ring",
 		"tests/test_system.ring",
+		"tests/test_userassembly.ring",
 		"tools/dotnetmanifest.ring",
 		"tools/gendotnet.ring",
-		"tools/ring2exe/libs/dotnet.ring"
+		"tools/gendotnetcore.ring",
+		"tools/ring2exe/libs/dotnet.ring",
+		"tools/wrapassembly.ring"
 	],
 	:windowsfiles = 	[
 

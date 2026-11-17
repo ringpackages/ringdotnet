@@ -25,6 +25,24 @@ Other rules: enums are strings in both directions (`oForm.WindowState = "Maximiz
 
 Run `tests/run.sh` (it needs `ring.dll` on the PATH) to execute the tests and samples.
 
+## Your own assemblies and NuGet packages
+
+```
+cd tools
+ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
+```
+
+generates Ring classes (with inheritance, properties, events, enums as strings) for every public class of the assembly, one loader per namespace. Use them with:
+
+```ring
+load "dotnetlib.ring"
+dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll (copy a NuGet package's dll files there)
+dnImportFrom("myclasses/","MyCompany.Tools")
+oCalc = new Calculator()
+```
+
+`tests/UserLib` is a complete example (`tests/test_userassembly.ring`). Without generated classes any assembly is usable through `dnType("Namespace.Type")`, `dnNew()` and `callMethod()`.
+
 ## Natural syntax (generated classes)
 
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
@@ -157,6 +175,10 @@ Return values: strings, numbers (all numeric types), booleans (1/0) and `null` m
 ## Build
 
 Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `buildvc_x64.bat`; Linux: `buildgcc.sh`; macOS: `buildclang.sh`. The .NET SDK builds the bridge. Copy `ring_dotnet.dll` and the `RingDotNet.Bridge.*` files to the same folder (`ring/bin`).
+
+## Wrapped namespaces (see tools/dotnetmanifest.ring)
+
+System, System.Text(.Json/.Encodings/.RegularExpressions/.Unicode), System.IO(.Compression/.Pipes/.MemoryMappedFiles), System.Linq, System.Collections(.Generic/.Specialized/.Concurrent/.ObjectModel), System.Threading(.Tasks), System.Net(.Http/.Sockets/.NetworkInformation/.Mail/.WebSockets/.Security), System.Globalization, System.Security.(Cryptography/Principal/Claims/X509), System.Diagnostics, System.Xml(.Linq/.XPath/.Schema/.Serialization/.Xsl), System.Data(.Common/.SqlTypes), System.ComponentModel, System.Reflection, System.Runtime.InteropServices/Loader, System.Numerics, System.Timers, System.Formats.Tar, System.Resources, Microsoft.Win32, System.Drawing(.Drawing2D/.Imaging/.Text/.Printing) and System.Windows.Forms(.Layout/.VisualStyles). Not wrapped: WPF, ASP.NET, Entity Framework and other packages that are not part of the base runtime (use `wrapassembly.ring`).
 
 ## Not yet supported (ideas)
 

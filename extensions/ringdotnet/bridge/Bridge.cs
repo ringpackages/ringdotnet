@@ -305,6 +305,8 @@ namespace RingDotNet
 					return null;
 				case "listtypes":
 					return ListTypes(Str(a, 0), Rest(a, 1));
+				case "listnamespaces":
+					return ListNamespaces(Str(a, 0));
 				case "enumnames":
 					return new List<object>(Enum.GetNames(TypeOf(a, 0)));
 				case "describe":
@@ -519,6 +521,18 @@ namespace RingDotNet
 				throw new InvalidCastException("Can't convert the Ring callback result to " + returnType.FullName);
 			}
 			return converted;
+		}
+
+		/* Namespaces that have public types in an assembly (a file path or an assembly name) */
+		private static List<object> ListNamespaces(string assembly)
+		{
+			Assembly asm = File.Exists(assembly) ? Assembly.LoadFrom(assembly) : Assembly.Load(assembly);
+			SortedSet<string> found = new SortedSet<string>(StringComparer.Ordinal);
+			foreach (Type t in asm.GetExportedTypes())
+			{
+				if (t.Namespace != null) found.Add(t.Namespace);
+			}
+			return new List<object>(found);
 		}
 
 		/* Public classes and structs of a namespace that are worth wrapping in Ring */

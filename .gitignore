@@ -2,3 +2,6 @@ obj/
 *.obj
 *.exp
 *.lib
+tests/UserLib/bin/
+tests/UserLib/obj/
+tests/UserLib/generated/
