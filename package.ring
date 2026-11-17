@@ -4866,6 +4866,7 @@ aPackageInfo = [
 		"tests/test_collections.ring",
 		"tests/test_data.ring",
 		"tests/test_data_ef.ring",
+		"tests/test_data_hooks.ring",
 		"tests/test_data_migrations.ring",
 		"tests/test_data_providers.ring",
 		"tests/test_data_queries.ring",

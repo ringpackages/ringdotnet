@@ -13,6 +13,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Linq.Expressions;
 using System.Reflection;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.EntityFrameworkCore;
 
 namespace RingDotNet
@@ -33,6 +36,7 @@ namespace RingDotNet
 			public bool HasDefault;
 			public string References;
 			public DeleteBehavior OnDelete = DeleteBehavior.Restrict;
+			public ValueConverter Converter;
 		}
 
 		private sealed class Table
@@ -40,6 +44,7 @@ namespace RingDotNet
 			public string Name;
 			public List<Column> Columns = new List<Column>();
 			public List<Column> Keys = new List<Column>();
+			public object[] Filter;
 			public Column KeyColumn { get { return Keys[0]; } }
 		}
 
@@ -85,6 +90,18 @@ namespace RingDotNet
 			{
 				object[] def = (object[])item;
 				Table table = new Table { Name = (string)def[0] };
+				if (def.Length > 2)
+				{
+					foreach (object o in (object[])def[2])
+					{
+						object[] option = (object[])o;
+						switch (((string)option[0]).ToLowerInvariant())
+						{
+							case "filter": table.Filter = (object[])option[1]; break;
+							default: throw new ArgumentException("Unknown table option: " + option[0]);
+						}
+					}
+				}
 				foreach (object c in (object[])def[1])
 				{
 					object[] col = (object[])c;
@@ -126,11 +143,47 @@ namespace RingDotNet
 					case "maxlength": column.MaxLength = Convert.ToInt32(value, CultureInfo.InvariantCulture); break;
 					case "default": column.Default = value; column.HasDefault = true; break;
 					case "references": column.References = (string)value; break;
+					case "convert": column.Converter = MakeConverter(column, value); break;
 					case "ondelete": column.OnDelete = ParseDelete((string)value); break;
 					default: throw new ArgumentException("Unknown column option: " + name);
 				}
 			}
 			if (column.Nullable && column.Type.IsValueType) column.Type = typeof(Nullable<>).MakeGenericType(column.Type);
+		}
+
+		private static object CallRing(object callback, Type returnType, params object[] args)
+		{
+			/* the Bridge of the assembly that made the callback (there may be more than one copy of the assembly loaded) */
+			Type bridge = callback.GetType().Assembly.GetType("RingDotNet.Bridge", true);
+			try
+			{
+				return bridge.GetMethod("CallRing").Invoke(null, new object[] { callback, returnType, args });
+			}
+			catch (TargetInvocationException e) when (e.InnerException != null)
+			{
+				throw e.InnerException;
+			}
+		}
+
+		/* "upper", "lower", "trim", or [toDatabase, fromDatabase] made with dnCallback(): Ring functions that receive the value and return the new one */
+		private static ValueConverter MakeConverter(Column column, object value)
+		{
+			if (column.Type != typeof(string)) throw new ArgumentException("A converter is for string columns (" + column.Name + ")");
+			if (value is string name)
+			{
+				switch (name.ToLowerInvariant())
+				{
+					case "upper": return new ValueConverter<string, string>(v => v.ToUpperInvariant(), v => v);
+					case "lower": return new ValueConverter<string, string>(v => v.ToLowerInvariant(), v => v);
+					case "trim": return new ValueConverter<string, string>(v => v.Trim(), v => v);
+					default: throw new ArgumentException("Unknown converter: " + name + " (upper, lower, trim or [toDatabase, fromDatabase])");
+				}
+			}
+			object[] pair = (object[])value;
+			object toDb = pair[0], fromDb = pair[1];
+			return new ValueConverter<string, string>(
+				v => Convert.ToString(CallRing(toDb, typeof(string), v), CultureInfo.InvariantCulture),
+				v => Convert.ToString(CallRing(fromDb, typeof(string), v), CultureInfo.InvariantCulture));
 		}
 
 		private static DeleteBehavior ParseDelete(string name)
@@ -193,6 +246,7 @@ namespace RingDotNet
 			{
 				if (item is object[] list) { text.Append('['); text.Append(Describe(list)); text.Append(']'); }
 				else if (item is List<object> l) { text.Append('['); text.Append(Describe(l.ToArray())); text.Append(']'); }
+				else if (item != null && item.GetType().Name == "CallbackRef") text.Append("callback:").Append(item.GetType().GetField("Name").GetValue(item)).Append(',');
 				else text.Append(Convert.ToString(item, CultureInfo.InvariantCulture)).Append(',');
 			}
 			return text.ToString();
@@ -217,6 +271,7 @@ namespace RingDotNet
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
 			UseProvider(options);
+			options.AddInterceptors(SharedSaveHooks, SharedCommandHooks);
 			/* the model depends on the schema: do not share the cached model between contexts with different schemas */
 			options.ReplaceService<Microsoft.EntityFrameworkCore.Infrastructure.IModelCacheKeyFactory, SchemaCacheKeyFactory>();
 		}
@@ -234,10 +289,16 @@ namespace RingDotNet
 						if (column.Required) property.IsRequired();
 						if (column.MaxLength > 0) property.HasMaxLength(column.MaxLength);
 						if (column.HasDefault) property.HasDefaultValue(Coerce(column.Default, column.Type));
+						if (column.Converter != null) property.HasConversion(column.Converter);
 						if (column.Unique) builder.HasIndex(column.Name).IsUnique();
 						else if (column.Index) builder.HasIndex(column.Name);
 					}
 					builder.HasKey(table.Keys.Select(k => k.Name).ToArray());
+					if (table.Filter != null && table.Filter.Length > 0)
+					{
+						ParameterExpression filterRow = Expression.Parameter(typeof(Dictionary<string, object>), "e");
+						builder.HasQueryFilter(Expression.Lambda<Func<Dictionary<string, object>, bool>>(Condition(table, filterRow, table.Filter), filterRow));
+					}
 					if (table.Keys.Count == 1 && (table.KeyColumn.Type == typeof(int) || table.KeyColumn.Type == typeof(long)))
 					{
 						builder.Property(table.KeyColumn.Name).ValueGeneratedOnAdd();
@@ -336,12 +397,18 @@ namespace RingDotNet
 			{
 				SaveChanges();
 			}
-			catch
+			catch (Exception e)
 			{
 				/* forget the changes that could not be saved: the next call starts clean */
 				ChangeTracker.Clear();
-				throw;
+				throw Explain(e);
 			}
+		}
+
+		/* an update error with the message of the database */
+		private static Exception Explain(Exception e)
+		{
+			return e is DbUpdateException && e.InnerException != null ? new InvalidOperationException(e.Message + " " + e.InnerException.Message, e) : e;
 		}
 
 		/* Forget the changes that were not saved */
@@ -545,11 +612,11 @@ namespace RingDotNet
 				SaveChanges();
 				transaction.Commit();
 			}
-			catch
+			catch (Exception e)
 			{
 				ChangeTracker.Clear();
 				transaction.Rollback();
-				throw;
+				throw Explain(e);
 			}
 			finally
 			{
@@ -793,9 +860,10 @@ namespace RingDotNet
 			}
 		}
 
-		private IQueryable<Dictionary<string, object>> Filtered(Table table, object[] condition)
+		private IQueryable<Dictionary<string, object>> Filtered(Table table, object[] condition, bool ignoreFilters = false)
 		{
 			IQueryable<Dictionary<string, object>> query = SetOf(table).AsNoTracking();
+			if (ignoreFilters) query = query.IgnoreQueryFilters();
 			if (condition != null && condition.Length > 0)
 			{
 				ParameterExpression row = Expression.Parameter(typeof(Dictionary<string, object>), "e");
@@ -831,6 +899,7 @@ namespace RingDotNet
 			Table table = Find(entity);
 			object[] condition = null, orders = new object[0], select = null;
 			int skip = 0, take = -1;
+			bool ignoreFilters = false;
 			foreach (object item in spec)
 			{
 				object[] pair = (object[])item;
@@ -841,10 +910,11 @@ namespace RingDotNet
 					case "skip": skip = Convert.ToInt32(pair[1], CultureInfo.InvariantCulture); break;
 					case "take": take = Convert.ToInt32(pair[1], CultureInfo.InvariantCulture); break;
 					case "select": select = (object[])pair[1]; break;
+					case "ignorefilters": ignoreFilters = !(pair[1] is double d) || d != 0; break;
 					default: throw new ArgumentException("Unknown query item: " + pair[0]);
 				}
 			}
-			IQueryable<Dictionary<string, object>> query = Ordered(table, Filtered(table, condition), orders);
+			IQueryable<Dictionary<string, object>> query = Ordered(table, Filtered(table, condition, ignoreFilters), orders);
 			if (skip > 0) query = query.Skip(skip);
 			if (take >= 0) query = query.Take(take);
 			List<object> rows = Rows(table, query.ToList());
@@ -959,16 +1029,102 @@ namespace RingDotNet
 			}
 		}
 
+		// ------------------------------------------------------------------ hooks (Ring callbacks)
+
+		private object onSaving, onSaved, onLog;
+
+		/* name: saving (before the changes are written), saved (after), log (every SQL command); the callback is made with dnCallback() */
+		public void SetHook(string name, object callback)
+		{
+			switch (name.ToLowerInvariant())
+			{
+				case "saving": onSaving = callback; break;
+				case "saved": onSaved = callback; break;
+				case "log": onLog = callback; break;
+				default: throw new ArgumentException("Unknown hook: " + name + " (saving, saved, log)");
+			}
+		}
+
+		/* The changes that are waiting to be saved: [ [table, state, row], ... ] state: Added, Modified, Deleted */
+		public List<object> PendingChanges()
+		{
+			List<object> list = new List<object>();
+			foreach (EntityEntry entry in ChangeTracker.Entries())
+			{
+				if (entry.State != EntityState.Added && entry.State != EntityState.Modified && entry.State != EntityState.Deleted) continue;
+				if (!(entry.Entity is Dictionary<string, object> row)) continue;
+				Table table = Find(entry.Metadata.Name);
+				list.Add(new List<object> { table.Name, entry.State.ToString(), ToPairs(table, row) });
+			}
+			return list;
+		}
+
+		internal void RaiseSaving()
+		{
+			if (onSaving == null) return;
+			object veto = CallRing(onSaving, typeof(string), PendingChanges());
+			if (veto is string text && text.Length > 0) throw new InvalidOperationException(text);
+		}
+
+		internal void RaiseSaved(int count)
+		{
+			if (onSaved != null) CallRing(onSaved, typeof(void), count);
+		}
+
+		internal void RaiseLog(string sql)
+		{
+			if (onLog != null) CallRing(onLog, typeof(void), sql);
+		}
+
+		private sealed class SaveHooks : SaveChangesInterceptor
+		{
+			public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
+			{
+				(eventData.Context as RingDb)?.RaiseSaving();
+				return result;
+			}
+
+			public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
+			{
+				(eventData.Context as RingDb)?.RaiseSaved(result);
+				return result;
+			}
+		}
+
+		private sealed class CommandHooks : DbCommandInterceptor
+		{
+			public override InterceptionResult<DbDataReader> ReaderExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<DbDataReader> result)
+			{
+				(eventData.Context as RingDb)?.RaiseLog(command.CommandText);
+				return result;
+			}
+
+			public override InterceptionResult<int> NonQueryExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<int> result)
+			{
+				(eventData.Context as RingDb)?.RaiseLog(command.CommandText);
+				return result;
+			}
+
+			public override InterceptionResult<object> ScalarExecuting(DbCommand command, CommandEventData eventData, InterceptionResult<object> result)
+			{
+				(eventData.Context as RingDb)?.RaiseLog(command.CommandText);
+				return result;
+			}
+		}
+
+		private static readonly SaveHooks SharedSaveHooks = new SaveHooks();
+		private static readonly CommandHooks SharedCommandHooks = new CommandHooks();
+
 		public void Save()
 		{
 			try
 			{
 				SaveChanges();
 			}
-			catch
+			catch (Exception e)
 			{
 				ChangeTracker.Clear();
-				throw;
+				throw Explain(e);
 			}
 		}
 

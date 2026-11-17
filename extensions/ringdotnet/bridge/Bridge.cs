@@ -499,6 +499,13 @@ namespace RingDotNet
 			return Expression.Lambda(delegateType, body, pe).Compile();
 		}
 
+		/* For other assemblies (RingDotNet.Data): run the Ring function of a callback made with dnCallback() */
+		public static object CallRing(object callback, Type returnType, object[] args)
+		{
+			if (callback is CallbackRef cb) return RaiseCallback(cb.Name, returnType, args);
+			throw new ArgumentException("The callback must be created with dnCallback() (got " + (callback == null ? "null" : callback.GetType().FullName) + ")");
+		}
+
 		/* Called by the generated delegates: run the Ring function and convert its result */
 		private static object RaiseCallback(string ringFunction, Type returnType, object[] args)
 		{
@@ -860,6 +867,13 @@ namespace RingDotNet
 				{
 					result = MakeDelegate(ut, cb.Name);
 					score = 12 - ut.GetMethod("Invoke").GetParameters().Length;
+					return true;
+				}
+				if (ut == typeof(object))
+				{
+					/* a parameter of type object keeps the callback (an assembly that wraps Ring code calls it with Bridge.CallRing) */
+					result = cb;
+					score = 1;
 					return true;
 				}
 				return false;
