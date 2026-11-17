@@ -49,11 +49,12 @@ class DotNetObject
 			nHandle = 0
 		ok
 
-# A Ring function that .NET code can call (pass it where a .NET delegate is expected).
-# The function receives ONE parameter: the list of the delegate arguments, and returns the result.
+# Ring code that .NET can run (pass it where a .NET delegate is expected).
+# cCode is Ring code (as in RingQt events) that can read aDotNetArgs (the delegate arguments)
+# and set xDotNetResult, or just the name of a function that receives the argument list and returns the result.
 class DotNetCallback
 
-	cFunction = ""
+	cCode = ""
 
-	func init  cFunction
-		this.cFunction = cFunction
+	func init  cCode
+		this.cCode = cCode

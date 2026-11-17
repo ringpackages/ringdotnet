@@ -15,6 +15,16 @@ oFound = oList.FindAll(dnCallback("startsWithA"))
 for cItem in oFound.toList() ? "  " + cItem next
 ? "Exists(startsWithA) = " + oList.Exists(dnCallback("startsWithA"))
 
+# Callbacks can be any Ring code (as in RingQt events): aDotNetArgs holds the arguments, xDotNetResult the result
+nTotal = 0
+oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))
+? "Total letters (inline code): " + nTotal
+oList.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[2]) - len(aDotNetArgs[1])"))
+? "Longest first: " + oList.Item(0)
+oNums = new NumberList()
+for x = 1 to 6 oNums.Add(x) next
+? "Even numbers: " + list2str(oNums.FindAll(dnCallback("xDotNetResult = (aDotNetArgs[1] % 2 = 0)")).toList())
+
 # Errors in the callback reach the caller
 try
 	oList.ForEach_(dnCallback("broken"))

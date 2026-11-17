@@ -49,22 +49,26 @@ oDict.SetItem("two","2")
 
 Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
-## Calling Ring functions from .NET (callbacks)
+## Calling Ring code from .NET (callbacks)
 
-Pass `dnCallback("functionName")` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type; when .NET invokes it, your Ring function runs with ONE parameter, the list of the delegate arguments, and its return value is converted to the delegate's return type:
+Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type. When .NET invokes it, the Ring code runs, as in RingQt events: it can read `aDotNetArgs` (the list of delegate arguments) and set `xDotNetResult` (converted to the delegate's return type).
 
 ```ring
-oList.ForEach_(dnCallback("show"))            # ForEach is a Ring keyword, so it is ForEach_
-oList.Sort_1(dnCallback("byLength"))
-oList.FindAll(dnCallback("startsWithA"))
-
-func show aArgs
-	? aArgs[1]
-func byLength aArgs
-	return len(aArgs[1]) - len(aArgs[2])
+nTotal = 0
+oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))           # ForEach is a Ring keyword, so ForEach_
+oList.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
+oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 ```
 
-Errors raised in the Ring function reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
+If the text is just a function name, that function is called with the argument list as its only parameter and its return value is the result (define the function after the main code):
+
+```ring
+oList.ForEach_(dnCallback("show"))
+func show aArgs
+	? aArgs[1]
+```
+
+Errors raised by the Ring code reach the .NET caller as an exception (and then your Ring `try/catch`). Callbacks run synchronously on the Ring thread during a call; a callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
 
 ## Architecture
 

@@ -16,8 +16,8 @@ func dnPackItem  xValue
 		cData = dnPack(xValue)
 		return C_DOTNET_LIST + len(cData) + ":" + cData
 	ok
-	if isobject(xValue) and isattribute(xValue,"cFunction")
-		return C_DOTNET_CALLBACK + len(xValue.cFunction) + ":" + xValue.cFunction
+	if isobject(xValue) and isattribute(xValue,"cCode")
+		return C_DOTNET_CALLBACK + len(xValue.cCode) + ":" + xValue.cCode
 	ok
 	if isobject(xValue) and isattribute(xValue,"nHandle")
 		if xValue.nHandle = 0
@@ -138,21 +138,42 @@ func dnCreate  cTypeName, aParameters
 func dnDescribe  cTypeName
 	return dnRequest("describe",[cTypeName])
 
-# Make a Ring function callable from .NET: dnCallback("myfunc"), then pass it where a delegate is expected
-func dnCallback  cFunction
-	return new DotNetCallback(cFunction)
+# Ring code callable from .NET: dnCallback("? aDotNetArgs[1]") or dnCallback("myfunc"),
+# then pass it where a delegate is expected
+func dnCallback  cCode
+	return new DotNetCallback(cCode)
 
 # Runs one Ring callback requested by .NET (called by the extension, don't call it directly)
 func dnDispatchCallback
 	aItems = dnUnpack(dotnet_callbackrequest())
-	aDotNetCbArgs = []
+	aDotNetArgs = []
 	for x = 2 to len(aItems)
-		aDotNetCbArgs + aItems[x]
+		aDotNetArgs + aItems[x]
 	next
 	try
-		eval("aDotNetCbResult = " + aItems[1] + "(aDotNetCbArgs)")
-		cOut = dnPackItem(aDotNetCbResult)
+		xDotNetResult = ""
+		if dnIsIdentifier(aItems[1])
+			eval("xDotNetResult = " + aItems[1] + "(aDotNetArgs)")
+		else
+			eval(aItems[1])
+		ok
+		cOut = dnPackItem(xDotNetResult)
 	catch
 		cOut = C_DOTNET_ERROR + len(cCatchError) + ":" + cCatchError
 	done
 	dotnet_callbackresult(cOut)
+
+# True when the text is only a name (letters, digits, _), i.e. a function name and not Ring code
+func dnIsIdentifier  cText
+	if cText = ""
+		return false
+	ok
+	for x = 1 to len(cText)
+		n = ascii(cText[x])
+		lLetter = (n >= 65 and n <= 90) or (n >= 97 and n <= 122) or n = 95
+		lDigit = (n >= 48 and n <= 57)
+		if not (lLetter or (x > 1 and lDigit))
+			return false
+		ok
+	next
+	return true
