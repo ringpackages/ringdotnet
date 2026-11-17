@@ -43,7 +43,7 @@ oCanvas = new UiCanvas(oPicture)
 oInfo = uiLabel(oForm,"",10,8,250,22)
 oInfo.Font = uiFont("Segoe UI",11,true)
 oRestart = uiButton(oForm,"Restart",270,5,60,26,"loadLevel(nLevel)")
-uiButton(oForm,"Next",335,5,55,26,"nextLevel()")
+oNext = uiButton(oForm,"Next",335,5,55,26,"nextLevel()")
 uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")
 loadLevel(1)
 
@@ -60,6 +60,7 @@ func loadLevel nNumber
 		aMap + cRow
 	next
 	nMoves = 0
+	fitWindow()
 	for nRow = 1 to len(aMap)
 		for nColumn = 1 to len(aMap[nRow])
 			if aMap[nRow][nColumn] = "@" or aMap[nRow][nColumn] = "+"
@@ -69,6 +70,25 @@ func loadLevel nNumber
 		next
 	next
 	draw()
+
+# the window and the picture follow the size of the level
+func fitWindow
+	nColumns = 0
+	for cRow in aMap
+		if len(cRow) > nColumns
+			nColumns = len(cRow)
+		ok
+	next
+	nWidth = nColumns * C_CELL
+	if nWidth < 400
+		nWidth = 400
+	ok
+	nHeight = len(aMap) * C_CELL
+	oPicture.Size = new Size(nWidth,nHeight)
+	oForm.ClientSize = new Size(nWidth,nHeight + 36)
+	oCanvas = new UiCanvas(oPicture)
+	oRestart.Left = nWidth - 130
+	oNext.Left = nWidth - 65
 
 func nextLevel
 	loadLevel(nLevel % len(aLevels) + 1)
@@ -221,3 +241,9 @@ func selfTest
 	nextLevel()
 	nextLevel()
 	dnAssert("levels wrap around",nLevel,2)
+	loadLevel(3)
+	dnAssert("the window grows with the level (9 rows)",oForm.ClientSize.Height,9 * C_CELL + 36)
+	dnAssert("the picture fits the level",oPicture.Height,9 * C_CELL)
+	dnAssert("the whole level is drawn (last row)",oCanvas.pixel(40,8 * C_CELL + 20) != "ff222222",1)
+	loadLevel(1)
+	dnAssert("a small level keeps a usable width",oForm.ClientSize.Width,400)
