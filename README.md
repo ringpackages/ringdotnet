@@ -58,6 +58,15 @@ oDict.SetItem("two","2")
 
 Add your own closed generic with a line like `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` (the optional third item forces the number of `init()` parameters). To wrap more types (or your own assemblies), add them to `aTypes` in `tools/gendotnet.ring` and run it (it can `dnLoad` an assembly first).
 
+## LINQ
+
+`dnImport("System.Linq")` loads `Enumerable` (generic methods work: the bridge infers the type arguments from the values, callbacks become `Func<object,...>`) and a fluent wrapper that accepts Ring lists or any .NET collection:
+
+```ring
+aTop = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDescending("xDotNetResult = aDotNetArgs[1]").Take(3).ToList()
+? dnQuery(aSales).Sum("") + " " + dnQuery(aSales).Average("")
+```
+
 ## Properties
 
 .NET properties and fields are Ring attributes (Ring calls the generated `getName()` / `setName(value)` automatically, see "Setter and Getter" in the Ring docs), so they read and write naturally, also inside `{ }`; `getName()` / `setName()` can still be called explicitly. Assigning a read-only property raises an error.

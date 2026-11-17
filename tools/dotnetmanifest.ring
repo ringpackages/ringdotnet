@@ -9,6 +9,7 @@
 		:types       extra or explicit types: [.NET type name, (optional) Ring class name, (optional) init() parameters]
 		             (closed generic types and nested types are listed here)
 		:prefer      ["Namespace.Type.Method=arity", ...]: the overload that gets the plain method name (the others are Name_N)
+		:extra       Ring files (relative to the generated folder) that the namespace loader also loads
 		:desktop     true when the namespace needs the Windows Desktop runtime (dnUseDesktop())
 */
 
@@ -42,6 +43,11 @@ aDotNetManifest = [
 	[ :namespace = "System.Net.Http",
 	  :assemblies = ["System.Net.Http"],
 	  :types = [ ["System.Net.Http.HttpClient"] ] ],
+
+	[ :namespace = "System.Linq",
+	  :assemblies = ["System.Linq"],
+	  :all = true,
+	  :extra = ["../linq.ring"] ],
 
 	[ :namespace = "System.Collections",
 	  :assemblies = ["System.Private.CoreLib","System.Collections","System.Collections.NonGeneric"],

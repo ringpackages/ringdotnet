@@ -18,6 +18,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -558,14 +559,14 @@ namespace RingDotNet
 
 		private static bool Usable(MethodBase m)
 		{
-			if (m.ContainsGenericParameters)
+			if (m.ContainsGenericParameters && !(m is MethodInfo gm && gm.IsGenericMethodDefinition))
 			{
 				return false;
 			}
 			foreach (ParameterInfo p in m.GetParameters())
 			{
 				Type pt = p.ParameterType.IsByRef ? p.ParameterType.GetElementType() : p.ParameterType;
-				if (pt.IsPointer || pt.IsByRefLike || pt.IsByRef)
+				if (pt.IsPointer || pt.IsByRefLike || pt.IsByRef || (pt.IsGenericType && pt.GetGenericArguments().Any(g => g.IsByRefLike)))
 				{
 					return false;
 				}
@@ -717,7 +718,7 @@ namespace RingDotNet
 				if (typeof(Delegate).IsAssignableFrom(ut) && ut != typeof(Delegate) && ut != typeof(MulticastDelegate))
 				{
 					result = MakeDelegate(ut, cb.Name);
-					score = 3;
+					score = 12 - ut.GetMethod("Invoke").GetParameters().Length;
 					return true;
 				}
 				return false;
@@ -855,17 +856,53 @@ namespace RingDotNet
 				score = 2;
 				return true;
 			}
+			if (v is object[] items && ut.IsGenericType && ut.GetGenericArguments().Length == 1)
+			{
+				/* a Ring list for IEnumerable<T>, IList<T>, ICollection<T>, List<T>... */
+				Type et = ut.GetGenericArguments()[0];
+				Array arr = Array.CreateInstance(et, items.Length);
+				for (int i = 0; i < items.Length; i++)
+				{
+					if (!TryConvert(items[i], et, out object item, out int _))
+					{
+						return false;
+					}
+					arr.SetValue(item, i);
+				}
+				if (ut.IsAssignableFrom(arr.GetType()))
+				{
+					result = arr;
+					score = 2;
+					return true;
+				}
+				Type listType = typeof(List<>).MakeGenericType(et);
+				if (ut.IsAssignableFrom(listType))
+				{
+					result = Activator.CreateInstance(listType, arr);
+					score = 2;
+					return true;
+				}
+			}
 			return false;
 		}
 
 		/* Choose the best overload; returns the converted arguments */
-		private static T Pick<T>(IEnumerable<T> candidates, object[] args, out object[] converted) where T : MethodBase
+		private static MethodBase Pick(IEnumerable<MethodBase> candidates, object[] args, out object[] converted)
 		{
-			T best = null;
+			MethodBase best = null;
 			object[] bestArgs = null;
 			int bestScore = -1;
-			foreach (T m in candidates)
+			foreach (MethodBase candidate in candidates)
 			{
+				MethodBase m = candidate;
+				if (m is MethodInfo def && def.IsGenericMethodDefinition)
+				{
+					m = CloseGeneric(def, args);
+					if (m == null)
+					{
+						continue;
+					}
+				}
 				if (m.ContainsGenericParameters)
 				{
 					continue;
@@ -913,6 +950,62 @@ namespace RingDotNet
 			return best;
 		}
 
+		/* Generic methods (LINQ): infer the type arguments from the values; callbacks and unknowns become object */
+		private static MethodInfo CloseGeneric(MethodInfo def, object[] args)
+		{
+			Dictionary<Type, Type> map = new Dictionary<Type, Type>();
+			ParameterInfo[] ps = def.GetParameters();
+			int next = 0;
+			foreach (ParameterInfo p in ps)
+			{
+				if (IsOutOnly(p)) continue;
+				if (next >= args.Length) break;
+				object arg = Plain(args[next++]);
+				if (arg != null && !(arg is CallbackRef))
+				{
+					Infer(p.ParameterType, arg.GetType(), map);
+				}
+			}
+			Type[] gps = def.GetGenericArguments();
+			Type[] closed = new Type[gps.Length];
+			for (int i = 0; i < gps.Length; i++)
+			{
+				closed[i] = map.TryGetValue(gps[i], out Type found) ? found : typeof(object);
+			}
+			try { return def.MakeGenericMethod(closed); }
+			catch (ArgumentException) { return null; }
+		}
+
+		private static void Infer(Type param, Type arg, Dictionary<Type, Type> map)
+		{
+			if (param.IsByRef) { Infer(param.GetElementType(), arg, map); return; }
+			if (param.IsGenericParameter)
+			{
+				if (!map.ContainsKey(param)) map[param] = arg;
+				return;
+			}
+			if (param.IsArray)
+			{
+				if (arg.IsArray) Infer(param.GetElementType(), arg.GetElementType(), map);
+				return;
+			}
+			if (!param.IsGenericType) return;
+			Type def = param.GetGenericTypeDefinition();
+			List<Type> sources = new List<Type> { arg };
+			sources.AddRange(arg.GetInterfaces());
+			for (Type b = arg.BaseType; b != null; b = b.BaseType) sources.Add(b);
+			foreach (Type t in sources)
+			{
+				if (t.IsGenericType && t.GetGenericTypeDefinition() == def)
+				{
+					Type[] pa = param.GetGenericArguments();
+					Type[] aa = t.GetGenericArguments();
+					for (int i = 0; i < pa.Length && i < aa.Length; i++) Infer(pa[i], aa[i], map);
+					return;
+				}
+			}
+		}
+
 		private static IEnumerable<MethodInfo> MethodsNamed(Type t, string name, BindingFlags flags)
 		{
 			List<MethodInfo> found = new List<MethodInfo>();
@@ -940,7 +1033,7 @@ namespace RingDotNet
 			{
 				return Activator.CreateInstance(t);
 			}
-			ConstructorInfo ctor = Pick(t.GetConstructors(BindingFlags.Public | BindingFlags.Instance), args, out object[] conv);
+			ConstructorInfo ctor = Pick(t.GetConstructors(BindingFlags.Public | BindingFlags.Instance), args, out object[] conv) as ConstructorInfo;
 			if (ctor == null)
 			{
 				throw new MissingMethodException("No public constructor of " + t.FullName + " matches the " + args.Length + " argument(s)");
@@ -968,7 +1061,7 @@ namespace RingDotNet
 				t = target.GetType();
 				flags = InstanceFlags;
 			}
-			MethodInfo m = Pick(MethodsNamed(t, name, flags), args, out object[] conv);
+			MethodInfo m = Pick(MethodsNamed(t, name, flags), args, out object[] conv) as MethodInfo;
 			if (m == null)
 			{
 				throw new MissingMethodException("No public method " + t.FullName + "." + name + " matches the " + args.Length + " argument(s)");

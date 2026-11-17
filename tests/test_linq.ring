@@ -1,0 +1,43 @@
+# Batch: System.Linq (generic methods, fluent DotNetQuery)
+load "../libraries/dotnetlib/dotnetlib.ring"
+dnImport("System.Linq")
+dnImport("System.Collections.Generic")
+
+# Enumerable static methods work on Ring lists and .NET collections (type arguments are inferred)
+oLinq = new Enumerable()
+dnAssert("Enumerable.Count",oLinq.Count([4,5,6]),3)
+dnAssert("Enumerable.Contains",oLinq.Contains([4,5,6],5),1)
+dnAssert("Enumerable.First",oLinq.First(["x","y"]),"x")
+oWords = new StringList()
+oWords.Add("pear")  oWords.Add("fig")  oWords.Add("apple")
+dnAssert("Enumerable.Last on List<string>",oLinq.Last(oWords),"apple")
+dnAssert("Enumerable.Any with callback",oLinq.Any_2(oWords,dnCallback("xDotNetResult = len(aDotNetArgs[1]) > 4")),1)
+dnAssert("Enumerable.All with callback",oLinq.All(oWords,dnCallback("xDotNetResult = len(aDotNetArgs[1]) > 4")),0)
+oEven = oLinq.Where([1,2,3,4,5,6],dnCallback("xDotNetResult = aDotNetArgs[1] % 2 = 0"))
+dnAssert("Enumerable.Where",len(oEven.toList()),3)
+
+# Fluent queries
+aResult = dnQuery([5,3,8,1,9,2]).Where("xDotNetResult = aDotNetArgs[1] > 2").OrderBy("xDotNetResult = aDotNetArgs[1]").ToList()
+dnAssert("Where+OrderBy count",len(aResult),4)
+dnAssert("Where+OrderBy first",aResult[1],3)
+dnAssert("Where+OrderBy last",aResult[4],9)
+dnAssert("OrderByDescending",dnQuery([5,3,8]).OrderByDescending("xDotNetResult = aDotNetArgs[1]").First(),8)
+dnAssert("Select",dnQuery([1,2,3]).Select("xDotNetResult = aDotNetArgs[1] * 10").ToList()[3],30)
+dnAssert("Take/Skip",dnQuery([1,2,3,4,5]).Skip(1).Take(3).ToList()[3],4)
+dnAssert("Distinct",dnQuery([1,1,2,2,3]).Distinct().Count(),3)
+dnAssert("Reverse",dnQuery([1,2,3]).Reverse().First(),3)
+dnAssert("Sum",dnQuery([1.5,2.5,3]).Sum(""),7)
+dnAssert("Sum selector",dnQuery([1,2,3]).Sum("xDotNetResult = aDotNetArgs[1] * 2"),12)
+dnAssert("Min",dnQuery([4,2,9]).Min(""),2)
+dnAssert("Max",dnQuery([4,2,9]).Max(""),9)
+dnAssert("Average",dnQuery([2,4,6]).Average(""),4)
+dnAssert("CountWhere",dnQuery(["a","bb","cc"]).CountWhere("xDotNetResult = len(aDotNetArgs[1]) = 2"),2)
+dnAssert("Union",dnQuery([1,2]).Union([2,3]).Count(),3)
+dnAssert("Concat",dnQuery([1,2]).Concat(dnQuery([3])).Count(),3)
+dnAssert("Except",dnQuery([1,2,3]).Except([2]).Count(),2)
+dnAssert("strings OrderBy",dnQuery(["pear","fig","apple"]).OrderBy("xDotNetResult = len(aDotNetArgs[1])").First(),"fig")
+
+# Over a .NET collection
+dnAssert("query over List<string>",dnQuery(oWords).Where("xDotNetResult = left(aDotNetArgs[1],1) = 'p'").First(),"pear")
+
+nFail = dnTestSummary()
