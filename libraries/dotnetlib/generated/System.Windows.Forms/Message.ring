@@ -17,7 +17,7 @@ Class Message from ValueType
 		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
 		return self
 
-	Func GetLParam P1
+	Func GetLParam_1 P1
 		return dnRequest("call",[self,"GetLParam",P1])
 
 	Func Create P1,P2,P3,P4
@@ -43,6 +43,9 @@ Class Message from ValueType
 	Func setWParam P1
 		dnRequest("set",[self,"WParam",P1])
 		return self
+
+	Func getLParam
+		return dnRequest("get",[self,"LParam"])
 
 	Func setLParam P1
 		dnRequest("set",[self,"LParam",P1])

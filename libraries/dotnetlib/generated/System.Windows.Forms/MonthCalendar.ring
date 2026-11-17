@@ -79,7 +79,7 @@ Class MonthCalendar from Control
 		dnRequest("call",[self,"RemoveMonthlyBoldedDate",P1])
 		return self
 
-	Func SetCalendarDimensions P1,P2
+	Func SetCalendarDimensions_2 P1,P2
 		dnRequest("call",[self,"SetCalendarDimensions",P1,P2])
 		return self
 
@@ -87,7 +87,7 @@ Class MonthCalendar from Control
 		dnRequest("call",[self,"SetDate",P1])
 		return self
 
-	Func SetSelectionRange P1,P2
+	Func SetSelectionRange_2 P1,P2
 		dnRequest("call",[self,"SetSelectionRange",P1,P2])
 		return self
 
@@ -135,6 +135,10 @@ Class MonthCalendar from Control
 
 	Func getCalendarDimensions
 		return dnRequest("get",[self,"CalendarDimensions"])
+
+	Func setCalendarDimensions P1
+		dnRequest("set",[self,"CalendarDimensions",P1])
+		return self
 
 	Func getFirstDayOfWeek
 		return dnRequest("get",[self,"FirstDayOfWeek"])
@@ -201,6 +205,10 @@ Class MonthCalendar from Control
 
 	Func getSelectionRange
 		return dnRequest("get",[self,"SelectionRange"])
+
+	Func setSelectionRange P1
+		dnRequest("set",[self,"SelectionRange",P1])
+		return self
 
 	Func getShowToday
 		return dnRequest("get",[self,"ShowToday"])

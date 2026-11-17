@@ -15,6 +15,9 @@ Class PropertyItem from Object
 		ok
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
 	Func getId
 		return dnRequest("get",[self,"Id"])
 
@@ -28,6 +31,9 @@ Class PropertyItem from Object
 	Func setLen P1
 		dnRequest("set",[self,"Len",P1])
 		return self
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		dnRequest("set",[self,"Type",P1])

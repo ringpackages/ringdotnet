@@ -34,7 +34,7 @@ Class Encoding from Object
 		ok
 		return self
 
-	Func GetPreamble 
+	Func GetPreamble_0 
 		return dnRequest("call",[self,"GetPreamble"])
 
 	Func Clone 
@@ -118,6 +118,9 @@ Class Encoding from Object
 
 	Func CreateTranscodingStream P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
+
+	Func getPreamble
+		return dnRequest("get",[self,"Preamble"])
 
 	Func setPreamble P1
 		raise("DotNet Error: Preamble is a read-only property")

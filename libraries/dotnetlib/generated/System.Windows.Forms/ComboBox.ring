@@ -52,7 +52,7 @@ Class ComboBox from ListControl
 	Func FindStringExact_2 P1,P2
 		return dnRequest("call",[self,"FindStringExact",P1,P2])
 
-	Func GetItemHeight P1
+	Func GetItemHeight_1 P1
 		return dnRequest("call",[self,"GetItemHeight",P1])
 
 	Func Select_2 P1,P2
@@ -189,6 +189,9 @@ Class ComboBox from ListControl
 	Func setIntegralHeight P1
 		dnRequest("set",[self,"IntegralHeight",P1])
 		return self
+
+	Func getItemHeight
+		return dnRequest("get",[self,"ItemHeight"])
 
 	Func setItemHeight P1
 		dnRequest("set",[self,"ItemHeight",P1])

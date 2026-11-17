@@ -67,6 +67,15 @@ Class X509Certificate2 from X509Certificate
 	Func MatchesHostname P1
 		return dnRequest("call",[self,"MatchesHostname",P1])
 
+	Func GetPublicKey_0 
+		return dnRequest("call",[self,"GetPublicKey"])
+
+	Func GetSerialNumber_0 
+		return dnRequest("call",[self,"GetSerialNumber"])
+
+	Func GetIssuerName_0 
+		return dnRequest("call",[self,"GetIssuerName"])
+
 	Func GetCertContentType P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
 
@@ -109,6 +118,9 @@ Class X509Certificate2 from X509Certificate
 		dnRequest("set",[self,"PrivateKey",P1])
 		return self
 
+	Func getIssuerName
+		return dnRequest("get",[self,"IssuerName"])
+
 	Func setIssuerName P1
 		raise("DotNet Error: IssuerName is a read-only property")
 
@@ -124,6 +136,9 @@ Class X509Certificate2 from X509Certificate
 	Func setNotBefore P1
 		raise("DotNet Error: NotBefore is a read-only property")
 
+	Func getPublicKey
+		return dnRequest("get",[self,"PublicKey"])
+
 	Func setPublicKey P1
 		raise("DotNet Error: PublicKey is a read-only property")
 
@@ -138,6 +153,9 @@ Class X509Certificate2 from X509Certificate
 
 	Func setRawDataMemory P1
 		raise("DotNet Error: RawDataMemory is a read-only property")
+
+	Func getSerialNumber
+		return dnRequest("get",[self,"SerialNumber"])
 
 	Func setSerialNumber P1
 		raise("DotNet Error: SerialNumber is a read-only property")

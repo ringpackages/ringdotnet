@@ -27,13 +27,13 @@ Class PropertyInfo from MemberInfo
 	Func GetAccessors_1 P1
 		return dnRequest("call",[self,"GetAccessors",P1])
 
-	Func GetGetMethod 
+	Func GetGetMethod_0 
 		return dnRequest("call",[self,"GetGetMethod"])
 
 	Func GetGetMethod_1 P1
 		return dnRequest("call",[self,"GetGetMethod",P1])
 
-	Func GetSetMethod 
+	Func GetSetMethod_0 
 		return dnRequest("call",[self,"GetSetMethod"])
 
 	Func GetSetMethod_1 P1
@@ -105,8 +105,14 @@ Class PropertyInfo from MemberInfo
 	Func setCanWrite P1
 		raise("DotNet Error: CanWrite is a read-only property")
 
+	Func getGetMethod
+		return dnRequest("get",[self,"GetMethod"])
+
 	Func setGetMethod P1
 		raise("DotNet Error: GetMethod is a read-only property")
+
+	Func getSetMethod
+		return dnRequest("get",[self,"SetMethod"])
 
 	Func setSetMethod P1
 		raise("DotNet Error: SetMethod is a read-only property")

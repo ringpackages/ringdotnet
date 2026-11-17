@@ -113,7 +113,7 @@ Class Control from Component
 		dnRequest("call",[self,"ResetBindings"])
 		return self
 
-	Func GetPreferredSize P1
+	Func GetPreferredSize_1 P1
 		return dnRequest("call",[self,"GetPreferredSize",P1])
 
 	Func BeginInvoke P1
@@ -277,7 +277,7 @@ Class Control from Component
 		dnRequest("call",[self,"SendToBack"])
 		return self
 
-	Func SetBounds P1,P2,P3,P4
+	Func SetBounds_4 P1,P2,P3,P4
 		dnRequest("call",[self,"SetBounds",P1,P2,P3,P4])
 		return self
 
@@ -991,6 +991,10 @@ Class Control from Component
 	Func getBounds
 		return dnRequest("get",[self,"Bounds"])
 
+	Func setBounds P1
+		dnRequest("set",[self,"Bounds",P1])
+		return self
+
 	Func getCanFocus
 		return dnRequest("get",[self,"CanFocus"])
 
@@ -1344,6 +1348,9 @@ Class Control from Component
 	Func setWindowTarget P1
 		dnRequest("set",[self,"WindowTarget",P1])
 		return self
+
+	Func getPreferredSize
+		return dnRequest("get",[self,"PreferredSize"])
 
 	Func setPreferredSize P1
 		raise("DotNet Error: PreferredSize is a read-only property")

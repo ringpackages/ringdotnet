@@ -38,7 +38,7 @@ Class MethodBase from MemberInfo
 	Func GetParameters 
 		return dnRequest("call",[self,"GetParameters"])
 
-	Func GetMethodImplementationFlags 
+	Func GetMethodImplementationFlags_0 
 		return dnRequest("call",[self,"GetMethodImplementationFlags"])
 
 	Func GetMethodBody 
@@ -67,6 +67,9 @@ Class MethodBase from MemberInfo
 
 	Func setAttributes P1
 		raise("DotNet Error: Attributes is a read-only property")
+
+	Func getMethodImplementationFlags
+		return dnRequest("get",[self,"MethodImplementationFlags"])
 
 	Func setMethodImplementationFlags P1
 		raise("DotNet Error: MethodImplementationFlags is a read-only property")

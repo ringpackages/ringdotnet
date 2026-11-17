@@ -97,6 +97,10 @@ oForm.Width = 400
 oForm { Height = 300  Text += "!" }
 ```
 
+## GUI helpers and applications
+
+`dnImport("System.Windows.Forms")` also loads `libraries/dotnetlib/gui.ring`: `uiForm()`, `uiButton()`, `uiLabel()`, `uiTextBox()`, `uiMemo()`, `uiListBox()`, `uiComboBox()`, `uiPanel()`, `uiPictureBox()`, `uiTimer()`, `uiMenu()`, dialogs (`uiMessage()`, `uiOpenFileName()`...) and a `UiCanvas` class for drawing. `applications/` has complete programs (Calculator, Notepad, games, ...) that run themselves with `--selftest`.
+
 ## Calling Ring code from .NET (callbacks)
 
 Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`, `Predicate`, `Comparison`, `EventHandler`, ...). The bridge builds a delegate of the exact type. When .NET invokes it, the Ring code runs, as in RingQt events: it can read `aDotNetArgs` (the list of delegate arguments) and set `xDotNetResult` (converted to the delegate's return type).

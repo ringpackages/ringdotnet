@@ -353,6 +353,7 @@ aDotNetManifest = [
 	  :desktop = true,
 	  :uses = ["System.Drawing","System.ComponentModel","System.Collections","System.Collections.Specialized","System.IO"],
 	  :all = true,
+	  :extra = ["../gui.ring"],
 	  :prefer = ["System.Windows.Forms.Application.Run=1","System.Windows.Forms.MessageBox.Show=1"],
 	  :types = [
 		["System.Windows.Forms.Control+ControlCollection","ControlCollection"],

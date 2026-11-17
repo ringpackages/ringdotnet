@@ -19,7 +19,7 @@ Class Array from Object
 		ok
 		return self
 
-	Func GetLength P1
+	Func GetLength_1 P1
 		return dnRequest("call",[self,"GetLength",P1])
 
 	Func GetUpperBound P1
@@ -53,7 +53,7 @@ Class Array from Object
 		dnRequest("call",[self,"SetValue",P1,P2,P3,P4])
 		return self
 
-	Func GetLongLength P1
+	Func GetLongLength_1 P1
 		return dnRequest("call",[self,"GetLongLength",P1])
 
 	Func Clone 
@@ -216,8 +216,14 @@ Class Array from Object
 	Func TrueForAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"TrueForAll",P1,P2])
 
+	Func getLength
+		return dnRequest("get",[self,"Length"])
+
 	Func setLength P1
 		raise("DotNet Error: Length is a read-only property")
+
+	Func getLongLength
+		return dnRequest("get",[self,"LongLength"])
 
 	Func setLongLength P1
 		raise("DotNet Error: LongLength is a read-only property")

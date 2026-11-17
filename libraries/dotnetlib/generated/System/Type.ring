@@ -329,7 +329,7 @@ Class Type from MemberInfo
 	Func GetTypeFromHandle P1
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromHandle",P1])
 
-	Func GetTypeHandle P1
+	Func GetTypeHandle_1 P1
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeHandle",P1])
 
 	Func GetTypeArray P1
@@ -718,6 +718,9 @@ Class Type from MemberInfo
 
 	Func setTypeInitializer P1
 		raise("DotNet Error: TypeInitializer is a read-only property")
+
+	Func getTypeHandle
+		return dnRequest("get",[self,"TypeHandle"])
 
 	Func setTypeHandle P1
 		raise("DotNet Error: TypeHandle is a read-only property")

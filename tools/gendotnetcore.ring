@@ -331,6 +331,11 @@ func buildPlan cTypeName, nForceInit
 			aBoth + cBothKey
 		ok
 	next
+	aAccessors = []
+	for aMember in aMembers
+		if aMember[2] aAccessors + lower("get" + aMember[1]) ok
+		if aMember[3] aAccessors + lower("set" + aMember[1]) ok
+	next
 	aNames = ["init"]
 	aSeen = []	# "static|name|arity"
 	# The plain name goes to the shortest overload that has parameters (and no array/delegate/comparer parameters);
@@ -405,6 +410,10 @@ func buildPlan cTypeName, nForceInit
 		aSeen + cKey
 		cRing = ringName(cName)
 		if nArity != aMin[find(aMin,cLower,1)][2]
+			cRing = cName + "_" + nArity
+		ok
+		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length) is renamed
+		if find(aAccessors,lower(cRing)) > 0
 			cRing = cName + "_" + nArity
 		ok
 		if find(aNames,lower(cRing)) > 0

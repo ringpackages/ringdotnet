@@ -13,12 +13,15 @@ Class IDataGridViewEditingCell from DotNetObject
 		ok
 		return self
 
-	Func GetEditingCellFormattedValue P1
+	Func GetEditingCellFormattedValue_1 P1
 		return dnRequest("call",[self,"GetEditingCellFormattedValue",P1])
 
 	Func PrepareEditingCellForEdit P1
 		dnRequest("call",[self,"PrepareEditingCellForEdit",P1])
 		return self
+
+	Func getEditingCellFormattedValue
+		return dnRequest("get",[self,"EditingCellFormattedValue"])
 
 	Func setEditingCellFormattedValue P1
 		dnRequest("set",[self,"EditingCellFormattedValue",P1])

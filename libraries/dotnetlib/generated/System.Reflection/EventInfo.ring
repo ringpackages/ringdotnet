@@ -24,13 +24,13 @@ Class EventInfo from MemberInfo
 	Func GetOtherMethods_1 P1
 		return dnRequest("call",[self,"GetOtherMethods",P1])
 
-	Func GetAddMethod 
+	Func GetAddMethod_0 
 		return dnRequest("call",[self,"GetAddMethod"])
 
-	Func GetRemoveMethod 
+	Func GetRemoveMethod_0 
 		return dnRequest("call",[self,"GetRemoveMethod"])
 
-	Func GetRaiseMethod 
+	Func GetRaiseMethod_0 
 		return dnRequest("call",[self,"GetRaiseMethod"])
 
 	Func GetAddMethod_1 P1
@@ -62,11 +62,20 @@ Class EventInfo from MemberInfo
 	Func setIsSpecialName P1
 		raise("DotNet Error: IsSpecialName is a read-only property")
 
+	Func getAddMethod
+		return dnRequest("get",[self,"AddMethod"])
+
 	Func setAddMethod P1
 		raise("DotNet Error: AddMethod is a read-only property")
 
+	Func getRemoveMethod
+		return dnRequest("get",[self,"RemoveMethod"])
+
 	Func setRemoveMethod P1
 		raise("DotNet Error: RemoveMethod is a read-only property")
+
+	Func getRaiseMethod
+		return dnRequest("get",[self,"RaiseMethod"])
 
 	Func setRaiseMethod P1
 		raise("DotNet Error: RaiseMethod is a read-only property")

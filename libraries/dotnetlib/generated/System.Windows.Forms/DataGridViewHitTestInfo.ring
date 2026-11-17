@@ -17,6 +17,9 @@ Class DataGridViewHitTestInfo from Object
 		ok
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
 	Func getColumnIndex
 		return dnRequest("get",[self,"ColumnIndex"])
 
@@ -40,6 +43,9 @@ Class DataGridViewHitTestInfo from Object
 
 	Func setRowY P1
 		raise("DotNet Error: RowY is a read-only property")
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")

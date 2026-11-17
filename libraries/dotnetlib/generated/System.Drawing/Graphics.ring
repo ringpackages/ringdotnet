@@ -57,7 +57,7 @@ Class Graphics from MarshalByRefObject
 		dnRequest("call",[self,"Flush",P1])
 		return self
 
-	Func SetClip P1
+	Func SetClip_1 P1
 		dnRequest("call",[self,"SetClip",P1])
 		return self
 
@@ -468,6 +468,10 @@ Class Graphics from MarshalByRefObject
 
 	Func getClip
 		return dnRequest("get",[self,"Clip"])
+
+	Func setClip P1
+		dnRequest("set",[self,"Clip",P1])
+		return self
 
 	Func getClipBounds
 		return dnRequest("get",[self,"ClipBounds"])

@@ -32,16 +32,16 @@ Class DataGridViewRow from DataGridViewBand
 		dnRequest("call",[self,"CreateCells",P1,P2])
 		return self
 
-	Func GetContextMenuStrip P1
+	Func GetContextMenuStrip_1 P1
 		return dnRequest("call",[self,"GetContextMenuStrip",P1])
 
-	Func GetErrorText P1
+	Func GetErrorText_1 P1
 		return dnRequest("call",[self,"GetErrorText",P1])
 
 	Func GetPreferredHeight P1,P2,P3
 		return dnRequest("call",[self,"GetPreferredHeight",P1,P2,P3])
 
-	Func GetState P1
+	Func GetState_1 P1
 		return dnRequest("call",[self,"GetState",P1])
 
 	Func SetValues P1
@@ -71,6 +71,9 @@ Class DataGridViewRow from DataGridViewBand
 	Func setDividerHeight P1
 		dnRequest("set",[self,"DividerHeight",P1])
 		return self
+
+	Func getErrorText
+		return dnRequest("get",[self,"ErrorText"])
 
 	Func setErrorText P1
 		dnRequest("set",[self,"ErrorText",P1])

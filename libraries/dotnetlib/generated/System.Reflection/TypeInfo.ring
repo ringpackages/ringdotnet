@@ -38,7 +38,7 @@ Class TypeInfo from Type
 	Func GetDeclaredProperty P1
 		return dnRequest("call",[self,"GetDeclaredProperty",P1])
 
-	Func GetDeclaredMethods P1
+	Func GetDeclaredMethods_1 P1
 		return dnRequest("call",[self,"GetDeclaredMethods",P1])
 
 	Func getGenericTypeParameters
@@ -71,6 +71,9 @@ Class TypeInfo from Type
 	Func setDeclaredMembers P1
 		raise("DotNet Error: DeclaredMembers is a read-only property")
 
+	Func getDeclaredMethods
+		return dnRequest("get",[self,"DeclaredMethods"])
+
 	Func setDeclaredMethods P1
 		raise("DotNet Error: DeclaredMethods is a read-only property")
 
@@ -91,7 +94,4 @@ Class TypeInfo from Type
 
 	Func setImplementedInterfaces P1
 		raise("DotNet Error: ImplementedInterfaces is a read-only property")
-
-	Func getTypeHandle
-		return dnRequest("get",[self,"TypeHandle"])
 

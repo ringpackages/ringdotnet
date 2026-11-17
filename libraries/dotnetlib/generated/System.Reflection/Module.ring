@@ -34,7 +34,7 @@ Class Module from Object
 	Func GetCustomAttributesData 
 		return dnRequest("call",[self,"GetCustomAttributesData"])
 
-	Func GetCustomAttributes P1
+	Func GetCustomAttributes_1 P1
 		return dnRequest("call",[self,"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
@@ -157,6 +157,9 @@ Class Module from Object
 
 	Func setModuleHandle P1
 		raise("DotNet Error: ModuleHandle is a read-only property")
+
+	Func getCustomAttributes
+		return dnRequest("get",[self,"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")

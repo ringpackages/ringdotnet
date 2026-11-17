@@ -25,7 +25,7 @@ Class MemberInfo from Object
 	Func IsDefined P1,P2
 		return dnRequest("call",[self,"IsDefined",P1,P2])
 
-	Func GetCustomAttributes P1
+	Func GetCustomAttributes_1 P1
 		return dnRequest("call",[self,"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
@@ -63,6 +63,9 @@ Class MemberInfo from Object
 
 	Func setModule P1
 		raise("DotNet Error: Module is a read-only property")
+
+	Func getCustomAttributes
+		return dnRequest("get",[self,"CustomAttributes"])
 
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")

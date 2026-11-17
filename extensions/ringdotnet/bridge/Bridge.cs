@@ -129,6 +129,7 @@ namespace RingDotNet
 					case 's': items.Add(DecodeString(body)); break;
 					case 'n': items.Add(double.Parse(Encoding.ASCII.GetString(body), NumberStyles.Float, Inv)); break;
 					case 'b': items.Add(body.Length > 0 && body[0] == (byte)'1'); break;
+					case 'd': items.Add(BitConverter.ToDouble(body)); break;
 					case 'z': items.Add(null); break;
 					case 'o': items.Add(Lookup(ParseHandle(body))); break;
 					case 'l': items.Add(Decode(body).ToArray()); break;

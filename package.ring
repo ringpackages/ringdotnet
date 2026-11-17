@@ -21,6 +21,12 @@ aPackageInfo = [
 		"README.md"
 	],
 		:ringfolderfiles = 	[
+		"applications/Calculator/main.ring",
+		"applications/Notepad/main.ring",
+		"applications/README.md",
+		"applications/Stopwatch/main.ring",
+		"applications/TemperatureConverter/main.ring",
+		"applications/TicTacToe/main.ring",
 		"bin/load/dotnetlib.ring",
 		"extensions/ringdotnet/README.md",
 		"extensions/ringdotnet/bridge/Bridge.cs",
@@ -1838,6 +1844,7 @@ aPackageInfo = [
 		"libraries/dotnetlib/generated/System/Void.ring",
 		"libraries/dotnetlib/generated/System/WeakReference.ring",
 		"libraries/dotnetlib/globals.ring",
+		"libraries/dotnetlib/gui.ring",
 		"libraries/dotnetlib/linq.ring",
 		"samples/UsingDotNet/demo_todo.ring",
 		"samples/UsingDotNet/test01_hello.ring",

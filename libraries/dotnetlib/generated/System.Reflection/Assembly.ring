@@ -32,7 +32,7 @@ Class Assembly from Object
 	Func GetTypes 
 		return dnRequest("call",[self,"GetTypes"])
 
-	Func GetExportedTypes 
+	Func GetExportedTypes_0 
 		return dnRequest("call",[self,"GetExportedTypes"])
 
 	Func GetForwardedTypes 
@@ -71,7 +71,7 @@ Class Assembly from Object
 	Func GetCustomAttributesData 
 		return dnRequest("call",[self,"GetCustomAttributesData"])
 
-	Func GetCustomAttributes P1
+	Func GetCustomAttributes_1 P1
 		return dnRequest("call",[self,"GetCustomAttributes",P1])
 
 	Func GetCustomAttributes_2 P1,P2
@@ -89,7 +89,7 @@ Class Assembly from Object
 	Func GetModule P1
 		return dnRequest("call",[self,"GetModule",P1])
 
-	Func GetModules 
+	Func GetModules_0 
 		return dnRequest("call",[self,"GetModules"])
 
 	Func GetModules_1 P1
@@ -189,6 +189,9 @@ Class Assembly from Object
 	Func setDefinedTypes P1
 		raise("DotNet Error: DefinedTypes is a read-only property")
 
+	Func getExportedTypes
+		return dnRequest("get",[self,"ExportedTypes"])
+
 	Func setExportedTypes P1
 		raise("DotNet Error: ExportedTypes is a read-only property")
 
@@ -246,6 +249,9 @@ Class Assembly from Object
 	Func setIsFullyTrusted P1
 		raise("DotNet Error: IsFullyTrusted is a read-only property")
 
+	Func getCustomAttributes
+		return dnRequest("get",[self,"CustomAttributes"])
+
 	Func setCustomAttributes P1
 		raise("DotNet Error: CustomAttributes is a read-only property")
 
@@ -260,6 +266,9 @@ Class Assembly from Object
 
 	Func setManifestModule P1
 		raise("DotNet Error: ManifestModule is a read-only property")
+
+	Func getModules
+		return dnRequest("get",[self,"Modules"])
 
 	Func setModules P1
 		raise("DotNet Error: Modules is a read-only property")

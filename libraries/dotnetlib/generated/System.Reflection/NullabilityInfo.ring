@@ -16,6 +16,12 @@ Class NullabilityInfo from Object
 		ok
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
+
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 

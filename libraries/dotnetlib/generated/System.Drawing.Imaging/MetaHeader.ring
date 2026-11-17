@@ -19,6 +19,12 @@ Class MetaHeader from Object
 		nHandle = dnCreate('System.Drawing.Imaging.MetaHeader, System.Drawing.Common',[])
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
+
 	Func setType P1
 		dnRequest("set",[self,"Type",P1])
 		return self

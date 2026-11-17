@@ -9,8 +9,12 @@ func dnPackItem  dn_xValue
 		return C_DOTNET_STRING + len(dn_xValue) + ":" + dn_xValue
 	ok
 	if isnumber(dn_xValue)
-		dn_cNumber = string(dn_xValue)
-		return C_DOTNET_NUMBER + len(dn_cNumber) + ":" + dn_cNumber
+		if dn_xValue = floor(dn_xValue) and fabs(dn_xValue) < 1000000000000
+			dn_cNumber = string(dn_xValue)
+			return C_DOTNET_NUMBER + len(dn_cNumber) + ":" + dn_cNumber
+		ok
+		# other numbers travel as the 8 bytes of the double (no loss of precision)
+		return C_DOTNET_DOUBLE + "8:" + double2bytes(dn_xValue)
 	ok
 	if islist(dn_xValue)
 		dn_cData = dnPack(dn_xValue)

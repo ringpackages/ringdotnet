@@ -32,7 +32,7 @@ Class Thread from DotNetObject
 		nHandle = dnCreate('System.Threading.Thread, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func GetApartmentState 
+	Func GetApartmentState_0 
 		return dnRequest("call",[self,"GetApartmentState"])
 
 	Func DisableComObjectEagerCleanup 
@@ -78,7 +78,7 @@ Class Thread from DotNetObject
 		dnRequest("call",[self,"Resume"])
 		return self
 
-	Func SetApartmentState P1
+	Func SetApartmentState_1 P1
 		dnRequest("call",[self,"SetApartmentState",P1])
 		return self
 
@@ -241,6 +241,13 @@ Class Thread from DotNetObject
 
 	Func setName P1
 		dnRequest("set",[self,"Name",P1])
+		return self
+
+	Func getApartmentState
+		return dnRequest("get",[self,"ApartmentState"])
+
+	Func setApartmentState P1
+		dnRequest("set",[self,"ApartmentState",P1])
 		return self
 
 	Func getCurrentPrincipal

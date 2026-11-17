@@ -68,7 +68,7 @@ Class ListViewItem from Object
 	Func FindNearestItem P1
 		return dnRequest("call",[self,"FindNearestItem",P1])
 
-	Func GetBounds P1
+	Func GetBounds_1 P1
 		return dnRequest("call",[self,"GetBounds",P1])
 
 	Func GetSubItemAt P1,P2
@@ -84,6 +84,9 @@ Class ListViewItem from Object
 	Func setBackColor P1
 		dnRequest("set",[self,"BackColor",P1])
 		return self
+
+	Func getBounds
+		return dnRequest("get",[self,"Bounds"])
 
 	Func setBounds P1
 		raise("DotNet Error: Bounds is a read-only property")

@@ -24,6 +24,12 @@ Class ScrollEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
+
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")
 

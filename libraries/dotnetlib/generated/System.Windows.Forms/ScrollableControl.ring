@@ -23,7 +23,7 @@ Class ScrollableControl from Control
 		dnRequest("call",[self,"ScrollControlIntoView",P1])
 		return self
 
-	Func SetAutoScrollMargin P1,P2
+	Func SetAutoScrollMargin_2 P1,P2
 		dnRequest("call",[self,"SetAutoScrollMargin",P1,P2])
 		return self
 
@@ -44,6 +44,10 @@ Class ScrollableControl from Control
 
 	Func getAutoScrollMargin
 		return dnRequest("get",[self,"AutoScrollMargin"])
+
+	Func setAutoScrollMargin P1
+		dnRequest("set",[self,"AutoScrollMargin",P1])
+		return self
 
 	Func getAutoScrollPosition
 		return dnRequest("get",[self,"AutoScrollPosition"])

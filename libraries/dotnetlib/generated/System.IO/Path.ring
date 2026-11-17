@@ -79,7 +79,7 @@ Class Path from Object
 	Func GetInvalidFileNameChars 
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetInvalidFileNameChars"])
 
-	Func GetInvalidPathChars 
+	Func GetInvalidPathChars_0 
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetInvalidPathChars"])
 
 	Func GetFullPath P1
@@ -123,6 +123,9 @@ Class Path from Object
 
 	Func setPathSeparator P1
 		raise("DotNet Error: PathSeparator is a read-only property")
+
+	Func getInvalidPathChars
+		return dnRequest("get",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"InvalidPathChars"])
 
 	Func setInvalidPathChars P1
 		raise("DotNet Error: InvalidPathChars is a read-only property")

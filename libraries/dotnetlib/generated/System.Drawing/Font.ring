@@ -67,7 +67,7 @@ Class Font from MarshalByRefObject
 	Func ToHfont 
 		return dnRequest("call",[self,"ToHfont"])
 
-	Func GetHeight 
+	Func GetHeight_0 
 		return dnRequest("call",[self,"GetHeight"])
 
 	Func FromHfont P1
@@ -165,6 +165,9 @@ Class Font from MarshalByRefObject
 
 	Func setIsSystemFont P1
 		raise("DotNet Error: IsSystemFont is a read-only property")
+
+	Func getHeight
+		return dnRequest("get",[self,"Height"])
 
 	Func setHeight P1
 		raise("DotNet Error: Height is a read-only property")

@@ -25,7 +25,7 @@ Class DataGridViewTextBoxEditingControl from TextBox
 	Func EditingControlWantsInputKey P1,P2
 		return dnRequest("call",[self,"EditingControlWantsInputKey",P1,P2])
 
-	Func GetEditingControlFormattedValue P1
+	Func GetEditingControlFormattedValue_1 P1
 		return dnRequest("call",[self,"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
@@ -38,6 +38,9 @@ Class DataGridViewTextBoxEditingControl from TextBox
 	Func setEditingControlDataGridView P1
 		dnRequest("set",[self,"EditingControlDataGridView",P1])
 		return self
+
+	Func getEditingControlFormattedValue
+		return dnRequest("get",[self,"EditingControlFormattedValue"])
 
 	Func setEditingControlFormattedValue P1
 		dnRequest("set",[self,"EditingControlFormattedValue",P1])

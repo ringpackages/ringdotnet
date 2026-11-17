@@ -18,5 +18,17 @@ run() {
 }
 for f in "$HERE"/test_*.ring; do run "$HERE" "$(basename "$f")"; done
 for f in "$HERE"/../samples/UsingDotNet/test*.ring; do run "$HERE/../samples/UsingDotNet" "$(basename "$f")"; done
+# applications: each one runs itself (--selftest) and prints SELFTEST OK
+for f in "$HERE"/../applications/*/main.ring; do
+	DIR=$(dirname "$f")
+	OUT=$(cd "$DIR" && timeout 120 "$RING" main.ring --selftest 2>&1)
+	if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL"; then
+		echo "ok      $(basename "$DIR")  $(echo "$OUT" | grep SELFTEST)"
+	else
+		echo "FAILED  application $(basename "$DIR")"
+		echo "$OUT" | head -5
+		FAILED=$((FAILED+1))
+	fi
+done
 echo "$FAILED failed"
 [ "$FAILED" = 0 ]

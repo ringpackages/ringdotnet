@@ -75,11 +75,11 @@ Class Form from ContainerControl
 		dnRequest("call",[self,"RemoveOwnedForm",P1])
 		return self
 
-	Func SetDesktopBounds P1,P2,P3,P4
+	Func SetDesktopBounds_4 P1,P2,P3,P4
 		dnRequest("call",[self,"SetDesktopBounds",P1,P2,P3,P4])
 		return self
 
-	Func SetDesktopLocation P1,P2
+	Func SetDesktopLocation_2 P1,P2
 		dnRequest("call",[self,"SetDesktopLocation",P1,P2])
 		return self
 
@@ -373,8 +373,16 @@ Class Form from ContainerControl
 	Func getDesktopBounds
 		return dnRequest("get",[self,"DesktopBounds"])
 
+	Func setDesktopBounds P1
+		dnRequest("set",[self,"DesktopBounds",P1])
+		return self
+
 	Func getDesktopLocation
 		return dnRequest("get",[self,"DesktopLocation"])
+
+	Func setDesktopLocation P1
+		dnRequest("set",[self,"DesktopLocation",P1])
+		return self
 
 	Func getDialogResult
 		return dnRequest("get",[self,"DialogResult"])

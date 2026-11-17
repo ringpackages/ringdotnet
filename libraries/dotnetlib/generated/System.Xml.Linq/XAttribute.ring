@@ -26,7 +26,7 @@ Class XAttribute from XObject
 		dnRequest("call",[self,"Remove"])
 		return self
 
-	Func SetValue P1
+	Func SetValue_1 P1
 		dnRequest("call",[self,"SetValue",P1])
 		return self
 
@@ -56,6 +56,10 @@ Class XAttribute from XObject
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])
+
+	Func setValue P1
+		dnRequest("set",[self,"Value",P1])
+		return self
 
 	Func getEmptySequence
 		return dnRequest("get",[dnTypeCached('System.Xml.Linq.XAttribute, System.Private.Xml.Linq'),"EmptySequence"])

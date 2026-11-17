@@ -95,7 +95,7 @@ Class XElement from XContainer
 		dnRequest("call",[self,"SetElementValue",P1,P2])
 		return self
 
-	Func SetValue P1
+	Func SetValue_1 P1
 		dnRequest("call",[self,"SetValue",P1])
 		return self
 
@@ -153,6 +153,10 @@ Class XElement from XContainer
 
 	Func getValue
 		return dnRequest("get",[self,"Value"])
+
+	Func setValue P1
+		dnRequest("set",[self,"Value",P1])
+		return self
 
 	Func getEmptySequence
 		return dnRequest("get",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"EmptySequence"])

@@ -25,7 +25,7 @@ Class FontFamily from MarshalByRefObject
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func GetName P1
+	Func GetName_1 P1
 		return dnRequest("call",[self,"GetName",P1])
 
 	Func IsStyleAvailable P1
@@ -43,11 +43,17 @@ Class FontFamily from MarshalByRefObject
 	Func GetLineSpacing P1
 		return dnRequest("call",[self,"GetLineSpacing",P1])
 
-	Func GetFamilies P1
+	Func GetFamilies_1 P1
 		return dnRequest("call",[dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common'),"GetFamilies",P1])
+
+	Func getName
+		return dnRequest("get",[self,"Name"])
 
 	Func setName P1
 		raise("DotNet Error: Name is a read-only property")
+
+	Func getFamilies
+		return dnRequest("get",[dnTypeCached('System.Drawing.FontFamily, System.Drawing.Common'),"Families"])
 
 	Func setFamilies P1
 		raise("DotNet Error: Families is a read-only property")

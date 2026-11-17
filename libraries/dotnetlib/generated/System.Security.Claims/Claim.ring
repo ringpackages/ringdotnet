@@ -49,6 +49,9 @@ Class Claim from Object
 		dnRequest("call",[self,"WriteTo",P1])
 		return self
 
+	Func GetType_0 
+		return dnRequest("call",[self,"GetType"])
+
 	Func getIssuer
 		return dnRequest("get",[self,"Issuer"])
 
@@ -72,6 +75,9 @@ Class Claim from Object
 
 	Func setSubject P1
 		raise("DotNet Error: Subject is a read-only property")
+
+	Func getType
+		return dnRequest("get",[self,"Type"])
 
 	Func setType P1
 		raise("DotNet Error: Type is a read-only property")

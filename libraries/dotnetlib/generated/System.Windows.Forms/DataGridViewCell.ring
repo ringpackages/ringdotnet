@@ -56,19 +56,19 @@ Class DataGridViewCell from DataGridViewElement
 		dnRequest("call",[self,"Dispose"])
 		return self
 
-	Func GetContentBounds P1
+	Func GetContentBounds_1 P1
 		return dnRequest("call",[self,"GetContentBounds",P1])
 
-	Func GetEditedFormattedValue P1,P2
+	Func GetEditedFormattedValue_2 P1,P2
 		return dnRequest("call",[self,"GetEditedFormattedValue",P1,P2])
 
 	Func GetInheritedContextMenuStrip P1
 		return dnRequest("call",[self,"GetInheritedContextMenuStrip",P1])
 
-	Func GetInheritedState P1
+	Func GetInheritedState_1 P1
 		return dnRequest("call",[self,"GetInheritedState",P1])
 
-	Func GetInheritedStyle P1,P2,P3
+	Func GetInheritedStyle_3 P1,P2,P3
 		return dnRequest("call",[self,"GetInheritedStyle",P1,P2,P3])
 
 	Func InitializeEditingControl P1,P2,P3
@@ -112,6 +112,9 @@ Class DataGridViewCell from DataGridViewElement
 	Func setColumnIndex P1
 		raise("DotNet Error: ColumnIndex is a read-only property")
 
+	Func getContentBounds
+		return dnRequest("get",[self,"ContentBounds"])
+
 	Func setContentBounds P1
 		raise("DotNet Error: ContentBounds is a read-only property")
 
@@ -133,6 +136,9 @@ Class DataGridViewCell from DataGridViewElement
 
 	Func setDisplayed P1
 		raise("DotNet Error: Displayed is a read-only property")
+
+	Func getEditedFormattedValue
+		return dnRequest("get",[self,"EditedFormattedValue"])
 
 	Func setEditedFormattedValue P1
 		raise("DotNet Error: EditedFormattedValue is a read-only property")
@@ -180,8 +186,14 @@ Class DataGridViewCell from DataGridViewElement
 	Func setHasStyle P1
 		raise("DotNet Error: HasStyle is a read-only property")
 
+	Func getInheritedState
+		return dnRequest("get",[self,"InheritedState"])
+
 	Func setInheritedState P1
 		raise("DotNet Error: InheritedState is a read-only property")
+
+	Func getInheritedStyle
+		return dnRequest("get",[self,"InheritedStyle"])
 
 	Func setInheritedStyle P1
 		raise("DotNet Error: InheritedStyle is a read-only property")
