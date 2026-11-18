@@ -1,0 +1,20 @@
+1. ForEach calls showItem for every word:
+   item: pear
+   item: apple
+   item: fig
+   item: avocado
+
+2. Sorted by length: fig, pear, apple, avocado
+3. Words starting with a: apple, avocado
+   Does 'fig' exist?   : 1
+4. Total letters: 19
+   Longest word : avocado
+
+5. Changing an observable list:
+   event 1: Add
+   event 2: Add
+   event 3: Remove
+   events received: 3
+   after clearing the handler, still 3
+
+6. Caught: DotNet Error: System.InvalidOperationException: Ring error: the callback failed on purpose

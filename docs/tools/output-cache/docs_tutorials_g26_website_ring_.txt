@@ -1,0 +1,6 @@
+GET /           -> OK, page title 'Welcome', 482 characters
+GET /about      -> OK, page title 'About', 387 characters
+POST /guestbook -> OK, page title 'Thank you', 439 characters
+POST /guestbook -> BadRequest, page title 'Oops', 437 characters
+GET /guestbook  -> OK, page title 'Guestbook', 665 characters
+entries stored  : 1

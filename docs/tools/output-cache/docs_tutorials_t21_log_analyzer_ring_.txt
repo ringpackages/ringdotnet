@@ -1,0 +1,15 @@
+STEP 1: log written, 31 lines
+STEP 2: 30 lines understood
+
+STEP 3: lines per level
+   INFO : 15
+   WARN : 6
+   ERROR : 9
+   Errors per part: db=3 web=3 disk=3
+
+STEP 4: 3 different errors:
+   - connection lost
+   - disk almost full
+   - timeout
+
+STEP 5: report {"lines":30,"errors":9,"different":3}

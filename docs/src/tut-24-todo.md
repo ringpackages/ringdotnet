@@ -1,0 +1,78 @@
+---
+title: "Tutorial 24: A project: a to-do list that remembers"
+lead: A complete small application — add, tick and remove tasks, see how many are done, and find them again the next time the program starts. Windows Forms, JSON and files together.
+---
+
+## What you will learn
+
+- planning a small application: data, window, behaviour, saving,
+- a `CheckedListBox`,
+- saving to JSON and loading it again,
+- a trap: lists of pairs and named arguments,
+- keeping a window and its data in step.
+
+## The design
+
+| Part | Decision |
+|---|---|
+| **Data** | the tasks live in the list control itself; each has a text and a done flag |
+| **Window** | a text box and *Add* / *Remove* buttons on top, the list in the middle, a status line at the bottom |
+| **Behaviour** | *Add* ignores blank text; clicking an item ticks it; the status says "n of m done" |
+| **Saving** | after every change the tasks are written to a JSON file; at start-up the file is read |
+
+## The program
+
+{{file:docs/tutorials/g24_todo.ring}}
+
+![The to-do list](img/shots/tut-g24.png "Two of three tasks are done")
+
+{{output:docs/tutorials/g24_todo.ring --selftest}}
+
+## How it works
+
+### The window
+
+Remember [tutorial 13](tut-13-editor.html): the control that fills the window is added **first**, then the top panel and the status label (the helpers `uiPanel`, `uiLabel` and `Dock` do the rest). `CheckOnClick = True` makes one click tick or untick an item.
+
+### Add and remove
+
+`addTask` trims the text, ignores a blank one, adds `Items.Add_2(text, False)` (the second parameter is the initial *checked* state), clears the text box, saves and refreshes the status. `removeTask` removes the selected item (`SelectedIndex` is `-1` when nothing is selected).
+
+### Reacting to a tick
+
+`setMouseUpEvent("tasksChanged()")` runs after the click, when the item's state is already up to date; the function saves and refreshes the status line. (The `ItemCheck` event runs *before* the state changes, which makes a status line show the old number.)
+
+### Saving as JSON
+
+The file holds a list of lists, one `[done, text]` per task: `[[1,"Buy milk"],[0,"Write the tutorial"]]`. `JsonSerializer.Serialize(aList)` writes it, and loading uses `JsonDocument`: `GetArrayLength()`, `Item(i)`, `GetInt32()`, `GetString()`.
+
+> [!WARNING] **The trap.** The number comes first in each pair for a reason. A Ring list such as `[["Buy milk",1],["Walk",0]]` is a list of `[text, value]` pairs, and a list of pairs that is passed *alone* to a method is read as **named arguments**: `:Buy milk = 1`. `Serialize` would look for a parameter called "Buy milk" and fail. Put a number (or anything that is not a text) first, or wrap the data in one more list, and the list is passed as a value.
+
+### Starting and stopping
+
+`loadTasks` runs before the window is shown. `setFormClosingEvent("saveTasks()")` saves once more when the window closes. While loading, a flag `lLoading` stops `saveTasks` from rewriting the file in the middle of the loading.
+
+### Testing
+
+`selfTest` adds tasks, ticks one, saves, clears the list, loads again and checks the contents, the JSON text and the status. It uses a separate file name when started with `--selftest`, so that it never touches your real list.
+
+## What you learned
+
+- design first: data, window, behaviour, saving,
+- `CheckedListBox`, events after a click,
+- JSON for saving, with the *pair list* trap in mind,
+- a flag to avoid saving while loading,
+- tests that use their own file.
+
+## Exercises
+
+1. Show the done tasks in gray (use `DrawItem`, or simply move done tasks to the bottom).
+2. Add **Clear done** that removes all ticked tasks.
+3. Save to the user's documents folder (`Environment.GetFolderPath("MyDocuments")`).
+4. Add a due date to each task and sort by it.
+
+The full-size version is the [TodoList](gallery-apps.html#todo-list) application.
+
+## Next
+
+[Tutorial 25: Sockets](tut-25-sockets.html).

@@ -59,6 +59,10 @@ Do not define your own functions named like built-ins the library uses (`isNumbe
 
 A `func` at the top of a file swallows the rest of the file into its body. Put the main code first (or put it in `func main` and call it at the end).
 
+### A list of `[text, value]` pairs passed alone is read as named arguments
+
+A method with overloads reads a single list of `[text, value]` pairs as **named arguments**. `Serialize([["Buy milk",1],["Walk",0]])` would look for a parameter called "Buy milk". Put something that is not a text first in each pair, or wrap the list in another list, so that it is passed as a value ([tutorial 24](tut-24-todo.html)).
+
 ### Side effects inside `for ... in call()`
 
 When the expression of a `for x in oDb.migrate()` has side effects, assign it to a variable first:

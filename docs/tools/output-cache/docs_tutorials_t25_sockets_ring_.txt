@@ -1,0 +1,10 @@
+STEP 1: the server listens on 127.0.0.1, port is chosen: 1
+STEP 2: the client is connected: 1
+STEP 3: the server accepted the connection
+
+STEP 4: three messages
+   sent 'hello', answer 'echo: HELLO'
+   sent 'how are you', answer 'echo: HOW ARE YOU'
+   sent 'bye', answer 'echo: BYE'
+
+STEP 5: closed

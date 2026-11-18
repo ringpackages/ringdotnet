@@ -20,6 +20,7 @@ func main
 	oServer.onGet("/search","search")
 	oServer.onGet("/boom","boom")
 	oServer.onGet("/ctx","ctxInfo")
+	oServer.onPost("/form","formInfo")
 	oClient = new HttpClient()
 	cUrl = oServer.url()
 	dnAssert("the server got a real port",substr(cUrl,"127.0.0.1:") > 0,1)
@@ -31,7 +32,8 @@ func main
 	dnAssert("not found",fetch("GET","/nothing",""),"Not found: GET /nothing")
 	dnAssert("a handler error is a 500",left(fetch("GET","/boom",""),6),"Error:")
 	dnAssert("the ASP.NET HttpContext is available to the handler",fetch("GET","/ctx?a=1",""),"GET /ctx http 127.0.0.1")
-	dnAssert("requests served",oServer.nRequests,7)
+	dnAssert("an HTML form is read",fetchForm("/form","a=1&b=two+words"),"1,two words")
+	dnAssert("requests served",oServer.nRequests,8)
 	oServer.close()
 
 	# ASP.NET types can be used on their own
@@ -81,3 +83,20 @@ func ctxInfo oRequest
 
 func boom oRequest
 	raise("something failed")
+
+# a form post (application/x-www-form-urlencoded): oRequest.form("name") reads its fields
+func fetchForm cPath, cForm
+	oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
+	oTask = oClient.PostAsync(cUrl + cPath,oContent)
+	for nTry = 1 to 50
+		if oServer.serveOne(100)
+			exit
+		ok
+	next
+	oTask.Wait(NULL)
+	oBody = oTask.getProp("Result").Content.ReadAsStringAsync(NULL)
+	oBody.Wait(NULL)
+	return oBody.getProp("Result")
+
+func formInfo oRequest
+	return oRequest.form("a") + "," + oRequest.form("b")

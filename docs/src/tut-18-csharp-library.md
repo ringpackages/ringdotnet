@@ -78,8 +78,6 @@ A package is a set of `.dll` files. Download it (or copy it from `~/.nuget/packa
 2. Add a method `Repeat(string text, int times)` and call it with named arguments.
 3. Find a small NuGet package (for example a text or math helper), copy its DLL, wrap it and call one method.
 
-## Where to go next
+## Next
 
-- [Core concepts](concepts.html) — all the naming rules in one place.
-- [Class reference](api.html) — every class and member.
-- [Applications](gallery-apps.html) — bigger programs to read and change.
+[Tutorial 19: Callbacks and events](tut-19-callbacks.html) — Part 3 goes deeper into the ideas that you have used so far.

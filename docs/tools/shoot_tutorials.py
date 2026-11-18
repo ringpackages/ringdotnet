@@ -23,6 +23,9 @@ SHOTS = [
     ("g04_bounce.ring", "g04", None, "", 2200, "forms"),
     ("g05_wpf.ring", "g05", None, "", 3500, "wpf"),
     ("g05_wpf.ring", "g05-greeted", "\twpfTest(", "\toGreet.Text = 'Hello, Ring!'\n\toSlider.Value = 100\n", 3500, "wpf"),
+    ("g23_layout.ring", "g23", None, "", 3000, "forms"),
+    ("g23_layout.ring", "g23-orders", "\tuiTest(", "\toTabs.SelectedIndex = 1\n\toList.SelectedIndex = 2\n", 3000, "forms"),
+    ("g24_todo.ring", "g24", "\toForm.setFormClosingEvent", "\toTasks.Items.Clear()\n\toNew.Text = 'Buy milk'\n\taddTask()\n\toNew.Text = 'Write the tutorial'\n\taddTask()\n\toNew.Text = 'Walk the dog'\n\taddTask()\n\toTasks.SetItemChecked(0,True)\n\toTasks.SetItemChecked(2,True)\n\trefreshStatus()\n", 2500, "forms"),
 ]
 
 

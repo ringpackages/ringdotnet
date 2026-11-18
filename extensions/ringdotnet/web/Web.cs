@@ -96,9 +96,16 @@ namespace RingDotNet
 		private async Task Handle(HttpContext context)
 		{
 			RingRequest request = new RingRequest(context);
-			using (StreamReader reader = new StreamReader(context.Request.Body))
+			context.Request.EnableBuffering();
+			using (StreamReader reader = new StreamReader(context.Request.Body, Encoding.UTF8, true, 1024, true))
 			{
 				request.Body = await reader.ReadToEndAsync();
+			}
+			context.Request.Body.Position = 0;
+			if (context.Request.HasFormContentType)
+			{
+				/* read the form here (asynchronously): the handler on the Ring thread then finds it ready, and Body is still the raw text */
+				await context.Request.ReadFormAsync();
 			}
 			queue.Add(request);
 			await request.Done.Task;

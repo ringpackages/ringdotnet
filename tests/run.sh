@@ -54,10 +54,10 @@ for f in "$HERE"/../applications/*/main.ring; do
 		FAILED=$((FAILED+1))
 	fi
 done
-# tutorials (docs/tutorials): windows run themselves (--selftest), the others just have to run without an error
+# tutorials (docs/tutorials): programs with a window test (uiTest/wpfTest) run themselves (--selftest), the others just have to run without an error
 for f in "$HERE"/../docs/tutorials/*.ring; do
 	DIR=$(dirname "$f")
-	if grep -q "dnUseDesktop" "$f"; then
+	if grep -q -e "uiTest(" -e "wpfTest(" "$f"; then
 		OUT=$(cd "$DIR" && timeout 120 "$RING" "$(basename "$f")" --selftest 2>&1)
 		if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "FAIL"; then
 			echo "ok      tutorial $(basename "$f")"

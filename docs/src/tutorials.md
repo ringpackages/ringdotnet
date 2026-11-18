@@ -51,6 +51,21 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-18-csharp-library.html"><div class="ic">18</div><b>A library written in C#</b><span>Build a small C# library, wrap it and call it from Ring.</span></a>
 </div>
 
+## Part 3 — Going further
+
+<div class="cards">
+<a class="card" href="tut-19-callbacks.html"><div class="ic">19</div><b>Callbacks and events</b><span>Give Ring code to .NET: function names, code texts, events, errors and the thread rule.</span></a>
+<a class="card" href="tut-20-reflection.html"><div class="ic">20</div><b>Exploring .NET with reflection</b><span>Ask a class what it can do: properties, methods, parameters, enums.</span></a>
+<a class="card" href="tut-21-log-analyzer.html"><div class="ic">21</div><b>Project: a log analyzer</b><span>Files, regular expressions, dictionaries, LINQ and a JSON report in one program.</span></a>
+<a class="card" href="tut-22-images.html"><div class="ic">22</div><b>Images</b><span>Draw, read and change pixels, make a gray copy, resize and save PNG files.</span></a>
+<a class="card" href="tut-23-layout.html"><div class="ic">23</div><b>Layout and richer controls</b><span>Split bars, tabs, table layout, and a data grid with a filter.</span></a>
+<a class="card" href="tut-24-todo.html"><div class="ic">24</div><b>Project: a to-do list</b><span>A complete window application that remembers its tasks in a JSON file.</span></a>
+<a class="card" href="tut-25-sockets.html"><div class="ic">25</div><b>Sockets</b><span>A TCP server and client that talk line by line.</span></a>
+<a class="card" href="tut-26-website.html"><div class="ic">26</div><b>A small web site</b><span>HTML pages, a form, a guestbook, status codes and the escaping rule.</span></a>
+<a class="card" href="tut-27-entities.html"><div class="ic">27</div><b>Entity objects and migrations</b><span>Rows as tracked objects, navigation properties, and changing a database that has data.</span></a>
+<a class="card" href="tut-28-testing.html"><div class="ic">28</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
+</div>
+
 ## Learning path
 
 | If you want to... | Read |
@@ -62,5 +77,10 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 | build desktop programs | tutorials 11–15 |
 | store data | tutorial 17 |
 | use code that others wrote in C# | tutorial 18 |
+| give Ring code to .NET, explore classes | tutorials 19, 20 |
+| bigger projects | tutorials 21, 24 |
+| images and richer windows | tutorials 22, 23 |
+| network programs and web sites | tutorials 25, 26 |
+| more databases and testing | tutorials 27, 28 |
 
 After the tutorials: the [Core concepts](concepts.html) page lists the naming rules, the [Class reference](api.html) lists every class, and the [applications](gallery-apps.html) are bigger programs to read.

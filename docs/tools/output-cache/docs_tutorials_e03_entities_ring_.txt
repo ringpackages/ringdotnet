@@ -1,0 +1,14 @@
+Properties of a Player : Id Name Goals TeamId Team 
+Properties of a Team   : Id Name Players 
+
+STEP 1: the team got its key from the database: Id = 1
+        Ann's TeamId   = 1
+        players stored : 2
+
+STEP 2: players with goals >= 3, with their team:
+        Ann plays for Red
+
+STEP 3: Ann's goals in the database: 8
+
+STEP 4: team Red has 2 players
+STEP 5: after removing Bob there are 1 player(s)

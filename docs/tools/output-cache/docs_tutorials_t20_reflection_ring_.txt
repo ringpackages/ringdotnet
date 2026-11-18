@@ -1,0 +1,31 @@
+Type          : System.Text.StringBuilder
+Is a class    : 1
+Base type     : System.Object
+Assembly      : System.Private.CoreLib
+
+Properties:
+  Capacity : Int32 (read/write)
+  MaxCapacity : Int32 (read only)
+  Length : Int32 (read/write)
+  Chars : Char (read/write)
+
+The class has 22 method names, for example:
+  Append
+  AppendFormat
+  AppendJoin
+  AppendLine
+  Clear
+  CopyTo
+  EnsureCapacity
+  Equals
+
+Append has 20 versions with 1 parameter, the first ones are:
+  Append(String value)
+  Append(StringBuilder value)
+  Append(Boolean value)
+  Append(Char value)
+
+An object knows its type: StringBuilder
+Values of DayOfWeek: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+
+dnDescribe('System.Math') returned a list with 10 parts

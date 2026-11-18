@@ -1,0 +1,17 @@
+VERSION 1: 2 contacts stored in the file
+
+VERSION 2: migrate() made 5 changes:
+   add column Contacts.Phone
+   add column Contacts.Level
+   create table Notes
+   create index IX_Contacts_Name
+   create index IX_Notes_ContactId
+
+The old row is still there: Ann, phone [], level 1
+Ann's phone: 555-0100, notes: 1
+Migrating again: 0 changes
+
+Promote everybody (first time) : 1
+Promote everybody (second time): 0
+Level now: 5 (the second one did not run)
+Applied changes: 001-promote
