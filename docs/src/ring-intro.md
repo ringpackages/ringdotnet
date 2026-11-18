@@ -5,7 +5,7 @@ lead: Ring is small and quick to learn. This page shows everything you need to r
 
 ## Who this page is for
 
-If you already write Ring, skip to [Getting started](getting-started.html). If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in `docs/tutorials` (`r01_ring_basics.ring` … `r05_ring_errors_files.ring`); run one with:
+This is an appendix: the rest of the documentation does not depend on reading it in order. If you already write Ring, go back to [Getting started](getting-started.html). If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in `docs/tutorials` (`r01_ring_basics.ring` … `r05_ring_errors_files.ring`); run one with:
 
 ```bash
 ring r01_ring_basics.ring

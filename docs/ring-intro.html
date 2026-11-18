@@ -26,7 +26,6 @@
 <nav class="sidebar">
 <h4>Start</h4>
 <a href="index.html">Overview</a>
-<a href="ring-intro.html" class="cur">Quick introduction to Ring</a>
 <a href="getting-started.html">Getting started</a>
 <a href="how-it-works.html">How it works</a>
 <h4>Tutorials: the class library</h4>
@@ -152,12 +151,14 @@
 <a href="reference.html">Function index</a>
 <h4>Reference</h4>
 <a href="api.html">Class reference</a>
+<h4>Appendix</h4>
+<a href="ring-intro.html" class="cur">Quick introduction to Ring</a>
 </nav>
 <main>
 <article>
 <h1>Quick introduction to Ring</h1><p class="lead">Ring is small and quick to learn. This page shows everything you need to read the rest of this documentation — values, lists, decisions, functions, classes, errors and files — with programs you can run. No .NET yet.</p>
 <h2 id="who-this-page-is-for">Who this page is for<a class="anchor" href="#who-this-page-is-for">#</a></h2>
-<p>If you already write Ring, skip to <a href="getting-started.html">Getting started</a>. If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in <code>docs/tutorials</code> (<code>r01_ring_basics.ring</code> … <code>r05_ring_errors_files.ring</code>); run one with:</p>
+<p>This is an appendix: the rest of the documentation does not depend on reading it in order. If you already write Ring, go back to <a href="getting-started.html">Getting started</a>. If you come from C#, Python, JavaScript or another language, read this page once: Ring differs from some languages in a few ways, and knowing them helps when you read Ring code and the messages that come from .NET. The five programs are in <code>docs/tutorials</code> (<code>r01_ring_basics.ring</code> … <code>r05_ring_errors_files.ring</code>); run one with:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring r01_ring_basics.ring</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>This is a quick tour, not the manual. The Ring language documentation (&lt;https://ring-lang.github.io/doc1.28/&gt;) explains everything in depth.</p></div>
 <div class="callout note"><span class="t">Note</span><p><strong>Syntax styles.</strong> Ring allows more than one syntax style for the same program. This documentation uses one of them, the first style: blocks are closed with words (<code>ok</code>, <code>next</code>, <code>end</code>, <code>off</code>) and statements are written one to a line. Ring also allows braces <code>{ }</code> for control structures (<code>if</code>, <code>for</code>, <code>while</code>, <code>switch</code>) and for functions; a program written with braces runs the same way, and you can use the style you prefer in your own programs.</p></div>
@@ -586,7 +587,7 @@ using { <span class="s">"System"</span> <span class="s">"System.Text"</span> }
 oBuilder = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)
 ? oBuilder.<span class="f">Append</span>(<span class="s">", Ring!"</span>).<span class="f">ToString</span>()</code></pre></div>
 <p>Continue with <a href="getting-started.html">Getting started</a>, then <a href="concepts.html">Core concepts</a> (how .NET names, overloads, properties and enums look in Ring) and the <a href="tutorials.html">tutorials</a>. The points of Ring that matter when you use .NET are collected in <a href="gotchas.html">Gotchas &amp; limits</a>.</p>
-<div class="pager"><a href="index.html"><small>Previous</small>Overview</a><a class="next" href="getting-started.html"><small>Next</small>Getting started</a></div>
+<div class="pager"><a href="api.html"><small>Previous</small>Class reference</a><span></span></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

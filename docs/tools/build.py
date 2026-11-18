@@ -14,7 +14,6 @@ SRC = os.path.join(DOCS, "src")
 # (file, nav title, section)
 PAGES = [
     ("index", "Overview", "Start"),
-    ("ring-intro", "Quick introduction to Ring", "Start"),
     ("getting-started", "Getting started", "Start"),
     ("how-it-works", "How it works", "Start"),
     ("tutorials", "Tutorials home", "Tutorials: the class library"),
@@ -129,6 +128,7 @@ PAGES = [
     ("gotchas", "Gotchas & limits", "Project"),
     ("reference", "Function index", "Project"),
     ("api", "Class reference", "Reference"),
+    ("ring-intro", "Quick introduction to Ring", "Appendix"),
 ]
 TITLES = {p[0]: p[1] for p in PAGES}
 
