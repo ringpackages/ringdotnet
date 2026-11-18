@@ -8,7 +8,7 @@ into the Ring folder. Run it again whenever the library, the samples, the DLLs o
 import os, subprocess, sys, zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PREFIXES = ("libraries/", "extensions/ringdotnet/", "samples/", "tests/", "tools/", "bin/")
+PREFIXES = ("libraries/", "extensions/ringdotnet/", "samples/", "tools/", "bin/")
 MANIFEST = "extensions/ringdotnet/package-files.txt"      # the list of the files (used by uninstall.ring)
 
 def package_files():

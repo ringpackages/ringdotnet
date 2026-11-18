@@ -6,12 +6,12 @@ lead: Every feature has a test, every sample and application tests itself, and y
 ## The test suite
 
 ```bash
-sh tests/run.sh B:/ring/bin/ring.exe
+sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe
 ```
 
-`tests/run.sh` runs:
+`samples/UsingDotNet/tests/run.sh` runs:
 
-1. every `tests/test_*.ring` (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF...),
+1. every `samples/UsingDotNet/tests/test_*.ring` (language bridge, collections, LINQ, system, IO, net, services, web, data, entity framework, keyboard, WPF...),
 2. the console samples,
 3. every Windows Forms and WPF sample with `--selftest`,
 4. every application with `--selftest`,

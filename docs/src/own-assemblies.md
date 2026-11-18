@@ -52,11 +52,11 @@ The generated classes support the same things as the built-in ones: real inherit
 
 ### The example in the package
 
-`tests/UserLib` is a complete example — a small C# library, the generator run on it, and a test that uses it (`tests/test_userassembly.ring`).
+`samples/UsingDotNet/tests/UserLib` is a complete example — a small C# library, the generator run on it, and a test that uses it (`samples/UsingDotNet/tests/test_userassembly.ring`).
 
-{{source:tests/UserLib/Library.cs}}
+{{source:samples/UsingDotNet/tests/UserLib/Library.cs}}
 
-{{source:tests/test_userassembly.ring}}
+{{source:samples/UsingDotNet/tests/test_userassembly.ring}}
 
 ## NuGet packages
 

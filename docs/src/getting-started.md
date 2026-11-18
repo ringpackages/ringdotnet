@@ -91,7 +91,7 @@ If a method returns an object whose class belongs to a namespace you did not imp
 Every feature has a test, and every sample and application can test itself:
 
 ```bash
-sh tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
+sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
 ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK
 ```
 

@@ -2,9 +2,9 @@ obj/
 *.obj
 *.exp
 *.lib
-tests/UserLib/bin/
-tests/UserLib/obj/
-tests/UserLib/generated/
+samples/UsingDotNet/tests/UserLib/bin/
+samples/UsingDotNet/tests/UserLib/obj/
+samples/UsingDotNet/tests/UserLib/generated/
 bin/runtimes/
 docs/tools/api-data/
 docs/tutorials/Greeter/bin/

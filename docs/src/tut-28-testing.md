@@ -13,7 +13,7 @@ lead: Tests tell you in seconds whether a change broke something. This lesson sh
 
 ## Why test?
 
-A test is a small program that checks that another piece of code gives the right answers. You run all the tests after every change: if one fails, you know *what* broke and *when*. The tests of this package (`tests/run.sh`) are what makes it possible to change the generator and regenerate 4,500 classes with confidence.
+A test is a small program that checks that another piece of code gives the right answers. You run all the tests after every change: if one fails, you know *what* broke and *when*. The tests of this package (`samples/UsingDotNet/tests/run.sh`) are what makes it possible to change the generator and regenerate 4,500 classes with confidence.
 
 ## Make code testable
 
@@ -74,14 +74,14 @@ dnAssert("an error was raised",lRaised,True)
 
 ### Windows that test themselves
 
-A window program can run its own test: add `uiTest(oForm,"selfTest()")` before `uiRun` and `uiEnd()` after it. When started with `--selftest` the window opens, runs `selfTest()` (which clicks buttons with `PerformClick()` and checks the labels), closes, and prints `SELFTEST OK`. The tutorials 11–14, 23 and 24 all do this. `uiSendKeys(oForm,"12{+}30{ENTER}")` types into the form through the real key processing. See [Testing](testing.html) for the details and the `tests/run.sh` script that runs everything.
+A window program can run its own test: add `uiTest(oForm,"selfTest()")` before `uiRun` and `uiEnd()` after it. When started with `--selftest` the window opens, runs `selfTest()` (which clicks buttons with `PerformClick()` and checks the labels), closes, and prints `SELFTEST OK`. The tutorials 11–14, 23 and 24 all do this. `uiSendKeys(oForm,"12{+}30{ENTER}")` types into the form through the real key processing. See [Testing](testing.html) for the details and the `samples/UsingDotNet/tests/run.sh` script that runs everything.
 
 ### Run them all
 
 A single script that runs every test and reports a total is what turns tests from a chore into a habit:
 
 ```bash
-sh tests/run.sh B:/ring/bin/ring.exe      # 0 failed
+sh samples/UsingDotNet/tests/run.sh B:/ring/bin/ring.exe      # 0 failed
 ```
 
 ## What you learned

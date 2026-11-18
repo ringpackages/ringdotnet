@@ -146,8 +146,8 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 ? aDivide[<span class="n">2</span>]</code></pre></div>
 <p>The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, <code>setXXXEvent()</code> for events, enums as strings, overload naming (<code>Name</code>, <code>Name_N</code>), optional parameters and <code>out</code> / <code>ref</code> results.</p>
 <h3 id="the-example-in-the-package">The example in the package<a class="anchor" href="#the-example-in-the-package">#</a></h3>
-<p><code>tests/UserLib</code> is a complete example — a small C# library, the generator run on it, and a test that uses it (<code>tests/test_userassembly.ring</code>).</p>
-<details class="src"><summary>tests/UserLib/Library.cs</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>tests/UserLib/Library.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
+<p><code>samples/UsingDotNet/tests/UserLib</code> is a complete example — a small C# library, the generator run on it, and a test that uses it (<code>samples/UsingDotNet/tests/test_userassembly.ring</code>).</p>
+<details class="src"><summary>samples/UsingDotNet/tests/UserLib/Library.cs</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/UserLib/Library.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
 <span class="k">using</span> System.Collections.Generic;
 
 <span class="k">namespace</span> MyCompany.Tools
@@ -183,7 +183,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 		<span class="k">public</span> <span class="k">void</span> <span class="t">Increment</span>() { Count++; }
 	}
 }</code></pre></div></details>
-<details class="src"><summary>tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
+<details class="src"><summary>samples/UsingDotNet/tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 cHere = currentdir()
@@ -193,7 +193,7 @@ cLib = cHere + <span class="s">"/UserLib/bin/UserLib.dll"</span>
 <span class="k">ok</span>
 cOut = cHere + <span class="s">"/UserLib/generated"</span>
 <span class="c"># the generator loads its files relative to the folder it runs from</span>
-chdir(<span class="s">"../tools"</span>)
+chdir(<span class="s">"../../../tools"</span>)
 system(exefilename() + <span class="s">" wrapassembly.ring "</span> + cLib + <span class="s">" "</span> + cOut + <span class="s">" &gt; nul"</span>)
 chdir(cHere)
 <span class="f">dnAssert</span>(<span class="s">"generated loader exists"</span>,fexists(cOut + <span class="s">"/MyCompany.Tools.ring"</span>),<span class="n">1</span>)

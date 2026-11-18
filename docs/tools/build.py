@@ -449,7 +449,7 @@ def stats():
         p = os.path.join(ROOT, p)
         return len([f for f in os.listdir(p) if f.endswith(ext)]) if os.path.isdir(p) else 0
     apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
-    tests = len([f for f in os.listdir(os.path.join(ROOT, "tests")) if f.startswith("test_")])
+    tests = len([f for f in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "tests")) if f.startswith("test_")])
     return {"namespaces": len(namespaces), "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
 
 

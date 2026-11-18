@@ -64,7 +64,7 @@ The classes are real Ring classes with the same method names as the .NET ones â€
 | `extensions/ringdotnet/` | C source of the extension and C# source of the bridge, web server and data layer |
 | `samples/` | 32 Windows Forms samples, 10 WPF samples and console samples |
 | `applications/` | Complete programs |
-| `tests/` | Automated tests (`tests/run.sh`) |
+| `samples/UsingDotNet/tests/` | Automated tests (`run.sh`) |
 | `tools/` | The class generators (`gendotnet.ring`, `wrapassembly.ring`) and the manifest |
 
 > [!TIP] New here? Read **Getting started**, then **Core concepts**. Everything after that is a topic you can read in any order.
