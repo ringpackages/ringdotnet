@@ -1,0 +1,15 @@
+1. the dictionary has 22 words. Contains 'fox'? yes, 'fax'? no
+
+2. distance(kitten, sitting) = 3   (k->s, e->i, add g)
+   distance(fox, fox) = 0, distance(teh, the) = 2, distance(brwn, brown) = 1
+
+3. suggestions for 'brwn'  : brown, brain, crown
+   suggestions for 'quik'  : quick, quack, quiet
+   suggestions for 'jumsp' : jump, jumps, dug
+
+4. checking: Teh quick brwn fox jumps ovr the lazy dgo
+   'Teh' at position 1 -> the, then
+   'brwn' at position 11 -> brown, brain
+   'ovr' at position 26 -> over, and
+   'dgo' at position 39 -> dig, dog
+   4 words to check

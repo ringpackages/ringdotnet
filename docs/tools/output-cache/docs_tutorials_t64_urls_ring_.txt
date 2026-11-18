@@ -1,0 +1,27 @@
+1. scheme   : https
+   host     : shop.example.com
+   port     : 8443
+   path     : /products/shoes
+   query    : ?color=red&size=42
+   fragment : #reviews
+
+2. http port: 80, https port: 443
+
+3. text   : rock & roll: 50% off?
+   encoded: rock+%26+roll%3A+50%25+off%3F
+   decoded back: rock & roll: 50% off?
+
+4. https://example.com/search?q=rock+%26+roll&page=2&lang=ar&note=a+b%2Bc
+
+5. the parameters of q=rock+%26+roll&page=2&lang=ar:
+   q = rock & roll
+   page = 2
+   lang = ar
+
+6. ../images/logo.png from the guide page: https://example.com/docs/images/logo.png
+
+7. Base64: SGVsbG8sIFJpbmchIMOp
+   decoded: Hello, Ring! é
+
+8. is 'not a url' valid? no
+   is 'https://example.com' valid? yes

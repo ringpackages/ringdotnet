@@ -1,0 +1,17 @@
+1. 2024-05-17 is a Friday. Is it a Friday? yes
+
+2. the days: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+
+3. is 'Friday' a day? yes. Is 'Funday'? no
+   Parse('Friday') gives Friday
+   Parse('Funday') raised: DotNet Error: System.ArgumentException: Requested value 'Funday' was n
+
+4. attributes of a new file: Archive
+   after SetAttributes: ReadOnly, Hidden
+   is it hidden? yes, is it a directory? no
+
+5. options as bits:
+   permissions = 3 -> read + write
+   after adding run: 7 -> read + write + run
+   after removing write: 5 -> read + run
+   can it read? yes, can it write? no

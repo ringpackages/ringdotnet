@@ -109,6 +109,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-61-maze.html"><div class="ic">61</div><b>A maze</b><span>A stack makes the maze, a queue finds the shortest way.</span></a>
 <a class="card" href="tut-62-filters.html"><div class="ic">62</div><b>An image filter lab</b><span>Pixels as numbers, filters as functions, and a BMP file written by hand.</span></a>
 <a class="card" href="tut-63-chat.html"><div class="ic">63</div><b>A chat over TCP</b><span>A relay server, two clients and a timer that polls the sockets.</span></a>
+<a class="card" href="tut-64-urls.html"><div class="ic">64</div><b>URLs and encodings</b><span>Uri, query strings, percent-encoding, relative addresses and Base64.</span></a>
+<a class="card" href="tut-65-enums.html"><div class="ic">65</div><b>Enums and flags</b><span>Named choices as text, comma-separated flags and your own bit flags.</span></a>
+<a class="card" href="tut-66-spelling.html"><div class="ic">66</div><b>A spell checker</b><span>A set of words, the edit distance table and the best suggestions.</span></a>
 </div>
 
 ## Learning path
