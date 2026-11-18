@@ -1,0 +1,19 @@
+STEP 2: 6 rows, 3 columns
+
+STEP 3: total          : 5450
+        North total      : 2350
+        biggest sale     : 2000
+        sales over 500   : 4
+
+STEP 4: top three sales:
+        Dee  2000
+        Ann  1200
+        Bob  800
+        rows in the South: 2
+
+STEP 5: totals per region:
+        East  2000
+        North  2350
+        South  1100
+
+STEP 6: wrote 7 lines to a CSV file

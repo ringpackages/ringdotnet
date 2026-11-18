@@ -26,6 +26,13 @@ SHOTS = [
     ("g23_layout.ring", "g23", None, "", 3000, "forms"),
     ("g23_layout.ring", "g23-orders", "\tuiTest(", "\toTabs.SelectedIndex = 1\n\toList.SelectedIndex = 2\n", 3000, "forms"),
     ("g24_todo.ring", "g24", "\toForm.setFormClosingEvent", "\toTasks.Items.Clear()\n\toNew.Text = 'Buy milk'\n\taddTask()\n\toNew.Text = 'Write the tutorial'\n\taddTask()\n\toNew.Text = 'Walk the dog'\n\taddTask()\n\toTasks.SetItemChecked(0,True)\n\toTasks.SetItemChecked(2,True)\n\trefreshStatus()\n", 2500, "forms"),
+    ("g34_timers.ring", "g34", "\tuiTest(", "\ttoggleWatch()\n\toBar.Value = 60\n\toInfo.Text = 'Working... 60%'\n", 2500, "forms"),
+    ("g35_tictactoe.ring", "g35", "\tuiTest(", "\tplay(1)\n\tplay(4)\n\tplay(2)\n\tplay(5)\n", 2500, "forms"),
+    ("g35_tictactoe.ring", "g35-won", "\tuiTest(", "\tplay(1)\n\tplay(4)\n\tplay(2)\n\tplay(5)\n\tplay(3)\n", 2500, "forms"),
+    ("g36_chart.ring", "g36", None, "", 2500, "forms"),
+    ("g37_runner.ring", "g37", "\tuiTest(", "\trunCommand()\n", 2500, "forms"),
+    ("g38_wpf_layout.ring", "g38", None, "", 3500, "wpf"),
+    ("g38_wpf_layout.ring", "g38-typed", "\twpfTest(", "\tpressKey(4)\n\tpressKey(2)\n\tpressKey(7)\n", 3500, "wpf"),
 ]
 
 

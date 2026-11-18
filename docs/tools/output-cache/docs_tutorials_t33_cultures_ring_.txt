@@ -1,0 +1,22 @@
+A number, money and a date in five cultures:
+   en-US : 1,234,567.89  |  $1,234.50  |  Thursday, July 4, 2024
+   de-DE : 1.234.567,89  |  1.234,50 €  |  Donnerstag, 4. Juli 2024
+   fr-FR : 1 234 567,89  |  1 234,50 €  |  jeudi 4 juillet 2024
+   ar-EG : 1٬234٬567٫89  |  1٬234٫50 ج.م.‏  |  الخميس، 4 يوليو 2024
+   ja-JP : 1,234,567.89  |  ￥1,234  |  2024年7月4日木曜日
+
+Reading '1.234,5' and '1,234.5' with two cultures:
+   German reads '1.234,5' as   : 1234.50
+   English reads '1,234.5' as  : 1234.50
+   English reads '1.234,5' ok? : 0
+
+Invariant culture   : 1,234,567.89  (for files, not for people)
+
+Comparing 'a' and 'B' (negative: the first sorts first, positive: the second):
+   by character code (Ordinal) : 31   (a = 97 is after B = 66)
+   by the English alphabet     : -1   (a comes before b)
+
+'title' in upper case, English: TITLE
+'title' in upper case, Turkish: TİTLE
+
+The current culture is known: 1

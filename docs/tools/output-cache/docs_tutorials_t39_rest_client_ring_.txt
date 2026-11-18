@@ -1,0 +1,14 @@
+1. GET /api/books -> status OK
+   1  The Hobbit (1937)
+   2  Dune (1965)
+   3  Neuromancer (1984)
+
+2. GET /api/book?id=2 -> status OK, body {"id":2,"title":"Dune","year":1965}
+
+3. GET /api/book?id=99 -> status NotFound
+   the service said: no book 99
+
+4. POST a new book -> status Created, body {"id":4}
+   the list has now 4 books
+
+5. No server at that address: the call raised an error, the program goes on

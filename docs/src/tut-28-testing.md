@@ -99,11 +99,6 @@ sh tests/run.sh B:/ring/bin/ring.exe      # 0 failed
 3. Add a test for a function that you wrote in an earlier tutorial.
 4. Break a function on purpose and see which tests fail.
 
-## Where to go next
+## Next
 
-You have finished the tutorials. Keep these pages open while you work:
-
-- [Core concepts](concepts.html) — the naming rules,
-- [Class reference](api.html) — every class and member,
-- [Gotchas & limits](gotchas.html) — the traps,
-- [Applications](gallery-apps.html) — bigger programs to read and change.
+[Tutorial 29: Regular expressions in depth](tut-29-regex.html) — Part 4 adds more lessons and projects. When you want to look something up, keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) open.

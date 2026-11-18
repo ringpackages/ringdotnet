@@ -66,6 +66,22 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-28-testing.html"><div class="ic">28</div><b>Testing your programs</b><span>Testable functions, dnAssert, testing errors, self-testing windows.</span></a>
 </div>
 
+## Part 4 — More lessons and projects
+
+<div class="cards">
+<a class="card" href="tut-29-regex.html"><div class="ic">29</div><b>Regular expressions in depth</b><span>Patterns, groups, replace, split, greedy and lazy, validation.</span></a>
+<a class="card" href="tut-30-tables.html"><div class="ic">30</div><b>Tabular data</b><span>CSV, DataTable, DataView, Compute, sorting, filtering and grouping.</span></a>
+<a class="card" href="tut-31-duplicates.html"><div class="ic">31</div><b>Project: duplicate files</b><span>Folders, content hashes and a dictionary find the copies.</span></a>
+<a class="card" href="tut-32-settings.html"><div class="ic">32</div><b>Settings</b><span>Defaults, a JSON file, special folders, and a damaged file.</span></a>
+<a class="card" href="tut-33-cultures.html"><div class="ic">33</div><b>Cultures</b><span>Formatting, parsing, sorting and case in different languages.</span></a>
+<a class="card" href="tut-34-timers.html"><div class="ic">34</div><b>Timers and progress</b><span>A stopwatch, a progress bar, and a long job in small steps.</span></a>
+<a class="card" href="tut-35-tictactoe.html"><div class="ic">35</div><b>Project: Tic-Tac-Toe</b><span>Rules and state in testable functions, nine buttons from a loop.</span></a>
+<a class="card" href="tut-36-chart.html"><div class="ic">36</div><b>A chart</b><span>Scaling values to pixels, a round axis, bars, labels, saving, testing pixels.</span></a>
+<a class="card" href="tut-37-runner.html"><div class="ic">37</div><b>Project: a command runner</b><span>A window around a command-line tool: output, errors, exit codes.</span></a>
+<a class="card" href="tut-38-wpf-layout.html"><div class="ic">38</div><b>WPF layout and styles</b><span>Grid rows and columns, one Style for all buttons, a keypad.</span></a>
+<a class="card" href="tut-39-rest-client.html"><div class="ic">39</div><b>A REST client</b><span>GET and POST with JSON, status codes, timeouts and errors.</span></a>
+</div>
+
 ## Learning path
 
 | If you want to... | Read |
@@ -82,5 +98,8 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 | images and richer windows | tutorials 22, 23 |
 | network programs and web sites | tutorials 25, 26 |
 | more databases and testing | tutorials 27, 28 |
+| text patterns, tables, settings, cultures | tutorials 29, 30, 32, 33 |
+| timers, games and charts | tutorials 34, 35, 36 |
+| tools around other programs, WPF layout, web clients | tutorials 37, 38, 39 |
 
 After the tutorials: the [Core concepts](concepts.html) page lists the naming rules, the [Class reference](api.html) lists every class, and the [applications](gallery-apps.html) are bigger programs to read.

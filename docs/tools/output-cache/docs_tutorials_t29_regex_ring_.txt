@@ -1,0 +1,20 @@
+1. 'Bob' found?            : 1
+2. First number            : 555
+3. Phone numbers           : 3, the first is 555-0101
+4. Starts with 'Ann'?      : 1, ends with ')'? 1
+5. Date parts              : year 2024, month 05, day 17
+6. Ann or Cy found         : 2 times
+7. Date turned around      : Ann: 555-0101, Bob: 555-0199, Cy: 555-0123 (call after 18:30 on 17/05/2024)
+8. Split into              : 4 parts, the third is 'three'
+9. Greedy                  : <b>bold</b> and <i>italic</i>
+   Lazy                    : <b>
+10. 'BOB' ignoring case    : 1
+
+11. Is it a valid time (HH:MM)?
+    18:30 -> 1
+    7:5 -> 0
+    23:59 -> 1
+    24:00 -> 0
+
+12. Escaped text          : a\.b\*c
+    Matches itself           : 1

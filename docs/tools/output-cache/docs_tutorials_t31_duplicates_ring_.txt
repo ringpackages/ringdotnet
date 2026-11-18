@@ -1,0 +1,13 @@
+STEP 1: made six files in a folder and its subfolder
+STEP 2: 6 files found
+STEP 3: 3 different contents
+
+STEP 4: duplicates
+   2 copies of the same 21 bytes:
+      notes.txt
+      old\notes backup.txt
+   3 copies of the same 27 bytes:
+      old\report 2023.txt
+      report copy.txt
+      report.txt
+   Space wasted by the extra copies: 75 bytes

@@ -1,0 +1,22 @@
+Special folders exist:
+   MyDocuments : 1
+   ApplicationData : 1
+   LocalApplicationData : 1
+   Desktop : 1
+
+First run
+   name     = Guest
+   fontSize = 11
+   darkMode = 0
+
+The file now contains: {"name":"Ann","fontSize":14,"darkMode":1}
+
+Second run
+   name     = Ann
+   fontSize = 14
+   darkMode = 1
+
+A damaged file: the defaults are used, error was: 1
+   name     = Guest
+   fontSize = 11
+   darkMode = 0
