@@ -75,6 +75,6 @@ It is a teaching construction. For real systems use a well-reviewed protocol (TL
 3. Sign a file's SHA-256 hash instead of the whole file with `SignHash`.
 4. Time `deriveKeys` and change the number of rounds; how many are comfortable for your computer?
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 79: Two programs talking](tut-79-processes-talk.html)

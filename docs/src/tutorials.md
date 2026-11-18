@@ -124,6 +124,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-76-calendars.html"><div class="ic">76</div><b>Other calendars</b><span>Hijri, Persian, Hebrew, Japanese and Thai dates; Arabic names with ar-SA.</span></a>
 <a class="card" href="tut-77-xslt.html"><div class="ic">77</div><b>XSLT</b><span>Turn XML into text, CSV and HTML with XslCompiledTransform.</span></a>
 <a class="card" href="tut-78-crypto.html"><div class="ic">78</div><b>Protecting and signing messages</b><span>AES, HMAC (encrypt-then-MAC), PBKDF2 keys and RSA signatures.</span></a>
+<a class="card" href="tut-79-processes-talk.html"><div class="ic">79</div><b>Two programs talking</b><span>Named pipes between processes, Process.Start, and a mutex for one copy.</span></a>
+<a class="card" href="tut-80-json-nodes.html"><div class="ic">80</div><b>JSON as a tree</b><span>JsonNode: read, edit, build, merge and clone JSON.</span></a>
+<a class="card" href="tut-81-network-tools.html"><div class="ic">81</div><b>Network tools</b><span>IPAddress, Dns, Ping, interfaces and a port check, all on this computer.</span></a>
 </div>
 
 ## Learning path

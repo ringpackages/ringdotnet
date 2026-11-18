@@ -1,0 +1,76 @@
+1. name = shop, port + 1 = 8081
+
+2. database.host = localhost
+   2 tags, the first is web
+   path of the first tag: $.tags[0]
+
+3. after the changes:
+   {
+
+     "name": "shop",
+
+     "port": 9090,
+
+     "tags": [
+
+       "web",
+
+       "sql",
+
+       "json"
+
+     ],
+
+     "database": {
+
+       "host": "localhost",
+
+       "pool": 5
+
+     },
+
+     "owner": "Ann"
+
+   }
+
+4. has 'owner': yes, has 'debug': no
+   reading a missing key gives null: yes
+   the kind of 'port': Number, of 'tags': Array
+
+5. a new document: {"id":7,"title":"Report","final":true,"items":[{"line":1,"amount":10.5},{"line":2,"amount":21},{"line":3,"amount":31.5}]}
+
+6. defaults merged with our settings:
+   {
+
+     "port": 9090,
+
+     "debug": true,
+
+     "database": {
+
+       "host": "localhost",
+
+       "pool": 5,
+
+       "timeout": 30
+
+     },
+
+     "name": "shop",
+
+     "tags": [
+
+       "web",
+
+       "sql",
+
+       "json"
+
+     ],
+
+     "owner": "Ann"
+
+   }
+
+7. the clone has port 1, the original still 9090
+   trees equal: no (different ports), after copying again: yes

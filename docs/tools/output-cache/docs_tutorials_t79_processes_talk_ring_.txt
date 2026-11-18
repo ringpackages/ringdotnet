@@ -1,0 +1,14 @@
+1. the parent got the lock: yes
+
+2. the pipe server is listening on 'ringdotnet_tutorial79'
+
+3. the child connected
+
+4. talking over the pipe:
+   sent 'add 20 22' -> 42
+   sent 'upper hello pipes' -> HELLO PIPES
+   sent 'add 1 x' -> error: I do not understand 'add 1 x'
+   sent 'quit' -> bye
+
+5. the child says: another copy of the program holds the lock: I am the second copy
+   the child's exit code: 0

@@ -1,0 +1,15 @@
+1. 192.168.1.20 is InterNetwork, 4 bytes, the first is 192
+   TryParse('10.0.0.7'): yes, TryParse('999.1.1.1'): no
+   '::1' is InterNetworkV6, loopback: yes
+   private address 192.168.1.20 is not the loopback: yes
+
+2. the endpoint 192.168.1.20:8080: address 192.168.1.20, port 8080
+
+3. localhost has 2 address(es); the first is a loopback address: yes
+
+4. ping 127.0.0.1: Success, the answer came from 127.0.0.1, fast (under 100 ms): yes
+
+5. the computer has network interfaces: yes; one of them is the loopback: yes
+
+6. a listener is on a port that the system chose: port is open = yes
+   after Stop the same port is open = no
