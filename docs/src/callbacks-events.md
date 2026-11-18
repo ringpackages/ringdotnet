@@ -31,9 +31,9 @@ func show aArgs
 - An error raised by the Ring code reaches the .NET caller as an exception, and then your Ring `try` / `catch`.
 - Callbacks run **synchronously on the Ring thread during a call**. A callback fired later or from another thread (timers, tasks) is ignored with a message on stderr.
 
-{{source:samples/UsingDotNet/test04_callbacks.ring}}
+{{source:samples/UsingDotNet/introduction/test04_callbacks.ring}}
 
-{{output:samples/UsingDotNet/test04_callbacks.ring}}
+{{output:samples/UsingDotNet/introduction/test04_callbacks.ring}}
 
 ## Events
 
@@ -48,7 +48,7 @@ oList = new ObservableStringList() {
 }
 ```
 
-{{output:samples/UsingDotNet/test05_events.ring}}
+{{output:samples/UsingDotNet/introduction/test05_events.ring}}
 
 ### Click and friends
 
@@ -83,9 +83,9 @@ oPicture.setMouseMoveEvent("? 'x=' + aDotNetArgs[2].X + ' y=' + aDotNetArgs[2].Y
 oForm.setKeyDownEvent("keyPressed(aDotNetArgs[2].KeyCode)")
 ```
 
-{{source:samples/Forms/16_mouse_events.ring}}
+{{source:samples/UsingDotNet/Forms/16_mouse_events.ring}}
 
-![Mouse events](img/shots/forms-16_mouse_events.png "samples/Forms/16_mouse_events.ring")
+![Mouse events](img/shots/forms-16_mouse_events.png "samples/UsingDotNet/Forms/16_mouse_events.ring")
 
 ### Timers
 

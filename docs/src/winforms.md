@@ -66,7 +66,7 @@ uiMenu(oForm,[
 ])
 ```
 
-![A menu bar and a status bar](img/shots/forms-11_menu_status.png "samples/Forms/11_menu_status.ring")
+![A menu bar and a status bar](img/shots/forms-11_menu_status.png "samples/UsingDotNet/Forms/11_menu_status.ring")
 
 ### Drawing with UiCanvas
 
@@ -84,7 +84,7 @@ oCanvas.text("Drawn from Ring",150,10,"Black",12)
 oCanvas.show()                         # refresh the picture box
 ```
 
-![Shapes and text drawn with UiCanvas](img/shots/forms-15_picturebox_drawing.png "samples/Forms/15_picturebox_drawing.ring")
+![Shapes and text drawn with UiCanvas](img/shots/forms-15_picturebox_drawing.png "samples/UsingDotNet/Forms/15_picturebox_drawing.ring")
 
 | Method | Does |
 |---|---|
@@ -149,7 +149,7 @@ uiGameKeys(oForm,"keyPressed(aDotNetArgs[2].KeyCode)")     # after the controls 
 
 Every control then reports the arrows as normal keys and the form handles them. Tetris, 2048, Sokoban, Snake and Pong use it.
 
-![Tetris](img/shots/app-Tetris.png "applications/Tetris — keys are handled by the form")
+![Tetris](img/shots/app-Tetris.png "samples/UsingDotNet/applications/Tetris — keys are handled by the form")
 
 ## Self-testing programs
 

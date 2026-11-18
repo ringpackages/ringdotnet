@@ -148,7 +148,7 @@ oMessage = <span class="f">wpfFind</span>(oWindow,<span class="s">"message"</spa
 oPress = <span class="f">wpfFind</span>(oWindow,<span class="s">"press"</span>)
 oPress.<span class="f">setClickEvent</span>(<span class="s">"oMessage.Text = 'The XAML button was pressed'"</span>)
 <span class="f">wpfRun</span>(oWindow)</code></pre></div>
-<figure class="shot"><img src="img/shots/wpf-06_xaml_window.png" alt="A window loaded from XAML" loading="lazy"><figcaption>samples/Wpf/06_xaml_window.ring</figcaption></figure>
+<figure class="shot"><img src="img/shots/wpf-06_xaml_window.png" alt="A window loaded from XAML" loading="lazy"><figcaption>samples/UsingDotNet/Wpf/06_xaml_window.ring</figcaption></figure>
 <h2 id="data-binding">Data binding<a class="anchor" href="#data-binding">#</a></h2>
 <p>Bind a property of one element to a property of another — without code:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oSlider = <span class="k">new</span> <span class="t">Slider</span>()
@@ -157,7 +157,7 @@ oText = <span class="k">new</span> <span class="t">WpfTextBox</span>()
 oBinding = <span class="f">dnNew</span>(<span class="s">"WpfBinding"</span>,[ :path = <span class="s">"Value"</span> ])
 oBinding.Source = oSlider
 oText.<span class="f">SetBinding</span>(oText.TextProperty,oBinding)</code></pre></div>
-<figure class="shot"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding a slider to a text box" loading="lazy"><figcaption>samples/Wpf/03_binding_slider.ring — the text follows the slider</figcaption></figure>
+<figure class="shot"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding a slider to a text box" loading="lazy"><figcaption>samples/UsingDotNet/Wpf/03_binding_slider.ring — the text follows the slider</figcaption></figure>
 <h2 id="shapes-and-brushes">Shapes and brushes<a class="anchor" href="#shapes-and-brushes">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oCanvas = <span class="k">new</span> <span class="t">Canvas</span>()
 oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>() {
@@ -168,15 +168,15 @@ oRect = <span class="k">new</span> <span class="t">WpfRectangle</span>() {
 oCanvas.Children.<span class="f">Add</span>(oRect)
 oCanvas.<span class="f">SetLeft</span>(oRect,<span class="n">10</span>)
 oCanvas.<span class="f">SetTop</span>(oRect,<span class="n">10</span>)</code></pre></div>
-<figure class="shot"><img src="img/shots/wpf-07_shapes_pixels.png" alt="Shapes on a canvas" loading="lazy"><figcaption>samples/Wpf/07_shapes_pixels.ring</figcaption></figure>
+<figure class="shot"><img src="img/shots/wpf-07_shapes_pixels.png" alt="Shapes on a canvas" loading="lazy"><figcaption>samples/UsingDotNet/Wpf/07_shapes_pixels.ring</figcaption></figure>
 <h2 id="layout">Layout<a class="anchor" href="#layout">#</a></h2>
 <p><code>Grid</code>, <code>StackPanel</code>, <code>DockPanel</code>, <code>WrapPanel</code>, <code>Canvas</code>, <code>UniformGrid</code> and the <code>Thickness</code> margin work as in XAML:</p>
-<figure class="shot"><img src="img/shots/wpf-08_grid_layout.png" alt="A grid layout" loading="lazy"><figcaption>samples/Wpf/08_grid_layout.ring</figcaption></figure>
+<figure class="shot"><img src="img/shots/wpf-08_grid_layout.png" alt="A grid layout" loading="lazy"><figcaption>samples/UsingDotNet/Wpf/08_grid_layout.ring</figcaption></figure>
 <h2 id="events">Events<a class="anchor" href="#events">#</a></h2>
 <p>Events work like Windows Forms events: <code>setClickEvent</code>, <code>setValueChangedEvent</code>, <code>setTextChangedEvent</code>... Routed events can be raised from tests with <code>RaiseEvent</code>.</p>
 <h2 id="applications">Applications<a class="anchor" href="#applications">#</a></h2>
-<ul><li><code>applications/WpfCalculator</code> — a calculator whose UI is XAML.</li><li><code>applications/WpfColorMixer</code> — sliders that mix a color.</li></ul>
-<figure class="shot"><img src="img/shots/app-WpfCalculator.png" alt="WPF calculator" loading="lazy"><figcaption>applications/WpfCalculator</figcaption></figure>
+<ul><li><code>samples/UsingDotNet/applications/WpfCalculator</code> — a calculator whose UI is XAML.</li><li><code>samples/UsingDotNet/applications/WpfColorMixer</code> — sliders that mix a color.</li></ul>
+<figure class="shot"><img src="img/shots/app-WpfCalculator.png" alt="WPF calculator" loading="lazy"><figcaption>samples/UsingDotNet/applications/WpfCalculator</figcaption></figure>
 <p>More: <a href="gallery-wpf.html">WPF samples</a> — all 10 with screenshots and source.</p>
 <div class="pager"><a href="gallery-apps.html"><small>Previous</small>Applications</a><a class="next" href="gallery-wpf.html"><small>Next</small>WPF samples</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>

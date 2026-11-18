@@ -132,7 +132,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 <span class="k">func</span> <span class="f">echo</span> oRequest
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"you sent "</span> + oRequest.<span class="f">body</span>()]</code></pre></div>
 <p><code>dnUseWeb()</code> starts the ASP.NET Core runtime and loads the web server of RingDotNet. A <strong>handler</strong> is a Ring function that receives the request and returns the response.</p>
-<figure class="shot"><img src="img/shots/web-page.png" alt="The page served by the Ring web server" loading="lazy"><figcaption>applications/WebApi — a page rendered by a Ring handler</figcaption></figure>
+<figure class="shot"><img src="img/shots/web-page.png" alt="The page served by the Ring web server" loading="lazy"><figcaption>samples/UsingDotNet/applications/WebApi — a page rendered by a Ring handler</figcaption></figure>
 <h2 id="handlers-and-responses">Handlers and responses<a class="anchor" href="#handlers-and-responses">#</a></h2>
 <p>A handler returns one of:</p>
 <div class="tablewrap"><table><thead><tr><th>Return value</th><th>Response</th></tr></thead><tbody><tr><td>a text</td><td>status 200, <code>text/html</code></td></tr><tr><td><code>[status, contentType, text]</code></td><td>exactly that</td></tr><tr><td><code>webJson(value)</code></td><td>status 200, <code>application/json</code></td></tr></tbody></table></div>
@@ -157,8 +157,8 @@ oServer.<span class="f">run</span>()                                  <span clas
 	doOtherWork()
 <span class="k">end</span></code></pre></div>
 <h2 id="a-complete-application">A complete application<a class="anchor" href="#a-complete-application">#</a></h2>
-<p><code>applications/WebApi</code> is a to-do list with a web page and a JSON API. It tests itself by calling its own server with <code>HttpClient</code>:</p>
-<details class="src"><summary>applications/WebApi/main.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>applications/WebApi/main.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A small web application written in Ring on ASP.NET Core: a to-do list with a web page and a JSON API</span>
+<p><code>samples/UsingDotNet/applications/WebApi</code> is a to-do list with a web page and a JSON API. It tests itself by calling its own server with <code>HttpClient</code>:</p>
+<details class="src"><summary>samples/UsingDotNet/applications/WebApi/main.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/applications/WebApi/main.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A small web application written in Ring on ASP.NET Core: a to-do list with a web page and a JSON API</span>
 <span class="c">#   ring main.ring            then open http://localhost:5080/</span>
 <span class="c">#   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1</span>
 

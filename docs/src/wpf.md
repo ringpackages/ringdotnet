@@ -65,7 +65,7 @@ oPress.setClickEvent("oMessage.Text = 'The XAML button was pressed'")
 wpfRun(oWindow)
 ```
 
-![A window loaded from XAML](img/shots/wpf-06_xaml_window.png "samples/Wpf/06_xaml_window.ring")
+![A window loaded from XAML](img/shots/wpf-06_xaml_window.png "samples/UsingDotNet/Wpf/06_xaml_window.ring")
 
 ## Data binding
 
@@ -80,7 +80,7 @@ oBinding.Source = oSlider
 oText.SetBinding(oText.TextProperty,oBinding)
 ```
 
-![Binding a slider to a text box](img/shots/wpf-03_binding_slider.png "samples/Wpf/03_binding_slider.ring — the text follows the slider")
+![Binding a slider to a text box](img/shots/wpf-03_binding_slider.png "samples/UsingDotNet/Wpf/03_binding_slider.ring — the text follows the slider")
 
 ## Shapes and brushes
 
@@ -96,13 +96,13 @@ oCanvas.SetLeft(oRect,10)
 oCanvas.SetTop(oRect,10)
 ```
 
-![Shapes on a canvas](img/shots/wpf-07_shapes_pixels.png "samples/Wpf/07_shapes_pixels.ring")
+![Shapes on a canvas](img/shots/wpf-07_shapes_pixels.png "samples/UsingDotNet/Wpf/07_shapes_pixels.ring")
 
 ## Layout
 
 `Grid`, `StackPanel`, `DockPanel`, `WrapPanel`, `Canvas`, `UniformGrid` and the `Thickness` margin work as in XAML:
 
-![A grid layout](img/shots/wpf-08_grid_layout.png "samples/Wpf/08_grid_layout.ring")
+![A grid layout](img/shots/wpf-08_grid_layout.png "samples/UsingDotNet/Wpf/08_grid_layout.ring")
 
 ## Events
 
@@ -110,9 +110,9 @@ Events work like Windows Forms events: `setClickEvent`, `setValueChangedEvent`, 
 
 ## Applications
 
-- `applications/WpfCalculator` — a calculator whose UI is XAML.
-- `applications/WpfColorMixer` — sliders that mix a color.
+- `samples/UsingDotNet/applications/WpfCalculator` — a calculator whose UI is XAML.
+- `samples/UsingDotNet/applications/WpfColorMixer` — sliders that mix a color.
 
-![WPF calculator](img/shots/app-WpfCalculator.png "applications/WpfCalculator")
+![WPF calculator](img/shots/app-WpfCalculator.png "samples/UsingDotNet/applications/WpfCalculator")
 
 More: [WPF samples](gallery-wpf.html) — all 10 with screenshots and source.

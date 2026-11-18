@@ -1,0 +1,8 @@
+Length    = 5
+Truncated = Hel
+Math.PI   = 3.14
+Path sep  = \
+Count     = 2
+Capacity  = 50
+Caught: DotNet Error: Count is a read-only property
+Running = 0

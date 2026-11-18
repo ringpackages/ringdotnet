@@ -17,33 +17,33 @@ run() {
 	fi
 }
 for f in "$HERE"/test_*.ring; do run "$HERE" "$(basename "$f")"; done
-for f in "$HERE"/../samples/UsingDotNet/test*.ring; do run "$HERE/../samples/UsingDotNet" "$(basename "$f")"; done
+for f in "$HERE"/../samples/UsingDotNet/introduction/test*.ring; do run "$HERE/../samples/UsingDotNet/introduction" "$(basename "$f")"; done
 # small Windows Forms samples: each one runs itself too
-for f in "$HERE"/../samples/Forms/*.ring; do
+for f in "$HERE"/../samples/UsingDotNet/Forms/*.ring; do
 	DIR=$(dirname "$f")
 	OUT=$(cd "$DIR" && timeout 120 "$RING" "$(basename "$f")" --selftest 2>&1)
 	if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL"; then
 		echo "ok      $(basename "$f")  $(echo "$OUT" | grep SELFTEST)"
 	else
-		echo "FAILED  samples/Forms/$(basename "$f")"
+		echo "FAILED  samples/UsingDotNet/Forms/$(basename "$f")"
 		echo "$OUT" | head -5
 		FAILED=$((FAILED+1))
 	fi
 done
 # WPF samples
-for f in "$HERE"/../samples/Wpf/*.ring; do
+for f in "$HERE"/../samples/UsingDotNet/Wpf/*.ring; do
 	DIR=$(dirname "$f")
 	OUT=$(cd "$DIR" && timeout 120 "$RING" "$(basename "$f")" --selftest 2>&1)
 	if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL"; then
 		echo "ok      wpf/$(basename "$f")  $(echo "$OUT" | grep SELFTEST)"
 	else
-		echo "FAILED  samples/Wpf/$(basename "$f")"
+		echo "FAILED  samples/UsingDotNet/Wpf/$(basename "$f")"
 		echo "$OUT" | head -5
 		FAILED=$((FAILED+1))
 	fi
 done
 # applications: each one runs itself (--selftest) and prints SELFTEST OK
-for f in "$HERE"/../applications/*/main.ring; do
+for f in "$HERE"/../samples/UsingDotNet/applications/*/main.ring; do
 	DIR=$(dirname "$f")
 	OUT=$(cd "$DIR" && timeout 120 "$RING" main.ring --selftest 2>&1)
 	if echo "$OUT" | grep -q "SELFTEST OK" && ! echo "$OUT" | grep -q -e "Error (R" -e "rror (C" -e "^Line [0-9]* DotNet Error" -e "FAIL"; then

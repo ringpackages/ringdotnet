@@ -123,7 +123,7 @@
 <p>Other namespaces and any DLL: <a href="own-assemblies.html">Your own assemblies</a>.</p>
 <h2 id="dates-strings-conversions-math">Dates, strings, conversions, math<a class="anchor" href="#dates-strings-conversions-math">#</a></h2>
 <p><code>DateTime</code>, <code>TimeSpan</code>, <code>Convert</code>, <code>Math</code>, <code>String</code> helpers, <code>Guid</code>, <code>Random</code>, <code>Environment</code>:</p>
-<details class="src"><summary>samples/UsingDotNet/test08_system.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test08_system.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test08_system.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test08_system.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"System"</span> }
 
 <span class="c"># Dates and times</span>
@@ -171,7 +171,7 @@ TryParse       : 1 -&gt; 123
 TryParse bad   : 0</code></pre></div>
 <h2 id="files-regular-expressions-and-compression">Files, regular expressions and compression<a class="anchor" href="#files-regular-expressions-and-compression">#</a></h2>
 <p><code>File</code>, <code>Directory</code>, <code>Path</code>, <code>StreamReader</code>/<code>StreamWriter</code>, <code>MemoryStream</code>, <code>Regex</code>, <code>GZipStream</code>:</p>
-<details class="src"><summary>samples/UsingDotNet/test09_io_regex.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test09_io_regex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test09_io_regex.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test09_io_regex.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>
@@ -231,7 +231,7 @@ GZip          : 2800 -&gt; 57 bytes
 Zip created   : 184 bytes</code></pre></div>
 <h2 id="networking">Networking<a class="anchor" href="#networking">#</a></h2>
 <p><code>Uri</code>, <code>IPAddress</code>, <code>Dns</code>, <code>HttpClient</code>, <code>WebUtility</code>, <code>Encoding</code> — a program that does not need the internet to run:</p>
-<details class="src"><summary>samples/UsingDotNet/test12_network.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test12_network.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test12_network.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test12_network.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>
@@ -268,16 +268,16 @@ oServer.<span class="f">Stop</span>()
 ? <span class="s">"UrlEncode      : "</span> + <span class="k">new</span> <span class="t">WebUtility</span>().<span class="f">UrlEncode</span>(<span class="s">"ring &amp; .net = fun"</span>)
 ? <span class="s">"Loopback       : "</span> + <span class="k">new</span> <span class="t">IPAddress</span>().Loopback.<span class="f">ToString</span>()
 ? <span class="s">"Host name set  : "</span> + (len(<span class="k">new</span> <span class="t">Dns</span>().<span class="f">GetHostName</span>()) &gt; <span class="n">0</span>)</code></pre></div></details>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Listening on http://localhost:30408/
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Listening on http://localhost:31136/
 Request        : GET /greet?name=Ring
 Response       : Hello Ring, this is .NET speaking Ring!
 UrlEncode      : ring+%26+.net+%3D+fun
 Loopback       : 127.0.0.1
 Host name set  : 1</code></pre></div>
-<div class="callout tip"><span class="t">Tip</span><p>For HTTP requests use <code>HttpClient</code>. Methods that return a <code>Task</code> give you an object: call <code>Wait()</code> and read <code>getProp("Result")</code>. A complete example is the self test of [<code>applications/WebApi</code>](aspnet.html).</p></div>
+<div class="callout tip"><span class="t">Tip</span><p>For HTTP requests use <code>HttpClient</code>. Methods that return a <code>Task</code> give you an object: call <code>Wait()</code> and read <code>getProp("Result")</code>. A complete example is the self test of [<code>samples/UsingDotNet/applications/WebApi</code>](aspnet.html).</p></div>
 <h2 id="cryptography-and-globalization">Cryptography and globalization<a class="anchor" href="#cryptography-and-globalization">#</a></h2>
 <p>Hashes (<code>SHA256</code>, <code>MD5</code>), HMAC, random bytes, AES, culture-aware formatting:</p>
-<details class="src"><summary>samples/UsingDotNet/test13_security.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test13_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test13_security.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test13_security.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>
@@ -339,7 +339,7 @@ Process says   :
 Microsoft Windows [Version 10.0.26200.9974]</code></pre></div>
 <h2 id="xml-json-and-data-tables">XML, JSON and data tables<a class="anchor" href="#xml-json-and-data-tables">#</a></h2>
 <p><code>XmlDocument</code>, <code>XPath</code>, <code>System.Text.Json</code>, <code>DataTable</code> and <code>DataView</code> — no database needed:</p>
-<details class="src"><summary>samples/UsingDotNet/test14_xml_json_data.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test14_xml_json_data.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test14_xml_json_data.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test14_xml_json_data.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Xml"</span>
 	<span class="s">"System.Text.Json"</span>
@@ -389,7 +389,7 @@ Biggest stock   : pens
 Low stock rows  : 2</code></pre></div>
 <h2 id="reflection-and-big-numbers">Reflection and big numbers<a class="anchor" href="#reflection-and-big-numbers">#</a></h2>
 <p><code>Type</code>, <code>Assembly</code>, <code>MethodInfo</code>, <code>BigInteger</code>, <code>Complex</code>:</p>
-<details class="src"><summary>samples/UsingDotNet/test15_reflection_numbers.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test15_reflection_numbers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/introduction/test15_reflection_numbers.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test15_reflection_numbers.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Reflection"</span>
@@ -459,7 +459,7 @@ oResult = <span class="k">new</span> <span class="t">Task</span>().<span class="
 ? oResult.<span class="f">getProp</span>(<span class="s">"Result"</span>)                      <span class="c"># the Result of a Task&lt;T&gt;</span></code></pre></div>
 <div class="callout warn"><span class="t">Warning</span><p>.NET threads can <strong>not</strong> run Ring code. A callback invoked from a pool thread prints a message on stderr and does nothing. Use tasks for pure .NET work (HTTP, files, hashing), then <code>Wait()</code> for them on the Ring thread.</p></div>
 <h2 id="a-bigger-example">A bigger example<a class="anchor" href="#a-bigger-example">#</a></h2>
-<p><code>samples/UsingDotNet/test16_forms_app.ring</code> and <code>demo_todo.ring</code> combine collections, files, JSON and a form. For complete programs see <a href="gallery-apps.html">Applications</a>.</p>
+<p><code>samples/UsingDotNet/introduction/test16_forms_app.ring</code> and <code>demo_todo.ring</code> combine collections, files, JSON and a form. For complete programs see <a href="gallery-apps.html">Applications</a>.</p>
 <div class="pager"><a href="callbacks-events.html"><small>Previous</small>Callbacks & events</a><a class="next" href="winforms.html"><small>Next</small>Windows Forms</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

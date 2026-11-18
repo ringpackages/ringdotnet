@@ -18,7 +18,7 @@ new Console().WriteLine("Hi")           # static members are called on an instan
 ? new Math().Max(3,9)
 ```
 
-{{output:samples/UsingDotNet/test02_simple.ring}}
+{{output:samples/UsingDotNet/introduction/test02_simple.ring}}
 
 > [!NOTE] Always write `new StringBuilder(...)` **with parentheses**. In Ring, `new X` without them does not call the constructor.
 
@@ -91,7 +91,7 @@ oForm { Height = 300  Text += "!" }
 
 Assigning a read-only property raises an error. Properties whose names are Ring keywords (`From`, `To`, `Step`, `On` ...) are not attributes: use `getFrom()` / `setFrom(value)`.
 
-{{output:samples/UsingDotNet/test07_properties.ring}}
+{{output:samples/UsingDotNet/introduction/test07_properties.ring}}
 
 ## Braces instead of the dot operator
 

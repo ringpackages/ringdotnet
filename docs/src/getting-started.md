@@ -31,18 +31,18 @@ load "dotnet.ring"
 You do not need to set a path or copy files. To test the installation, run a sample:
 
 ```bash
-ring samples/UsingDotNet/test00_first.ring
+ring samples/UsingDotNet/introduction/test00_first.ring
 ```
 
 ## Your first program
 
-{{file:samples/UsingDotNet/test00_first.ring}}
+{{file:samples/UsingDotNet/introduction/test00_first.ring}}
 
-{{output:samples/UsingDotNet/test00_first.ring}}
+{{output:samples/UsingDotNet/introduction/test00_first.ring}}
 
 The `using { }` block opens the .NET namespaces, like `using System;` in C#. After it, every class of those namespaces is a Ring class with the same name: `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`, `new Math().Max(3,9)`. This is what you will use almost always.
 
-For a type that has no generated class you can also make **generic calls**: `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. See [Core functions](core-api.html) and the sample `samples/UsingDotNet/test01_hello.ring`.
+For a type that has no generated class you can also make **generic calls**: `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. See [Core functions](core-api.html) and the sample `samples/UsingDotNet/introduction/test01_hello.ring`.
 
 ## The startup modes
 
@@ -82,9 +82,9 @@ If a method returns an object whose class belongs to a namespace you did not imp
 
 ## Your first window
 
-{{file:samples/Forms/02_button_click.ring}}
+{{file:samples/UsingDotNet/Forms/02_button_click.ring}}
 
-![The click counter](img/shots/forms-02_button_click.png "samples/Forms/02_button_click.ring — a form, a label and a button")
+![The click counter](img/shots/forms-02_button_click.png "samples/UsingDotNet/Forms/02_button_click.ring — a form, a label and a button")
 
 ## Run the tests
 
@@ -92,7 +92,7 @@ Every feature has a test, and every sample and application can test itself:
 
 ```bash
 sh tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
-ring applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK
+ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK
 ```
 
 Read [Testing](testing.html) for how the self tests work.

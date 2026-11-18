@@ -143,4 +143,4 @@ oContext = oDb.context()
 ? oContext.Database.ProviderName                 # Microsoft.EntityFrameworkCore.Sqlite
 ```
 
-The complete list of methods is in the [Entity Framework reference](ef-reference.html). A complete program: `applications/Contacts` — a contacts book with a console menu.
+The complete list of methods is in the [Entity Framework reference](ef-reference.html). A complete program: `samples/UsingDotNet/applications/Contacts` — a contacts book with a console menu.

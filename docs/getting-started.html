@@ -126,9 +126,9 @@
 <p>That is all. The command copies the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span></code></pre></div>
 <p>You do not need to set a path or copy files. To test the installation, run a sample:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/test00_first.ring</code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/introduction/test00_first.ring</code></pre></div>
 <h2 id="your-first-program">Your first program<a class="anchor" href="#your-first-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test00_first.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The first program: simple syntax, the namespaces are opened with using</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/introduction/test00_first.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The first program: simple syntax, the namespaces are opened with using</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 using {
@@ -148,7 +148,7 @@ oSB.<span class="f">Append</span>(<span class="s">", "</span>).<span class="f">A
 9
 Running on .NET 9.0.15</code></pre></div>
 <p>The <code>using { }</code> block opens the .NET namespaces, like <code>using System;</code> in C#. After it, every class of those namespaces is a Ring class with the same name: <code>new StringBuilder("Hello")</code>, <code>oSB.Append(...)</code>, <code>oSB.Length</code>, <code>new Math().Max(3,9)</code>. This is what you will use almost always.</p>
-<p>For a type that has no generated class you can also make <strong>generic calls</strong>: <code>dnType("System.Console").callMethod("WriteLine",["text"])</code>, <code>dnNew(...)</code>, <code>dnStatic(...)</code>. See <a href="core-api.html">Core functions</a> and the sample <code>samples/UsingDotNet/test01_hello.ring</code>.</p>
+<p>For a type that has no generated class you can also make <strong>generic calls</strong>: <code>dnType("System.Console").callMethod("WriteLine",["text"])</code>, <code>dnNew(...)</code>, <code>dnStatic(...)</code>. See <a href="core-api.html">Core functions</a> and the sample <code>samples/UsingDotNet/introduction/test01_hello.ring</code>.</p>
 <h2 id="the-startup-modes">The startup modes<a class="anchor" href="#the-startup-modes">#</a></h2>
 <p>The first .NET call starts the runtime. If your program needs more than the base library, call one of these <strong>before any other .NET call</strong>:</p>
 <div class="tablewrap"><table><thead><tr><th>Call</th><th>Starts</th><th>Use it for</th></tr></thead><tbody><tr><td><em>(none)</em></td><td>.NET base runtime</td><td>Console programs, files, networking, JSON, XML, reflection, LINQ</td></tr><tr><td><code>dnUseDesktop()</code></td><td>Windows Desktop runtime, Ring thread becomes STA</td><td>Windows Forms, WPF</td></tr><tr><td><code>dnUseWeb()</code></td><td>ASP.NET Core runtime, loads the web server</td><td><code>WebServer</code> (<a href="aspnet.html">ASP.NET Core</a>)</td></tr><tr><td><code>dnUseAll()</code></td><td>Desktop and ASP.NET Core together</td><td>A GUI program that also serves HTTP</td></tr><tr><td><code>dnUseData()</code></td><td>Loads the Entity Framework assemblies</td><td><code>RingDatabase</code>, <code>RingEntityDb</code> (<a href="ef.html">Entity Framework</a>)</td></tr></tbody></table></div>
@@ -167,7 +167,7 @@ using {
 <p><code>using</code> is the same as calling <code>dnImport("Namespace")</code> for each text; the function form is handy when the name is computed.</p>
 <p>If a method returns an object whose class belongs to a namespace you did not import, that namespace is imported automatically, so chains like <code>oProcess.StandardOutput.ReadToEnd()</code> just work.</p>
 <h2 id="your-first-window">Your first window<a class="anchor" href="#your-first-window">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
@@ -197,11 +197,11 @@ oCount = <span class="f">uiLabel</span>(oForm,<span class="s">"0 clicks"</span>,
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"three clicks"</span>,oCount.Text,<span class="s">"3 clicks"</span>)</code></pre></div>
-<figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="The click counter" loading="lazy"><figcaption>samples/Forms/02_button_click.ring — a form, a label and a button</figcaption></figure>
+<figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="The click counter" loading="lazy"><figcaption>samples/UsingDotNet/Forms/02_button_click.ring — a form, a label and a button</figcaption></figure>
 <h2 id="run-the-tests">Run the tests<a class="anchor" href="#run-the-tests">#</a></h2>
 <p>Every feature has a test, and every sample and application can test itself:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>sh tests/run.sh B:/ring/bin/ring.exe          # runs tests, samples and applications
-ring applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK</code></pre></div>
+ring samples/UsingDotNet/applications/Calculator/main.ring --selftest   # drives the form and prints SELFTEST OK</code></pre></div>
 <p>Read <a href="testing.html">Testing</a> for how the self tests work.</p>
 <h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
 <ul><li><a href="concepts.html">Core concepts</a>: how .NET names, overloads, properties, enums and events look in Ring.</li><li><a href="winforms.html">Windows Forms</a> and the <a href="gallery-apps.html">applications</a>.</li><li><a href="aspnet.html">ASP.NET Core</a> and <a href="ef.html">Entity Framework Core</a> for servers and databases.</li><li><a href="gotchas.html">Gotchas &amp; limits</a> before you write a long program.</li></ul>

@@ -454,7 +454,7 @@ books of the author: 1</code></pre></div>
 <p>Everything in EF Core is also wrapped as classes (<code>using { "Microsoft.EntityFrameworkCore" }</code>, <code>.ChangeTracking</code>, <code>.Infrastructure</code>, <code>.Metadata</code>, <code>.Metadata.Builders</code>, <code>.Storage</code>, <code>.Query</code>, <code>.Migrations</code>, <code>.Diagnostics</code>, <code>Microsoft.Data.Sqlite</code>; clashing names start with <code>Ef</code>). <code>oDb.context()</code> returns the real <code>DbContext</code>:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oContext = oDb.<span class="f">context</span>()
 ? oContext.Database.ProviderName                 <span class="c"># Microsoft.EntityFrameworkCore.Sqlite</span></code></pre></div>
-<p>The complete list of methods is in the <a href="ef-reference.html">Entity Framework reference</a>. A complete program: <code>applications/Contacts</code> — a contacts book with a console menu.</p>
+<p>The complete list of methods is in the <a href="ef-reference.html">Entity Framework reference</a>. A complete program: <code>samples/UsingDotNet/applications/Contacts</code> — a contacts book with a console menu.</p>
 <div class="pager"><a href="aspnet.html"><small>Previous</small>ASP.NET Core</a><a class="next" href="ef-reference.html"><small>Next</small>Entity Framework reference</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

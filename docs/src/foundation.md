@@ -27,51 +27,51 @@ Other namespaces and any DLL: [Your own assemblies](own-assemblies.html).
 
 `DateTime`, `TimeSpan`, `Convert`, `Math`, `String` helpers, `Guid`, `Random`, `Environment`:
 
-{{source:samples/UsingDotNet/test08_system.ring}}
+{{source:samples/UsingDotNet/introduction/test08_system.ring}}
 
-{{output:samples/UsingDotNet/test08_system.ring}}
+{{output:samples/UsingDotNet/introduction/test08_system.ring}}
 
 ## Files, regular expressions and compression
 
 `File`, `Directory`, `Path`, `StreamReader`/`StreamWriter`, `MemoryStream`, `Regex`, `GZipStream`:
 
-{{source:samples/UsingDotNet/test09_io_regex.ring}}
+{{source:samples/UsingDotNet/introduction/test09_io_regex.ring}}
 
-{{output:samples/UsingDotNet/test09_io_regex.ring}}
+{{output:samples/UsingDotNet/introduction/test09_io_regex.ring}}
 
 ## Networking
 
 `Uri`, `IPAddress`, `Dns`, `HttpClient`, `WebUtility`, `Encoding` — a program that does not need the internet to run:
 
-{{source:samples/UsingDotNet/test12_network.ring}}
+{{source:samples/UsingDotNet/introduction/test12_network.ring}}
 
-{{output:samples/UsingDotNet/test12_network.ring}}
+{{output:samples/UsingDotNet/introduction/test12_network.ring}}
 
-> [!TIP] For HTTP requests use `HttpClient`. Methods that return a `Task` give you an object: call `Wait()` and read `getProp("Result")`. A complete example is the self test of [`applications/WebApi`](aspnet.html).
+> [!TIP] For HTTP requests use `HttpClient`. Methods that return a `Task` give you an object: call `Wait()` and read `getProp("Result")`. A complete example is the self test of [`samples/UsingDotNet/applications/WebApi`](aspnet.html).
 
 ## Cryptography and globalization
 
 Hashes (`SHA256`, `MD5`), HMAC, random bytes, AES, culture-aware formatting:
 
-{{source:samples/UsingDotNet/test13_security.ring}}
+{{source:samples/UsingDotNet/introduction/test13_security.ring}}
 
-{{output:samples/UsingDotNet/test13_security.ring}}
+{{output:samples/UsingDotNet/introduction/test13_security.ring}}
 
 ## XML, JSON and data tables
 
 `XmlDocument`, `XPath`, `System.Text.Json`, `DataTable` and `DataView` — no database needed:
 
-{{source:samples/UsingDotNet/test14_xml_json_data.ring}}
+{{source:samples/UsingDotNet/introduction/test14_xml_json_data.ring}}
 
-{{output:samples/UsingDotNet/test14_xml_json_data.ring}}
+{{output:samples/UsingDotNet/introduction/test14_xml_json_data.ring}}
 
 ## Reflection and big numbers
 
 `Type`, `Assembly`, `MethodInfo`, `BigInteger`, `Complex`:
 
-{{source:samples/UsingDotNet/test15_reflection_numbers.ring}}
+{{source:samples/UsingDotNet/introduction/test15_reflection_numbers.ring}}
 
-{{output:samples/UsingDotNet/test15_reflection_numbers.ring}}
+{{output:samples/UsingDotNet/introduction/test15_reflection_numbers.ring}}
 
 ## Processes and threads
 
@@ -104,4 +104,4 @@ oResult = new Task().FromResult("done")
 
 ## A bigger example
 
-`samples/UsingDotNet/test16_forms_app.ring` and `demo_todo.ring` combine collections, files, JSON and a form. For complete programs see [Applications](gallery-apps.html).
+`samples/UsingDotNet/introduction/test16_forms_app.ring` and `demo_todo.ring` combine collections, files, JSON and a form. For complete programs see [Applications](gallery-apps.html).

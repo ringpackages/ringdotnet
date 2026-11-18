@@ -32,9 +32,9 @@ aResult = oDict.TryGetValue("three")   # out parameters come back as a list
 ? aResult[1]                           # 0
 ```
 
-{{source:samples/UsingDotNet/test03_collections.ring}}
+{{source:samples/UsingDotNet/introduction/test03_collections.ring}}
 
-{{output:samples/UsingDotNet/test03_collections.ring}}
+{{output:samples/UsingDotNet/introduction/test03_collections.ring}}
 
 > [!TIP] To add your own closed generic type, put a line such as `["System.Collections.Generic.List`1[[System.Int32]]","IntList",0]` into `aTypes` in `tools/gendotnet.ring` and run the generator. Without a class, `dnNewGeneric(...)` gives you the object and `callMethod` works on it.
 
@@ -42,9 +42,9 @@ aResult = oDict.TryGetValue("three")   # out parameters come back as a list
 
 `System.Collections`, `System.Collections.Specialized`, `System.Collections.Concurrent` and `System.Collections.ObjectModel` are wrapped completely: `ArrayList`, `Hashtable`, `SortedList`, `Stack`, `Queue`, `BitArray`, `NameValueCollection`, `ObservableCollection` and so on.
 
-{{source:samples/UsingDotNet/test10_collections.ring}}
+{{source:samples/UsingDotNet/introduction/test10_collections.ring}}
 
-{{output:samples/UsingDotNet/test10_collections.ring}}
+{{output:samples/UsingDotNet/introduction/test10_collections.ring}}
 
 ## Sorting and searching with Ring code
 
@@ -75,9 +75,9 @@ aTop = dnQuery(aSales).Where("xDotNetResult = aDotNetArgs[1] >= 100").OrderByDes
 ? dnQuery(aSales).Max("")
 ```
 
-{{source:samples/UsingDotNet/test11_linq.ring}}
+{{source:samples/UsingDotNet/introduction/test11_linq.ring}}
 
-{{output:samples/UsingDotNet/test11_linq.ring}}
+{{output:samples/UsingDotNet/introduction/test11_linq.ring}}
 
 ### The dnQuery methods
 

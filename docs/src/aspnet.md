@@ -23,7 +23,7 @@ func echo oRequest
 
 `dnUseWeb()` starts the ASP.NET Core runtime and loads the web server of RingDotNet. A **handler** is a Ring function that receives the request and returns the response.
 
-![The page served by the Ring web server](img/shots/web-page.png "applications/WebApi — a page rendered by a Ring handler")
+![The page served by the Ring web server](img/shots/web-page.png "samples/UsingDotNet/applications/WebApi — a page rendered by a Ring handler")
 
 ## Handlers and responses
 
@@ -91,11 +91,11 @@ end
 
 ## A complete application
 
-`applications/WebApi` is a to-do list with a web page and a JSON API. It tests itself by calling its own server with `HttpClient`:
+`samples/UsingDotNet/applications/WebApi` is a to-do list with a web page and a JSON API. It tests itself by calling its own server with `HttpClient`:
 
-{{source:applications/WebApi/main.ring}}
+{{source:samples/UsingDotNet/applications/WebApi/main.ring}}
 
-{{output:applications/WebApi/main.ring --selftest}}
+{{output:samples/UsingDotNet/applications/WebApi/main.ring --selftest}}
 
 ## All of ASP.NET Core
 

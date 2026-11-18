@@ -1,0 +1,8 @@
+40!            : 815915283247897734345611269596115894272000000000
+2^200          : 1606938044258990275541962092341162602522202993782792835301376
+|3+4i|         : 5
+Math methods   : 47 names, e.g. Acos, Acosh, Asin
+Assembly       : System.Linq 9.0.0.0
+OS             : Microsoft Windows 10.0.26200
+HTML encoded   : &lt;script&gt;alert(&#x27;x&#x27;)&lt;/script&gt;
+Concurrent     : first, left 1

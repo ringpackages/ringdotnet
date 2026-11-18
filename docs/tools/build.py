@@ -327,15 +327,15 @@ def shot_tag(name, alt):
 def gallery(kind):
     items = []
     if kind in ("forms", "wpf"):
-        folder = os.path.join(ROOT, "samples", "Forms" if kind == "forms" else "Wpf")
+        folder = os.path.join(ROOT, "samples", "UsingDotNet", "Forms" if kind == "forms" else "Wpf")
         for f in sorted(os.listdir(folder)):
             if not f.endswith(".ring"):
                 continue
             base = f[:-5]
             src = read(os.path.join(folder, f))
-            items.append((pretty(base), first_comment(src), "%s-%s.png" % (kind, base), src, "ring samples/%s/%s" % ("Forms" if kind == "forms" else "Wpf", f)))
+            items.append((pretty(base), first_comment(src), "%s-%s.png" % (kind, base), src, "ring samples/UsingDotNet/%s/%s" % ("Forms" if kind == "forms" else "Wpf", f)))
     else:
-        folder = os.path.join(ROOT, "applications")
+        folder = os.path.join(ROOT, "samples", "UsingDotNet", "applications")
         for d in sorted(os.listdir(folder)):
             main = os.path.join(folder, d, "main.ring")
             if not os.path.exists(main) or d in ("WebApi",):
@@ -343,7 +343,7 @@ def gallery(kind):
             src = read(main)
             if "dnUseDesktop" not in src:
                 continue
-            items.append((pretty(d), first_comment(src), "app-%s.png" % d, src, "cd applications/%s  then  ring main.ring" % d))
+            items.append((pretty(d), first_comment(src), "app-%s.png" % d, src, "cd samples/UsingDotNet/applications/%s  then  ring main.ring" % d))
     cards = []
     for title, desc, png, src, run in items:
         cards.append(
@@ -357,7 +357,7 @@ def directive(cmd):
     if cmd.startswith("gallery:"):
         return gallery(cmd.split(":", 1)[1])[0]
     if cmd.startswith("file:"):
-        # {{file:samples/Forms/02_button_click.ring}} : a source file as a code block
+        # {{file:samples/UsingDotNet/Forms/02_button_click.ring}} : a source file as a code block
         rel = cmd.split(":", 1)[1].strip()
         lang = "ring" if rel.endswith(".ring") else ("csharp" if rel.endswith(".cs") else "text")
         return code_block(read(os.path.join(ROOT, rel)), lang, rel)
@@ -366,7 +366,7 @@ def directive(cmd):
         lang = "ring" if rel.endswith(".ring") else ("csharp" if rel.endswith(".cs") else "text")
         return '<details class="src"><summary>%s</summary>%s</details>' % (esc(rel), code_block(read(os.path.join(ROOT, rel)), lang, rel))
     if cmd.startswith("output:"):
-        # {{output:samples/UsingDotNet/test03_collections.ring}} : the real output of a program (run now)
+        # {{output:samples/UsingDotNet/introduction/test03_collections.ring}} : the real output of a program (run now)
         rel = cmd.split(":", 1)[1].strip()
         parts = rel.split()
         return code_block(run_ring(parts[0], parts[1:]), "output", "Output")
@@ -448,9 +448,9 @@ def stats():
     def count(p, ext=".ring"):
         p = os.path.join(ROOT, p)
         return len([f for f in os.listdir(p) if f.endswith(ext)]) if os.path.isdir(p) else 0
-    apps = len([d for d in os.listdir(os.path.join(ROOT, "applications")) if os.path.exists(os.path.join(ROOT, "applications", d, "main.ring"))])
+    apps = len([d for d in os.listdir(os.path.join(ROOT, "samples", "UsingDotNet", "applications")) if os.path.exists(os.path.join(ROOT, "samples", "UsingDotNet", "applications", d, "main.ring"))])
     tests = len([f for f in os.listdir(os.path.join(ROOT, "tests")) if f.startswith("test_")])
-    return {"namespaces": len(namespaces), "classes": "{:,}".format(classes), "forms": count("samples/Forms"), "wpf": count("samples/Wpf"), "apps": apps, "tests": tests}
+    return {"namespaces": len(namespaces), "classes": "{:,}".format(classes), "forms": count("samples/UsingDotNet/Forms"), "wpf": count("samples/UsingDotNet/Wpf"), "apps": apps, "tests": tests}
 
 
 # ---------------------------------------------------------------- templates

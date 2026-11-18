@@ -113,7 +113,7 @@ oForm { Height = 300  Text += "!" }
 
 ## WPF
 
-`dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`, `samples/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
+`dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `tests/test_wpf.ring`, `samples/UsingDotNet/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
 
 ## ASP.NET Core
 
@@ -132,7 +132,7 @@ func echo oRequest
 	return [201,"text/plain","you sent " + oRequest.body()]     # or webJson(list)
 ```
 
-A handler gets a request (`method()`, `path()`, `query("q")`, `body()`, `header()`, `form()`, `context()` = the ASP.NET `HttpContext`) and returns a text, `[status, contentType, text]` or `webJson(...)`. Kestrel runs on .NET threads and Ring code may only run on the Ring thread, so the requests are queued and `serveOne()` / `run()` handle them on the Ring thread. The ASP.NET classes (`Microsoft.AspNetCore.*`, `Microsoft.Extensions.*`, `Microsoft.Net.Http.Headers`; clashing names start with `Asp`) are wrapped too. `dnUseAll()` starts Windows Forms/WPF and ASP.NET together. Example: `applications/WebApi` (JSON to-do API and web page), tests: `tests/test_web.ring`. Not supported: MVC controllers/Razor written in C# (the web server is the Ring one), and handlers that run in parallel (one Ring thread).
+A handler gets a request (`method()`, `path()`, `query("q")`, `body()`, `header()`, `form()`, `context()` = the ASP.NET `HttpContext`) and returns a text, `[status, contentType, text]` or `webJson(...)`. Kestrel runs on .NET threads and Ring code may only run on the Ring thread, so the requests are queued and `serveOne()` / `run()` handle them on the Ring thread. The ASP.NET classes (`Microsoft.AspNetCore.*`, `Microsoft.Extensions.*`, `Microsoft.Net.Http.Headers`; clashing names start with `Asp`) are wrapped too. `dnUseAll()` starts Windows Forms/WPF and ASP.NET together. Example: `samples/UsingDotNet/applications/WebApi` (JSON to-do API and web page), tests: `tests/test_web.ring`. Not supported: MVC controllers/Razor written in C# (the web server is the Ring one), and handlers that run in parallel (one Ring thread).
 
 ## Keyboard in games
 
