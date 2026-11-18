@@ -1,0 +1,17 @@
+1. original text: 9000 bytes
+
+2. compressed sizes:
+   GZip    108 bytes   (83 times smaller)
+   Deflate 90 bytes   (100 times smaller)
+   Brotli  54 bytes   (166 times smaller)
+
+3. after GZip and back: 9000 bytes, same as the original: 1
+
+4. first bytes of a GZip result: 31 139
+
+5. 2000 random bytes: the GZip result is larger than the original: 1
+
+6. file size on disk: 66 bytes
+   read: line 1 of the compressed file
+   read: line 2 of the compressed file
+   read: line 3 of the compressed file

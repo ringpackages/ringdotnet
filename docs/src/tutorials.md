@@ -133,6 +133,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-85-feed-programs.html"><div class="ic">85</div><b>Working with other programs</b><span>Standard input, chaining, environment, exit codes, time limits and Kill.</span></a>
 <a class="card" href="tut-86-escaping.html"><div class="ic">86</div><b>Escaping</b><span>The right encoding for HTML, URLs, JavaScript, JSON, XML, regular expressions and SQL.</span></a>
 <a class="card" href="tut-87-expressions.html"><div class="ic">87</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
+<a class="card" href="tut-88-compression.html"><div class="ic">88</div><b>Compression</b><span>GZip, Deflate and Brotli streams, sizes, round trips and a .gz file.</span></a>
+<a class="card" href="tut-89-concurrent-collections.html"><div class="ic">89</div><b>Collections for many threads</b><span>Concurrent queue, stack, blocking collection and dictionary.</span></a>
+<a class="card" href="tut-90-big-numbers.html"><div class="ic">90</div><b>Big numbers</b><span>BigInteger for exact big whole numbers, and Complex numbers.</span></a>
 </div>
 
 ## Learning path

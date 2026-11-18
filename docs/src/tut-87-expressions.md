@@ -66,6 +66,6 @@ Step 5 receives only the *name of an operator* (`"+"`, `"-"`, `"*"`, `"/"`) and 
 3. Extend the helper `binaryFunction` with `%` (`Modulo`) and `>` (`GreaterThan`).
 4. Turn the parser of [tutorial 54](tut-54-expression.html) into a function that returns a tree instead of a number.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 88: Compression](tut-88-compression.html)

@@ -444,6 +444,19 @@ namespace RingDotNet
 					prefix = prefix.Substring(0, dot);
 				}
 			} while (dot > 0);
+			/* types that live in an assembly whose name is not a prefix of their namespace */
+			foreach (string extra in new[] { "System.IO.Compression.Brotli", "System.Net.Http.Json", "System.Linq.Expressions", "System.Collections.Concurrent", "System.Threading.Channels", "System.Numerics.Vectors" })
+			{
+				try
+				{
+					t = Assembly.Load(extra).GetType(name, false);
+					if (t != null)
+					{
+						return t;
+					}
+				}
+				catch (Exception) { }
+			}
 			return null;
 		}
 

@@ -1,0 +1,15 @@
+1. queue of 3 names, first = Ann
+   dequeued Ann
+   dequeued Bob
+   dequeued Cy
+   an empty queue answers: success = 0
+
+2. stack: pop gives 3 then 2, 1 left
+
+3. blocking collection, taken in order: 1 4 9 16 25 
+
+4. bounded to 2: TryAdd gives 1, 1, 0 (the third does not fit)
+
+5. word counts: red = 3, green = 2, blue = 1
+   TryAdd of an existing key: 0 (the value stays 3)
+   TryRemove(blue): success = 1, the removed value was 1, keys left: 2
