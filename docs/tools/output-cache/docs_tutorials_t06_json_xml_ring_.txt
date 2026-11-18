@@ -1,0 +1,15 @@
+A Ring list as JSON : [1,"two",[3,4]]
+The name            : Ring
+The year            : 2016
+Number of tags      : 2
+First tag           : fast
+Nested property     : Mahmoud
+
+Books in the library: 3
+  #1 Learn Ring (1999)
+  #2 Dot Net Basics (2010)
+  #3 Ring and .NET (2022)
+Books after 2000   : 2
+Price of book 2    : 12
+After adding one   : 4 books
+The XML now        : <library><book id="1" year="1999"><title>Learn Ring</title><...

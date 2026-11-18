@@ -1,0 +1,6 @@
+The server listens at http://127.0.0.1:51008
+
+GET /hello  -> OK Hello from a Ring handler
+GET /time   -> OK {"hour":12,"minute":30}
+POST /echo  -> Created you sent: some data
+GET /nothing-> NotFound Not found: GET /nothing

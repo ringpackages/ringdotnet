@@ -1,0 +1,18 @@
+Round to 2 digits : 3.14
+Square root of 144: 12
+Power 2^10        : 1024
+Absolute, floor   : 7.50, 7
+Min and Max       : 4, 9
+TryParse '123'    : worked=1 value=123
+TryParse '12x'    : worked=0
+30!               : 265252859812191058636308480000000
+Random 1..6       : 5 (the same every run: the seed is 42)
+A date            : Wednesday, 25 December 2024 18:30
+Year, month, day  : 2024, 12, 25
+Day of the week   : Wednesday
+10 days later     : 2025-01-04 15:30
+Until new year    : 6 days and 5 hours
+In total hours    : 149.50
+Parsed            : 4 July 2024
+US style          : Wednesday, December 25, 2024
+German style      : Mittwoch, 25. Dezember 2024

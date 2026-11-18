@@ -7,3 +7,6 @@ tests/UserLib/obj/
 tests/UserLib/generated/
 bin/runtimes/
 docs/tools/api-data/
+docs/tutorials/Greeter/bin/
+docs/tutorials/Greeter/obj/
+docs/tutorials/Greeter/classes/

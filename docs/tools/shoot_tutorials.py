@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""Screenshots of the tutorial programs: docs/img/shots/tut-<name>.png
+Some shots need the program in a later state: the code in INJECT runs just before the window is shown (in a temporary copy)."""
+import os
+import subprocess
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DOCS = os.path.dirname(HERE)
+TUT = os.path.join(DOCS, "tutorials")
+OUT = os.path.join(DOCS, "img", "shots")
+
+# (program, shot name, marker line (the injected code goes before it), injected code, delay ms, kind)
+SHOTS = [
+    ("g01a_window.ring", "g01a", None, "", 2500, "forms"),
+    ("g01b_controls.ring", "g01b", None, "", 2500, "forms"),
+    ("g01c_counter.ring", "g01c", None, "", 2500, "forms"),
+    ("g01c_counter.ring", "g01c-clicked", "\tuiTest(", "\tnClicks = 3\n\toLabel.Text = 'Clicked 3 times'\n", 2500, "forms"),
+    ("g01d_plain.ring", "g01d", None, "", 2500, "forms"),
+    ("g02_registration.ring", "g02", None, "", 2500, "forms"),
+    ("g02_registration.ring", "g02-filled", "\tuiTest(", "\toName.Text = 'Ann'\n\toCountry.SelectedIndex = 1\n\toNewsletter.Checked = True\n\tregister()\n\toName.Text = 'Bob'\n\toCountry.SelectedIndex = 0\n\tregister()\n\toName.Text = 'Cy'\n", 2500, "forms"),
+    ("g03_editor.ring", "g03", None, "", 2500, "forms"),
+    ("g03_editor.ring", "g03-text", "\tuiTest(", "\toEditor.Text = 'Hello from the tiny editor' + windowsnl() + 'Second line of text'\n\toEditor.SelectionStart = 0\n\toEditor.SelectionLength = 0\n\toEditor.ScrollToCaret()\n", 2500, "forms"),
+    ("g04_bounce.ring", "g04", None, "", 2200, "forms"),
+    ("g05_wpf.ring", "g05", None, "", 3500, "wpf"),
+    ("g05_wpf.ring", "g05-greeted", "\twpfTest(", "\toGreet.Text = 'Hello, Ring!'\n\toSlider.Value = 100\n", 3500, "wpf"),
+]
+
+
+def main():
+    for prog, name, marker, code, delay, kind in SHOTS:
+        src = open(os.path.join(TUT, prog), encoding="utf-8").read()
+        tmp = prog
+        if marker:
+            i = src.index(marker)
+            src = src[:i] + code + src[i:]
+            tmp = "_shot_" + prog
+            with open(os.path.join(TUT, tmp), "w", encoding="utf-8", newline="\n") as f:
+                f.write(src)
+        out = os.path.join(OUT, "tut-%s.png" % name)
+        r = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", os.path.join(HERE, "shot.ps1"),
+                            "-Dir", TUT, "-Script", tmp, "-Out", out, "-Delay", str(delay)], capture_output=True, text=True)
+        print((r.stdout + r.stderr).strip().splitlines()[-1:] or "?")
+        if marker:
+            os.remove(os.path.join(TUT, tmp))
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,17 @@
+Count             : 3
+Second item       : apple
+After Sort        : apple
+banana
+cherry
+Contains apple    : 1
+Index of cherry   : 2
+Ann is            : 31
+Is Cy known?      : 0
+Keys              : 2 keys
+Set size          : 2 (red was added twice)
+Queue gives       : first
+Stack gives       : second
+Sales >= 100      : 300, 210, 120
+Count, sum, max   : 7, 870, 300
+Any over 250?     : 1
+Average           : 124.29

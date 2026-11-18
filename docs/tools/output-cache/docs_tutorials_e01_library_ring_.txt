@@ -1,0 +1,15 @@
+STEP 1: the database exists
+STEP 2: 2 authors, 4 books
+
+STEP 3: book 1 is The Hobbit, copies 3
+        book 4 has year [] (empty: the column allows no value)
+
+STEP 4: books after 1940:
+        The Fellowship of the Ring (1954)
+        The Lion, the Witch and the Wardrobe (1950)
+
+STEP 5: book 4 is now Prince Caspian
+        books left: 3
+
+STEP 6: a duplicate author is refused
+        a book of a missing author is refused

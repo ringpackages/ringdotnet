@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tutorial 3: Numbers, dates and times · RingDotNet</title>
+<meta name="description" content="Math functions, converting text to numbers without crashing, numbers of any size, random numbers, and the date and time classes DateTime and TimeSpan.">
+<link rel="stylesheet" href="assets/style.css">
+<script>window.SITE_ROOT="";</script>
+<script src="assets/search-index.js"></script>
+<script src="assets/api-index.js"></script>
+<script src="assets/site.js"></script>
+</head>
+<body>
+<header class="topbar">
+	<button class="iconbtn" id="menu" aria-label="Menu">☰</button>
+	<a class="brand" href="index.html"><span class="logo">.N</span>RingDotNet<small>for Ring</small></a>
+	<span class="spacer"></span>
+	<div class="search">
+		<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg>
+		<input id="q" type="search" placeholder="Search the docs  ( / )" autocomplete="off">
+		<div class="results" id="results"></div>
+	</div>
+	<button class="iconbtn" id="theme" aria-label="Theme">☾</button>
+</header>
+<nav class="sidebar">
+<h4>Start</h4>
+<a href="index.html">Overview</a>
+<a href="getting-started.html">Getting started</a>
+<a href="how-it-works.html">How it works</a>
+<h4>Tutorials: the class library</h4>
+<a href="tutorials.html">Tutorials home</a>
+<a href="tut-concepts.html">.NET for Ring programmers</a>
+<a href="tut-reading-docs.html">Reading the .NET docs</a>
+<a href="tut-01-first-look.html">1. A first look</a>
+<a href="tut-02-text.html">2. Working with text</a>
+<a href="tut-03-numbers-dates.html" class="cur">3. Numbers, dates, times</a>
+<a href="tut-04-collections.html">4. Collections and LINQ</a>
+<a href="tut-05-files.html">5. Files and folders</a>
+<a href="tut-06-json-xml.html">6. JSON and XML</a>
+<a href="tut-07-errors.html">7. When things go wrong</a>
+<a href="tut-08-security.html">8. Hashing and encryption</a>
+<a href="tut-09-http.html">9. HTTP</a>
+<a href="tut-10-tasks-processes.html">10. Tasks and programs</a>
+<h4>Tutorials: windows, web, data</h4>
+<a href="tut-11-first-window.html">11. Your first window</a>
+<a href="tut-12-controls.html">12. Many controls</a>
+<a href="tut-13-editor.html">13. A text editor</a>
+<a href="tut-14-animation.html">14. Drawing and animation</a>
+<a href="tut-15-wpf.html">15. WPF</a>
+<a href="tut-16-web-service.html">16. A web service</a>
+<a href="tut-17-databases.html">17. Databases</a>
+<a href="tut-18-csharp-library.html">18. A C# library</a>
+<h4>The language bridge</h4>
+<a href="concepts.html">Core concepts</a>
+<a href="core-api.html">Core functions</a>
+<a href="collections-linq.html">Collections & LINQ</a>
+<a href="callbacks-events.html">Callbacks & events</a>
+<a href="foundation.html">The .NET class library</a>
+<h4>Desktop</h4>
+<a href="winforms.html">Windows Forms</a>
+<a href="gallery-forms.html">Forms samples</a>
+<a href="gallery-apps.html">Applications</a>
+<a href="wpf.html">WPF</a>
+<a href="gallery-wpf.html">WPF samples</a>
+<h4>Web and data</h4>
+<a href="aspnet.html">ASP.NET Core</a>
+<a href="ef.html">Entity Framework Core</a>
+<a href="ef-reference.html">Entity Framework reference</a>
+<h4>Extending</h4>
+<a href="own-assemblies.html">Your own assemblies</a>
+<a href="generator.html">Class generator</a>
+<h4>Project</h4>
+<a href="testing.html">Testing</a>
+<a href="gotchas.html">Gotchas & limits</a>
+<a href="reference.html">Function index</a>
+<h4>Reference</h4>
+<a href="api.html">Class reference</a>
+</nav>
+<main>
+<article>
+<h1>Tutorial 3: Numbers, dates and times</h1><p class="lead">Math functions, converting text to numbers without crashing, numbers of any size, random numbers, and the date and time classes DateTime and TimeSpan.</p>
+<h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
+<ul><li><code>Math</code> for rounding, roots and powers,</li><li><code>TryParse</code>: turn text into a number safely,</li><li><code>BigInteger</code>: numbers without a limit,</li><li><code>Random</code>,</li><li><code>DateTime</code>, <code>TimeSpan</code>, parsing dates and formatting in different cultures.</li></ul>
+<h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t03_numbers_dates.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 3: numbers, parsing, dates and times</span>
+<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Numerics"</span>
+	<span class="s">"System.Globalization"</span>
+}
+
+<span class="k">func</span> <span class="f">main</span>
+	oMath = <span class="k">new</span> <span class="t">Math</span>()
+
+	<span class="c"># Math: functions on numbers</span>
+	? <span class="s">"Round to 2 digits : "</span> + oMath.<span class="f">Round</span>([ :value = <span class="n">3.14159</span>, :digits = <span class="n">2</span> ])
+	? <span class="s">"Square root of 144: "</span> + oMath.<span class="f">Sqrt</span>(<span class="n">144</span>)
+	? <span class="s">"Power 2^10        : "</span> + oMath.<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">10</span>)
+	? <span class="s">"Absolute, floor   : "</span> + oMath.<span class="f">Abs</span>(-<span class="n">7.5</span>) + <span class="s">", "</span> + oMath.<span class="f">Floor</span>(<span class="n">7.9</span>)
+	? <span class="s">"Min and Max       : "</span> + oMath.<span class="f">Min</span>(<span class="n">4</span>,<span class="n">9</span>) + <span class="s">", "</span> + oMath.<span class="f">Max</span>(<span class="n">4</span>,<span class="n">9</span>)
+
+	<span class="c"># Converting text to numbers: TryParse never fails, it tells you whether it worked</span>
+	aResult = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"123"</span>)
+	? <span class="s">"TryParse '123'    : worked="</span> + aResult[<span class="n">1</span>] + <span class="s">" value="</span> + aResult[<span class="n">2</span>]
+	aResult = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"12x"</span>)
+	? <span class="s">"TryParse '12x'    : worked="</span> + aResult[<span class="n">1</span>]
+
+	<span class="c"># Very big numbers: BigInteger has no limit</span>
+	oBig = <span class="k">new</span> <span class="t">BigInteger</span>()
+	nFactorial = oBig.<span class="f">Parse</span>(<span class="s">"1"</span>)
+	<span class="k">for</span> nNumber = <span class="n">2</span> <span class="k">to</span> <span class="n">30</span>
+		nFactorial = oBig.<span class="f">Multiply</span>(nFactorial,nNumber)
+	<span class="k">next</span>
+	? <span class="s">"30!               : "</span> + nFactorial.<span class="f">ToString</span>()
+
+	<span class="c"># Random numbers</span>
+	oRandom = <span class="k">new</span> <span class="t">Random</span>(<span class="n">42</span>)
+	? <span class="s">"Random 1..6       : "</span> + oRandom.<span class="f">Next_</span>([ :minValue = <span class="n">1</span>, :maxValue = <span class="n">7</span> ]) + <span class="s">" (the same every run: the seed is 42)"</span>
+
+	<span class="c"># Dates: DateTime is a struct with year, month, day, hour...</span>
+	oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2024</span>, :month = <span class="n">12</span>, :day = <span class="n">25</span>, :hour = <span class="n">18</span>, :minute = <span class="n">30</span>, :second = <span class="n">0</span> ])
+	? <span class="s">"A date            : "</span> + oDate.<span class="f">ToString_1</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
+	? <span class="s">"Year, month, day  : "</span> + oDate.Year + <span class="s">", "</span> + oDate.Month + <span class="s">", "</span> + oDate.Day
+	? <span class="s">"Day of the week   : "</span> + oDate.DayOfWeek
+
+	<span class="c"># Dates are immutable: methods return a new date</span>
+	oLater = oDate.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">AddHours</span>(-<span class="n">3</span>)
+	? <span class="s">"10 days later     : "</span> + oLater.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>)
+
+	<span class="c"># TimeSpan: the difference between two dates</span>
+	oSpan = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2025</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">Subtract</span>(oDate)
+	? <span class="s">"Until new year    : "</span> + oSpan.Days + <span class="s">" days and "</span> + oSpan.Hours + <span class="s">" hours"</span>
+	? <span class="s">"In total hours    : "</span> + oSpan.TotalHours
+
+	<span class="c"># Parsing dates from text</span>
+	oParsed = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">Parse</span>(<span class="s">"2024-07-04"</span>)
+	? <span class="s">"Parsed            : "</span> + oParsed.<span class="f">ToString_1</span>(<span class="s">"d MMMM yyyy"</span>)
+
+	<span class="c"># Cultures format the same date differently</span>
+	? <span class="s">"US style          : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>))
+	? <span class="s">"German style      : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>))</code></pre></div>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Round to 2 digits : 3.14
+Square root of 144: 12
+Power 2^10        : 1024
+Absolute, floor   : 7.50, 7
+Min and Max       : 4, 9
+TryParse '123'    : worked=1 value=123
+TryParse '12x'    : worked=0
+30!               : 265252859812191058636308480000000
+Random 1..6       : 5 (the same every run: the seed is 42)
+A date            : Wednesday, 25 December 2024 18:30
+Year, month, day  : 2024, 12, 25
+Day of the week   : Wednesday
+10 days later     : 2025-01-04 15:30
+Until new year    : 6 days and 5 hours
+In total hours    : 149.50
+Parsed            : 4 July 2024
+US style          : Wednesday, December 25, 2024
+German style      : Mittwoch, 25. Dezember 2024</code></pre></div>
+<h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
+<h3 id="math">Math<a class="anchor" href="#math">#</a></h3>
+<p><code>Math</code> is a class of static functions: <code>Round</code>, <code>Sqrt</code>, <code>Pow</code>, <code>Abs</code>, <code>Floor</code>, <code>Min</code>, <code>Max</code>. <code>Round</code> has several versions (round to a whole number, round to some digits), so the program uses <strong>named arguments</strong>: <code>Round([ :value = 3.14159, :digits = 2 ])</code>. The names come from the .NET documentation, and the order does not matter.</p>
+<h3 id="tryparse-no-crash">TryParse: no crash<a class="anchor" href="#tryparse-no-crash">#</a></h3>
+<p><code>Int32.Parse("abc")</code> raises an error. <code>TryParse</code> never does: it returns a list <code>[worked, value]</code>. A method that has an <code>out</code> parameter in C# returns its results as a list in Ring: first the return value (here true or false), then the <code>out</code> values.</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>aResult = <span class="k">new</span> <span class="t">Int32</span>().<span class="f">TryParse</span>(<span class="s">"123"</span>)
+<span class="k">if</span> aResult[<span class="n">1</span>]
+	? <span class="s">"the number is "</span> + aResult[<span class="n">2</span>]
+<span class="k">ok</span></code></pre></div>
+<h3 id="biginteger">BigInteger<a class="anchor" href="#biginteger">#</a></h3>
+<p>A Ring number is a 64-bit floating point number: after about 15 digits it loses precision. <code>BigInteger</code> stores any size exactly. The program computes 30! = <code>265252859812191058636308480000000</code>. Create one from text with <code>Parse("1")</code>, and do arithmetic with methods: <code>Multiply(a,b)</code>, <code>Add</code>, <code>Pow</code>.</p>
+<h3 id="random">Random<a class="anchor" href="#random">#</a></h3>
+<p><code>new Random(42)</code> starts a random generator with a <em>seed</em>. The same seed always gives the same numbers, which is useful in tests. Leave the seed out (<code>new Random()</code>) for numbers that change every run. <code>Next_</code> takes a minimum and a maximum (the maximum is <em>not</em> included, so <code>1</code> and <code>7</code> give a die). The trailing <code>_</code> is there because <code>Next</code> is a Ring keyword.</p>
+<h3 id="datetime">DateTime<a class="anchor" href="#datetime">#</a></h3>
+<p>A <code>DateTime</code> has a year, month, day, hour, minute and second. Two ways to create one:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)                                              <span class="c"># year, month, day</span>
+oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2024</span>, :month = <span class="n">12</span>, :day = <span class="n">25</span>, :hour = <span class="n">18</span>, :minute = <span class="n">30</span>, :second = <span class="n">0</span> ])</code></pre></div>
+<p>Properties: <code>Year</code>, <code>Month</code>, <code>Day</code>, <code>DayOfWeek</code> (a text like <code>Wednesday</code>). <strong>Dates never change</strong>: <code>AddDays(10)</code> returns a <em>new</em> date. That is why you can chain: <code>oDate.AddDays(10).AddHours(-3)</code>.</p>
+<h3 id="timespan">TimeSpan<a class="anchor" href="#timespan">#</a></h3>
+<p>The difference between two dates is a <code>TimeSpan</code>: <code>Subtract</code> gives it, and it has <code>Days</code>, <code>Hours</code> and <code>TotalHours</code> (the whole span in hours, with decimals).</p>
+<h3 id="formats-and-cultures">Formats and cultures<a class="anchor" href="#formats-and-cultures">#</a></h3>
+<p><code>ToString_1("dddd, dd MMMM yyyy HH:mm")</code> formats a date with a pattern. Some letters: <code>yyyy</code> year, <code>MM</code> month number, <code>MMMM</code> month name, <code>dd</code> day, <code>dddd</code> weekday, <code>HH</code> hour (24), <code>mm</code> minute. A <em>culture</em> changes the language: <code>ToString_2("D", new CultureInfo("de-DE"))</code> writes the long date in German.</p>
+<h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
+<ul><li><code>Math</code> functions and named arguments,</li><li><code>TryParse</code> for safe conversion,</li><li><code>BigInteger</code> for exact big numbers,</li><li>dates are values that you copy, never change,</li><li>format patterns and cultures.</li></ul>
+<h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
+<ol><li>Print how many days are left until the end of this year.</li><li>Parse the text <code>"15/03/2024"</code> with <code>ParseExact</code> and a format of <code>dd/MM/yyyy</code>.</li><li>Compute 100! with <code>BigInteger</code> and print how many digits it has.</li><li>Throw a die 10 times with <code>Random</code> and count how many sixes you get.</li><li>Print today's date in three cultures (<code>en-US</code>, <code>fr-FR</code>, <code>ja-JP</code>).</li></ol>
+<h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
+<p><a href="tut-04-collections.html">Tutorial 4: Collections and LINQ</a>.</p>
+<div class="pager"><a href="tut-02-text.html"><small>Previous</small>2. Working with text</a><a class="next" href="tut-04-collections.html"><small>Next</small>4. Collections and LINQ</a></div>
+<footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
+</article>
+<aside class="toc" id="toc"></aside>
+</main>
+</body>
+</html>

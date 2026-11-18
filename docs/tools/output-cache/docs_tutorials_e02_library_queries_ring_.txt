@@ -1,0 +1,25 @@
+Books by Tolkien:
+  The Hobbit
+  The Fellowship of the Ring
+  The Silmarillion
+Narnia was written by Lewis
+
+Authors with their books:
+  Tolkien: 3 book(s)
+  Lewis: 1 book(s)
+
+Books with at least 4.5 stars, newest first:
+  1954  The Fellowship of the Ring
+  1950  Narnia
+  1937  The Hobbit
+
+Average stars : 4.53
+Best rating   : 4.80
+Books per author:
+  author 1 -> 3
+  author 2 -> 1
+
+Books inside the transaction: 6
+Books after rollback        : 4
+
+After reopening the file: 4 books

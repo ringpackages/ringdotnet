@@ -1,0 +1,10 @@
+Hello, World
+Hello, Ring
+Hey Ann
+HELLO, BOB!
+Greetings so far: 4
+Add(20,22)      : 42
+TryDivide(10,4) : worked=1 result=2.50
+TryDivide(1,0)  : worked=0
+  (event: someone was greeted: Hello, Cy)
+The event ran 1 time(s)

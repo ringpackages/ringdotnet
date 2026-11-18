@@ -1,0 +1,1 @@
+SELFTEST OK (5 checks)

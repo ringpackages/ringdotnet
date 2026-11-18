@@ -1,0 +1,14 @@
+Slept about 120 ms, measured at least 100: 1
+Task finished at once?   : 0
+Task finished after Wait : 1
+Task result              : done
+
+Machine name             : 1
+Number of processors      : 1
+A variable (PATH) exists  : 1
+Current folder is known   : 1
+
+The other program said: hello from another program
+
+
+Its exit code            : 0

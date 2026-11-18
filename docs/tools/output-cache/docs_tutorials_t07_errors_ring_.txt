@@ -1,0 +1,8 @@
+1. Caught the error:
+   DotNet Error: System.FormatException: The input string 'abc' was not in a correct format.
+2. The file is missing
+3. Exists() said no: no error at all
+4. Not a number: TryParse returned false
+5. Not enough money: balance 100, asked 250
+6. Error while writing: the file will still be closed
+   closed and deleted the file

@@ -1,0 +1,7 @@
+POST /notes   -> Created {"id":1}
+POST /notes   -> Created {"id":2}
+POST /notes   -> BadRequest The text of the note is empty
+GET  /notes   -> OK [{"id":1,"text":"Buy milk"},{"id":2,"text":"Learn Ring and .NET"}]
+DELETE        -> OK deleted 1
+GET  /notes   -> OK [{"id":2,"text":"Learn Ring and .NET"}]
+DELETE (nothing)-> NotFound There is no note 99

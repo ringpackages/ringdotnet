@@ -1,0 +1,16 @@
+Ring trim/upper : [THE QUICK BROWN FOX]
+Ring words      : 4
+Join            : The-quick-brown-fox
+Format          : The list has 3 items
+Empty or blank? : 1
+Compare (a < b) : -1
+Title case      : Ring Meets Dot Net
+StringBuilder   : 24 characters
+255 in hex      : ff
+Base64          : UmluZw==
+E-mails found   : 2
+  ann@example.com
+  bob@test.com
+Replaced        : write to <hidden> or <hidden> today
+Is it a number? : 1 0
+UTF-8 bytes     : 4 for Ring, 7 with an accent

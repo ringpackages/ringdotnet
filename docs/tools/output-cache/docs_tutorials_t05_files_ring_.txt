@@ -1,0 +1,12 @@
+Folder created     : 1
+File exists        : 1
+All the text       : 35 characters
+Lines              : 3, the last is 'third line'
+After appending    : 4 lines
+Counted with reader: 4
+Name and size      : notes.txt, 48 bytes
+Extension          : .txt
+File name only     : notes
+Files in the folder: 2
+Zip size           : 278 bytes
+Cleaned up         : 1

@@ -16,6 +16,27 @@ PAGES = [
     ("index", "Overview", "Start"),
     ("getting-started", "Getting started", "Start"),
     ("how-it-works", "How it works", "Start"),
+    ("tutorials", "Tutorials home", "Tutorials: the class library"),
+    ("tut-concepts", ".NET for Ring programmers", "Tutorials: the class library"),
+    ("tut-reading-docs", "Reading the .NET docs", "Tutorials: the class library"),
+    ("tut-01-first-look", "1. A first look", "Tutorials: the class library"),
+    ("tut-02-text", "2. Working with text", "Tutorials: the class library"),
+    ("tut-03-numbers-dates", "3. Numbers, dates, times", "Tutorials: the class library"),
+    ("tut-04-collections", "4. Collections and LINQ", "Tutorials: the class library"),
+    ("tut-05-files", "5. Files and folders", "Tutorials: the class library"),
+    ("tut-06-json-xml", "6. JSON and XML", "Tutorials: the class library"),
+    ("tut-07-errors", "7. When things go wrong", "Tutorials: the class library"),
+    ("tut-08-security", "8. Hashing and encryption", "Tutorials: the class library"),
+    ("tut-09-http", "9. HTTP", "Tutorials: the class library"),
+    ("tut-10-tasks-processes", "10. Tasks and programs", "Tutorials: the class library"),
+    ("tut-11-first-window", "11. Your first window", "Tutorials: windows, web, data"),
+    ("tut-12-controls", "12. Many controls", "Tutorials: windows, web, data"),
+    ("tut-13-editor", "13. A text editor", "Tutorials: windows, web, data"),
+    ("tut-14-animation", "14. Drawing and animation", "Tutorials: windows, web, data"),
+    ("tut-15-wpf", "15. WPF", "Tutorials: windows, web, data"),
+    ("tut-16-web-service", "16. A web service", "Tutorials: windows, web, data"),
+    ("tut-17-databases", "17. Databases", "Tutorials: windows, web, data"),
+    ("tut-18-csharp-library", "18. A C# library", "Tutorials: windows, web, data"),
     ("concepts", "Core concepts", "The language bridge"),
     ("core-api", "Core functions", "The language bridge"),
     ("collections-linq", "Collections & LINQ", "The language bridge"),
@@ -465,7 +486,10 @@ def parse_front(text):
         end = text.index("\n---", 3)
         for ln in text[3:end].strip().split("\n"):
             k, _, v = ln.partition(":")
-            meta[k.strip()] = v.strip()
+            v = v.strip()
+            if len(v) > 1 and v[0] == v[-1] and v[0] in "\"'":
+                v = v[1:-1]
+            meta[k.strip()] = v
         text = text[end + 4:]
     return meta, text
 

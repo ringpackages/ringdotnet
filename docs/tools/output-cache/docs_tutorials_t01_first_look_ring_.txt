@@ -1,0 +1,11 @@
+Runtime          : .NET 9.0.15
+Type of the object: System.Text.StringBuilder
+Namespace        : System.Text
+Is it a class?   : 1
+Property Length  : 11
+Method ToString(): Hello, .NET
+Static Math.Max  : 9
+Static Math.PI   : 3.14
+A DateTime       : 2024-12-25 is a Wednesday
+A list of names  : 2 items, first is Ann
+Is it null?      : 1

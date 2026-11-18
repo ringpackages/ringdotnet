@@ -27,6 +27,10 @@ public static class ShotWin
 	[DllImport("user32.dll")] public static extern bool PrintWindow(IntPtr h, IntPtr dc, uint flags);
 	[DllImport("user32.dll")] public static extern IntPtr SetThreadDpiAwarenessContext(IntPtr c);
 	[DllImport("user32.dll")] public static extern uint GetDpiForSystem();
+	[DllImport("user32.dll")] static extern IntPtr GetWindowDpiAwarenessContext(IntPtr h);
+	[DllImport("user32.dll")] static extern int GetAwarenessFromDpiAwarenessContext(IntPtr c);
+	/* 0 = DPI unaware (Windows scales the window), 1 = system aware, 2 = per monitor aware */
+	public static int Awareness(IntPtr h) { try { return GetAwarenessFromDpiAwarenessContext(GetWindowDpiAwarenessContext(h)); } catch { return 0; } }
 	[DllImport("dwmapi.dll")] static extern int DwmGetWindowAttribute(IntPtr h, int attr, out RECT r, int size);
 	public static RECT Frame(IntPtr h) { RECT r; if (DwmGetWindowAttribute(h, 9, out r, 16) != 0) GetWindowRect(h, out r); return r; }
 	[StructLayout(LayoutKind.Sequential)] public struct RECT { public int Left, Top, Right, Bottom; }
@@ -82,6 +86,7 @@ $w = $r.Right - $r.Left
 $ht = $r.Bottom - $r.Top
 # the Ring process is DPI unaware: its window is drawn at the logical size and scaled by Windows
 $scale = [ShotWin]::GetDpiForSystem() / 96.0
+if ([ShotWin]::Awareness($h) -gt 0) { $scale = 1.0 }          # a DPI aware program (WPF) draws at the real size
 $w = [int][Math]::Ceiling($w / $scale)
 $ht = [int][Math]::Ceiling($ht / $scale)
 $bmp = New-Object System.Drawing.Bitmap $w, $ht
