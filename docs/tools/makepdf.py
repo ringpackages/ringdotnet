@@ -111,9 +111,9 @@ def main():
     toc.append("</ol>")
     doc = """<!doctype html><html lang="en"><head><meta charset="utf-8"><title>RingDotNet documentation</title>
 <base href="../"><link rel="stylesheet" href="assets/style.css"><style>%s</style></head><body>
-<section class="cover"><h1>RingDotNet</h1><p>Use .NET classes and methods from Ring programs</p><p style="margin-top:22px;font-size:15px">Documentation, %d pages: overview, tutorials, guides and reference. The class reference (one page for each namespace) is only in the HTML documentation.</p></section>
+<section class="cover"><h1>RingDotNet</h1><p>Use .NET classes and methods from Ring programs</p><p style="margin-top:22px;font-size:15px">Documentation: overview, tutorials, guides and reference. The class reference (one page for each namespace) is only in the HTML documentation.</p></section>
 <section class="doc-contents"><h1>Contents</h1>%s</section>
-<main>%s</main></body></html>""" % (CSS, len(allp), "".join(toc), "".join(parts))
+<main>%s</main></body></html>""" % (CSS, "".join(toc), "".join(parts))
     page = os.path.join(OUT, "RingDotNet-documentation.html")
     open(page, "w", encoding="utf-8").write(doc)
     pdf = os.path.join(OUT, "RingDotNet-documentation.pdf")
@@ -127,7 +127,7 @@ def main():
            "--virtual-time-budget=60000", "--print-to-pdf=" + pdf, "file:///" + page.replace("\\", "/")]
     subprocess.run(cmd, check=False, timeout=900, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     if os.path.exists(pdf):
-        print("%d pages of the documentation -> %s (%.1f MB)" % (len(allp), pdf, os.path.getsize(pdf) / 1048576))
+        print("the documentation -> %s (%.1f MB)" % (pdf, os.path.getsize(pdf) / 1048576))
         return 0
     print("The browser did not write the PDF")
     return 1
