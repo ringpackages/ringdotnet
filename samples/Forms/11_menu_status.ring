@@ -1,6 +1,6 @@
 # A menu bar and a status bar
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

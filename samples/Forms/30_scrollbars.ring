@@ -1,6 +1,6 @@
 # Horizontal and vertical scroll bars
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

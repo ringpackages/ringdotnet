@@ -1,5 +1,5 @@
 # Tutorial 47: a project - a small Markdown to HTML converter (regular expressions, StringBuilder, files)
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.IO"

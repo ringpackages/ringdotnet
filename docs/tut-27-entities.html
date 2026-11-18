@@ -124,7 +124,7 @@
 <div class="tablewrap"><table><thead><tr><th></th><th><code>RingDatabase</code></th><th><code>RingEntityDb</code></th></tr></thead><tbody><tr><td>a row</td><td><code>[["Name","Ann"],["Goals",5]]</code></td><td>an object: <code>oPlayer.getProp("Name")</code></td></tr><tr><td>a related row</td><td><code>parent(...)</code>, <code>children(...)</code></td><td><code>oPlayer.getProp("Team")</code>, <code>oTeam.getProp("Players")</code></td></tr><tr><td>changing</td><td><code>update(table, key, values)</code></td><td><code>oPlayer.setProp("Goals",8)</code> then <code>save()</code></td></tr><tr><td>best for</td><td>scripts, quick tools</td><td>programs that work with objects for a while</td></tr></tbody></table></div>
 <h2 id="part-1-objects">Part 1: objects<a class="anchor" href="#part-1-objects">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/e03_entities.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 27, part 1: entity objects - the rows of a table as real objects with navigation properties</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseData</span>()
 
 <span class="k">func</span> <span class="f">main</span>
@@ -207,7 +207,7 @@ STEP 5: after removing Bob there are 1 player(s)</code></pre></div>
 <h2 id="part-2-migrations">Part 2: migrations<a class="anchor" href="#part-2-migrations">#</a></h2>
 <p>You shipped version 1 of a program. Users have data. In version 2 you need a <code>Phone</code> column and a <code>Notes</code> table. If you only change the schema in the program, the <em>old file still has the old tables</em>: new code meets old data. A <strong>migration</strong> brings the file up to date.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/e04_migrations.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 27, part 2: changing a database that already has data - migrations</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseData</span>()
 using {
 	<span class="s">"System.IO"</span>

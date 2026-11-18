@@ -1,5 +1,5 @@
 # Tutorial 25: sockets - a TCP server and client in one program
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System.IO"
 	"System.Net"

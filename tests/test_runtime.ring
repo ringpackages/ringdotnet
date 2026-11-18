@@ -1,5 +1,5 @@
 # Batch: Reflection, Interop, Numerics, Timers, Pipes, Win32, Security, Mail, Tar, Concurrent, Encoders ...
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System")
 dnImport("System.IO")
 dnImport("System.Reflection")

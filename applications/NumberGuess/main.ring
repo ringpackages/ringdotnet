@@ -1,6 +1,6 @@
 # Guess the number between 1 and 100 - higher/lower hints and an attempts counter
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,5 +1,5 @@
 # Entity Framework Core: transactions and async calls
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

@@ -1,5 +1,5 @@
 # Entity Framework Core: migrations (schema evolution of an existing database)
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 dnImport("System.IO")
 

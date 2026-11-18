@@ -1,5 +1,5 @@
 # Tutorial 52: logging - levels, timestamps, a file, rotation, and what to write
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.IO"

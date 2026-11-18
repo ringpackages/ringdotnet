@@ -1,5 +1,5 @@
 # The first program: simple syntax, the namespaces are opened with using
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 using {
 	"System"

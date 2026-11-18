@@ -1,6 +1,6 @@
 # Analog clock - a port of ring/applications/analogclock to RingDotNet
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

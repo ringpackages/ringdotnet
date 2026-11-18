@@ -120,7 +120,7 @@
 <p>Run one with <code>ring 06_xaml_window.ring</code> from <code>samples/Wpf</code>; with <code>--selftest</code> it checks itself and closes. See the <a href="wpf.html">WPF guide</a> for the concepts.</p>
 <div class="gallery"><div class="item" id="hello-window"><div class="pic"><img src="img/shots/wpf-01_hello_window.png" alt="Hello window" loading="lazy"></div><div class="info"><h3>Hello window</h3><p>The smallest WPF window</p><div class="run"><code>ring samples/Wpf/01_hello_window.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The smallest WPF window</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -148,7 +148,7 @@ oPanel.Children.<span class="f">Add</span>(oText)
 <span class="f">wpfRun</span>(oWindow)
 <span class="f">wpfEnd</span>()</code></pre></div></details></div></div><div class="item" id="button-click"><div class="pic"><img src="img/shots/wpf-02_button_click.png" alt="Button click" loading="lazy"></div><div class="info"><h3>Button click</h3><p>A button counts its clicks (routed Click event)</p><div class="run"><code>ring samples/Wpf/02_button_click.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button counts its clicks (routed Click event)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -189,7 +189,7 @@ oPanel {
 	oButton.<span class="f">RaiseEvent</span>(oEvent)
 	<span class="f">dnAssert</span>(<span class="s">"two clicks"</span>,oInfo.Content,<span class="s">"2 clicks"</span>)</code></pre></div></details></div></div><div class="item" id="binding-slider"><div class="pic"><img src="img/shots/wpf-03_binding_slider.png" alt="Binding slider" loading="lazy"></div><div class="info"><h3>Binding slider</h3><p>Data binding: the text follows the slider</p><div class="run"><code>ring samples/Wpf/03_binding_slider.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Data binding: the text follows the slider</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -224,7 +224,7 @@ oPanel {
 <span class="f">wpfRun</span>(oWindow)
 <span class="f">wpfEnd</span>()</code></pre></div></details></div></div><div class="item" id="checkbox-radio"><div class="pic"><img src="img/shots/wpf-04_checkbox_radio.png" alt="Checkbox radio" loading="lazy"></div><div class="info"><h3>Checkbox radio</h3><p>Check box and radio buttons with their events</p><div class="run"><code>ring samples/Wpf/04_checkbox_radio.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Check box and radio buttons with their events</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -260,7 +260,7 @@ aRadios = []
 <span class="f">wpfRun</span>(oWindow)
 <span class="f">wpfEnd</span>()</code></pre></div></details></div></div><div class="item" id="list-combo"><div class="pic"><img src="img/shots/wpf-05_list_combo.png" alt="List combo" loading="lazy"></div><div class="info"><h3>List combo</h3><p>A list box and a combo box with selection events</p><div class="run"><code>ring samples/Wpf/05_list_combo.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A list box and a combo box with selection events</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -295,7 +295,7 @@ oPanel {
 <span class="f">wpfRun</span>(oWindow)
 <span class="f">wpfEnd</span>()</code></pre></div></details></div></div><div class="item" id="xaml-window"><div class="pic"><img src="img/shots/wpf-06_xaml_window.png" alt="Xaml window" loading="lazy"></div><div class="info"><h3>Xaml window</h3><p>A window described in XAML: parse it, find the named elements, handle events</p><div class="run"><code>ring samples/Wpf/06_xaml_window.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A window described in XAML: parse it, find the named elements, handle events</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -329,7 +329,7 @@ oPress.<span class="f">setClickEvent</span>(<span class="s">"oMessage.Text = 'Th
 	oPress.<span class="f">RaiseEvent</span>(oEvent)
 	<span class="f">dnAssert</span>(<span class="s">"event handler"</span>,oMessage.Text,<span class="s">"The XAML button was pressed"</span>)</code></pre></div></details></div></div><div class="item" id="shapes-pixels"><div class="pic"><img src="img/shots/wpf-07_shapes_pixels.png" alt="Shapes pixels" loading="lazy"></div><div class="info"><h3>Shapes pixels</h3><p>Shapes on a canvas, rendered to a bitmap to check the colors</p><div class="run"><code>ring samples/Wpf/07_shapes_pixels.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Shapes on a canvas, rendered to a bitmap to check the colors</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -379,7 +379,7 @@ oWindow.Content = oCanvas
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="f">dnAssert</span>(<span class="s">"rectangle"</span>,<span class="f">wpfPixel</span>(oCanvas,<span class="n">200</span>,<span class="n">120</span>,<span class="n">40</span>,<span class="n">30</span>),<span class="s">"ff4682b4"</span>)</code></pre></div></details></div></div><div class="item" id="grid-layout"><div class="pic"><img src="img/shots/wpf-08_grid_layout.png" alt="Grid layout" loading="lazy"></div><div class="info"><h3>Grid layout</h3><p>A grid with rows, columns and attached properties</p><div class="run"><code>ring samples/Wpf/08_grid_layout.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A grid with rows, columns and attached properties</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -429,7 +429,7 @@ fillGrid()
 	<span class="f">dnAssert</span>(<span class="s">"attached row"</span>,oGrid.<span class="f">GetRow</span>(oFifth),<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"attached column"</span>,oGrid.<span class="f">GetColumn</span>(oFifth),<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="menu-tabs"><div class="pic"><img src="img/shots/wpf-09_menu_tabs.png" alt="Menu tabs" loading="lazy"></div><div class="info"><h3>Menu tabs</h3><p>A menu and tab pages</p><div class="run"><code>ring samples/Wpf/09_menu_tabs.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A menu and tab pages</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -482,7 +482,7 @@ oDock.Children.<span class="f">Add</span>(oTabs)
 	<span class="f">dnAssert</span>(<span class="s">"second tab selected"</span>,oTabs.SelectedIndex,<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"tabs"</span>,oTabs.Items.Count,<span class="n">2</span>)</code></pre></div></details></div></div><div class="item" id="timer-progress"><div class="pic"><img src="img/shots/wpf-10_timer_progress.png" alt="Timer progress" loading="lazy"></div><div class="info"><h3>Timer progress</h3><p>A DispatcherTimer fills a progress bar</p><div class="run"><code>ring samples/Wpf/10_timer_progress.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A DispatcherTimer fills a progress bar</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>

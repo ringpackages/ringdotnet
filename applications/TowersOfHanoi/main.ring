@@ -1,7 +1,7 @@
 # Towers of Hanoi - click a peg to pick the top disk, click another peg to drop it; or let it solve itself
 # (a port of ring/applications/towersofhanoi to RingDotNet)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

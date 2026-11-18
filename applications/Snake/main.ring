@@ -1,6 +1,6 @@
 # Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

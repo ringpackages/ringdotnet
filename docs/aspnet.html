@@ -118,7 +118,7 @@
 <article>
 <h1>ASP.NET Core</h1><p class="lead">A Kestrel web server whose routes are Ring functions — HTML pages, JSON APIs, forms — plus all of the ASP.NET Core classes for everything else.</p>
 <h2 id="a-web-server-in-a-few-lines">A web server in a few lines<a class="anchor" href="#a-web-server-in-a-few-lines">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseWeb</span>()                                     <span class="c"># before any other .NET call</span>
 
 oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://localhost:5080"</span>)
@@ -162,7 +162,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 <span class="c">#   ring main.ring            then open http://localhost:5080/</span>
 <span class="c">#   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseWeb</span>()
 using {
 	<span class="s">"System"</span>

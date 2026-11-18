@@ -1,5 +1,5 @@
 # Entity Framework Core with real entity classes: navigation properties, tracking, include
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

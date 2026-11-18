@@ -5,7 +5,7 @@ Use .NET classes and methods from Ring programs.
 The package hosts the .NET runtime inside the Ring process (through `hostfxr`) and talks to it through a small managed bridge, so any installed .NET (Core) runtime, 6.0 or newer, and any assembly (the framework or your own `.dll`) can be used.
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 ? dnVersion()                                   # .NET 9.0.x
 dnType("System.Console").callMethod("WriteLine",["Hello from .NET"])
@@ -35,7 +35,7 @@ ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
 generates Ring classes (with inheritance, properties, events, enums as strings) for every public class of the assembly, one loader per namespace. Use them with:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll (copy a NuGet package's dll files there)
 dnImportFrom("myclasses/","MyCompany.Tools")
 oCalc = new Calculator()
@@ -48,7 +48,7 @@ oCalc = new Calculator()
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System.Text")                 # load the generated classes of a namespace
 
 oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them

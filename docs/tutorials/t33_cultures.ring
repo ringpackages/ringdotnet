@@ -1,5 +1,5 @@
 # Tutorial 33: cultures - the same number, date and text written, read and sorted in different languages
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Globalization"

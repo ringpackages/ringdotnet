@@ -1,7 +1,7 @@
 # Tutorial 28: testing your programs - small functions, dnAssert, expected errors, a test summary
 #   ring t28_testing.ring            all tests pass
 #   ring t28_testing.ring --break    one test fails on purpose, to show what a failure looks like
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Text.RegularExpressions"

@@ -1,6 +1,6 @@
 # A list box: add, remove and the selected item
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,6 +1,6 @@
 # A context (right-click) menu
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

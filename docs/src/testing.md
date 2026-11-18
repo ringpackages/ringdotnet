@@ -32,7 +32,7 @@ and prints `0 failed` when everything passes. It needs the package `bin` folder 
 ## dnAssert
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 dnAssert("max",new Math().Max(3,9),9)
 dnAssert("name",oForm.Text,"Hello")

@@ -1,5 +1,5 @@
 # Tutorial 38: WPF layout and styles - Grid, resources, a Style for all buttons, a keypad
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

@@ -1,6 +1,6 @@
 # Tutorial 18: using a library written in C# - build it, wrap it, call it
 #   (the library is in the folder Greeter: Greeter.cs and Greeter.csproj)
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 nTimes = 0                      # event code can only see globals
 cHere = currentdir()

@@ -1,6 +1,6 @@
 # To-do list with check boxes, saved to a text file
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

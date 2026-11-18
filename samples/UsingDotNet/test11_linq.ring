@@ -1,4 +1,4 @@
-load "dotnetlib.ring"
+load "dotnet.ring"
 using { "System.Linq" }
 
 # LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)

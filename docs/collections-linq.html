@@ -135,7 +135,7 @@ oDict.<span class="f">SetItem</span>(<span class="s">"two"</span>,<span class="s
 ? oDict.<span class="f">Item</span>(<span class="s">"two"</span>)
 aResult = oDict.<span class="f">TryGetValue</span>(<span class="s">"three"</span>)   <span class="c"># out parameters come back as a list</span>
 ? aResult[<span class="n">1</span>]                           <span class="c"># 0</span></code></pre></div>
-<details class="src"><summary>samples/UsingDotNet/test03_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test03_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/test03_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test03_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"System.Collections.Generic"</span> }
 
 <span class="c"># List&lt;string&gt;</span>
@@ -208,7 +208,7 @@ Pop = top</code></pre></div>
 <div class="callout tip"><span class="t">Tip</span><p>To add your own closed generic type, put a line such as <code>["System.Collections.Generic.List</code>1[[System.Int32]]","IntList",0]<code> into </code>aTypes<code> in </code>tools/gendotnet.ring<code> and run the generator. Without a class, </code>dnNewGeneric(...)<code> gives you the object and </code>callMethod` works on it.</p></div>
 <h2 id="other-collection-classes">Other collection classes<a class="anchor" href="#other-collection-classes">#</a></h2>
 <p><code>System.Collections</code>, <code>System.Collections.Specialized</code>, <code>System.Collections.Concurrent</code> and <code>System.Collections.ObjectModel</code> are wrapped completely: <code>ArrayList</code>, <code>Hashtable</code>, <code>SortedList</code>, <code>Stack</code>, <code>Queue</code>, <code>BitArray</code>, <code>NameValueCollection</code>, <code>ObservableCollection</code> and so on.</p>
-<details class="src"><summary>samples/UsingDotNet/test10_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test10_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/test10_collections.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test10_collections.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System.Collections"</span>
 	<span class="s">"System.Collections.Specialized"</span>
@@ -278,7 +278,7 @@ aTop = <span class="f">dnQuery</span>(aSales).<span class="f">Where</span>(<span
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Sum</span>(<span class="s">""</span>)
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Average</span>(<span class="s">""</span>)
 ? <span class="f">dnQuery</span>(aSales).<span class="f">Max</span>(<span class="s">""</span>)</code></pre></div>
-<details class="src"><summary>samples/UsingDotNet/test11_linq.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test11_linq.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<details class="src"><summary>samples/UsingDotNet/test11_linq.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test11_linq.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using { <span class="s">"System.Linq"</span> }
 
 <span class="c"># LINQ over Ring lists: the conditions are Ring code (aDotNetArgs[1] is the item)</span>

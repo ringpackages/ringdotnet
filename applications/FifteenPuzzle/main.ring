@@ -1,6 +1,6 @@
 # Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

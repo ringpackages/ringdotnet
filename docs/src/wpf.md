@@ -6,7 +6,7 @@ lead: Windows Presentation Foundation from Ring — windows, panels, controls, X
 ## A first WPF window
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

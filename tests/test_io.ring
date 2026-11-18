@@ -1,5 +1,5 @@
 # Batch: System.IO, System.IO.Compression, System.Text.RegularExpressions
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System")
 dnImport("System.IO")
 dnImport("System.IO.Compression")

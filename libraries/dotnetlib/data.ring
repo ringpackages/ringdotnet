@@ -1,7 +1,7 @@
 /*
 	Entity Framework Core (with SQLite) for Ring programs.
 
-	load "dotnetlib.ring"
+	load "dotnet.ring"
 	dnUseData()
 
 	oDb = new RingDatabase("Data Source=people.db",[

@@ -1,6 +1,6 @@
 # A contacts book stored in a SQLite database with Entity Framework Core
 #   ring main.ring                 (console menu)      ring main.ring --selftest
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

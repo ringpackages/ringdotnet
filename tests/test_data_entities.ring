@@ -1,5 +1,5 @@
 # Entity Framework Core with real entity classes (generated from the schema)
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

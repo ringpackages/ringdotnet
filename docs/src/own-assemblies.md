@@ -13,7 +13,7 @@ lead: Wrap any .NET DLL — your own library or a NuGet package — with one com
 ## Generic calls
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnLoad("path/to/MyLibrary.dll")                       # dependencies are found next to the dll
 
 oCalc = dnNew("MyCompany.Tools.Calculator",[10])
@@ -34,7 +34,7 @@ ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
 This writes one loader per namespace and one file per class into `myclasses/`. Use them like any other wrapped namespace:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnLoad("path/to/MyLibrary.dll")
 dnImportFrom("myclasses/","MyCompany.Tools")
 

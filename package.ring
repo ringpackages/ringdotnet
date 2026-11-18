@@ -67,7 +67,7 @@ aPackageInfo = [
 		"applications/WordCounter/main.ring",
 		"applications/WpfCalculator/main.ring",
 		"applications/WpfColorMixer/main.ring",
-		"bin/load/dotnetlib.ring",
+		"bin/load/dotnet.ring",
 		"extensions/ringdotnet/README.md",
 		"extensions/ringdotnet/bridge/Bridge.cs",
 		"extensions/ringdotnet/bridge/RingDotNet.Bridge.csproj",

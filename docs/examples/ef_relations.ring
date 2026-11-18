@@ -1,5 +1,5 @@
 # Entity Framework Core: foreign keys, children, parent, include and delete behaviors
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

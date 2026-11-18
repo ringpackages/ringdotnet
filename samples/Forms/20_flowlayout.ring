@@ -1,6 +1,6 @@
 # Buttons in a flow layout panel that wraps
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

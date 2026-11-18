@@ -1,5 +1,5 @@
 # Tutorial 11, step 3: the button does something - events and global variables
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

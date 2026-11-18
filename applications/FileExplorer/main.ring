@@ -1,6 +1,6 @@
 # File explorer - a folder tree on the left, the files of the selected folder on the right
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

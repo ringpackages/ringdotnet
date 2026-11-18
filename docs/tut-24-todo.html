@@ -123,7 +123,7 @@
 <div class="tablewrap"><table><thead><tr><th>Part</th><th>Decision</th></tr></thead><tbody><tr><td><strong>Data</strong></td><td>the tasks live in the list control itself; each has a text and a done flag</td></tr><tr><td><strong>Window</strong></td><td>a text box and <em>Add</em> / <em>Remove</em> buttons on top, the list in the middle, a status line at the bottom</td></tr><tr><td><strong>Behaviour</strong></td><td><em>Add</em> ignores blank text; clicking an item ticks it; the status says "n of m done"</td></tr><tr><td><strong>Saving</strong></td><td>after every change the tasks are written to a JSON file; at start-up the file is read</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g24_todo.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 24: a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>

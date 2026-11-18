@@ -1,7 +1,7 @@
 /*
 	using { ... } : import .NET namespaces the way C# does.
 
-	load "dotnetlib.ring"
+	load "dotnet.ring"
 	using {
 		"System"
 		"System.Text"

@@ -1,6 +1,6 @@
 # Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

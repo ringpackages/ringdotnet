@@ -1,6 +1,6 @@
 # Type in the text box: the label follows (TextChanged event)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

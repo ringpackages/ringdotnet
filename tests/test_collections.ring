@@ -1,5 +1,5 @@
 # Batch: System.Collections, System.Collections.Specialized, System.Collections.Generic (closed types), ObjectModel
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System.Collections")
 dnImport("System.Collections.Specialized")
 dnImport("System.Collections.Generic")

@@ -124,12 +124,12 @@
 <p>Install the package with <strong>RingPM</strong>, the Ring package manager, in one step:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ringpm install ringdotnet from ringpackages</code></pre></div>
 <p>That is all. The command copies the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span></code></pre></div>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span></code></pre></div>
 <p>You do not need to set a path or copy files. To test the installation, run a sample:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/test00_first.ring</code></pre></div>
 <h2 id="your-first-program">Your first program<a class="anchor" href="#your-first-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test00_first.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The first program: simple syntax, the namespaces are opened with using</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 using {
 	<span class="s">"System"</span>
@@ -169,7 +169,7 @@ using {
 <h2 id="your-first-window">Your first window<a class="anchor" href="#your-first-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>

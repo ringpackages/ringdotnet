@@ -1,6 +1,6 @@
 # Loan calculator - monthly payment, total interest and the first rows of the amortization table
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -6,7 +6,7 @@ lead: A Kestrel web server whose routes are Ring functions — HTML pages, JSON 
 ## A web server in a few lines
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseWeb()                                     # before any other .NET call
 
 oServer = new WebServer("http://localhost:5080")

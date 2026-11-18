@@ -1,6 +1,6 @@
 # A button that counts its clicks
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

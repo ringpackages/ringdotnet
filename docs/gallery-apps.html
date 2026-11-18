@@ -122,7 +122,7 @@
 <p>Applications that are not windows: <code>applications/WebApi</code> (<a href="aspnet.html">ASP.NET Core</a>) and <code>applications/Contacts</code> (<a href="ef.html">Entity Framework</a>).</p>
 <div class="gallery"><div class="item" id="address-book"><div class="pic"><img src="img/shots/app-AddressBook.png" alt="Address Book" loading="lazy"></div><div class="info"><h3>Address Book</h3><p>Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</p><div class="run"><code>cd applications/AddressBook  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -274,7 +274,7 @@ showCount()
 	<span class="f">dnAssert</span>(<span class="s">"save message"</span>,left(oMessage.Text,<span class="n">7</span>),<span class="s">"Saved 1"</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div></details></div></div><div class="item" id="analog-clock"><div class="pic"><img src="img/shots/app-AnalogClock.png" alt="Analog Clock" loading="lazy"></div><div class="info"><h3>Analog Clock</h3><p>Analog clock - a port of ring/applications/analogclock to RingDotNet</p><div class="run"><code>cd applications/AnalogClock  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Analog clock - a port of ring/applications/analogclock to RingDotNet</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -360,7 +360,7 @@ oTimer.<span class="f">Start</span>()
 	tick()
 	<span class="f">dnAssert</span>(<span class="s">"digital clock text"</span>,len(oDigital.Text),<span class="n">8</span>)</code></pre></div></details></div></div><div class="item" id="ascii-table"><div class="pic"><img src="img/shots/app-AsciiTable.png" alt="Ascii Table" loading="lazy"></div><div class="info"><h3>Ascii Table</h3><p>ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</p><div class="run"><code>cd applications/AsciiTable  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># ASCII table in a ListView with a filter (a port of ring/applications/asciitable)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -453,7 +453,7 @@ fillTable()
 	<span class="f">dnAssert</span>(<span class="s">"all rows again"</span>,oList.Items.Count,<span class="n">128</span>)
 	<span class="f">dnAssert</span>(<span class="s">"count label"</span>,oCount.Text,<span class="s">"128 characters"</span>)</code></pre></div></details></div></div><div class="item" id="bmicalculator"><div class="pic"><img src="img/shots/app-BMICalculator.png" alt="BMICalculator" loading="lazy"></div><div class="info"><h3>BMICalculator</h3><p>BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)</p><div class="run"><code>cd applications/BMICalculator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -553,7 +553,7 @@ oUnits.<span class="f">setSelectedIndexChangedEvent</span>(<span class="s">"unit
 	calculate()
 	<span class="f">dnAssert</span>(<span class="s">"empty input"</span>,oBmi.Text,<span class="s">"Enter a weight and a height"</span>)</code></pre></div></details></div></div><div class="item" id="calculator"><div class="pic"><img src="img/shots/app-Calculator.png" alt="Calculator" loading="lazy"></div><div class="info"><h3>Calculator</h3><p>Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)</p><div class="run"><code>cd applications/Calculator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -806,7 +806,7 @@ oForm {
 		<span class="f">dnAssert</span>(<span class="s">"division with the keyboard"</span>,oScreen.Text,<span class="s">"3"</span>)
 	<span class="k">ok</span></code></pre></div></details></div></div><div class="item" id="calendar"><div class="pic"><img src="img/shots/app-Calendar.png" alt="Calendar" loading="lazy"></div><div class="info"><h3>Calendar</h3><p>Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)</p><div class="run"><code>cd applications/Calendar  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -869,7 +869,7 @@ showFacts()
 	<span class="f">dnAssert</span>(<span class="s">"quarter 3"</span>,substr(oFacts.Text,<span class="s">"Quarter: 3"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"weekday"</span>,substr(oFacts.Text,<span class="s">"Tuesday"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="color-mixer"><div class="pic"><img src="img/shots/app-ColorMixer.png" alt="Color Mixer" loading="lazy"></div><div class="info"><h3>Color Mixer</h3><p>Color mixer - three track bars, the color, its #RRGGBB code and HSV values</p><div class="run"><code>cd applications/ColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer - three track bars, the color, its #RRGGBB code and HSV values</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -963,7 +963,7 @@ aBars[<span class="n">3</span>].Value = <span class="n">40</span>
 	randomColor()
 	<span class="f">dnAssert</span>(<span class="s">"random color has a code"</span>,len(oHex.Text),<span class="n">7</span>)</code></pre></div></details></div></div><div class="item" id="countdown"><div class="pic"><img src="img/shots/app-Countdown.png" alt="Countdown" loading="lazy"></div><div class="info"><h3>Countdown</h3><p>Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)</p><div class="run"><code>cd applications/Countdown  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -1103,7 +1103,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">1000</span>,<span class=
 	resetTimer()
 	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oDisplay.Text,<span class="s">"00:05"</span>)</code></pre></div></details></div></div><div class="item" id="dice-roller"><div class="pic"><img src="img/shots/app-DiceRoller.png" alt="Dice Roller" loading="lazy"></div><div class="info"><h3>Dice Roller</h3><p>Dice roller - draws five dice with their pips and keeps statistics</p><div class="run"><code>cd applications/DiceRoller  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Dice roller - draws five dice with their pips and keeps statistics</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -1220,7 +1220,7 @@ draw()
 	<span class="f">dnAssert</span>(<span class="s">"dice are between 1 and 6"</span>,lValid,<span class="n">1</span>)</code></pre></div></details></div></div><div class="item" id="eight-queens"><div class="pic"><img src="img/shots/app-EightQueens.png" alt="Eight Queens" loading="lazy"></div><div class="info"><h3>Eight Queens</h3><p>Eight queens - place 8 queens so that none attacks another (a port of ring/applications/eightqueens) Click a square to put or remove a queen; "Solve" finds a solution with backtracking.</p><div class="run"><code>cd applications/EightQueens  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Eight queens - place 8 queens so that none attacks another (a port of ring/applications/eightqueens)</span>
 <span class="c"># Click a square to put or remove a queen; "Solve" finds a solution with backtracking.</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -1396,7 +1396,7 @@ showBoard()
 	<span class="f">dnAssert</span>(<span class="s">"a queen in every column"</span>,aSquares[squareOf(aQueens[<span class="n">1</span>],<span class="n">1</span>)].Text,<span class="s">"Q"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the number of solutions of the 8 queens problem"</span>,countSolutions(<span class="n">1</span>,list(C_SIZE)),<span class="n">92</span>)</code></pre></div></details></div></div><div class="item" id="epoch-time"><div class="pic"><img src="img/shots/app-EpochTime.png" alt="Epoch Time" loading="lazy"></div><div class="info"><h3>Epoch Time</h3><p>Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)</p><div class="run"><code>cd applications/EpochTime  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -1485,7 +1485,7 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	showNow()
 	<span class="f">dnAssert</span>(<span class="s">"now is after 2024"</span>,number(oEpoch.Text) &gt; <span class="n">1704067200</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="fifteen-puzzle"><div class="pic"><img src="img/shots/app-FifteenPuzzle.png" alt="Fifteen Puzzle" loading="lazy"></div><div class="info"><h3>Fifteen Puzzle</h3><p>Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</p><div class="run"><code>cd applications/FifteenPuzzle  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Fifteen puzzle (sliding tiles) - a port of ring/applications/fifteenpuzzle to RingDotNet</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -1616,7 +1616,7 @@ shuffleBoard()
 	<span class="k">next</span>
 	<span class="f">dnAssert</span>(<span class="s">"all tiles present"</span>,nTotal,<span class="n">120</span>)</code></pre></div></details></div></div><div class="item" id="file-explorer"><div class="pic"><img src="img/shots/app-FileExplorer.png" alt="File Explorer" loading="lazy"></div><div class="info"><h3>File Explorer</h3><p>File explorer - a folder tree on the left, the files of the selected folder on the right</p><div class="run"><code>cd applications/FileExplorer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># File explorer - a folder tree on the left, the files of the selected folder on the right</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -1750,7 +1750,7 @@ oTree {
 	<span class="f">dnAssert</span>(<span class="s">"sizes"</span>,sizeText(<span class="n">3</span> * <span class="n">1048576</span>),<span class="s">"3 MB"</span>)
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])</code></pre></div></details></div></div><div class="item" id="game2048"><div class="pic"><img src="img/shots/app-Game2048.png" alt="Game2048" loading="lazy"></div><div class="info"><h3>Game2048</h3><p>2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</p><div class="run"><code>cd applications/Game2048  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -1994,7 +1994,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"no moves left"</span>,canMove(),<span class="n">0</span>)</code></pre></div></details></div></div><div class="item" id="game-of-life"><div class="pic"><img src="img/shots/app-GameOfLife.png" alt="Game Of Life" loading="lazy"></div><div class="info"><h3>Game Of Life</h3><p>Conway's Game of Life - click cells to toggle them, Start runs the generations (a port of ring/applications/gameoflife to RingDotNet)</p><div class="run"><code>cd applications/GameOfLife  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Conway's Game of Life - click cells to toggle them, Start runs the generations</span>
 <span class="c"># (a port of ring/applications/gameoflife to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -2149,7 +2149,7 @@ glider()
 	<span class="f">dnAssert</span>(<span class="s">"button starts the timer"</span>,oRun.Text,<span class="s">"Stop"</span>)
 	oRun.<span class="f">PerformClick</span>()</code></pre></div></details></div></div><div class="item" id="hangman"><div class="pic"><img src="img/shots/app-Hangman.png" alt="Hangman" loading="lazy"></div><div class="info"><h3>Hangman</h3><p>Hangman - guess the word letter by letter</p><div class="run"><code>cd applications/Hangman  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Hangman - guess the word letter by letter</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -2277,7 +2277,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"lost after 6 wrong guesses"</span>,left(oInfo.Text,<span class="n">8</span>),<span class="s">"You lost"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the word is shown"</span>,oWord.Text,<span class="s">"RING"</span>)</code></pre></div></details></div></div><div class="item" id="image-viewer"><div class="pic"><img src="img/shots/app-ImageViewer.png" alt="Image Viewer" loading="lazy"></div><div class="info"><h3>Image Viewer</h3><p>Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)</p><div class="run"><code>cd applications/ImageViewer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -2426,7 +2426,7 @@ oBox.<span class="f">BringToFront</span>()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cOut)</code></pre></div></details></div></div><div class="item" id="julian-day"><div class="pic"><img src="img/shots/app-JulianDay.png" alt="Julian Day" loading="lazy"></div><div class="info"><h3>Julian Day</h3><p>Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</p><div class="run"><code>cd applications/JulianDay  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -2507,7 +2507,7 @@ fromDate()
 	<span class="f">dnAssert</span>(<span class="s">"the picker event updated the text"</span>,oJulian.Text,<span class="s">"2451545"</span>)</code></pre></div></details></div></div><div class="item" id="lights-out"><div class="pic"><img src="img/shots/app-LightsOut.png" alt="Lights Out" loading="lazy"></div><div class="info"><h3>Lights Out</h3><p>Lights Out - press a cell to toggle it and its neighbours until all the lights are off (a port of ring/applications/lightsout to RingDotNet)</p><div class="run"><code>cd applications/LightsOut  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Lights Out - press a cell to toggle it and its neighbours until all the lights are off</span>
 <span class="c"># (a port of ring/applications/lightsout to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -2603,7 +2603,7 @@ newGame()
 	newGame()
 	<span class="f">dnAssert</span>(<span class="s">"new game resets the counter"</span>,nPresses,<span class="n">0</span>)</code></pre></div></details></div></div><div class="item" id="loan-calculator"><div class="pic"><img src="img/shots/app-LoanCalculator.png" alt="Loan Calculator" loading="lazy"></div><div class="info"><h3>Loan Calculator</h3><p>Loan calculator - monthly payment, total interest and the first rows of the amortization table</p><div class="run"><code>cd applications/LoanCalculator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Loan calculator - monthly payment, total interest and the first rows of the amortization table</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -2703,7 +2703,7 @@ calculate()
 	<span class="f">dnAssert</span>(<span class="s">"invalid input"</span>,oPayment.Text,<span class="s">"Check the input"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"annuity formula"</span>,floor(monthlyPayment(<span class="n">1000</span>,<span class="n">12</span>,<span class="n">1</span>) * <span class="n">100</span>),<span class="n">8884</span>)</code></pre></div></details></div></div><div class="item" id="login-form"><div class="pic"><img src="img/shots/app-LoginForm.png" alt="Login Form" loading="lazy"></div><div class="info"><h3>Login Form</h3><p>Login form with validation, a password hash and an error provider</p><div class="run"><code>cd applications/LoginForm  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Login form with validation, a password hash and an error provider</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -2849,7 +2849,7 @@ register(<span class="s">"admin"</span>,<span class="s">"secret"</span>)
 	togglePassword()
 	<span class="f">dnAssert</span>(<span class="s">"show password turns the mask off"</span>,oPassword.UseSystemPasswordChar,<span class="k">False</span>)</code></pre></div></details></div></div><div class="item" id="memory-game"><div class="pic"><img src="img/shots/app-MemoryGame.png" alt="Memory Game" loading="lazy"></div><div class="info"><h3>Memory Game</h3><p>Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</p><div class="run"><code>cd applications/MemoryGame  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -2993,7 +2993,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"new game hides everything"</span>,aCardButtons[<span class="n">1</span>].Text,<span class="s">"?"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"16 symbols"</span>,len(aSymbols),<span class="n">16</span>)</code></pre></div></details></div></div><div class="item" id="minesweeper"><div class="pic"><img src="img/shots/app-Minesweeper.png" alt="Minesweeper" loading="lazy"></div><div class="info"><h3>Minesweeper</h3><p>Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)</p><div class="run"><code>cd applications/Minesweeper  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -3208,7 +3208,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"message"</span>,oInfo.Text,<span class="s">"Boom! Game over"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"mines shown"</span>,aButtons[<span class="n">3</span>].Text,<span class="s">"*"</span>)</code></pre></div></details></div></div><div class="item" id="notepad"><div class="pic"><img src="img/shots/app-Notepad.png" alt="Notepad" loading="lazy"></div><div class="info"><h3>Notepad</h3><p>Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet</p><div class="run"><code>cd applications/Notepad  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -3439,7 +3439,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	<span class="f">dnAssert</span>(<span class="s">"not found message"</span>,oFound.Text,<span class="s">"Not found"</span>)
 	lModified = <span class="k">false</span></code></pre></div></details></div></div><div class="item" id="number-guess"><div class="pic"><img src="img/shots/app-NumberGuess.png" alt="Number Guess" loading="lazy"></div><div class="info"><h3>Number Guess</h3><p>Guess the number between 1 and 100 - higher/lower hints and an attempts counter</p><div class="run"><code>cd applications/NumberGuess  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Guess the number between 1 and 100 - higher/lower hints and an attempts counter</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -3523,7 +3523,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"new game resets"</span>,nAttempts,<span class="n">0</span>)
 	<span class="f">dnAssert</span>(<span class="s">"secret in range"</span>,nSecret &gt;= <span class="n">1</span> <span class="k">and</span> nSecret &lt;= <span class="n">100</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="paint"><div class="pic"><img src="img/shots/app-Paint.png" alt="Paint" loading="lazy"></div><div class="info"><h3>Paint</h3><p>Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</p><div class="run"><code>cd applications/Paint  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Paint - draw with the mouse (mouse events and UiCanvas), save the picture as PNG</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -3630,7 +3630,7 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	clearCanvas()
 	<span class="f">dnAssert</span>(<span class="s">"cleared"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">100</span>,<span class="n">50</span>),<span class="s">"ffffffff"</span>)</code></pre></div></details></div></div><div class="item" id="password-generator"><div class="pic"><img src="img/shots/app-PasswordGenerator.png" alt="Password Generator" loading="lazy"></div><div class="info"><h3>Password Generator</h3><p>Password generator - uses the .NET cryptographic random number generator</p><div class="run"><code>cd applications/PasswordGenerator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Password generator - uses the .NET cryptographic random number generator</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -3770,7 +3770,7 @@ generate()
 	<span class="k">next</span>
 	<span class="f">dnAssert</span>(<span class="s">"all values appear"</span>,substr(nSeen,<span class="s">"0"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"1"</span>) &gt; <span class="n">0</span> <span class="k">and</span> substr(nSeen,<span class="s">"2"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="pong"><div class="pic"><img src="img/shots/app-Pong.png" alt="Pong" loading="lazy"></div><div class="info"><h3>Pong</h3><p>Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</p><div class="run"><code>cd applications/Pong  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -3934,7 +3934,7 @@ draw()
 	<span class="f">dnAssert</span>(<span class="s">"score text"</span>,oScore.Text,<span class="s">"You 1  :  0 Computer"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"the paddle is drawn"</span>,oCanvas.<span class="f">pixel</span>(<span class="n">36</span>,nPlayerY + <span class="n">10</span>),<span class="s">"ff1e90ff"</span>)</code></pre></div></details></div></div><div class="item" id="rock-paper-scissors"><div class="pic"><img src="img/shots/app-RockPaperScissors.png" alt="Rock Paper Scissors" loading="lazy"></div><div class="info"><h3>Rock Paper Scissors</h3><p>Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</p><div class="run"><code>cd applications/RockPaperScissors  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -4024,7 +4024,7 @@ showScore()
 	oForm.Controls.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">PerformClick</span>()
 	<span class="f">dnAssert</span>(<span class="s">"a click counts one game"</span>,nWins + nLosses + nTies,<span class="n">4</span>)</code></pre></div></details></div></div><div class="item" id="snake"><div class="pic"><img src="img/shots/app-Snake.png" alt="Snake" loading="lazy"></div><div class="info"><h3>Snake</h3><p>Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)</p><div class="run"><code>cd applications/Snake  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Snake - arrow keys, eat the food, do not hit the walls or yourself (a port of ring/applications/snake)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -4190,7 +4190,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"game over on itself"</span>,lAlive,<span class="n">0</span>)</code></pre></div></details></div></div><div class="item" id="sokoban"><div class="pic"><img src="img/shots/app-Sokoban.png" alt="Sokoban" loading="lazy"></div><div class="info"><h3>Sokoban</h3><p>Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban) # wall   @ player   $ box   . target   * box on a target   + player on a target</p><div class="run"><code>cd applications/Sokoban  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban)</span>
 <span class="c">#   # wall   @ player   $ box   . target   * box on a target   + player on a target</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -4441,7 +4441,7 @@ loadLevel(<span class="n">1</span>)
 	loadLevel(<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"a small level keeps a usable width"</span>,oForm.ClientSize.Width,<span class="n">400</span>)</code></pre></div></details></div></div><div class="item" id="stopwatch"><div class="pic"><img src="img/shots/app-Stopwatch.png" alt="Stopwatch" loading="lazy"></div><div class="info"><h3>Stopwatch</h3><p>Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet</p><div class="run"><code>cd applications/Stopwatch  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -4539,7 +4539,7 @@ oTimer = <span class="f">uiTimer</span>(<span class="n">50</span>,<span class="s
 	<span class="f">dnAssert</span>(<span class="s">"reset"</span>,oTime.Text,<span class="s">"00:00.00"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"laps cleared"</span>,oLaps.Items.Count,<span class="n">0</span>)</code></pre></div></details></div></div><div class="item" id="sudoku"><div class="pic"><img src="img/shots/app-Sudoku.png" alt="Sudoku" loading="lazy"></div><div class="info"><h3>Sudoku</h3><p>Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)</p><div class="run"><code>cd applications/Sudoku  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -4735,7 +4735,7 @@ loadPuzzle(aPuzzle)
 	solveBoard()
 	<span class="f">dnAssert</span>(<span class="s">"impossible puzzle"</span>,oInfo.Text,<span class="s">"This puzzle has no solution"</span>)</code></pre></div></details></div></div><div class="item" id="temperature-converter"><div class="pic"><img src="img/shots/app-TemperatureConverter.png" alt="Temperature Converter" loading="lazy"></div><div class="info"><h3>Temperature Converter</h3><p>Temperature converter: type in any box and the others follow (TextChanged events)</p><div class="run"><code>cd applications/TemperatureConverter  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Temperature converter: type in any box and the others follow (TextChanged events)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -4820,7 +4820,7 @@ oCelsius.Text = <span class="s">"20"</span>
 	oCelsius.Text = <span class="s">"abc"</span>
 	<span class="f">dnAssert</span>(<span class="s">"invalid text is ignored"</span>,oFahrenheit.Text,<span class="s">"-459.67"</span>)</code></pre></div></details></div></div><div class="item" id="tetris"><div class="pic"><img src="img/shots/app-Tetris.png" alt="Tetris" loading="lazy"></div><div class="info"><h3>Tetris</h3><p>Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)</p><div class="run"><code>cd applications/Tetris  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -5089,7 +5089,7 @@ newGame()
 	<span class="f">dnAssert</span>(<span class="s">"new game"</span>,lGameOver,<span class="n">0</span>)
 	oTimer.<span class="f">Stop</span>()</code></pre></div></details></div></div><div class="item" id="tic-tac-toe"><div class="pic"><img src="img/shots/app-TicTacToe.png" alt="Tic Tac Toe" loading="lazy"></div><div class="info"><h3>Tic Tac Toe</h3><p>Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet</p><div class="run"><code>cd applications/TicTacToe  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -5242,7 +5242,7 @@ showScore()
 	<span class="f">dnAssert</span>(<span class="s">"game ended"</span>,lGameOver,<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"score updated"</span>,nWinsO + nDraws + nWinsX &gt;= <span class="n">1</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="todo-list"><div class="pic"><img src="img/shots/app-TodoList.png" alt="Todo List" loading="lazy"></div><div class="info"><h3>Todo List</h3><p>To-do list with check boxes, saved to a text file</p><div class="run"><code>cd applications/TodoList  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># To-do list with check boxes, saved to a text file</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -5356,7 +5356,7 @@ loadTasks()
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div></details></div></div><div class="item" id="towers-of-hanoi"><div class="pic"><img src="img/shots/app-TowersOfHanoi.png" alt="Towers Of Hanoi" loading="lazy"></div><div class="info"><h3>Towers Of Hanoi</h3><p>Towers of Hanoi - click a peg to pick the top disk, click another peg to drop it; or let it solve itself (a port of ring/applications/towersofhanoi to RingDotNet)</p><div class="run"><code>cd applications/TowersOfHanoi  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Towers of Hanoi - click a peg to pick the top disk, click another peg to drop it; or let it solve itself</span>
 <span class="c"># (a port of ring/applications/towersofhanoi to RingDotNet)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -5529,7 +5529,7 @@ newGame()
 	solve(nDisks,<span class="n">1</span>,<span class="n">3</span>,<span class="n">2</span>)
 	<span class="f">dnAssert</span>(<span class="s">"31 moves for 5 disks"</span>,len(aPlan),<span class="n">31</span>)</code></pre></div></details></div></div><div class="item" id="typing-quiz"><div class="pic"><img src="img/shots/app-TypingQuiz.png" alt="Typing Quiz" loading="lazy"></div><div class="info"><h3>Typing Quiz</h3><p>Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)</p><div class="run"><code>cd applications/TypingQuiz  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>
@@ -5662,7 +5662,7 @@ newSentence()
 	newSentence()
 	<span class="f">dnAssert</span>(<span class="s">"new sentence is one of the list"</span>,find(aSentences,cTarget) &gt; <span class="n">0</span>,<span class="k">True</span>)</code></pre></div></details></div></div><div class="item" id="unit-converter"><div class="pic"><img src="img/shots/app-UnitConverter.png" alt="Unit Converter" loading="lazy"></div><div class="info"><h3>Unit Converter</h3><p>Unit converter - length, weight, volume and temperature</p><div class="run"><code>cd applications/UnitConverter  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Unit converter - length, weight, volume and temperature</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -5798,7 +5798,7 @@ oValue.Text = <span class="s">"1"</span>
 	oValue.Text = <span class="s">"abc"</span>
 	<span class="f">dnAssert</span>(<span class="s">"invalid input clears the result"</span>,oResult.Text,<span class="s">""</span>)</code></pre></div></details></div></div><div class="item" id="word-counter"><div class="pic"><img src="img/shots/app-WordCounter.png" alt="Word Counter" loading="lazy"></div><div class="info"><h3>Word Counter</h3><p>Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)</p><div class="run"><code>cd applications/WordCounter  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Text.RegularExpressions"</span>
@@ -5890,7 +5890,7 @@ update()
 	oText.Text = <span class="s">"naïve café 42 times"</span>
 	<span class="f">dnAssert</span>(<span class="s">"unicode letters and digits"</span>,len(wordsOf(oText.Text)),<span class="n">4</span>)</code></pre></div></details></div></div><div class="item" id="wpf-calculator"><div class="pic"><img src="img/shots/app-WpfCalculator.png" alt="Wpf Calculator" loading="lazy"></div><div class="info"><h3>Wpf Calculator</h3><p>Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</p><div class="run"><code>cd applications/WpfCalculator  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Windows"</span>
@@ -6050,7 +6050,7 @@ cXaml += <span class="s">'&lt;UniformGrid x:Name="keys" Columns="4" Margin="0,10
 	<span class="f">dnAssert</span>(<span class="s">"two clicks on 7"</span>,oScreen.Text,<span class="s">"77"</span>)
 	<span class="f">dnAssert</span>(<span class="s">"history"</span>,oHistory.Text,<span class="s">""</span>)</code></pre></div></details></div></div><div class="item" id="wpf-color-mixer"><div class="pic"><img src="img/shots/app-WpfColorMixer.png" alt="Wpf Color Mixer" loading="lazy"></div><div class="info"><h3>Wpf Color Mixer</h3><p>Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</p><div class="run"><code>cd applications/WpfColorMixer  then  ring main.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code</span>
 
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>

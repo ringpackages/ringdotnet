@@ -1,7 +1,7 @@
 /*
 	A web server for Ring programs (ASP.NET Core / Kestrel); the requests are handled by Ring functions.
 
-	load "dotnetlib.ring"
+	load "dotnet.ring"
 	dnUseWeb()
 
 	oServer = new WebServer("http://localhost:5000")

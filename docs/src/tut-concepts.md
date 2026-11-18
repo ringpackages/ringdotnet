@@ -15,7 +15,7 @@ Two things make up .NET:
 | The **class library** | Thousands of classes: text, numbers, files, networking, windows, databases... | Ring's built-in functions, but much larger |
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 using { "System" }
 ? new Environment().Version.ToString()   # the runtime that is running inside your Ring program
 ```

@@ -124,7 +124,7 @@
 <p>An <strong>encoding</strong> turns text into bytes. <strong>UTF-8</strong> uses 1 byte for English letters and up to 4 for others; it is the standard for files and the web. <strong>UTF-16</strong> is what .NET uses inside. A Ring text holds UTF-8 bytes, so <code>len()</code> counts <strong>bytes</strong>.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t53_unicode.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 53: Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Globalization"</span>

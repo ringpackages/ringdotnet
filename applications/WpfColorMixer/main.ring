@@ -1,6 +1,6 @@
 # Color mixer in WPF: three sliders, a rectangle that shows the color and its #RRGGBB code
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

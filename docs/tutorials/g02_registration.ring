@@ -1,5 +1,5 @@
 # Tutorial 12: a form with many controls - text boxes, check box, combo box, list box, validation
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

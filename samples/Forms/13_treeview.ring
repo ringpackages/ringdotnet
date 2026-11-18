@@ -1,6 +1,6 @@
 # A tree of nodes with the selection event
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

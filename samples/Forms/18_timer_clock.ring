@@ -1,6 +1,6 @@
 # A digital clock with a timer
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

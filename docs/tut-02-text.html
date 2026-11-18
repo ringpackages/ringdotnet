@@ -124,7 +124,7 @@
 <p>One rule is important: <strong>a .NET string is not an object in Ring</strong>, it is just a Ring text. That means you cannot call a .NET <em>instance</em> method such as <code>Trim()</code> on it. For those jobs Ring has its own functions: <code>trim()</code>, <code>upper()</code>, <code>lower()</code>, <code>substr()</code>, <code>left()</code>. Use <strong>Ring's functions for the basics</strong>, and .NET for what Ring does not have. The <em>static</em> methods of the class <code>String</code> (<code>Join</code>, <code>Format</code>...) work fine because they take the text as an argument.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t02_text.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 2: working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Text"</span>

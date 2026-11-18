@@ -1,5 +1,5 @@
 # Tutorial 7: when things go wrong - exceptions, try/catch, checking before you act
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.IO"

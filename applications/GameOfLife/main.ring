@@ -1,7 +1,7 @@
 # Conway's Game of Life - click cells to toggle them, Start runs the generations
 # (a port of ring/applications/gameoflife to RingDotNet)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,5 +1,5 @@
 # Tutorial 36: a chart - turn numbers into a bar chart with UiCanvas, show it in a window and save it as a PNG
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

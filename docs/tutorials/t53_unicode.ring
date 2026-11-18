@@ -1,5 +1,5 @@
 # Tutorial 53: Unicode and text encodings - characters, code points, bytes, and why len() is not the number of letters
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Globalization"

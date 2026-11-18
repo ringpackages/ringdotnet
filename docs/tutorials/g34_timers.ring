@@ -1,5 +1,5 @@
 # Tutorial 34: timers and progress - a stopwatch and a long job that keeps the window alive
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

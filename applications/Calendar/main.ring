@@ -1,6 +1,6 @@
 # Calendar with date facts - MonthCalendar and the .NET date classes (a port of ring/applications/calendar)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

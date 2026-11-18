@@ -1,5 +1,5 @@
 # Entity Framework Core with SQLite from Ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 dnImport("System")
 dnImport("System.IO")

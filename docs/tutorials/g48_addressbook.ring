@@ -1,5 +1,5 @@
 # Tutorial 48: a project - an address book with a database (Windows Forms + Entity Framework + a data grid)
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 dnUseData()
 using {

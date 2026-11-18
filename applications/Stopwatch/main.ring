@@ -1,6 +1,6 @@
 # Stopwatch with laps - a port of ring/applications/stopwatch to RingDotNet
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

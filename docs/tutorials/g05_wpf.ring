@@ -1,5 +1,5 @@
 # Tutorial 15: WPF - describe the window in XAML, find elements by name, bind a slider to a text
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

@@ -1,6 +1,6 @@
 # A grid of labels in a table layout panel
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

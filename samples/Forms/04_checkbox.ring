@@ -1,6 +1,6 @@
 # A check box changes a label
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,5 +1,5 @@
 # Tutorial 11, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

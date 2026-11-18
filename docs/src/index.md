@@ -14,7 +14,7 @@ lead: Use .NET classes and methods from Ring programs
 ## A first taste
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Text"

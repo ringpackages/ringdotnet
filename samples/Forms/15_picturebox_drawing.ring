@@ -1,6 +1,6 @@
 # Draw shapes and text on a bitmap (UiCanvas)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,4 +1,4 @@
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System.Collections"
 	"System.Collections.Specialized"

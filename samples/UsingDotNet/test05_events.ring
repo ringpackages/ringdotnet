@@ -1,4 +1,4 @@
-load "dotnetlib.ring"
+load "dotnet.ring"
 using { "System.Collections.ObjectModel" }
 
 # .NET events: setXXXEvent(cRingCode) like RingQt, the code reads aDotNetArgs = [sender, eventArgs]

@@ -1,4 +1,4 @@
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()                      # must be the first .NET call
 using { "System.Windows.Forms" }
 

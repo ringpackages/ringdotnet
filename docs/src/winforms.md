@@ -6,7 +6,7 @@ lead: Build desktop programs with every Windows Forms control, plus a few short 
 ## The shape of a program
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()                         # the Windows Desktop runtime, and an STA Ring thread
 using {
 	"System.Drawing"

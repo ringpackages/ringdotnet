@@ -1,5 +1,5 @@
 # Entity Framework Core: hooks (saving, saved, log), global query filters, value converters
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 aSeen = []

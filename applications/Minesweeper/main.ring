@@ -1,6 +1,6 @@
 # Minesweeper - left click reveals, right click flags (a port of ring/applications/minesweeper)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

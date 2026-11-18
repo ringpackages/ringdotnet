@@ -1,7 +1,7 @@
 /*
 	DotNetLib - Use .NET classes and methods from Ring programs (using the RingDotNet extension)
 
-	load "dotnetlib.ring"
+	load "dotnet.ring"
 	dnImport("System.IO")		# load the generated classes of a namespace
 */
 

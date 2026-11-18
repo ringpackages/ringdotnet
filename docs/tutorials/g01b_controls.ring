@@ -1,5 +1,5 @@
 # Tutorial 11, step 2: a label and a button
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

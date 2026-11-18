@@ -5,7 +5,7 @@
 
 	Then in your program:
 
-		load "dotnetlib.ring"
+		load "dotnet.ring"
 		dnLoad("path/to/assembly.dll")
 		dnImportFrom("<output folder>/","Your.Namespace")
 		oObject = new YourClass()

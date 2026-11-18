@@ -7,7 +7,7 @@ Use .NET classes and methods from Ring programs.
 The package hosts the .NET runtime inside the Ring process (through `hostfxr`) and talks to it through a small managed bridge, so any installed .NET (Core) runtime, 6.0 or newer, and any assembly (the framework or your own `.dll`) can be used.
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 ? dnVersion()                                   # .NET 9.0.x
 dnType("System.Console").callMethod("WriteLine",["Hello from .NET"])
@@ -37,7 +37,7 @@ ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses
 generates Ring classes (with inheritance, properties, events, enums as strings) for every public class of the assembly, one loader per namespace. Use them with:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnLoad("path/to/MyLibrary.dll")                  # dependencies are found next to the dll (copy a NuGet package's dll files there)
 dnImportFrom("myclasses/","MyCompany.Tools")
 oCalc = new Calculator()
@@ -50,7 +50,7 @@ oCalc = new Calculator()
 `using { }` imports namespaces like C# (same as `dnImport` for each text; anything that is not a text is an error):
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Text"
@@ -62,7 +62,7 @@ using {
 Like RingQt's classes, the .NET types are wrapped by generated Ring classes (`libraries/dotnetlib/generated`) with the same method names:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System.Text")                 # load the generated classes of a namespace
 
 oSB = new StringBuilder("Hello")        # use parentheses: Ring calls init() only with them
@@ -166,7 +166,7 @@ oForm { Height = 300  Text += "!" }
 - `RingEntityDb`: the tables become real .NET classes (Reflection.Emit) with navigation properties, tracked by EF like classes written in C#.
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 oDb = new RingDatabase("Data Source=people.db",[
 	["Customers",[ ["Id","int",1], ["Name","string",0,[["required",1],["unique",1],["maxlength",40]]], ["Age","int",0,[["nullable",1]]], ["City","string",0,[["index",1]]] ]]

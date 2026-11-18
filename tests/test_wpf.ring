@@ -1,5 +1,5 @@
 # WPF: windows, layout panels, controls, XAML, data binding, shapes and rendering, events, timers
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 dnImport("System")
 dnImport("System.Diagnostics")

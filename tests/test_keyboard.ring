@@ -1,6 +1,6 @@
 # Keyboard in games: a focused button takes the arrow keys, Space and Enter unless the form uses uiGameKeys().
 # The keys are posted to the controls of this program (uiSendKeys), so nothing can reach another application.
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 dnImport("System.Drawing")
 dnImport("System.Windows.Forms")

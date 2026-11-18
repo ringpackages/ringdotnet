@@ -1,6 +1,6 @@
 # A drop-down list
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

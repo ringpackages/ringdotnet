@@ -1,5 +1,5 @@
 # Tutorial 27, part 1: entity objects - the rows of a table as real objects with navigation properties
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

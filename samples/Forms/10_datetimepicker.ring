@@ -1,6 +1,6 @@
 # A date picker and the weekday of the chosen date
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

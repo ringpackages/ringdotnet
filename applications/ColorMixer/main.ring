@@ -1,6 +1,6 @@
 # Color mixer - three track bars, the color, its #RRGGBB code and HSV values
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

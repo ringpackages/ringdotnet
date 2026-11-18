@@ -1,5 +1,5 @@
 # Tutorial 43: calendars - month tables, ages, business days and birthdays with DateTime
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 }

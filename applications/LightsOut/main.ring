@@ -1,7 +1,7 @@
 # Lights Out - press a cell to toggle it and its neighbours until all the lights are off
 # (a port of ring/applications/lightsout to RingDotNet)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

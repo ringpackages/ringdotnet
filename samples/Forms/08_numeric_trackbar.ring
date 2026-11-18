@@ -1,6 +1,6 @@
 # A track bar and a numeric box that follow each other
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

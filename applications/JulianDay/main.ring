@@ -1,6 +1,6 @@
 # Julian day converter - dates and Julian day numbers in both directions (a port of ring/applications/juliandaycalendar)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System"

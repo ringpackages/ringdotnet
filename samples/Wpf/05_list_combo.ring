@@ -1,6 +1,6 @@
 # A list box and a combo box with selection events
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

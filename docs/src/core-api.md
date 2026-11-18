@@ -10,7 +10,7 @@ lead: The functions for loading assemblies, creating objects without wrapper cla
 Returns the version of the .NET runtime hosted in the process.
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 ? dnVersion()          # .NET 9.0.15
 ```
 

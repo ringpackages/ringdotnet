@@ -1,5 +1,5 @@
 # Tutorial 27, part 2: changing a database that already has data - migrations
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 using {
 	"System.IO"

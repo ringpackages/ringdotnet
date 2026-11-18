@@ -25,7 +25,7 @@ ringpm install ringdotnet from ringpackages
 That is all. The command copies the library, the extension (`ring_dotnet.dll`), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 ```
 
 You do not need to set a path or copy files. To test the installation, run a sample:

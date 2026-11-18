@@ -123,7 +123,7 @@
 <p><strong>Windows Forms</strong> is the classic way to build desktop windows in .NET. A window is a <strong>Form</strong>. Things in it — labels, buttons, text boxes — are <strong>controls</strong>. A control is an object with properties (<code>Text</code>, <code>Location</code>, <code>Size</code>) and events (<code>Click</code>). The program runs a <strong>message loop</strong>: it waits for the user to do something, runs your code, and waits again until the window closes.</p>
 <h2 id="step-1-the-smallest-window">Step 1: the smallest window<a class="anchor" href="#step-1-the-smallest-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01a_window.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 1: the smallest window</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()                       <span class="c"># Windows Forms needs the desktop runtime: call it first</span>
 using {
 	<span class="s">"System.Drawing"</span>
@@ -139,7 +139,7 @@ oForm = <span class="f">uiForm</span>(<span class="s">"My first window"</span>,<
 <ul><li><code>dnUseDesktop()</code> must be the <strong>first</strong> .NET call. It starts the Windows desktop runtime and makes the Ring thread suitable for windows.</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li><li><code>uiTest</code> and <code>uiEnd</code> make the program test itself when started with <code>--selftest</code>; you can ignore them for now.</li></ul>
 <h2 id="step-2-a-label-and-a-button">Step 2: a label and a button<a class="anchor" href="#step-2-a-label-and-a-button">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01b_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 2: a label and a button</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -157,7 +157,7 @@ oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span
 <p><code>uiLabel(parent, text, x, y, width, height)</code> and <code>uiButton(parent, text, x, y, width, height, code)</code> create a control and put it into the form. The position <code>x, y</code> is measured in pixels from the top-left corner of the form. The last argument of <code>uiButton</code> is the Ring code to run when the button is clicked; here it is empty, so the button does nothing yet.</p>
 <h2 id="step-3-the-button-does-something">Step 3: the button does something<a class="anchor" href="#step-3-the-button-does-something">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01c_counter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 3: the button does something - events and global variables</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
@@ -207,7 +207,7 @@ nClicks = <span class="n">0</span>
 <h2 id="step-4-without-the-helpers">Step 4: without the helpers<a class="anchor" href="#step-4-without-the-helpers">#</a></h2>
 <p>The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01d_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>

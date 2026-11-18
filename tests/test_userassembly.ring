@@ -1,5 +1,5 @@
 # Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 cHere = currentdir()
 cLib = cHere + "/UserLib/bin/UserLib.dll"

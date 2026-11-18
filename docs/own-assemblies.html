@@ -120,7 +120,7 @@
 <h2 id="two-ways-to-use-an-assembly">Two ways to use an assembly<a class="anchor" href="#two-ways-to-use-an-assembly">#</a></h2>
 <div class="tablewrap"><table><thead><tr><th>Way</th><th>When</th></tr></thead><tbody><tr><td><strong>Generic calls</strong> — <code>dnLoad</code>, <code>dnType</code>, <code>dnNew</code>, <code>callMethod</code></td><td>a quick call, nothing to generate</td></tr><tr><td><strong>Generated classes</strong> — <code>wrapassembly.ring</code></td><td>the simple <code>oObj.Method()</code> syntax, properties, events, enums, inheritance</td></tr></tbody></table></div>
 <h2 id="generic-calls">Generic calls<a class="anchor" href="#generic-calls">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)                       <span class="c"># dependencies are found next to the dll</span>
 
 oCalc = <span class="f">dnNew</span>(<span class="s">"MyCompany.Tools.Calculator"</span>,[<span class="n">10</span>])
@@ -132,7 +132,7 @@ oCalc.<span class="f">callMethod</span>(<span class="s">"Add"</span>,[<span clas
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>cd tools
 ring wrapassembly.ring path/to/MyLibrary.dll ../myclasses</code></pre></div>
 <p>This writes one loader per namespace and one file per class into <code>myclasses/</code>. Use them like any other wrapped namespace:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
 <span class="f">dnLoad</span>(<span class="s">"path/to/MyLibrary.dll"</span>)
 <span class="f">dnImportFrom</span>(<span class="s">"myclasses/"</span>,<span class="s">"MyCompany.Tools"</span>)
 
@@ -184,7 +184,7 @@ aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)      
 	}
 }</code></pre></div></details>
 <details class="src"><summary>tests/test_userassembly.ring</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>tests/test_userassembly.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Your own assemblies: tools/wrapassembly.ring generates the classes, dnImportFrom() loads them</span>
-<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnet.ring"</span>
 
 cHere = currentdir()
 cLib = cHere + <span class="s">"/UserLib/bin/UserLib.dll"</span>

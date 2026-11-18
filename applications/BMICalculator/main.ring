@@ -1,6 +1,6 @@
 # BMI calculator with history (a port of ring/applications/bmicalculator to RingDotNet)
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

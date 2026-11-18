@@ -1,5 +1,5 @@
 # Tutorial 3: numbers, parsing, dates and times
-load "dotnetlib.ring"
+load "dotnet.ring"
 using {
 	"System"
 	"System.Numerics"

@@ -1,5 +1,5 @@
 # Entity Framework Core: hooks, query filters, converters, transactions
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 aSql = []

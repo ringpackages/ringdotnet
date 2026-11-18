@@ -1,6 +1,6 @@
 # A tooltip and a link label
 
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

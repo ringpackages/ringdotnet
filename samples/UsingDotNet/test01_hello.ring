@@ -1,4 +1,4 @@
-load "dotnetlib.ring"
+load "dotnet.ring"
 
 ? "Runtime : " + dnVersion()
 

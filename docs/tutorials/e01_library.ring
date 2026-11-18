@@ -1,5 +1,5 @@
 # Tutorial 17: databases step by step - a library catalog with Entity Framework Core
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

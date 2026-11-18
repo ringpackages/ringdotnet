@@ -1,5 +1,5 @@
 # Entity Framework Core: a table, rows, SQL conditions
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 
 func main

@@ -1,5 +1,5 @@
 # Entity Framework Core: migrations of an existing database file
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()
 using { "System.IO" }
 

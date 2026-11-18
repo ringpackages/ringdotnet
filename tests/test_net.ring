@@ -1,5 +1,5 @@
 # Batch: System.Threading, System.Threading.Tasks, System.Net, System.Net.Http, System.Net.Sockets, System.Net.NetworkInformation
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnImport("System")
 dnImport("System.IO")
 dnImport("System.Threading")

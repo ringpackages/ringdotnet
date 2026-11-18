@@ -15,7 +15,7 @@ Ring cannot declare .NET classes, so a Ring program **describes the model with d
 Both support SQLite (bundled), an in-memory database, and SQL Server, PostgreSQL and MySQL when their EF Core package is available.
 
 ```ring
-load "dotnetlib.ring"
+load "dotnet.ring"
 dnUseData()                          # loads Entity Framework Core
 ```
 
