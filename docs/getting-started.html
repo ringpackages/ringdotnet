@@ -121,15 +121,15 @@
 <div class="tablewrap"><table><thead><tr><th>You need</th><th>Why</th></tr></thead><tbody><tr><td><strong>Ring</strong> 1.27 or newer</td><td>The language. The package is a normal Ring package.</td></tr><tr><td><strong>.NET 6 or newer</strong> (tested with .NET 9)</td><td>The runtime that RingDotNet hosts inside the Ring process.</td></tr><tr><td><strong>Windows Desktop runtime</strong></td><td>Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer).</td></tr><tr><td><strong>ASP.NET Core runtime</strong></td><td>Only for web programs (<code>dnUseWeb()</code>).</td></tr></tbody></table></div>
 <div class="callout note"><span class="t">Note</span><p>The package is built and tested on Windows with Ring 1.28 and .NET 9. The C extension and the managed bridge are portable; the Windows Forms and WPF parts are Windows-only by nature.</p></div>
 <h2 id="install">Install<a class="anchor" href="#install">#</a></h2>
-<p>Install the package with the Ring package manager, or use the folder directly. The folder contains everything: the extension DLL (<code>bin/ring_dotnet.dll</code>), the managed assemblies and the Ring library.</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code># use the folder directly: the extension DLL must be found by Ring (put bin on PATH)
-set PATH=B:\newpro\ringdotnet\bin;%PATH%
-ring samples\UsingDotNet\test00_first.ring</code></pre></div>
-<p>When the package is installed into the Ring folder, <code>load "dotnetlib.ring"</code> is enough. From a program inside the package folder load the library by its path:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span></code></pre></div>
+<p>Install the package with <strong>RingPM</strong>, the Ring package manager, in one step:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ringpm install ringdotnet from ringpackages</code></pre></div>
+<p>That is all. The command copies the library, the extension (<code>ring_dotnet.dll</code>), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span></code></pre></div>
+<p>You do not need to set a path or copy files. To test the installation, run a sample:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code>ring samples/UsingDotNet/test00_first.ring</code></pre></div>
 <h2 id="your-first-program">Your first program<a class="anchor" href="#your-first-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test00_first.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The first program: simple syntax, the namespaces are opened with using</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 
 using {
 	<span class="s">"System"</span>
@@ -169,7 +169,7 @@ using {
 <h2 id="your-first-window">Your first window<a class="anchor" href="#your-first-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
 
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>

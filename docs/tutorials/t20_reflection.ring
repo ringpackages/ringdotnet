@@ -1,5 +1,5 @@
 # Tutorial 20: exploring .NET from Ring - ask a class what it can do
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Text"

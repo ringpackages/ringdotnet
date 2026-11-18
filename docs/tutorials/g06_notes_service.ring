@@ -1,5 +1,5 @@
 # Tutorial 16: a web service with a database - JSON over HTTP, stored with Entity Framework
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()                                   # ASP.NET Core
 dnUseData()                                  # Entity Framework
 using {

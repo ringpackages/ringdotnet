@@ -1,5 +1,5 @@
 # Batch: System.Linq (generic methods, fluent DotNetQuery)
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnImport("System.Linq")
 dnImport("System.Collections.Generic")
 

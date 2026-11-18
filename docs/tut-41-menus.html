@@ -123,7 +123,7 @@
 <p>A user may reach "make upper case" from the <strong>Text</strong> menu, a toolbar button, the right-click menu, or <code>Ctrl+U</code>. If each of those had its own code, a fix would have to be made four times. Instead each action is <strong>one function</strong> (<code>upperCase</code>, <code>newText</code>), and every control only <em>calls</em> it.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g41_menus.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 41: menus, toolbars, context menus and shortcuts - one action, several ways to reach it</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>

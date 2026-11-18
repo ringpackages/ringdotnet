@@ -1,7 +1,7 @@
 # Sokoban - push every box onto a target with the arrow keys (a port of ring/applications/sokoban)
 #   # wall   @ player   $ box   . target   * box on a target   + player on a target
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,5 +1,5 @@
 # Named arguments: Name([ :parameter = value, ... ]) and dnNew("Class",[ ... ])
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 
 func main
 	using {

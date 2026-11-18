@@ -1,6 +1,6 @@
 # A modal dialog form that returns a value
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

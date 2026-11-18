@@ -1,5 +1,5 @@
 # Tutorial 21: a project - analyze a log file (files, regular expressions, dictionaries, LINQ, JSON)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

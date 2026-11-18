@@ -1,5 +1,5 @@
 # Tutorial 31: a project - find duplicate files (folders, hashes, dictionaries)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

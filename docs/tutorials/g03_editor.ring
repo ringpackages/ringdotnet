@@ -1,5 +1,5 @@
 # Tutorial 13: a small text editor - menus, a status bar, files and a message when you quit with unsaved text
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

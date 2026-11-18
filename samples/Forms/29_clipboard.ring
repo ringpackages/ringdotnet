@@ -1,6 +1,6 @@
 # Copy text to the clipboard and read it back
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

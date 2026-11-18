@@ -1,6 +1,6 @@
 # A button counts its clicks (routed Click event)
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

@@ -1,5 +1,5 @@
 # Batch: System.Xml, System.Xml.Linq, System.Text.Json, System.Data
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnImport("System")
 dnImport("System.IO")
 dnImport("System.Xml")

@@ -1,5 +1,5 @@
 # Tutorial 41: menus, toolbars, context menus and shortcuts - one action, several ways to reach it
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

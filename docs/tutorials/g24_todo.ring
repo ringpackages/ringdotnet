@@ -1,5 +1,5 @@
 # Tutorial 24: a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

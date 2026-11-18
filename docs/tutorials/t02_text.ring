@@ -1,5 +1,5 @@
 # Tutorial 2: working with text - Ring text functions, String helpers, StringBuilder, regular expressions, encodings
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Text"

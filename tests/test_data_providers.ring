@@ -1,5 +1,5 @@
 # Entity Framework Core: providers (sqlite, inmemory, and a provider whose package is missing)
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseData()
 
 func main

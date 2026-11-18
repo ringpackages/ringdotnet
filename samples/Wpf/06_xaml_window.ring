@@ -1,6 +1,6 @@
 # A window described in XAML: parse it, find the named elements, handle events
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

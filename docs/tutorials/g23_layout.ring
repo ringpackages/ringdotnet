@@ -1,5 +1,5 @@
 # Tutorial 23: layout and richer controls - SplitContainer, TabControl, TableLayoutPanel, DataGridView with a filter
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Data"

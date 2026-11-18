@@ -1,6 +1,6 @@
 # Address book - a DataGridView bound to a DataTable, search, edit, delete and save/load as XML
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

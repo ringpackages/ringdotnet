@@ -1,5 +1,5 @@
 # Tutorial 4: collections and LINQ - lists, dictionaries, sets, queues, sorting and querying
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System.Collections.Generic"
 	"System.Linq"

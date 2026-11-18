@@ -1,5 +1,5 @@
 # Tutorial 44: numbers - statistics, primes and a simulation (Monte Carlo estimate of pi)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Linq"

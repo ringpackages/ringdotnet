@@ -1,6 +1,6 @@
 # Login form with validation, a password hash and an error provider
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

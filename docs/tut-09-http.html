@@ -123,7 +123,7 @@
 <p>A client sends a <strong>request</strong>: a <em>method</em> (<code>GET</code> to read, <code>POST</code> to send data, <code>DELETE</code> to remove), an <em>address</em>, optional data. The server sends a <strong>response</strong>: a <em>status code</em> (<code>200</code> OK, <code>201</code> Created, <code>404</code> Not Found, <code>500</code> error) and a body (text, HTML or JSON).</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t09_http.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 9: HTTP - a web server and a web client in one program</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseWeb</span>()
 using {
 	<span class="s">"System.Net.Http"</span>

@@ -1,6 +1,6 @@
 # Unit converter - length, weight, volume and temperature
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

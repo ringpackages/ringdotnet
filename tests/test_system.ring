@@ -1,5 +1,5 @@
 # Batch: namespace System (core types)
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnImport("System")
 
 oMath = new Math()

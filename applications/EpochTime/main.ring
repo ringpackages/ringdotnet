@@ -1,6 +1,6 @@
 # Epoch (Unix) time converter - both directions, UTC and local time (a port of ring/applications/epochtime)
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

@@ -1,6 +1,6 @@
 # Dice roller - draws five dice with their pips and keeps statistics
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

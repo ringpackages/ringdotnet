@@ -1,5 +1,5 @@
 # Batch: System.Drawing*, System.Windows.Forms (the whole namespace)
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 dnImport("System")
 dnImport("System.Drawing")

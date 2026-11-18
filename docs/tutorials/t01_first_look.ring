@@ -1,5 +1,5 @@
 # Tutorial 1: a first look at .NET from Ring - runtime, types, objects, namespaces
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Text"

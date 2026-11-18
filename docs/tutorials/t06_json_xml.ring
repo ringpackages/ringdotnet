@@ -1,5 +1,5 @@
 # Tutorial 6: JSON and XML - reading, writing and searching structured data
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System.Text.Json"
 	"System.Xml"

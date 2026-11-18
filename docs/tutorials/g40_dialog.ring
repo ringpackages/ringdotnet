@@ -1,5 +1,5 @@
 # Tutorial 40: your own dialog - a modal form that asks for data and gives it back
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

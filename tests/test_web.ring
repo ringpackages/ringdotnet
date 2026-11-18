@@ -1,5 +1,5 @@
 # ASP.NET Core: a Kestrel web server whose requests are handled by Ring functions
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 dnImport("System")
 dnImport("System.Net.Http")

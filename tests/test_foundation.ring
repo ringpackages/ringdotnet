@@ -1,5 +1,5 @@
 # Foundation: dnImport, generated classes, properties, out/ref parameters, enums, generics, callbacks, events
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 
 dnImport("System")
 dnImport("System.Text")

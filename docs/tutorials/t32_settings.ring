@@ -1,5 +1,5 @@
 # Tutorial 32: settings - defaults, a JSON file, loading, saving, and special folders
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

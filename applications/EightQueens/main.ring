@@ -1,7 +1,7 @@
 # Eight queens - place 8 queens so that none attacks another (a port of ring/applications/eightqueens)
 # Click a square to put or remove a queen; "Solve" finds a solution with backtracking.
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

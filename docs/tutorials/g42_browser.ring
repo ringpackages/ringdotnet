@@ -1,5 +1,5 @@
 # Tutorial 42: a folder browser - a TreeView of folders, a ListView of files, and the details of a file
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

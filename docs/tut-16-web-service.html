@@ -124,7 +124,7 @@
 <div class="tablewrap"><table><thead><tr><th>Request</th><th>Meaning</th><th>Answer</th></tr></thead><tbody><tr><td><code>GET /notes</code></td><td>list the notes</td><td><code>200</code> and a JSON array</td></tr><tr><td><code>POST /notes</code> (the text is the body)</td><td>add a note</td><td><code>201</code> and the new id, or <code>400</code> if the text is empty</td></tr><tr><td><code>DELETE /notes?id=1</code></td><td>delete a note</td><td><code>200</code>, or <code>404</code> if there is no such note</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g06_notes_service.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 16: a web service with a database - JSON over HTTP, stored with Entity Framework</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseWeb</span>()                                   <span class="c"># ASP.NET Core</span>
 <span class="f">dnUseData</span>()                                  <span class="c"># Entity Framework</span>
 using {

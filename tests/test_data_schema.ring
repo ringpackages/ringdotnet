@@ -1,5 +1,5 @@
 # Entity Framework Core: column options (required, nullable, unique, index, maxlength, default) and composite keys
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseData()
 
 func main

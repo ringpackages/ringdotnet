@@ -1,5 +1,5 @@
 # Tutorial 26: a small web site - HTML pages, a form, links and a guestbook (ASP.NET Core)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 using {
 	"System.Net.Http"

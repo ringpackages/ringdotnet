@@ -1,6 +1,6 @@
 # A grid with rows, columns and attached properties
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

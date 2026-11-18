@@ -16,18 +16,22 @@ lead: Install the package, run your first .NET call from Ring, and learn the fou
 
 ## Install
 
-Install the package with the Ring package manager, or use the folder directly. The folder contains everything: the extension DLL (`bin/ring_dotnet.dll`), the managed assemblies and the Ring library.
+Install the package with **RingPM**, the Ring package manager, in one step:
 
 ```bash
-# use the folder directly: the extension DLL must be found by Ring (put bin on PATH)
-set PATH=B:\newpro\ringdotnet\bin;%PATH%
-ring samples\UsingDotNet\test00_first.ring
+ringpm install ringdotnet from ringpackages
 ```
 
-When the package is installed into the Ring folder, `load "dotnetlib.ring"` is enough. From a program inside the package folder load the library by its path:
+That is all. The command copies the library, the extension (`ring_dotnet.dll`), the managed assemblies, the samples and the applications into your Ring folder, so every program can start with:
 
 ```ring
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
+```
+
+You do not need to set a path or copy files. To test the installation, run a sample:
+
+```bash
+ring samples/UsingDotNet/test00_first.ring
 ```
 
 ## Your first program

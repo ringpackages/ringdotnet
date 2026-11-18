@@ -123,7 +123,7 @@
 <p>Almost every tool has a command-line version: <code>git</code>, <code>ping</code>, <code>dotnet</code>, <code>ffmpeg</code>, <code>robocopy</code>. A Ring program starts it with a <code>Process</code>, collects what it prints, and shows it. The same pattern is how you would build a front-end for any such tool: gather the options in controls, build the command line from them, run, show the result.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g37_runner.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 37: a project - a command runner (a window that starts a program and shows what it prints)</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System"</span>

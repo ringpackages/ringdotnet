@@ -1,6 +1,6 @@
 # Formatting the selected text of a rich text box
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

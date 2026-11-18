@@ -1,6 +1,6 @@
 # Check box and radio buttons with their events
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Windows"

@@ -1,5 +1,5 @@
 # Tutorial 9: HTTP - a web server and a web client in one program
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 using {
 	"System.Net.Http"

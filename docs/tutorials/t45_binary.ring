@@ -1,5 +1,5 @@
 # Tutorial 45: binary files - bytes, BinaryWriter and BinaryReader, a file format, and a hex dump
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

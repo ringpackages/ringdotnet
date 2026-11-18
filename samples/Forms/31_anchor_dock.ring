@@ -1,6 +1,6 @@
 # Anchor and dock: controls follow the size of the form
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

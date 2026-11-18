@@ -1,6 +1,6 @@
 # Hangman - guess the word letter by letter
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

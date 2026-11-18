@@ -1,5 +1,5 @@
 # Tutorial 49: login, sessions and cookies - a web site that knows who you are
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 dnUseData()
 using {

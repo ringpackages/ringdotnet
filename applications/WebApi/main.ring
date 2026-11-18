@@ -2,7 +2,7 @@
 #   ring main.ring            then open http://localhost:5080/
 #   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 using {
 	"System"

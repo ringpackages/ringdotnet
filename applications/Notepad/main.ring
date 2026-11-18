@@ -1,6 +1,6 @@
 # Notepad - a text editor (menu, file dialogs, status bar, find) written with RingDotNet
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

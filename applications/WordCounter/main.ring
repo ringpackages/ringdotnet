@@ -1,6 +1,6 @@
 # Word counter - live statistics of the text and the most frequent words (uses a .NET Regex and Dictionary)
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Text.RegularExpressions"

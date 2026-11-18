@@ -1,6 +1,6 @@
 # A data grid bound to a DataTable
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

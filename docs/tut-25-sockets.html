@@ -123,7 +123,7 @@
 <div class="tablewrap"><table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>IP address</strong></td><td>the address of a computer: <code>127.0.0.1</code> means <em>this computer</em></td></tr><tr><td><strong>port</strong></td><td>a number (0–65535) that says which program on that computer</td></tr><tr><td><strong>TCP</strong></td><td>a reliable connection: bytes arrive in order, none lost</td></tr><tr><td><strong>socket</strong></td><td>one end of a connection</td></tr><tr><td><strong>listener</strong></td><td>a program that waits for others to connect</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t25_sockets.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 25: sockets - a TCP server and client in one program</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 using {
 	<span class="s">"System.IO"</span>
 	<span class="s">"System.Net"</span>

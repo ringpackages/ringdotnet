@@ -1,5 +1,5 @@
 # Tutorial 46: a project - a backup tool (zip a folder, name by date, keep the newest few, restore)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

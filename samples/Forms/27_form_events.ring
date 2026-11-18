@@ -1,6 +1,6 @@
 # The life of a form: Load, Shown, Resize and FormClosing events
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

@@ -1,6 +1,6 @@
 # Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

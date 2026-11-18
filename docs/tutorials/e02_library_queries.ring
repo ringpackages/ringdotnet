@@ -1,5 +1,5 @@
 # Tutorial 17, part 2: relations, queries, transactions and a file database
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseData()
 using {
 	"System.IO"

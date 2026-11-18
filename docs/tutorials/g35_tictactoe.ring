@@ -1,5 +1,5 @@
 # Tutorial 35: a project - Tic-Tac-Toe (game logic in functions, nine buttons, a status line)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

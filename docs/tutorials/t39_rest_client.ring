@@ -1,6 +1,6 @@
 # Tutorial 39: a REST client - call a JSON service, read the answer, handle the errors
 #   (the service is started in the same program so that the tutorial needs no internet)
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseWeb()
 using {
 	"System.Net.Http"

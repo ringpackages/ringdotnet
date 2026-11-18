@@ -1,5 +1,5 @@
 # Entity Framework Core: queries as LINQ expression trees, aggregates and SQL of any shape
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseData()
 
 func main

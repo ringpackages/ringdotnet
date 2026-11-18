@@ -1,5 +1,5 @@
 # Tutorial 19: callbacks and events - giving Ring code to .NET
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System.Collections.Generic"
 	"System.Collections.ObjectModel"

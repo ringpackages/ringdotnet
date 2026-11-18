@@ -127,7 +127,7 @@
 <p>For this tutorial the service is started in the same program, so that it needs no internet. The <em>client</em> code is exactly what you would write for a real service: only <code>cUrl</code> would be different.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t39_rest_client.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 39: a REST client - call a JSON service, read the answer, handle the errors</span>
 <span class="c">#   (the service is started in the same program so that the tutorial needs no internet)</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseWeb</span>()
 using {
 	<span class="s">"System.Net.Http"</span>

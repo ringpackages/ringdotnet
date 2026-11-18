@@ -1,5 +1,5 @@
 # using { "Namespace" ... } imports namespaces like dnImport
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 
 func main
 	using {

@@ -1,5 +1,5 @@
 # Batch: System.Globalization, System.Security.Cryptography, System.Diagnostics
-load "../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnImport("System")
 dnImport("System.IO")
 dnImport("System.Text")

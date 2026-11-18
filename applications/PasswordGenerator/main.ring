@@ -1,6 +1,6 @@
 # Password generator - uses the .NET cryptographic random number generator
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

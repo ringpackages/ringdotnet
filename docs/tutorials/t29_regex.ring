@@ -1,5 +1,5 @@
 # Tutorial 29: regular expressions in depth - patterns, groups, replace, split, validation
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Text.RegularExpressions"

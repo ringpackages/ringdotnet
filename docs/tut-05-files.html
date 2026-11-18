@@ -123,7 +123,7 @@
 <div class="tablewrap"><table><thead><tr><th>Class</th><th>Job</th></tr></thead><tbody><tr><td><code>Path</code></td><td>work with <em>names</em> of files and folders (no disk access)</td></tr><tr><td><code>File</code></td><td>read, write, copy, delete a file in one call</td></tr><tr><td><code>Directory</code></td><td>create, delete, list folders</td></tr><tr><td><code>FileInfo</code></td><td>information about one file: size, name, dates</td></tr><tr><td><code>StreamReader</code> / <code>StreamWriter</code></td><td>read or write a file piece by piece (big files)</td></tr><tr><td><code>ZipFile</code> (<code>System.IO.Compression</code>)</td><td>make and open zip files</td></tr></tbody></table></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t05_files.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 5: files and folders - Path, Directory, File, reading and writing, zip</span>
-<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
+<span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>

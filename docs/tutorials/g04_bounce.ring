@@ -1,5 +1,5 @@
 # Tutorial 14: drawing and animation - a canvas, a timer and the keyboard
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

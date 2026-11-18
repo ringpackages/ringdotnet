@@ -1,6 +1,6 @@
 # The smallest window: a form with a label
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System.Drawing"

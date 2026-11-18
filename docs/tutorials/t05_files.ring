@@ -1,5 +1,5 @@
 # Tutorial 5: files and folders - Path, Directory, File, reading and writing, zip
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.IO"

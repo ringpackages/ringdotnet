@@ -1,6 +1,6 @@
 # Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)
 
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 dnUseDesktop()
 using {
 	"System"

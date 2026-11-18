@@ -1,5 +1,5 @@
 # Tutorial 10: time, tasks and other programs - Stopwatch, Task, Process, Environment
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Diagnostics"

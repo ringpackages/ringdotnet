@@ -1,5 +1,5 @@
 # Tutorial 8: hashing and encryption basics - checksums, password hashes, random tokens, AES
-load "../../libraries/dotnetlib/dotnetlib.ring"
+load "dotnetlib.ring"
 using {
 	"System"
 	"System.Security.Cryptography"
