@@ -99,9 +99,9 @@ next
 
 ## .NET gotchas
 
-### Always call the mode function first
+### Put the `using` block before the first .NET call
 
-`dnUseDesktop()`, `dnUseWeb()` and `dnUseAll()` must come **before any other .NET call**: the first call starts the runtime and the mode can not change afterwards.
+The runtime mode (desktop, web, both) is chosen by the `using { }` block (or by `dnUseDesktop()`, `dnUseWeb()`, `dnUseAll()`) and must come **before any other .NET call**: the first call starts the runtime and the mode can not change afterwards. If a program needs both Windows Forms/WPF and ASP.NET Core, name both in the first `using` block.
 
 ### Callbacks run on the Ring thread only
 

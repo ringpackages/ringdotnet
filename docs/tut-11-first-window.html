@@ -147,7 +147,6 @@
 <h2 id="step-1-the-smallest-window">Step 1: the smallest window<a class="anchor" href="#step-1-the-smallest-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01a_window.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 1: the smallest window</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()                       <span class="c"># Windows Forms needs the desktop runtime: call it first</span>
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -159,11 +158,10 @@ oForm = <span class="f">uiForm</span>(<span class="s">"My first window"</span>,<
 <span class="f">uiRun</span>(oForm)                         <span class="c"># show the window and wait until the user closes it</span>
 <span class="f">uiEnd</span>()</code></pre></div>
 <figure class="shot"><img src="img/shots/tut-g01a.png" alt="The empty window" loading="lazy"><figcaption>Step 1: a window with a title</figcaption></figure>
-<ul><li><code>dnUseDesktop()</code> must be the <strong>first</strong> .NET call. It starts the Windows desktop runtime and makes the Ring thread suitable for windows.</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li><li><code>uiTest</code> and <code>uiEnd</code> make the program test itself when started with <code>--selftest</code>; you can ignore them for now.</li></ul>
+<ul><li>The <code>using { }</code> block comes <strong>first</strong>. Because it names <code>System.Windows.Forms</code>, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what <code>dnUseDesktop()</code> does).</li><li><code>uiForm("My first window",320,120)</code> makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.</li><li><code>uiRun(oForm)</code> shows the window and waits. The program continues after the window is closed.</li><li><code>uiTest</code> and <code>uiEnd</code> make the program test itself when started with <code>--selftest</code>; you can ignore them for now.</li></ul>
 <h2 id="step-2-a-label-and-a-button">Step 2: a label and a button<a class="anchor" href="#step-2-a-label-and-a-button">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01b_controls.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 2: a label and a button</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -181,7 +179,6 @@ oButton = <span class="f">uiButton</span>(oForm,<span class="s">"Click me"</span
 <h2 id="step-3-the-button-does-something">Step 3: the button does something<a class="anchor" href="#step-3-the-button-does-something">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01c_counter.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 3: the button does something - events and global variables</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -231,7 +228,6 @@ nClicks = <span class="n">0</span>
 <p>The helpers are only short-cuts. This program builds the same window with the real classes, so you can see what is going on:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g01d_plain.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 11, step 4: the same window without the helper functions - what uiForm, uiLabel and uiButton do</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()
 using {
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>
@@ -275,7 +271,7 @@ nClicks = <span class="n">0</span>
 <div class="tablewrap"><table><thead><tr><th>Helper</th><th>What it really does</th></tr></thead><tbody><tr><td><code>uiForm(title,w,h)</code></td><td><code>new Form()</code>, then <code>Text</code>, <code>ClientSize = new Size(w,h)</code>, <code>StartPosition = "CenterScreen"</code></td></tr><tr><td><code>uiLabel(...)</code></td><td><code>new Label()</code>, then <code>Text</code>, <code>Location = new Point(x,y)</code>, <code>Size</code>, then <code>oForm.Controls.Add(...)</code></td></tr><tr><td><code>uiButton(...)</code></td><td><code>new Button()</code>, the same, and <code>setClickEvent(code)</code></td></tr><tr><td><code>uiRun(oForm)</code></td><td><code>Application.EnableVisualStyles()</code> and <code>Application.Run(oForm)</code> (the message loop)</td></tr></tbody></table></div>
 <p>Note how the properties are written inside <strong>braces</strong>: <code>new Label() { Text = "..." }</code> means "create the label and set these properties". The <code>StartPosition</code> is an <strong>enum</strong>, written as a text: <code>"CenterScreen"</code>.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>start the desktop runtime first</td><td><code>dnUseDesktop()</code></td></tr><tr><td>a form and controls</td><td><code>uiForm</code>, <code>uiLabel</code>, <code>uiButton</code></td></tr><tr><td>positions and sizes in pixels</td><td><code>20, 15, 280, 24</code></td></tr><tr><td>an event is Ring code in a text</td><td><code>"clicked()"</code></td></tr><tr><td>events see only globals</td><td><code>oLabel</code>, <code>nClicks</code> at the top</td></tr><tr><td>the same without helpers</td><td><code>new Form() { ... }</code></td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>start the desktop runtime first</td><td><code>using { "System.Windows.Forms" }</code></td></tr><tr><td>a form and controls</td><td><code>uiForm</code>, <code>uiLabel</code>, <code>uiButton</code></td></tr><tr><td>positions and sizes in pixels</td><td><code>20, 15, 280, 24</code></td></tr><tr><td>an event is Ring code in a text</td><td><code>"clicked()"</code></td></tr><tr><td>events see only globals</td><td><code>oLabel</code>, <code>nClicks</code> at the top</td></tr><tr><td>the same without helpers</td><td><code>new Form() { ... }</code></td></tr></tbody></table></div>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Add a third button, <code>Add 10</code>, that adds ten to the counter.</li><li>Make the label red when the counter is above 5 (<code>oLabel.ForeColor = new Color().Red</code>).</li><li>Add a second label that shows <code>even</code> or <code>odd</code>.</li><li>Change the form so that it cannot be resized (<code>FormBorderStyle = "FixedDialog"</code>, <code>MaximizeBox = False</code>).</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

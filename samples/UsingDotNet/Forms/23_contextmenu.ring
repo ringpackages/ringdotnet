@@ -1,7 +1,6 @@
 # A context (right-click) menu
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

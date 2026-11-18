@@ -9,6 +9,9 @@ C_DOTNET_LIST   = "l"
 C_DOTNET_ERROR  = "e"
 C_DOTNET_CALLBACK = "c"
 
+# The runtime mode that was started: "" (base), "desktop", "web" or "all" (set by dnUseDesktop(), dnUseWeb(), dnUseAll(), and by using { } through them)
+cDotNetMode = ""
+
 # Used by the generated classes to wrap an existing .NET object without creating a new one
 nDotNetWrapHandle = 0
 

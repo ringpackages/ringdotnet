@@ -1,7 +1,6 @@
 # 2048 - use the arrow keys (a port of ring/applications/game2048 to RingDotNet)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

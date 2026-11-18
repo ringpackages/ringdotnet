@@ -16,7 +16,7 @@ Both support SQLite (bundled), an in-memory database, and SQL Server, PostgreSQL
 
 ```ring
 load "dotnet.ring"
-dnUseData()                          # loads Entity Framework Core
+using { "RingDotNet.Data" }              # loads Entity Framework Core and the RingDatabase classes
 ```
 
 ## A table and its rows

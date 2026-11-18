@@ -1,7 +1,6 @@
 # Calculator - a port of ring/applications/calculator to RingDotNet (Windows Forms)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

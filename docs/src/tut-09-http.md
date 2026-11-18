@@ -27,7 +27,7 @@ A client sends a **request**: a *method* (`GET` to read, `POST` to send data, `D
 
 ### The server
 
-`dnUseWeb()` (first!) starts the ASP.NET Core runtime. `new WebServer("http://127.0.0.1:0")` starts a server on your computer (`127.0.0.1` is "this computer"); port `0` means "any free port", and `oServer.url()` tells you which one.
+`using { ..., "RingDotNet.Web" }` (first!) starts the ASP.NET Core runtime. `new WebServer("http://127.0.0.1:0")` starts a server on your computer (`127.0.0.1` is "this computer"); port `0` means "any free port", and `oServer.url()` tells you which one.
 
 Each address is connected to a Ring function with `onGet`, `onPost`, `onDelete`. The function receives the request and **returns the answer**:
 

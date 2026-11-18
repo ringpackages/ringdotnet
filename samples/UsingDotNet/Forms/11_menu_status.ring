@@ -1,7 +1,6 @@
 # A menu bar and a status bar
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

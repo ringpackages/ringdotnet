@@ -1,7 +1,6 @@
 # A split container with two panels
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

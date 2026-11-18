@@ -1,6 +1,6 @@
 # Entity Framework Core: hooks, query filters, converters, transactions
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 aSql = []
 

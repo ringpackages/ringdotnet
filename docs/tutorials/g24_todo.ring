@@ -1,6 +1,5 @@
 # Tutorial 24: a project - a to-do list that remembers its tasks (Windows Forms + JSON + files)
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.IO"

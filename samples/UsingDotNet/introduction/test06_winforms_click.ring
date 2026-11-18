@@ -1,5 +1,4 @@
 load "dotnet.ring"
-dnUseDesktop()                      # must be the first .NET call
 using { "System.Windows.Forms" }
 
 # Windows Forms: the Ring thread runs the message loop, so event code runs on it.

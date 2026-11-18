@@ -16,7 +16,7 @@ load "dotnet.ring"
 
 ### dnUseDesktop(), dnUseWeb(), dnUseAll(), dnUseData()
 
-Select the runtime mode before the first .NET call. See [Getting started](getting-started.html#the-startup-modes).
+Select the runtime mode before the first .NET call. You normally do not call them: the `using { }` block calls the right one when it sees the namespaces (see [Getting started](getting-started.html#the-startup-modes)).
 
 ## Importing classes
 

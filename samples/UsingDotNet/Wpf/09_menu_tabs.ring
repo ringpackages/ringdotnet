@@ -1,7 +1,6 @@
 # A menu and tab pages
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

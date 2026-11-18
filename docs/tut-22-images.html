@@ -144,12 +144,11 @@
 <ul><li>bitmaps and pixels,</li><li><code>Graphics</code>, brushes and pens,</li><li><code>GetPixel</code> and <code>SetPixel</code>,</li><li>saving and loading image files,</li><li>when to use a different way to call a method (positional arguments and objects).</li></ul>
 <h2 id="concepts">Concepts<a class="anchor" href="#concepts">#</a></h2>
 <p>An <strong>image</strong> is a grid of <strong>pixels</strong>; each pixel has a <strong>colour</strong> made of red, green, blue (0–255) and an alpha value for transparency. A <strong>Bitmap</strong> is such a grid in memory. To draw on it you use a <strong>Graphics</strong> object created from the bitmap. A <strong>Brush</strong> fills areas, a <strong>Pen</strong> draws lines, a <strong>Font</strong> draws text.</p>
-<div class="callout note"><span class="t">Note</span><p><code>System.Drawing</code> is part of the desktop runtime, so the program starts with <code>dnUseDesktop()</code> even though it shows no window.</p></div>
+<div class="callout note"><span class="t">Note</span><p><code>System.Drawing</code> is part of the desktop runtime, so the <code>using</code> block with <code>System.Drawing</code> starts the desktop runtime even though the program shows no window.</p></div>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t22_images.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 22: images - create, draw, read pixels, resize, convert to gray and save (no window needed)</span>
 <span class="c">#   ring t22_images.ring [output folder]</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()                  <span class="c"># System.Drawing is part of the desktop runtime (no window is shown)</span>
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.IO"</span>

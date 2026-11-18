@@ -148,13 +148,13 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g49_login.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 49: login, sessions and cookies - a web site that knows who you are</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseWeb</span>()
-<span class="f">dnUseData</span>()
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"System.Security.Cryptography"</span>
 	<span class="s">"System.Text"</span>
+	<span class="s">"RingDotNet.Web"</span>
+	<span class="s">"RingDotNet.Data"</span>
 }
 
 oServer = <span class="s">""</span>

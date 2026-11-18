@@ -1,7 +1,6 @@
 # Tic-Tac-Toe against the computer - a port of ring/applications/tictactoe to RingDotNet
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

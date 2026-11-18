@@ -1,7 +1,6 @@
 # Fonts, styles and colors
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

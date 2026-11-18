@@ -1,8 +1,8 @@
 # Tutorial 27, part 2: changing a database that already has data - migrations
 load "dotnet.ring"
-dnUseData()
 using {
 	"System.IO"
+	"RingDotNet.Data"
 }
 
 func main

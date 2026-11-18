@@ -1,7 +1,6 @@
 # Sudoku - type the digits, "Check" finds mistakes, "Solve" uses backtracking (a port of ring/applications/sudoku)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

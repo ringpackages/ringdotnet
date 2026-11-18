@@ -1,7 +1,6 @@
 # ASCII table in a ListView with a filter (a port of ring/applications/asciitable)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -262,7 +262,7 @@ nFail = <span class="f">dnTestSummary</span>()</code></pre></div></details>
 <h2 id="which-namespaces-to-wrap">Which namespaces to wrap<a class="anchor" href="#which-namespaces-to-wrap">#</a></h2>
 <p><code>wrapassembly.ring &lt;dll&gt; &lt;folder&gt; [namespace ...]</code> wraps only the namespaces you list. Without names, every namespace of the assembly is wrapped.</p>
 <h2 id="rules">Rules<a class="anchor" href="#rules">#</a></h2>
-<ul><li>Generated loaders use the names of the .NET classes. When a class name is also a name Ring or another namespace already uses, the generator can add a prefix — see <a href="generator.html">Class generator</a>.</li><li>Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.</li><li>The runtime mode matters: a DLL that needs Windows Forms requires <code>dnUseDesktop()</code> first.</li></ul>
+<ul><li>Generated loaders use the names of the .NET classes. When a class name is also a name Ring or another namespace already uses, the generator can add a prefix — see <a href="generator.html">Class generator</a>.</li><li>Keep the DLL and its dependencies in one folder: assemblies are resolved next to the DLL you load.</li><li>The runtime mode matters: a DLL that needs Windows Forms requires the desktop mode first (a <code>using</code> block that names <code>System.Windows.Forms</code>, or <code>dnUseDesktop()</code>).</li></ul>
 <div class="pager"><a href="ef-reference.html"><small>Previous</small>Entity Framework reference</a><a class="next" href="generator.html"><small>Next</small>Class generator</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

@@ -1,6 +1,5 @@
 # Tutorial 62: a maze - make it with a stack (depth-first), solve it with a queue (breadth-first), draw it on a canvas
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

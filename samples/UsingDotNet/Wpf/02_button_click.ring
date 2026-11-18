@@ -1,7 +1,6 @@
 # A button counts its clicks (routed Click event)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

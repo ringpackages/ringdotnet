@@ -7,7 +7,7 @@ lead: A Kestrel web server whose routes are Ring functions — HTML pages, JSON 
 
 ```ring
 load "dotnet.ring"
-dnUseWeb()                                     # before any other .NET call
+using { "RingDotNet.Web" }                       # starts the ASP.NET Core mode and loads the web server
 
 oServer = new WebServer("http://localhost:5080")
 oServer.onGet("/","home")
@@ -21,7 +21,7 @@ func echo oRequest
 	return [201,"text/plain","you sent " + oRequest.body()]
 ```
 
-`dnUseWeb()` starts the ASP.NET Core runtime and loads the web server of RingDotNet. A **handler** is a Ring function that receives the request and returns the response.
+`using { "RingDotNet.Web" }` starts the ASP.NET Core runtime and loads the web server of RingDotNet (it calls `dnUseWeb()` for you). A **handler** is a Ring function that receives the request and returns the response.
 
 ![The page served by the Ring web server](img/shots/web-page.png "samples/UsingDotNet/applications/WebApi — a page rendered by a Ring handler")
 
@@ -80,7 +80,7 @@ An error raised by a handler becomes a **500** response with the message. `nRequ
 
 Kestrel runs on .NET threads and Ring code may only run on the Ring thread. So the requests are **queued** and `serveOne()` / `run()` take them off the queue on the Ring thread. This is the reason you can use any Ring code and global state in a handler without locks — and also why handlers do not run in parallel.
 
-You can mix serving with your own loop (for example next to a GUI, using `dnUseAll()`):
+You can mix serving with your own loop (for example next to a GUI: name `"System.Windows.Forms"` and `"RingDotNet.Web"` in the same `using` block, or call `dnUseAll()`):
 
 ```ring
 while true

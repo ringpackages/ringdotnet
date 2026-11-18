@@ -1,7 +1,6 @@
 # A progress bar driven by a timer
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

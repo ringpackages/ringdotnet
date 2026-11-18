@@ -1,6 +1,5 @@
 # Tutorial 63: an image filter lab - pixels as numbers, filters as small functions, a BMP file written by hand, before and after side by side
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.IO"
 	"System.Drawing"

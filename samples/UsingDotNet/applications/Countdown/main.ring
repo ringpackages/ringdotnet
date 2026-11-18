@@ -1,7 +1,6 @@
 # Countdown timer with a progress bar (a Windows Forms Timer drives the Ring code)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Diagnostics"

@@ -1,6 +1,5 @@
 # Tutorial 70: WPF animation - move, fade and rotate with animations that WPF runs for you
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Windows"

@@ -1,6 +1,5 @@
 # Tutorial 40: your own dialog - a modal form that asks for data and gives it back
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

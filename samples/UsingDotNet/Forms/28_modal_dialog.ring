@@ -1,7 +1,6 @@
 # A modal dialog form that returns a value
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -1,9 +1,9 @@
 # Tutorial 9: HTTP - a web server and a web client in one program
 load "dotnet.ring"
-dnUseWeb()
 using {
 	"System.Net.Http"
 	"System.Threading.Tasks"
+	"RingDotNet.Web"
 }
 
 oServer = ""

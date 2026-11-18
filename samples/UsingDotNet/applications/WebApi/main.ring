@@ -3,11 +3,11 @@
 #   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1
 
 load "dotnet.ring"
-dnUseWeb()
 using {
 	"System"
 	"System.Net.Http"
 	"System.Threading.Tasks"
+	"RingDotNet.Web"
 }
 
 aTodos = []		# [id, text]

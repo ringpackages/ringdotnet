@@ -79,7 +79,7 @@ A JSON object is simple text: the helper builds `{"lines":30,"errors":9,"differe
 1. Count the errors **per day**: put the date in a dictionary.
 2. Print the busiest hour (use the first two characters of the time).
 3. Take the file name from the command line (`sysargv[3]`) and report an error if it does not exist.
-4. Write the report with `webJson` instead of the helper (`dnUseWeb()` first).
+4. Write the report with `webJson` instead of the helper (with `"RingDotNet.Web"` in the `using` block).
 
 ## Next
 

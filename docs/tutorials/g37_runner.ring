@@ -1,6 +1,5 @@
 # Tutorial 37: a project - a command runner (a window that starts a program and shows what it prints)
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Diagnostics"

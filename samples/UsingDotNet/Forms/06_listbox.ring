@@ -1,7 +1,6 @@
 # A list box: add, remove and the selected item
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

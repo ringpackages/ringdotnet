@@ -1,7 +1,6 @@
 # A DispatcherTimer fills a progress bar
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

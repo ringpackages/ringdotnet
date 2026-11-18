@@ -1,7 +1,6 @@
 # Pong - Up/Down (or W/S) move your paddle, the computer plays the other one (a port of ring/applications/pong)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

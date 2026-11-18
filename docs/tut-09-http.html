@@ -147,10 +147,10 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t09_http.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 9: HTTP - a web server and a web client in one program</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseWeb</span>()
 using {
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"System.Threading.Tasks"</span>
+	<span class="s">"RingDotNet.Web"</span>
 }
 
 oServer = <span class="s">""</span>
@@ -212,7 +212,7 @@ GET /nothing-&gt; NotFound Not found: GET /nothing</code></pre></div>
 <div class="callout note"><span class="t">Note</span><p>The port number is chosen by Windows, so it differs on every run.</p></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="the-server">The server<a class="anchor" href="#the-server">#</a></h3>
-<p><code>dnUseWeb()</code> (first!) starts the ASP.NET Core runtime. <code>new WebServer("http://127.0.0.1:0")</code> starts a server on your computer (<code>127.0.0.1</code> is "this computer"); port <code>0</code> means "any free port", and <code>oServer.url()</code> tells you which one.</p>
+<p><code>using { ..., "RingDotNet.Web" }</code> (first!) starts the ASP.NET Core runtime. <code>new WebServer("http://127.0.0.1:0")</code> starts a server on your computer (<code>127.0.0.1</code> is "this computer"); port <code>0</code> means "any free port", and <code>oServer.url()</code> tells you which one.</p>
 <p>Each address is connected to a Ring function with <code>onGet</code>, <code>onPost</code>, <code>onDelete</code>. The function receives the request and <strong>returns the answer</strong>:</p>
 <div class="tablewrap"><table><thead><tr><th>The handler returns</th><th>The response</th></tr></thead><tbody><tr><td>a text</td><td>status 200, the text as HTML</td></tr><tr><td><code>[status, contentType, text]</code></td><td>exactly that</td></tr><tr><td><code>webJson(list)</code></td><td>status 200, JSON</td></tr></tbody></table></div>
 <p>A path that has no handler answers <code>404 Not found</code>.</p>

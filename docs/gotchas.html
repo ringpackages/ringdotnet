@@ -189,8 +189,8 @@ cResult = <span class="k">new</span> <span class="t">Regex</span>(<span class="s
 <h3 id="dnnull"><code>dnNull()</code><a class="anchor" href="#dnnull">#</a></h3>
 <p><code>dnNull()</code> is the .NET null: <code>oPictureBox.Image = dnNull()</code>.</p>
 <h2 id="net-gotchas">.NET gotchas<a class="anchor" href="#net-gotchas">#</a></h2>
-<h3 id="always-call-the-mode-function-first">Always call the mode function first<a class="anchor" href="#always-call-the-mode-function-first">#</a></h3>
-<p><code>dnUseDesktop()</code>, <code>dnUseWeb()</code> and <code>dnUseAll()</code> must come <strong>before any other .NET call</strong>: the first call starts the runtime and the mode can not change afterwards.</p>
+<h3 id="put-the-using-block-before-the-first-net-call">Put the <code>using</code> block before the first .NET call<a class="anchor" href="#put-the-using-block-before-the-first-net-call">#</a></h3>
+<p>The runtime mode (desktop, web, both) is chosen by the <code>using { }</code> block (or by <code>dnUseDesktop()</code>, <code>dnUseWeb()</code>, <code>dnUseAll()</code>) and must come <strong>before any other .NET call</strong>: the first call starts the runtime and the mode can not change afterwards. If a program needs both Windows Forms/WPF and ASP.NET Core, name both in the first <code>using</code> block.</p>
 <h3 id="callbacks-run-on-the-ring-thread-only">Callbacks run on the Ring thread only<a class="anchor" href="#callbacks-run-on-the-ring-thread-only">#</a></h3>
 <p>Events from timers on other threads (<code>System.Threading.Timer</code>, <code>Task.Run(...)</code>) can not run Ring code; they print a message on stderr and do nothing. Use the Windows Forms <code>Timer</code> (<code>uiTimer</code>) or wait for tasks on the Ring thread. The web server queues requests for the same reason.</p>
 <h3 id="value-types-are-returned-by-value">Value types are returned by value<a class="anchor" href="#value-types-are-returned-by-value">#</a></h3>

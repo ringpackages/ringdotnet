@@ -230,6 +230,7 @@ func dnIsIdentifier  cText
 # Use Windows Forms / WPF (adds the Windows Desktop runtime). Call it before any other .NET call.
 func dnUseDesktop
 	dotnet_start("desktop")
+	cDotNetMode = "desktop"
 	# errors in event handlers are raised out of Application.Run() (catch them with try/catch) instead of opening a dialog
 	dnRequest("call",[dnTypeCached("System.Windows.Forms.Application, System.Windows.Forms"),"SetUnhandledExceptionMode","ThrowException"])
 	return 1
@@ -343,12 +344,14 @@ func dnNull
 # Use ASP.NET Core (adds the ASP.NET runtime and loads the web server of RingDotNet). Call it before any other .NET call.
 func dnUseWeb
 	dotnet_start("web")
+	cDotNetMode = "web"
 	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
 	return 1
 
 # Windows Forms / WPF and ASP.NET Core together (used by the class generator)
 func dnUseAll
 	dotnet_start("all")
+	cDotNetMode = "all"
 	dnLoad(dnRequest("bridgefolder",[]) + "/RingDotNet.Web.dll")
 	return 1
 

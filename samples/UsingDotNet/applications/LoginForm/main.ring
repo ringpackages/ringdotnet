@@ -1,7 +1,6 @@
 # Login form with validation, a password hash and an error provider
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Text"

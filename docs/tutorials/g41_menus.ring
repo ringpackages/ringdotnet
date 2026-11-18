@@ -1,6 +1,5 @@
 # Tutorial 41: menus, toolbars, context menus and shortcuts - one action, several ways to reach it
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

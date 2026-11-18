@@ -2,7 +2,6 @@
 #   # wall   @ player   $ box   . target   * box on a target   + player on a target
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

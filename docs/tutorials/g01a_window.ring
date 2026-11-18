@@ -1,6 +1,5 @@
 # Tutorial 11, step 1: the smallest window
 load "dotnet.ring"
-dnUseDesktop()                       # Windows Forms needs the desktop runtime: call it first
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

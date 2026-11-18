@@ -1,7 +1,6 @@
 # The smallest window: a form with a label
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

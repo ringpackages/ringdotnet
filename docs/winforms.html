@@ -142,8 +142,7 @@
 <h1>Windows Forms</h1><p class="lead">Build desktop programs with every Windows Forms control, plus a few short helpers that keep small programs small.</p>
 <h2 id="the-shape-of-a-program">The shape of a program<a class="anchor" href="#the-shape-of-a-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()                         <span class="c"># the Windows Desktop runtime, and an STA Ring thread</span>
-using {
+using {                                   <span class="c"># the names start the Windows Desktop runtime and make the Ring thread an STA thread</span>
 	<span class="s">"System.Drawing"</span>
 	<span class="s">"System.Windows.Forms"</span>             <span class="c"># also loads the GUI helpers</span>
 }
@@ -162,7 +161,7 @@ nClicks = <span class="n">0</span>
 	nClicks++
 	oCount.Text = <span class="s">""</span> + nClicks + <span class="s">" clicks"</span></code></pre></div>
 <figure class="shot"><img src="img/shots/forms-02_button_click.png" alt="A form with a label and a button" loading="lazy"><figcaption>A label and a button: the whole program is about 15 lines</figcaption></figure>
-<p><code>dnUseDesktop()</code> first, then the imports, then the form. <code>uiRun(oForm)</code> shows the form and runs the message loop (<code>Application.Run</code>). When the form closes the program continues after <code>uiRun</code>.</p>
+<p>The <code>using</code> block first (it starts the desktop runtime because it names <code>System.Windows.Forms</code> and <code>System.Drawing</code>), then the form. <code>uiRun(oForm)</code> shows the form and runs the message loop (<code>Application.Run</code>). When the form closes the program continues after <code>uiRun</code>.</p>
 <div class="callout note"><span class="t">Note</span><p>Programs that start with <code>main()</code> at the top of the file can put the main code before the functions. Define functions <strong>after</strong> the main code: in Ring a <code>func</code> at the top would swallow the rest of the file.</p></div>
 <h2 id="the-helpers">The helpers<a class="anchor" href="#the-helpers">#</a></h2>
 <p>Everything the helpers do can also be written with the plain classes (see the next section); they exist to keep small programs short. They are loaded together with <code>System.Windows.Forms</code>.</p>
@@ -222,7 +221,7 @@ oPicture.<span class="f">setMouseDownEvent</span>(<span class="s">"? aDotNetArgs
 	<span class="f">dnAssert</span>(<span class="s">"one click"</span>,oCount.Text,<span class="s">"1 clicks"</span>)</code></pre></div>
 <p><code>uiSendKeys(oForm,"12{+}30{ENTER}")</code> types into the focused control <strong>through the real key processing</strong> by posting window messages to your own form — it can never type into another program. See <a href="testing.html">Testing</a>.</p>
 <h2 id="more">More<a class="anchor" href="#more">#</a></h2>
-<ul><li><a href="gallery-forms.html">Forms samples</a> — 32 short samples.</li><li><a href="gallery-apps.html">Applications</a> — 43 complete programs.</li><li><a href="wpf.html">WPF</a> — the other desktop UI framework.</li></ul>
+<ul><li><a href="gallery-forms.html">Forms samples</a> — 32 short samples.</li><li><a href="gallery-apps.html">Applications</a> — 0 complete programs.</li><li><a href="wpf.html">WPF</a> — the other desktop UI framework.</li></ul>
 <div class="pager"><a href="foundation.html"><small>Previous</small>The .NET class library</a><a class="next" href="gallery-forms.html"><small>Next</small>Forms samples</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>

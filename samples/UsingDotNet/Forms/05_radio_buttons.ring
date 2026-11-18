@@ -1,7 +1,6 @@
 # Radio buttons in a group box
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

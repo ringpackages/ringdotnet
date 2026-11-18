@@ -20,7 +20,7 @@ lead: Build a window in four small steps — an empty form, a label and a button
 
 ![The empty window](img/shots/tut-g01a.png "Step 1: a window with a title")
 
-- `dnUseDesktop()` must be the **first** .NET call. It starts the Windows desktop runtime and makes the Ring thread suitable for windows.
+- The `using { }` block comes **first**. Because it names `System.Windows.Forms`, it starts the Windows desktop runtime and makes the Ring thread suitable for windows (this is what `dnUseDesktop()` does).
 - `uiForm("My first window",320,120)` makes a form with a title and a client area of 320 × 120 pixels, centred on the screen.
 - `uiRun(oForm)` shows the window and waits. The program continues after the window is closed.
 - `uiTest` and `uiEnd` make the program test itself when started with `--selftest`; you can ignore them for now.
@@ -74,7 +74,7 @@ Note how the properties are written inside **braces**: `new Label() { Text = "..
 
 | Idea | Example |
 |---|---|
-| start the desktop runtime first | `dnUseDesktop()` |
+| start the desktop runtime first | `using { "System.Windows.Forms" }` |
 | a form and controls | `uiForm`, `uiLabel`, `uiButton` |
 | positions and sizes in pixels | `20, 15, 280, 24` |
 | an event is Ring code in a text | `"clicked()"` |

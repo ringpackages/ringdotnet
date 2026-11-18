@@ -10,7 +10,7 @@ lead: Install the package, run your first .NET call from Ring, and learn the fou
 | **Ring** 1.27 or newer | The language. The package is a normal Ring package. |
 | **.NET 6 or newer** (tested with .NET 9) | The runtime that RingDotNet hosts inside the Ring process. |
 | **Windows Desktop runtime** | Only for Windows Forms and WPF programs (it is part of the .NET Desktop runtime installer). |
-| **ASP.NET Core runtime** | Only for web programs (`dnUseWeb()`). |
+| **ASP.NET Core runtime** | Only for web programs (`"RingDotNet.Web"`). |
 
 > [!NOTE] The package is built and tested on Windows with Ring 1.28 and .NET 9. The C extension and the managed bridge are portable; the Windows Forms and WPF parts are Windows-only by nature.
 
@@ -46,23 +46,27 @@ For a type that has no generated class you can also make **generic calls**: `dnT
 
 ## The startup modes
 
-The first .NET call starts the runtime. If your program needs more than the base library, call one of these **before any other .NET call**:
+The first .NET call starts the runtime, and the runtime can be started in one **mode** only. You do not have to choose it: the `using { }` block looks at the names and starts the mode that the program needs.
 
-| Call | Starts | Use it for |
+| The block names... | Mode that is started | Use it for |
 |---|---|---|
-| *(none)* | .NET base runtime | Console programs, files, networking, JSON, XML, reflection, LINQ |
-| `dnUseDesktop()` | Windows Desktop runtime, Ring thread becomes STA | Windows Forms, WPF |
-| `dnUseWeb()` | ASP.NET Core runtime, loads the web server | `WebServer` ([ASP.NET Core](aspnet.html)) |
-| `dnUseAll()` | Desktop and ASP.NET Core together | A GUI program that also serves HTTP |
-| `dnUseData()` | Loads the Entity Framework assemblies | `RingDatabase`, `RingEntityDb` ([Entity Framework](ef.html)) |
+| only `System...` namespaces | the base runtime | Console programs, files, networking, JSON, XML, reflection, LINQ |
+| `System.Windows*` or `System.Drawing*` | Windows Desktop runtime, Ring thread becomes STA (`dnUseDesktop()`) | Windows Forms, WPF |
+| `Microsoft.AspNetCore*` or `"RingDotNet.Web"` | ASP.NET Core runtime, loads the web server (`dnUseWeb()`) | `WebServer` ([ASP.NET Core](aspnet.html)) |
+| both of the two above | Desktop and ASP.NET Core together (`dnUseAll()`) | A GUI program that also serves HTTP |
+| `Microsoft.EntityFrameworkCore*` or `"RingDotNet.Data"` | loads the Entity Framework assemblies (`dnUseData()`) | `RingDatabase`, `RingEntityDb` ([Entity Framework](ef.html)) |
 
 ```ring
-dnUseDesktop()                      # Windows Forms or WPF
+load "dotnet.ring"
 using {
-	"System.Drawing"
+	"System.Drawing"                # starts the desktop mode: Windows Forms or WPF
 	"System.Windows.Forms"
 }
 ```
+
+`"RingDotNet.Web"` and `"RingDotNet.Data"` are not .NET namespaces: they name the helper classes of this package (`WebServer`; `RingDatabase`, `RingEntityDb`) so that you can ask for them in the same place.
+
+Put the `using` block **before any other .NET call**. If the mode is already started and the block asks for another one, the program stops with a message that says so. The functions `dnUseDesktop()`, `dnUseWeb()`, `dnUseAll()` and `dnUseData()` still exist, and the block is only a shorter way to call them ([Core functions](core-api.html)).
 
 ## Importing namespaces
 

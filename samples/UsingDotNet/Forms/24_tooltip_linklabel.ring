@@ -1,7 +1,6 @@
 # A tooltip and a link label
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -2,7 +2,6 @@
 # (a port of ring/applications/lightsout to RingDotNet)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

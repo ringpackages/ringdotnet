@@ -1,7 +1,6 @@
 # Buttons in a flow layout panel that wraps
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

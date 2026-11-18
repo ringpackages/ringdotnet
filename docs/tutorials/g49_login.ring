@@ -1,12 +1,12 @@
 # Tutorial 49: login, sessions and cookies - a web site that knows who you are
 load "dotnet.ring"
-dnUseWeb()
-dnUseData()
 using {
 	"System"
 	"System.Net.Http"
 	"System.Security.Cryptography"
 	"System.Text"
+	"RingDotNet.Web"
+	"RingDotNet.Data"
 }
 
 oServer = ""

@@ -1,7 +1,6 @@
 # Tetris - Left/Right move, Up rotates, Down drops one row, Space drops all the way (a port of ring/applications/tetris)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

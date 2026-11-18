@@ -1,7 +1,6 @@
 # Copy text to the clipboard and read it back
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

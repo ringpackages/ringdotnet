@@ -1,6 +1,5 @@
 # Tutorial 13: a small text editor - menus, a status bar, files and a message when you quit with unsaved text
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.IO"

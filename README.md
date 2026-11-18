@@ -156,18 +156,18 @@ oForm { Height = 300  Text += "!" }
 
 ## WPF
 
-`dnUseDesktop()` then `dnImport("System.Windows")` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `samples/UsingDotNet/tests/test_wpf.ring`, `samples/UsingDotNet/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
+A `using { "System.Windows" ... }` block (it starts the desktop mode with `dnUseDesktop()`) with `"System.Windows"` (and `.Controls`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, ...) wraps WPF: windows, panels, controls, XAML (`wpfXaml()`), data binding, shapes, brushes, animation classes. WPF class names that exist in Windows Forms/System.Drawing too start with `Wpf` (`WpfButton`, `WpfTextBox`, `WpfPoint`, `WpfBinding`); the others keep their name (`Window`, `Grid`, `StackPanel`, `Ellipse`). Helpers in `wpf.ring`: `wpfWindow`, `wpfRun`, `wpfLabel`, `wpfButton`, `wpfBrush`, `wpfXaml`, `wpfFind`, `wpfPixel`, `wpfTest`/`wpfEnd`. See `samples/UsingDotNet/tests/test_wpf.ring`, `samples/UsingDotNet/Wpf` (10 samples) and the applications WpfCalculator and WpfColorMixer. Ring gotcha: a global variable named like an attribute (`x`) breaks `obj.X`.
 
 ## Entity Framework Core
 
-`dnUseData()` loads Entity Framework Core 9 (SQLite and in-memory providers bundled). A Ring program cannot write C# classes, so the model is described with data (tables, columns, options) and EF Core works on it in two ways:
+`using { "RingDotNet.Data" }` (it calls `dnUseData()`) loads Entity Framework Core 9 (SQLite and in-memory providers bundled). A Ring program cannot write C# classes, so the model is described with data (tables, columns, options) and EF Core works on it in two ways:
 
 - `RingDatabase`: rows are lists of `[name, value]` pairs (EF shared-type entities).
 - `RingEntityDb`: the tables become real .NET classes (Reflection.Emit) with navigation properties, tracked by EF like classes written in C#.
 
 ```ring
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 oDb = new RingDatabase("Data Source=people.db",[
 	["Customers",[ ["Id","int",1], ["Name","string",0,[["required",1],["unique",1],["maxlength",40]]], ["Age","int",0,[["nullable",1]]], ["City","string",0,[["index",1]]] ]]
 ])
@@ -198,10 +198,10 @@ Not supported: classes written in C# source (the entity classes are generated fr
 
 ## ASP.NET Core
 
-`dnUseWeb()` (before any other .NET call) adds the ASP.NET Core runtime. `web.ring` then gives a Kestrel web server whose requests are handled by Ring functions:
+`using { "RingDotNet.Web" }` (it calls `dnUseWeb()`; before any other .NET call) adds the ASP.NET Core runtime. `web.ring` then gives a Kestrel web server whose requests are handled by Ring functions:
 
 ```ring
-dnUseWeb()
+using { "RingDotNet.Web" }
 oServer = new WebServer("http://localhost:5080")
 oServer.onGet("/","home")
 oServer.onPost("/api/echo","echo")
@@ -254,10 +254,10 @@ oList.Add("one")
 
 All of `System.Windows.Forms` and `System.Drawing*` are wrapped (`dnImport("System.Windows.Forms")`, `dnImport("System.Drawing")`). `dnUseDesktop()` also makes errors in event handlers raise out of `Application.Run()` (so a Ring `try/catch` sees them, no dialog). Remember that in Ring `number + string` is an error: write `string(n) + " items"`.
 
-Call `dnUseDesktop()` first (it adds the Windows Desktop runtime and makes the Ring thread an STA thread). The Ring thread then runs the message loop in `Application.Run(form)`, so event code runs normally:
+Write the `using` block first (a `System.Windows*` or `System.Drawing*` name calls `dnUseDesktop()`; it adds the Windows Desktop runtime and makes the Ring thread an STA thread). The Ring thread then runs the message loop in `Application.Run(form)`, so event code runs normally:
 
 ```ring
-dnUseDesktop()
+using { "System.Windows.Forms" }
 oForm = new Form()
 oButton = new Button()
 oButton.setText("Click me")

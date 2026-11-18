@@ -1,7 +1,6 @@
 # Shapes on a canvas, rendered to a bitmap to check the colors
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

@@ -1,9 +1,9 @@
 # Tutorial 26: a small web site - HTML pages, a form, links and a guestbook (ASP.NET Core)
 load "dotnet.ring"
-dnUseWeb()
 using {
 	"System.Net.Http"
 	"System.Text"
+	"RingDotNet.Web"
 }
 
 oServer = ""

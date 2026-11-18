@@ -1,7 +1,6 @@
 # A list box and a combo box with selection events
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

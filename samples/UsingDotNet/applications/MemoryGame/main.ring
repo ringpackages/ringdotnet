@@ -1,7 +1,6 @@
 # Memory game - find the pairs (a port of ring/applications/memorygame to RingDotNet)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Diagnostics"

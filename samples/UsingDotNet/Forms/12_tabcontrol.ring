@@ -1,7 +1,6 @@
 # Tabs with different content
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

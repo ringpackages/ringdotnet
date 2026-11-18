@@ -148,10 +148,10 @@
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/g06_notes_service.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 16: a web service with a database - JSON over HTTP, stored with Entity Framework</span>
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseWeb</span>()                                   <span class="c"># ASP.NET Core</span>
-<span class="f">dnUseData</span>()                                  <span class="c"># Entity Framework</span>
 using {
 	<span class="s">"System.Net.Http"</span>
+	<span class="s">"RingDotNet.Web"</span>
+	<span class="s">"RingDotNet.Data"</span>
 }
 
 oServer = <span class="s">""</span>
@@ -235,7 +235,7 @@ GET  /notes   -&gt; OK [{"id":2,"text":"Learn Ring and .NET"}]
 DELETE (nothing)-&gt; NotFound There is no note 99</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="two-start-up-calls">Two start-up calls<a class="anchor" href="#two-start-up-calls">#</a></h3>
-<p><code>dnUseWeb()</code> starts the web runtime and <code>dnUseData()</code> loads Entity Framework. Both before any other .NET call.</p>
+<p><code>"RingDotNet.Web"</code> in the <code>using</code> block starts the web runtime and <code>"RingDotNet.Data"</code> loads Entity Framework. Both before any other .NET call.</p>
 <h3 id="the-database">The database<a class="anchor" href="#the-database">#</a></h3>
 <p>A <code>RingDatabase</code> with a table <code>Notes</code>: a numbered key <code>Id</code>, a required <code>Text</code> (at most 200 characters), and a <code>Done</code> flag with a default of 0. <code>"Data Source=:memory:"</code> keeps the data in memory, which is perfect for a tutorial; use <code>"Data Source=notes.db"</code> for a file. See <a href="tut-17-databases.html">tutorial 17</a>.</p>
 <h3 id="the-handlers">The handlers<a class="anchor" href="#the-handlers">#</a></h3>

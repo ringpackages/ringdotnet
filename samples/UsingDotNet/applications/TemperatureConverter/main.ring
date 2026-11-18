@@ -1,7 +1,6 @@
 # Temperature converter: type in any box and the others follow (TextChanged events)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

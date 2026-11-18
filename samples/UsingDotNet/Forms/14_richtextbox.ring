@@ -1,7 +1,6 @@
 # Formatting the selected text of a rich text box
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

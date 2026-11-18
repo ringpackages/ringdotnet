@@ -1,6 +1,6 @@
 # Tutorial 27, part 1: entity objects - the rows of a table as real objects with navigation properties
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	# The schema is the same as with RingDatabase. RingEntityDb turns every table into a .NET class.

@@ -1,11 +1,10 @@
 # Tutorial 48: a project - an address book with a database (Windows Forms + Entity Framework + a data grid)
 load "dotnet.ring"
-dnUseDesktop()
-dnUseData()
 using {
 	"System.Data"
 	"System.Drawing"
 	"System.Windows.Forms"
+	"RingDotNet.Data"
 }
 
 oForm = ""

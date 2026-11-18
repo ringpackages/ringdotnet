@@ -1,6 +1,6 @@
 # Entity Framework Core: queries as LINQ expression trees, aggregates and SQL of any shape
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	oDb = new RingDatabase("Data Source=:memory:",[

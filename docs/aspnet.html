@@ -142,7 +142,7 @@
 <h1>ASP.NET Core</h1><p class="lead">A Kestrel web server whose routes are Ring functions — HTML pages, JSON APIs, forms — plus all of the ASP.NET Core classes for everything else.</p>
 <h2 id="a-web-server-in-a-few-lines">A web server in a few lines<a class="anchor" href="#a-web-server-in-a-few-lines">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseWeb</span>()                                     <span class="c"># before any other .NET call</span>
+using { <span class="s">"RingDotNet.Web"</span> }                       <span class="c"># starts the ASP.NET Core mode and loads the web server</span>
 
 oServer = <span class="k">new</span> <span class="t">WebServer</span>(<span class="s">"http://localhost:5080"</span>)
 oServer.<span class="f">onGet</span>(<span class="s">"/"</span>,<span class="s">"home"</span>)
@@ -154,7 +154,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 
 <span class="k">func</span> <span class="f">echo</span> oRequest
 	<span class="k">return</span> [<span class="n">201</span>,<span class="s">"text/plain"</span>,<span class="s">"you sent "</span> + oRequest.<span class="f">body</span>()]</code></pre></div>
-<p><code>dnUseWeb()</code> starts the ASP.NET Core runtime and loads the web server of RingDotNet. A <strong>handler</strong> is a Ring function that receives the request and returns the response.</p>
+<p><code>using { "RingDotNet.Web" }</code> starts the ASP.NET Core runtime and loads the web server of RingDotNet (it calls <code>dnUseWeb()</code> for you). A <strong>handler</strong> is a Ring function that receives the request and returns the response.</p>
 <figure class="shot"><img src="img/shots/web-page.png" alt="The page served by the Ring web server" loading="lazy"><figcaption>samples/UsingDotNet/applications/WebApi — a page rendered by a Ring handler</figcaption></figure>
 <h2 id="handlers-and-responses">Handlers and responses<a class="anchor" href="#handlers-and-responses">#</a></h2>
 <p>A handler returns one of:</p>
@@ -174,7 +174,7 @@ oServer.<span class="f">run</span>()                                  <span clas
 <p>An error raised by a handler becomes a <strong>500</strong> response with the message. <code>nRequests</code> counts the requests served.</p>
 <h2 id="one-ring-thread">One Ring thread<a class="anchor" href="#one-ring-thread">#</a></h2>
 <p>Kestrel runs on .NET threads and Ring code may only run on the Ring thread. So the requests are <strong>queued</strong> and <code>serveOne()</code> / <code>run()</code> take them off the queue on the Ring thread. This is the reason you can use any Ring code and global state in a handler without locks — and also why handlers do not run in parallel.</p>
-<p>You can mix serving with your own loop (for example next to a GUI, using <code>dnUseAll()</code>):</p>
+<p>You can mix serving with your own loop (for example next to a GUI: name <code>"System.Windows.Forms"</code> and <code>"RingDotNet.Web"</code> in the same <code>using</code> block, or call <code>dnUseAll()</code>):</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">while</span> <span class="k">true</span>
 	oServer.<span class="f">serveOne</span>(<span class="n">100</span>)          <span class="c"># handle a request if one arrives within 100 ms</span>
 	doOtherWork()
@@ -186,11 +186,11 @@ oServer.<span class="f">run</span>()                                  <span clas
 <span class="c">#   GET /api/todos   POST /api/todos (the text is the body)   DELETE /api/todos?id=1</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseWeb</span>()
 using {
 	<span class="s">"System"</span>
 	<span class="s">"System.Net.Http"</span>
 	<span class="s">"System.Threading.Tasks"</span>
+	<span class="s">"RingDotNet.Web"</span>
 }
 
 aTodos = []		<span class="c"># [id, text]</span>

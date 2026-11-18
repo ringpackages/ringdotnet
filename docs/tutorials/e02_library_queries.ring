@@ -1,8 +1,8 @@
 # Tutorial 17, part 2: relations, queries, transactions and a file database
 load "dotnet.ring"
-dnUseData()
 using {
 	"System.IO"
+	"RingDotNet.Data"
 }
 
 func main

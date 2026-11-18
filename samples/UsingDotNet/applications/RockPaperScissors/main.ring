@@ -1,7 +1,6 @@
 # Rock, paper, scissors against the computer (a port of ring/applications/rockpaperscissors)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

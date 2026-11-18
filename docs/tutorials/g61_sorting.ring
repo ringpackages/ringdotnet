@@ -1,6 +1,5 @@
 # Tutorial 61: watching sorting algorithms - an animation, a timer and counting the work
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

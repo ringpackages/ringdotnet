@@ -1,7 +1,6 @@
 # A masked text box for phone numbers and dates
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -1,6 +1,5 @@
 # Tutorial 11, step 2: a label and a button
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

@@ -1,7 +1,6 @@
 # Horizontal and vertical scroll bars
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

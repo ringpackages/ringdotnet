@@ -1,6 +1,6 @@
 # Entity Framework Core: a table, rows, SQL conditions
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	oDb = new RingDatabase("Data Source=:memory:",[

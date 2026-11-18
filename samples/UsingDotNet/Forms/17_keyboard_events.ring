@@ -1,7 +1,6 @@
 # Key events: KeyDown and KeyPress
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

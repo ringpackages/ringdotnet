@@ -1,7 +1,7 @@
 # A contacts book stored in a SQLite database with Entity Framework Core
 #   ring main.ring                 (console menu)      ring main.ring --selftest
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	aSchema = [["Contacts",[["Id","int",1],["Name","string",0],["Phone","string",0],["City","string",0]]]]

@@ -1,7 +1,6 @@
 # To-do list with check boxes, saved to a text file
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.IO"

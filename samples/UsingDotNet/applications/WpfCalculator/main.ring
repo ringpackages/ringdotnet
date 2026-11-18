@@ -1,7 +1,6 @@
 # Calculator with a WPF window described in XAML (the calculator logic is the one of the Windows Forms Calculator)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

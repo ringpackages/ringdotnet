@@ -1,7 +1,6 @@
 # Data binding: the text follows the slider
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

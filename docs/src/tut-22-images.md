@@ -15,7 +15,7 @@ lead: Create a picture in memory, draw on it, read and change pixels, convert it
 
 An **image** is a grid of **pixels**; each pixel has a **colour** made of red, green, blue (0–255) and an alpha value for transparency. A **Bitmap** is such a grid in memory. To draw on it you use a **Graphics** object created from the bitmap. A **Brush** fills areas, a **Pen** draws lines, a **Font** draws text.
 
-> [!NOTE] `System.Drawing` is part of the desktop runtime, so the program starts with `dnUseDesktop()` even though it shows no window.
+> [!NOTE] `System.Drawing` is part of the desktop runtime, so the `using` block with `System.Drawing` starts the desktop runtime even though the program shows no window.
 
 ## The program
 

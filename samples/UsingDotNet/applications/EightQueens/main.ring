@@ -2,7 +2,6 @@
 # Click a square to put or remove a queen; "Solve" finds a solution with backtracking.
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

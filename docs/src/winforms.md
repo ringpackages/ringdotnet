@@ -7,8 +7,7 @@ lead: Build desktop programs with every Windows Forms control, plus a few short 
 
 ```ring
 load "dotnet.ring"
-dnUseDesktop()                         # the Windows Desktop runtime, and an STA Ring thread
-using {
+using {                                   # the names start the Windows Desktop runtime and make the Ring thread an STA thread
 	"System.Drawing"
 	"System.Windows.Forms"             # also loads the GUI helpers
 }
@@ -30,7 +29,7 @@ func clicked
 
 ![A form with a label and a button](img/shots/forms-02_button_click.png "A label and a button: the whole program is about 15 lines")
 
-`dnUseDesktop()` first, then the imports, then the form. `uiRun(oForm)` shows the form and runs the message loop (`Application.Run`). When the form closes the program continues after `uiRun`.
+The `using` block first (it starts the desktop runtime because it names `System.Windows.Forms` and `System.Drawing`), then the form. `uiRun(oForm)` shows the form and runs the message loop (`Application.Run`). When the form closes the program continues after `uiRun`.
 
 > [!NOTE] Programs that start with `main()` at the top of the file can put the main code before the functions. Define functions **after** the main code: in Ring a `func` at the top would swallow the rest of the file.
 

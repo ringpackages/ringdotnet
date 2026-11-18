@@ -1,7 +1,6 @@
 # Typing quiz - type the sentence, the quiz measures the speed and the mistakes (a port of ring/applications/typingquiz)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.Diagnostics"

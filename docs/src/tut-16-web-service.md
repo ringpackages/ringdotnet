@@ -30,7 +30,7 @@ A *REST-style* API uses the HTTP method to say what to do and the address to say
 
 ### Two start-up calls
 
-`dnUseWeb()` starts the web runtime and `dnUseData()` loads Entity Framework. Both before any other .NET call.
+`"RingDotNet.Web"` in the `using` block starts the web runtime and `"RingDotNet.Data"` loads Entity Framework. Both before any other .NET call.
 
 ### The database
 

@@ -1,7 +1,6 @@
 # Check box and radio buttons with their events
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

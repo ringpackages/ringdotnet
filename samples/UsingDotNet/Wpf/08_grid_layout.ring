@@ -1,7 +1,6 @@
 # A grid with rows, columns and attached properties
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Windows"
 	"System.Windows.Controls"

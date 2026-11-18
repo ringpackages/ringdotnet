@@ -1,6 +1,6 @@
 # Entity Framework Core: foreign keys, children, parent, include and delete behaviors
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	oDb = new RingDatabase("Data Source=:memory:",[

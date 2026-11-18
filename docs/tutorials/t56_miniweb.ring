@@ -1,9 +1,9 @@
 # Tutorial 56: a tiny web framework - routes with parameters (/users/:id), templates ({{name}}) and one catch-all handler
 load "dotnet.ring"
-dnUseWeb()
 using {
 	"System.Net"
 	"System.Net.Http"
+	"RingDotNet.Web"
 }
 
 oServer = ""

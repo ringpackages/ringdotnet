@@ -142,8 +142,7 @@
 <h1>WPF</h1><p class="lead">Windows Presentation Foundation from Ring — windows, panels, controls, XAML, data binding, shapes, brushes and animation.</p>
 <h2 id="a-first-wpf-window">A first WPF window<a class="anchor" href="#a-first-wpf-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnet.ring"</span>
-<span class="f">dnUseDesktop</span>()
-using {
+using {                                   <span class="c"># System.Windows* starts the desktop runtime</span>
 	<span class="s">"System.Windows"</span>
 	<span class="s">"System.Windows.Controls"</span>
 }
@@ -153,7 +152,7 @@ oPanel = <span class="k">new</span> <span class="t">StackPanel</span>()
 oWindow.Content = oPanel
 oPanel.Children.<span class="f">Add</span>(<span class="f">wpfLabel</span>(<span class="s">"Hello from WPF"</span>))
 <span class="f">wpfRun</span>(oWindow)</code></pre></div>
-<p><code>dnUseDesktop()</code> starts the desktop runtime. Then import the WPF namespaces you need: <code>System.Windows</code>, <code>.Controls</code>, <code>.Controls.Primitives</code>, <code>.Media</code>, <code>.Shapes</code>, <code>.Data</code>, <code>.Input</code>, <code>.Documents</code>, <code>.Markup</code>, <code>.Threading</code>, <code>.Media.Imaging</code>, <code>.Media.Animation</code>...</p>
+<p>The <code>using</code> block starts the desktop runtime (it calls <code>dnUseDesktop()</code> when it sees a <code>System.Windows*</code> namespace). Import the WPF namespaces you need: <code>System.Windows</code>, <code>.Controls</code>, <code>.Controls.Primitives</code>, <code>.Media</code>, <code>.Shapes</code>, <code>.Data</code>, <code>.Input</code>, <code>.Documents</code>, <code>.Markup</code>, <code>.Threading</code>, <code>.Media.Imaging</code>, <code>.Media.Animation</code>...</p>
 <h2 id="names-that-start-with-wpf">Names that start with Wpf<a class="anchor" href="#names-that-start-with-wpf">#</a></h2>
 <p>WPF has classes with the same names as Windows Forms and <code>System.Drawing</code> classes. To keep both usable in one program, the <strong>WPF</strong> version of a clashing name starts with <code>Wpf</code>:</p>
 <div class="tablewrap"><table><thead><tr><th>Windows Forms / System.Drawing</th><th>WPF</th></tr></thead><tbody><tr><td><code>Button</code>, <code>TextBox</code>, <code>Label</code></td><td><code>WpfButton</code>, <code>WpfTextBox</code>, <code>WpfLabel</code></td></tr><tr><td><code>Point</code>, <code>Color</code>, <code>Brush</code></td><td><code>WpfPoint</code>, <code>WpfColor</code>, <code>WpfBrush</code></td></tr><tr><td><code>Binding</code>, <code>Rectangle</code></td><td><code>WpfBinding</code>, <code>WpfRectangle</code></td></tr></tbody></table></div>

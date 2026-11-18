@@ -7,8 +7,7 @@ lead: Windows Presentation Foundation from Ring — windows, panels, controls, X
 
 ```ring
 load "dotnet.ring"
-dnUseDesktop()
-using {
+using {                                   # System.Windows* starts the desktop runtime
 	"System.Windows"
 	"System.Windows.Controls"
 }
@@ -20,7 +19,7 @@ oPanel.Children.Add(wpfLabel("Hello from WPF"))
 wpfRun(oWindow)
 ```
 
-`dnUseDesktop()` starts the desktop runtime. Then import the WPF namespaces you need: `System.Windows`, `.Controls`, `.Controls.Primitives`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, `.Threading`, `.Media.Imaging`, `.Media.Animation`...
+The `using` block starts the desktop runtime (it calls `dnUseDesktop()` when it sees a `System.Windows*` namespace). Import the WPF namespaces you need: `System.Windows`, `.Controls`, `.Controls.Primitives`, `.Media`, `.Shapes`, `.Data`, `.Input`, `.Documents`, `.Markup`, `.Threading`, `.Media.Imaging`, `.Media.Animation`...
 
 ## Names that start with Wpf
 

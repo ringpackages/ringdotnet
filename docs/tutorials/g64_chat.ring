@@ -1,6 +1,5 @@
 # Tutorial 64: a chat over TCP - a server that relays lines, two clients, and a timer that polls the sockets
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.IO"

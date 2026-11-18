@@ -1,7 +1,6 @@
 # Unit converter - length, weight, volume and temperature
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

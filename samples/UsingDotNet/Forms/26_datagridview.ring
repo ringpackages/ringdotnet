@@ -1,7 +1,6 @@
 # A data grid bound to a DataTable
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

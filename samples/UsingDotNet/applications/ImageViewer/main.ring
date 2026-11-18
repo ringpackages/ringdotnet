@@ -1,7 +1,6 @@
 # Image viewer - open a picture, zoom, rotate, flip, grayscale and save (System.Drawing)
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System"
 	"System.IO"

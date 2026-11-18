@@ -1,7 +1,6 @@
 # The life of a form: Load, Shown, Resize and FormClosing events
 
 load "dotnet.ring"
-dnUseDesktop()
 using {
 	"System.Drawing"
 	"System.Windows.Forms"

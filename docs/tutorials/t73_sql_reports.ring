@@ -1,6 +1,6 @@
 # Tutorial 73: reports with SQL - JOIN, GROUP BY, HAVING, LEFT JOIN, sub-queries and parameters
 load "dotnet.ring"
-dnUseData()
+using { "RingDotNet.Data" }
 
 func main
 	aSchema = [
