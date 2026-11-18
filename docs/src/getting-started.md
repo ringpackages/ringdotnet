@@ -21,7 +21,7 @@ Install the package with the Ring package manager, or use the folder directly. T
 ```bash
 # use the folder directly: the extension DLL must be found by Ring (put bin on PATH)
 set PATH=B:\newpro\ringdotnet\bin;%PATH%
-ring samples\UsingDotNet\test01_hello.ring
+ring samples\UsingDotNet\test00_first.ring
 ```
 
 When the package is installed into the Ring folder, `load "dotnetlib.ring"` is enough. From a program inside the package folder load the library by its path:
@@ -32,28 +32,13 @@ load "../../libraries/dotnetlib/dotnetlib.ring"
 
 ## Your first program
 
-```ring
-load "dotnetlib.ring"
+{{file:samples/UsingDotNet/test00_first.ring}}
 
-? dnVersion()                                   # the .NET runtime that is running
+{{output:samples/UsingDotNet/test00_first.ring}}
 
-dnImport("System")
-dnImport("System.Text")
+The `using { }` block opens the .NET namespaces, like `using System;` in C#. After it, every class of those namespaces is a Ring class with the same name: `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`, `new Math().Max(3,9)`. This is what you will use almost always.
 
-oSB = new StringBuilder("Hello")
-oSB.Append(", ").Append("Ring!")
-? oSB.ToString()
-? oSB.Length
-
-? new Math().Max(3,9)
-```
-
-{{output:samples/UsingDotNet/test01_hello.ring}}
-
-The output above is the real output of `samples/UsingDotNet/test01_hello.ring`, which uses both styles you will see in this documentation:
-
-1. **Generated classes** with simple syntax: `new StringBuilder("Hello")`, `oSB.Append(...)`, `oSB.Length`. This is what you will use almost always.
-2. **Generic calls** (no wrappers needed): `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. Useful for a type that has no generated class — see [Core functions](core-api.html).
+For a type that has no generated class you can also make **generic calls**: `dnType("System.Console").callMethod("WriteLine",["text"])`, `dnNew(...)`, `dnStatic(...)`. See [Core functions](core-api.html) and the sample `samples/UsingDotNet/test01_hello.ring`.
 
 ## The startup modes
 
@@ -69,29 +54,25 @@ The first .NET call starts the runtime. If your program needs more than the base
 
 ```ring
 dnUseDesktop()                      # Windows Forms or WPF
-dnImport("System.Drawing")
-dnImport("System.Windows.Forms")
+using {
+	"System.Drawing"
+	"System.Windows.Forms"
+}
 ```
 
 ## Importing namespaces
 
-The wrapper classes are loaded **on demand**, one namespace at a time, so a program only pays for what it uses:
-
-```ring
-dnImport("System.IO")               # File, Directory, Path, StreamReader ...
-dnImport("System.Text.RegularExpressions")
-dnImport("System.Windows.Forms")    # also loads the GUI helpers (uiForm, uiButton ...)
-```
-
-Or, like C#, with `using` — the same thing, shorter. Each item must be a text; anything else is an error:
+The wrapper classes are loaded **on demand**, one namespace at a time, so a program only pays for what it uses. Name the namespaces in a `using` block, like C#. Each item must be a text; anything else is an error:
 
 ```ring
 using {
-	"System"
-	"System.Text"
-	"System.IO"
+	"System.IO"                         # File, Directory, Path, StreamReader ...
+	"System.Text.RegularExpressions"
+	"System.Windows.Forms"              # also loads the GUI helpers (uiForm, uiButton ...)
 }
 ```
+
+`using` is the same as calling `dnImport("Namespace")` for each text; the function form is handy when the name is computed.
 
 If a method returns an object whose class belongs to a namespace you did not import, that namespace is imported automatically, so chains like `oProcess.StandardOutput.ReadToEnd()` just work.
 

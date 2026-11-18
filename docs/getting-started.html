@@ -124,56 +124,47 @@
 <p>Install the package with the Ring package manager, or use the folder directly. The folder contains everything: the extension DLL (<code>bin/ring_dotnet.dll</code>), the managed assemblies and the Ring library.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Shell</span><button class="copy" type="button">Copy</button></div><pre><code># use the folder directly: the extension DLL must be found by Ring (put bin on PATH)
 set PATH=B:\newpro\ringdotnet\bin;%PATH%
-ring samples\UsingDotNet\test01_hello.ring</code></pre></div>
+ring samples\UsingDotNet\test00_first.ring</code></pre></div>
 <p>When the package is installed into the Ring folder, <code>load "dotnetlib.ring"</code> is enough. From a program inside the package folder load the library by its path:</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span></code></pre></div>
 <h2 id="your-first-program">Your first program<a class="anchor" href="#your-first-program">#</a></h2>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/test00_first.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The first program: simple syntax, the namespaces are opened with using</span>
+<span class="k">load</span> <span class="s">"../../libraries/dotnetlib/dotnetlib.ring"</span>
 
-? <span class="f">dnVersion</span>()                                   <span class="c"># the .NET runtime that is running</span>
-
-<span class="f">dnImport</span>(<span class="s">"System"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Text"</span>)
+using {
+	<span class="s">"System"</span>
+	<span class="s">"System.Text"</span>
+}
 
 oSB = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)
 oSB.<span class="f">Append</span>(<span class="s">", "</span>).<span class="f">Append</span>(<span class="s">"Ring!"</span>)
 ? oSB.<span class="f">ToString</span>()
 ? oSB.Length
 
-? <span class="k">new</span> <span class="t">Math</span>().<span class="f">Max</span>(<span class="n">3</span>,<span class="n">9</span>)</code></pre></div>
-<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Runtime : .NET 9.0.15
-Hello from .NET (Console.WriteLine)
-Math.Max(3,9)    = 9
-Math.Sqrt(144)   = 12
-Math.PI          = 3.14
-Environment.OS   = Microsoft Windows NT 10.0.26200.0
-Hello, Ring!
-Length = 12
-Type   = System.Text.StringBuilder
-Count = 2
-one
-two
-
-Caught: DotNet Error: System.FormatException: The input string 'abc' was not in a correct format.</code></pre></div>
-<p>The output above is the real output of <code>samples/UsingDotNet/test01_hello.ring</code>, which uses both styles you will see in this documentation:</p>
-<ol><li><strong>Generated classes</strong> with simple syntax: <code>new StringBuilder("Hello")</code>, <code>oSB.Append(...)</code>, <code>oSB.Length</code>. This is what you will use almost always.</li><li><strong>Generic calls</strong> (no wrappers needed): <code>dnType("System.Console").callMethod("WriteLine",["text"])</code>, <code>dnNew(...)</code>, <code>dnStatic(...)</code>. Useful for a type that has no generated class — see <a href="core-api.html">Core functions</a>.</li></ol>
+? <span class="k">new</span> <span class="t">Math</span>().<span class="f">Max</span>(<span class="n">3</span>,<span class="n">9</span>)
+? <span class="s">"Running on .NET "</span> + <span class="k">new</span> <span class="t">Environment</span>().Version.<span class="f">ToString</span>()</code></pre></div>
+<div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Hello, Ring!
+12
+9
+Running on .NET 9.0.15</code></pre></div>
+<p>The <code>using { }</code> block opens the .NET namespaces, like <code>using System;</code> in C#. After it, every class of those namespaces is a Ring class with the same name: <code>new StringBuilder("Hello")</code>, <code>oSB.Append(...)</code>, <code>oSB.Length</code>, <code>new Math().Max(3,9)</code>. This is what you will use almost always.</p>
+<p>For a type that has no generated class you can also make <strong>generic calls</strong>: <code>dnType("System.Console").callMethod("WriteLine",["text"])</code>, <code>dnNew(...)</code>, <code>dnStatic(...)</code>. See <a href="core-api.html">Core functions</a> and the sample <code>samples/UsingDotNet/test01_hello.ring</code>.</p>
 <h2 id="the-startup-modes">The startup modes<a class="anchor" href="#the-startup-modes">#</a></h2>
 <p>The first .NET call starts the runtime. If your program needs more than the base library, call one of these <strong>before any other .NET call</strong>:</p>
 <div class="tablewrap"><table><thead><tr><th>Call</th><th>Starts</th><th>Use it for</th></tr></thead><tbody><tr><td><em>(none)</em></td><td>.NET base runtime</td><td>Console programs, files, networking, JSON, XML, reflection, LINQ</td></tr><tr><td><code>dnUseDesktop()</code></td><td>Windows Desktop runtime, Ring thread becomes STA</td><td>Windows Forms, WPF</td></tr><tr><td><code>dnUseWeb()</code></td><td>ASP.NET Core runtime, loads the web server</td><td><code>WebServer</code> (<a href="aspnet.html">ASP.NET Core</a>)</td></tr><tr><td><code>dnUseAll()</code></td><td>Desktop and ASP.NET Core together</td><td>A GUI program that also serves HTTP</td></tr><tr><td><code>dnUseData()</code></td><td>Loads the Entity Framework assemblies</td><td><code>RingDatabase</code>, <code>RingEntityDb</code> (<a href="ef.html">Entity Framework</a>)</td></tr></tbody></table></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnUseDesktop</span>()                      <span class="c"># Windows Forms or WPF</span>
-<span class="f">dnImport</span>(<span class="s">"System.Drawing"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)</code></pre></div>
-<h2 id="importing-namespaces">Importing namespaces<a class="anchor" href="#importing-namespaces">#</a></h2>
-<p>The wrapper classes are loaded <strong>on demand</strong>, one namespace at a time, so a program only pays for what it uses:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="f">dnImport</span>(<span class="s">"System.IO"</span>)               <span class="c"># File, Directory, Path, StreamReader ...</span>
-<span class="f">dnImport</span>(<span class="s">"System.Text.RegularExpressions"</span>)
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)    <span class="c"># also loads the GUI helpers (uiForm, uiButton ...)</span></code></pre></div>
-<p>Or, like C#, with <code>using</code> — the same thing, shorter. Each item must be a text; anything else is an error:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using {
-	<span class="s">"System"</span>
-	<span class="s">"System.Text"</span>
-	<span class="s">"System.IO"</span>
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>
 }</code></pre></div>
+<h2 id="importing-namespaces">Importing namespaces<a class="anchor" href="#importing-namespaces">#</a></h2>
+<p>The wrapper classes are loaded <strong>on demand</strong>, one namespace at a time, so a program only pays for what it uses. Name the namespaces in a <code>using</code> block, like C#. Each item must be a text; anything else is an error:</p>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using {
+	<span class="s">"System.IO"</span>                         <span class="c"># File, Directory, Path, StreamReader ...</span>
+	<span class="s">"System.Text.RegularExpressions"</span>
+	<span class="s">"System.Windows.Forms"</span>              <span class="c"># also loads the GUI helpers (uiForm, uiButton ...)</span>
+}</code></pre></div>
+<p><code>using</code> is the same as calling <code>dnImport("Namespace")</code> for each text; the function form is handy when the name is computed.</p>
 <p>If a method returns an object whose class belongs to a namespace you did not import, that namespace is imported automatically, so chains like <code>oProcess.StandardOutput.ReadToEnd()</code> just work.</p>
 <h2 id="your-first-window">Your first window<a class="anchor" href="#your-first-window">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/Forms/02_button_click.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A button that counts its clicks</span>
