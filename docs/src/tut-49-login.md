@@ -87,6 +87,6 @@ A browser keeps cookies by itself. The test client does it manually: after a log
 3. Add a `/change-password` route that needs the old password.
 4. Store the sessions in the database so that they survive a restart.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 50: A command-line tool](tut-50-cli.html)

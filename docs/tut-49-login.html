@@ -85,6 +85,9 @@
 <a href="tut-47-markdown.html">47. Markdown to HTML</a>
 <a href="tut-48-addressbook.html">48. An address book</a>
 <a href="tut-49-login.html" class="cur">49. Login and sessions</a>
+<a href="tut-50-cli.html">50. A command-line tool</a>
+<a href="tut-51-logging.html">51. Logging</a>
+<a href="tut-52-unicode.html">52. Unicode and encodings</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -313,9 +316,9 @@ profile, old cookie       -&gt; Unauthorized please log in</code></pre></div>
 <ul><li>sessions turn separate requests into a conversation,</li><li>token → user, token in a cookie,</li><li>store hashes, never passwords,</li><li><code>401</code> / <code>409</code> / <code>400</code>,</li><li>the cookie header in both directions.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Add an expiry time to each session (a date) and refuse expired ones.</li><li>Limit failed logins: after five wrong passwords for a name, answer <code>429</code> for a minute.</li><li>Add a <code>/change-password</code> route that needs the old password.</li><li>Store the sessions in the database so that they survive a restart.</li></ol>
-<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<p>You have reached the end of the tutorials. Keep <a href="concepts.html">Core concepts</a>, the <a href="api.html">class reference</a> and <a href="gotchas.html">Gotchas &amp; limits</a> at hand, and read the <a href="gallery-apps.html">applications</a> for bigger programs.</p>
-<div class="pager"><a href="tut-48-addressbook.html"><small>Previous</small>48. An address book</a><a class="next" href="concepts.html"><small>Next</small>Core concepts</a></div>
+<h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
+<p><a href="tut-50-cli.html">Tutorial 50: A command-line tool</a></p>
+<div class="pager"><a href="tut-48-addressbook.html"><small>Previous</small>48. An address book</a><a class="next" href="tut-50-cli.html"><small>Next</small>50. A command-line tool</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

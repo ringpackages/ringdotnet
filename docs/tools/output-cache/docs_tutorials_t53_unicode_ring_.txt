@@ -1,0 +1,24 @@
+Ring len() | UTF-8 bytes | UTF-16 bytes | letters you see | text
+4           | 4           | 8            | 4                | Ring
+5           | 5           | 8            | 4                | café
+12          | 12          | 12           | 6                | Привет
+10          | 10          | 10           | 5                | مرحبا
+9           | 9           | 6            | 3                | 日本語
+4           | 4           | 4            | 1                | 😀
+
+1. len('café') = 5 (bytes), but 4 letters
+
+2. 'é' in UTF-8 is 2 bytes: 195 and 169
+   the same bytes read as Latin-1 give: Ã©  (two wrong letters)
+   read as UTF-8 again: é
+
+3. Arabic text survives the round trip: yes
+
+4. 'e' + a combining accent: 3 bytes, 1 letter shown: é
+
+5. Looks the same, but equal as bytes? no
+   Compared as TEXT with a culture (en-US): yes
+   'A' is: UppercaseLetter
+   '7' is: DecimalDigitNumber
+   '€' is: CurrencySymbol
+   '!' is: OtherPunctuation

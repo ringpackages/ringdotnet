@@ -1,0 +1,13 @@
+1. The file after four calls:
+   2024-05-17 08:00:00 INFO  the program started
+   2024-05-17 08:00:00 WARN  the disk is 91% full
+   2024-05-17 08:00:00 ERROR could not open the report
+   
+
+2. Lines in the file now: 5
+
+3. The last line: 2024-05-17 08:00:00 ERROR a number could not be read: DotNet Error: System.FormatException: The input string 'abc'
+
+4. Files in the folder after 12 messages with a limit of 300 bytes:
+   small.log
+   small.log.1

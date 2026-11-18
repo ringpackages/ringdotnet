@@ -1,0 +1,32 @@
+$ wordstat --help
+usage: wordstat FILE [--top N] [--min LENGTH]
+  FILE        a text file
+  --top N     show the N most frequent words (default 10)
+  --min L     ignore words shorter than L letters (default 1)
+  --help      this text
+(exit code 0)
+
+$ wordstat tutorial51.txt --top 3
+words counted: 7 different
+    5  the
+    3  a
+    3  and
+(exit code 0)
+
+$ wordstat tutorial51.txt --top 3 --min 4
+words counted: 2 different
+    2  bird
+    1  fish
+(exit code 0)
+
+$ wordstat missing.txt
+error: the file 'missing.txt' does not exist
+(exit code 2)
+
+$ wordstat tutorial51.txt --top many
+error: --top needs a number
+(exit code 1)
+
+$ wordstat tutorial51.txt --colour
+error: unknown option --colour
+(exit code 1)

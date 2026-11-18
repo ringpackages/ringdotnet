@@ -95,6 +95,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-47-markdown.html"><div class="ic">47</div><b>Project: Markdown to HTML</b><span>Blocks, inline formatting, regular expressions, and escaping first.</span></a>
 <a class="card" href="tut-48-addressbook.html"><div class="ic">48</div><b>Project: an address book</b><span>A window, a data grid and a database that stay consistent; search as you type.</span></a>
 <a class="card" href="tut-49-login.html"><div class="ic">49</div><b>Login, sessions and cookies</b><span>Registration, safe passwords, a session cookie and a protected page.</span></a>
+<a class="card" href="tut-50-cli.html"><div class="ic">50</div><b>A command-line tool</b><span>Arguments, options, usage text and exit codes.</span></a>
+<a class="card" href="tut-51-logging.html"><div class="ic">51</div><b>Logging</b><span>Levels, timestamps, a log file and rotation.</span></a>
+<a class="card" href="tut-52-unicode.html"><div class="ic">52</div><b>Unicode and encodings</b><span>Bytes, code points and letters; UTF-8, UTF-16 and mojibake.</span></a>
 </div>
 
 ## Learning path
