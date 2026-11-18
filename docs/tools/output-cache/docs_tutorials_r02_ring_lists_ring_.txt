@@ -1,0 +1,44 @@
+4
+Ann Dee
+Ann
+Rob
+Cy
+Dee
+
+hello Ann
+hello Rob
+hello Cy
+hello Dee
+ANN
+ROB
+CY
+DEE
+
+3
+First
+ROB
+CY
+DEE
+
+5
+8
+12
+30
+
+30
+apple
+fig
+pear
+
+Ann
+32
+4
+name = Ann
+age = 32
+city = Cairo
+email = ann@example.com
+
+Bob is 25
+total age: 115
+30
+31

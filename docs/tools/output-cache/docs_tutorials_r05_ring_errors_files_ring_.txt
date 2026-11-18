@@ -1,0 +1,11 @@
+caught: Error (R1) : Can't divide by zero
+caught: an age can not be negative: -5
+30 is fine
+1
+18 bytes
+2 lines, the second is: line two
+0
+1
+42
+hello from a function called by name
+done

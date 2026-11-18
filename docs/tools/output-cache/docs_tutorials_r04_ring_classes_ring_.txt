@@ -1,0 +1,10 @@
+Ann
+Ann is 32 and lives in Cairo
+40
+Bob is 25 and lives in Oslo
+Eva is 20 and lives in Cairo, studies Physics
+1
+Ann
+Ann 40
+Bob 25
+Eva 20

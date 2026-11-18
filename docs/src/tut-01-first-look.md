@@ -11,7 +11,7 @@ lead: Meet objects, types, properties, methods, static members, structs, collect
 
 ## Before you start
 
-You need Ring and the RingDotNet package. Open a terminal in `docs/tutorials`. If something does not work, read [Getting started](getting-started.html).
+You need Ring and the RingDotNet package. Open a terminal in `docs/tutorials`. If something does not work, read [Getting started](getting-started.html). If Ring is new to you, read the [Quick introduction to Ring](ring-intro.html) first.
 
 ## The program
 

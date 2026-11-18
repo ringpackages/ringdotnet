@@ -6,7 +6,7 @@ lead: Use .NET classes and methods from Ring programs
 <div class="hero">
 <h1>RingDotNet</h1>
 <p>Call any .NET class from Ring with simple syntax. Build Windows Forms and WPF programs, web servers with ASP.NET Core, and databases with Entity Framework — all in Ring.</p>
-<div class="btns"><a class="btn primary" href="getting-started.html">Get started</a><a class="btn ghost" href="gallery-apps.html">See the applications</a><a class="btn ghost" href="reference.html">Function index</a></div>
+<div class="btns"><a class="btn primary" href="getting-started.html">Get started</a><a class="btn ghost" href="ring-intro.html">New to Ring?</a><a class="btn ghost" href="gallery-apps.html">See the applications</a><a class="btn ghost" href="reference.html">Function index</a></div>
 </div>
 
 {{stats}}

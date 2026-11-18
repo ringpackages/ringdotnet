@@ -1,0 +1,14 @@
+teenager
+for 1
+for 3
+for 4
+down 10
+down 6
+down 2
+while: 243
+go
+49
+Hello, Ann
+Hi, Bob
+min 2, max 9
+total (global) = 11

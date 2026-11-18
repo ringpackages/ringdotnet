@@ -3,6 +3,8 @@ title: Getting started
 lead: Install the package, run your first .NET call from Ring, and learn the four startup modes.
 ---
 
+New to Ring? Read the [Quick introduction to Ring](ring-intro.html) first: it takes 15 minutes.
+
 ## Requirements
 
 | You need | Why |
