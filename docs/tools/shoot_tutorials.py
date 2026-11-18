@@ -40,6 +40,9 @@ SHOTS = [
     ("g48_addressbook.ring", "g48", "\treload()\n\tuiTest(", "\toDb.insert('Contacts',[['Name','Ann Taylor'],['Phone','555-0101'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Bob Stone'],['Phone','555-0102'],['City','Oslo']])\n\toDb.insert('Contacts',[['Name','Cy Young'],['Phone','555-0103'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Dee Park'],['Phone','555-0104'],['City','Tokyo']])\n", 2500, "forms"),
     ("g61_sorting.ring", "g61", "\tuiTest(", "\toAlgorithm.SelectedIndex = 0\n\tstartSorting()\n\toTimer.Stop()\n\tfor nI = 1 to 260\n\t\tshowStep()\n\tnext\n", 2500, "forms"),
     ("g62_maze.ring", "g62", "\tuiTest(", "\tsolve()\n", 2500, "forms"),
+    ("g63_filters.ring", "g63", "\tuiTest(", "\tapplyFilter('Sepia')\n", 2500, "forms"),
+    ("g64_chat.ring", "g64", "\toTimer.Start()", "\taInputs[1].Text = 'Hello Bob, are you there?'\n\tsendFrom(1)\n\twaitForText('are you there')\n\taInputs[2].Text = 'Yes, I am here!'\n\tsendFrom(2)\n\twaitForText('I am here')\n\taInputs[1].Text = 'Great, the chat works.'\n\tsendFrom(1)\n\twaitForText('chat works')\n\taInputs[2].Text = 'Type a message'\n", 2500, "forms"),
+    ("g63_filters.ring", "g63-edges", "\tuiTest(", "\tapplyFilter('Edges')\n", 2500, "forms"),
 ]
 
 

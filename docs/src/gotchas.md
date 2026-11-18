@@ -63,6 +63,10 @@ A `func` at the top of a file swallows the rest of the file into its body. Put t
 
 Ring checks the number of arguments of `init()`. The classes whose `init` takes a value (`StringBuilder`, `Random`, `Version`) therefore need `NULL` for the parameterless constructor: `new StringBuilder(NULL)`, `new Random(NULL)`. With a value it is as usual: `new StringBuilder("Hello")`, `new Random(42)`.
 
+### A variable name that starts like a keyword
+
+Ring names are not case sensitive and the words `or`, `if`, `to`, `in`, `do`... are keywords. `oR = new StreamReader(...)` is read as `or = ...` and gives a syntax error. Use longer names (`oReader`, `oRd`).
+
 ### Using objects during definition: `x = new Class().Method(x)`
 
 This is a **Ring feature** (since Ring 1.19, [Using objects during definition](https://ring-lang.github.io/doc1.28/oop.html#using-objects-during-definition)): in an assignment `x = new Class(...)`, the new object is stored in `x` *first*, so that it can be used while the rest of the expression is evaluated. Then the rest of the expression runs (a method call, an operator) and its result is stored in `x` again. This makes it possible to use the object (for example with an overloaded operator) during its own definition, but it means that the variable you are assigning already holds the **new object** when the arguments are evaluated:

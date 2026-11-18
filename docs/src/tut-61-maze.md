@@ -56,6 +56,6 @@ You cannot test a random maze against a fixed picture. The self test checks **pr
 2. Remove some walls at random (a maze with loops) and check that the solver still finds the shortest way.
 3. Let the user move a dot with the arrow keys from the start to the exit.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 62: An image filter lab](tut-62-filters.html)

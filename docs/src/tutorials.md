@@ -107,6 +107,8 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-59-paths.html"><div class="ic">59</div><b>Paths and the environment</b><span>Path.Combine, special folders, valid names and environment variables.</span></a>
 <a class="card" href="tut-60-sorting.html"><div class="ic">60</div><b>Watching sorting algorithms</b><span>Bubble, selection and insertion sort animated, with counters.</span></a>
 <a class="card" href="tut-61-maze.html"><div class="ic">61</div><b>A maze</b><span>A stack makes the maze, a queue finds the shortest way.</span></a>
+<a class="card" href="tut-62-filters.html"><div class="ic">62</div><b>An image filter lab</b><span>Pixels as numbers, filters as functions, and a BMP file written by hand.</span></a>
+<a class="card" href="tut-63-chat.html"><div class="ic">63</div><b>A chat over TCP</b><span>A relay server, two clients and a timer that polls the sockets.</span></a>
 </div>
 
 ## Learning path
