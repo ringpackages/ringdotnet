@@ -12,14 +12,22 @@ func main
 		"System.Linq.Expressions"
 		"System.Transactions"
 	}
-	oDrive = new DriveInfo("C")
+	cDriveName = "C"          # (the root of the file system on Linux and macOS)
+	if not iswindows()
+		cDriveName = "/"
+	ok
+	oDrive = new DriveInfo(cDriveName)
 	dnAssert("DriveInfo: a fixed drive",oDrive.DriveType,"Fixed")
 	dnAssert("DriveInfo: the drive is ready",oDrive.IsReady,True)
 	dnAssert("DriveInfo: it has a size",oDrive.TotalSize > oDrive.AvailableFreeSpace,True)
 	aDrives = oDrive.GetDrives().toList()
 	dnAssert("DriveInfo.GetDrives",len(aDrives) > 0,True)
 
-	oVersion = new FileVersionInfo().GetVersionInfo("C:\Windows\System32\notepad.exe")
+	cVersionFile = "C:\Windows\System32\notepad.exe"          # (a file with version information: a program of Windows, or the core library of .NET)
+	if not iswindows()
+		cVersionFile = new Type().GetType("System.Object").getProp("Assembly").getProp("Location")
+	ok
+	oVersion = new FileVersionInfo().GetVersionInfo(cVersionFile)
 	dnAssert("FileVersionInfo: a description",len(oVersion.FileDescription) > 0,True)
 
 	oChanged = new PropertyChangedEventArgs("Name")

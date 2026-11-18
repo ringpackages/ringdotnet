@@ -131,7 +131,7 @@ Events from timers on other threads (`System.Threading.Timer`, `Task.Run(...)`) 
 | Ring code on .NET threads | One Ring thread. Use callbacks only during calls, or queue work as the web server does. |
 | `ref` struct and pointer parameters, `Span<T>` | The bridge converts values, not memory. Use arrays and strings. |
 | Lambdas and expression trees written in Ring | Callbacks give delegates; EF queries are data ([Entity Framework](ef.html)). |
-| Linux/macOS Windows Forms and WPF | Those frameworks are Windows-only. The rest of the bridge is portable but only tested on Windows. |
+| Linux/macOS Windows Forms and WPF | Those frameworks are Windows-only. The rest of the bridge is tested on Linux (Ubuntu 24.04, x64) as well as on Windows; macOS is not tested yet. |
 | EF providers other than SQLite and in-memory | Loaded by name from their packages; untested. |
 | MVC controllers and Razor written in C# | The web server is the Ring one. |
 

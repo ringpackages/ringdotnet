@@ -22,9 +22,13 @@ func main
 
 	oDate = new DateTime(2024,7,4)
 	dnAssert("ToString keeps ToString() and Format(format)",oDate.Format("yyyy-MM-dd"),"2024-07-04")
+	cSep = "/"
+	if iswindows()
+		cSep = "\"
+	ok
 	oPath = new Path()
-	dnAssert("a params array takes a plain list",oPath.Combine(["a","b","c"]),"a" + "\" + "b" + "\" + "c")
-	dnAssert("the same method by parameter names",oPath.Combine([ :path1 = "a", :path2 = "b" ]),"a" + "\" + "b")
+	dnAssert("a params array takes a plain list",oPath.Combine(["a","b","c"]),"a" + cSep + "b" + cSep + "c")
+	dnAssert("the same method by parameter names",oPath.Combine([ :path1 = "a", :path2 = "b" ]),"a" + cSep + "b")
 	dnAssert("an overloaded name has no numbered methods",isattribute(new Path(),"Combine_3") = 0 and ismethod(oPath,"Combine_3") = 0,True)
 	oBuilder2 = new StringBuilder("ab")
 	dnAssert("a constructor by names: New_",new StringBuilder("x").New_([ :value = "abc", :capacity = 16 ]).ToString(),"abc")
@@ -37,9 +41,15 @@ func main
 	dnAssert("named arguments inside braces",oBuilder.ToString(),"abc")
 
 	# a Process started with named arguments
+	cShell = "sh"
+	cShellArg = "-c"
+	if iswindows()
+		cShell = "cmd"
+		cShellArg = "/c"
+	ok
 	oInfo = new ProcessStartInfo() {
-		FileName = "cmd"
-		Arguments = "/c echo named"
+		FileName = cShell
+		Arguments = cShellArg + ' "echo named"'
 		RedirectStandardOutput = True
 		UseShellExecute = False
 		CreateNoWindow = True

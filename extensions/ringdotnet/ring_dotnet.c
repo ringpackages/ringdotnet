@@ -11,6 +11,11 @@
 **  packed/unpacked by libraries/dotnetlib (Ring code).
 */
 
+#ifndef _WIN32
+	#ifndef _GNU_SOURCE
+		#define _GNU_SOURCE   /* dladdr() */
+	#endif
+#endif
 #include "ring.h"
 #include <stdint.h>
 #include <stdio.h>
@@ -282,6 +287,15 @@ static int ringdotnet_startruntime ( const char *cMode )
 		return 0 ;
 	}
 	snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+	if ( ! ringdotnet_fileexists(cPath) ) {
+		/* On Linux and macOS the library is in ring/lib and the package files (the bridge, the other assemblies) are in ring/bin */
+		snprintf(cPath,DN_PATHSIZE,"%s/../bin/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+		if ( ringdotnet_fileexists(cPath) ) {
+			snprintf(cPath,DN_PATHSIZE,"%s/../bin",cFolder);
+			snprintf(cFolder,DN_PATHSIZE,"%s",cPath);
+		}
+		snprintf(cPath,DN_PATHSIZE,"%s/%s",cFolder,DN_BRIDGE_ASSEMBLY);
+	}
 	if ( ! ringdotnet_fileexists(cPath) ) {
 		ringdotnet_seterror("Bridge assembly not found",cPath);
 		return 0 ;

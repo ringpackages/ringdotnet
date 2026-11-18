@@ -46,7 +46,7 @@ if iswindows()
 	oInfo.Arguments = "/c echo hello from a process"
 else
 	oInfo.FileName = "sh"
-	oInfo.Arguments = "-c 'echo hello from a process'"
+	oInfo.Arguments = '-c "echo hello from a process"'
 ok
 oInfo.RedirectStandardOutput = 1
 oInfo.UseShellExecute = 0
@@ -54,7 +54,7 @@ oInfo.CreateNoWindow = 1
 oProcess = new Process().Start(oInfo)
 cOut = oProcess.StandardOutput.ReadToEnd()
 oProcess.WaitForExit(NULL)
-dnAssert("Process output",left(cOut,22),"hello from a process" + left(windowsnl(),2))
+dnAssert("Process output",left(cOut,20),"hello from a process")
 dnAssert("Process exit code",oProcess.ExitCode,0)
 dnAssert("Process.GetCurrentProcess",new Process().GetCurrentProcess().Id > 0,1)
 oWatch = new Stopwatch()

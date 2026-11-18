@@ -61,7 +61,11 @@ dnAssert("DateOnly",new DateOnly(2020,5,17).DayOfWeek,"Sunday")
 oEnv = new Environment()
 dnAssert("Environment.ProcessorCount",oEnv.ProcessorCount > 0,1)
 dnAssert("Environment.MachineName",len(oEnv.MachineName) > 0,1)
-dnAssert("Environment.NewLine",oEnv.NewLine,windowsnl())
+cNewLine = char(10)
+if iswindows()
+	cNewLine = windowsnl()
+ok
+dnAssert("Environment.NewLine",oEnv.NewLine,cNewLine)
 
 dnAssert("Random seed",new Random(1).Next_([ :minValue = 5, :maxValue = 6 ]),5)
 dnAssert("TimeZoneInfo.Utc",new TimeZoneInfo().Utc.Id,"UTC")

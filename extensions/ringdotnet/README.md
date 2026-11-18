@@ -215,7 +215,7 @@ Return values: strings, numbers (all numeric types), booleans (1/0) and `null` m
 
 ## Build
 
-Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `buildvc_x64.bat`; Linux: `buildgcc.sh`; macOS: `buildclang.sh`. The .NET SDK builds the bridge. Copy `ring_dotnet.dll` and the `RingDotNet.Bridge.*` files to the same folder (`ring/bin`).
+Windows (clang): `extensions/ringdotnet/buildclang_win.bat`; Visual Studio: `buildvc_x64.bat`; Linux: `buildgcc.sh`; macOS: `buildclang.sh`. The .NET SDK builds the bridge. On Windows copy `ring_dotnet.dll` and the `RingDotNet.Bridge.*` files to the same folder (`ring/bin`); on Linux and macOS the library goes to `ring/lib` and the extension finds the managed files in `ring/bin`.
 
 ## Wrapped namespaces (see tools/dotnetmanifest.ring)
 

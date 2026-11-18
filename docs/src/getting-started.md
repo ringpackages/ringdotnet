@@ -36,6 +36,17 @@ You do not need to set a path or copy files. To test the installation, run a sam
 ring samples/UsingDotNet/introduction/test00_first.ring
 ```
 
+## Linux and macOS
+
+The package works on Linux (tested on Ubuntu 24.04, x64, with .NET 9) and should work on macOS. The extension is a C library, so it is **built once** for your system; the managed files are the same on every system and are installed in `ring/bin` by the package.
+
+```bash
+cd ring/extensions/ringdotnet
+sh buildgcc.sh          # Linux (macOS: sh buildclang.sh); writes libring_dotnet.so to ring/lib
+```
+
+The build needs the Ring headers and library (`ring/language/include` and `ring/lib`). Install the .NET **runtime** (not only the SDK) with the packages of your system or with the `dotnet-install` script, and for the web programs also the ASP.NET Core runtime. If `dotnet` is not in the usual place, set `DOTNET_ROOT`. The extension finds the managed files in `ring/bin` when they are not next to the library. Windows Forms and WPF programs need Windows; everything else (text, files, collections, JSON, XML, HTTP, sockets, tasks, databases with Entity Framework and SQLite, the web server) runs the same way.
+
 ## Your first program
 
 {{file:samples/UsingDotNet/introduction/test00_first.ring}}
