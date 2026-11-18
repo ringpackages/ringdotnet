@@ -78,6 +78,8 @@ PAGES = [
     ("tut-57-money", "57. Money", "Tutorials: even more"),
     ("tut-58-undo", "58. Undo, redo and queues", "Tutorials: even more"),
     ("tut-59-paths", "59. Paths and the environment", "Tutorials: even more"),
+    ("tut-60-sorting", "60. Watching sorting algorithms", "Tutorials: even more"),
+    ("tut-61-maze", "61. A maze", "Tutorials: even more"),
     ("concepts", "Core concepts", "The language bridge"),
     ("core-api", "Core functions", "The language bridge"),
     ("collections-linq", "Collections & LINQ", "The language bridge"),

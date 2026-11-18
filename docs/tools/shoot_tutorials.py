@@ -38,11 +38,17 @@ SHOTS = [
     ("g41_menus.ring", "g41", None, "", 2500, "forms"),
     ("g42_browser.ring", "g42", "\tuiTest(", "\toTree.SelectedNode = oRootNode.Nodes.Item(2).Nodes.Item(0)\n", 2500, "forms"),
     ("g48_addressbook.ring", "g48", "\treload()\n\tuiTest(", "\toDb.insert('Contacts',[['Name','Ann Taylor'],['Phone','555-0101'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Bob Stone'],['Phone','555-0102'],['City','Oslo']])\n\toDb.insert('Contacts',[['Name','Cy Young'],['Phone','555-0103'],['City','Cairo']])\n\toDb.insert('Contacts',[['Name','Dee Park'],['Phone','555-0104'],['City','Tokyo']])\n", 2500, "forms"),
+    ("g61_sorting.ring", "g61", "\tuiTest(", "\toAlgorithm.SelectedIndex = 0\n\tstartSorting()\n\toTimer.Stop()\n\tfor nI = 1 to 260\n\t\tshowStep()\n\tnext\n", 2500, "forms"),
+    ("g62_maze.ring", "g62", "\tuiTest(", "\tsolve()\n", 2500, "forms"),
 ]
 
 
 def main():
+    import sys
+    only = sys.argv[1:]
     for prog, name, marker, code, delay, kind in SHOTS:
+        if only and name not in only:
+            continue
         src = open(os.path.join(TUT, prog), encoding="utf-8").read()
         tmp = prog
         if marker:

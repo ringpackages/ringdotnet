@@ -105,6 +105,8 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-57-money.html"><div class="ic">57</div><b>Money</b><span>Why 0.1 + 0.2 is not 0.3: whole cents, rounding rules and fair splitting.</span></a>
 <a class="card" href="tut-58-undo.html"><div class="ic">58</div><b>Undo, redo and queues</b><span>Stacks and queues; two stacks make undo and redo.</span></a>
 <a class="card" href="tut-59-paths.html"><div class="ic">59</div><b>Paths and the environment</b><span>Path.Combine, special folders, valid names and environment variables.</span></a>
+<a class="card" href="tut-60-sorting.html"><div class="ic">60</div><b>Watching sorting algorithms</b><span>Bubble, selection and insertion sort animated, with counters.</span></a>
+<a class="card" href="tut-61-maze.html"><div class="ic">61</div><b>A maze</b><span>A stack makes the maze, a queue finds the shortest way.</span></a>
 </div>
 
 ## Learning path

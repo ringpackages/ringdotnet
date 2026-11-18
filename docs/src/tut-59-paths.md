@@ -60,6 +60,6 @@ An environment variable is a named setting that lives outside the program (set b
 2. Read a variable `MYAPP_FOLDER` for the data folder, with the documents folder as the default.
 3. List the extensions found in a folder with how many files each has.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 60: Watching sorting algorithms](tut-60-sorting.html)
