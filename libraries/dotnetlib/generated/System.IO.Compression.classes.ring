@@ -122,8 +122,16 @@ Class BrotliEncoder from ValueType
 		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.BrotliEncoder, System.IO.Compression.Brotli',[P1])
 		return self
 
 	Func Dispose 
@@ -147,8 +155,16 @@ Class BrotliStream from Stream
 		nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.BrotliStream, System.IO.Compression.Brotli',[P1])
 		return self
 
 	Func getBaseStream
@@ -171,9 +187,23 @@ Class DeflateStream from Stream
 		nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.DeflateStream, System.IO.Compression',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.DeflateStream, System.IO.Compression',[P1])
 		return self
+
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getBaseStream
 		return dnRequest("get",[self,"BaseStream"])
@@ -195,8 +225,16 @@ Class GZipStream from Stream
 		nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.GZipStream, System.IO.Compression',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.GZipStream, System.IO.Compression',[P1])
 		return self
 
 	Func getBaseStream
@@ -251,8 +289,16 @@ Class ZLibStream from Stream
 		nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.ZLibStream, System.IO.Compression',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.ZLibStream, System.IO.Compression',[P1])
 		return self
 
 	Func getBaseStream
@@ -277,16 +323,16 @@ Class ZipArchive from Object
 		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Compression.ZipArchive, System.IO.Compression',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Compression.ZipArchive, System.IO.Compression',[P1])
 		return self
 
 	Func CreateEntry P1
@@ -294,9 +340,6 @@ Class ZipArchive from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateEntry",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1])
-
-	Func CreateEntry_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEntry",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -439,35 +482,25 @@ Class ZipFile from Object
 	Func OpenRead P1
 		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"OpenRead",P1])
 
-	Func Open P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1,P2])
+	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1])
+		ok
+		raise("DotNet Error: Open does not take one argument: use named arguments, Open([ :parameter = value, ... ])")
 
-	Func Open_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"Open",P1,P2,P3])
+	Func CreateFromDirectory P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1])
+			return self
+		ok
+		raise("DotNet Error: CreateFromDirectory does not take one argument: use named arguments, CreateFromDirectory([ :parameter = value, ... ])")
 
-	Func CreateFromDirectory P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1,P2])
-		return self
-
-	Func CreateFromDirectory_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1,P2,P3,P4])
-		return self
-
-	Func CreateFromDirectory_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"CreateFromDirectory",P1,P2,P3,P4,P5])
-		return self
-
-	Func ExtractToDirectory P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2])
-		return self
-
-	Func ExtractToDirectory_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2,P3])
-		return self
-
-	Func ExtractToDirectory_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2,P3,P4])
-		return self
+	Func ExtractToDirectory P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFile, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
+			return self
+		ok
+		raise("DotNet Error: ExtractToDirectory does not take one argument: use named arguments, ExtractToDirectory([ :parameter = value, ... ])")
 
 
 Class ZipFileExtensions from Object
@@ -483,26 +516,24 @@ Class ZipFileExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func CreateEntryFromFile P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1,P2,P3])
+	Func CreateEntryFromFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1])
+		ok
+		raise("DotNet Error: CreateEntryFromFile does not take one argument: use named arguments, CreateEntryFromFile([ :parameter = value, ... ])")
 
-	Func CreateEntryFromFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"CreateEntryFromFile",P1,P2,P3,P4])
+	Func ExtractToDirectory P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1])
+			return self
+		ok
+		raise("DotNet Error: ExtractToDirectory does not take one argument: use named arguments, ExtractToDirectory([ :parameter = value, ... ])")
 
-	Func ExtractToDirectory P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2])
-		return self
-
-	Func ExtractToDirectory_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToDirectory",P1,P2,P3])
-		return self
-
-	Func ExtractToFile P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1,P2])
-		return self
-
-	Func ExtractToFile_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1,P2,P3])
-		return self
+	Func ExtractToFile P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.Compression.ZipFileExtensions, System.IO.Compression.ZipFile'),"ExtractToFile",P1])
+			return self
+		ok
+		raise("DotNet Error: ExtractToFile does not take one argument: use named arguments, ExtractToFile([ :parameter = value, ... ])")
 
 

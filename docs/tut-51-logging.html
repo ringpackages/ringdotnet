@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -158,12 +161,12 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial52"</span>)
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial52"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cFolder)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"app.log"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"app.log"</span>])
 
 	<span class="c"># 1. A logger writes lines: time, level, message. The level says how important a line is.</span>
 	oLog = <span class="k">new</span> <span class="t">Logger</span>(cFile)
@@ -192,14 +195,14 @@ using {
 	? nl + <span class="s">"3. The last line: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cFile).<span class="f">toList</span>()[len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cFile).<span class="f">toList</span>())]
 
 	<span class="c"># 4. Rotation: a log must not grow forever. When the file is too big it is renamed and a new one starts.</span>
-	oSmall = <span class="k">new</span> <span class="t">Logger</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"small.log"</span>))
+	oSmall = <span class="k">new</span> <span class="t">Logger</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"small.log"</span>]))
 	oSmall.<span class="f">setClock</span>(<span class="s">"2024-05-17 09:00:00"</span>)
 	oSmall.<span class="f">setMaxSize</span>(<span class="n">300</span>)                                  <span class="c"># bytes: tiny, to see the rotation</span>
 	<span class="k">for</span> nLine = <span class="n">1</span> <span class="k">to</span> <span class="n">12</span>
 		oSmall.<span class="f">info</span>(<span class="s">"message number "</span> + nLine + <span class="s">" with some more text to fill the file"</span>)
 	<span class="k">next</span>
 	? nl + <span class="s">"4. Files in the folder after 12 messages with a limit of 300 bytes:"</span>
-	<span class="k">for</span> cName <span class="k">in</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles_2</span>(cFolder,<span class="s">"small*"</span>).<span class="f">toList</span>())
+	<span class="k">for</span> cName <span class="k">in</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>([ :path = cFolder, :searchPattern = <span class="s">"small*"</span> ]).<span class="f">toList</span>())
 		? <span class="s">"   "</span> + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cName)
 	<span class="k">next</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
@@ -255,9 +258,9 @@ using {
 		rotateIfNeeded()
 		cTime = cClock
 		<span class="k">if</span> cTime = <span class="s">""</span>
-			cTime = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).Now.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm:ss"</span>)
+			cTime = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).Now.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm:ss"</span>)
 		<span class="k">ok</span>
-		<span class="k">new</span> <span class="t">File</span>().<span class="f">AppendAllText</span>(cFile,cTime + <span class="s">" "</span> + cLevel + <span class="s">" "</span> + cMessage + windowsnl())
+		<span class="k">new</span> <span class="t">File</span>().<span class="f">AppendAllText</span>([ :path = cFile, :contents = cTime + <span class="s">" "</span> + cLevel + <span class="s">" "</span> + cMessage + windowsnl() ])
 
 	<span class="c"># when the file is bigger than the limit: app.log becomes app.log.1 (an older .1 is replaced), and a new file starts</span>
 	<span class="k">func</span> <span class="f">rotateIfNeeded</span>
@@ -269,7 +272,7 @@ using {
 			<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cOld)
 				<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cOld)
 			<span class="k">ok</span>
-			<span class="k">new</span> <span class="t">File</span>().<span class="f">Move</span>(cFile,cOld)
+			<span class="k">new</span> <span class="t">File</span>().<span class="f">Move</span>([ :sourceFileName = cFile, :destFileName = cOld ])
 		<span class="k">ok</span></code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>1. The file after four calls:
    2024-05-17 08:00:00 INFO  the program started

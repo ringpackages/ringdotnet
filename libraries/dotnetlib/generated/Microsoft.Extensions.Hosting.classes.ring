@@ -260,11 +260,11 @@ Class GenericHostBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ConfigureWebHostDefaults P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"ConfigureWebHostDefaults",P1,P2])
-
-	Func ConfigureWebHostDefaults_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"ConfigureWebHostDefaults",P1,P2,P3])
+	Func ConfigureWebHostDefaults P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostBuilderExtensions, Microsoft.AspNetCore'),"ConfigureWebHostDefaults",P1])
+		ok
+		raise("DotNet Error: ConfigureWebHostDefaults does not take one argument: use named arguments, ConfigureWebHostDefaults([ :parameter = value, ... ])")
 
 
 Class GenericHostWebHostBuilderExtensions from Object
@@ -280,11 +280,11 @@ Class GenericHostWebHostBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ConfigureWebHost P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureWebHost",P1,P2])
-
-	Func ConfigureWebHost_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureWebHost",P1,P2,P3])
+	Func ConfigureWebHost P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureWebHost",P1])
+		ok
+		raise("DotNet Error: ConfigureWebHost does not take one argument: use named arguments, ConfigureWebHost([ :parameter = value, ... ])")
 
 	Func ConfigureSlimWebHost P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.GenericHostWebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"ConfigureSlimWebHost",P1,P2,P3])
@@ -312,9 +312,6 @@ Class Host from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
 
-	Func CreateDefaultBuilder_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateDefaultBuilder",P1])
-
 	Func CreateApplicationBuilder P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
@@ -322,9 +319,6 @@ Class Host from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder"])
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
-
-	Func CreateApplicationBuilder_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.Host, Microsoft.Extensions.Hosting'),"CreateApplicationBuilder",P1])
 
 	Func CreateEmptyApplicationBuilder P1
@@ -348,12 +342,16 @@ Class HostApplicationBuilder from Object
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Hosting.HostApplicationBuilder, Microsoft.Extensions.Hosting',[P1])
-		return self
-
-	Func ConfigureContainer_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1,P2])
 		return self
 
 	Func ConfigureContainer P1
@@ -679,9 +677,6 @@ Class HostingAbstractionsHostBuilderExtensions from Object
 	Func Start P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"Start",P1])
 
-	Func StartAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"StartAsync",P1,P2])
-
 	Func StartAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostBuilderExtensions, Microsoft.Extensions.Hosting.Abstractions'),"StartAsync",P1])
@@ -717,17 +712,11 @@ Class HostingAbstractionsHostExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"Run",P1])
 		return self
 
-	Func RunAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1,P2])
-
 	Func RunAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"RunAsync",P1])
-
-	Func WaitForShutdownAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions, Microsoft.Extensions.Hosting.Abstractions'),"WaitForShutdownAsync",P1,P2])
 
 	Func WaitForShutdownAsync P1
 		if dnIsNamed(P1)
@@ -808,20 +797,11 @@ Class HostingHostBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"UseConsoleLifetime",P1])
 
-	Func UseConsoleLifetime_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"UseConsoleLifetime",P1,P2])
-
-	Func RunConsoleAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"RunConsoleAsync",P1,P2])
-
 	Func RunConsoleAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"RunConsoleAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"RunConsoleAsync",P1])
-
-	Func RunConsoleAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"RunConsoleAsync",P1,P2,P3])
 
 	Func ConfigureMetrics P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Hosting.HostingHostBuilderExtensions, Microsoft.Extensions.Hosting'),"ConfigureMetrics",P1,P2])
@@ -839,9 +819,6 @@ Class IHost from DotNetObject
 		ok
 		return self
 
-	Func StartAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
-
 	Func StartAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
@@ -850,9 +827,6 @@ Class IHost from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
-
-	Func StopAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
@@ -885,10 +859,6 @@ Class IHostApplicationBuilder from DotNetObject
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		return self
-
-	Func ConfigureContainer_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ConfigureContainer",P1,P2])
 		return self
 
 	Func ConfigureContainer P1

@@ -60,17 +60,11 @@ Class Partitioner from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1,P2])
-
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.Partitioner, System.Collections.Concurrent'),"Create",P1,P2,P3])
 
 
 Class ConcurrentStringQueue from Object
@@ -87,7 +81,15 @@ Class ConcurrentStringQueue from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -145,7 +147,15 @@ Class ConcurrentObjectQueue from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentQueue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -203,7 +213,15 @@ Class ConcurrentObjectStack from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentStack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1])
 		return self
 
@@ -227,10 +245,6 @@ Class ConcurrentObjectStack from Object
 		dnRequest("call",[new DotNetObject(nHandle),"PushRange",P1])
 		return self
 
-	Func PushRange_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"PushRange",P1,P2,P3])
-		return self
-
 	Func TryPeek 
 		return dnRequest("call",[new DotNetObject(nHandle),"TryPeek"])
 
@@ -242,9 +256,6 @@ Class ConcurrentObjectStack from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryPopRange",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryPopRange",P1])
-
-	Func TryPopRange_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryPopRange",P1,P2,P3])
 
 	Func ToArray 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
@@ -282,7 +293,15 @@ Class ConcurrentObjectBag from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentBag`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1])
 		return self
 
@@ -343,16 +362,16 @@ Class ConcurrentObjectDictionary from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1,P2,P3])
 		return self
 
 	Func GetAlternateLookup 
@@ -386,17 +405,17 @@ Class ConcurrentObjectDictionary from Object
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func GetOrAdd P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2])
+	Func GetOrAdd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetOrAdd",P1])
+		ok
+		raise("DotNet Error: GetOrAdd does not take one argument: use named arguments, GetOrAdd([ :parameter = value, ... ])")
 
-	Func GetOrAdd_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2,P3])
-
-	Func AddOrUpdate_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3,P4])
-
-	Func AddOrUpdate P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3])
+	Func AddOrUpdate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddOrUpdate",P1])
+		ok
+		raise("DotNet Error: AddOrUpdate does not take one argument: use named arguments, AddOrUpdate([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -456,16 +475,16 @@ Class ConcurrentStringDictionary from Object
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Collections.Concurrent.ConcurrentDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1,P2,P3])
 		return self
 
 	Func GetAlternateLookup 
@@ -499,17 +518,17 @@ Class ConcurrentStringDictionary from Object
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func GetOrAdd P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2])
+	Func GetOrAdd P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetOrAdd",P1])
+		ok
+		raise("DotNet Error: GetOrAdd does not take one argument: use named arguments, GetOrAdd([ :parameter = value, ... ])")
 
-	Func GetOrAdd_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOrAdd",P1,P2,P3])
-
-	Func AddOrUpdate_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3,P4])
-
-	Func AddOrUpdate P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddOrUpdate",P1,P2,P3])
+	Func AddOrUpdate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddOrUpdate",P1])
+		ok
+		raise("DotNet Error: AddOrUpdate does not take one argument: use named arguments, AddOrUpdate([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -568,12 +587,16 @@ Class BlockingObjectCollection from Object
 		nHandle = dnCreate('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent',[P1,P2])
 		return self
 
 	Func Add P1
@@ -584,21 +607,11 @@ Class BlockingObjectCollection from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func TryAdd P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAdd",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
-
-	Func TryAdd_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
-
-	Func TryAdd_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
 
 	Func Take P1
 		if dnIsNamed(P1)
@@ -609,9 +622,6 @@ Class BlockingObjectCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Take",P1])
 
-	Func Take_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Take",P1])
-
 	Func TryTake P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryTake",P1])
@@ -620,12 +630,6 @@ Class BlockingObjectCollection from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"TryTake"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1])
-
-	Func TryTake_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1])
-
-	Func TryTake_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryTake",P1,P2])
 
 	Func CompleteAdding 
 		dnRequest("call",[new DotNetObject(nHandle),"CompleteAdding"])
@@ -651,26 +655,20 @@ Class BlockingObjectCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetConsumingEnumerable",P1])
 
-	Func GetConsumingEnumerable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConsumingEnumerable",P1])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddToAny P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1,P2])
+	Func AddToAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1])
+		ok
+		raise("DotNet Error: AddToAny does not take one argument: use named arguments, AddToAny([ :parameter = value, ... ])")
 
-	Func AddToAny_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"AddToAny",P1,P2,P3])
-
-	Func TryAddToAny P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1,P2])
-
-	Func TryAddToAny_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1,P2,P3])
-
-	Func TryAddToAny_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1,P2,P3,P4])
+	Func TryAddToAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryAddToAny",P1])
+		ok
+		raise("DotNet Error: TryAddToAny does not take one argument: use named arguments, TryAddToAny([ :parameter = value, ... ])")
 
 	Func TakeFromAny P1
 		if dnIsNamed(P1)
@@ -678,20 +676,11 @@ Class BlockingObjectCollection from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1])
 
-	Func TakeFromAny_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TakeFromAny",P1,P2])
-
 	Func TryTakeFromAny P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1])
-
-	Func TryTakeFromAny_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2])
-
-	Func TryTakeFromAny_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Collections.Concurrent.BlockingCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections.Concurrent'),"TryTakeFromAny",P1,P2,P3])
 
 	Func getBoundedCapacity
 		return dnRequest("get",[self,"BoundedCapacity"])

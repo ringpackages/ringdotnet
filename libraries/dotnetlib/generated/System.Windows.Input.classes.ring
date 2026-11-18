@@ -768,7 +768,15 @@ Class AccessKeyPressedEventArgs from RoutedEventArgs
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.AccessKeyPressedEventArgs, PresentationCore',[P1])
 		return self
 
@@ -1039,16 +1047,16 @@ Class CommandBinding from Object
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.CommandBinding, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.CommandBinding, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func Equals P1
@@ -1111,7 +1119,15 @@ Class CommandBindingCollection from Object
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.CommandBindingCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.CommandBindingCollection, PresentationCore',[P1])
 		return self
 
@@ -1514,8 +1530,16 @@ Class WpfCursor from Object
 		nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.Cursor, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.Cursor, PresentationCore',[P1])
 		return self
 
 	Func Dispose 
@@ -2164,7 +2188,15 @@ Class InputBindingCollection from Object
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.InputBindingCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputBindingCollection, PresentationCore',[P1])
 		return self
 
@@ -2332,7 +2364,15 @@ Class InputGestureCollection from Object
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.InputGestureCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputGestureCollection, PresentationCore',[P1])
 		return self
 
@@ -2691,10 +2731,6 @@ Class InputMethod from DispatcherObject
 		dnRequest("call",[new DotNetObject(nHandle),"ShowConfigureUI",P1])
 		return self
 
-	Func ShowConfigureUI_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ShowConfigureUI",P1])
-		return self
-
 	Func ShowRegisterWordUI P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
@@ -2705,14 +2741,6 @@ Class InputMethod from DispatcherObject
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
-		return self
-
-	Func ShowRegisterWordUI_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1])
-		return self
-
-	Func ShowRegisterWordUI_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ShowRegisterWordUI",P1,P2])
 		return self
 
 	Func SetIsInputMethodEnabled P1,P2
@@ -2987,7 +3015,15 @@ Class InputScopeName from Object
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.InputScopeName, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopeName, PresentationCore',[P1])
 		return self
 
@@ -3035,7 +3071,15 @@ Class InputScopePhrase from Object
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.InputScopePhrase, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.InputScopePhrase, PresentationCore',[P1])
 		return self
 
@@ -3554,8 +3598,16 @@ Class ManipulationPivot from Object
 		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.ManipulationPivot, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.ManipulationPivot, PresentationCore',[P1])
 		return self
 
 	Func Equals P1
@@ -3988,9 +4040,6 @@ Class Mouse from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1])
 
-	Func Capture_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"Capture",P1,P2])
-
 	Func GetIntermediatePoints P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.Mouse, PresentationCore'),"GetIntermediatePoints",P1,P2])
 
@@ -4376,12 +4425,16 @@ Class RoutedCommand from Object
 		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.RoutedCommand, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.RoutedCommand, PresentationCore',[P1])
 		return self
 
 	Func Execute P1,P2
@@ -4702,9 +4755,6 @@ Class Stylus from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1])
-
-	Func Capture_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Capture",P1,P2])
 
 	Func Synchronize 
 		dnRequest("call",[dnTypeCached('System.Windows.Input.Stylus, PresentationCore'),"Synchronize"])
@@ -5043,16 +5093,16 @@ Class StylusPoint from ValueType
 		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.StylusPoint, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.StylusPoint, PresentationCore',[P1])
 		return self
 
 	Func HasProperty P1
@@ -5076,9 +5126,6 @@ Class StylusPoint from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Input.StylusPoint, PresentationCore'),"Equals",P1,P2])
 
 	Func getX
 		return dnRequest("get",[self,"X"])
@@ -5134,12 +5181,16 @@ Class StylusPointCollection from DotNetObject
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.StylusPointCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.StylusPointCollection, PresentationCore',[P1,P2])
 		return self
 
 	Func Add P1
@@ -5236,7 +5287,15 @@ Class StylusPointDescription from Object
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.StylusPointDescription, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.StylusPointDescription, PresentationCore',[P1])
 		return self
 
@@ -5558,8 +5617,16 @@ Class TextComposition from DispatcherObject
 		nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.TextComposition, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.TextComposition, PresentationCore',[P1])
 		return self
 
 	Func Complete 
@@ -5967,12 +6034,16 @@ Class KeyBinding from InputBinding
 		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.KeyBinding, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.KeyBinding, PresentationCore',[P1])
 		return self
 
 	Func getModifiers
@@ -6017,12 +6088,16 @@ Class KeyGesture from InputGesture
 		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.KeyGesture, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.KeyGesture, PresentationCore',[P1])
 		return self
 
 	Func GetDisplayStringForCulture P1
@@ -6470,8 +6545,16 @@ Class MouseBinding from InputBinding
 		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.MouseBinding, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.MouseBinding, PresentationCore',[P1])
 		return self
 
 	Func getMouseAction
@@ -6512,9 +6595,6 @@ Class MouseDevice from InputDevice
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1])
-
-	Func Capture_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
 
 	Func SetCursor P1
 		return dnRequest("call",[new DotNetObject(nHandle),"SetCursor",P1])
@@ -6599,8 +6679,16 @@ Class WpfMouseEventArgs from InputEventArgs
 		nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.MouseEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.MouseEventArgs, PresentationCore',[P1])
 		return self
 
 	Func GetPosition P1
@@ -6663,12 +6751,16 @@ Class MouseGesture from InputGesture
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.MouseGesture, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Input.MouseGesture, PresentationCore',[P1,P2])
 		return self
 
 	Func getMouseAction
@@ -6696,9 +6788,6 @@ Class ProcessInputEventArgs from NotifyInputEventArgs
 		ok
 		return self
 
-	Func PushInput_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PushInput",P1,P2])
-
 	Func PushInput P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"PushInput",P1])
@@ -6725,12 +6814,16 @@ Class RoutedUICommand from RoutedCommand
 		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.RoutedUICommand, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.RoutedUICommand, PresentationCore',[P1])
 		return self
 
 	Func getText
@@ -6762,9 +6855,6 @@ Class StylusDevice from InputDevice
 		ok
 		return self
 
-	Func Capture_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
-
 	Func Capture P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
@@ -6780,9 +6870,6 @@ Class StylusDevice from InputDevice
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1])
-
-	Func GetStylusPoints_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1,P2])
 
 	Func GetPosition P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPosition",P1])
@@ -6872,9 +6959,6 @@ Class StylusEventArgs from InputEventArgs
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1])
 
-	Func GetStylusPoints_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStylusPoints",P1,P2])
-
 	Func getStylusDevice
 		return dnRequest("get",[self,"StylusDevice"])
 
@@ -6910,8 +6994,16 @@ Class StylusPointPropertyInfo from StylusPointProperty
 		nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[P1])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.StylusPointPropertyInfo, PresentationCore',[P1])
 		return self
 
 	Func getMinimum
@@ -6957,7 +7049,7 @@ Class TabletDevice from InputDevice
 		ok
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getId
@@ -7071,9 +7163,6 @@ Class TouchDevice from InputDevice
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Capture",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1])
-
-	Func Capture_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Capture",P1,P2])
 
 	Func Synchronize 
 		dnRequest("call",[new DotNetObject(nHandle),"Synchronize"])
@@ -7305,8 +7394,16 @@ Class MouseButtonEventArgs from WpfMouseEventArgs
 		nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.MouseButtonEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.MouseButtonEventArgs, PresentationCore',[P1])
 		return self
 
 	Func getChangedButton
@@ -7384,8 +7481,16 @@ Class QueryCursorEventArgs from WpfMouseEventArgs
 		nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Input.QueryCursorEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Input.QueryCursorEventArgs, PresentationCore',[P1])
 		return self
 
 	Func getCursor

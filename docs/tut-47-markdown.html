@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -180,8 +183,8 @@ using {
 	? cHtml
 
 	<span class="c"># save it as a complete page</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial47.html"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"&lt;html&gt;&lt;body&gt;"</span> + nl + cHtml + nl + <span class="s">"&lt;/body&gt;&lt;/html&gt;"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial47.html"</span>])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"&lt;html&gt;&lt;body&gt;"</span> + nl + cHtml + nl + <span class="s">"&lt;/body&gt;&lt;/html&gt;"</span> ])
 	? nl + <span class="s">"Saved a page of "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cFile)) + <span class="s">" characters"</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 
@@ -237,13 +240,13 @@ using {
 	<span class="c"># Each step below writes its result to a NEW variable. (x = new Regex(...).Replace(x,...) with the same variable on both</span>
 	<span class="c"># sides does not work in Ring: it assigns the new Regex object to x first.)</span>
 	<span class="c"># 2. code `x`</span>
-	cCode = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"`([^`]+)`"</span>).<span class="f">Replace</span>(cSafe,<span class="s">"&lt;code&gt;$1&lt;/code&gt;"</span>)
+	cCode = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"`([^`]+)`"</span>).<span class="f">Replace</span>([ :input = cSafe, :replacement = <span class="s">"&lt;code&gt;$1&lt;/code&gt;"</span> ])
 	<span class="c"># 3. bold **x** (before italic: it also uses the star)</span>
-	cBold = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\*\*(.+?)\*\*"</span>).<span class="f">Replace</span>(cCode,<span class="s">"&lt;strong&gt;$1&lt;/strong&gt;"</span>)
+	cBold = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\*\*(.+?)\*\*"</span>).<span class="f">Replace</span>([ :input = cCode, :replacement = <span class="s">"&lt;strong&gt;$1&lt;/strong&gt;"</span> ])
 	<span class="c"># 4. italic *x*</span>
-	cItalic = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\*(.+?)\*"</span>).<span class="f">Replace</span>(cBold,<span class="s">"&lt;em&gt;$1&lt;/em&gt;"</span>)
+	cItalic = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\*(.+?)\*"</span>).<span class="f">Replace</span>([ :input = cBold, :replacement = <span class="s">"&lt;em&gt;$1&lt;/em&gt;"</span> ])
 	<span class="c"># 5. links [text](address)</span>
-	cLinks = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\[([^\]]+)\]\(([^)]+)\)"</span>).<span class="f">Replace</span>(cItalic,<span class="s">"&lt;a href='$2'&gt;$1&lt;/a&gt;"</span>)
+	cLinks = <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\[([^\]]+)\]\(([^)]+)\)"</span>).<span class="f">Replace</span>([ :input = cItalic, :replacement = <span class="s">"&lt;a href='$2'&gt;$1&lt;/a&gt;"</span> ])
 	<span class="k">return</span> cLinks</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>---- Markdown ----
 # Shopping

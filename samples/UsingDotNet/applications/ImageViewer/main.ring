@@ -123,7 +123,7 @@ func selfTest
 			ok
 		next
 	next
-	cFile = new Path().Combine(new Path().GetTempPath(),"imageviewer_selftest.png")
+	cFile = new Path().Combine([new Path().GetTempPath(),"imageviewer_selftest.png"])
 	oSample.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 	loadFile(cFile)
 	dnAssert("loaded size",oInfoText.Text,"40 x 20   zoom 100%")
@@ -140,7 +140,7 @@ func selfTest
 	dnAssert("zoom",nZoom,150)
 	zoomBy(-500)
 	dnAssert("zoom has a minimum",nZoom,25)
-	cOut = new Path().Combine(new Path().GetTempPath(),"imageviewer_saved.png")
+	cOut = new Path().Combine([new Path().GetTempPath(),"imageviewer_saved.png"])
 	saveTo(cOut)
 	dnAssert("saved",new File().Exists(cOut),True)
 	oBox.Image = dnNull()

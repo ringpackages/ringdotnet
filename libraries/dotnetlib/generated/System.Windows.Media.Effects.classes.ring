@@ -110,7 +110,15 @@ Class BitmapEffectCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectCollection, PresentationCore',[P1])
 		return self
 
@@ -179,7 +187,15 @@ Class BitmapEffectInput from Animatable
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Effects.BitmapEffectInput, PresentationCore',[P1])
 		return self
 

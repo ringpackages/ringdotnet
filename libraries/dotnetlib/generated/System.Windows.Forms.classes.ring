@@ -2716,10 +2716,6 @@ Class Application from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
 		return self
 
-	Func Exit_1 P1
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Exit",P1])
-		return self
-
 	Func ExitThread 
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"ExitThread"])
 		return self
@@ -2741,10 +2737,6 @@ Class Application from Object
 
 	Func Restart 
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Restart"])
-		return self
-
-	Func Run_0 
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"Run"])
 		return self
 
 	Func Run P1
@@ -2779,10 +2771,6 @@ Class Application from Object
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1])
-		return self
-
-	Func SetUnhandledExceptionMode_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Application, System.Windows.Forms'),"SetUnhandledExceptionMode",P1,P2])
 		return self
 
 	Func setApplicationExitEvent P1
@@ -2991,7 +2979,15 @@ Class ApplicationContext from Object
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ApplicationContext, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ApplicationContext, System.Windows.Forms',[P1])
 		return self
 
@@ -3233,24 +3229,16 @@ Class Binding from Object
 		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.Binding, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.Binding, System.Windows.Forms',[P1])
 		return self
 
 	Func ReadValue 
@@ -3397,16 +3385,16 @@ Class BindingCompleteEventArgs from CancelEventArgs
 		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1,P2,P3])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.BindingCompleteEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getBinding
@@ -3458,9 +3446,6 @@ Class BindingContext from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
-
-	Func Contains_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -3640,7 +3625,15 @@ Class BindingMemberInfo from ValueType
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingMemberInfo, System.Windows.Forms',[P1])
 		return self
 
@@ -3702,11 +3695,15 @@ Class BindingSource from Component
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.BindingSource, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingSource, System.Windows.Forms',[P1])
 		return self
 
@@ -3809,20 +3806,16 @@ Class BindingSource from Component
 	Func AddNew 
 		return dnRequest("call",[new DotNetObject(nHandle),"AddNew"])
 
-	Func ApplySort_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1,P2])
-		return self
-
-	Func RemoveSort 
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveSort"])
-		return self
-
 	Func ApplySort P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplySort",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ApplySort",P1])
+		return self
+
+	Func RemoveSort 
+		dnRequest("call",[new DotNetObject(nHandle),"RemoveSort"])
 		return self
 
 	Func RemoveFilter 
@@ -4100,29 +4093,12 @@ Class ButtonRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawParentBackground",P1,P2,P3])
 		return self
 
-	Func DrawButton P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3])
-		return self
-
-	Func DrawButton_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4])
-		return self
-
-	Func DrawButton_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawButton_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawButton_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawButton_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
+	Func DrawButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"DrawButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.ButtonRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])
@@ -4181,25 +4157,12 @@ Class CheckBoxRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawParentBackground",P1,P2,P3])
 		return self
 
-	Func DrawCheckBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3])
-		return self
-
-	Func DrawCheckBox_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawCheckBox_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawCheckBox_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func DrawCheckBox_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-		return self
+	Func DrawCheckBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"DrawCheckBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
 
 	Func GetGlyphSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.CheckBoxRenderer, System.Windows.Forms'),"GetGlyphSize",P1,P2])
@@ -4233,14 +4196,6 @@ Class Clipboard from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1])
 		return self
 
-	Func SetDataObject_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1,P2])
-		return self
-
-	Func SetDataObject_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetDataObject",P1,P2,P3,P4])
-		return self
-
 	Func GetDataObject 
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetDataObject"])
 
@@ -4269,9 +4224,6 @@ Class Clipboard from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
 
-	Func ContainsText_1 P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"ContainsText",P1])
-
 	Func GetAudioStream 
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetAudioStream"])
 
@@ -4291,9 +4243,6 @@ Class Clipboard from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
-
-	Func GetText_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"GetText",P1])
 
 	Func SetAudio P1
@@ -4318,10 +4267,6 @@ Class Clipboard from Object
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1])
-		return self
-
-	Func SetText_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Clipboard, System.Windows.Forms'),"SetText",P1,P2])
 		return self
 
 
@@ -4368,7 +4313,15 @@ Class ColumnHeader from Component
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ColumnHeader, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnHeader, System.Windows.Forms',[P1])
 		return self
 
@@ -4534,8 +4487,16 @@ Class ColumnWidthChangingEventArgs from CancelEventArgs
 		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ColumnWidthChangingEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getColumnIndex
@@ -4567,21 +4528,12 @@ Class ComboBoxRenderer from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func DrawTextBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3])
-		return self
-
-	Func DrawTextBox_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawTextBox_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawTextBox_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6,P7])
-		return self
+	Func DrawTextBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func DrawDropDownButton P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ComboBoxRenderer, System.Windows.Forms'),"DrawDropDownButton",P1,P2,P3])
@@ -4617,9 +4569,6 @@ Class CommonDialog from Component
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
-
-	Func ShowDialog_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
 
 	Func setHelpRequestEvent P1
@@ -4751,27 +4700,23 @@ Class Control from Component
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.Control, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[P1])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Forms.Control, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func ResetBindings 
 		dnRequest("call",[new DotNetObject(nHandle),"ResetBindings"])
 		return self
 
-	Func GetPreferredSize_1 P1
+	Func GetPreferredSize_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredSize",P1])
 
 	Func BeginInvoke P1
@@ -4779,9 +4724,6 @@ Class Control from Component
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginInvoke",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1])
-
-	Func BeginInvoke_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2])
 
 	Func BringToFront 
 		dnRequest("call",[new DotNetObject(nHandle),"BringToFront"])
@@ -4797,11 +4739,11 @@ Class Control from Component
 		dnRequest("call",[new DotNetObject(nHandle),"CreateControl"])
 		return self
 
-	Func DoDragDrop P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DoDragDrop",P1,P2])
-
-	Func DoDragDrop_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"DoDragDrop",P1,P2,P3,P4,P5])
+	Func DoDragDrop P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DoDragDrop",P1])
+		ok
+		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
 	Func DrawToBitmap P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"DrawToBitmap",P1,P2])
@@ -4815,9 +4757,6 @@ Class Control from Component
 
 	Func Focus 
 		return dnRequest("call",[new DotNetObject(nHandle),"Focus"])
-
-	Func GetChildAtPoint_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildAtPoint",P1,P2])
 
 	Func GetChildAtPoint P1
 		if dnIsNamed(P1)
@@ -4833,14 +4772,6 @@ Class Control from Component
 
 	Func Hide 
 		dnRequest("call",[new DotNetObject(nHandle),"Hide"])
-		return self
-
-	Func Invalidate_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1])
-		return self
-
-	Func Invalidate_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1,P2])
 		return self
 
 	Func Invalidate P1
@@ -4862,9 +4793,6 @@ Class Control from Component
 		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
 		return self
 
-	Func Invoke_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
-
 	Func LogicalToDeviceUnits P1
 		return dnRequest("call",[new DotNetObject(nHandle),"LogicalToDeviceUnits",P1])
 
@@ -4880,11 +4808,7 @@ Class Control from Component
 			dnRequest("call",[new DotNetObject(nHandle),"PerformLayout"])
 		return self
 		ok
-		raise("DotNet Error: PerformLayout does not take one argument: use PerformLayout(NULL), PerformLayout_N(...) or named arguments")
-
-	Func PerformLayout_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PerformLayout",P1,P2])
-		return self
+		raise("DotNet Error: PerformLayout does not take one argument: use named arguments, PerformLayout([ :parameter = value, ... ])")
 
 	Func PointToClient P1
 		return dnRequest("call",[new DotNetObject(nHandle),"PointToClient",P1])
@@ -4944,20 +4868,12 @@ Class Control from Component
 		dnRequest("call",[new DotNetObject(nHandle),"ResumeLayout",P1])
 		return self
 
-	Func ResumeLayout_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ResumeLayout",P1])
-		return self
-
 	Func Scale P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Scale",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1])
-		return self
-
-	Func Scale_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2])
 		return self
 
 	Func Select 
@@ -4971,13 +4887,12 @@ Class Control from Component
 		dnRequest("call",[new DotNetObject(nHandle),"SendToBack"])
 		return self
 
-	Func SetBounds_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SetBounds",P1,P2,P3,P4])
-		return self
-
-	Func SetBounds_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"SetBounds",P1,P2,P3,P4,P5])
-		return self
+	Func SetBounds_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBounds",P1])
+			return self
+		ok
+		raise("DotNet Error: SetBounds does not take one argument: use named arguments, SetBounds([ :parameter = value, ... ])")
 
 	Func Show 
 		dnRequest("call",[new DotNetObject(nHandle),"Show"])
@@ -4994,9 +4909,6 @@ Class Control from Component
 	Func ResetImeMode 
 		dnRequest("call",[new DotNetObject(nHandle),"ResetImeMode"])
 		return self
-
-	Func InvokeAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2])
 
 	Func InvokeAsync P1
 		if dnIsNamed(P1)
@@ -6154,9 +6066,6 @@ Class ControlPaint from Object
 	Func CreateHBitmapColorMask P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"CreateHBitmapColorMask",P1,P2])
 
-	Func Dark_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"Dark",P1,P2])
-
 	Func Dark P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"Dark",P1])
@@ -6166,81 +6075,58 @@ Class ControlPaint from Object
 	Func DarkDark P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DarkDark",P1])
 
-	Func DrawBorder P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder",P1,P2,P3,P4])
-		return self
+	Func DrawBorder P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawBorder does not take one argument: use named arguments, DrawBorder([ :parameter = value, ... ])")
 
-	Func DrawBorder_14 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14])
-		return self
+	Func DrawBorder3D P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawBorder3D does not take one argument: use named arguments, DrawBorder3D([ :parameter = value, ... ])")
 
-	Func DrawBorder3D P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2])
-		return self
+	Func DrawButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawButton does not take one argument: use named arguments, DrawButton([ :parameter = value, ... ])")
 
-	Func DrawBorder3D_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2,P3])
-		return self
+	Func DrawCaptionButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCaptionButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawCaptionButton does not take one argument: use named arguments, DrawCaptionButton([ :parameter = value, ... ])")
 
-	Func DrawBorder3D_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2,P3,P4])
-		return self
+	Func DrawCheckBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCheckBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawCheckBox does not take one argument: use named arguments, DrawCheckBox([ :parameter = value, ... ])")
 
-	Func DrawBorder3D_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawBorder3D_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawBorder3D_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawBorder3D",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawButton P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawButton",P1,P2,P3])
-		return self
-
-	Func DrawButton_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawButton",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawCaptionButton P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCaptionButton",P1,P2,P3,P4])
-		return self
-
-	Func DrawCaptionButton_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCaptionButton",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawCheckBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3])
-		return self
-
-	Func DrawCheckBox_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawCheckBox",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawComboButton P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawComboButton",P1,P2,P3])
-		return self
-
-	Func DrawComboButton_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawComboButton",P1,P2,P3,P4,P5,P6])
-		return self
+	Func DrawComboButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawComboButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawComboButton does not take one argument: use named arguments, DrawComboButton([ :parameter = value, ... ])")
 
 	Func DrawContainerGrabHandle P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawContainerGrabHandle",P1,P2])
 		return self
 
-	Func DrawFocusRectangle P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawFocusRectangle",P1,P2])
-		return self
-
-	Func DrawFocusRectangle_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawFocusRectangle",P1,P2,P3,P4])
-		return self
+	Func DrawFocusRectangle P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawFocusRectangle",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawFocusRectangle does not take one argument: use named arguments, DrawFocusRectangle([ :parameter = value, ... ])")
 
 	Func DrawGrabHandle P1,P2,P3,P4
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawGrabHandle",P1,P2,P3,P4])
@@ -6258,37 +6144,26 @@ Class ControlPaint from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawLockedFrame",P1,P2,P3])
 		return self
 
-	Func DrawMenuGlyph P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1,P2,P3])
-		return self
+	Func DrawMenuGlyph P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawMenuGlyph does not take one argument: use named arguments, DrawMenuGlyph([ :parameter = value, ... ])")
 
-	Func DrawMenuGlyph_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1,P2,P3,P4,P5])
-		return self
+	Func DrawMixedCheckBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMixedCheckBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawMixedCheckBox does not take one argument: use named arguments, DrawMixedCheckBox([ :parameter = value, ... ])")
 
-	Func DrawMenuGlyph_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawMenuGlyph_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMenuGlyph",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawMixedCheckBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMixedCheckBox",P1,P2,P3])
-		return self
-
-	Func DrawMixedCheckBox_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawMixedCheckBox",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawRadioButton P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3])
-		return self
-
-	Func DrawRadioButton_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3,P4,P5,P6])
-		return self
+	Func DrawRadioButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawRadioButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
 
 	Func DrawReversibleFrame P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawReversibleFrame",P1,P2,P3])
@@ -6298,25 +6173,23 @@ Class ControlPaint from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawReversibleLine",P1,P2,P3])
 		return self
 
-	Func DrawScrollButton P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawScrollButton",P1,P2,P3,P4])
-		return self
-
-	Func DrawScrollButton_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawScrollButton",P1,P2,P3,P4,P5,P6,P7])
-		return self
+	Func DrawScrollButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawScrollButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawScrollButton does not take one argument: use named arguments, DrawScrollButton([ :parameter = value, ... ])")
 
 	Func DrawSelectionFrame P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawSelectionFrame",P1,P2,P3,P4,P5])
 		return self
 
-	Func DrawSizeGrip P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawSizeGrip",P1,P2,P3])
-		return self
-
-	Func DrawSizeGrip_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawSizeGrip",P1,P2,P3,P4,P5,P6])
-		return self
+	Func DrawSizeGrip P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawSizeGrip",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawSizeGrip does not take one argument: use named arguments, DrawSizeGrip([ :parameter = value, ... ])")
 
 	Func DrawStringDisabled P1,P2,P3,P4,P5,P6
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"DrawStringDisabled",P1,P2,P3,P4,P5,P6])
@@ -6329,9 +6202,6 @@ Class ControlPaint from Object
 	Func FillReversibleRectangle P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"FillReversibleRectangle",P1,P2])
 		return self
-
-	Func Light_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ControlPaint, System.Windows.Forms'),"Light",P1,P2])
 
 	Func Light P1
 		if dnIsNamed(P1)
@@ -6500,8 +6370,16 @@ Class Cursor from Object
 		nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.Cursor, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.Cursor, System.Windows.Forms',[P1])
 		return self
 
 	Func CopyHandle 
@@ -7326,7 +7204,15 @@ Class DataGridViewCellStyle from Object
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCellStyle, System.Windows.Forms',[P1])
 		return self
 
@@ -7707,9 +7593,6 @@ Class DataGridViewRowCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
 	Func AddCopy P1
 		return dnRequest("call",[new DotNetObject(nHandle),"AddCopy",P1])
 
@@ -7737,23 +7620,20 @@ Class DataGridViewRowCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstRow",P1])
 
-	Func GetFirstRow_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstRow",P1,P2])
-
 	Func GetLastRow P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLastRow",P1])
 
-	Func GetNextRow P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextRow",P1,P2])
+	Func GetNextRow P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNextRow",P1])
+		ok
+		raise("DotNet Error: GetNextRow does not take one argument: use named arguments, GetNextRow([ :parameter = value, ... ])")
 
-	Func GetNextRow_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextRow",P1,P2,P3])
-
-	Func GetPreviousRow P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviousRow",P1,P2])
-
-	Func GetPreviousRow_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPreviousRow",P1,P2,P3])
+	Func GetPreviousRow P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPreviousRow",P1])
+		ok
+		raise("DotNet Error: GetPreviousRow does not take one argument: use named arguments, GetPreviousRow([ :parameter = value, ... ])")
 
 	Func GetRowCount P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRowCount",P1])
@@ -8305,16 +8185,17 @@ Class DataObject from Object
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataObject, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[P1])
 		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.DataObject, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func GetData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
 
 	Func GetData P1
 		if dnIsNamed(P1)
@@ -8322,17 +8203,11 @@ Class DataObject from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
-	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
-
 	Func GetDataPresent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
-
-	Func GetFormats_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -8342,14 +8217,6 @@ Class DataObject from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
-
-	Func SetData_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
-		return self
-
-	Func SetData_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
-		return self
 
 	Func SetData P1
 		if dnIsNamed(P1)
@@ -8377,9 +8244,6 @@ Class DataObject from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
 
-	Func ContainsText_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
-
 	Func GetAudioStream 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAudioStream"])
 
@@ -8396,9 +8260,6 @@ Class DataObject from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetText"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
-
-	Func GetText_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
 
 	Func SetAudio P1
@@ -8419,10 +8280,6 @@ Class DataObject from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1])
-		return self
-
-	Func SetText_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1,P2])
 		return self
 
 	Func Equals P1
@@ -8540,8 +8397,16 @@ Class DragEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DragEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.DragEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getData
@@ -8622,8 +8487,16 @@ Class DrawItemEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
 		return self
 
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6,P7])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.DrawItemEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func DrawBackground 
@@ -8715,10 +8588,6 @@ Class DrawListViewColumnHeaderEventArgs from EventArgs
 			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
-		return self
-
-	Func DrawText_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
@@ -8816,10 +8685,6 @@ Class DrawListViewItemEventArgs from EventArgs
 		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
-	Func DrawText_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
-		return self
-
 	Func getGraphics
 		return dnRequest("get",[self,"Graphics"])
 
@@ -8896,10 +8761,6 @@ Class DrawListViewSubItemEventArgs from EventArgs
 			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
-		return self
-
-	Func DrawText_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
@@ -8990,10 +8851,6 @@ Class DrawToolTipEventArgs from EventArgs
 			dnRequest("call",[new DotNetObject(nHandle),"DrawText"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
-		return self
-
-	Func DrawText_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"DrawText",P1])
 		return self
 
@@ -9108,7 +8965,15 @@ Class ErrorProvider from Component
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ErrorProvider, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ErrorProvider, System.Windows.Forms',[P1])
 		return self
 
@@ -9238,12 +9103,6 @@ Class FeatureSupport from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
 
-	Func IsPresent_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1,P2])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
-
 	Func GetVersionPresent P1
 		if dnIsNamed(P1)
 			if nHandle = 0
@@ -9255,12 +9114,6 @@ Class FeatureSupport from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func IsPresent_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"IsPresent",P1,P2,P3])
-
-	Func GetVersionPresent_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.FeatureSupport, System.Windows.Forms'),"GetVersionPresent",P1,P2])
 
 
 Class FileDialogCustomPlace from Object
@@ -9493,8 +9346,16 @@ Class GiveFeedbackEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.GiveFeedbackEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getEffect
@@ -9673,21 +9534,12 @@ Class GroupBoxRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawParentBackground",P1,P2,P3])
 		return self
 
-	Func DrawGroupBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1,P2,P3])
-		return self
-
-	Func DrawGroupBox_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawGroupBox_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawGroupBox_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1,P2,P3,P4,P5,P6,P7])
-		return self
+	Func DrawGroupBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"DrawGroupBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawGroupBox does not take one argument: use named arguments, DrawGroupBox([ :parameter = value, ... ])")
 
 	Func getRenderMatchingApplicationState
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.GroupBoxRenderer, System.Windows.Forms'),"RenderMatchingApplicationState"])
@@ -9710,17 +9562,12 @@ Class Help from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ShowHelp P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1,P2])
-		return self
-
-	Func ShowHelp_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1,P2,P3])
-		return self
-
-	Func ShowHelp_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1,P2,P3,P4])
-		return self
+	Func ShowHelp P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelp",P1])
+			return self
+		ok
+		raise("DotNet Error: ShowHelp does not take one argument: use named arguments, ShowHelp([ :parameter = value, ... ])")
 
 	Func ShowHelpIndex P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.Help, System.Windows.Forms'),"ShowHelpIndex",P1,P2])
@@ -9881,9 +9728,6 @@ Class HtmlDocument from Object
 
 	Func CreateElement P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1])
-
-	Func InvokeScript_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeScript",P1,P2])
 
 	Func InvokeScript P1
 		if dnIsNamed(P1)
@@ -10183,9 +10027,6 @@ Class HtmlElement from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeMember",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1])
-
-	Func InvokeMember_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2])
 
 	Func RemoveFocus 
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveFocus"])
@@ -10783,10 +10624,6 @@ Class HtmlWindow from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Focus"])
 		return self
 
-	Func MoveTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1,P2])
-		return self
-
 	Func MoveTo P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"MoveTo",P1])
@@ -10812,20 +10649,12 @@ Class HtmlWindow from Object
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveFocus"])
 		return self
 
-	Func ResizeTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ResizeTo",P1,P2])
-		return self
-
 	Func ResizeTo P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ResizeTo",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ResizeTo",P1])
-		return self
-
-	Func ScrollTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollTo",P1,P2])
 		return self
 
 	Func ScrollTo P1
@@ -11166,7 +10995,7 @@ Class IDataGridViewEditingCell from DotNetObject
 		ok
 		return self
 
-	Func GetEditingCellFormattedValue_1 P1
+	Func GetEditingCellFormattedValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingCellFormattedValue",P1])
 
 	Func PrepareEditingCellForEdit P1
@@ -11212,7 +11041,7 @@ Class IDataGridViewEditingControl from DotNetObject
 	Func EditingControlWantsInputKey P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
 
-	Func GetEditingControlFormattedValue_1 P1
+	Func GetEditingControlFormattedValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
@@ -11270,26 +11099,17 @@ Class IDataObject from DotNetObject
 		ok
 		return self
 
-	Func GetData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
-
 	Func GetData P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetData",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
-	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
-
 	Func GetDataPresent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
-
-	Func GetFormats_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -11299,14 +11119,6 @@ Class IDataObject from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFormats"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
-
-	Func SetData_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
-		return self
-
-	Func SetData_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
-		return self
 
 	Func SetData P1
 		if dnIsNamed(P1)
@@ -11359,9 +11171,6 @@ Class IFeatureSupport from DotNetObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsPresent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
-
-	Func IsPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
 
 	Func GetVersionPresent P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetVersionPresent",P1])
@@ -11476,21 +11285,24 @@ Class ImageList from Component
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ImageList, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ImageList, System.Windows.Forms',[P1])
 		return self
 
-	Func Draw P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3])
-		return self
-
-	Func Draw_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3,P4])
-		return self
-
-	Func Draw_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2,P3,P4,P5,P6])
-		return self
+	Func Draw P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Draw",P1])
+			return self
+		ok
+		raise("DotNet Error: Draw does not take one argument: use named arguments, Draw([ :parameter = value, ... ])")
 
 	Func setRecreateHandleEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"RecreateHandle",dnCallback(P1)])
@@ -11900,8 +11712,16 @@ Class ItemDragEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ItemDragEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getButton
@@ -12054,8 +11874,16 @@ Class LabelEditEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.LabelEditEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getItem
@@ -12149,8 +11977,16 @@ Class LinkArea from ValueType
 		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.LinkArea, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.LinkArea, System.Windows.Forms',[P1])
 		return self
 
 	Func getStart
@@ -12189,8 +12025,16 @@ Class LinkClickedEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.LinkClickedEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getLinkLength
@@ -12238,8 +12082,16 @@ Class LinkLabelLinkClickedEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.LinkLabelLinkClickedEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getLink
@@ -12286,9 +12138,6 @@ Class ListBindingHelper from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1])
 
-	Func GetList_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetList",P1,P2])
-
 	Func GetListName P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListName",P1,P2])
 
@@ -12298,20 +12147,11 @@ Class ListBindingHelper from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1])
 
-	Func GetListItemProperties_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1,P2])
-
-	Func GetListItemProperties_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemProperties",P1,P2,P3])
-
 	Func GetListItemType P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1])
-
-	Func GetListItemType_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ListBindingHelper, System.Windows.Forms'),"GetListItemType",P1,P2])
 
 
 Class ListViewGroup from Object
@@ -12339,11 +12179,15 @@ Class ListViewGroup from Object
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ListViewGroup, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewGroup, System.Windows.Forms',[P1])
 		return self
 
@@ -12457,9 +12301,6 @@ Class ListViewGroupCollection from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
@@ -12651,24 +12492,16 @@ Class ListViewItem from Object
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func BeginEdit 
@@ -12685,7 +12518,7 @@ Class ListViewItem from Object
 	Func FindNearestItem P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindNearestItem",P1])
 
-	Func GetBounds_1 P1
+	Func GetBounds_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
 	Func GetSubItemAt P1,P2
@@ -12991,8 +12824,16 @@ Class MeasureItemEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.MeasureItemEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getGraphics
@@ -13039,7 +12880,7 @@ Class Message from ValueType
 		nHandle = dnCreate('System.Windows.Forms.Message, System.Windows.Forms.Primitives',[])
 		return self
 
-	Func GetLParam_1 P1
+	Func GetLParam_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLParam",P1])
 
 	Func Create P1,P2,P3,P4
@@ -13093,33 +12934,6 @@ Class MessageBox from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Show_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Show_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Show_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func Show_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func Show_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5,P6])
-
-	Func Show_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4,P5])
-
-	Func Show_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3,P4])
-
-	Func Show_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2,P3])
-
-	Func Show_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.MessageBox, System.Windows.Forms'),"Show",P1,P2])
 
 	Func Show P1
 		if dnIsNamed(P1)
@@ -13260,8 +13074,16 @@ Class NodeLabelEditEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.NodeLabelEditEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getNode
@@ -13304,7 +13126,15 @@ Class NotifyIcon from Component
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.NotifyIcon, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.NotifyIcon, System.Windows.Forms',[P1])
 		return self
 
@@ -13314,10 +13144,6 @@ Class NotifyIcon from Component
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ShowBalloonTip",P1])
-		return self
-
-	Func ShowBalloonTip_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"ShowBalloonTip",P1,P2,P3,P4])
 		return self
 
 	Func setBalloonTipClickedEvent P1
@@ -13616,12 +13442,16 @@ Class Padding from ValueType
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[P1])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.Padding, System.Windows.Forms.Primitives',[P1,P2,P3,P4])
 		return self
 
 	Func Add P1,P2
@@ -13906,8 +13736,16 @@ Class PrintControllerWithStatusDialog from PrintController
 		nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.PrintControllerWithStatusDialog, System.Windows.Forms',[P1])
 		return self
 
 
@@ -14869,8 +14707,16 @@ Class QueryAccessibilityHelpEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.QueryAccessibilityHelpEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getHelpNamespace
@@ -14943,7 +14789,15 @@ Class QuestionEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.QuestionEventArgs, System.Windows.Forms',[P1])
 		return self
 
@@ -14977,25 +14831,12 @@ Class RadioButtonRenderer from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawParentBackground",P1,P2,P3])
 		return self
 
-	Func DrawRadioButton P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3])
-		return self
-
-	Func DrawRadioButton_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawRadioButton_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawRadioButton_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func DrawRadioButton_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-		return self
+	Func DrawRadioButton P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"DrawRadioButton",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawRadioButton does not take one argument: use named arguments, DrawRadioButton([ :parameter = value, ... ])")
 
 	Func GetGlyphSize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.RadioButtonRenderer, System.Windows.Forms'),"GetGlyphSize",P1,P2])
@@ -15069,10 +14910,10 @@ Class Screen from Object
 	Func FromHandle P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"FromHandle",P1])
 
-	Func GetWorkingArea_1 P1
+	Func GetWorkingArea_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetWorkingArea",P1])
 
-	Func GetBounds_1 P1
+	Func GetBounds_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Screen, System.Windows.Forms'),"GetBounds",P1])
 
 	Func getBitsPerPixel
@@ -15202,15 +15043,19 @@ Class ScrollEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ScrollEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
-		return self
-
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
@@ -15420,11 +15265,15 @@ Class SelectionRange from Object
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.SelectionRange, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.SelectionRange, System.Windows.Forms',[P1])
 		return self
 
@@ -16414,33 +16263,12 @@ Class TabRenderer from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func DrawTabItem P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3])
-		return self
-
-	Func DrawTabItem_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4])
-		return self
-
-	Func DrawTabItem_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawTabItem_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawTabItem_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func DrawTabItem_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawTabItem_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
+	Func DrawTabItem P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabItem",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawTabItem does not take one argument: use named arguments, DrawTabItem([ :parameter = value, ... ])")
 
 	Func DrawTabPage P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.TabRenderer, System.Windows.Forms'),"DrawTabPage",P1,P2])
@@ -16467,8 +16295,16 @@ Class TableLayoutPanelCellPosition from ValueType
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.TableLayoutPanelCellPosition, System.Windows.Forms',[P1])
 		return self
 
 	Func getRow
@@ -16568,29 +16404,17 @@ Class TaskDialog from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ShowDialogAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1,P2])
-
 	Func ShowDialogAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1])
 
-	Func ShowDialogAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialogAsync",P1,P2,P3])
-
-	Func ShowDialog_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2])
-
 	Func ShowDialog P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1])
-
-	Func ShowDialog_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TaskDialog, System.Windows.Forms'),"ShowDialog",P1,P2,P3])
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
@@ -16611,12 +16435,6 @@ Class TaskDialogButtonCollection from DotNetObject
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButtonCollection, System.Windows.Forms',[])
 		return self
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -17097,21 +16915,12 @@ Class TextBoxRenderer from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func DrawTextBox P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3])
-		return self
-
-	Func DrawTextBox_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawTextBox_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawTextBox_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1,P2,P3,P4,P5,P6,P7])
-		return self
+	Func DrawTextBox P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"DrawTextBox",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawTextBox does not take one argument: use named arguments, DrawTextBox([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.TextBoxRenderer, System.Windows.Forms'),"IsSupported"])
@@ -17133,29 +16942,18 @@ Class TextRenderer from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func DrawText P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1,P2,P3,P4,P5])
-		return self
+	Func DrawText P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawText does not take one argument: use named arguments, DrawText([ :parameter = value, ... ])")
 
-	Func DrawText_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func DrawText_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"DrawText",P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func MeasureText P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1,P2])
-
-	Func MeasureText_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1,P2,P3])
-
-	Func MeasureText_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1,P2,P3,P4])
-
-	Func MeasureText_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1,P2,P3,P4,P5])
+	Func MeasureText P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.TextRenderer, System.Windows.Forms'),"MeasureText",P1])
+		ok
+		raise("DotNet Error: MeasureText does not take one argument: use named arguments, MeasureText([ :parameter = value, ... ])")
 
 
 Class FormsTimer from Component
@@ -17173,7 +16971,15 @@ Class FormsTimer from Component
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.Timer, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.Timer, System.Windows.Forms',[P1])
 		return self
 
@@ -17520,12 +17326,6 @@ Class ToolStripItemCollection from ArrangedElementCollection
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
@@ -17651,20 +17451,12 @@ Class ToolStripManager from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1])
 		return self
 
-	Func LoadSettings_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"LoadSettings",P1,P2])
-		return self
-
 	Func SaveSettings P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1])
-		return self
-
-	Func SaveSettings_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"SaveSettings",P1,P2])
 		return self
 
 	Func IsValidShortcut P1
@@ -17681,9 +17473,6 @@ Class ToolStripManager from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1])
-
-	Func RevertMerge_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RevertMerge",P1,P2])
 
 	Func setRendererChangedEvent P1
 		dnRequest("setevent",[dnTypeCached('System.Windows.Forms.ToolStripManager, System.Windows.Forms'),"RendererChanged",dnCallback(P1)])
@@ -17841,8 +17630,16 @@ Class ToolStripRenderEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ToolStripRenderEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getGraphics
@@ -18161,7 +17958,15 @@ Class ToolTip from Component
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolTip, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolTip, System.Windows.Forms',[P1])
 		return self
 
@@ -18179,21 +17984,12 @@ Class ToolTip from Component
 		dnRequest("call",[new DotNetObject(nHandle),"SetToolTip",P1,P2])
 		return self
 
-	Func Show P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2])
-		return self
-
-	Func Show_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2,P3])
-		return self
-
-	Func Show_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2,P3,P4])
-		return self
-
-	Func Show_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2,P3,P4,P5])
-		return self
+	Func Show P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
+			return self
+		ok
+		raise("DotNet Error: Show does not take one argument: use named arguments, Show([ :parameter = value, ... ])")
 
 	Func Hide P1
 		dnRequest("call",[new DotNetObject(nHandle),"Hide",P1])
@@ -18447,20 +18243,16 @@ Class TreeNode from MarshalByRefObject
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TreeNode, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.TreeNode, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func BeginEdit 
@@ -18469,10 +18261,6 @@ Class TreeNode from MarshalByRefObject
 
 	Func Clone 
 		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
-
-	Func Collapse_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Collapse",P1])
-		return self
 
 	Func Collapse P1
 		if dnIsNamed(P1)
@@ -18749,15 +18537,6 @@ Class TreeNodeCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
-
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
@@ -18777,18 +18556,11 @@ Class TreeNodeCollection from Object
 	Func IndexOfKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
-	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
-		return self
-
-	Func Insert_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
-
-	Func Insert_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
-
-	Func Insert_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4,P5])
+	Func Insert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+		ok
+		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -18909,8 +18681,16 @@ Class TreeViewEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.TreeViewEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getNode
@@ -19296,9 +19076,6 @@ Class ControlCollection from ArrangedElementCollection
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChildIndex",P1])
 
-	Func GetChildIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildIndex",P1,P2])
-
 	Func SetChildIndex P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetChildIndex",P1,P2])
 		return self
@@ -19327,8 +19104,16 @@ Class ListBoxObjectCollection from Object
 		nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ListBox+ObjectCollection, System.Windows.Forms',[P1])
 		return self
 
 	Func Add P1
@@ -19545,12 +19330,6 @@ Class ListViewItemCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
@@ -19581,14 +19360,11 @@ Class ListViewItemCollection from Object
 	Func IndexOfKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
-	Func Insert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
-
-	Func Insert_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
-
-	Func Insert_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
+	Func Insert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+		ok
+		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1
 		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -19646,20 +19422,11 @@ Class ColumnHeaderCollection from Object
 	Func IndexOfKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
 	Func Add P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
-	Func Add_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5])
 
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
@@ -19678,21 +19445,12 @@ Class ColumnHeaderCollection from Object
 	Func IndexOf P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
-		return self
-
-	Func Insert_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
-		return self
-
-	Func Insert_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
-		return self
-
-	Func Insert_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4,P5,P6])
-		return self
+	Func Insert P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			return self
+		ok
+		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func RemoveAt P1
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
@@ -19800,7 +19558,7 @@ Class DataGridViewHitTestInfo from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getColumnIndex
@@ -19859,12 +19617,16 @@ Class ListViewSubItem from Object
 		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ListViewItem+ListViewSubItem, System.Windows.Forms',[P1])
 		return self
 
 	Func ResetStyle 
@@ -19943,19 +19705,12 @@ Class ListViewSubItemCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
-
 	Func AddRange P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AddRange",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
-		return self
-
-	Func AddRange_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1,P2,P3,P4])
 		return self
 
 	Func Clear 
@@ -20038,14 +19793,6 @@ Class TabPageCollection from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-		return self
-
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
@@ -20062,17 +19809,12 @@ Class TabPageCollection from Object
 	Func IndexOfKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfKey",P1])
 
-	Func Insert P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
-		return self
-
-	Func Insert_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
-		return self
-
-	Func Insert_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
-		return self
+	Func Insert P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+			return self
+		ok
+		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -20129,10 +19871,6 @@ Class ImageCollection from Object
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		return self
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Add P1
@@ -20367,10 +20105,6 @@ Class AxHost from Control
 			dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
-		return self
-
-	Func ShowPropertyPages_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"ShowPropertyPages",P1])
 		return self
 
@@ -20668,12 +20402,16 @@ Class ColumnStyle from TableLayoutStyle
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ColumnStyle, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ColumnStyle, System.Windows.Forms',[P1,P2])
 		return self
 
 	Func getWidth
@@ -20828,10 +20566,6 @@ Class DataGridView from Control
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumn",P1])
 		return self
 
-	Func AutoResizeColumn_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumn",P1,P2])
-		return self
-
 	Func AutoResizeColumnHeadersHeight P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight",P1])
@@ -20841,10 +20575,6 @@ Class DataGridView from Control
 			dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight",P1])
-		return self
-
-	Func AutoResizeColumnHeadersHeight_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumnHeadersHeight",P1])
 		return self
 
@@ -20860,10 +20590,6 @@ Class DataGridView from Control
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumns",P1])
 		return self
 
-	Func AutoResizeColumns_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeColumns",P1])
-		return self
-
 	Func AutoResizeRow P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeRow",P1])
@@ -20872,20 +20598,12 @@ Class DataGridView from Control
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRow",P1])
 		return self
 
-	Func AutoResizeRow_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRow",P1,P2])
-		return self
-
 	Func AutoResizeRowHeadersWidth P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AutoResizeRowHeadersWidth",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRowHeadersWidth",P1])
-		return self
-
-	Func AutoResizeRowHeadersWidth_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRowHeadersWidth",P1,P2])
 		return self
 
 	Func AutoResizeRows P1
@@ -20897,10 +20615,6 @@ Class DataGridView from Control
 			dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRows"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRows",P1])
-		return self
-
-	Func AutoResizeRows_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"AutoResizeRows",P1])
 		return self
 
@@ -20932,9 +20646,6 @@ Class DataGridView from Control
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EndEdit",P1])
 
-	Func EndEdit_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndEdit",P1])
-
 	Func GetCellCount P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCellCount",P1])
 
@@ -20961,10 +20672,6 @@ Class DataGridView from Control
 		dnRequest("call",[new DotNetObject(nHandle),"InvalidateCell",P1])
 		return self
 
-	Func InvalidateCell_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"InvalidateCell",P1,P2])
-		return self
-
 	Func InvalidateColumn P1
 		dnRequest("call",[new DotNetObject(nHandle),"InvalidateColumn",P1])
 		return self
@@ -20984,11 +20691,11 @@ Class DataGridView from Control
 		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
 		return self
 
-	Func Sort P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2])
-		return self
-
-	Func Sort_1 P1
+	Func Sort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Sort",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
 		return self
 
@@ -21006,10 +20713,6 @@ Class DataGridView from Control
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"UpdateRowErrorText",P1])
-		return self
-
-	Func UpdateRowErrorText_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"UpdateRowErrorText",P1,P2])
 		return self
 
 	Func UpdateRowHeightInfo P1,P2
@@ -22611,19 +22314,19 @@ Class DataGridViewCell from DataGridViewElement
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
-	Func GetContentBounds_1 P1
+	Func GetContentBounds_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetContentBounds",P1])
 
-	Func GetEditedFormattedValue_2 P1,P2
+	Func GetEditedFormattedValue_ P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditedFormattedValue",P1,P2])
 
 	Func GetInheritedContextMenuStrip P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedContextMenuStrip",P1])
 
-	Func GetInheritedState_1 P1
+	Func GetInheritedState_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedState",P1])
 
-	Func GetInheritedStyle_3 P1,P2,P3
+	Func GetInheritedStyle_ P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInheritedStyle",P1,P2,P3])
 
 	Func InitializeEditingControl P1,P2,P3
@@ -23092,9 +22795,6 @@ Class DataGridViewColumnCollection from BaseCollection
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumnCollection, System.Windows.Forms',[P1])
 		return self
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func Add P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -23123,9 +22823,6 @@ Class DataGridViewColumnCollection from BaseCollection
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFirstColumn",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstColumn",P1])
-
-	Func GetFirstColumn_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFirstColumn",P1,P2])
 
 	Func GetLastColumn P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLastColumn",P1,P2])
@@ -24045,8 +23742,16 @@ Class HandledMouseEventArgs from MouseEventArgs
 		nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.HandledMouseEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getHandled
@@ -24405,10 +24110,6 @@ Class ListView from Control
 		nHandle = dnCreate('System.Windows.Forms.ListView, System.Windows.Forms',[])
 		return self
 
-	Func ArrangeIcons_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ArrangeIcons",P1])
-		return self
-
 	Func ArrangeIcons P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ArrangeIcons",P1])
@@ -24451,17 +24152,11 @@ Class ListView from Control
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindItemWithText",P1])
 
-	Func FindItemWithText_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindItemWithText",P1,P2,P3])
-
-	Func FindItemWithText_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"FindItemWithText",P1,P2,P3,P4])
-
-	Func FindNearestItem P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindNearestItem",P1,P2])
-
-	Func FindNearestItem_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindNearestItem",P1,P2,P3])
+	Func FindNearestItem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindNearestItem",P1])
+		ok
+		raise("DotNet Error: FindNearestItem does not take one argument: use named arguments, FindNearestItem([ :parameter = value, ... ])")
 
 	Func GetItemAt P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemAt",P1,P2])
@@ -24472,17 +24167,11 @@ Class ListView from Control
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemRect",P1])
 
-	Func GetItemRect_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemRect",P1,P2])
-
 	Func HitTest P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
-
-	Func HitTest_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
 
 	Func RedrawItems P1,P2,P3
 		dnRequest("call",[new DotNetObject(nHandle),"RedrawItems",P1,P2,P3])
@@ -25048,9 +24737,6 @@ Class MonthCalendar from Control
 	Func GetDisplayRange P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDisplayRange",P1])
 
-	Func HitTest_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
-
 	Func HitTest P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
@@ -25081,7 +24767,7 @@ Class MonthCalendar from Control
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveMonthlyBoldedDate",P1])
 		return self
 
-	Func SetCalendarDimensions_2 P1,P2
+	Func SetCalendarDimensions_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetCalendarDimensions",P1,P2])
 		return self
 
@@ -25089,7 +24775,7 @@ Class MonthCalendar from Control
 		dnRequest("call",[new DotNetObject(nHandle),"SetDate",P1])
 		return self
 
-	Func SetSelectionRange_2 P1,P2
+	Func SetSelectionRange_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetSelectionRange",P1,P2])
 		return self
 
@@ -25303,9 +24989,6 @@ Class OSFeature from FeatureSupport
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1])
 
-	Func IsPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsPresent",P1,P2])
-
 	Func getFeature
 		return dnRequest("get",[dnTypeCached('System.Windows.Forms.OSFeature, System.Windows.Forms'),"Feature"])
 
@@ -25461,10 +25144,6 @@ Class PictureBox from Control
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
-	Func Load_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
-		return self
-
 	Func LoadAsync P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
@@ -25474,10 +25153,6 @@ Class PictureBox from Control
 			dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
-		return self
-
-	Func LoadAsync_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 		return self
 
@@ -25838,12 +25513,16 @@ Class RowStyle from TableLayoutStyle
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.RowStyle, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.RowStyle, System.Windows.Forms',[P1,P2])
 		return self
 
 	Func getHeight
@@ -25953,7 +25632,7 @@ Class ScrollableControl from Control
 		dnRequest("call",[new DotNetObject(nHandle),"ScrollControlIntoView",P1])
 		return self
 
-	Func SetAutoScrollMargin_2 P1,P2
+	Func SetAutoScrollMargin_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetAutoScrollMargin",P1,P2])
 		return self
 
@@ -26345,10 +26024,6 @@ Class TableLayoutControlCollection from ControlCollection
 		nHandle = dnCreate('System.Windows.Forms.TableLayoutControlCollection, System.Windows.Forms',[P1])
 		return self
 
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-		return self
-
 	Func Add P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -26500,15 +26175,15 @@ Class TaskDialogButton from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogButton, System.Windows.Forms',[P1])
 		return self
 
@@ -26637,7 +26312,15 @@ Class TaskDialogExpander from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogExpander, System.Windows.Forms',[P1])
 		return self
 
@@ -26699,7 +26382,15 @@ Class TaskDialogFootnote from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogFootnote, System.Windows.Forms',[P1])
 		return self
 
@@ -26735,7 +26426,15 @@ Class TaskDialogProgressBar from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogProgressBar, System.Windows.Forms',[P1])
 		return self
 
@@ -26790,7 +26489,15 @@ Class TaskDialogRadioButton from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogRadioButton, System.Windows.Forms',[P1])
 		return self
 
@@ -26838,11 +26545,15 @@ Class TaskDialogVerificationCheckBox from TaskDialogControl
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogVerificationCheckBox, System.Windows.Forms',[P1])
 		return self
 
@@ -26946,18 +26657,6 @@ Class TextBoxBase from Control
 		dnRequest("call",[new DotNetObject(nHandle),"DeselectAll"])
 		return self
 
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
-	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
-		return self
-
-	Func Undo 
-		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
-		return self
-
 	Func Select P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
@@ -26967,7 +26666,15 @@ Class TextBoxBase from Control
 			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
-		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
+		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
+
+	Func SelectAll 
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		return self
+
+	Func Undo 
+		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
+		return self
 
 	Func setAcceptsTabChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"AcceptsTabChanged",dnCallback(P1)])
@@ -27229,11 +26936,11 @@ Class ToolStripItem from BindableComponent
 		ok
 		return self
 
-	Func DoDragDrop P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DoDragDrop",P1,P2])
-
-	Func DoDragDrop_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"DoDragDrop",P1,P2,P3,P4,P5])
+	Func DoDragDrop P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DoDragDrop",P1])
+		ok
+		raise("DotNet Error: DoDragDrop does not take one argument: use named arguments, DoDragDrop([ :parameter = value, ... ])")
 
 	Func GetCurrentParent 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentParent"])
@@ -27250,10 +26957,6 @@ Class ToolStripItem from BindableComponent
 			dnRequest("call",[new DotNetObject(nHandle),"Invalidate"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1])
-		return self
-
-	Func Invalidate_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Invalidate",P1])
 		return self
 
@@ -27944,8 +27647,16 @@ Class ToolStripItemImageRenderEventArgs from ToolStripItemRenderEventArgs
 		nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ToolStripItemImageRenderEventArgs, System.Windows.Forms',[P1])
 		return self
 
 	Func getImage
@@ -28036,7 +27747,15 @@ Class ToolStripProfessionalRenderer from ToolStripRenderer
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProfessionalRenderer, System.Windows.Forms',[P1])
 		return self
 
@@ -28290,9 +28009,6 @@ Class TreeView from Control
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
 
-	Func HitTest_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
-
 	Func GetNodeCount P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeCount",P1])
 
@@ -28301,9 +28017,6 @@ Class TreeView from Control
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNodeAt",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeAt",P1])
-
-	Func GetNodeAt_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNodeAt",P1,P2])
 
 	Func Sort 
 		dnRequest("call",[new DotNetObject(nHandle),"Sort"])
@@ -28705,9 +28418,6 @@ Class CheckedListBoxObjectCollection from ListBoxObjectCollection
 		nHandle = dnCreate('System.Windows.Forms.CheckedListBox+ObjectCollection, System.Windows.Forms',[P1])
 		return self
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func Add P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -28883,28 +28593,14 @@ Class ComboBox from ListControl
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
 
-	Func FindString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1,P2])
-
 	Func FindStringExact P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
 
-	Func FindStringExact_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1,P2])
-
-	Func GetItemHeight_1 P1
+	Func GetItemHeight_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
-
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
-	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
-		return self
 
 	Func Select P1
 		if dnIsNamed(P1)
@@ -28915,7 +28611,11 @@ Class ComboBox from ListControl
 			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
-		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
+		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
+
+	Func SelectAll 
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		return self
 
 	Func setDrawItemEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"DrawItem",dnCallback(P1)])
@@ -29151,9 +28851,6 @@ Class ContainerControl from ScrollableControl
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 
-	Func Validate_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
-
 	Func ValidateChildren P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateChildren",P1])
@@ -29161,9 +28858,6 @@ Class ContainerControl from ScrollableControl
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren",P1])
-
-	Func ValidateChildren_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ValidateChildren",P1])
 
 	Func setAutoValidateChangedEvent P1
@@ -29236,24 +28930,6 @@ Class ControlBindingsCollection from BindingsCollection
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
-
-	Func Add_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5])
-
-	Func Add_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6])
-
-	Func Add_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Add_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4,P5,P6,P7,P8])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -29338,11 +29014,19 @@ Class DataGridViewCheckBoxCell from DataGridViewCell
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxCell, System.Windows.Forms',[P1])
 		return self
 
-	Func GetEditingCellFormattedValue_1 P1
+	Func GetEditingCellFormattedValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingCellFormattedValue",P1])
 
 	Func PrepareEditingCellForEdit P1
@@ -29429,7 +29113,15 @@ Class DataGridViewColumn from DataGridViewBand
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewColumn, System.Windows.Forms',[P1])
 		return self
 
@@ -29718,7 +29410,15 @@ Class DataGridViewImageCell from DataGridViewCell
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageCell, System.Windows.Forms',[P1])
 		return self
 
@@ -29848,20 +29548,16 @@ Class DataGridViewRow from DataGridViewBand
 		dnRequest("call",[new DotNetObject(nHandle),"CreateCells",P1])
 		return self
 
-	Func CreateCells_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CreateCells",P1,P2])
-		return self
-
-	Func GetContextMenuStrip_1 P1
+	Func GetContextMenuStrip_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetContextMenuStrip",P1])
 
-	Func GetErrorText_1 P1
+	Func GetErrorText_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetErrorText",P1])
 
 	Func GetPreferredHeight P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPreferredHeight",P1,P2,P3])
 
-	Func GetState_1 P1
+	Func GetState_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetState",P1])
 
 	Func SetValues P1
@@ -30119,19 +29815,13 @@ Class ListBox from ListControl
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
 
-	Func FindString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1,P2])
-
 	Func FindStringExact P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
 
-	Func FindStringExact_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1,P2])
-
-	Func GetItemHeight_1 P1
+	Func GetItemHeight_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
 
 	Func GetItemRectangle P1
@@ -30145,9 +29835,6 @@ Class ListBox from ListControl
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexFromPoint",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromPoint",P1])
-
-	Func IndexFromPoint_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromPoint",P1,P2])
 
 	Func SetSelected P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetSelected",P1,P2])
@@ -30360,7 +30047,15 @@ Class MaskedTextBox from TextBoxBase
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.MaskedTextBox, System.Windows.Forms',[P1])
 		return self
 
@@ -30777,15 +30472,6 @@ Class RichTextBox from TextBoxBase
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1])
 
-	Func Find_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
-
-	Func Find_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2,P3])
-
-	Func Find_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2,P3,P4])
-
 	Func LoadFile P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"LoadFile",P1])
@@ -30794,11 +30480,15 @@ Class RichTextBox from TextBoxBase
 		dnRequest("call",[new DotNetObject(nHandle),"LoadFile",P1])
 		return self
 
-	Func LoadFile_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"LoadFile",P1,P2])
+	Func Paste P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
-
-	Func Paste_1 P1
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
@@ -30812,22 +30502,6 @@ Class RichTextBox from TextBoxBase
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SaveFile",P1])
-		return self
-
-	Func SaveFile_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SaveFile",P1,P2])
-		return self
-
-	Func Paste P1
-		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Paste",P1])
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
-		return self
-		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func setContentsResizedEvent P1
@@ -31133,19 +30807,15 @@ Class TaskDialogCommandLinkButton from TaskDialogButton
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TaskDialogCommandLinkButton, System.Windows.Forms',[P1])
 		return self
 
@@ -31177,10 +30847,6 @@ Class TextBox from TextBoxBase
 			return self
 		ok
 		nHandle = dnCreate('System.Windows.Forms.TextBox, System.Windows.Forms',[])
-		return self
-
-	Func Paste_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
 	Func Paste P1
@@ -31309,15 +30975,20 @@ Class ToolStrip from ScrollableControl
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStrip, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStrip, System.Windows.Forms',[P1])
 		return self
 
 	Func GetNextItem P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNextItem",P1,P2])
-
-	Func GetItemAt_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetItemAt",P1,P2])
 
 	Func GetItemAt P1
 		if dnIsNamed(P1)
@@ -31571,20 +31242,16 @@ Class ToolStripButton from ToolStripItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripButton, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -31641,8 +31308,16 @@ Class ToolStripControlHost from ToolStripItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Forms.ToolStripControlHost, System.Windows.Forms',[P1])
 		return self
 
 	Func Focus 
@@ -31855,24 +31530,16 @@ Class ToolStripLabel from ToolStripItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Forms.ToolStripLabel, System.Windows.Forms',[P1,P2,P3,P4,P5])
 		return self
 
 	Func getIsLink
@@ -31997,14 +31664,6 @@ Class WebBrowser from WebBrowserBase
 		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 		return self
 
-	Func Navigate_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
-		return self
-
-	Func Navigate_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2,P3,P4])
-		return self
-
 	Func Print 
 		dnRequest("call",[new DotNetObject(nHandle),"Print"])
 		return self
@@ -32018,10 +31677,6 @@ Class WebBrowser from WebBrowserBase
 			dnRequest("call",[new DotNetObject(nHandle),"Refresh"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
-		return self
-
-	Func Refresh_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
 		return self
 
@@ -32296,7 +31951,15 @@ Class BindingNavigator from ToolStrip
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.BindingNavigator, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.BindingNavigator, System.Windows.Forms',[P1])
 		return self
 
@@ -32521,7 +32184,15 @@ Class DataGridViewCheckBoxColumn from DataGridViewColumn
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewCheckBoxColumn, System.Windows.Forms',[P1])
 		return self
 
@@ -32707,7 +32378,7 @@ Class DataGridViewComboBoxEditingControl from ComboBox
 	Func EditingControlWantsInputKey P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
 
-	Func GetEditingControlFormattedValue_1 P1
+	Func GetEditingControlFormattedValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
@@ -32772,7 +32443,15 @@ Class DataGridViewImageColumn from DataGridViewColumn
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms',[P1])
 		return self
 
@@ -32939,7 +32618,7 @@ Class DataGridViewTextBoxEditingControl from TextBox
 	Func EditingControlWantsInputKey P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EditingControlWantsInputKey",P1,P2])
 
-	Func GetEditingControlFormattedValue_1 P1
+	Func GetEditingControlFormattedValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditingControlFormattedValue",P1])
 
 	Func PrepareEditingControlForEdit P1
@@ -33098,20 +32777,25 @@ Class Form from ContainerControl
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveOwnedForm",P1])
 		return self
 
-	Func SetDesktopBounds_4 P1,P2,P3,P4
+	Func SetDesktopBounds_ P1,P2,P3,P4
 		dnRequest("call",[new DotNetObject(nHandle),"SetDesktopBounds",P1,P2,P3,P4])
 		return self
 
-	Func SetDesktopLocation_2 P1,P2
+	Func SetDesktopLocation_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetDesktopLocation",P1,P2])
 		return self
 
-	Func Show_1 P1
+	Func Show P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[new DotNetObject(nHandle),"Show"])
+		return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
 		return self
-
-	Func ShowAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowAsync",P1])
 
 	Func ShowAsync P1
 		if dnIsNamed(P1)
@@ -33131,9 +32815,6 @@ Class Form from ContainerControl
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
 
-	Func ShowDialog_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialog",P1])
-
 	Func ShowDialogAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ShowDialogAsync",P1])
@@ -33142,21 +32823,6 @@ Class Form from ContainerControl
 			return dnRequest("call",[new DotNetObject(nHandle),"ShowDialogAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialogAsync",P1])
-
-	Func ShowDialogAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ShowDialogAsync",P1])
-
-	Func Show P1
-		if dnIsNamed(P1)
-			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
-			return self
-		ok
-		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Show"])
-		return self
-		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
-		return self
 
 	Func GetAutoScaleSize P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Forms.Form, System.Windows.Forms'),"GetAutoScaleSize",P1])
@@ -34238,7 +33904,15 @@ Class TabPage from Panel
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.TabPage, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.TabPage, System.Windows.Forms',[P1])
 		return self
 
@@ -34427,7 +34101,15 @@ Class ToolStripComboBox from ToolStripControlHost
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripComboBox, System.Windows.Forms',[P1])
 		return self
 
@@ -34445,28 +34127,14 @@ Class ToolStripComboBox from ToolStripControlHost
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1])
 
-	Func FindString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindString",P1,P2])
-
 	Func FindStringExact P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindStringExact",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1])
 
-	Func FindStringExact_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindStringExact",P1,P2])
-
 	Func GetItemHeight P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemHeight",P1])
-
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
-	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
-		return self
 
 	Func Select P1
 		if dnIsNamed(P1)
@@ -34477,7 +34145,11 @@ Class ToolStripComboBox from ToolStripControlHost
 			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
-		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
+		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
+
+	Func SelectAll 
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		return self
 
 	Func setDropDownEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"DropDown",dnCallback(P1)])
@@ -34807,10 +34479,6 @@ Class ToolStripDropDown from ToolStrip
 		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
 		return self
 
-	Func Close_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
-		return self
-
 	Func Show P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Show",P1])
@@ -34820,18 +34488,6 @@ Class ToolStripDropDown from ToolStrip
 			dnRequest("call",[new DotNetObject(nHandle),"Show"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
-		return self
-
-	Func Show_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2])
-		return self
-
-	Func Show_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2,P3])
-		return self
-
-	Func Show_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
 		return self
 
@@ -34929,20 +34585,16 @@ Class ToolStripDropDownButton from ToolStripDropDownItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func getShowDropDownArrow
@@ -34972,20 +34624,16 @@ Class ToolStripMenuItem from ToolStripDropDownItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func setCheckedChangedEvent P1
@@ -35087,14 +34735,6 @@ Class ToolStripPanel from ContainerControl
 		dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
 		return self
 
-	Func Join_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Join",P1,P2])
-		return self
-
-	Func Join_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Join",P1,P2,P3])
-		return self
-
 	Func PointToRow P1
 		return dnRequest("call",[new DotNetObject(nHandle),"PointToRow",P1])
 
@@ -35167,7 +34807,15 @@ Class ToolStripProgressBar from ToolStripControlHost
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripProgressBar, System.Windows.Forms',[P1])
 		return self
 
@@ -35264,20 +34912,16 @@ Class ToolStripSplitButton from ToolStripDropDownItem
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripSplitButton, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func OnButtonDoubleClick P1
@@ -35389,20 +35033,16 @@ Class ToolStripStatusLabel from ToolStripLabel
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms',[P1,P2,P3,P4])
 		return self
 
 	Func getBorderStyle
@@ -35468,7 +35108,15 @@ Class ToolStripTextBox from ToolStripControlHost
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ToolStripTextBox, System.Windows.Forms',[P1])
 		return self
 
@@ -35522,18 +35170,6 @@ Class ToolStripTextBox from ToolStripControlHost
 		dnRequest("call",[new DotNetObject(nHandle),"ScrollToCaret"])
 		return self
 
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
-	Func SelectAll 
-		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
-		return self
-
-	Func Undo 
-		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
-		return self
-
 	Func Select P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
@@ -35543,7 +35179,15 @@ Class ToolStripTextBox from ToolStripControlHost
 			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
-		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
+		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
+
+	Func SelectAll 
+		dnRequest("call",[new DotNetObject(nHandle),"SelectAll"])
+		return self
+
+	Func Undo 
+		dnRequest("call",[new DotNetObject(nHandle),"Undo"])
+		return self
 
 	Func setAcceptsTabChangedEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"AcceptsTabChanged",dnCallback(P1)])
@@ -35774,14 +35418,6 @@ Class UpDownBase from ContainerControl
 		dnRequest("call",[new DotNetObject(nHandle),"DownButton"])
 		return self
 
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
-	Func UpButton 
-		dnRequest("call",[new DotNetObject(nHandle),"UpButton"])
-		return self
-
 	Func Select P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
@@ -35791,7 +35427,11 @@ Class UpDownBase from ContainerControl
 			dnRequest("call",[new DotNetObject(nHandle),"Select"])
 		return self
 		ok
-		raise("DotNet Error: Select does not take one argument: use Select(NULL), Select_N(...) or named arguments")
+		raise("DotNet Error: Select does not take one argument: use named arguments, Select([ :parameter = value, ... ])")
+
+	Func UpButton 
+		dnRequest("call",[new DotNetObject(nHandle),"UpButton"])
+		return self
 
 	Func getBorderStyle
 		return dnRequest("get",[self,"BorderStyle"])
@@ -36149,7 +35789,15 @@ Class ContextMenuStrip from ToolStripDropDownMenu
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Forms.ContextMenuStrip, System.Windows.Forms',[P1])
 		return self
 

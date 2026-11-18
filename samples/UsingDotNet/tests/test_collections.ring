@@ -35,9 +35,9 @@ dnAssert("Queue.Dequeue",oQ.Dequeue(),"a")
 
 # Specialized
 oNames = new NameValueCollection()
-oNames.Add("color","red")
-oNames.Add("color","blue")
-oNames.Add("size","L")
+oNames.Add([ :name = "color", :value = "red" ])
+oNames.Add([ :name = "color", :value = "blue" ])
+oNames.Add([ :name = "size", :value = "L" ])
 dnAssert("NameValueCollection.Count",oNames.Count,2)
 dnAssert("NameValueCollection.Item",oNames.Item("color"),"red,blue")
 dnAssert("NameValueCollection.GetValues",len(oNames.GetValues("color").toList()),2)

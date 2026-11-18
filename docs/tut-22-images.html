@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -178,14 +181,14 @@ using {
 	<span class="c"># STEP 2. Draw: brushes fill, pens draw lines</span>
 	oBlue = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="k">new</span> <span class="t">Color</span>().SteelBlue)
 	oOrange = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="k">new</span> <span class="t">Color</span>().Orange)
-	oGraphics.<span class="f">FillRectangle</span>(oBlue,<span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">100</span>,<span class="n">60</span>))
-	oGraphics.<span class="f">FillEllipse</span>(oOrange,<span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">130</span>,<span class="n">20</span>,<span class="n">90</span>,<span class="n">90</span>))
+	oGraphics.<span class="f">FillRectangle</span>([ :brush = oBlue, :rect = <span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">10</span>,<span class="n">10</span>,<span class="n">100</span>,<span class="n">60</span>) ])
+	oGraphics.<span class="f">FillEllipse</span>([ :brush = oOrange, :rect = <span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">130</span>,<span class="n">20</span>,<span class="n">90</span>,<span class="n">90</span>) ])
 	oPen = <span class="k">new</span> <span class="t">Pen</span>(<span class="k">new</span> <span class="t">Color</span>().Black) {
 		Width = <span class="n">3</span>
 	}
-	oGraphics.<span class="f">DrawLine</span>(oPen,<span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">130</span>),<span class="k">new</span> <span class="t">Point</span>(<span class="n">230</span>,<span class="n">90</span>))
+	oGraphics.<span class="f">DrawLine</span>([ :pen = oPen, :pt1 = <span class="k">new</span> <span class="t">Point</span>(<span class="n">10</span>,<span class="n">130</span>), :pt2 = <span class="k">new</span> <span class="t">Point</span>(<span class="n">230</span>,<span class="n">90</span>) ])
 	oFont = <span class="k">new</span> <span class="t">Font</span>(<span class="s">"Segoe UI"</span>,<span class="n">14</span>)
-	oGraphics.<span class="f">DrawString</span>(<span class="s">"Hello, image"</span>,oFont,<span class="k">new</span> <span class="t">SolidBrush</span>(<span class="k">new</span> <span class="t">Color</span>().Black),<span class="k">new</span> <span class="t">PointF</span>(<span class="n">12</span>,<span class="n">112</span>))
+	oGraphics.<span class="f">DrawString</span>([ :s = <span class="s">"Hello, image"</span>, :font = oFont, :brush = <span class="k">new</span> <span class="t">SolidBrush</span>(<span class="k">new</span> <span class="t">Color</span>().Black), :point = <span class="k">new</span> <span class="t">PointF</span>(<span class="n">12</span>,<span class="n">112</span>) ])
 	oGraphics.<span class="f">Dispose</span>()
 	? <span class="s">"STEP 2: drew a rectangle, a circle, a line and a text on a "</span> + oBitmap.Width + <span class="s">" x "</span> + oBitmap.Height + <span class="s">" bitmap"</span>
 
@@ -195,7 +198,7 @@ using {
 	? <span class="s">"        pixel (5,5) is  "</span> + oBitmap.<span class="f">GetPixel</span>(<span class="n">5</span>,<span class="n">5</span>).Name + <span class="s">" (white, with alpha ff in front)"</span>
 
 	<span class="c"># STEP 4. Save: the file type is chosen by the format</span>
-	cPng = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"tutorial22.png"</span>)
+	cPng = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22.png"</span>])
 	oBitmap.<span class="f">Save</span>([ :filename = cPng, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 4: saved "</span> + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cPng) + <span class="s">", "</span> + (<span class="k">new</span> <span class="t">FileInfo</span>(cPng).Length &gt; <span class="n">0</span>) + <span class="s">" (the file has data)"</span>
 
@@ -206,19 +209,19 @@ using {
 		<span class="k">for</span> nX = <span class="n">0</span> <span class="k">to</span> oLoaded.Width - <span class="n">1</span>
 			oColor = oLoaded.<span class="f">GetPixel</span>(nX,nY)
 			nGray = floor((oColor.R + oColor.G + oColor.B) / <span class="n">3</span>)
-			oGray.<span class="f">SetPixel</span>(nX,nY,<span class="k">new</span> <span class="t">Color</span>().<span class="f">FromArgb_3</span>(nGray,nGray,nGray))
+			oGray.<span class="f">SetPixel</span>(nX,nY,<span class="k">new</span> <span class="t">Color</span>().<span class="f">FromArgb</span>([ :red = nGray, :green = nGray, :blue = nGray ]))
 		<span class="k">next</span>
 	<span class="k">next</span>
-	cGray = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"tutorial22-gray.png"</span>)
+	cGray = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22-gray.png"</span>])
 	oGray.<span class="f">Save</span>([ :filename = cGray, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 5: gray copy made, pixel (50,40) is now "</span> + oGray.<span class="f">GetPixel</span>(<span class="n">50</span>,<span class="n">40</span>).R + <span class="s">" in all three channels"</span>
 
 	<span class="c"># STEP 6. Resize: draw the image smaller on a new bitmap</span>
 	oSmall = <span class="k">new</span> <span class="t">Bitmap</span>(<span class="n">120</span>,<span class="n">80</span>)
 	oSmallGraphics = <span class="k">new</span> <span class="t">Graphics</span>().<span class="f">FromImage</span>(oSmall)
-	oSmallGraphics.<span class="f">DrawImage</span>(oLoaded,<span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">0</span>,<span class="n">0</span>,<span class="n">120</span>,<span class="n">80</span>))
+	oSmallGraphics.<span class="f">DrawImage</span>([ :image = oLoaded, :rect = <span class="k">new</span> <span class="t">Rectangle</span>(<span class="n">0</span>,<span class="n">0</span>,<span class="n">120</span>,<span class="n">80</span>) ])
 	oSmallGraphics.<span class="f">Dispose</span>()
-	cSmall = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"tutorial22-small.png"</span>)
+	cSmall = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"tutorial22-small.png"</span>])
 	oSmall.<span class="f">Save</span>([ :filename = cSmall, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	? <span class="s">"STEP 6: resized copy is "</span> + oSmall.Width + <span class="s">" x "</span> + oSmall.Height
 
@@ -253,7 +256,7 @@ STEP 6: resized copy is 120 x 80</code></pre></div>
 <h3 id="saving-and-loading">Saving and loading<a class="anchor" href="#saving-and-loading">#</a></h3>
 <p><code>oBitmap.Save([ :filename = cPng, :format = new ImageFormat().Png ])</code> writes the file; the format decides the type (<code>Png</code>, <code>Jpeg</code>, <code>Bmp</code>, <code>Gif</code>). To open a file, <code>dnNew("Bitmap",[ :filename = cPng ])</code> chooses the constructor by the parameter name.</p>
 <h3 id="a-gray-copy">A gray copy<a class="anchor" href="#a-gray-copy">#</a></h3>
-<p>A pixel is gray when its red, green and blue are equal. The average <code>(R + G + B) / 3</code> is a simple conversion. Two loops visit every pixel: for every <code>nY</code>, for every <code>nX</code>, read the colour, compute the gray value, write it with <code>SetPixel</code>. <code>new Color().FromArgb_3(r,g,b)</code> makes a colour from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use <code>LockBits</code> or leave the work to a library.</p>
+<p>A pixel is gray when its red, green and blue are equal. The average <code>(R + G + B) / 3</code> is a simple conversion. Two loops visit every pixel: for every <code>nY</code>, for every <code>nX</code>, read the colour, compute the gray value, write it with <code>SetPixel</code>. <code>new Color().FromArgb([ :red = r, :green = g, :blue = b ])</code> makes a colour from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use <code>LockBits</code> or leave the work to a library.</p>
 <h3 id="resizing">Resizing<a class="anchor" href="#resizing">#</a></h3>
 <p>Draw the loaded image into a smaller rectangle of a new bitmap: <code>DrawImage(oLoaded, new Rectangle(0,0,120,80))</code>.</p>
 <h3 id="release">Release<a class="anchor" href="#release">#</a></h3>

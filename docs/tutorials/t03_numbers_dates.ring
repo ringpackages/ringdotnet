@@ -36,13 +36,13 @@ func main
 
 	# Dates: DateTime is a struct with year, month, day, hour...
 	oDate = dnNew("DateTime",[ :year = 2024, :month = 12, :day = 25, :hour = 18, :minute = 30, :second = 0 ])
-	? "A date            : " + oDate.ToString_1("dddd, dd MMMM yyyy HH:mm")
+	? "A date            : " + oDate.Format("dddd, dd MMMM yyyy HH:mm")
 	? "Year, month, day  : " + oDate.Year + ", " + oDate.Month + ", " + oDate.Day
 	? "Day of the week   : " + oDate.DayOfWeek
 
 	# Dates are immutable: methods return a new date
 	oLater = oDate.AddDays(10).AddHours(-3)
-	? "10 days later     : " + oLater.ToString_1("yyyy-MM-dd HH:mm")
+	? "10 days later     : " + oLater.Format("yyyy-MM-dd HH:mm")
 
 	# TimeSpan: the difference between two dates
 	oSpan = new DateTime(2025,1,1).Subtract(oDate)
@@ -51,8 +51,8 @@ func main
 
 	# Parsing dates from text
 	oParsed = new DateTime(2000,1,1).Parse("2024-07-04")
-	? "Parsed            : " + oParsed.ToString_1("d MMMM yyyy")
+	? "Parsed            : " + oParsed.Format("d MMMM yyyy")
 
 	# Cultures format the same date differently
-	? "US style          : " + oDate.ToString_2("D",new CultureInfo("en-US"))
-	? "German style      : " + oDate.ToString_2("D",new CultureInfo("de-DE"))
+	? "US style          : " + oDate.Format([ :format = "D", :provider = new CultureInfo("en-US") ])
+	? "German style      : " + oDate.Format([ :format = "D", :provider = new CultureInfo("de-DE") ])

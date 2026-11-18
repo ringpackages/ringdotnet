@@ -336,15 +336,28 @@ func buildPlan cTypeName, nForceInit
 		cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(nInit) + "])" + nl
 	ok
 	cCode += "		return self" + nl + nl
-	aDone = [nInit]
+	# The other constructors: ONE method New_ that takes one parameter, like the methods with overloads:
+	# New_(NULL) calls the parameterless constructor, New_([ :param = value ]) chooses the constructor by the parameter names,
+	# New_(value) calls the constructor with one parameter. Example: new WpfBinding().New_([ :path = "Value" ])  (New is a Ring keyword, so the method is New_)
+	lOtherCtor = false
 	for aCtor in aCtors
-		if find(aDone,len(aCtor)) = 0
-			aDone + len(aCtor)
-			cCode += "	Func New_" + len(aCtor) + " " + paraList(len(aCtor)) + nl
-			cCode += "		nHandle = dnCreate('" + cTypeName + "',[" + paraList(len(aCtor)) + "])" + nl
-			cCode += "		return self" + nl + nl
+		if len(aCtor) != nInit
+			lOtherCtor = true
 		ok
 	next
+	if lOtherCtor
+		cCode += "	Func New_ P1" + nl
+		cCode += "		if dnIsNamed(P1)" + nl
+		cCode += "			nHandle = dnCreateNamed('" + cTypeName + "',P1)" + nl
+		cCode += "			return self" + nl
+		cCode += "		ok" + nl
+		cCode += "		if isstring(P1) and P1 = " + '""' + nl
+		cCode += "			nHandle = dnCreate('" + cTypeName + "',[])" + nl
+		cCode += "			return self" + nl
+		cCode += "		ok" + nl
+		cCode += "		nHandle = dnCreate('" + cTypeName + "',[P1])" + nl
+		cCode += "		return self" + nl + nl
+	ok
 
 	# Methods: the overload with the fewest parameters gets the plain name, others get Name_N
 	# names that exist both as static and as instance methods (same number of parameters)
@@ -369,7 +382,7 @@ func buildPlan cTypeName, nForceInit
 		if aMember[2] aAccessors + lower("get" + aMember[1]) ok
 		if aMember[3] aAccessors + lower("set" + aMember[1]) ok
 	next
-	aNames = ["init"]
+	aNames = ["init","new_"]	# New_ is the method of the constructors with parameters (a .NET method called New is not wrapped: use callMethod)
 	aSeen = []	# "static|name|arity"
 	# The plain name goes to the shortest overload that has parameters (and no array/delegate/comparer parameters);
 	# a method that only has a parameterless form keeps it; the other arities are Name_N
@@ -436,18 +449,61 @@ func buildPlan cTypeName, nForceInit
 		if substr(cReserved,"|" + cLower + "|")
 			loop
 		ok
+		# A name with overloads of different arities is ONE method that takes one parameter: Name(NULL) calls the parameterless
+		# overload, Name([ :param = value ]) chooses the overload by the parameter names, Name(value) calls the overload with one parameter.
+		# (No Name_1, Name_2... methods. ToString keeps its parameterless form; its other forms are Format([ :format = "..." ]).)
+		cDispatch = ringName(cName)
+		if cLower = "tostring"
+			cDispatch = "Format"
+		ok
+		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length,
+		# GetType(name) vs Type) gets an underscore at the end instead
+		if find(aAccessors,lower(cDispatch)) > 0
+			cDispatch = cName + "_"
+		ok
+		if find(["tolist","release","isnull","typename","getprop","setprop","callmethod"],cLower) = 0
+			aFamilyAll = familyInfo(aMethods,cLower)
+			if cLower = "tostring"
+				# only the forms with parameters go to Format
+				aFormArities = []
+				for nFormArity in aFamilyAll[1]
+					if nFormArity > 0
+						aFormArities + nFormArity
+					ok
+				next
+				lHasFormat = false	# a class with its own method called Format (String.Format) keeps it
+				for aOther in aMethods
+					if lower(aOther[1]) = "format"
+						lHasFormat = true
+					ok
+				next
+				if len(aFormArities) > 0 and not lHasFormat and find(aNames,"format") = 0 and not substr(cReserved,"|format|")
+					aNames + "format"
+					aBlocks + ["format",dispatcherBlock("Format",cName,cTypeName,aMethods,[aFormArities,aFamilyAll[2],aFamilyAll[3]])]
+				ok
+			but len(aFamilyAll[1]) >= 2
+				if find(aNames,lower(cDispatch)) = 0
+					aNames + lower(cDispatch)
+					aBlocks + [lower(cDispatch),dispatcherBlock(cDispatch,cName,cTypeName,aMethods,aFamilyAll)]
+				ok
+				loop
+			ok
+		ok
 		cKey = "" + aMethod[2] + "|" + cLower + "|" + nArity
 		if find(aSeen,cKey) > 0
 			loop
 		ok
 		aSeen + cKey
 		cRing = ringName(cName)
+		if cLower = "tostring" and nArity > 0 and find(aAccessors,"format") = 0
+			loop	# the forms of ToString with parameters are the method Format (above)
+		ok
 		if nArity != aMin[find(aMin,cLower,1)][2]
 			cRing = cName + "_" + nArity
 		ok
 		# getX()/setX() of a property or field are used by Ring for oObject.X: a method with that name (Array.GetLength(i) vs Length) is renamed
 		if find(aAccessors,lower(cRing)) > 0
-			cRing = cName + "_" + nArity
+			cRing = cName + "_"
 		ok
 		if find(aNames,lower(cRing)) > 0
 			loop
@@ -700,7 +756,7 @@ func dispatcherBlock cDiRing, cDiName, cDiType, aDiMethods, aDiFamily
 	if find(aDiArities,1) > 0
 		cDiB += arityCall(aDiMethods,cDiName,cDiType,1,"call","		") + nl
 	else
-		cDiB += '		raise("DotNet Error: ' + cDiName + ' does not take one argument: use ' + cDiName + '(NULL), ' + cDiName + '_N(...) or named arguments")' + nl + nl
+		cDiB += '		raise("DotNet Error: ' + cDiName + ' does not take one argument: use named arguments, ' + cDiName + '([ :parameter = value, ... ])")' + nl + nl
 	ok
 	return cDiB
 

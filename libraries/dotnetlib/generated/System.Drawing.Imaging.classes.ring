@@ -253,7 +253,15 @@ Class ColorMatrix from Object
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Imaging.ColorMatrix, System.Drawing.Common',[P1])
 		return self
 
@@ -599,23 +607,23 @@ Class EncoderParameter from Object
 		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[P1,P2,P3])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameter, System.Drawing.Common',[P1])
 		return self
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -660,7 +668,15 @@ Class EncoderParameters from Object
 		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Imaging.EncoderParameters, System.Drawing.Common',[P1])
 		return self
 
@@ -749,14 +765,6 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrix",P1])
 		return self
 
-	Func SetColorMatrix_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrix",P1,P2])
-		return self
-
-	Func SetColorMatrix_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrix",P1,P2,P3])
-		return self
-
 	Func ClearColorMatrix P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearColorMatrix",P1])
@@ -769,21 +777,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearColorMatrix",P1])
 		return self
 
-	Func ClearColorMatrix_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearColorMatrix",P1])
-		return self
-
-	Func SetColorMatrices P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrices",P1,P2])
-		return self
-
-	Func SetColorMatrices_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrices",P1,P2,P3])
-		return self
-
-	Func SetColorMatrices_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorMatrices",P1,P2,P3,P4])
-		return self
+	Func SetColorMatrices P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetColorMatrices",P1])
+			return self
+		ok
+		raise("DotNet Error: SetColorMatrices does not take one argument: use named arguments, SetColorMatrices([ :parameter = value, ... ])")
 
 	Func SetThreshold P1
 		if dnIsNamed(P1)
@@ -791,10 +790,6 @@ Class ImageAttributes from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetThreshold",P1])
-		return self
-
-	Func SetThreshold_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetThreshold",P1,P2])
 		return self
 
 	Func ClearThreshold P1
@@ -809,20 +804,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearThreshold",P1])
 		return self
 
-	Func ClearThreshold_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearThreshold",P1])
-		return self
-
 	Func SetGamma P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetGamma",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetGamma",P1])
-		return self
-
-	Func SetGamma_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetGamma",P1,P2])
 		return self
 
 	Func ClearGamma P1
@@ -834,10 +821,6 @@ Class ImageAttributes from Object
 			dnRequest("call",[new DotNetObject(nHandle),"ClearGamma"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearGamma",P1])
-		return self
-
-	Func ClearGamma_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"ClearGamma",P1])
 		return self
 
@@ -853,10 +836,6 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetNoOp",P1])
 		return self
 
-	Func SetNoOp_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetNoOp",P1])
-		return self
-
 	Func ClearNoOp P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ClearNoOp",P1])
@@ -869,17 +848,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearNoOp",P1])
 		return self
 
-	Func ClearNoOp_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearNoOp",P1])
-		return self
-
-	Func SetColorKey P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorKey",P1,P2])
-		return self
-
-	Func SetColorKey_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetColorKey",P1,P2,P3])
-		return self
+	Func SetColorKey P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetColorKey",P1])
+			return self
+		ok
+		raise("DotNet Error: SetColorKey does not take one argument: use named arguments, SetColorKey([ :parameter = value, ... ])")
 
 	Func ClearColorKey P1
 		if dnIsNamed(P1)
@@ -893,20 +867,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearColorKey",P1])
 		return self
 
-	Func ClearColorKey_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearColorKey",P1])
-		return self
-
 	Func SetOutputChannel P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetOutputChannel",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannel",P1])
-		return self
-
-	Func SetOutputChannel_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannel",P1,P2])
 		return self
 
 	Func ClearOutputChannel P1
@@ -921,20 +887,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannel",P1])
 		return self
 
-	Func ClearOutputChannel_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannel",P1])
-		return self
-
 	Func SetOutputChannelColorProfile P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetOutputChannelColorProfile",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannelColorProfile",P1])
-		return self
-
-	Func SetOutputChannelColorProfile_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetOutputChannelColorProfile",P1,P2])
 		return self
 
 	Func ClearOutputChannelColorProfile P1
@@ -949,20 +907,12 @@ Class ImageAttributes from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannelColorProfile",P1])
 		return self
 
-	Func ClearOutputChannelColorProfile_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ClearOutputChannelColorProfile",P1])
-		return self
-
 	Func SetRemapTable P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetRemapTable",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetRemapTable",P1])
-		return self
-
-	Func SetRemapTable_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetRemapTable",P1,P2])
 		return self
 
 	Func ClearRemapTable P1
@@ -974,10 +924,6 @@ Class ImageAttributes from Object
 			dnRequest("call",[new DotNetObject(nHandle),"ClearRemapTable"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ClearRemapTable",P1])
-		return self
-
-	Func ClearRemapTable_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"ClearRemapTable",P1])
 		return self
 
@@ -995,14 +941,6 @@ Class ImageAttributes from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetWrapMode",P1])
-		return self
-
-	Func SetWrapMode_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetWrapMode",P1,P2])
-		return self
-
-	Func SetWrapMode_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetWrapMode",P1,P2,P3])
 		return self
 
 	Func GetAdjustedPalette P1,P2
@@ -1146,7 +1084,15 @@ Class ImageFormat from Object
 		ok
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Imaging.ImageFormat, System.Drawing.Common',[P1])
 		return self
 
@@ -1251,7 +1197,7 @@ Class MetaHeader from Object
 		nHandle = dnCreate('System.Drawing.Imaging.MetaHeader, System.Drawing.Common',[])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -1318,24 +1264,16 @@ Class Metafile from Image
 		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Imaging.Metafile, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Imaging.Metafile, System.Drawing.Common',[P1])
 		return self
 
 	Func PlayRecord P1,P2,P3,P4
@@ -1356,12 +1294,6 @@ Class Metafile from Image
 
 	Func GetHenhmetafile 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHenhmetafile"])
-
-	Func GetMetafileHeader_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1,P2])
-
-	Func GetMetafileHeader_1 P1
-		return dnRequest("call",[dnTypeCached('System.Drawing.Imaging.Metafile, System.Drawing.Common'),"GetMetafileHeader",P1])
 
 
 Class MetafileHeader from Object
@@ -1409,7 +1341,7 @@ Class MetafileHeader from Object
 	Func IsDisplay 
 		return dnRequest("call",[new DotNetObject(nHandle),"IsDisplay"])
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -1491,7 +1423,7 @@ Class PropertyItem from Object
 		ok
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1

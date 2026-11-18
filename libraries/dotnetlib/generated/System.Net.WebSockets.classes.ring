@@ -78,13 +78,12 @@ Class ClientWebSocketOptions from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AddSubProtocol",P1])
 		return self
 
-	Func SetBuffer P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2])
-		return self
-
-	Func SetBuffer_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2,P3])
-		return self
+	Func SetBuffer P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBuffer",P1])
+			return self
+		ok
+		raise("DotNet Error: SetBuffer does not take one argument: use named arguments, SetBuffer([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -189,8 +188,16 @@ Class ValueWebSocketReceiveResult from ValueType
 		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.WebSockets.ValueWebSocketReceiveResult, System.Net.WebSockets',[P1])
 		return self
 
 	Func getCount
@@ -245,11 +252,11 @@ Class WebSocket from Object
 	Func ReceiveAsync P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1,P2])
 
-	Func SendAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
-
-	Func SendAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
+	Func SendAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
+		ok
+		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -260,11 +267,11 @@ Class WebSocket from Object
 	Func CreateServerBuffer P1
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateServerBuffer",P1])
 
-	Func CreateFromStream_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateFromStream",P1,P2,P3,P4])
-
-	Func CreateFromStream P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateFromStream",P1,P2])
+	Func CreateFromStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"CreateFromStream",P1])
+		ok
+		raise("DotNet Error: CreateFromStream does not take one argument: use named arguments, CreateFromStream([ :parameter = value, ... ])")
 
 	Func IsApplicationTargeting45 
 		return dnRequest("call",[dnTypeCached('System.Net.WebSockets.WebSocket, System.Net.WebSockets'),"IsApplicationTargeting45"])
@@ -527,8 +534,16 @@ Class WebSocketReceiveResult from Object
 		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1,P2,P3])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.WebSockets.WebSocketReceiveResult, System.Net.WebSockets',[P1])
 		return self
 
 	Func Equals P1
@@ -580,11 +595,11 @@ Class ClientWebSocket from WebSocket
 		nHandle = dnCreate('System.Net.WebSockets.ClientWebSocket, System.Net.WebSockets.Client',[])
 		return self
 
-	Func ConnectAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
-
-	Func ConnectAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2,P3])
+	Func ConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectAsync",P1])
+		ok
+		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
 	Func SendAsync P1,P2,P3,P4
 		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])

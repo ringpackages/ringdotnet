@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -173,27 +176,27 @@ using {
 
 	<span class="c"># 2. From a Hijri date to a Gregorian date: ToDateTime. The first day of Ramadan 1445.</span>
 	oHijri = <span class="k">new</span> <span class="t">UmAlQuraCalendar</span>()
-	oRamadan = oHijri.<span class="f">ToDateTime</span>(<span class="n">1445</span>,<span class="n">9</span>,<span class="n">1</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>)
-	? nl + <span class="s">"2. 1 Ramadan 1445 is "</span> + oRamadan.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">", a "</span> + oRamadan.DayOfWeek
+	oRamadan = oHijri.<span class="f">ToDateTime</span>([ :year = <span class="n">1445</span>, :month = <span class="n">9</span>, :day = <span class="n">1</span>, :hour = <span class="n">0</span>, :minute = <span class="n">0</span>, :second = <span class="n">0</span>, :millisecond = <span class="n">0</span> ])
+	? nl + <span class="s">"2. 1 Ramadan 1445 is "</span> + oRamadan.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">", a "</span> + oRamadan.DayOfWeek
 
 	<span class="c"># 3. Month lengths: a Hijri month has 29 or 30 days (Umm al-Qura follows tables of the moon)</span>
 	? nl + <span class="s">"3. the months of 1445:"</span>
 	<span class="k">for</span> nMonth = <span class="n">1</span> <span class="k">to</span> <span class="n">12</span>
-		? <span class="s">"   month "</span> + padLeft(<span class="s">""</span> + nMonth,<span class="n">2</span>) + <span class="s">": "</span> + oHijri.<span class="f">GetDaysInMonth</span>(<span class="n">1445</span>,nMonth) + <span class="s">" days, starts "</span> + oHijri.<span class="f">ToDateTime</span>(<span class="n">1445</span>,nMonth,<span class="n">1</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
+		? <span class="s">"   month "</span> + padLeft(<span class="s">""</span> + nMonth,<span class="n">2</span>) + <span class="s">": "</span> + oHijri.<span class="f">GetDaysInMonth</span>([ :year = <span class="n">1445</span>, :month = nMonth ]) + <span class="s">" days, starts "</span> + oHijri.<span class="f">ToDateTime</span>([ :year = <span class="n">1445</span>, :month = nMonth, :day = <span class="n">1</span>, :hour = <span class="n">0</span>, :minute = <span class="n">0</span>, :second = <span class="n">0</span>, :millisecond = <span class="n">0</span> ]).<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
 	<span class="k">next</span>
 
 	<span class="c"># 4. Month and day names in the language and the calendar of a culture. ar-SA uses Arabic names and the Hijri calendar.</span>
 	oArabic = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"ar-SA"</span>)
 	oEnglish = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 	? nl + <span class="s">"4. in ar-SA the culture's own calendar is "</span> + oArabic.Calendar.<span class="f">GetType</span>().Name
-	? <span class="s">"   "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"dddd, d MMMM yyyy"</span>,oArabic)
-	? <span class="s">"   "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"dddd, d MMMM yyyy"</span>,oEnglish)
+	? <span class="s">"   "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"dddd, d MMMM yyyy"</span>, :provider = oArabic ])
+	? <span class="s">"   "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"dddd, d MMMM yyyy"</span>, :provider = oEnglish ])
 
 	<span class="c"># 5. How long is a year? The Hijri year is 354 or 355 days, about 11 days shorter than the Gregorian year, so Ramadan moves back</span>
 	? nl + <span class="s">"5. the first day of Ramadan, year after year:"</span>
 	<span class="k">for</span> nYear = <span class="n">1445</span> <span class="k">to</span> <span class="n">1449</span>
-		oStart = oHijri.<span class="f">ToDateTime</span>(nYear,<span class="n">9</span>,<span class="n">1</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">0</span>)
-		? <span class="s">"   "</span> + nYear + <span class="s">": "</span> + oStart.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
+		oStart = oHijri.<span class="f">ToDateTime</span>([ :year = nYear, :month = <span class="n">9</span>, :day = <span class="n">1</span>, :hour = <span class="n">0</span>, :minute = <span class="n">0</span>, :second = <span class="n">0</span>, :millisecond = <span class="n">0</span> ])
+		? <span class="s">"   "</span> + nYear + <span class="s">": "</span> + oStart.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
 	<span class="k">next</span>
 
 	<span class="c"># 6. Leap years of the Gregorian calendar</span>
@@ -256,18 +259,18 @@ using {
 <p>Every calendar has the same three methods, so one helper (<code>dateText</code>) works for all of them. 11 March 2024 is <strong>1 Ramadan 1445</strong> in the Umm al-Qura calendar, 21 Esfand 1402 in the Persian calendar, and the year 2567 in the Thai Buddhist calendar. The Japanese calendar counts years within an <em>era</em>: 2024 is year 6 of Reiwa.</p>
 <h3 id="going-back">Going back<a class="anchor" href="#going-back">#</a></h3>
 <p><code>calendar.ToDateTime(year, month, day, hour, minute, second, millisecond)</code> builds the <code>DateTime</code> from a date in that calendar: <code>oHijri.ToDateTime(1445,9,1,0,0,0,0)</code> is 2024-03-11. Step 3 uses it to print the start of each Hijri month: the lengths come from <code>GetDaysInMonth(1445, month)</code> and are 29 or 30 days.</p>
-<div class="callout note"><span class="t">Note</span><p>Calendar methods with several forms follow the usual naming of this package: the form with the fewest arguments has the plain name (<code>GetDaysInMonth(year, month)</code>), the others are numbered (<code>GetDaysInMonth_3(year, month, era)</code>). <code>ToDateTime</code> takes seven values here.</p></div>
+<div class="callout note"><span class="t">Note</span><p>A calendar method with several forms is one Ring method that takes one value or a list of named values: <code>GetDaysInMonth([ :year = 1445, :month = 9 ])</code>. <code>ToDateTime</code> takes seven values here.</p></div>
 <h3 id="why-ramadan-moves">Why Ramadan moves<a class="anchor" href="#why-ramadan-moves">#</a></h3>
 <p>The Hijri year has 354 or 355 days, about eleven days fewer than the Gregorian year. Step 5 lists the first day of Ramadan for five years: 11 March 2024, 1 March 2025, 18 February 2026... it moves about eleven days earlier each year and goes round the whole Gregorian year in about 33 years.</p>
 <h3 id="names-in-the-language-of-a-culture">Names in the language of a culture<a class="anchor" href="#names-in-the-language-of-a-culture">#</a></h3>
-<p>A <code>CultureInfo("ar-SA")</code> has Arabic names <em>and</em> uses the Umm al-Qura calendar by default. <code>oDate.ToString_2("dddd, d MMMM yyyy", oArabic)</code> prints the weekday, day, month and year of the <em>culture's own calendar</em>: «الاثنين, 1 رمضان 1445». With <code>en-US</code> the same date prints as «Monday, 11 March 2024». The format letters come from <a href="tut-03-numbers-dates.html">tutorial 3</a> and the cultures from <a href="tut-33-cultures.html">tutorial 33</a>.</p>
+<p>A <code>CultureInfo("ar-SA")</code> has Arabic names <em>and</em> uses the Umm al-Qura calendar by default. <code>oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oArabic ])</code> prints the weekday, day, month and year of the <em>culture's own calendar</em>: «الاثنين, 1 رمضان 1445». With <code>en-US</code> the same date prints as «Monday, 11 March 2024». The format letters come from <a href="tut-03-numbers-dates.html">tutorial 3</a> and the cultures from <a href="tut-33-cultures.html">tutorial 33</a>.</p>
 <h3 id="leap-years">Leap years<a class="anchor" href="#leap-years">#</a></h3>
 <p><code>GregorianCalendar.IsLeapYear</code> follows the rule <em>every 4 years, except every 100, except every 400</em>: 2024 and 2000 are leap years, 2100 is not.</p>
 <div class="callout warn"><span class="t">Warning</span><p>The Umm al-Qura calendar is only defined for a range of years (about 1318–1500 Hijri, that is 1900–2077). Outside the range a calendar method raises an error. Catch it with <code>try</code> / <code>catch</code> (<a href="tut-07-errors.html">tutorial 7</a>). Real moon sighting can also differ from the tables by a day.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>calendars are translators of a <code>DateTime</code>,</li><li><code>GetYear</code>, <code>GetMonth</code>, <code>GetDayOfMonth</code>, <code>GetDaysInMonth</code>, <code>ToDateTime</code>,</li><li>Arabic names and calendars with <code>CultureInfo("ar-SA")</code>,</li><li>how a calendar year differs from the Gregorian one.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Print today's date in the Hijri and the Persian calendar.</li><li>Find how many days are left until the next 1 Ramadan.</li><li>Use <code>PersianCalendar</code> to list the months of the current Persian year with their lengths.</li><li>Show a date with <code>ToString_2</code> in <code>fa-IR</code> and <code>he-IL</code>.</li></ol>
+<ol><li>Print today's date in the Hijri and the Persian calendar.</li><li>Find how many days are left until the next 1 Ramadan.</li><li>Use <code>PersianCalendar</code> to list the months of the current Persian year with their lengths.</li><li>Show a date with <code>Format</code> in <code>fa-IR</code> and <code>he-IL</code>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-77-xslt.html">Tutorial 77: XSLT</a></p>
 <div class="pager"><a href="tut-75-recursion.html"><small>Previous</small>75. Recursion</a><a class="next" href="tut-77-xslt.html"><small>Next</small>77. XSLT</a></div>

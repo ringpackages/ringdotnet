@@ -33,7 +33,7 @@ func factsOf oDate
 	oCulture = new CultureInfo("en-US")
 	nYear = oDate.Year
 	oEndOfYear = new DateTime(nYear,12,31)
-	cText = oDate.ToString_2("dddd, MMMM d, yyyy",oCulture) + nl + nl
+	cText = oDate.Format([ :format = "dddd, MMMM d, yyyy", :provider = oCulture ]) + nl + nl
 	cText += "Day of the year: " + oDate.DayOfYear + nl
 	cText += "ISO week: " + new ISOWeek().GetWeekOfYear(oDate) + nl
 	cText += "Days left in the year: " + floor(oEndOfYear.Subtract(oDate).TotalDays) + nl

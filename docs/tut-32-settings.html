@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -173,7 +176,7 @@ using {
 	<span class="k">next</span>
 
 	<span class="c"># For this tutorial the file is in the temp folder</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial32-settings.json"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial32-settings.json"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 		<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 	<span class="k">ok</span>
@@ -196,7 +199,7 @@ using {
 	showSettings(oAgain)
 
 	<span class="c"># 4. A file that is damaged must not stop the program: use the defaults</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"this is not json {"</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"this is not json {"</span> ])
 	oBroken = <span class="k">new</span> <span class="t">Settings</span>(cFile)
 	? nl + <span class="s">"A damaged file: the defaults are used, error was: "</span> + (len(oBroken.cLoadError) &gt; <span class="n">0</span>)
 	showSettings(oBroken)
@@ -249,7 +252,7 @@ using {
 			cJson += <span class="s">'"'</span> + aValues[nIndex][<span class="n">1</span>] + <span class="s">'":'</span> + xValue
 		<span class="k">next</span>
 		cJson += <span class="s">"}"</span>
-		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,cJson)
+		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
 	<span class="c"># (named readFile: "load" is a Ring keyword)</span>
 	<span class="k">func</span> <span class="f">readFile</span>

@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -160,12 +163,12 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial71.txt"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"some text"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial71.txt"</span>])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"some text"</span> ])
 
 	<span class="c"># 1. A resource is something the operating system lends to your program: a file, a socket, a database connection.</span>
 	<span class="c">#    While you hold it, others may not be able to use it. Open the file for writing and try to delete it.</span>
-	oStream = <span class="k">new</span> <span class="t">File</span>().<span class="f">Open</span>(cFile,<span class="s">"Open"</span>)
+	oStream = <span class="k">new</span> <span class="t">File</span>().<span class="f">Open</span>([ :path = cFile, :mode = <span class="s">"Open"</span> ])
 	? <span class="s">"1. the file is open. Can we delete it now? "</span> + yesNo(tryDelete(cFile))
 
 	<span class="c"># 2. Dispose gives the resource back. After it the delete works.</span>
@@ -173,7 +176,7 @@ using {
 	? nl + <span class="s">"2. after Dispose. Can we delete it now? "</span> + yesNo(tryDelete(cFile))
 
 	<span class="c"># 3. If an error happens between opening and closing, a Dispose at the end of the code is skipped. Look at this function:</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"line 1"</span> + windowsnl() + <span class="s">"line 2"</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"line 1"</span> + windowsnl() + <span class="s">"line 2"</span> ])
 	? nl + <span class="s">"3. a reader without a clean-up, and an error while reading:"</span>
 	oLeaked = readBadly(cFile)
 	? <span class="s">"   the file is still locked after the error: "</span> + yesNo(<span class="k">not</span> tryDelete(cFile))
@@ -181,7 +184,7 @@ using {
 	oLeaked.<span class="f">Dispose</span>()                           <span class="c"># for the tutorial: clean up our own mess</span>
 
 	<span class="c"># 4. The same with try / catch / done: the clean-up goes where it is always reached</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"line 1"</span> + windowsnl() + <span class="s">"line 2"</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"line 1"</span> + windowsnl() + <span class="s">"line 2"</span> ])
 	? nl + <span class="s">"4. the careful way:"</span>
 	readCarefully(cFile)
 	? <span class="s">"   the file can be deleted after the error: "</span> + yesNo(tryDelete(cFile))
@@ -228,7 +231,7 @@ using {
 		lDeleted = <span class="k">False</span>
 	<span class="k">done</span>
 	<span class="k">if</span> lDeleted
-		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"again"</span>)        <span class="c"># put it back for the next step</span>
+		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"again"</span> ])        <span class="c"># put it back for the next step</span>
 	<span class="k">ok</span>
 	<span class="k">return</span> lDeleted
 

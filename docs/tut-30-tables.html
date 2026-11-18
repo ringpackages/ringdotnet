@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -224,8 +227,8 @@ using {
 		oRow = oTable.Rows.<span class="f">Item</span>(nIndex)
 		cOut += oRow.<span class="f">Item</span>(<span class="s">"Region"</span>) + <span class="s">","</span> + oRow.<span class="f">Item</span>(<span class="s">"Seller"</span>) + <span class="s">","</span> + oRow.<span class="f">Item</span>(<span class="s">"Amount"</span>) + nl
 	<span class="k">next</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial30.csv"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,cOut)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial30.csv"</span>])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cOut ])
 	? nl + <span class="s">"STEP 6: wrote "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cFile).<span class="f">toList</span>()) + <span class="s">" lines to a CSV file"</span>
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>STEP 2: 6 rows, 3 columns

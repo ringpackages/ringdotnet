@@ -6,12 +6,12 @@ using {
 }
 
 func main
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial71.txt")
-	new File().WriteAllText(cFile,"some text")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial71.txt"])
+	new File().WriteAllText([ :path = cFile, :contents = "some text" ])
 
 	# 1. A resource is something the operating system lends to your program: a file, a socket, a database connection.
 	#    While you hold it, others may not be able to use it. Open the file for writing and try to delete it.
-	oStream = new File().Open(cFile,"Open")
+	oStream = new File().Open([ :path = cFile, :mode = "Open" ])
 	? "1. the file is open. Can we delete it now? " + yesNo(tryDelete(cFile))
 
 	# 2. Dispose gives the resource back. After it the delete works.
@@ -19,7 +19,7 @@ func main
 	? nl + "2. after Dispose. Can we delete it now? " + yesNo(tryDelete(cFile))
 
 	# 3. If an error happens between opening and closing, a Dispose at the end of the code is skipped. Look at this function:
-	new File().WriteAllText(cFile,"line 1" + windowsnl() + "line 2")
+	new File().WriteAllText([ :path = cFile, :contents = "line 1" + windowsnl() + "line 2" ])
 	? nl + "3. a reader without a clean-up, and an error while reading:"
 	oLeaked = readBadly(cFile)
 	? "   the file is still locked after the error: " + yesNo(not tryDelete(cFile))
@@ -27,7 +27,7 @@ func main
 	oLeaked.Dispose()                           # for the tutorial: clean up our own mess
 
 	# 4. The same with try / catch / done: the clean-up goes where it is always reached
-	new File().WriteAllText(cFile,"line 1" + windowsnl() + "line 2")
+	new File().WriteAllText([ :path = cFile, :contents = "line 1" + windowsnl() + "line 2" ])
 	? nl + "4. the careful way:"
 	readCarefully(cFile)
 	? "   the file can be deleted after the error: " + yesNo(tryDelete(cFile))
@@ -74,7 +74,7 @@ func tryDelete cFile
 		lDeleted = False
 	done
 	if lDeleted
-		new File().WriteAllText(cFile,"again")        # put it back for the next step
+		new File().WriteAllText([ :path = cFile, :contents = "again" ])        # put it back for the next step
 	ok
 	return lDeleted
 

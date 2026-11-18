@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -274,7 +277,7 @@ oList.<span class="f">Add</span>(<span class="n">3</span>)  oList.<span class="f
 oList.<span class="f">Sort</span>(<span class="k">NULL</span>)
 ? <span class="s">"ArrayList      : "</span> + oList.<span class="f">Item</span>(<span class="n">0</span>) + oList.<span class="f">Item</span>(<span class="n">1</span>) + oList.<span class="f">Item</span>(<span class="n">2</span>)
 oQuery = <span class="k">new</span> <span class="t">NameValueCollection</span>()
-oQuery.<span class="f">Add</span>(<span class="s">"tag"</span>,<span class="s">"ring"</span>)  oQuery.<span class="f">Add</span>(<span class="s">"tag"</span>,<span class="s">"dotnet"</span>)  oQuery.<span class="f">Add</span>(<span class="s">"page"</span>,<span class="s">"2"</span>)
+oQuery.<span class="f">Add</span>([ :name = <span class="s">"tag"</span>, :value = <span class="s">"ring"</span> ])  oQuery.<span class="f">Add</span>([ :name = <span class="s">"tag"</span>, :value = <span class="s">"dotnet"</span> ])  oQuery.<span class="f">Add</span>([ :name = <span class="s">"page"</span>, :value = <span class="s">"2"</span> ])
 ? <span class="s">"Query values   : "</span> + oQuery.<span class="f">Item</span>(<span class="s">"tag"</span>) + <span class="s">" | "</span> + oQuery.<span class="f">Item</span>(<span class="s">"page"</span>)
 
 <span class="k">func</span> <span class="f">split</span> cText, cSep

@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -228,7 +231,7 @@ lChanged = <span class="k">False</span>
 			<span class="k">return</span>
 		<span class="k">ok</span>
 	<span class="k">ok</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFileName,oEditor.Text)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFileName, :contents = oEditor.Text ])
 	lChanged = <span class="k">False</span>
 	cShortName = <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFileName)
 	oForm.Text = <span class="s">"Tiny editor - "</span> + cShortName
@@ -237,7 +240,7 @@ lChanged = <span class="k">False</span>
 <span class="k">func</span> <span class="f">selfTest</span>
 	oEditor.Text = <span class="s">"Hello from the test"</span>
 	<span class="f">dnAssert</span>(<span class="s">"the text changed"</span>,lChanged,<span class="k">True</span>)
-	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial13.txt"</span>)
+	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial13.txt"</span>])
 	cFileName = cTemp
 	saveFile()
 	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cTemp),<span class="s">"Hello from the test"</span>)

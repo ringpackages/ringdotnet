@@ -54,37 +54,37 @@ func startAnimations
 	oMove = new DoubleAnimation()
 	oMove.SetProp("From",10)                      # From and To can be empty in WPF, so they are set by name
 	oMove.SetProp("To",340)
-	oMove.Duration = new Duration().New_1(new TimeSpan().FromSeconds(2))
+	oMove.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(2) ])
 	oMove.AutoReverse = True
 	oMove.RepeatBehavior = new RepeatBehavior().Forever
 	oEase = new SineEase()
 	oEase.EasingMode = "EaseInOut"
 	oMove.EasingFunction = oEase
-	oBall.BeginAnimation(new Canvas().LeftProperty,oMove)
+	oBall.BeginAnimation([ :dp = new Canvas().LeftProperty, :animation = oMove ])
 
 	# the box: Opacity from 1 to 0.1 and back, in 1.5 seconds
 	oFade = new DoubleAnimation()
 	oFade.SetProp("From",1)
 	oFade.SetProp("To",0.1)
-	oFade.Duration = new Duration().New_1(new TimeSpan().FromSeconds(1.5))
+	oFade.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(1.5) ])
 	oFade.AutoReverse = True
 	oFade.RepeatBehavior = new RepeatBehavior().Forever
-	oBox.BeginAnimation(oBox.OpacityProperty,oFade)
+	oBox.BeginAnimation([ :dp = oBox.OpacityProperty, :animation = oFade ])
 
 	# the green square: the angle of its rotation from 0 to 360 in 3 seconds, a new turn each time
 	oTurn = new DoubleAnimation()
 	oTurn.SetProp("From",0)
 	oTurn.SetProp("To",360)
-	oTurn.Duration = new Duration().New_1(new TimeSpan().FromSeconds(3))
+	oTurn.Duration = new Duration().New_([ :timeSpan = new TimeSpan().FromSeconds(3) ])
 	oTurn.RepeatBehavior = new RepeatBehavior().Forever
-	oSpin.BeginAnimation(oSpin.AngleProperty,oTurn)
+	oSpin.BeginAnimation([ :dp = oSpin.AngleProperty, :animation = oTurn ])
 	oStatus.Text = "Running"
 
 # an animation is stopped by starting "no animation" (the .NET null) on the property
 func stopAnimations
-	oBall.BeginAnimation(new Canvas().LeftProperty,dnNull())
-	oBox.BeginAnimation(oBox.OpacityProperty,dnNull())
-	oSpin.BeginAnimation(oSpin.AngleProperty,dnNull())
+	oBall.BeginAnimation([ :dp = new Canvas().LeftProperty, :animation = dnNull() ])
+	oBox.BeginAnimation([ :dp = oBox.OpacityProperty, :animation = dnNull() ])
+	oSpin.BeginAnimation([ :dp = oSpin.AngleProperty, :animation = dnNull() ])
 	oStatus.Text = "Stopped"
 
 func selfTest

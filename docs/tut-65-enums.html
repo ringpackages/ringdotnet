@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -175,7 +178,7 @@ C_RUN = <span class="n">4</span>
 	? nl + <span class="s">"2. the days: "</span> + joinWith(oEnum.<span class="f">GetNames</span>(oDays).<span class="f">toList</span>(),<span class="s">", "</span>)
 
 	<span class="c"># 3. Is a text one of the names? Parse turns a text into an enum value, and raises an error if there is no such name.</span>
-	? nl + <span class="s">"3. is 'Friday' a day? "</span> + yesNo(oEnum.<span class="f">IsDefined_2</span>(oDays,<span class="s">"Friday"</span>)) + <span class="s">". Is 'Funday'? "</span> + yesNo(oEnum.<span class="f">IsDefined_2</span>(oDays,<span class="s">"Funday"</span>))
+	? nl + <span class="s">"3. is 'Friday' a day? "</span> + yesNo(oEnum.<span class="f">IsDefined</span>([ :enumType = oDays, :value = <span class="s">"Friday"</span> ])) + <span class="s">". Is 'Funday'? "</span> + yesNo(oEnum.<span class="f">IsDefined</span>([ :enumType = oDays, :value = <span class="s">"Funday"</span> ]))
 	cDay = oEnum.<span class="f">Parse</span>([ :enumType = oDays, :value = <span class="s">"Friday"</span> ])
 	? <span class="s">"   Parse('Friday') gives "</span> + cDay
 	<span class="k">try</span>
@@ -185,8 +188,8 @@ C_RUN = <span class="n">4</span>
 	<span class="k">done</span>
 
 	<span class="c"># 4. A method that takes an enum takes the name as a text: a file can be hidden and read only at the same time</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial65.txt"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"x"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial65.txt"</span>])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"x"</span> ])
 	? nl + <span class="s">"4. attributes of a new file: "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">GetAttributes</span>(cFile)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">SetAttributes</span>(cFile,<span class="s">"ReadOnly, Hidden"</span>)                       <span class="c"># several flags: names separated by commas</span>
 	cAttributes = <span class="k">new</span> <span class="t">File</span>().<span class="f">GetAttributes</span>(cFile)
@@ -257,7 +260,7 @@ C_RUN = <span class="n">4</span>
 <h3 id="comparing">Comparing<a class="anchor" href="#comparing">#</a></h3>
 <p>Step 1 compares the value with a text: <code>oDate.DayOfWeek = "Friday"</code>. It reads like English and cannot be confused with another number.</p>
 <h3 id="names-isdefined-and-parse">Names, <code>IsDefined</code> and <code>Parse</code><a class="anchor" href="#names-isdefined-and-parse">#</a></h3>
-<p><code>Enum.GetNames(type)</code> lists all the names (<a href="tut-20-reflection.html">tutorial 20</a> explains <code>dnType</code>). <code>IsDefined</code> asks whether a text is a valid name; use <code>IsDefined_2(type, text)</code> (the two-argument form). <code>Enum.Parse</code> checks and converts: a wrong name raises an error that says <em>Requested value 'Funday' was not found</em>. When the text comes from a user or a file, either test it first or <code>try</code> / <code>catch</code> (<a href="tut-07-errors.html">tutorial 7</a>).</p>
+<p><code>Enum.GetNames(type)</code> lists all the names (<a href="tut-20-reflection.html">tutorial 20</a> explains <code>dnType</code>). <code>IsDefined</code> asks whether a text is a valid name; use <code>IsDefined([ :enumType = type, :value = text ])</code> (the two-argument form). <code>Enum.Parse</code> checks and converts: a wrong name raises an error that says <em>Requested value 'Funday' was not found</em>. When the text comes from a user or a file, either test it first or <code>try</code> / <code>catch</code> (<a href="tut-07-errors.html">tutorial 7</a>).</p>
 <h3 id="flags">Flags<a class="anchor" href="#flags">#</a></h3>
 <p>Some enums are <strong>flags</strong>: the values can be combined. A file can be <code>ReadOnly</code> <em>and</em> <code>Hidden</code>. In Ring the combination is a text with the names separated by commas: <code>"ReadOnly, Hidden"</code>. <code>File.SetAttributes(path, "ReadOnly, Hidden")</code> sets both, and <code>File.GetAttributes(path)</code> returns the same kind of text. To test one flag, look for its name in the text (<code>substr(text, "Hidden") &gt; 0</code>).</p>
 <div class="callout note"><span class="t">Note</span><p>Take care with names that contain other names. <code>"Directory"</code> is not part of <code>"ReadOnly, Hidden"</code>, but <code>"Read"</code> is part of <code>"ReadOnly"</code>. Search for whole names (surround the text with commas and spaces, or split it on commas) when this can happen.</p></div>
@@ -266,7 +269,7 @@ C_RUN = <span class="n">4</span>
 <div class="tablewrap"><table><thead><tr><th>Operation</th><th>Ring</th><th>Meaning</th></tr></thead><tbody><tr><td>combine / add</td><td><code>a | b</code></td><td>the options of both</td></tr><tr><td>test</td><td><code>(value &amp; C_READ) != 0</code></td><td>is the bit set?</td></tr><tr><td>remove</td><td><code>value &amp; ~C_WRITE</code></td><td>clear the bit</td></tr></tbody></table></div>
 <p>Read and write are <code>1 | 2 = 3</code>; adding run (<code>4</code>) gives <code>7</code>; removing write leaves <code>5</code>. Parentheses are needed around <code>&amp;</code> in a comparison. The same technique stores many yes/no settings in one number, or in one database column.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li>enum values are texts in Ring,</li><li><code>GetNames</code>, <code>IsDefined_2</code>, <code>Parse</code>,</li><li>flag enums are comma-separated texts,</li><li>bit flags with <code>|</code>, <code>&amp;</code> and <code>~</code>.</li></ul>
+<ul><li>enum values are texts in Ring,</li><li><code>GetNames</code>, <code>IsDefined</code>, <code>Parse</code>,</li><li>flag enums are comma-separated texts,</li><li>bit flags with <code>|</code>, <code>&amp;</code> and <code>~</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Print all the names of <code>FileAttributes</code>, then read the attributes of a folder with <code>File.GetAttributes</code> and decide whether it is a directory.</li><li>Add a <code>C_DELETE = 8</code> option and a function <code>parse("read,write")</code> that turns a text into the number.</li><li>Use <code>StringComparison</code> (<code>"OrdinalIgnoreCase"</code>) with <code>String.Equals</code> to compare two texts without regard to case.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

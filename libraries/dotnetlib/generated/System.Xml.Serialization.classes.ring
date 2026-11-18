@@ -258,7 +258,15 @@ Class CodeIdentifiers from Object
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.CodeIdentifiers, System.Private.Xml',[P1])
 		return self
 
@@ -420,13 +428,12 @@ Class SoapAttributeOverrides from Object
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributeOverrides, System.Private.Xml',[])
 		return self
 
-	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-		return self
+	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return self
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -453,7 +460,15 @@ Class SoapAttributes from Object
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.SoapAttributes, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapAttributes, System.Private.Xml',[P1])
 		return self
 
@@ -514,12 +529,16 @@ Class SoapReflectionImporter from Object
 		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Serialization.SoapReflectionImporter, System.Private.Xml',[P1,P2])
 		return self
 
 	Func IncludeTypes P1
@@ -536,20 +555,11 @@ Class SoapReflectionImporter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
 
-	Func ImportTypeMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1,P2])
-
-	Func ImportMembersMapping P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3])
-
-	Func ImportMembersMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5])
-
-	Func ImportMembersMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6])
-
-	Func ImportMembersMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
+	Func ImportMembersMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+		ok
+		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -752,13 +762,12 @@ Class XmlAttributeOverrides from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributeOverrides, System.Private.Xml',[])
 		return self
 
-	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-		return self
+	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return self
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -793,7 +802,15 @@ Class XmlAttributes from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.XmlAttributes, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlAttributes, System.Private.Xml',[P1])
 		return self
 
@@ -1220,12 +1237,16 @@ Class XmlReflectionImporter from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Serialization.XmlReflectionImporter, System.Private.Xml',[P1,P2])
 		return self
 
 	Func IncludeTypes P1
@@ -1242,23 +1263,11 @@ Class XmlReflectionImporter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
 
-	Func ImportTypeMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1,P2])
-
-	Func ImportTypeMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1,P2,P3])
-
-	Func ImportMembersMapping P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4])
-
-	Func ImportMembersMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5])
-
-	Func ImportMembersMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6])
-
-	Func ImportMembersMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3,P4,P5,P6,P7])
+	Func ImportMembersMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportMembersMapping",P1])
+		ok
+		raise("DotNet Error: ImportMembersMapping does not take one argument: use named arguments, ImportMembersMapping([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1381,10 +1390,6 @@ Class XmlSchemaExporter from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ExportMembersMapping",P1])
 		return self
 
-	Func ExportMembersMapping_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ExportMembersMapping",P1,P2])
-		return self
-
 	Func ExportAnyType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExportAnyType",P1])
 
@@ -1413,9 +1418,6 @@ Class XmlSchemas from CollectionBase
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func AddReference P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddReference",P1])
@@ -1488,45 +1490,30 @@ Class XmlSerializer from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializer, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1,P2])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Xml.Serialization.XmlSerializer, System.Private.Xml',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func Serialize P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2])
-		return self
-
-	Func Serialize_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3])
-		return self
-
-	Func Serialize_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3,P4])
-		return self
-
-	Func Serialize_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Serialize",P1,P2,P3,P4,P5])
-		return self
+	Func Serialize P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Serialize",P1])
+			return self
+		ok
+		raise("DotNet Error: Serialize does not take one argument: use named arguments, Serialize([ :parameter = value, ... ])")
 
 	Func Deserialize P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Deserialize",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1])
-
-	Func Deserialize_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1,P2])
-
-	Func Deserialize_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Deserialize",P1,P2,P3])
 
 	Func CanDeserialize P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CanDeserialize",P1])
@@ -1540,9 +1527,6 @@ Class XmlSerializer from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1])
 
-	Func FromMappings_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromMappings",P1,P2])
-
 	Func FromTypes P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"FromTypes",P1])
 
@@ -1551,9 +1535,6 @@ Class XmlSerializer from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1])
-
-	Func GetXmlSerializerAssemblyName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Serialization.XmlSerializer, System.Private.Xml'),"GetXmlSerializerAssemblyName",P1,P2])
 
 	Func setUnknownNodeEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"UnknownNode",dnCallback(P1)])
@@ -1599,20 +1580,11 @@ Class XmlSerializerFactory from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerFactory, System.Private.Xml',[])
 		return self
 
-	Func CreateSerializer_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2,P3,P4,P5])
-
-	Func CreateSerializer_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2])
-
 	Func CreateSerializer P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSerializer",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1])
-
-	Func CreateSerializer_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSerializer",P1,P2,P3,P4,P5,P6])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1687,7 +1659,15 @@ Class XmlSerializerNamespaces from Object
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Serialization.XmlSerializerNamespaces, System.Private.Xml',[P1])
 		return self
 
@@ -1751,27 +1731,29 @@ Class XmlSchemaImporter from SchemaImporter
 		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Serialization.XmlSchemaImporter, System.Private.Xml',[P1])
 		return self
 
-	Func ImportDerivedTypeMapping P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1,P2])
-
-	Func ImportDerivedTypeMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1,P2,P3])
+	Func ImportDerivedTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportDerivedTypeMapping",P1])
+		ok
+		raise("DotNet Error: ImportDerivedTypeMapping does not take one argument: use named arguments, ImportDerivedTypeMapping([ :parameter = value, ... ])")
 
 	Func ImportSchemaType P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ImportSchemaType",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1])
-
-	Func ImportSchemaType_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1,P2])
-
-	Func ImportSchemaType_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportSchemaType",P1,P2,P3])
 
 	Func ImportTypeMapping P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportTypeMapping",P1])
@@ -1784,9 +1766,6 @@ Class XmlSchemaImporter from SchemaImporter
 
 	Func ImportAnyType P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportAnyType",P1,P2])
-
-	Func ImportMembersMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ImportMembersMapping",P1,P2,P3])
 
 
 Class XmlSerializationReader from XmlSerializationGeneratedCode

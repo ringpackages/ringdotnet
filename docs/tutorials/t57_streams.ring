@@ -44,7 +44,7 @@ func main
 	? "4. the text is the same after the round trip: " + yesNo(cBack = cText)
 
 	# 5. Files are streams too: File.OpenRead / OpenWrite give a FileStream, with the same Read/Write methods
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial57.gz")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial57.gz"])
 	oFileStream = new File().Create(cFile)
 	oFileGzip = new GZipStream(oFileStream,"Compress")
 	oFileWriter = new StreamWriter(oFileGzip)

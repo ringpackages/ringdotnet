@@ -367,7 +367,15 @@ Class FeatureCollection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FeatureCollection, Microsoft.Extensions.Features',[P1])
 		return self
 
@@ -423,9 +431,6 @@ Class FeatureCollectionExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"GetRequiredFeature",P1])
 
-	Func GetRequiredFeature_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Features.FeatureCollectionExtensions, Microsoft.Extensions.Features'),"GetRequiredFeature",P1,P2])
-
 
 Class FormFeature from Object
 
@@ -441,8 +446,16 @@ Class FormFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.FormFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
 	Func ReadForm 
@@ -455,9 +468,6 @@ Class FormFeature from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
-
-	Func ReadFormAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func Equals P1
@@ -1352,9 +1362,6 @@ Class IHttpResponseBodyFeature from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"DisableBuffering"])
 		return self
 
-	Func StartAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
-
 	Func StartAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
@@ -1364,11 +1371,11 @@ Class IHttpResponseBodyFeature from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
-	Func SendFileAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3,P4])
-
-	Func SendFileAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3])
+	Func SendFileAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendFileAsync",P1])
+		ok
+		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
 	Func CompleteAsync 
 		return dnRequest("call",[new DotNetObject(nHandle),"CompleteAsync"])
@@ -1520,9 +1527,6 @@ Class IHttpWebTransportFeature from DotNetObject
 			return self
 		ok
 		return self
-
-	Func AcceptAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
 
 	Func AcceptAsync P1
 		if dnIsNamed(P1)
@@ -1836,9 +1840,6 @@ Class IWebTransportSession from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
 		return self
 
-	Func AcceptStreamAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
-
 	Func AcceptStreamAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
@@ -1847,9 +1848,6 @@ Class IWebTransportSession from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptStreamAsync",P1])
-
-	Func OpenUnidirectionalStreamAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenUnidirectionalStreamAsync",P1])
 
 	Func OpenUnidirectionalStreamAsync P1
 		if dnIsNamed(P1)
@@ -2006,8 +2004,16 @@ Class ResponseCookiesFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
 	Func Equals P1

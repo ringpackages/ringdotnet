@@ -115,12 +115,12 @@ func uiTimer  nMilliseconds, cCode
 func uiMenu  oForm, aMenus
 	ui_oStrip = new MenuStrip()
 	for ui_aMenu in aMenus
-		ui_oTop = new ToolStripMenuItem().New_1(ui_aMenu[1])
+		ui_oTop = new ToolStripMenuItem().New_([ :text = ui_aMenu[1] ])
 		for ui_aItem in ui_aMenu[2]
 			if ui_aItem[1] = "-"
 				ui_oTop.DropDownItems.Add(new ToolStripSeparator())
 			else
-				ui_oItem = new ToolStripMenuItem().New_1(ui_aItem[1])
+				ui_oItem = new ToolStripMenuItem().New_([ :text = ui_aItem[1] ])
 				if len(ui_aItem) >= 2 and ui_aItem[2] != ""
 					ui_oItem.setClickEvent(ui_aItem[2])
 				ok
@@ -183,14 +183,14 @@ func uiSendKeys  oForm, cKeys
 # ---------------------------------------------------------------- colors, fonts, dialogs
 
 func uiRGB  nRed, nGreen, nBlue
-	return new Color().FromArgb_3(nRed,nGreen,nBlue)
+	return new Color().FromArgb([ :red = nRed, :green = nGreen, :blue = nBlue ])
 
 func uiColor  cName
 	return new Color().FromName(cName)
 
 func uiFont  cName, nSize, lBold
 	if lBold
-		return new Font(cName,nSize).New_3(cName,nSize,"Bold")
+		return new Font(cName,nSize).New_([ :familyName = cName, :emSize = nSize, :style = "Bold" ])
 	ok
 	return new Font(cName,nSize)
 
@@ -200,7 +200,7 @@ func uiMessage  cText, cTitle
 		? "[message] " + cTitle + ": " + cText
 		return
 	ok
-	new MessageBox().Show_2(cText,cTitle)
+	new MessageBox().Show([ :text = cText, :caption = cTitle ])
 
 # Yes/No question (a test answers "yes" unless uiAnswer is set)
 func uiAsk  cText, cTitle
@@ -208,7 +208,7 @@ func uiAsk  cText, cTitle
 		? "[question] " + cTitle + ": " + cText
 		return true
 	ok
-	return new MessageBox().Show_4(cText,cTitle,"YesNo","Question") = "Yes"
+	return new MessageBox().Show([ :text = cText, :caption = cTitle, :buttons = "YesNo", :icon = "Question" ]) = "Yes"
 
 # Open file dialog: returns the file name or ""
 func uiOpenFileName  cTitle, cFilter
@@ -337,26 +337,26 @@ class UiCanvas
 		oGraphics.Clear(color(xColor))
 
 	func fillRect  nX, nY, nW, nH, xColor
-		oGraphics.FillRectangle_5(brush(xColor),nX,nY,nW,nH)
+		oGraphics.FillRectangle([ :brush = brush(xColor), :x = nX, :y = nY, :width = nW, :height = nH ])
 
 	func drawRect  nX, nY, nW, nH, xColor
-		oGraphics.DrawRectangle_5(pen(xColor,1),nX,nY,nW,nH)
+		oGraphics.DrawRectangle([ :pen = pen(xColor,1), :x = nX, :y = nY, :width = nW, :height = nH ])
 
 	func fillCircle  nX, nY, nRadius, xColor
-		oGraphics.FillEllipse_5(brush(xColor),nX - nRadius,nY - nRadius,nRadius * 2,nRadius * 2)
+		oGraphics.FillEllipse([ :brush = brush(xColor), :x = nX - nRadius, :y = nY - nRadius, :width = nRadius * 2, :height = nRadius * 2 ])
 
 	func drawCircle  nX, nY, nRadius, xColor
-		oGraphics.DrawEllipse_5(pen(xColor,1),nX - nRadius,nY - nRadius,nRadius * 2,nRadius * 2)
+		oGraphics.DrawEllipse([ :pen = pen(xColor,1), :x = nX - nRadius, :y = nY - nRadius, :width = nRadius * 2, :height = nRadius * 2 ])
 
 	func fillEllipse  nX, nY, nW, nH, xColor
-		oGraphics.FillEllipse_5(brush(xColor),nX,nY,nW,nH)
+		oGraphics.FillEllipse([ :brush = brush(xColor), :x = nX, :y = nY, :width = nW, :height = nH ])
 
 	func line  nX1, nY1, nX2, nY2, xColor, nPenWidth
-		oGraphics.DrawLine_5(pen(xColor,nPenWidth),nX1,nY1,nX2,nY2)
+		oGraphics.DrawLine([ :pen = pen(xColor,nPenWidth), :x1 = nX1, :y1 = nY1, :x2 = nX2, :y2 = nY2 ])
 
 	func text  cText, nX, nY, xColor, nSize
 		ui_oFont = new Font("Segoe UI",nSize)
-		oGraphics.DrawString(cText,ui_oFont,brush(xColor),new PointF(nX,nY))
+		oGraphics.DrawString([ :s = cText, :font = ui_oFont, :brush = brush(xColor), :point = new PointF(nX,nY) ])
 
 	# Refresh the picture box after drawing
 	func show

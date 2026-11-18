@@ -74,9 +74,6 @@ Class JsonNode from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ReplaceWith",P1])
 		return self
 
-	Func ToJsonString_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString",P1])
-
 	Func ToJsonString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToJsonString",P1])
@@ -85,10 +82,6 @@ Class JsonNode from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToJsonString",P1])
-
-	Func WriteTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1,P2])
-		return self
 
 	Func WriteTo P1
 		if dnIsNamed(P1)
@@ -104,26 +97,11 @@ Class JsonNode from Object
 	Func DeepEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"DeepEquals",P1,P2])
 
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1,P2,P3])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1,P2])
-
 	Func Parse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"Parse",P1])
-
-	Func ParseAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1,P2,P3,P4])
-
-	Func ParseAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1,P2,P3])
-
-	Func ParseAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonNode, System.Text.Json'),"ParseAsync",P1,P2])
 
 	Func ParseAsync P1
 		if dnIsNamed(P1)
@@ -191,12 +169,16 @@ Class JsonArray from JsonNode
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonArray, System.Text.Json',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.Json.Nodes.JsonArray, System.Text.Json',[P1,P2])
 		return self
 
 	Func GetValues 
@@ -230,9 +212,6 @@ Class JsonArray from JsonNode
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1,P2])
-
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonArray, System.Text.Json'),"Create",P1])
@@ -259,20 +238,20 @@ Class JsonObject from JsonNode
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.Json.Nodes.JsonObject, System.Text.Json',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.Json.Nodes.JsonObject, System.Text.Json',[P1,P2])
 		return self
 
 	Func TryGetPropertyValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TryGetPropertyValue",P1])
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -298,13 +277,12 @@ Class JsonObject from JsonNode
 	Func GetAt P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAt",P1])
 
-	Func SetAt_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetAt",P1,P2,P3])
-		return self
-
-	Func SetAt P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAt",P1,P2])
-		return self
+	Func SetAt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetAt",P1])
+			return self
+		ok
+		raise("DotNet Error: SetAt does not take one argument: use named arguments, SetAt([ :parameter = value, ... ])")
 
 	Func IndexOf P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
@@ -316,9 +294,6 @@ Class JsonObject from JsonNode
 	Func RemoveAt P1
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 		return self
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonObject, System.Text.Json'),"Create",P1,P2])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -346,16 +321,10 @@ Class JsonValue from JsonNode
 	Func TryGetValue 
 		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue"])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1,P2])
-
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Json.Nodes.JsonValue, System.Text.Json'),"Create",P1,P2,P3])
 
 

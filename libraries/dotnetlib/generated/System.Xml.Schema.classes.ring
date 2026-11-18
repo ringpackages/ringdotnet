@@ -600,11 +600,11 @@ Class XmlSchemaDatatype from Object
 	Func ParseValue P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ParseValue",P1,P2,P3])
 
-	Func ChangeType P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ChangeType",P1,P2])
-
-	Func ChangeType_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ChangeType",P1,P2,P3])
+	Func ChangeType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ChangeType",P1])
+		ok
+		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func IsDerivedFrom P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsDerivedFrom",P1])
@@ -656,9 +656,6 @@ Class XmlSchemaInference from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"InferSchema",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"InferSchema",P1])
-
-	Func InferSchema_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InferSchema",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -824,7 +821,15 @@ Class XmlSchemaObjectCollection from CollectionBase
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaObjectCollection, System.Private.Xml',[P1])
 		return self
 
@@ -951,12 +956,17 @@ Class XmlSchemaSet from Object
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Schema.XmlSchemaSet, System.Private.Xml',[P1])
 		return self
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -992,9 +1002,6 @@ Class XmlSchemaSet from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Schemas"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Schemas",P1])
-
-	Func Schemas_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Schemas",P1])
 
 	Func Equals P1
@@ -1088,17 +1095,12 @@ Class XmlSchemaValidator from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
 		return self
 
-	Func Initialize_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1])
-		return self
-
-	Func ValidateElement P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateElement",P1,P2,P3])
-		return self
-
-	Func ValidateElement_7 P1,P2,P3,P4,P5,P6,P7
-		dnRequest("call",[new DotNetObject(nHandle),"ValidateElement",P1,P2,P3,P4,P5,P6,P7])
-		return self
+	Func ValidateElement P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateElement",P1])
+			return self
+		ok
+		raise("DotNet Error: ValidateElement does not take one argument: use named arguments, ValidateElement([ :parameter = value, ... ])")
 
 	Func ValidateAttribute P1,P2,P3,P4
 		return dnRequest("call",[new DotNetObject(nHandle),"ValidateAttribute",P1,P2,P3,P4])
@@ -1124,9 +1126,6 @@ Class XmlSchemaValidator from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidateEndElement",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ValidateEndElement",P1])
-
-	Func ValidateEndElement_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidateEndElement",P1,P2])
 
 	Func SkipToEndElement P1
 		dnRequest("call",[new DotNetObject(nHandle),"SkipToEndElement",P1])
@@ -1218,20 +1217,12 @@ Class XmlSchema from XmlSchemaObject
 		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
-	Func Write_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
-		return self
-
 	Func Compile P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Compile",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Compile",P1])
-		return self
-
-	Func Compile_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Compile",P1,P2])
 		return self
 
 	Func Read P1,P2

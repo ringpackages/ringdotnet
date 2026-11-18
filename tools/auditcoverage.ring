@@ -16,7 +16,7 @@ func main
 		aHave[aItem[1]] = "1"
 	next
 	cFolder = dnRequest("call",[dnType("System.Runtime.InteropServices.RuntimeEnvironment"),"GetRuntimeDirectory"])
-	aFiles = new Directory().GetFiles_2(cFolder,"System*.dll").toList()
+	aFiles = new Directory().GetFiles([ :path = cFolder, :searchPattern = "System*.dll" ]).toList()
 	aMissing = []
 	aOther = []
 	aOtherNames = []

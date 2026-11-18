@@ -33,7 +33,7 @@ The program creates its own folder with files: three with the same text (one in 
 
 ### Step 2: list recursively
 
-`Directory.GetFiles_3(folder, "*.txt", "AllDirectories")` returns the files of the folder and of every subfolder. `"TopDirectoryOnly"` would skip the subfolders. The third parameter is an enum, written as a text.
+`Directory.GetFiles([ :path = folder, :searchPattern = "*.txt", :searchOption = "AllDirectories" ])` returns the files of the folder and of every subfolder. `"TopDirectoryOnly"` would skip the subfolders. The third parameter is an enum, written as a text.
 
 ### Step 3: hash and group
 

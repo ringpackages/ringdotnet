@@ -28,7 +28,7 @@ func main
 
 	# 5. Structs are small values (a date, a point)
 	oDate = new DateTime(2024,12,25)
-	? "A DateTime       : " + oDate.ToString_1("yyyy-MM-dd") + " is a " + oDate.DayOfWeek
+	? "A DateTime       : " + oDate.Format("yyyy-MM-dd") + " is a " + oDate.DayOfWeek
 
 	# 6. Collections hold many objects
 	oNames = new StringList()

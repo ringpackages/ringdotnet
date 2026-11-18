@@ -47,7 +47,15 @@ Class TimersTimer from Component
 		nHandle = dnCreate('System.Timers.Timer, System.ComponentModel.TypeConverter',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Timers.Timer, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Timers.Timer, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Timers.Timer, System.ComponentModel.TypeConverter',[P1])
 		return self
 

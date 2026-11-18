@@ -27,7 +27,7 @@ func main
 	? nl + "4. the " + len(aPermutations) + " orders of a, b, c: " + joinWith(aPermutations,", ")
 
 	# 5. A tree: a folder holds files and folders that hold files and folders... A recursive function walks it.
-	cRoot = new Path().Combine(new Path().GetTempPath(),"tutorial75")
+	cRoot = new Path().Combine([new Path().GetTempPath(),"tutorial75"])
 	makeTree(cRoot)
 	? nl + "5. the folder tree:"
 	showTree(cRoot,0)
@@ -100,13 +100,13 @@ func permutations aItems
 	return aResult
 
 func makeTree cRoot
-	new Directory().CreateDirectory(new Path().Combine(cRoot,"docs"))
-	new Directory().CreateDirectory(new Path().Combine_3(cRoot,"docs","old"))
-	new Directory().CreateDirectory(new Path().Combine(cRoot,"src"))
-	new File().WriteAllText(new Path().Combine(cRoot,"readme.txt"),"hello")
-	new File().WriteAllText(new Path().Combine(cRoot,"docs/guide.txt"),"guide text")
-	new File().WriteAllText(new Path().Combine_4(cRoot,"docs","old","v1.txt"),"old")
-	new File().WriteAllText(new Path().Combine(cRoot,"src/main.ring"),"? 1")
+	new Directory().CreateDirectory(new Path().Combine([cRoot,"docs"]))
+	new Directory().CreateDirectory(new Path().Combine([cRoot,"docs","old"]))
+	new Directory().CreateDirectory(new Path().Combine([cRoot,"src"]))
+	new File().WriteAllText([ :path = new Path().Combine([cRoot,"readme.txt"]), :contents = "hello" ])
+	new File().WriteAllText([ :path = new Path().Combine([cRoot,"docs/guide.txt"]), :contents = "guide text" ])
+	new File().WriteAllText([ :path = new Path().Combine([cRoot,"docs","old","v1.txt"]), :contents = "old" ])
+	new File().WriteAllText([ :path = new Path().Combine([cRoot,"src/main.ring"]), :contents = "? 1" ])
 
 func showTree cFolder, nLevel
 	? "   " + copy("   ",nLevel) + new Path().GetFileName(cFolder) + "/"

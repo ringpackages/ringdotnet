@@ -353,12 +353,16 @@ Class MailAddress from Object
 		nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.MailAddress, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Mail.MailAddress, System.Net.Mail',[P1])
 		return self
 
 	Func Equals P1
@@ -369,12 +373,6 @@ Class MailAddress from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1])
-
-	Func TryCreate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1,P2])
-
-	Func TryCreate_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.MailAddress, System.Net.Mail'),"TryCreate",P1,P2,P3])
 
 	Func getDisplayName
 		return dnRequest("get",[self,"DisplayName"])
@@ -501,12 +499,16 @@ Class MailMessage from Object
 		nHandle = dnCreate('System.Net.Mail.MailMessage, System.Net.Mail',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.MailMessage, System.Net.Mail',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Net.Mail.MailMessage, System.Net.Mail',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.MailMessage, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.MailMessage, System.Net.Mail',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Mail.MailMessage, System.Net.Mail',[P1])
 		return self
 
 	Func Dispose 
@@ -664,16 +666,16 @@ Class SmtpClient from Object
 		nHandle = dnCreate('System.Net.Mail.SmtpClient, System.Net.Mail',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.SmtpClient, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.SmtpClient, System.Net.Mail',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Mail.SmtpClient, System.Net.Mail',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.SmtpClient, System.Net.Mail',[P1,P2])
-		return self
-
-	Func Send_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
 		return self
 
 	Func Send P1
@@ -684,32 +686,22 @@ Class SmtpClient from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
 		return self
 
-	Func SendAsync_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4,P5])
-		return self
-
-	Func SendAsync P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
-		return self
+	Func SendAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
+			return self
+		ok
+		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendAsyncCancel 
 		dnRequest("call",[new DotNetObject(nHandle),"SendAsyncCancel"])
 		return self
-
-	Func SendMailAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendMailAsync",P1,P2,P3,P4])
 
 	Func SendMailAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendMailAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SendMailAsync",P1])
-
-	Func SendMailAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SendMailAsync",P1,P2,P3,P4,P5])
-
-	Func SendMailAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendMailAsync",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -823,8 +815,16 @@ Class AlternateView from AttachmentBase
 		nHandle = dnCreate('System.Net.Mail.AlternateView, System.Net.Mail',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.AlternateView, System.Net.Mail',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.AlternateView, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.AlternateView, System.Net.Mail',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Mail.AlternateView, System.Net.Mail',[P1])
 		return self
 
 	Func CreateAlternateViewFromString P1
@@ -832,12 +832,6 @@ Class AlternateView from AttachmentBase
 			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1])
-
-	Func CreateAlternateViewFromString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1,P2,P3])
-
-	Func CreateAlternateViewFromString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.AlternateView, System.Net.Mail'),"CreateAlternateViewFromString",P1,P2])
 
 	Func getLinkedResources
 		return dnRequest("get",[self,"LinkedResources"])
@@ -868,19 +862,23 @@ Class Attachment from AttachmentBase
 		nHandle = dnCreate('System.Net.Mail.Attachment, System.Net.Mail',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.Attachment, System.Net.Mail',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.Attachment, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.Attachment, System.Net.Mail',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Mail.Attachment, System.Net.Mail',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Mail.Attachment, System.Net.Mail',[P1,P2,P3])
-		return self
-
-	Func CreateAttachmentFromString P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1,P2])
-
-	Func CreateAttachmentFromString_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1,P2,P3,P4])
+	Func CreateAttachmentFromString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.Attachment, System.Net.Mail'),"CreateAttachmentFromString",P1])
+		ok
+		raise("DotNet Error: CreateAttachmentFromString does not take one argument: use named arguments, CreateAttachmentFromString([ :parameter = value, ... ])")
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -916,8 +914,16 @@ Class LinkedResource from AttachmentBase
 		nHandle = dnCreate('System.Net.Mail.LinkedResource, System.Net.Mail',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Mail.LinkedResource, System.Net.Mail',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mail.LinkedResource, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mail.LinkedResource, System.Net.Mail',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Mail.LinkedResource, System.Net.Mail',[P1])
 		return self
 
 	Func CreateLinkedResourceFromString P1
@@ -925,12 +931,6 @@ Class LinkedResource from AttachmentBase
 			return dnRequest("callnamed",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1])
-
-	Func CreateLinkedResourceFromString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1,P2,P3])
-
-	Func CreateLinkedResourceFromString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Mail.LinkedResource, System.Net.Mail'),"CreateLinkedResourceFromString",P1,P2])
 
 	Func getContentLink
 		return dnRequest("get",[self,"ContentLink"])

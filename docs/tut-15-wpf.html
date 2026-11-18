@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -198,7 +201,7 @@ oNameBox = <span class="s">""</span>
 	<span class="f">wpfFind</span>(oWindow,<span class="s">"greet"</span>).<span class="f">setClickEvent</span>(<span class="s">"oGreet.Text = 'Hello, ' + oNameBox.Text + '!'"</span>)
 
 	<span class="c"># 4. Data binding: the text follows the slider, with no code at all</span>
-	oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_1</span>(<span class="s">"Value"</span>)
+	oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])
 	oBinding.Source = oSlider
 	oValue.<span class="f">SetBinding</span>(oValue.TextProperty,oBinding)
 
@@ -210,7 +213,7 @@ oNameBox = <span class="s">""</span>
 	<span class="f">wpfEnd</span>()
 
 <span class="k">func</span> <span class="f">selfTest</span>
-	<span class="f">wpfFind</span>(oWindow,<span class="s">"greet"</span>).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent))
+	<span class="f">wpfFind</span>(oWindow,<span class="s">"greet"</span>).<span class="f">RaiseEvent</span>(<span class="k">new</span> <span class="t">RoutedEventArgs</span>().<span class="f">New_</span>([ :routedEvent = <span class="k">new</span> <span class="t">WpfButtonBase</span>().ClickEvent ]))
 	<span class="f">dnAssert</span>(<span class="s">"greeting"</span>,oGreet.Text,<span class="s">"Hello, Ring!"</span>)
 	oSlider.Value = <span class="n">100</span>
 	<span class="f">dnAssert</span>(<span class="s">"binding"</span>,oValue.Text,<span class="s">"100"</span>)
@@ -229,7 +232,7 @@ oNameBox = <span class="s">""</span>
 <p><code>setClickEvent("code")</code> works as in Windows Forms. <code>setValueChangedEvent</code> runs when the slider moves; here it sets the width and height of the circle from <code>oSlider.Value</code>.</p>
 <h3 id="data-binding">Data binding<a class="anchor" href="#data-binding">#</a></h3>
 <p>A <em>binding</em> connects a property of one element to a property of another, with no code in between:</p>
-<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_1</span>(<span class="s">"Value"</span>)      <span class="c"># the property to follow: Value</span>
+<div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oBinding = <span class="k">new</span> <span class="t">WpfBinding</span>().<span class="f">New_</span>([ :path = <span class="s">"Value"</span> ])      <span class="c"># the property to follow: Value</span>
 oBinding.Source = oSlider                       <span class="c"># whose property</span>
 oValue.<span class="f">SetBinding</span>(oValue.TextProperty,oBinding) <span class="c"># the Text of this block follows it</span></code></pre></div>
 <p>Move the slider and the text changes by itself. In the test: <code>oSlider.Value = 100</code>, then the text is <code>100</code>.</p>

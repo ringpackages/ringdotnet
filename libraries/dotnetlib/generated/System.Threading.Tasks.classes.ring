@@ -134,16 +134,16 @@ Class ConcurrentExclusiveSchedulerPair from Object
 		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.ConcurrentExclusiveSchedulerPair, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
 	Func Complete 
@@ -193,45 +193,29 @@ Class Parallel from Object
 		dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"Invoke",P1])
 		return self
 
-	Func Invoke_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"Invoke",P1,P2])
-		return self
+	Func For_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1])
+		ok
+		raise("DotNet Error: For does not take one argument: use named arguments, For([ :parameter = value, ... ])")
 
-	Func For_ P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1,P2,P3])
+	Func ForEach_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1])
+		ok
+		raise("DotNet Error: ForEach does not take one argument: use named arguments, ForEach([ :parameter = value, ... ])")
 
-	Func For_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1,P2,P3,P4])
+	Func ForAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForAsync",P1])
+		ok
+		raise("DotNet Error: ForAsync does not take one argument: use named arguments, ForAsync([ :parameter = value, ... ])")
 
-	Func For_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1,P2,P3,P4,P5])
-
-	Func For_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"For",P1,P2,P3,P4,P5,P6])
-
-	Func ForEach_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1,P2])
-
-	Func ForEach_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1,P2,P3])
-
-	Func ForEach_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1,P2,P3,P4])
-
-	Func ForEach_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEach",P1,P2,P3,P4,P5])
-
-	Func ForAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForAsync",P1,P2,P3])
-
-	Func ForAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForAsync",P1,P2,P3,P4])
-
-	Func ForEachAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEachAsync",P1,P2])
-
-	Func ForEachAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEachAsync",P1,P2,P3])
+	Func ForEachAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Parallel, System.Threading.Tasks.Parallel'),"ForEachAsync",P1])
+		ok
+		raise("DotNet Error: ForEachAsync does not take one argument: use named arguments, ForEachAsync([ :parameter = value, ... ])")
 
 
 Class ParallelLoopResult from ValueType
@@ -375,20 +359,16 @@ Class Task from Object
 		ok
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.Task, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
 	Func Start P1
@@ -403,10 +383,6 @@ Class Task from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
-	Func Start_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
-		return self
-
 	Func RunSynchronously P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"RunSynchronously",P1])
@@ -416,10 +392,6 @@ Class Task from Object
 			dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously",P1])
-		return self
-
-	Func RunSynchronously_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"RunSynchronously",P1])
 		return self
 
@@ -443,41 +415,17 @@ Class Task from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
-	Func Wait_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
-
-	Func Wait_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
-
 	Func WaitAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
 
-	Func WaitAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2])
-
-	Func WaitAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2,P3])
-
 	Func ContinueWith P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWith",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1])
-
-	Func ContinueWith_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2])
-
-	Func ContinueWith_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3,P4])
-
-	Func ContinueWith_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3])
-
-	Func ContinueWith_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWith",P1,P2,P3,P4,P5])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -492,23 +440,11 @@ Class Task from Object
 		dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAll",P1])
 		return self
 
-	Func WaitAll_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAll",P1,P2])
-
-	Func WaitAll_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAll",P1,P2,P3])
-
 	Func WaitAny P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAny",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAny",P1])
-
-	Func WaitAny_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAny",P1,P2])
-
-	Func WaitAny_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WaitAny",P1,P2,P3])
 
 	Func FromResult P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"FromResult",P1])
@@ -525,20 +461,11 @@ Class Task from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Run",P1])
 
-	Func Run_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Run",P1,P2])
-
 	Func Delay P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Delay",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Delay",P1])
-
-	Func Delay_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Delay",P1,P2])
-
-	Func Delay_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"Delay",P1,P2,P3])
 
 	Func WhenAll P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAll",P1])
@@ -548,9 +475,6 @@ Class Task from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAny",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAny",P1])
-
-	Func WhenAny_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenAny",P1,P2])
 
 	Func WhenEach P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.Task, System.Private.CoreLib'),"WhenEach",P1])
@@ -647,9 +571,6 @@ Class TaskAsyncEnumerableExtensions from Object
 	Func WithCancellation P1,P2
 		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"WithCancellation",P1,P2])
 
-	Func ToBlockingEnumerable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1,P2])
-
 	Func ToBlockingEnumerable P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Threading.Tasks.TaskAsyncEnumerableExtensions, System.Private.CoreLib'),"ToBlockingEnumerable",P1])
@@ -670,12 +591,16 @@ Class TaskCompletionSource from Object
 		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.TaskCompletionSource, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func SetException P1
@@ -704,10 +629,6 @@ Class TaskCompletionSource from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetCanceled",P1])
 		return self
 
-	Func SetCanceled_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"SetCanceled",P1])
-		return self
-
 	Func TrySetCanceled P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TrySetCanceled",P1])
@@ -715,9 +636,6 @@ Class TaskCompletionSource from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled",P1])
-
-	Func TrySetCanceled_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TrySetCanceled",P1])
 
 	Func SetFromTask P1
@@ -770,16 +688,16 @@ Class TaskFactory from Object
 		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.TaskFactory, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
 	Func StartNew P1
@@ -788,53 +706,23 @@ Class TaskFactory from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1])
 
-	Func StartNew_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2])
+	Func FromAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FromAsync",P1])
+		ok
+		raise("DotNet Error: FromAsync does not take one argument: use named arguments, FromAsync([ :parameter = value, ... ])")
 
-	Func StartNew_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3,P4])
+	Func ContinueWhenAll P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWhenAll",P1])
+		ok
+		raise("DotNet Error: ContinueWhenAll does not take one argument: use named arguments, ContinueWhenAll([ :parameter = value, ... ])")
 
-	Func StartNew_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3])
-
-	Func StartNew_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"StartNew",P1,P2,P3,P4,P5])
-
-	Func FromAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2])
-
-	Func FromAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3])
-
-	Func FromAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4])
-
-	Func FromAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5])
-
-	Func FromAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5,P6])
-
-	Func FromAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"FromAsync",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ContinueWhenAll P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2])
-
-	Func ContinueWhenAll_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2,P3])
-
-	Func ContinueWhenAll_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAll",P1,P2,P3,P4,P5])
-
-	Func ContinueWhenAny P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2])
-
-	Func ContinueWhenAny_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2,P3])
-
-	Func ContinueWhenAny_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ContinueWhenAny",P1,P2,P3,P4,P5])
+	Func ContinueWhenAny P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ContinueWhenAny",P1])
+		ok
+		raise("DotNet Error: ContinueWhenAny does not take one argument: use named arguments, ContinueWhenAny([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -987,12 +875,16 @@ Class ValueTask from ValueType
 		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.ValueTask, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.ValueTask, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func AsTask 
@@ -1060,16 +952,16 @@ Class StringTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult
@@ -1095,16 +987,16 @@ Class ObjectTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult
@@ -1130,16 +1022,16 @@ Class NumberTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult
@@ -1165,16 +1057,16 @@ Class IntTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult
@@ -1200,16 +1092,16 @@ Class BoolTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Boolean, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult
@@ -1235,16 +1127,16 @@ Class BytesTask from Task
 		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Tasks.Task`1[[System.Byte[], System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func getResult

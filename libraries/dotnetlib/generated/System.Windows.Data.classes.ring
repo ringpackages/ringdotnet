@@ -377,17 +377,14 @@ Class BindingGroup from DependencyObject
 	Func UpdateSources 
 		return dnRequest("call",[new DotNetObject(nHandle),"UpdateSources"])
 
-	Func GetValue_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2])
-
-	Func TryGetValue P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1,P2])
-
 	Func GetValue P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetValue",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
+
+	Func TryGetValue P1,P2
+		return dnRequest("call",[new DotNetObject(nHandle),"TryGetValue",P1,P2])
 
 	Func getOwner
 		return dnRequest("get",[self,"Owner"])
@@ -519,13 +516,12 @@ Class BindingOperations from Object
 	Func IsDataBound P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"IsDataBound",P1,P2])
 
-	Func EnableCollectionSynchronization_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"EnableCollectionSynchronization",P1,P2,P3])
-		return self
-
-	Func EnableCollectionSynchronization P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"EnableCollectionSynchronization",P1,P2])
-		return self
+	Func EnableCollectionSynchronization P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"EnableCollectionSynchronization",P1])
+			return self
+		ok
+		raise("DotNet Error: EnableCollectionSynchronization does not take one argument: use named arguments, EnableCollectionSynchronization([ :parameter = value, ... ])")
 
 	Func DisableCollectionSynchronization P1
 		dnRequest("call",[dnTypeCached('System.Windows.Data.BindingOperations, PresentationFramework'),"DisableCollectionSynchronization",P1])
@@ -1147,7 +1143,15 @@ Class CompositeCollection from Object
 		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Data.CompositeCollection, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Data.CompositeCollection, PresentationFramework',[P1])
 		return self
 
@@ -1387,16 +1391,16 @@ Class PropertyGroupDescription from DotNetObject
 		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Data.PropertyGroupDescription, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Data.PropertyGroupDescription, PresentationFramework',[P1,P2,P3])
 		return self
 
 	Func GroupNameFromItem P1,P2,P3
@@ -1493,12 +1497,16 @@ Class RelativeSource from MarkupExtension
 		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Data.RelativeSource, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Data.RelativeSource, PresentationFramework',[P1,P2,P3])
 		return self
 
 	Func ShouldSerializeAncestorType 
@@ -1558,8 +1566,16 @@ Class XmlNamespaceMapping from Object
 		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Data.XmlNamespaceMapping, PresentationFramework',[P1])
 		return self
 
 	Func Equals P1
@@ -1663,7 +1679,15 @@ Class WpfBinding from BindingBase
 		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Data.Binding, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Data.Binding, PresentationFramework',[P1])
 		return self
 

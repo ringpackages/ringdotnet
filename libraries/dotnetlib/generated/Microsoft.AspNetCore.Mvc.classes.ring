@@ -429,16 +429,16 @@ Class ActionContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ActionContext, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2,P3,P4])
 		return self
 
 	Func Equals P1
@@ -706,20 +706,11 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StatusCode",P1])
 
-	Func StatusCode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StatusCode",P1,P2])
-
 	Func Content P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Content",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1])
-
-	Func Content_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1,P2])
-
-	Func Content_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Content",P1,P2,P3])
 
 	Func NoContent 
 		return dnRequest("call",[new DotNetObject(nHandle),"NoContent"])
@@ -731,9 +722,6 @@ Class ControllerBase from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Ok"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Ok",P1])
-
-	Func Ok_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Ok",P1])
 
 	Func Redirect P1
@@ -769,30 +757,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1])
 
-	Func RedirectToAction_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1])
-
-	Func RedirectToAction_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2])
-
-	Func RedirectToAction_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2,P3])
-
-	Func RedirectToAction_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToAction",P1,P2,P3,P4])
-
-	Func RedirectToActionPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2,P3,P4])
-
-	Func RedirectToActionPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2,P3])
-
-	Func RedirectToActionPreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1,P2])
-
-	Func RedirectToActionPreserveMethod_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1])
-
 	Func RedirectToActionPreserveMethod P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToActionPreserveMethod",P1])
@@ -807,27 +771,6 @@ Class ControllerBase from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1])
-
-	Func RedirectToActionPermanent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2])
-
-	Func RedirectToActionPermanent_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2,P3])
-
-	Func RedirectToActionPermanent_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanent",P1,P2,P3,P4])
-
-	Func RedirectToActionPermanentPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2,P3,P4])
-
-	Func RedirectToActionPermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2,P3])
-
-	Func RedirectToActionPermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1,P2])
-
-	Func RedirectToActionPermanentPreserveMethod_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToActionPermanentPreserveMethod",P1])
 
 	Func RedirectToActionPermanentPreserveMethod P1
 		if dnIsNamed(P1)
@@ -844,21 +787,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1])
 
-	Func RedirectToRoute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1,P2])
-
-	Func RedirectToRoute_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoute",P1,P2,P3])
-
-	Func RedirectToRoutePreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1,P2,P3])
-
-	Func RedirectToRoutePreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1,P2])
-
-	Func RedirectToRoutePreserveMethod_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1])
-
 	Func RedirectToRoutePreserveMethod P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoutePreserveMethod",P1])
@@ -873,21 +801,6 @@ Class ControllerBase from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1])
-
-	Func RedirectToRoutePermanent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1,P2])
-
-	Func RedirectToRoutePermanent_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanent",P1,P2,P3])
-
-	Func RedirectToRoutePermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1,P2,P3])
-
-	Func RedirectToRoutePermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1,P2])
-
-	Func RedirectToRoutePermanentPreserveMethod_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToRoutePermanentPreserveMethod",P1])
 
 	Func RedirectToRoutePermanentPreserveMethod P1
 		if dnIsNamed(P1)
@@ -904,38 +817,11 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1])
 
-	Func RedirectToPage_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2])
-
-	Func RedirectToPage_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2,P3])
-
-	Func RedirectToPage_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPage",P1,P2,P3,P4])
-
 	Func RedirectToPagePermanent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1])
-
-	Func RedirectToPagePermanent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2])
-
-	Func RedirectToPagePermanent_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2,P3])
-
-	Func RedirectToPagePermanent_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanent",P1,P2,P3,P4])
-
-	Func RedirectToPagePreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2,P3,P4])
-
-	Func RedirectToPagePreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2,P3])
-
-	Func RedirectToPagePreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1,P2])
 
 	Func RedirectToPagePreserveMethod P1
 		if dnIsNamed(P1)
@@ -943,50 +829,23 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePreserveMethod",P1])
 
-	Func RedirectToPagePermanentPreserveMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2,P3,P4])
-
-	Func RedirectToPagePermanentPreserveMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2,P3])
-
-	Func RedirectToPagePermanentPreserveMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1,P2])
-
 	Func RedirectToPagePermanentPreserveMethod P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RedirectToPagePermanentPreserveMethod",P1])
 
-	Func File P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2])
+	Func File P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"File",P1])
+		ok
+		raise("DotNet Error: File does not take one argument: use named arguments, File([ :parameter = value, ... ])")
 
-	Func File_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3])
-
-	Func File_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4])
-
-	Func File_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4,P5])
-
-	Func File_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"File",P1,P2,P3,P4,P5,P6])
-
-	Func PhysicalFile P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2])
-
-	Func PhysicalFile_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3])
-
-	Func PhysicalFile_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4])
-
-	Func PhysicalFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4,P5])
-
-	Func PhysicalFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"PhysicalFile",P1,P2,P3,P4,P5,P6])
+	Func PhysicalFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PhysicalFile",P1])
+		ok
+		raise("DotNet Error: PhysicalFile does not take one argument: use named arguments, PhysicalFile([ :parameter = value, ... ])")
 
 	Func Unauthorized P1
 		if dnIsNamed(P1)
@@ -995,9 +854,6 @@ Class ControllerBase from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized",P1])
-
-	Func Unauthorized_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Unauthorized",P1])
 
 	Func NotFound P1
@@ -1009,9 +865,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"NotFound",P1])
 
-	Func NotFound_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"NotFound",P1])
-
 	Func BadRequest P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BadRequest",P1])
@@ -1019,9 +872,6 @@ Class ControllerBase from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"BadRequest"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BadRequest",P1])
-
-	Func BadRequest_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BadRequest",P1])
 
 	Func UnprocessableEntity P1
@@ -1033,9 +883,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UnprocessableEntity",P1])
 
-	Func UnprocessableEntity_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UnprocessableEntity",P1])
-
 	Func Conflict P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Conflict",P1])
@@ -1044,27 +891,6 @@ Class ControllerBase from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Conflict"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Conflict",P1])
-
-	Func Conflict_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Conflict",P1])
-
-	Func Problem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4,P5])
-
-	Func Problem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4,P5,P6])
-
-	Func Problem_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3,P4])
-
-	Func Problem_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2,P3])
-
-	Func Problem_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1,P2])
-
-	Func Problem_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1])
 
 	Func Problem P1
 		if dnIsNamed(P1)
@@ -1075,9 +901,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Problem",P1])
 
-	Func ValidationProblem_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1])
-
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValidationProblem",P1])
@@ -1087,24 +910,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1])
 
-	Func ValidationProblem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5,P6])
-
-	Func ValidationProblem_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ValidationProblem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4,P5])
-
-	Func ValidationProblem_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3,P4])
-
-	Func ValidationProblem_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2,P3])
-
-	Func ValidationProblem_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ValidationProblem",P1,P2])
-
 	Func Created P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Created",P1])
@@ -1112,25 +917,19 @@ Class ControllerBase from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Created"])
 		ok
-		raise("DotNet Error: Created does not take one argument: use Created(NULL), Created_N(...) or named arguments")
+		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
-	Func Created_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Created",P1,P2])
+	Func CreatedAtAction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatedAtAction",P1])
+		ok
+		raise("DotNet Error: CreatedAtAction does not take one argument: use named arguments, CreatedAtAction([ :parameter = value, ... ])")
 
-	Func CreatedAtAction P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2])
-
-	Func CreatedAtAction_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2,P3])
-
-	Func CreatedAtAction_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtAction",P1,P2,P3,P4])
-
-	Func CreatedAtRoute P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtRoute",P1,P2])
-
-	Func CreatedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedAtRoute",P1,P2,P3])
+	Func CreatedAtRoute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatedAtRoute",P1])
+		ok
+		raise("DotNet Error: CreatedAtRoute does not take one argument: use named arguments, CreatedAtRoute([ :parameter = value, ... ])")
 
 	Func Accepted P1
 		if dnIsNamed(P1)
@@ -1141,38 +940,17 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1])
 
-	Func Accepted_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1])
-
-	Func Accepted_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Accepted",P1,P2])
-
 	Func AcceptedAtAction P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptedAtAction",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1])
 
-	Func AcceptedAtAction_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2])
-
-	Func AcceptedAtAction_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2,P3])
-
-	Func AcceptedAtAction_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtAction",P1,P2,P3,P4])
-
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptedAtRoute",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1])
-
-	Func AcceptedAtRoute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1,P2])
-
-	Func AcceptedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptedAtRoute",P1,P2,P3])
 
 	Func Challenge P1
 		if dnIsNamed(P1)
@@ -1183,12 +961,6 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1])
 
-	Func Challenge_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1])
-
-	Func Challenge_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Challenge",P1,P2])
-
 	Func Forbid P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Forbid",P1])
@@ -1198,23 +970,11 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1])
 
-	Func Forbid_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1])
-
-	Func Forbid_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Forbid",P1,P2])
-
 	Func SignIn P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignIn",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1])
-
-	Func SignIn_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1,P2])
-
-	Func SignIn_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignIn",P1,P2,P3])
 
 	Func SignOut P1
 		if dnIsNamed(P1)
@@ -1225,38 +985,17 @@ Class ControllerBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1])
 
-	Func SignOut_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1])
-
-	Func SignOut_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignOut",P1,P2])
-
 	Func TryUpdateModelAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1])
 
-	Func TryUpdateModelAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2])
-
-	Func TryUpdateModelAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3])
-
-	Func TryUpdateModelAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3,P4])
-
-	Func TryUpdateModelAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"TryUpdateModelAsync",P1,P2,P3,P4,P5])
-
 	Func TryValidateModel P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryValidateModel",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryValidateModel",P1])
-
-	Func TryValidateModel_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryValidateModel",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1849,7 +1588,7 @@ Class ProblemDetails from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -1909,7 +1648,15 @@ Class SerializableError from ObjectDictionary
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SerializableError, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
@@ -1933,98 +1680,23 @@ Class UrlHelperExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1])
 
-	Func Action_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2])
+	Func RouteUrl P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1])
+		ok
+		raise("DotNet Error: RouteUrl does not take one argument: use named arguments, RouteUrl([ :parameter = value, ... ])")
 
-	Func Action_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2,P3])
-
-	Func Action_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2,P3,P4])
-
-	Func Action_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2,P3,P4,P5])
-
-	Func Action_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2,P3,P4,P5,P6])
-
-	Func Action_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Action",P1,P2,P3,P4,P5,P6,P7])
-
-	Func RouteUrl P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1,P2])
-
-	Func RouteUrl_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1,P2,P3])
-
-	Func RouteUrl_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1,P2,P3,P4])
-
-	Func RouteUrl_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1,P2,P3,P4,P5])
-
-	Func RouteUrl_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"RouteUrl",P1,P2,P3,P4,P5,P6])
-
-	Func Page P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2])
-
-	Func Page_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2,P3])
-
-	Func Page_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2,P3,P4])
-
-	Func Page_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2,P3,P4,P5])
-
-	Func Page_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2,P3,P4,P5,P6])
-
-	Func Page_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ActionLink_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ActionLink_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2,P3,P4,P5,P6])
-
-	Func ActionLink_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2,P3,P4,P5])
-
-	Func ActionLink_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2,P3,P4])
-
-	Func ActionLink_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2,P3])
-
-	Func ActionLink_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1,P2])
+	Func Page P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"Page",P1])
+		ok
+		raise("DotNet Error: Page does not take one argument: use named arguments, Page([ :parameter = value, ... ])")
 
 	Func ActionLink P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"ActionLink",P1])
-
-	Func PageLink_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2,P3,P4,P5,P6,P7])
-
-	Func PageLink_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2,P3,P4,P5,P6])
-
-	Func PageLink_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2,P3,P4,P5])
-
-	Func PageLink_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2,P3,P4])
-
-	Func PageLink_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2,P3])
-
-	Func PageLink_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.UrlHelperExtensions, Microsoft.AspNetCore.Mvc.Core'),"PageLink",P1,P2])
 
 	Func PageLink P1
 		if dnIsNamed(P1)
@@ -2044,7 +1716,15 @@ Class ValidationProblemDetails from HttpValidationProblemDetails
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ValidationProblemDetails, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
@@ -2084,12 +1764,6 @@ Class ViewComponent from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"View"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
-
-	Func View_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
-
-	Func View_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"View",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -2190,12 +1864,16 @@ Class ChallengeResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ChallengeResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
 	Func getAuthenticationSchemes
@@ -2273,12 +1951,6 @@ Class Controller from ControllerBase
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
 
-	Func View_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"View",P1])
-
-	Func View_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"View",P1,P2])
-
 	Func PartialView P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"PartialView",P1])
@@ -2288,29 +1960,17 @@ Class Controller from ControllerBase
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1])
 
-	Func PartialView_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1])
-
-	Func PartialView_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PartialView",P1,P2])
-
 	Func ViewComponent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ViewComponent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ViewComponent",P1])
 
-	Func ViewComponent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ViewComponent",P1,P2])
-
 	Func Json P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Json",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Json",P1])
-
-	Func Json_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Json",P1,P2])
 
 	Func OnActionExecuting P1
 		dnRequest("call",[new DotNetObject(nHandle),"OnActionExecuting",P1])
@@ -2361,7 +2021,15 @@ Class ControllerContext from ActionContext
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ControllerContext, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
@@ -2450,12 +2118,16 @@ Class ForbidResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ForbidResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
 	Func getAuthenticationSchemes
@@ -2489,8 +2161,16 @@ Class JsonResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.JsonResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getContentType
@@ -2538,12 +2218,16 @@ Class LocalRedirectResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.LocalRedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getPermanent
@@ -2716,12 +2400,16 @@ Class RedirectResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getPermanent
@@ -2772,16 +2460,16 @@ Class RedirectToActionResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToActionResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getUrlHelper
@@ -2855,24 +2543,16 @@ Class RedirectToPageResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToPageResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getUrlHelper
@@ -2957,20 +2637,16 @@ Class RedirectToRouteResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.RedirectToRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getUrlHelper
@@ -3031,12 +2707,16 @@ Class SignInResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignInResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getAuthenticationScheme
@@ -3075,12 +2755,16 @@ Class SignOutResult from ActionResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.SignOutResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
 	Func getAuthenticationSchemes
@@ -3322,8 +3006,16 @@ Class AcceptedAtRouteResult from ObjectResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getUrlHelper
@@ -3361,8 +3053,16 @@ Class AcceptedResult from ObjectResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.AcceptedResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getLocation
@@ -3481,8 +3181,16 @@ Class CreatedAtRouteResult from ObjectResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedAtRouteResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getUrlHelper
@@ -3520,8 +3228,16 @@ Class CreatedResult from ObjectResult
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.CreatedResult, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 	Func getLocation

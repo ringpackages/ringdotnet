@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -183,7 +186,7 @@ nMoves = <span class="n">0</span>
 	? nl + <span class="s">"4. the "</span> + len(aPermutations) + <span class="s">" orders of a, b, c: "</span> + joinWith(aPermutations,<span class="s">", "</span>)
 
 	<span class="c"># 5. A tree: a folder holds files and folders that hold files and folders... A recursive function walks it.</span>
-	cRoot = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial75"</span>)
+	cRoot = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial75"</span>])
 	makeTree(cRoot)
 	? nl + <span class="s">"5. the folder tree:"</span>
 	showTree(cRoot,<span class="n">0</span>)
@@ -256,13 +259,13 @@ nMoves = <span class="n">0</span>
 	<span class="k">return</span> aResult
 
 <span class="k">func</span> <span class="f">makeTree</span> cRoot
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cRoot,<span class="s">"docs"</span>))
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine_3</span>(cRoot,<span class="s">"docs"</span>,<span class="s">"old"</span>))
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cRoot,<span class="s">"src"</span>))
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cRoot,<span class="s">"readme.txt"</span>),<span class="s">"hello"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cRoot,<span class="s">"docs/guide.txt"</span>),<span class="s">"guide text"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine_4</span>(cRoot,<span class="s">"docs"</span>,<span class="s">"old"</span>,<span class="s">"v1.txt"</span>),<span class="s">"old"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cRoot,<span class="s">"src/main.ring"</span>),<span class="s">"? 1"</span>)
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs"</span>]))
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs"</span>,<span class="s">"old"</span>]))
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"src"</span>]))
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"readme.txt"</span>]), :contents = <span class="s">"hello"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs/guide.txt"</span>]), :contents = <span class="s">"guide text"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"docs"</span>,<span class="s">"old"</span>,<span class="s">"v1.txt"</span>]), :contents = <span class="s">"old"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cRoot,<span class="s">"src/main.ring"</span>]), :contents = <span class="s">"? 1"</span> ])
 
 <span class="k">func</span> <span class="f">showTree</span> cFolder, nLevel
 	? <span class="s">"   "</span> + copy(<span class="s">"   "</span>,nLevel) + <span class="k">new</span> <span class="t">Path</span>().<span class="f">GetFileName</span>(cFolder) + <span class="s">"/"</span>
@@ -357,7 +360,7 @@ nMoves = <span class="n">0</span>
 <p>All orders of <code>[a, b, c]</code>: choose each item as the first one and put it in front of every order of the <em>rest</em>. The six results appear without any loop that knows how many items there are.</p>
 <h3 id="5-a-tree-of-folders">5. A tree of folders<a class="anchor" href="#5-a-tree-of-folders">#</a></h3>
 <p>A folder contains files and other folders, each of which contains... <code>showTree</code> prints a folder, then calls itself for each subfolder with one more level of indentation; <code>folderSize</code> adds the size of the files and of the subfolders. Recursion is the natural way to walk any tree: folders, XML (<a href="tut-72-xml.html">tutorial 72</a>), a menu, a family tree.</p>
-<div class="callout tip"><span class="t">Tip</span><p>.NET can also list all files below a folder in one call (<code>Directory.GetFiles_3(path, "*", "AllDirectories")</code>). Write the recursion yourself when you need to do something at each level.</p></div>
+<div class="callout tip"><span class="t">Tip</span><p>.NET can also list all files below a folder in one call (<code>Directory.GetFiles([ :path = path, :searchPattern = "*", :searchOption = "AllDirectories" ])</code>). Write the recursion yourself when you need to do something at each level.</p></div>
 <h3 id="6-flood-fill">6. Flood fill<a class="anchor" href="#6-flood-fill">#</a></h3>
 <p>The paint bucket: if the cell is empty, fill it and do the same for the cell above, below, left and right. The stop cases come first: outside the picture, or not an empty cell. The frame stops the fill, so the outside stays empty.</p>
 <h2 id="when-not-to-use-recursion">When not to use recursion<a class="anchor" href="#when-not-to-use-recursion">#</a></h2>

@@ -7,7 +7,7 @@ lead: JsonDocument reads JSON but cannot change it. JsonNode, JsonObject and Jso
 
 - parsing JSON into a tree you can edit (`JsonNode`, `JsonObject`, `JsonArray`),
 - reading with `Item("key")` and `Item(index)`,
-- `SetItem`, `Add_2`, `Remove` on objects and `Add` on arrays,
+- `SetItem`, `Add`, `Remove` on objects and `Add` on arrays,
 - building a document from Ring values,
 - merging two documents,
 - `DeepClone` and `DeepEquals`.
@@ -31,11 +31,11 @@ These classes are in `System.Text.Json.Nodes`. [Tutorial 6](tut-06-json-xml.html
 | What | Call |
 |---|---|
 | set an existing value | `oRoot.SetItem("port",9090)` |
-| add a key | `oRoot.Add_2("owner","Ann")` |
+| add a key | `oRoot.Add([ :propertyName = "owner", :value = "Ann" ])` |
 | remove a key | `oRoot.Remove("debug")` |
 | add an array item | `oTags.Add("json")` |
 
-`Add` of an object has two forms, so the key-and-value form is `Add_2`. A Ring text or number is converted to a JSON value for you.
+`Add` of an object has several forms, so the key-and-value form takes a list of named values (`propertyName` and `value`). A Ring text or number is converted to a JSON value for you.
 
 ### Missing keys
 
@@ -45,7 +45,7 @@ These classes are in `System.Text.Json.Nodes`. [Tutorial 6](tut-06-json-xml.html
 
 Step 5 builds a report: a `JsonObject` with values, a `JsonArray` of `JsonObject`s. `ToJsonString(NULL)` writes compact JSON; with `JsonSerializerOptions` and `WriteIndented = True` it writes indented JSON (the `pretty` helper).
 
-> [!WARNING] A Ring `True` is the **number 1**, so `Add_2("final",True)` writes `1`. To write a JSON `true`, parse it: `new JsonNode().Parse("true")`. The same applies to `null`: parse `"null"`.
+> [!WARNING] A Ring `True` is the **number 1**, so `Add([ :propertyName = "final", :value = True ])` writes `1`. To write a JSON `true`, parse it: `new JsonNode().Parse("true")`. The same applies to `null`: parse `"null"`.
 
 ### Merging
 
@@ -58,7 +58,7 @@ Step 5 builds a report: a `JsonObject` with values, a `JsonArray` of `JsonObject
 ## What you learned
 
 - `JsonNode`, `JsonObject`, `JsonArray`,
-- `Item`, `SetItem`, `Add`, `Add_2`, `Remove`, `ContainsKey`,
+- `Item`, `SetItem`, `Add`, `Remove`, `ContainsKey`,
 - the Ring `True` is a number: parse `true` for JSON,
 - merging with a small recursive function,
 - `DeepClone` and `DeepEquals`.

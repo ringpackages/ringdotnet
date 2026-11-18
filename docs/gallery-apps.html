@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -163,9 +166,9 @@ using {
 
 cFile = <span class="s">""</span>
 <span class="k">if</span> <span class="f">uiSelfTest</span>()
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"addressbook_selftest.xml"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"addressbook_selftest.xml"</span>])
 <span class="k">else</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_addressbook.xml"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_addressbook.xml"</span>])
 <span class="k">ok</span>
 
 oTable = <span class="k">new</span> <span class="t">DataTable</span>()
@@ -864,7 +867,7 @@ showFacts()
 	oCulture = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 	nYear = oDate.Year
 	oEndOfYear = <span class="k">new</span> <span class="t">DateTime</span>(nYear,<span class="n">12</span>,<span class="n">31</span>)
-	cText = oDate.<span class="f">ToString_2</span>(<span class="s">"dddd, MMMM d, yyyy"</span>,oCulture) + nl + nl
+	cText = oDate.<span class="f">Format</span>([ :format = <span class="s">"dddd, MMMM d, yyyy"</span>, :provider = oCulture ]) + nl + nl
 	cText += <span class="s">"Day of the year: "</span> + oDate.DayOfYear + nl
 	cText += <span class="s">"ISO week: "</span> + <span class="k">new</span> <span class="t">ISOWeek</span>().<span class="f">GetWeekOfYear</span>(oDate) + nl
 	cText += <span class="s">"Days left in the year: "</span> + floor(oEndOfYear.<span class="f">Subtract</span>(oDate).TotalDays) + nl
@@ -1462,8 +1465,8 @@ oMessage.ForeColor = <span class="f">uiColor</span>(<span class="s">"Firebrick"<
 	oMessage.Text = <span class="s">""</span>
 	<span class="k">try</span>
 		oDate = dateOf(number(oEpoch.Text))
-		oUtc.Text = oDate.UtcDateTime.<span class="f">ToString_1</span>(C_FORMAT)
-		oLocal.Text = oDate.LocalDateTime.<span class="f">ToString_1</span>(C_FORMAT)
+		oUtc.Text = oDate.UtcDateTime.<span class="f">Format</span>(C_FORMAT)
+		oLocal.Text = oDate.LocalDateTime.<span class="f">Format</span>(C_FORMAT)
 	<span class="k">catch</span>
 		oMessage.Text = <span class="s">"Invalid epoch value"</span>
 	<span class="k">done</span>
@@ -1727,7 +1730,7 @@ oTree {
 			oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
 			oItem = <span class="f">dnNew</span>(<span class="s">"ListViewItem"</span>,[ :text = oInfo.Name ])
 			oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
-			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
+			oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
 			oList.Items.<span class="f">Add</span>(oItem)
 			nFiles++
 		<span class="k">next</span>
@@ -1740,14 +1743,14 @@ oTree {
 <span class="k">func</span> <span class="f">selfTest</span>
 	<span class="c"># a small folder tree in the temp folder</span>
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
-	cBase = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"explorer_selftest"</span>)
+	cBase = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"explorer_selftest"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"docs"</span>))
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"images/icons"</span>))
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"readme.txt"</span>),<span class="s">"hello"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(oPath.<span class="f">Combine</span>(cBase,<span class="s">"docs/manual.txt"</span>),copy(<span class="s">"x"</span>,<span class="n">2048</span>))
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>([cBase,<span class="s">"docs"</span>]))
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>([cBase,<span class="s">"images/icons"</span>]))
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = oPath.<span class="f">Combine</span>([cBase,<span class="s">"readme.txt"</span>]), :contents = <span class="s">"hello"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = oPath.<span class="f">Combine</span>([cBase,<span class="s">"docs/manual.txt"</span>]), :contents = copy(<span class="s">"x"</span>,<span class="n">2048</span>) ])
 	setRoot(cBase)
 	<span class="f">dnAssert</span>(<span class="s">"root node"</span>,oTree.Nodes.Count,<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"two sub folders"</span>,oTree.Nodes.<span class="f">Item</span>(<span class="n">0</span>).Nodes.Count,<span class="n">2</span>)
@@ -2414,7 +2417,7 @@ oBox.<span class="f">BringToFront</span>()
 			<span class="k">ok</span>
 		<span class="k">next</span>
 	<span class="k">next</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_selftest.png"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_selftest.png"</span>])
 	oSample.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	loadFile(cFile)
 	<span class="f">dnAssert</span>(<span class="s">"loaded size"</span>,oInfoText.Text,<span class="s">"40 x 20   zoom 100%"</span>)
@@ -2431,7 +2434,7 @@ oBox.<span class="f">BringToFront</span>()
 	<span class="f">dnAssert</span>(<span class="s">"zoom"</span>,nZoom,<span class="n">150</span>)
 	zoomBy(-<span class="n">500</span>)
 	<span class="f">dnAssert</span>(<span class="s">"zoom has a minimum"</span>,nZoom,<span class="n">25</span>)
-	cOut = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_saved.png"</span>)
+	cOut = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"imageviewer_saved.png"</span>])
 	saveTo(cOut)
 	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cOut),<span class="k">True</span>)
 	oBox.Image = <span class="f">dnNull</span>()
@@ -3349,7 +3352,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 
 <span class="k">func</span> <span class="f">saveTo</span> cName
 	<span class="k">try</span>
-		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cName,oEditor.Text)
+		<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cName, :contents = oEditor.Text ])
 	<span class="k">catch</span>
 		<span class="f">uiMessage</span>(<span class="s">"Can't save "</span> + cName + nl + cCatchError,<span class="s">"Notepad"</span>)
 		<span class="k">return</span>
@@ -3413,7 +3416,7 @@ oForm.<span class="f">setFormClosingEvent</span>(<span class="s">"closing(aDotNe
 	oEditor.Text = <span class="s">"Hello"</span> + windowsnl() + <span class="s">"Ring and .NET"</span>
 	<span class="f">dnAssert</span>(<span class="s">"modified after typing"</span>,lModified,<span class="n">1</span>)
 	<span class="f">dnAssert</span>(<span class="s">"title has a star"</span>,<span class="s">"*"</span> = right(left(oForm.Text,len(<span class="s">"Untitled*"</span>)),<span class="n">1</span>),<span class="k">True</span>)
-	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"notepad_selftest.txt"</span>)
+	cTemp = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"notepad_selftest.txt"</span>])
 	saveTo(cTemp)
 	<span class="f">dnAssert</span>(<span class="s">"saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cTemp),<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"not modified after save"</span>,lModified,<span class="n">0</span>)
@@ -3626,7 +3629,7 @@ oForm.Controls.<span class="f">Add</span>(oSize)
 	<span class="f">dnAssert</span>(<span class="s">"swatch sets the color"</span>,cColor,<span class="s">"Green"</span>)
 	oSize.Value = <span class="n">12</span>
 	<span class="f">dnAssert</span>(<span class="s">"pen size from the track bar value"</span>,oSize.Value,<span class="n">12</span>)
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"paint_selftest.png"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"paint_selftest.png"</span>])
 	saveTo(cFile)
 	<span class="f">dnAssert</span>(<span class="s">"picture saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
 	<span class="f">dnAssert</span>(<span class="s">"PNG signature"</span>,substr(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllBytes</span>(cFile),<span class="s">"PNG"</span>) &gt; <span class="n">0</span>,<span class="k">True</span>)
@@ -5244,9 +5247,9 @@ using {
 	<span class="s">"System.Windows.Forms"</span>
 }
 
-cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo.txt"</span>)
+cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo.txt"</span>])
 <span class="k">if</span> <span class="f">uiSelfTest</span>()
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo_selftest.txt"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_todo_selftest.txt"</span>])
 <span class="k">ok</span>
 
 oForm = <span class="f">uiForm</span>(<span class="s">"To-do list"</span>,<span class="n">360</span>,<span class="n">420</span>)
@@ -5306,7 +5309,7 @@ loadTasks()
 		<span class="k">ok</span>
 		cText += oList.Items.<span class="f">Item</span>(nIndex) + nl
 	<span class="k">next</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,cText)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cText ])
 
 <span class="k">func</span> <span class="f">loadTasks</span>
 	oList.Items.<span class="f">Clear</span>()

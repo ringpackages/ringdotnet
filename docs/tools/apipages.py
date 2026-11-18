@@ -34,13 +34,30 @@ def load_api():
     return api
 
 
+_class_files = {}
+
+
+def class_text(ns, cls):
+    """the source of one class: the generated file of a namespace (<namespace>.classes.ring) has all its classes"""
+    if ns not in _class_files:
+        path = os.path.join(GEN, ns + ".classes.ring")
+        parts = {}
+        if os.path.exists(path):
+            text = open(path, encoding="utf-8").read()
+            pieces = re.split(r"(?m)^(?=Class\s+\w+\s+from\s+)", text)
+            for piece in pieces[1:]:
+                m = re.match(r"Class\s+(\w+)\s+from\s+", piece)
+                parts[m.group(1).lower()] = piece
+        _class_files[ns] = parts
+    return _class_files[ns].get(cls.lower(), "")
+
+
 def parse_class_file(ns, cls):
     """What the generated Ring class offers: base class, attributes, and for each Func: (ring name, parameter count, .NET name, kind)"""
-    path = os.path.join(GEN, ns, cls + ".ring")
     info = {"base": "", "attrs": set(), "funcs": [], "ctor_arities": []}
-    if not os.path.exists(path):
+    text = class_text(ns, cls)
+    if not text:
         return info
-    text = open(path, encoding="utf-8").read()
     m = re.search(r"^Class\s+(\w+)\s+from\s+(\w+)", text, re.M | re.I)
     if m:
         info["base"] = m.group(2)
@@ -82,22 +99,31 @@ def sig_params(params):
     return ", ".join(out)
 
 
-def ring_forms(name, funcs, static_only=False):
-    """The ways to call a .NET method from Ring"""
+def ring_forms(name, funcs, overloads=()):
+    """The ways to call a .NET method from Ring. A method with overloads of several arities is one Ring method that takes one parameter:
+    Name(NULL) for the parameterless overload, Name(value) for one parameter, Name([ :param = value ]) by the parameter names."""
     forms = []
     for f in funcs:
         if f["net"] != name or f["kind"] not in ("method", "dispatch"):
             continue
         r = f["ring"]
         if f["kind"] == "dispatch":
-            if f["null"]:
+            arities = {len(o["p"]) for o in overloads}
+            if f["null"] and (0 in arities or not arities):
                 forms.append("%s(NULL)" % r)
-            forms.append("%s(value)" % r)
-            forms.append("%s([ :name = value ])" % r)
+            if 1 in arities or not arities:
+                forms.append("%s(value)" % r)
+            shown = set()
+            for o in sorted(overloads, key=lambda o: len(o["p"])):
+                names = tuple(p["n"] for p in o["p"])
+                if names and names not in shown and len(shown) < 4:
+                    shown.add(names)
+                    forms.append("%s([ %s ])" % (r, ", ".join(":%s = …" % n for n in names)))
+            if not overloads:
+                forms.append("%s([ :name = value ])" % r)
         else:
             args = ",".join("p%d" % (i + 1) for i in range(f["n"]))
             forms.append("%s(%s)" % (r, args))
-    forms.sort(key=lambda x: (re.match(r"\w+_\d+\(", x) is not None, 0))
     seen, out = set(), []
     for x in forms:
         if x not in seen:
@@ -151,7 +177,7 @@ def render_class(ns, cls, data, cinfo, wrapped, by_full):
         for c in ctors:
             rows.append("<tr><td><code>new %s(%s)</code></td></tr>" % (esc(cls), esc(sig_params(c))))
         out.append('<h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody>%s</tbody></table></div>' % "".join(rows))
-        out.append('<p class="muted">Ring: <code>new %s(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("%s",[ :param = value ])</code> by parameter names.</p>' % (esc(cls), esc(cls)))
+        out.append('<p class="muted">Ring: <code>new %s(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new %s().New_([ :param = value ])</code> or <code>dnNew("%s",[ :param = value ])</code>.</p>' % (esc(cls), esc(cls), esc(cls)))
 
     # properties and fields
     props = [p for p in data.get("props", []) if own(p)]
@@ -191,7 +217,7 @@ def render_class(ns, cls, data, cinfo, wrapped, by_full):
         rows = []
         for name in sorted(groups, key=lambda x: x.lower()):
             ms = groups[name]
-            forms = ring_forms(name, cinfo["funcs"])
+            forms = ring_forms(name, cinfo["funcs"], ms)
             sigs = []
             for m in ms:
                 gen = "<%s>" % m["g"] if m.get("g") else ""

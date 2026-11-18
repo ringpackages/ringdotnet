@@ -1,0 +1,12 @@
+1. the task was made at once (under 100 ms): yes, finished already? no
+   after Wait it is finished (RanToCompletion) and about 300 ms have passed: yes
+
+2. three waits of 300 ms, started together, took less than 700 ms: yes (and at least 300: yes)
+
+3. WhenAny finished when the fast task did: fast is done yes, slow is done no
+
+4. waited 200 ms for a task of 2 seconds: finished = no (the task keeps running; you stopped waiting)
+
+5. a delay of 5 seconds cancelled after 100 ms: the wait raised an error yes, the task is cancelled: yes, status Canceled
+
+6. five waits that add up to 480 ms were over in less than that: yes

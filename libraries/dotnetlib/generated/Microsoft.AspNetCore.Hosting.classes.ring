@@ -310,9 +310,6 @@ Class IWebHost from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 
-	Func StartAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
-
 	Func StartAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAsync",P1])
@@ -321,9 +318,6 @@ Class IWebHost from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"StartAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
-
-	Func StopAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StopAsync",P1])
 
 	Func StopAsync P1
 		if dnIsNamed(P1)
@@ -420,9 +414,6 @@ Class KestrelServerOptionsSystemdExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1])
 
-	Func UseSystemd_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.KestrelServerOptionsSystemdExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseSystemd",P1,P2])
-
 
 Class ListenOptionsConnectionLoggingExtensions from Object
 
@@ -443,9 +434,6 @@ Class ListenOptionsConnectionLoggingExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseConnectionLogging",P1])
 
-	Func UseConnectionLogging_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsConnectionLoggingExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseConnectionLogging",P1,P2])
-
 
 Class ListenOptionsHttpsExtensions from Object
 
@@ -465,21 +453,6 @@ Class ListenOptionsHttpsExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1])
-
-	Func UseHttps_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2])
-
-	Func UseHttps_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2,P3])
-
-	Func UseHttps_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2,P3,P4])
-
-	Func UseHttps_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2,P3,P4,P5])
-
-	Func UseHttps_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions, Microsoft.AspNetCore.Server.Kestrel.Core'),"UseHttps",P1,P2,P3,P4,P5,P6])
 
 
 Class StartupBase from Object
@@ -585,9 +558,6 @@ Class WebHostBuilderExtensions from Object
 	Func Configure P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"Configure",P1,P2])
 
-	Func UseStartup_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStartup",P1,P2])
-
 	Func UseStartup P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions, Microsoft.AspNetCore.Hosting'),"UseStartup",P1])
@@ -625,9 +595,6 @@ Class WebHostBuilderHttpSysExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1])
-
-	Func UseHttpSys_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions, Microsoft.AspNetCore.Server.HttpSys'),"UseHttpSys",P1,P2])
 
 
 Class WebHostBuilderIISExtensions from Object
@@ -672,9 +639,6 @@ Class WebHostBuilderKestrelExtensions from Object
 	Func UseKestrelCore P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrelCore",P1])
 
-	Func UseKestrel_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"UseKestrel",P1,P2])
-
 	Func ConfigureKestrel P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions, Microsoft.AspNetCore.Server.Kestrel'),"ConfigureKestrel",P1,P2])
 
@@ -698,9 +662,6 @@ Class WebHostBuilderNamedPipeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1])
 
-	Func UseNamedPipes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderNamedPipeExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.NamedPipes'),"UseNamedPipes",P1,P2])
-
 
 Class WebHostBuilderQuicExtensions from Object
 
@@ -721,9 +682,6 @@ Class WebHostBuilderQuicExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1])
 
-	Func UseQuic_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderQuicExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Quic'),"UseQuic",P1,P2])
-
 
 Class WebHostBuilderSocketExtensions from Object
 
@@ -743,9 +701,6 @@ Class WebHostBuilderSocketExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1])
-
-	Func UseSockets_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostBuilderSocketExtensions, Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets'),"UseSockets",P1,P2])
 
 
 Class WebHostDefaults from Object
@@ -902,9 +857,6 @@ Class WebHostExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdown",P1])
 		return self
 
-	Func WaitForShutdownAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1,P2])
-
 	Func WaitForShutdownAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"WaitForShutdownAsync",P1])
@@ -914,9 +866,6 @@ Class WebHostExtensions from Object
 	Func Run P1
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"Run",P1])
 		return self
-
-	Func RunAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Hosting.WebHostExtensions, Microsoft.AspNetCore.Hosting'),"RunAsync",P1,P2])
 
 	Func RunAsync P1
 		if dnIsNamed(P1)

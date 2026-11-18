@@ -438,9 +438,6 @@ Class AccessorExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"GetService",P1])
 
-	Func GetService_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"GetService",P1,P2])
-
 	Func GetInfrastructure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.AccessorExtensions, Microsoft.EntityFrameworkCore'),"GetInfrastructure",P1])
 
@@ -561,7 +558,15 @@ Class ConcurrencyDetectorCriticalSectionDisposer from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ConcurrencyDetectorCriticalSectionDisposer, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -610,9 +615,6 @@ Class CoreOptionsExtension from Object
 	Func WithApplicationServiceProvider P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithApplicationServiceProvider",P1])
 
-	Func WithRootApplicationServiceProvider_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider",P1])
-
 	Func WithRootApplicationServiceProvider P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithRootApplicationServiceProvider",P1])
@@ -646,11 +648,11 @@ Class CoreOptionsExtension from Object
 	Func WithQueryTrackingBehavior P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithQueryTrackingBehavior",P1])
 
-	Func WithReplacedService_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WithReplacedService",P1,P2,P3])
-
-	Func WithReplacedService P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WithReplacedService",P1,P2])
+	Func WithReplacedService P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithReplacedService",P1])
+		ok
+		raise("DotNet Error: WithReplacedService does not take one argument: use named arguments, WithReplacedService([ :parameter = value, ... ])")
 
 	Func WithMaxPoolSize P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithMaxPoolSize",P1])
@@ -840,9 +842,6 @@ Class DatabaseFacade from Object
 	Func EnsureCreated 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreated"])
 
-	Func EnsureCreatedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
-
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
@@ -854,9 +853,6 @@ Class DatabaseFacade from Object
 
 	Func EnsureDeleted 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeleted"])
-
-	Func EnsureDeletedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
 
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
@@ -870,9 +866,6 @@ Class DatabaseFacade from Object
 	Func CanConnect 
 		return dnRequest("call",[new DotNetObject(nHandle),"CanConnect"])
 
-	Func CanConnectAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
-
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConnectAsync",P1])
@@ -884,9 +877,6 @@ Class DatabaseFacade from Object
 
 	Func BeginTransaction 
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
-
-	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
@@ -901,9 +891,6 @@ Class DatabaseFacade from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CommitTransaction"])
 		return self
 
-	Func CommitTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
-
 	Func CommitTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
@@ -916,9 +903,6 @@ Class DatabaseFacade from Object
 	Func RollbackTransaction 
 		dnRequest("call",[new DotNetObject(nHandle),"RollbackTransaction"])
 		return self
-
-	Func RollbackTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func RollbackTransactionAsync P1
 		if dnIsNamed(P1)
@@ -1030,11 +1014,19 @@ Class DbSetProperty from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.DbSetProperty, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getName
@@ -1160,15 +1152,6 @@ Class EntityFrameworkServicesBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
 
-	Func TryAdd_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2])
-
-	Func TryAdd_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1])
-
-	Func TryAdd_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -1193,9 +1176,6 @@ Class ExpressionExtensions from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Print_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"Print",P1,P2])
 
 	Func Print P1
 		if dnIsNamed(P1)
@@ -1230,26 +1210,23 @@ Class ExpressionExtensions from Object
 	Func CreateValueBufferReadValueExpression P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateValueBufferReadValueExpression",P1,P2,P3,P4])
 
-	Func CreateKeyValuesExpression_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateKeyValuesExpression",P1,P2,P3])
+	Func CreateKeyValuesExpression P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateKeyValuesExpression",P1])
+		ok
+		raise("DotNet Error: CreateKeyValuesExpression does not take one argument: use named arguments, CreateKeyValuesExpression([ :parameter = value, ... ])")
 
-	Func CreateKeyValuesExpression P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateKeyValuesExpression",P1,P2])
+	Func CreateEFPropertyExpression P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1])
+		ok
+		raise("DotNet Error: CreateEFPropertyExpression does not take one argument: use named arguments, CreateEFPropertyExpression([ :parameter = value, ... ])")
 
-	Func CreateEFPropertyExpression_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1,P2,P3])
-
-	Func CreateEFPropertyExpression P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1,P2])
-
-	Func CreateEFPropertyExpression_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEFPropertyExpression",P1,P2,P3,P4,P5])
-
-	Func CreateEqualsExpression_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1,P2,P3])
-
-	Func CreateEqualsExpression P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1,P2])
+	Func CreateEqualsExpression P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"CreateEqualsExpression",P1])
+		ok
+		raise("DotNet Error: CreateEqualsExpression does not take one argument: use named arguments, CreateEqualsExpression([ :parameter = value, ... ])")
 
 	Func getValueBufferTryReadValueMethod
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.ExpressionExtensions, Microsoft.EntityFrameworkCore'),"ValueBufferTryReadValueMethod"])
@@ -1494,14 +1471,6 @@ Class ILazyLoader from DotNetObject
 		ok
 		return self
 
-	Func SetLoaded_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1,P2,P3])
-		return self
-
-	Func SetLoaded_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1,P2])
-		return self
-
 	Func SetLoaded P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetLoaded",P1])
@@ -1510,18 +1479,11 @@ Class ILazyLoader from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"SetLoaded",P1])
 		return self
 
-	Func IsLoaded_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsLoaded",P1,P2])
-
 	Func IsLoaded P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsLoaded",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsLoaded",P1])
-
-	Func Load_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
-		return self
 
 	Func Load_ P1
 		if dnIsNamed(P1)
@@ -1530,12 +1492,6 @@ Class ILazyLoader from DotNetObject
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
-
-	Func LoadAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2,P3])
-
-	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
 
 	Func LoadAsync P1
 		if dnIsNamed(P1)
@@ -1586,12 +1542,6 @@ Class IModelRuntimeInitializer from DotNetObject
 			return self
 		ok
 		return self
-
-	Func Initialize_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2,P3])
-
-	Func Initialize_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2])
 
 	Func Initialize P1
 		if dnIsNamed(P1)
@@ -1648,9 +1598,6 @@ Class IReadOnlyAnnotatable from DotNetObject
 	Func GetAnnotation P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnnotation",P1])
 
-	Func AnnotationsToDebugString_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AnnotationsToDebugString",P1])
-
 	Func AnnotationsToDebugString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AnnotationsToDebugString",P1])
@@ -1696,9 +1643,6 @@ Class IResettableService from DotNetObject
 	Func ResetState 
 		dnRequest("call",[new DotNetObject(nHandle),"ResetState"])
 		return self
-
-	Func ResetStateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ResetStateAsync",P1])
 
 	Func ResetStateAsync P1
 		if dnIsNamed(P1)
@@ -1755,20 +1699,11 @@ Class IndentedStringBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
-	Func AppendLine_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
-
-	Func AppendLines_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1,P2])
-
 	Func AppendLines P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLines",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1])
-
-	Func AppendJoin_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1,P2])
 
 	Func AppendJoin P1
 		if dnIsNamed(P1)
@@ -1820,11 +1755,11 @@ Class LazyLoaderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Load_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1,P2,P3,P4])
-
-	Func Load_ P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1,P2,P3])
+	Func Load_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.LazyLoaderExtensions, Microsoft.EntityFrameworkCore.Abstractions'),"Load",P1])
+		ok
+		raise("DotNet Error: Load does not take one argument: use named arguments, Load([ :parameter = value, ... ])")
 
 
 Class MethodInfoExtensions from Object
@@ -1855,8 +1790,16 @@ Class ModelCacheKey from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelCacheKey, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func Equals P1
@@ -1879,9 +1822,6 @@ Class ModelCacheKeyFactory from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Create",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1970,12 +1910,6 @@ Class ModelRuntimeInitializer from Object
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ModelRuntimeInitializer, Microsoft.EntityFrameworkCore',[P1])
 		return self
-
-	Func Initialize_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2,P3])
-
-	Func Initialize_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Initialize",P1,P2])
 
 	Func Initialize P1
 		if dnIsNamed(P1)
@@ -2223,9 +2157,6 @@ Class EfRelationalModelExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetRelationalDependencies_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetRelationalDependencies",P1,P2])
-
 	Func GetRelationalDependencies P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetRelationalDependencies",P1])
@@ -2323,9 +2254,6 @@ Class RelationalOptionsExtension from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithConnection",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WithConnection",P1])
-
-	Func WithConnection_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WithConnection",P1,P2])
 
 	Func WithCommandTimeout P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithCommandTimeout",P1])
@@ -2603,11 +2531,15 @@ Class ServiceCharacteristics from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Infrastructure.ServiceCharacteristics, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -2664,26 +2596,8 @@ Class ServiceCollectionMap from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1])
 
-	Func TryAddTransient_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient",P1,P2])
-
-	Func TryAddScoped_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped",P1,P2])
-
-	Func TryAddSingleton_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1,P2])
-
 	Func TryAdd P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAdd",P1,P2,P3])
-
-	Func TryAddTransient_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransient",P1])
-
-	Func TryAddScoped_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScoped",P1])
-
-	Func TryAddSingleton_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingleton",P1])
 
 	Func TryAddTransientEnumerable P1
 		if dnIsNamed(P1)
@@ -2712,29 +2626,11 @@ Class ServiceCollectionMap from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1])
 
-	Func TryAddTransientEnumerable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1,P2])
-
-	Func TryAddScopedEnumerable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1,P2])
-
-	Func TryAddSingletonEnumerable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1,P2])
-
-	Func TryAddEnumerable P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddEnumerable",P1,P2,P3])
-
-	Func TryAddTransientEnumerable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddTransientEnumerable",P1])
-
-	Func TryAddScopedEnumerable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddScopedEnumerable",P1])
-
-	Func TryAddSingletonEnumerable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddSingletonEnumerable",P1])
-
-	Func TryAddEnumerable_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddEnumerable",P1,P2,P3,P4])
+	Func TryAddEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddEnumerable",P1])
+		ok
+		raise("DotNet Error: TryAddEnumerable does not take one argument: use named arguments, TryAddEnumerable([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -2813,17 +2709,11 @@ Class SqliteDbContextOptionsBuilder from DotNetObject
 	Func MigrationsAssembly P1
 		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsAssembly",P1])
 
-	Func MigrationsHistoryTable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1,P2])
-
 	Func MigrationsHistoryTable P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MigrationsHistoryTable",P1])
-
-	Func UseRelationalNulls_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UseRelationalNulls",P1])
 
 	Func UseRelationalNulls P1
 		if dnIsNamed(P1)
@@ -2889,23 +2779,17 @@ Class Uniquifier from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Uniquify P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Uniquify",P1,P2,P3])
+	Func Uniquify P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Uniquify",P1])
+		ok
+		raise("DotNet Error: Uniquify does not take one argument: use named arguments, Uniquify([ :parameter = value, ... ])")
 
-	Func Uniquify_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Uniquify",P1,P2,P3,P4])
-
-	Func Uniquify_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Uniquify",P1,P2,P3,P4,P5])
-
-	Func Truncate_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1,P2,P3])
-
-	Func Truncate P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1,P2])
-
-	Func Truncate_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1,P2,P3,P4])
+	Func Truncate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Infrastructure.Uniquifier, Microsoft.EntityFrameworkCore'),"Truncate",P1])
+		ok
+		raise("DotNet Error: Truncate does not take one argument: use named arguments, Truncate([ :parameter = value, ... ])")
 
 
 Class Annotatable from AnnotatableBase
@@ -2986,11 +2870,17 @@ Class ConventionAnnotatable from Annotatable
 		ok
 		return self
 
-	Func AddAnnotation_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1,P2,P3])
+	Func AddAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddAnnotation",P1])
+		ok
+		raise("DotNet Error: AddAnnotation does not take one argument: use named arguments, AddAnnotation([ :parameter = value, ... ])")
 
-	Func SetAnnotation_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SetAnnotation",P1,P2,P3])
+	Func SetAnnotation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetAnnotation",P1])
+		ok
+		raise("DotNet Error: SetAnnotation does not take one argument: use named arguments, SetAnnotation([ :parameter = value, ... ])")
 
 	Func SetOrRemoveAnnotation P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"SetOrRemoveAnnotation",P1,P2,P3])

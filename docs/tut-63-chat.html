@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -331,7 +334,7 @@ oTimer = <span class="s">""</span>
 	<span class="k">func</span> <span class="f">init</span> cWho, nPort
 		cName = cWho
 		oSocket = <span class="k">new</span> <span class="t">TcpClient</span>()
-		oSocket.<span class="f">Connect</span>(<span class="s">"127.0.0.1"</span>,nPort)
+		oSocket.<span class="f">Connect</span>([ :hostname = <span class="s">"127.0.0.1"</span>, :port = nPort ])
 		oStream = oSocket.<span class="f">GetStream</span>()
 		oReader = <span class="k">new</span> <span class="t">LineReader</span>(oStream)
 		oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oStream)

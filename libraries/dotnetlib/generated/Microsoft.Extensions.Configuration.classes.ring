@@ -266,11 +266,11 @@ Class ChainedBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddConfiguration P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1,P2])
-
-	Func AddConfiguration_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1,P2,P3])
+	Func AddConfiguration P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ChainedBuilderExtensions, Microsoft.Extensions.Configuration'),"AddConfiguration",P1])
+		ok
+		raise("DotNet Error: AddConfiguration does not take one argument: use named arguments, AddConfiguration([ :parameter = value, ... ])")
 
 
 Class ChainedConfigurationProvider from Object
@@ -365,11 +365,11 @@ Class CommandLineConfigurationExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddCommandLine P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1,P2])
-
-	Func AddCommandLine_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1,P2,P3])
+	Func AddCommandLine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.CommandLineConfigurationExtensions, Microsoft.Extensions.Configuration.CommandLine'),"AddCommandLine",P1])
+		ok
+		raise("DotNet Error: AddCommandLine does not take one argument: use named arguments, AddCommandLine([ :parameter = value, ... ])")
 
 
 Class ConfigurationBinder from Object
@@ -391,28 +391,18 @@ Class ConfigurationBinder from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1])
 
-	Func Get_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1,P2])
+	Func Bind P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Bind",P1])
+			return self
+		ok
+		raise("DotNet Error: Bind does not take one argument: use named arguments, Bind([ :parameter = value, ... ])")
 
-	Func Get_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Get",P1,P2,P3])
-
-	Func Bind_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Bind",P1,P2,P3])
-		return self
-
-	Func Bind P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"Bind",P1,P2])
-		return self
-
-	Func GetValue P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1,P2])
-
-	Func GetValue_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1,P2,P3])
-
-	Func GetValue_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1,P2,P3,P4])
+	Func GetValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationBinder, Microsoft.Extensions.Configuration.Binder'),"GetValue",P1])
+		ok
+		raise("DotNet Error: GetValue does not take one argument: use named arguments, GetValue([ :parameter = value, ... ])")
 
 
 Class ConfigurationBuilder from Object
@@ -467,8 +457,16 @@ Class ConfigurationDebugViewContext from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Extensions.Configuration.ConfigurationDebugViewContext, Microsoft.Extensions.Configuration.Abstractions',[P1])
 		return self
 
 	Func getPath
@@ -520,9 +518,6 @@ Class ConfigurationExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1])
-
-	Func AsEnumerable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"AsEnumerable",P1,P2])
 
 	Func Exists P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationExtensions, Microsoft.Extensions.Configuration.Abstractions'),"Exists",P1])
@@ -762,9 +757,6 @@ Class ConfigurationRootExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1])
 
-	Func GetDebugView_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.ConfigurationRootExtensions, Microsoft.Extensions.Configuration.Abstractions'),"GetDebugView",P1,P2])
-
 
 Class ConfigurationSection from Object
 
@@ -838,9 +830,6 @@ Class EnvironmentVariablesExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1])
-
-	Func AddEnvironmentVariables_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions, Microsoft.Extensions.Configuration.EnvironmentVariables'),"AddEnvironmentVariables",P1,P2])
 
 
 Class FileConfigurationExtensions from Object
@@ -1168,17 +1157,11 @@ Class IniConfigurationExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddIniFile P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1,P2])
-
-	Func AddIniFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1,P2,P3])
-
-	Func AddIniFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1,P2,P3,P4])
-
-	Func AddIniFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1,P2,P3,P4,P5])
+	Func AddIniFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniFile",P1])
+		ok
+		raise("DotNet Error: AddIniFile does not take one argument: use named arguments, AddIniFile([ :parameter = value, ... ])")
 
 	Func AddIniStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.IniConfigurationExtensions, Microsoft.Extensions.Configuration.Ini'),"AddIniStream",P1,P2])
@@ -1197,17 +1180,11 @@ Class JsonConfigurationExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddJsonFile P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1,P2])
-
-	Func AddJsonFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1,P2,P3])
-
-	Func AddJsonFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1,P2,P3,P4])
-
-	Func AddJsonFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1,P2,P3,P4,P5])
+	Func AddJsonFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonFile",P1])
+		ok
+		raise("DotNet Error: AddJsonFile does not take one argument: use named arguments, AddJsonFile([ :parameter = value, ... ])")
 
 	Func AddJsonStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.JsonConfigurationExtensions, Microsoft.Extensions.Configuration.Json'),"AddJsonStream",P1,P2])
@@ -1226,14 +1203,11 @@ Class KeyPerFileConfigurationBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddKeyPerFile P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1,P2])
-
-	Func AddKeyPerFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1,P2,P3])
-
-	Func AddKeyPerFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1,P2,P3,P4])
+	Func AddKeyPerFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.KeyPerFileConfigurationBuilderExtensions, Microsoft.Extensions.Configuration.KeyPerFile'),"AddKeyPerFile",P1])
+		ok
+		raise("DotNet Error: AddKeyPerFile does not take one argument: use named arguments, AddKeyPerFile([ :parameter = value, ... ])")
 
 
 Class MemoryConfigurationBuilderExtensions from Object
@@ -1254,9 +1228,6 @@ Class MemoryConfigurationBuilderExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1])
-
-	Func AddInMemoryCollection_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.MemoryConfigurationBuilderExtensions, Microsoft.Extensions.Configuration'),"AddInMemoryCollection",P1,P2])
 
 
 Class StreamConfigurationSource from Object
@@ -1304,15 +1275,6 @@ Class UserSecretsConfigurationExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1])
 
-	Func AddUserSecrets_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1,P2])
-
-	Func AddUserSecrets_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1,P2,P3])
-
-	Func AddUserSecrets_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.UserSecretsConfigurationExtensions, Microsoft.Extensions.Configuration.UserSecrets'),"AddUserSecrets",P1,P2,P3,P4])
-
 
 Class XmlConfigurationExtensions from Object
 
@@ -1327,17 +1289,11 @@ Class XmlConfigurationExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddXmlFile P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1,P2])
-
-	Func AddXmlFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1,P2,P3])
-
-	Func AddXmlFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1,P2,P3,P4])
-
-	Func AddXmlFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1,P2,P3,P4,P5])
+	Func AddXmlFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlFile",P1])
+		ok
+		raise("DotNet Error: AddXmlFile does not take one argument: use named arguments, AddXmlFile([ :parameter = value, ... ])")
 
 	Func AddXmlStream P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Configuration.XmlConfigurationExtensions, Microsoft.Extensions.Configuration.Xml'),"AddXmlStream",P1,P2])
@@ -1367,10 +1323,6 @@ Class FileConfigurationProvider from ConfigurationProvider
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
-	Func Load_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
-		return self
-
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
@@ -1392,10 +1344,6 @@ Class StreamConfigurationProvider from ConfigurationProvider
 			nDotNetWrapHandle = 0
 			return self
 		ok
-		return self
-
-	Func Load_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
 	Func Load_ P1

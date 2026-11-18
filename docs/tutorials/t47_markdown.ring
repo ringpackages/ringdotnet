@@ -26,8 +26,8 @@ func main
 	? cHtml
 
 	# save it as a complete page
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial47.html")
-	new File().WriteAllText(cFile,"<html><body>" + nl + cHtml + nl + "</body></html>")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial47.html"])
+	new File().WriteAllText([ :path = cFile, :contents = "<html><body>" + nl + cHtml + nl + "</body></html>" ])
 	? nl + "Saved a page of " + len(new File().ReadAllText(cFile)) + " characters"
 	new File().Delete(cFile)
 
@@ -83,11 +83,11 @@ func inlineHtml cText
 	# Each step below writes its result to a NEW variable. (x = new Regex(...).Replace(x,...) with the same variable on both
 	# sides does not work in Ring: it assigns the new Regex object to x first.)
 	# 2. code `x`
-	cCode = new Regex("`([^`]+)`").Replace(cSafe,"<code>$1</code>")
+	cCode = new Regex("`([^`]+)`").Replace([ :input = cSafe, :replacement = "<code>$1</code>" ])
 	# 3. bold **x** (before italic: it also uses the star)
-	cBold = new Regex("\*\*(.+?)\*\*").Replace(cCode,"<strong>$1</strong>")
+	cBold = new Regex("\*\*(.+?)\*\*").Replace([ :input = cCode, :replacement = "<strong>$1</strong>" ])
 	# 4. italic *x*
-	cItalic = new Regex("\*(.+?)\*").Replace(cBold,"<em>$1</em>")
+	cItalic = new Regex("\*(.+?)\*").Replace([ :input = cBold, :replacement = "<em>$1</em>" ])
 	# 5. links [text](address)
-	cLinks = new Regex("\[([^\]]+)\]\(([^)]+)\)").Replace(cItalic,"<a href='$2'>$1</a>")
+	cLinks = new Regex("\[([^\]]+)\]\(([^)]+)\)").Replace([ :input = cItalic, :replacement = "<a href='$2'>$1</a>" ])
 	return cLinks

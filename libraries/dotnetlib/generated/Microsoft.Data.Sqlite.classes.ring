@@ -64,12 +64,16 @@ Class SqliteBlob from Stream
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',[P1,P2,P3,P4])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteBlob, Microsoft.Data.Sqlite',[P1])
 		return self
 
 
@@ -84,16 +88,16 @@ Class SqliteCommand from DbCommand
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteCommand, Microsoft.Data.Sqlite',[P1,P2,P3])
 		return self
 
 
@@ -111,52 +115,38 @@ Class SqliteConnection from DbConnection
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnection, Microsoft.Data.Sqlite',[P1])
 		return self
 
-	Func CreateAggregate_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3])
-		return self
+	Func CreateAggregate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAggregate",P1])
+			return self
+		ok
+		raise("DotNet Error: CreateAggregate does not take one argument: use named arguments, CreateAggregate([ :parameter = value, ... ])")
 
-	Func CreateAggregate P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2])
-		return self
+	Func CreateFunction P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CreateFunction",P1])
+			return self
+		ok
+		raise("DotNet Error: CreateFunction does not take one argument: use named arguments, CreateFunction([ :parameter = value, ... ])")
 
-	Func CreateAggregate_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3,P4])
-		return self
-
-	Func CreateAggregate_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"CreateAggregate",P1,P2,P3,P4,P5])
-		return self
-
-	Func CreateFunction_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2,P3])
-		return self
-
-	Func CreateFunction P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2])
-		return self
-
-	Func CreateFunction_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CreateFunction",P1,P2,P3,P4])
-		return self
-
-	Func CreateCollation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CreateCollation",P1,P2])
-		return self
-
-	Func CreateCollation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CreateCollation",P1,P2,P3])
-		return self
-
-	Func BeginTransaction_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1,P2])
-
-	Func EnableExtensions_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"EnableExtensions",P1])
-		return self
+	Func CreateCollation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCollation",P1])
+			return self
+		ok
+		raise("DotNet Error: CreateCollation does not take one argument: use named arguments, CreateCollation([ :parameter = value, ... ])")
 
 	Func EnableExtensions P1
 		if dnIsNamed(P1)
@@ -168,10 +158,6 @@ Class SqliteConnection from DbConnection
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"EnableExtensions",P1])
-		return self
-
-	Func LoadExtension_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"LoadExtension",P1,P2])
 		return self
 
 	Func LoadExtension P1
@@ -188,10 +174,6 @@ Class SqliteConnection from DbConnection
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"BackupDatabase",P1])
-		return self
-
-	Func BackupDatabase_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BackupDatabase",P1,P2,P3])
 		return self
 
 	Func ClearAllPools 
@@ -236,7 +218,15 @@ Class SqliteConnectionStringBuilder from DbConnectionStringBuilder
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteConnectionStringBuilder, Microsoft.Data.Sqlite',[P1])
 		return self
 
@@ -354,16 +344,16 @@ Class SqliteParameter from DbParameter
 		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Data.Sqlite.SqliteParameter, Microsoft.Data.Sqlite',[P1])
 		return self
 
 	Func ResetSqliteType 
@@ -393,15 +383,6 @@ Class SqliteParameterCollection from DbParameterCollection
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
 
 	Func AddWithValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"AddWithValue",P1,P2])

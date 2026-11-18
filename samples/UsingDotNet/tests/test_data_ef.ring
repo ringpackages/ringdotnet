@@ -51,7 +51,7 @@ func main
 	oDb.close()
 
 	# a database file survives the context
-	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_ef_test.db")
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_ef_test.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

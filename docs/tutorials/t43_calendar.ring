@@ -23,9 +23,9 @@ func main
 
 	# 5. Adding to a date: months of different length, and the end of the month
 	oStart = new DateTime(2024,1,31)
-	? nl + "2024-01-31 plus one month : " + oStart.AddMonths(1).ToString_1("yyyy-MM-dd") + " (February has no 31st: the last day is used)"
-	? "   plus one year (leap day)  : " + new DateTime(2024,2,29).AddYears(1).ToString_1("yyyy-MM-dd")
-	? "   plus 100 days             : " + oStart.AddDays(100).ToString_1("yyyy-MM-dd")
+	? nl + "2024-01-31 plus one month : " + oStart.AddMonths(1).Format("yyyy-MM-dd") + " (February has no 31st: the last day is used)"
+	? "   plus one year (leap day)  : " + new DateTime(2024,2,29).AddYears(1).Format("yyyy-MM-dd")
+	? "   plus 100 days             : " + oStart.AddDays(100).Format("yyyy-MM-dd")
 
 	# 6. The week number and the day of the year
 	oDate = new DateTime(2024,12,25)
@@ -35,7 +35,7 @@ func main
 func monthCalendar nYear, nMonth
 	oFirst = new DateTime(nYear,nMonth,1)
 	nDays = new DateTime(nYear,nMonth,1).DaysInMonth(nYear,nMonth)
-	cText = "" + oFirst.ToString_1("MMMM yyyy") + " (" + nDays + " days)" + nl
+	cText = "" + oFirst.Format("MMMM yyyy") + " (" + nDays + " days)" + nl
 	cText += "   Mo Tu We Th Fr Sa Su" + nl + "   "
 	# the column of the first day: Monday = 0 ... Sunday = 6
 	aWeekdays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]

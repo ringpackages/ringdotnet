@@ -58,12 +58,16 @@ Class ResourceManager from Object
 		nHandle = dnCreate('System.Resources.ResourceManager, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Resources.ResourceManager, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Resources.ResourceManager, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Resources.ResourceManager, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Resources.ResourceManager, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Resources.ResourceManager, System.Private.CoreLib',[P1])
 		return self
 
 	Func ReleaseAllResources 
@@ -79,26 +83,17 @@ Class ResourceManager from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
-	Func GetString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2])
-
 	Func GetObject P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
 
-	Func GetObject_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1,P2])
-
 	Func GetStream P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStream",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1])
-
-	Func GetStream_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStream",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -201,17 +196,11 @@ Class ResourceSet from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
-	Func GetString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2])
-
 	Func GetObject P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetObject",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1])
-
-	Func GetObject_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetObject",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])

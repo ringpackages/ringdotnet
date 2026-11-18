@@ -588,47 +588,11 @@ Class CoreTypeMapping from Object
 		ok
 		return self
 
-	Func WithComposedConverter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3,P4,P5])
-
-	Func WithComposedConverter_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3,P4])
-
-	Func WithComposedConverter_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2,P3])
-
-	Func WithComposedConverter_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1,P2])
-
 	Func WithComposedConverter P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WithComposedConverter",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WithComposedConverter",P1])
-
-	Func Clone_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Clone_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Clone_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6])
-
-	Func Clone_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5])
-
-	Func Clone_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4])
-
-	Func Clone_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3])
-
-	Func Clone_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2])
-
-	Func Clone_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
 	Func Clone P1
 		if dnIsNamed(P1)
@@ -706,9 +670,6 @@ Class Database from Object
 
 	Func SaveChanges P1
 		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
-
-	Func SaveChangesAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1,P2])
 
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
@@ -815,11 +776,11 @@ Class ExecutionStrategy from Object
 	Func Execute P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"Execute",P1,P2,P3])
 
-	Func ExecuteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3,P4])
-
-	Func ExecuteAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3])
+	Func ExecuteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -905,9 +866,6 @@ Class IDatabase from DotNetObject
 	Func SaveChanges P1
 		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
 
-	Func SaveChangesAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1,P2])
-
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
@@ -934,9 +892,6 @@ Class IDatabaseCreator from DotNetObject
 	Func EnsureDeleted 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeleted"])
 
-	Func EnsureDeletedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
-
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
@@ -949,9 +904,6 @@ Class IDatabaseCreator from DotNetObject
 	Func EnsureCreated 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreated"])
 
-	Func EnsureCreatedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
-
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
@@ -963,9 +915,6 @@ Class IDatabaseCreator from DotNetObject
 
 	Func CanConnect 
 		return dnRequest("call",[new DotNetObject(nHandle),"CanConnect"])
-
-	Func CanConnectAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
@@ -1138,9 +1087,6 @@ Class IDbContextTransaction from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Commit"])
 		return self
 
-	Func CommitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
-
 	Func CommitAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
@@ -1153,9 +1099,6 @@ Class IDbContextTransaction from DotNetObject
 	Func Rollback 
 		dnRequest("call",[new DotNetObject(nHandle),"Rollback"])
 		return self
-
-	Func RollbackAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func RollbackAsync P1
 		if dnIsNamed(P1)
@@ -1170,9 +1113,6 @@ Class IDbContextTransaction from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"CreateSavepoint",P1])
 		return self
 
-	Func CreateSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSavepointAsync",P1,P2])
-
 	Func CreateSavepointAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSavepointAsync",P1])
@@ -1183,9 +1123,6 @@ Class IDbContextTransaction from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepoint",P1])
 		return self
 
-	Func RollbackToSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1,P2])
-
 	Func RollbackToSavepointAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1])
@@ -1195,9 +1132,6 @@ Class IDbContextTransaction from DotNetObject
 	Func ReleaseSavepoint P1
 		dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepoint",P1])
 		return self
-
-	Func ReleaseSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepointAsync",P1,P2])
 
 	Func ReleaseSavepointAsync P1
 		if dnIsNamed(P1)
@@ -1233,9 +1167,6 @@ Class IDbContextTransactionManager from DotNetObject
 	Func BeginTransaction 
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
 
-	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
-
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
@@ -1249,9 +1180,6 @@ Class IDbContextTransactionManager from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"CommitTransaction"])
 		return self
 
-	Func CommitTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
-
 	Func CommitTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
@@ -1264,9 +1192,6 @@ Class IDbContextTransactionManager from DotNetObject
 	Func RollbackTransaction 
 		dnRequest("call",[new DotNetObject(nHandle),"RollbackTransaction"])
 		return self
-
-	Func RollbackTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
 	Func RollbackTransactionAsync P1
 		if dnIsNamed(P1)
@@ -1294,9 +1219,6 @@ Class IExceptionDetector from DotNetObject
 		ok
 		return self
 
-	Func IsCancellation_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsCancellation",P1,P2])
-
 	Func IsCancellation P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsCancellation",P1])
@@ -1319,11 +1241,11 @@ Class IExecutionStrategy from DotNetObject
 	Func Execute P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"Execute",P1,P2,P3])
 
-	Func ExecuteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3,P4])
-
-	Func ExecuteAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3])
+	Func ExecuteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func getRetriesOnFailure
 		return dnRequest("get",[self,"RetriesOnFailure"])
@@ -1376,12 +1298,6 @@ Class IRawSqlCommandBuilder from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
 
-	Func Build_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2])
-
-	Func Build_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3])
-
 
 Class IRelationalCommand from DotNetObject
 
@@ -1396,9 +1312,6 @@ Class IRelationalCommand from DotNetObject
 	Func ExecuteNonQuery P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 
-	Func ExecuteNonQueryAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
-
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
@@ -1408,9 +1321,6 @@ Class IRelationalCommand from DotNetObject
 	Func ExecuteScalar P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar",P1])
 
-	Func ExecuteScalarAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1,P2])
-
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
@@ -1419,9 +1329,6 @@ Class IRelationalCommand from DotNetObject
 
 	Func ExecuteReader P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
-	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
 
 	Func ExecuteReaderAsync P1
 		if dnIsNamed(P1)
@@ -1548,12 +1455,9 @@ Class IRelationalConnection from DotNetObject
 		ok
 		return self
 
-	Func SetDbConnection_2 P1,P2
+	Func SetDbConnection_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetDbConnection",P1,P2])
 		return self
-
-	Func Open_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
 
 	Func Open P1
 		if dnIsNamed(P1)
@@ -1563,9 +1467,6 @@ Class IRelationalConnection from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"Open"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
-
-	Func OpenAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync",P1,P2])
 
 	Func OpenAsync P1
 		if dnIsNamed(P1)
@@ -1639,9 +1540,6 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func Exists 
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
-	Func ExistsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
-
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
@@ -1653,9 +1551,6 @@ Class IRelationalDatabaseCreator from DotNetObject
 
 	Func HasTables 
 		return dnRequest("call",[new DotNetObject(nHandle),"HasTables"])
-
-	Func HasTablesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"HasTablesAsync",P1])
 
 	Func HasTablesAsync P1
 		if dnIsNamed(P1)
@@ -1670,9 +1565,6 @@ Class IRelationalDatabaseCreator from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
-	Func CreateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
-
 	Func CreateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAsync",P1])
@@ -1686,9 +1578,6 @@ Class IRelationalDatabaseCreator from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
-	Func DeleteAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
-
 	Func DeleteAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteAsync",P1])
@@ -1701,9 +1590,6 @@ Class IRelationalDatabaseCreator from DotNetObject
 	Func CreateTables 
 		dnRequest("call",[new DotNetObject(nHandle),"CreateTables"])
 		return self
-
-	Func CreateTablesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
 
 	Func CreateTablesAsync P1
 		if dnIsNamed(P1)
@@ -1801,9 +1687,6 @@ Class IRelationalTransactionManager from DotNetObject
 	Func BeginTransaction P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
-	Func BeginTransactionAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1,P2])
-
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
@@ -1816,20 +1699,11 @@ Class IRelationalTransactionManager from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UseTransaction",P1])
 
-	Func UseTransaction_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransaction",P1,P2])
-
-	Func UseTransactionAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1,P2])
-
 	Func UseTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"UseTransactionAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1])
-
-	Func UseTransactionAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1,P2,P3])
 
 
 Class IRelationalTypeMappingSource from DotNetObject
@@ -1847,30 +1721,6 @@ Class IRelationalTypeMappingSource from DotNetObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindMapping",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1])
-
-	Func FindMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3])
-
-	Func FindMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2])
-
-	Func FindMapping_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func FindMapping_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func FindMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7])
-
-	Func FindMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6])
-
-	Func FindMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5])
-
-	Func FindMapping_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4])
 
 
 Class IRelationalTypeMappingSourcePlugin from DotNetObject
@@ -1909,33 +1759,17 @@ Class ISqlGenerationHelper from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1])
 
-	Func GenerateParameterName_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1,P2])
-		return self
-
 	Func GenerateParameterNamePlaceholder P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
 
-	Func GenerateParameterNamePlaceholder_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1,P2])
-		return self
-
 	Func DelimitIdentifier P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
-
-	Func DelimitIdentifier_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2])
-		return self
-
-	Func DelimitIdentifier_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2,P3])
-		return self
 
 	Func DelimitJsonPathElement P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DelimitJsonPathElement",P1])
@@ -2029,12 +1863,6 @@ Class ITypeMappingSource from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1])
 
-	Func FindMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3])
-
-	Func FindMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2])
-
 
 Class ITypeMappingSourcePlugin from DotNetObject
 
@@ -2065,8 +1893,16 @@ Class MaterializationContext from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.MaterializationContext, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func getValueBuffer
@@ -2104,11 +1940,11 @@ Class NonRetryingExecutionStrategy from Object
 	Func Execute P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"Execute",P1,P2,P3])
 
-	Func ExecuteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3,P4])
-
-	Func ExecuteAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2,P3])
+	Func ExecuteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -2221,7 +2057,7 @@ Class ReaderColumn from Object
 		ok
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -2281,9 +2117,6 @@ Class RelationalCommand from Object
 	Func ExecuteNonQuery P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 
-	Func ExecuteNonQueryAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
-
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
@@ -2293,9 +2126,6 @@ Class RelationalCommand from Object
 	Func ExecuteScalar P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar",P1])
 
-	Func ExecuteScalarAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1,P2])
-
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
@@ -2304,9 +2134,6 @@ Class RelationalCommand from Object
 
 	Func ExecuteReader P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
-	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
 
 	Func ExecuteReaderAsync P1
 		if dnIsNamed(P1)
@@ -2443,23 +2270,20 @@ Class RelationalCommandBuilderExtensions from Object
 	Func AppendLine P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLine",P1,P2])
 
-	Func AppendLines_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLines",P1,P2,P3])
-
-	Func AppendLines P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLines",P1,P2])
+	Func AppendLines P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AppendLines",P1])
+		ok
+		raise("DotNet Error: AppendLines does not take one argument: use named arguments, AppendLines([ :parameter = value, ... ])")
 
 	Func Indent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"Indent",P1])
 
-	Func AddParameter P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddParameter",P1,P2,P3])
-
-	Func AddParameter_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddParameter",P1,P2,P3,P4,P5,P6])
-
-	Func AddParameter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddParameter",P1,P2,P3,P4,P5])
+	Func AddParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddParameter",P1])
+		ok
+		raise("DotNet Error: AddParameter does not take one argument: use named arguments, AddParameter([ :parameter = value, ... ])")
 
 	Func AddCompositeParameter P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalCommandBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddCompositeParameter",P1,P2,P3])
@@ -2505,16 +2329,16 @@ Class RelationalCommandParameterObject from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalCommandParameterObject, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func getConnection
@@ -2579,7 +2403,7 @@ Class RelationalConnection from Object
 		ok
 		return self
 
-	Func SetDbConnection_2 P1,P2
+	Func SetDbConnection_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetDbConnection",P1,P2])
 		return self
 
@@ -2603,9 +2427,6 @@ Class RelationalConnection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
-	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
-
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
@@ -2615,23 +2436,11 @@ Class RelationalConnection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
 
-	Func BeginTransaction_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
-
-	Func BeginTransactionAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1,P2])
-
 	Func UseTransaction P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"UseTransaction",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UseTransaction",P1])
-
-	Func UseTransaction_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransaction",P1,P2])
-
-	Func UseTransactionAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1,P2])
 
 	Func UseTransactionAsync P1
 		if dnIsNamed(P1)
@@ -2639,15 +2448,9 @@ Class RelationalConnection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1])
 
-	Func UseTransactionAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"UseTransactionAsync",P1,P2,P3])
-
 	Func CommitTransaction 
 		dnRequest("call",[new DotNetObject(nHandle),"CommitTransaction"])
 		return self
-
-	Func CommitTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitTransactionAsync",P1])
 
 	Func CommitTransactionAsync P1
 		if dnIsNamed(P1)
@@ -2662,9 +2465,6 @@ Class RelationalConnection from Object
 		dnRequest("call",[new DotNetObject(nHandle),"RollbackTransaction"])
 		return self
 
-	Func RollbackTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
-
 	Func RollbackTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
@@ -2674,9 +2474,6 @@ Class RelationalConnection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RollbackTransactionAsync",P1])
 
-	Func Open_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
-
 	Func Open P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Open",P1])
@@ -2685,9 +2482,6 @@ Class RelationalConnection from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Open"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1])
-
-	Func OpenAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync",P1,P2])
 
 	Func OpenAsync P1
 		if dnIsNamed(P1)
@@ -2858,9 +2652,6 @@ Class RelationalDataReader from Object
 	Func Read 
 		return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 
-	Func ReadAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
-
 	Func ReadAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
@@ -2925,9 +2716,6 @@ Class RelationalDatabaseCreator from Object
 	Func Exists 
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
-	Func ExistsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
-
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
@@ -2940,9 +2728,6 @@ Class RelationalDatabaseCreator from Object
 	Func Create 
 		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
-
-	Func CreateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
 
 	Func CreateAsync P1
 		if dnIsNamed(P1)
@@ -2957,9 +2742,6 @@ Class RelationalDatabaseCreator from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 
-	Func DeleteAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
-
 	Func DeleteAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteAsync",P1])
@@ -2973,9 +2755,6 @@ Class RelationalDatabaseCreator from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CreateTables"])
 		return self
 
-	Func CreateTablesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
-
 	Func CreateTablesAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateTablesAsync",P1])
@@ -2987,9 +2766,6 @@ Class RelationalDatabaseCreator from Object
 
 	Func HasTables 
 		return dnRequest("call",[new DotNetObject(nHandle),"HasTables"])
-
-	Func HasTablesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"HasTablesAsync",P1])
 
 	Func HasTablesAsync P1
 		if dnIsNamed(P1)
@@ -3003,9 +2779,6 @@ Class RelationalDatabaseCreator from Object
 	Func EnsureDeleted 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeleted"])
 
-	Func EnsureDeletedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
-
 	Func EnsureDeletedAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureDeletedAsync",P1])
@@ -3017,9 +2790,6 @@ Class RelationalDatabaseCreator from Object
 
 	Func EnsureCreated 
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreated"])
-
-	Func EnsureCreatedAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCreatedAsync",P1])
 
 	Func EnsureCreatedAsync P1
 		if dnIsNamed(P1)
@@ -3035,9 +2805,6 @@ Class RelationalDatabaseCreator from Object
 
 	Func CanConnect 
 		return dnRequest("call",[new DotNetObject(nHandle),"CanConnect"])
-
-	Func CanConnectAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConnectAsync",P1])
 
 	Func CanConnectAsync P1
 		if dnIsNamed(P1)
@@ -3192,22 +2959,17 @@ Class RelationalExecutionStrategyExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ExecuteInTransaction P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1,P2,P3,P4])
-		return self
+	Func ExecuteInTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1])
+		ok
+		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
 
-	Func ExecuteInTransactionAsync P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1,P2,P3,P4])
-
-	Func ExecuteInTransactionAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5])
-
-	Func ExecuteInTransaction_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransaction",P1,P2,P3,P4,P5])
-		return self
-
-	Func ExecuteInTransactionAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5,P6])
+	Func ExecuteInTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalExecutionStrategyExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteInTransactionAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 
 Class RelationalExecutionStrategyFactory from Object
@@ -3251,19 +3013,11 @@ Class RelationalSqlGenerationHelper from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1])
 
-	Func GenerateParameterName_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterName",P1,P2])
-		return self
-
 	Func GenerateParameterNamePlaceholder P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1])
-
-	Func GenerateParameterNamePlaceholder_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GenerateParameterNamePlaceholder",P1,P2])
-		return self
 
 	Func EscapeIdentifier P1
 		if dnIsNamed(P1)
@@ -3271,23 +3025,11 @@ Class RelationalSqlGenerationHelper from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EscapeIdentifier",P1])
 
-	Func EscapeIdentifier_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"EscapeIdentifier",P1,P2])
-		return self
-
 	Func DelimitIdentifier P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1])
-
-	Func DelimitIdentifier_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2])
-		return self
-
-	Func DelimitIdentifier_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DelimitIdentifier",P1,P2,P3])
-		return self
 
 	Func EscapeJsonPathElement P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EscapeJsonPathElement",P1])
@@ -3378,9 +3120,6 @@ Class RelationalTransaction from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Rollback"])
 		return self
 
-	Func CommitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
-
 	Func CommitAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
@@ -3389,9 +3128,6 @@ Class RelationalTransaction from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
-
-	Func RollbackAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
 	Func RollbackAsync P1
 		if dnIsNamed(P1)
@@ -3406,9 +3142,6 @@ Class RelationalTransaction from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CreateSavepoint",P1])
 		return self
 
-	Func CreateSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSavepointAsync",P1,P2])
-
 	Func CreateSavepointAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSavepointAsync",P1])
@@ -3419,9 +3152,6 @@ Class RelationalTransaction from Object
 		dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepoint",P1])
 		return self
 
-	Func RollbackToSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1,P2])
-
 	Func RollbackToSavepointAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackToSavepointAsync",P1])
@@ -3431,9 +3161,6 @@ Class RelationalTransaction from Object
 	Func ReleaseSavepoint P1
 		dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepoint",P1])
 		return self
-
-	Func ReleaseSavepointAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseSavepointAsync",P1,P2])
 
 	Func ReleaseSavepointAsync P1
 		if dnIsNamed(P1)
@@ -3533,56 +3260,16 @@ Class RelationalTypeMappingInfo from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
-		return self
-
-	Func New_13 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13])
-		return self
-
-	Func New_12 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12])
-		return self
-
-	Func New_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
-		return self
-
-	Func New_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
 	Func WithConverter P1
@@ -3730,17 +3417,17 @@ Class RelationalTypeMappingSourceExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetMappingForValue P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingForValue",P1,P2])
+	Func GetMappingForValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingForValue",P1])
+		ok
+		raise("DotNet Error: GetMappingForValue does not take one argument: use named arguments, GetMappingForValue([ :parameter = value, ... ])")
 
-	Func GetMappingForValue_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingForValue",P1,P2,P3])
-
-	Func GetMapping P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMapping",P1,P2])
-
-	Func GetMapping_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMapping",P1,P2,P3])
+	Func GetMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMappingSourceExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMapping",P1])
+		ok
+		raise("DotNet Error: GetMapping does not take one argument: use named arguments, GetMapping([ :parameter = value, ... ])")
 
 
 Class TypeMappingInfo from ValueType
@@ -3765,40 +3452,16 @@ Class TypeMappingInfo from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMappingInfo, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func WithConverter P1
@@ -3891,12 +3554,6 @@ Class TypeMappingSourceBase from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1])
 
-	Func FindMapping_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3])
-
-	Func FindMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -3957,8 +3614,16 @@ Class TypeMaterializationInfo from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TypeMaterializationInfo, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func Equals P1
@@ -4010,7 +3675,15 @@ Class ValueBuffer from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ValueBuffer, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -4082,17 +3755,11 @@ Class RelationalTypeMapping from CoreTypeMapping
 	Func WithTypeMappingInfo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithTypeMappingInfo",P1])
 
-	Func Clone_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func CreateParameter_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3,P4,P5])
-
-	Func CreateParameter_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3,P4])
-
-	Func CreateParameter P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateParameter",P1,P2,P3])
+	Func CreateParameter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateParameter",P1])
+		ok
+		raise("DotNet Error: CreateParameter does not take one argument: use named arguments, CreateParameter([ :parameter = value, ... ])")
 
 	Func GenerateSqlLiteral P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateSqlLiteral",P1])
@@ -4114,9 +3781,6 @@ Class RelationalTypeMapping from CoreTypeMapping
 
 	Func CustomizeDataReaderExpression P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CustomizeDataReaderExpression",P1])
-
-	Func GetDataReaderMethod_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Storage.RelationalTypeMapping, Microsoft.EntityFrameworkCore.Relational'),"GetDataReaderMethod",P1])
 
 	Func getStoreTypePostfix
 		return dnRequest("get",[self,"StoreTypePostfix"])
@@ -4189,24 +3853,6 @@ Class RelationalTypeMappingSource from TypeMappingSourceBase
 		ok
 		return self
 
-	Func FindMapping_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func FindMapping_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func FindMapping_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6,P7])
-
-	Func FindMapping_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5,P6])
-
-	Func FindMapping_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4,P5])
-
-	Func FindMapping_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"FindMapping",P1,P2,P3,P4])
-
 
 Class TypeMappingSource from TypeMappingSourceBase
 
@@ -4232,8 +3878,16 @@ Class BoolTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.BoolTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4259,12 +3913,16 @@ Class ByteArrayTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteArrayTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4290,8 +3948,16 @@ Class ByteTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4317,8 +3983,16 @@ Class CharTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.CharTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4344,8 +4018,16 @@ Class DateOnlyTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4371,8 +4053,16 @@ Class DateTimeOffsetTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeOffsetTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4398,8 +4088,16 @@ Class DateTimeTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DateTimeTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4425,16 +4123,16 @@ Class DecimalTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DecimalTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4460,8 +4158,16 @@ Class DoubleTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.DoubleTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4487,8 +4193,16 @@ Class FloatTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.FloatTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4514,8 +4228,16 @@ Class GuidTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.GuidTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4541,8 +4263,16 @@ Class IntTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.IntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4582,8 +4312,16 @@ Class LongTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.LongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4609,8 +4347,16 @@ Class SByteTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.SByteTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4636,8 +4382,16 @@ Class ShortTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4663,12 +4417,16 @@ Class StringTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.StringTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4694,8 +4452,16 @@ Class TimeOnlyTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeOnlyTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4721,8 +4487,16 @@ Class TimeSpanTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.TimeSpanTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4748,8 +4522,16 @@ Class UIntTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UIntTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4775,8 +4557,16 @@ Class ULongTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.ULongTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 
@@ -4802,8 +4592,16 @@ Class UShortTypeMapping from RelationalTypeMapping
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Storage.UShortTypeMapping, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func GetDataReaderMethod 

@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -196,7 +199,7 @@ using {
 	<span class="c"># 5. Comparing texts: "é" typed in the two ways looks the same but the bytes differ. Normalize before comparing.</span>
 	cComposed = <span class="s">"é"</span>
 	? nl + <span class="s">"5. Looks the same, but equal as bytes? "</span> + yesNo(cComposed = cDecomposed)
-	nSame = <span class="k">new</span> <span class="t">String</span>().<span class="f">Compare_4</span>(cComposed,cDecomposed,<span class="k">False</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>))
+	nSame = <span class="k">new</span> <span class="t">String</span>().<span class="f">Compare</span>([ :strA = cComposed, :strB = cDecomposed, :ignoreCase = <span class="k">False</span>, :culture = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>) ])
 	? <span class="s">"   Compared as TEXT with a culture (en-US): "</span> + yesNo(nSame = <span class="n">0</span>)
 
 	<span class="c"># 6. Categories: .NET knows what kind of character something is</span>

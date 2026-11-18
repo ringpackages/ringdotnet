@@ -292,12 +292,16 @@ Class Regex from Object
 		nHandle = dnCreate('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions',[P1])
 		return self
 
 	Func GetGroupNames 
@@ -330,12 +334,6 @@ Class Regex from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsMatch",P1])
 
-	Func IsMatch_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1,P2])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsMatch",P1,P2])
-
 	Func Match P1
 		if dnIsNamed(P1)
 			if nHandle = 0
@@ -344,18 +342,6 @@ Class Regex from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Match",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1])
-
-	Func Match_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2])
-
-	Func Match_3 P1,P2,P3
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2,P3])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Match",P1,P2,P3])
 
 	Func Matches P1
 		if dnIsNamed(P1)
@@ -366,26 +352,14 @@ Class Regex from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1])
 
-	Func Matches_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1,P2])
+	Func Replace P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1,P2])
-
-	Func Replace P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
-
-	Func Replace_3 P1,P2,P3
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
-
-	Func Replace_4 P1,P2,P3,P4
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3,P4])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3,P4])
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Split P1
 		if dnIsNamed(P1)
@@ -396,68 +370,21 @@ Class Regex from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1])
 
-	Func Split_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2])
-
-	Func Split_3 P1,P2,P3
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2,P3])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func CompileToAssembly P1,P2
-		dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1,P2])
-		return self
-
-	Func CompileToAssembly_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1,P2,P3])
-		return self
-
-	Func CompileToAssembly_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1,P2,P3,P4])
-		return self
+	Func CompileToAssembly P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"CompileToAssembly",P1])
+			return self
+		ok
+		raise("DotNet Error: CompileToAssembly does not take one argument: use named arguments, CompileToAssembly([ :parameter = value, ... ])")
 
 	Func Escape P1
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Escape",P1])
 
 	Func Unescape P1
 		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Unescape",P1])
-
-	Func Count_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1,P2])
-
-	Func Count_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1,P2,P3])
-
-	Func Count_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Count",P1,P2,P3,P4])
-
-	Func IsMatch_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1,P2,P3])
-
-	Func IsMatch_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"IsMatch",P1,P2,P3,P4])
-
-	Func Match_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Match",P1,P2,P3,P4])
-
-	Func Matches_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1,P2,P3])
-
-	Func Matches_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Matches",P1,P2,P3,P4])
-
-	Func Replace_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Replace",P1,P2,P3,P4,P5])
-
-	Func Split_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.RegularExpressions.Regex, System.Text.RegularExpressions'),"Split",P1,P2,P3,P4])
 
 	Func getOptions
 		return dnRequest("get",[self,"Options"])

@@ -31,7 +31,7 @@ func main
 		uiButton(oForm,aNames[nIndex],10 + nColumn * 62,C_HEIGHT + 44 + nRow * 32,58,28,"applyFilter('" + aNames[nIndex] + "')")
 	next
 	oInfo = uiLabel(oForm,"",10,C_HEIGHT + 112,C_WIDTH * 2 + 30,22)
-	cFolder = new Path().Combine(new Path().GetTempPath(),"tutorial63")
+	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial63"])
 	new Directory().CreateDirectory(cFolder)
 	makeSource()
 	applyFilter("Original")
@@ -211,7 +211,7 @@ func applyFilter cName
 # save the pixels as a BMP file (a new name each time: a file that is shown is locked) and give the picture box that image
 func showPixels oPicture, aPixels
 	nFile++
-	cFile = new Path().Combine(cFolder,"image" + nFile + ".bmp")
+	cFile = new Path().Combine([cFolder,"image" + nFile + ".bmp"])
 	saveBmp(aPixels,cFile)
 	oPicture.Image = dnNew("Bitmap",[ :filename = cFile ])
 

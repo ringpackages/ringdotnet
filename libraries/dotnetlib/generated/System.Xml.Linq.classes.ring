@@ -132,26 +132,17 @@ Class Extensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1])
 
-	Func Attributes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Attributes",P1,P2])
-
 	Func Ancestors P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1])
 
-	Func Ancestors_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Ancestors",P1,P2])
-
 	Func AncestorsAndSelf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1])
-
-	Func AncestorsAndSelf_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"AncestorsAndSelf",P1,P2])
 
 	Func Nodes P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Nodes",P1])
@@ -165,9 +156,6 @@ Class Extensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1])
 
-	Func Descendants_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Descendants",P1,P2])
-
 	Func DescendantNodesAndSelf P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantNodesAndSelf",P1])
 
@@ -177,17 +165,11 @@ Class Extensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1])
 
-	Func DescendantsAndSelf_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"DescendantsAndSelf",P1,P2])
-
 	Func Elements P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1])
-
-	Func Elements_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"Elements",P1,P2])
 
 	Func InDocumentOrder P1
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.Extensions, System.Private.Xml.Linq'),"InDocumentOrder",P1])
@@ -212,8 +194,16 @@ Class XDeclaration from Object
 		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Linq.XDeclaration, System.Private.Xml.Linq',[P1])
 		return self
 
 	Func Equals P1
@@ -263,9 +253,6 @@ Class XName from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1])
-
-	Func Get_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XName, System.Private.Xml.Linq'),"Get",P1,P2])
 
 	Func getLocalName
 		return dnRequest("get",[self,"LocalName"])
@@ -364,12 +351,6 @@ Class XNodeEqualityComparer from Object
 		nHandle = dnCreate('System.Xml.Linq.XNodeEqualityComparer, System.Private.Xml.Linq',[])
 		return self
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
@@ -405,9 +386,6 @@ Class XObject from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AddAnnotation",P1])
 		return self
 
-	Func Annotation_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Annotation",P1])
-
 	Func Annotation P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Annotation",P1])
@@ -417,9 +395,6 @@ Class XObject from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Annotation",P1])
 
-	Func Annotations_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Annotations",P1])
-
 	Func Annotations P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Annotations",P1])
@@ -428,10 +403,6 @@ Class XObject from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Annotations"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Annotations",P1])
-
-	Func RemoveAnnotations_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAnnotations",P1])
-		return self
 
 	Func RemoveAnnotations P1
 		if dnIsNamed(P1)
@@ -550,8 +521,16 @@ Class XStreamingElement from Object
 		nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Linq.XStreamingElement, System.Private.Xml.Linq',[P1])
 		return self
 
 	Func Add P1
@@ -566,11 +545,10 @@ Class XStreamingElement from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
-	Func Save_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
-		return self
-
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func WriteTo P1
@@ -606,7 +584,15 @@ Class XAttribute from XObject
 		nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[P1,P2])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Linq.XAttribute, System.Private.Xml.Linq',[P1])
 		return self
 
@@ -614,7 +600,7 @@ Class XAttribute from XObject
 		dnRequest("call",[new DotNetObject(nHandle),"Remove"])
 		return self
 
-	Func SetValue_1 P1
+	Func SetValue_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1])
 		return self
 
@@ -688,9 +674,6 @@ Class XNode from XObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Ancestors",P1])
 
-	Func Ancestors_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Ancestors",P1])
-
 	Func CreateReader P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateReader",P1])
@@ -698,9 +681,6 @@ Class XNode from XObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateReader"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader",P1])
-
-	Func CreateReader_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateReader",P1])
 
 	Func NodesAfterSelf 
@@ -718,9 +698,6 @@ Class XNode from XObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ElementsAfterSelf",P1])
 
-	Func ElementsAfterSelf_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ElementsAfterSelf",P1])
-
 	Func ElementsBeforeSelf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
@@ -728,9 +705,6 @@ Class XNode from XObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
-
-	Func ElementsBeforeSelf_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ElementsBeforeSelf",P1])
 
 	Func IsAfter P1
@@ -747,7 +721,10 @@ Class XNode from XObject
 		dnRequest("call",[new DotNetObject(nHandle),"ReplaceWith",P1])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func WriteTo P1
@@ -851,9 +828,6 @@ Class XContainer from XNode
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Descendants",P1])
 
-	Func Descendants_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Descendants",P1])
-
 	Func Element P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Element",P1])
 
@@ -864,9 +838,6 @@ Class XContainer from XNode
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Elements"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Elements",P1])
-
-	Func Elements_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Elements",P1])
 
 	Func Nodes 
@@ -909,8 +880,16 @@ Class XDocumentType from XNode
 		nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Linq.XDocumentType, System.Private.Xml.Linq',[P1])
 		return self
 
 	Func getInternalSubset
@@ -956,8 +935,16 @@ Class XProcessingInstruction from XNode
 		nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Linq.XProcessingInstruction, System.Private.Xml.Linq',[P1])
 		return self
 
 	Func getData
@@ -1023,12 +1010,16 @@ Class XDocument from XContainer
 		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XDocument, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Linq.XDocument, System.Private.Xml.Linq',[P1,P2])
 		return self
 
 	Func Save P1
@@ -1039,24 +1030,17 @@ Class XDocument from XContainer
 		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
-	Func Save_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
-		return self
-
-	Func SaveAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2,P3])
-
-	Func SaveAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
+	Func SaveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAsync",P1])
+		ok
+		raise("DotNet Error: SaveAsync does not take one argument: use named arguments, SaveAsync([ :parameter = value, ... ])")
 
 	Func Load_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1])
-
-	Func Load_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Load",P1,P2])
 
 	Func LoadAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"LoadAsync",P1,P2,P3])
@@ -1066,9 +1050,6 @@ Class XDocument from XContainer
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XDocument, System.Private.Xml.Linq'),"Parse",P1,P2])
 
 	Func getDeclaration
 		return dnRequest("get",[self,"Declaration"])
@@ -1110,7 +1091,15 @@ Class XElement from XContainer
 		nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[P1,P2])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Linq.XElement, System.Private.Xml.Linq',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Linq.XElement, System.Private.Xml.Linq',[P1])
 		return self
 
@@ -1122,10 +1111,6 @@ Class XElement from XContainer
 		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
 		return self
 
-	Func Save_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
-		return self
-
 	Func AncestorsAndSelf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
@@ -1133,9 +1118,6 @@ Class XElement from XContainer
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
-
-	Func AncestorsAndSelf_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"AncestorsAndSelf",P1])
 
 	Func Attribute P1
@@ -1150,9 +1132,6 @@ Class XElement from XContainer
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Attributes",P1])
 
-	Func Attributes_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Attributes",P1])
-
 	Func DescendantNodesAndSelf 
 		return dnRequest("call",[new DotNetObject(nHandle),"DescendantNodesAndSelf"])
 
@@ -1163,9 +1142,6 @@ Class XElement from XContainer
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf",P1])
-
-	Func DescendantsAndSelf_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DescendantsAndSelf",P1])
 
 	Func GetDefaultNamespace 
@@ -1193,11 +1169,11 @@ Class XElement from XContainer
 		dnRequest("call",[new DotNetObject(nHandle),"ReplaceAttributes",P1])
 		return self
 
-	Func SaveAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2,P3])
-
-	Func SaveAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
+	Func SaveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAsync",P1])
+		ok
+		raise("DotNet Error: SaveAsync does not take one argument: use named arguments, SaveAsync([ :parameter = value, ... ])")
 
 	Func SetAttributeValue P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetAttributeValue",P1,P2])
@@ -1207,7 +1183,7 @@ Class XElement from XContainer
 		dnRequest("call",[new DotNetObject(nHandle),"SetElementValue",P1,P2])
 		return self
 
-	Func SetValue_1 P1
+	Func SetValue_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1])
 		return self
 
@@ -1217,9 +1193,6 @@ Class XElement from XContainer
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1])
 
-	Func Load_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Load",P1,P2])
-
 	Func LoadAsync P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"LoadAsync",P1,P2,P3])
 
@@ -1228,9 +1201,6 @@ Class XElement from XContainer
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.Linq.XElement, System.Private.Xml.Linq'),"Parse",P1,P2])
 
 	Func getFirstAttribute
 		return dnRequest("get",[self,"FirstAttribute"])

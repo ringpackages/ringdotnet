@@ -41,12 +41,12 @@ func main
 	oHash = new HashAlgorithmName().SHA256
 	oPadding = new RSASignaturePadding().Pkcs1
 	cOrder = "Pay 100 to Ann"
-	cSignature = oSigner.SignData(cOrder,oHash,oPadding)
+	cSignature = oSigner.SignData([ :data = cOrder, :hashAlgorithm = oHash, :padding = oPadding ])
 	oVerifier = new RSA().Create(NULL)
 	oVerifier.FromXmlString(cPublicKey)
 	? nl + "6. the signature has " + len(cSignature) + " bytes (a 2048-bit key)"
-	? "   verified with the public key: " + yesNo(oVerifier.VerifyData(cOrder,cSignature,oHash,oPadding))
-	? "   the order was changed to 'Pay 900 to Ann': " + yesNo(oVerifier.VerifyData("Pay 900 to Ann",cSignature,oHash,oPadding))
+	? "   verified with the public key: " + yesNo(oVerifier.VerifyData([ :data = cOrder, :signature = cSignature, :hashAlgorithm = oHash, :padding = oPadding ]))
+	? "   the order was changed to 'Pay 900 to Ann': " + yesNo(oVerifier.VerifyData([ :data = "Pay 900 to Ann", :signature = cSignature, :hashAlgorithm = oHash, :padding = oPadding ]))
 
 # the keys of a password: PBKDF2 with SHA-256, 100000 rounds, nBytes long
 func deriveKeys cPassword, cSalt

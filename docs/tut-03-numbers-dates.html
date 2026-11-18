@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -188,13 +191,13 @@ using {
 
 	<span class="c"># Dates: DateTime is a struct with year, month, day, hour...</span>
 	oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year = <span class="n">2024</span>, :month = <span class="n">12</span>, :day = <span class="n">25</span>, :hour = <span class="n">18</span>, :minute = <span class="n">30</span>, :second = <span class="n">0</span> ])
-	? <span class="s">"A date            : "</span> + oDate.<span class="f">ToString_1</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
+	? <span class="s">"A date            : "</span> + oDate.<span class="f">Format</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
 	? <span class="s">"Year, month, day  : "</span> + oDate.Year + <span class="s">", "</span> + oDate.Month + <span class="s">", "</span> + oDate.Day
 	? <span class="s">"Day of the week   : "</span> + oDate.DayOfWeek
 
 	<span class="c"># Dates are immutable: methods return a new date</span>
 	oLater = oDate.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">AddHours</span>(-<span class="n">3</span>)
-	? <span class="s">"10 days later     : "</span> + oLater.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>)
+	? <span class="s">"10 days later     : "</span> + oLater.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>)
 
 	<span class="c"># TimeSpan: the difference between two dates</span>
 	oSpan = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2025</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">Subtract</span>(oDate)
@@ -203,11 +206,11 @@ using {
 
 	<span class="c"># Parsing dates from text</span>
 	oParsed = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2000</span>,<span class="n">1</span>,<span class="n">1</span>).<span class="f">Parse</span>(<span class="s">"2024-07-04"</span>)
-	? <span class="s">"Parsed            : "</span> + oParsed.<span class="f">ToString_1</span>(<span class="s">"d MMMM yyyy"</span>)
+	? <span class="s">"Parsed            : "</span> + oParsed.<span class="f">Format</span>(<span class="s">"d MMMM yyyy"</span>)
 
 	<span class="c"># Cultures format the same date differently</span>
-	? <span class="s">"US style          : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>))
-	? <span class="s">"German style      : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>))</code></pre></div>
+	? <span class="s">"US style          : "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"D"</span>, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>) ])
+	? <span class="s">"German style      : "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"D"</span>, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>) ])</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>Round to 2 digits : 3.14
 Square root of 144: 12
 Power 2^10        : 1024
@@ -247,7 +250,7 @@ oDate = <span class="f">dnNew</span>(<span class="s">"DateTime"</span>,[ :year =
 <h3 id="timespan">TimeSpan<a class="anchor" href="#timespan">#</a></h3>
 <p>The difference between two dates is a <code>TimeSpan</code>: <code>Subtract</code> gives it, and it has <code>Days</code>, <code>Hours</code> and <code>TotalHours</code> (the whole span in hours, with decimals).</p>
 <h3 id="formats-and-cultures">Formats and cultures<a class="anchor" href="#formats-and-cultures">#</a></h3>
-<p><code>ToString_1("dddd, dd MMMM yyyy HH:mm")</code> formats a date with a pattern. Some letters: <code>yyyy</code> year, <code>MM</code> month number, <code>MMMM</code> month name, <code>dd</code> day, <code>dddd</code> weekday, <code>HH</code> hour (24), <code>mm</code> minute. A <em>culture</em> changes the language: <code>ToString_2("D", new CultureInfo("de-DE"))</code> writes the long date in German.</p>
+<p><code>Format("dddd, dd MMMM yyyy HH:mm")</code> formats a date with a pattern. Some letters: <code>yyyy</code> year, <code>MM</code> month number, <code>MMMM</code> month name, <code>dd</code> day, <code>dddd</code> weekday, <code>HH</code> hour (24), <code>mm</code> minute. A <em>culture</em> changes the language: <code>Format([ :format = "D", :provider = new CultureInfo("de-DE") ])</code> writes the long date in German.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>Math</code> functions and named arguments,</li><li><code>TryParse</code> for safe conversion,</li><li><code>BigInteger</code> for exact big numbers,</li><li>dates are values that you copy, never change,</li><li>format patterns and cultures.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>

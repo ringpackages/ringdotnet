@@ -12,7 +12,7 @@ func main
 	oDirectory = new Directory()
 
 	# Never build paths by joining text: Path.Combine uses the right separator
-	cFolder = oPath.Combine(oPath.GetTempPath(),"ringdotnet_tutorial5")
+	cFolder = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial5"])
 	if oDirectory.Exists(cFolder)
 		oDirectory.Delete([ :path = cFolder, :recursive = True ])
 	ok
@@ -20,15 +20,15 @@ func main
 	? "Folder created     : " + oDirectory.Exists(cFolder)
 
 	# Write a text file and read it back
-	cNotes = oPath.Combine(cFolder,"notes.txt")
-	oFile.WriteAllText(cNotes,"first line" + windowsnl() + "second line" + windowsnl() + "third line")
+	cNotes = oPath.Combine([cFolder,"notes.txt"])
+	oFile.WriteAllText([ :path = cNotes, :contents = "first line" + windowsnl() + "second line" + windowsnl() + "third line" ])
 	? "File exists        : " + oFile.Exists(cNotes)
 	? "All the text       : " + len(oFile.ReadAllText(cNotes)) + " characters"
 	aLines = oFile.ReadAllLines(cNotes).toList()
 	? "Lines              : " + len(aLines) + ", the last is '" + aLines[len(aLines)] + "'"
 
 	# Append without erasing
-	oFile.AppendAllText(cNotes,windowsnl() + "fourth line")
+	oFile.AppendAllText([ :path = cNotes, :contents = windowsnl() + "fourth line" ])
 	? "After appending    : " + len(oFile.ReadAllLines(cNotes).toList()) + " lines"
 
 	# Read a big file line by line with a reader
@@ -48,15 +48,15 @@ func main
 	? "File name only     : " + oPath.GetFileNameWithoutExtension(cNotes)
 
 	# Copy, move, list
-	oFile.Copy(cNotes,oPath.Combine(cFolder,"copy.txt"))
+	oFile.Copy([ :sourceFileName = cNotes, :destFileName = oPath.Combine([cFolder,"copy.txt"]) ])
 	? "Files in the folder: " + len(oDirectory.GetFiles(cFolder).toList())
 
 	# Zip a folder and unzip it somewhere else
-	cZip = oPath.Combine(oPath.GetTempPath(),"ringdotnet_tutorial5.zip")
+	cZip = oPath.Combine([oPath.GetTempPath(),"ringdotnet_tutorial5.zip"])
 	if oFile.Exists(cZip)
 		oFile.Delete(cZip)
 	ok
-	new ZipFile().CreateFromDirectory(cFolder,cZip)
+	new ZipFile().CreateFromDirectory([ :sourceDirectoryName = cFolder, :destinationArchiveFileName = cZip ])
 	? "Zip size           : " + new FileInfo(cZip).Length + " bytes"
 	oFile.Delete(cZip)
 

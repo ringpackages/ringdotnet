@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -183,10 +186,10 @@ C_HTML = <span class="s">'&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www
 C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt;xsl:for-each select="book"&gt;&lt;tr class="{@genre}"&gt;&lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;&lt;td&gt;&lt;xsl:value-of select="price"/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/xsl:for-each&gt;&lt;/table&gt;&lt;/xsl:template&gt;&lt;/xsl:stylesheet&gt;'</span>
 
 <span class="k">func</span> <span class="f">main</span>
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial77"</span>)
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial77"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
-	cInput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"library.xml"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cInput,C_XML)
+	cInput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"library.xml"</span>])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cInput, :contents = C_XML ])
 
 	<span class="c"># 1. XSLT turns an input document into another document. XslCompiledTransform compiles the stylesheet once; Transform runs it.</span>
 	? <span class="s">"1. a text report, newest book first, with the total price:"</span>
@@ -208,12 +211,12 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 
 <span class="c"># compile the stylesheet text, run it over the input file, return the text of the output file</span>
 <span class="k">func</span> <span class="f">transform</span> cFolder, cInput, cStylesheet, cOutputName
-	cSheet = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,cOutputName + <span class="s">".xsl"</span>)
-	cOutput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,cOutputName)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cSheet,cStylesheet)
+	cSheet = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cOutputName + <span class="s">".xsl"</span>])
+	cOutput = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cOutputName])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cSheet, :contents = cStylesheet ])
 	oTransform = <span class="k">new</span> <span class="t">XslCompiledTransform</span>()
 	oTransform.<span class="f">Load_</span>(cSheet)
-	oTransform.<span class="f">Transform</span>(cInput,cOutput)
+	oTransform.<span class="f">Transform</span>([ :inputUri = cInput, :resultsFile = cOutput ])
 	<span class="k">return</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cOutput)
 
 <span class="k">func</span> <span class="f">indent</span> cText
@@ -277,7 +280,7 @@ C_HTML += <span class="s">'&lt;xsl:template match="/library"&gt;&lt;table&gt;&lt
 <p>Everything happens in <code>transform</code>: it writes the stylesheet text to a file, then</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oTransform = <span class="k">new</span> <span class="t">XslCompiledTransform</span>()
 oTransform.<span class="f">Load_</span>(cSheet)                 <span class="c"># compile the stylesheet (Load is a Ring keyword, so the method is Load_)</span>
-oTransform.<span class="f">Transform</span>(cInput,cOutput)     <span class="c"># input file -&gt; output file</span></code></pre></div>
+oTransform.<span class="f">Transform</span>([ :inputUri = cInput, :resultsFile = cOutput ])     <span class="c"># input file -&gt; output file</span></code></pre></div>
 <p><code>Load_</code> and <code>Transform</code> take file names in this form; the output file is read back with <code>File.ReadAllText</code>. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls <code>Transform</code> many times.</p>
 <h3 id="three-stylesheets">Three stylesheets<a class="anchor" href="#three-stylesheets">#</a></h3>
 <ol><li><strong>Text.</strong> <code>xsl:output method="text"</code> writes plain text. <code>for-each select="book"</code> repeats for every book; <code>xsl:sort</code> orders them by year, newest first (<code>data-type="number"</code>, otherwise <code>1965</code> sorts after <code>1937</code> only by luck); <code>sum(book/price)</code> adds the prices. <code>&lt;xsl:text&gt;&amp;#10;&lt;/xsl:text&gt;</code> writes a new line.</li><li><strong>CSV.</strong> The same structure, with a <em>filter</em>: <code>book[price &amp;lt; 10]</code> keeps only the cheap books (<code>&amp;lt;</code> is <code>&lt;</code> inside XML).</li><li><strong>HTML.</strong> <code>method="html" indent="yes"</code> writes a table. In <code>&lt;tr class="{@genre}"&gt;</code> the braces put the value of the attribute into the output (an <em>attribute value template</em>), so each row gets its genre as a CSS class.</li></ol>

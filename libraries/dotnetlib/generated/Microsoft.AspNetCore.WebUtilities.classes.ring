@@ -152,9 +152,29 @@ Class BufferedReadStream from Stream
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.BufferedReadStream, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
+
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
+
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+		ok
+		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func EnsureBuffered P1
 		if dnIsNamed(P1)
@@ -170,12 +190,6 @@ Class BufferedReadStream from Stream
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1])
-
-	Func EnsureBuffered_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBuffered",P1])
-
-	Func EnsureBufferedAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EnsureBufferedAsync",P1,P2])
 
 	Func ReadLine P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadLine",P1])
@@ -205,13 +219,23 @@ Class FileBufferingReadStream from Stream
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingReadStream, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3,P4,P5])
-		return self
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func getMemoryThreshold
 		return dnRequest("get",[self,"MemoryThreshold"])
@@ -245,20 +269,23 @@ Class FileBufferingWriteStream from Stream
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileBufferingWriteStream, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func DrainBufferAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DrainBufferAsync",P1,P2])
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+		ok
+		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func DrainBufferAsync P1
 		if dnIsNamed(P1)
@@ -289,8 +316,16 @@ Class FileMultipartSection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FileMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
 	Func Equals P1
@@ -335,8 +370,16 @@ Class FormMultipartSection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormMultipartSection, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
 	Func GetValueAsync P1
@@ -346,9 +389,6 @@ Class FormMultipartSection from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync",P1])
-
-	Func GetValueAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValueAsync",P1])
 
 	Func Equals P1
@@ -382,12 +422,17 @@ Class FormPipeReader from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormPipeReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
-
-	Func ReadFormAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
@@ -441,19 +486,20 @@ Class FormReader from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.FormReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
 	Func ReadNextPair 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPair"])
-
-	Func ReadNextPairAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextPairAsync",P1])
 
 	Func ReadNextPairAsync P1
 		if dnIsNamed(P1)
@@ -466,9 +512,6 @@ Class FormReader from Object
 
 	Func ReadForm 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadForm"])
-
-	Func ReadFormAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
@@ -537,12 +580,16 @@ Class HttpRequestStreamReader from TextReader
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpRequestStreamReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
 
@@ -557,12 +604,16 @@ Class HttpResponseStreamWriter from TextWriter
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.HttpResponseStreamWriter, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
 
@@ -624,12 +675,17 @@ Class MultipartReader from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.MultipartReader, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
-
-	Func ReadNextSectionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadNextSectionAsync",P1])
 
 	Func ReadNextSectionAsync P1
 		if dnIsNamed(P1)
@@ -773,9 +829,6 @@ Class MultipartSectionStreamExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1])
 
-	Func ReadAsStringAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.MultipartSectionStreamExtensions, Microsoft.AspNetCore.WebUtilities'),"ReadAsStringAsync",P1,P2])
-
 
 Class QueryHelpers from Object
 
@@ -790,11 +843,11 @@ Class QueryHelpers from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddQueryString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"AddQueryString",P1,P2,P3])
-
-	Func AddQueryString P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"AddQueryString",P1,P2])
+	Func AddQueryString P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"AddQueryString",P1])
+		ok
+		raise("DotNet Error: AddQueryString does not take one argument: use named arguments, AddQueryString([ :parameter = value, ... ])")
 
 	Func ParseQuery P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.QueryHelpers, Microsoft.AspNetCore.WebUtilities'),"ParseQuery",P1])
@@ -814,7 +867,15 @@ Class QueryStringEnumerable from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.WebUtilities.QueryStringEnumerable, Microsoft.AspNetCore.WebUtilities',[P1])
 		return self
 
@@ -852,14 +913,11 @@ Class StreamHelperExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func DrainAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1,P2])
-
-	Func DrainAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1,P2,P3])
-
-	Func DrainAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1,P2,P3,P4])
+	Func DrainAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.StreamHelperExtensions, Microsoft.AspNetCore.WebUtilities'),"DrainAsync",P1])
+		ok
+		raise("DotNet Error: DrainAsync does not take one argument: use named arguments, DrainAsync([ :parameter = value, ... ])")
 
 
 Class WebEncoders from Object
@@ -881,12 +939,6 @@ Class WebEncoders from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1])
 
-	Func Base64UrlDecode_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1,P2,P3])
-
-	Func Base64UrlDecode_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlDecode",P1,P2,P3,P4,P5])
-
 	Func GetArraySizeRequiredToDecode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToDecode",P1])
 
@@ -895,12 +947,6 @@ Class WebEncoders from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1])
-
-	Func Base64UrlEncode_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1,P2,P3])
-
-	Func Base64UrlEncode_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"Base64UrlEncode",P1,P2,P3,P4,P5])
 
 	Func GetArraySizeRequiredToEncode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.WebUtilities.WebEncoders, Microsoft.AspNetCore.WebUtilities'),"GetArraySizeRequiredToEncode",P1])

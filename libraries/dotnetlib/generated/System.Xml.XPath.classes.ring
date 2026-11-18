@@ -60,8 +60,16 @@ Class XPathDocument from Object
 		nHandle = dnCreate('System.Xml.XPath.XPathDocument, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.XPath.XPathDocument, System.Private.Xml',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XPath.XPathDocument, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XPath.XPathDocument, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.XPath.XPathDocument, System.Private.Xml',[P1])
 		return self
 
 	Func CreateNavigator 
@@ -84,13 +92,12 @@ Class XPathExpression from Object
 		ok
 		return self
 
-	Func AddSort_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddSort",P1,P2])
-		return self
-
-	Func AddSort P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"AddSort",P1,P2,P3,P4,P5])
-		return self
+	Func AddSort P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddSort",P1])
+			return self
+		ok
+		raise("DotNet Error: AddSort does not take one argument: use named arguments, AddSort([ :parameter = value, ... ])")
 
 	Func Clone 
 		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
@@ -107,9 +114,6 @@ Class XPathExpression from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1])
-
-	Func Compile_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XPath.XPathExpression, System.Private.Xml'),"Compile",P1,P2])
 
 	Func getExpression
 		return dnRequest("get",[self,"Expression"])
@@ -150,9 +154,6 @@ Class XPathItem from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ValueAs",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ValueAs",P1])
-
-	Func ValueAs_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ValueAs",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -339,12 +340,6 @@ Class XPathNavigator from XPathItem
 	Func MoveToNamespace P1
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToNamespace",P1])
 
-	Func MoveToFirstNamespace_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToFirstNamespace",P1])
-
-	Func MoveToNextNamespace_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToNextNamespace",P1])
-
 	Func MoveToFirstNamespace P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MoveToFirstNamespace",P1])
@@ -394,32 +389,17 @@ Class XPathNavigator from XPathItem
 	Func MoveToId P1
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToId",P1])
 
-	Func MoveToChild_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToChild",P1,P2])
-
 	Func MoveToChild P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MoveToChild",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToChild",P1])
 
-	Func MoveToFollowing_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToFollowing",P1,P2])
-
-	Func MoveToFollowing_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToFollowing",P1,P2,P3])
-
 	Func MoveToFollowing P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MoveToFollowing",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToFollowing",P1])
-
-	Func MoveToNext_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToNext",P1,P2])
-
-	Func MoveToNext_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToNext",P1])
 
 	Func IsSamePosition P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsSamePosition",P1])
@@ -442,26 +422,17 @@ Class XPathNavigator from XPathItem
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1])
 
-	Func SelectSingleNode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1,P2])
-
 	Func Select P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Select",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
 
-	Func Select_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-
 	Func Evaluate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Evaluate",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1])
-
-	Func Evaluate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Evaluate",P1,P2])
 
 	Func Matches P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Matches",P1])
@@ -472,20 +443,17 @@ Class XPathNavigator from XPathItem
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SelectChildren",P1])
 
-	Func SelectChildren_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectChildren",P1,P2])
+	Func SelectAncestors P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SelectAncestors",P1])
+		ok
+		raise("DotNet Error: SelectAncestors does not take one argument: use named arguments, SelectAncestors([ :parameter = value, ... ])")
 
-	Func SelectAncestors P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectAncestors",P1,P2])
-
-	Func SelectAncestors_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectAncestors",P1,P2,P3])
-
-	Func SelectDescendants P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectDescendants",P1,P2])
-
-	Func SelectDescendants_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectDescendants",P1,P2,P3])
+	Func SelectDescendants P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SelectDescendants",P1])
+		ok
+		raise("DotNet Error: SelectDescendants does not take one argument: use named arguments, SelectDescendants([ :parameter = value, ... ])")
 
 	Func PrependChild P1
 		if dnIsNamed(P1)
@@ -535,22 +503,6 @@ Class XPathNavigator from XPathItem
 
 	Func ReplaceSelf P1
 		dnRequest("call",[new DotNetObject(nHandle),"ReplaceSelf",P1])
-		return self
-
-	Func AppendChild_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"AppendChild",P1])
-		return self
-
-	Func PrependChild_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"PrependChild",P1])
-		return self
-
-	Func InsertBefore_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"InsertBefore",P1])
-		return self
-
-	Func InsertAfter_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"InsertAfter",P1])
 		return self
 
 	Func DeleteRange P1

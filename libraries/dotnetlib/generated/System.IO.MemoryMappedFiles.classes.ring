@@ -36,13 +36,7 @@ Class MemoryMappedFile from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream"])
 		ok
-		raise("DotNet Error: CreateViewStream does not take one argument: use CreateViewStream(NULL), CreateViewStream_N(...) or named arguments")
-
-	Func CreateViewStream_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream",P1,P2])
-
-	Func CreateViewStream_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewStream",P1,P2,P3])
+		raise("DotNet Error: CreateViewStream does not take one argument: use named arguments, CreateViewStream([ :parameter = value, ... ])")
 
 	Func CreateViewAccessor P1
 		if dnIsNamed(P1)
@@ -51,13 +45,7 @@ Class MemoryMappedFile from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor"])
 		ok
-		raise("DotNet Error: CreateViewAccessor does not take one argument: use CreateViewAccessor(NULL), CreateViewAccessor_N(...) or named arguments")
-
-	Func CreateViewAccessor_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor",P1,P2])
-
-	Func CreateViewAccessor_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateViewAccessor",P1,P2,P3])
+		raise("DotNet Error: CreateViewAccessor does not take one argument: use named arguments, CreateViewAccessor([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -72,50 +60,23 @@ Class MemoryMappedFile from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1])
 
-	Func OpenExisting_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1,P2])
-
-	Func OpenExisting_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"OpenExisting",P1,P2,P3])
-
 	Func CreateFromFile P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1])
 
-	Func CreateFromFile_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1,P2])
+	Func CreateNew P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1])
+		ok
+		raise("DotNet Error: CreateNew does not take one argument: use named arguments, CreateNew([ :parameter = value, ... ])")
 
-	Func CreateFromFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1,P2,P3])
-
-	Func CreateFromFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1,P2,P3,P4])
-
-	Func CreateFromFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1,P2,P3,P4,P5])
-
-	Func CreateFromFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateFromFile",P1,P2,P3,P4,P5,P6])
-
-	Func CreateNew P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1,P2])
-
-	Func CreateNew_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1,P2,P3])
-
-	Func CreateNew_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateNew",P1,P2,P3,P4,P5])
-
-	Func CreateOrOpen P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2])
-
-	Func CreateOrOpen_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3])
-
-	Func CreateOrOpen_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1,P2,P3,P4,P5])
+	Func CreateOrOpen P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.MemoryMappedFiles.MemoryMappedFile, System.IO.MemoryMappedFiles'),"CreateOrOpen",P1])
+		ok
+		raise("DotNet Error: CreateOrOpen does not take one argument: use named arguments, CreateOrOpen([ :parameter = value, ... ])")
 
 	Func getSafeMemoryMappedFileHandle
 		return dnRequest("get",[self,"SafeMemoryMappedFileHandle"])

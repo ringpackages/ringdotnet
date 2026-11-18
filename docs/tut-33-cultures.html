@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -171,9 +174,9 @@ using {
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">7</span>,<span class="n">4</span>)
 	<span class="k">for</span> cName <span class="k">in</span> aCultures
 		oCulture = <span class="k">new</span> <span class="t">CultureInfo</span>(cName)
-		cNumber = oString.<span class="f">Format_3</span>(oCulture,<span class="s">"{0:N2}"</span>,<span class="n">1234567.891</span>)
-		cMoney = oString.<span class="f">Format_3</span>(oCulture,<span class="s">"{0:C}"</span>,<span class="n">1234.5</span>)
-		cLong = oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,oCulture)
+		cNumber = oString.<span class="f">Format</span>([ :provider = oCulture, :format = <span class="s">"{0:N2}"</span>, :arg0 = <span class="n">1234567.891</span> ])
+		cMoney = oString.<span class="f">Format</span>([ :provider = oCulture, :format = <span class="s">"{0:C}"</span>, :arg0 = <span class="n">1234.5</span> ])
+		cLong = oDate.<span class="f">Format</span>([ :format = <span class="s">"D"</span>, :provider = oCulture ])
 		? <span class="s">"   "</span> + cName + <span class="s">" : "</span> + cNumber + <span class="s">"  |  "</span> + cMoney + <span class="s">"  |  "</span> + cLong
 	<span class="k">next</span>
 
@@ -181,18 +184,18 @@ using {
 	? nl + <span class="s">"Reading '1.234,5' and '1,234.5' with two cultures:"</span>
 	oGerman = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>)
 	oEnglish = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
-	? <span class="s">"   German reads '1.234,5' as   : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">Parse_2</span>(<span class="s">"1.234,5"</span>,oGerman)
-	? <span class="s">"   English reads '1,234.5' as  : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">Parse_2</span>(<span class="s">"1,234.5"</span>,oEnglish)
-	? <span class="s">"   English reads '1.234,5' ok? : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">TryParse_3</span>(<span class="s">"1.234,5"</span>,<span class="s">"Any"</span>,oEnglish)[<span class="n">1</span>]
+	? <span class="s">"   German reads '1.234,5' as   : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">Parse</span>([ :s = <span class="s">"1.234,5"</span>, :provider = oGerman ])
+	? <span class="s">"   English reads '1,234.5' as  : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">Parse</span>([ :s = <span class="s">"1,234.5"</span>, :provider = oEnglish ])
+	? <span class="s">"   English reads '1.234,5' ok? : "</span> + <span class="k">new</span> <span class="t">Double</span>().<span class="f">TryParse</span>([ :s = <span class="s">"1.234,5"</span>, :style = <span class="s">"Any"</span>, :provider = oEnglish ])[<span class="n">1</span>]
 
 	<span class="c"># The invariant culture never changes: use it for files and data that programs exchange</span>
 	oInvariant = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).InvariantCulture
-	? nl + <span class="s">"Invariant culture   : "</span> + oString.<span class="f">Format_3</span>(oInvariant,<span class="s">"{0:N2}"</span>,<span class="n">1234567.891</span>) + <span class="s">"  (for files, not for people)"</span>
+	? nl + <span class="s">"Invariant culture   : "</span> + oString.<span class="f">Format</span>([ :provider = oInvariant, :format = <span class="s">"{0:N2}"</span>, :arg0 = <span class="n">1234567.891</span> ]) + <span class="s">"  (for files, not for people)"</span>
 
 	<span class="c"># Sorting and comparing: letters sort differently in different languages</span>
 	? nl + <span class="s">"Comparing 'a' and 'B' (negative: the first sorts first, positive: the second):"</span>
-	? <span class="s">"   by character code (Ordinal) : "</span> + oString.<span class="f">Compare_3</span>(<span class="s">"a"</span>,<span class="s">"B"</span>,<span class="s">"Ordinal"</span>) + <span class="s">"   (a = 97 is after B = 66)"</span>
-	? <span class="s">"   by the English alphabet     : "</span> + oString.<span class="f">Compare_4</span>(<span class="s">"a"</span>,<span class="s">"B"</span>,<span class="k">False</span>,oEnglish) + <span class="s">"   (a comes before b)"</span>
+	? <span class="s">"   by character code (Ordinal) : "</span> + oString.<span class="f">Compare</span>([ :strA = <span class="s">"a"</span>, :strB = <span class="s">"B"</span>, :comparisonType = <span class="s">"Ordinal"</span> ]) + <span class="s">"   (a = 97 is after B = 66)"</span>
+	? <span class="s">"   by the English alphabet     : "</span> + oString.<span class="f">Compare</span>([ :strA = <span class="s">"a"</span>, :strB = <span class="s">"B"</span>, :ignoreCase = <span class="k">False</span>, :culture = oEnglish ]) + <span class="s">"   (a comes before b)"</span>
 
 	<span class="c"># Case changes also depend on the culture (the Turkish i is the famous example)</span>
 	oTurkish = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"tr-TR"</span>)

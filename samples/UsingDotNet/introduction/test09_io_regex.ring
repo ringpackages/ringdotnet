@@ -8,11 +8,11 @@ using {
 
 oPath = new Path()
 oFile = new File()
-cDir = oPath.Combine(oPath.GetTempPath(),"ringdotnet_demo")
+cDir = oPath.Combine([oPath.GetTempPath(),"ringdotnet_demo"])
 new Directory().CreateDirectory(cDir)
 
 # Text files
-cLog = oPath.Combine(cDir,"log.txt")
+cLog = oPath.Combine([cDir,"log.txt"])
 oWriter = new StreamWriter(cLog)
 oWriter.WriteLine("2024-05-17 ERROR disk full")
 oWriter.WriteLine("2024-05-18 INFO backup done")
@@ -29,7 +29,7 @@ for nLoop = 0 to oMatches.Count - 1
 	oMatch = oMatches.Item(nLoop)
 	? "  " + oMatch.Groups.Item("month").Value + " -> " + trim(oMatch.Groups.Item("what").Value)
 next
-? "Cleaned       : " + new Regex("\s+").Replace("too    many   spaces"," ")
+? "Cleaned       : " + new Regex("\s+").Replace([ :input = "too    many   spaces", :replacement = " " ])
 
 # Compression
 oPacked = new MemoryStream()
@@ -39,9 +39,9 @@ oGzip.Write(cData,0,len(cData))
 oGzip.Close()
 ? "GZip          : " + len(cData) + " -> " + len(oPacked.ToArray()) + " bytes"
 
-cZip = oPath.Combine(oPath.GetTempPath(),"ringdotnet_demo.zip")
+cZip = oPath.Combine([oPath.GetTempPath(),"ringdotnet_demo.zip"])
 if oFile.Exists(cZip) oFile.Delete(cZip) ok
-new ZipFile().CreateFromDirectory(cDir,cZip)
+new ZipFile().CreateFromDirectory([ :sourceDirectoryName = cDir, :destinationArchiveFileName = cZip ])
 ? "Zip created   : " + new FileInfo(cZip).Length + " bytes"
 
 new Directory().Delete([ :path = cDir, :recursive = True ])

@@ -30,65 +30,41 @@ Class HttpClientJsonExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetFromJsonAsAsyncEnumerable_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsAsyncEnumerable",P1,P2,P3,P4])
+	Func GetFromJsonAsAsyncEnumerable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsAsyncEnumerable",P1])
+		ok
+		raise("DotNet Error: GetFromJsonAsAsyncEnumerable does not take one argument: use named arguments, GetFromJsonAsAsyncEnumerable([ :parameter = value, ... ])")
 
-	Func GetFromJsonAsAsyncEnumerable_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsAsyncEnumerable",P1,P2,P3])
+	Func DeleteFromJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"DeleteFromJsonAsync",P1])
+		ok
+		raise("DotNet Error: DeleteFromJsonAsync does not take one argument: use named arguments, DeleteFromJsonAsync([ :parameter = value, ... ])")
 
-	Func GetFromJsonAsAsyncEnumerable P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsAsyncEnumerable",P1,P2])
+	Func GetFromJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsync",P1])
+		ok
+		raise("DotNet Error: GetFromJsonAsync does not take one argument: use named arguments, GetFromJsonAsync([ :parameter = value, ... ])")
 
-	Func DeleteFromJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"DeleteFromJsonAsync",P1,P2,P3,P4,P5])
+	Func PostAsJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PostAsJsonAsync",P1])
+		ok
+		raise("DotNet Error: PostAsJsonAsync does not take one argument: use named arguments, PostAsJsonAsync([ :parameter = value, ... ])")
 
-	Func DeleteFromJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"DeleteFromJsonAsync",P1,P2,P3,P4])
+	Func PutAsJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PutAsJsonAsync",P1])
+		ok
+		raise("DotNet Error: PutAsJsonAsync does not take one argument: use named arguments, PutAsJsonAsync([ :parameter = value, ... ])")
 
-	Func DeleteFromJsonAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"DeleteFromJsonAsync",P1,P2,P3])
-
-	Func DeleteFromJsonAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"DeleteFromJsonAsync",P1,P2])
-
-	Func GetFromJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsync",P1,P2,P3,P4,P5])
-
-	Func GetFromJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsync",P1,P2,P3,P4])
-
-	Func GetFromJsonAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsync",P1,P2,P3])
-
-	Func GetFromJsonAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"GetFromJsonAsync",P1,P2])
-
-	Func PostAsJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PostAsJsonAsync",P1,P2,P3,P4,P5])
-
-	Func PostAsJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PostAsJsonAsync",P1,P2,P3,P4])
-
-	Func PostAsJsonAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PostAsJsonAsync",P1,P2,P3])
-
-	Func PutAsJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PutAsJsonAsync",P1,P2,P3,P4,P5])
-
-	Func PutAsJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PutAsJsonAsync",P1,P2,P3,P4])
-
-	Func PutAsJsonAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PutAsJsonAsync",P1,P2,P3])
-
-	Func PatchAsJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PatchAsJsonAsync",P1,P2,P3,P4,P5])
-
-	Func PatchAsJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PatchAsJsonAsync",P1,P2,P3,P4])
-
-	Func PatchAsJsonAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PatchAsJsonAsync",P1,P2,P3])
+	Func PatchAsJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpClientJsonExtensions, System.Net.Http.Json'),"PatchAsJsonAsync",P1])
+		ok
+		raise("DotNet Error: PatchAsJsonAsync does not take one argument: use named arguments, PatchAsJsonAsync([ :parameter = value, ... ])")
 
 
 Class HttpContentJsonExtensions from Object
@@ -104,26 +80,11 @@ Class HttpContentJsonExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ReadFromJsonAsAsyncEnumerable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsAsyncEnumerable",P1,P2])
-
 	Func ReadFromJsonAsAsyncEnumerable P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsAsyncEnumerable",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsAsyncEnumerable",P1])
-
-	Func ReadFromJsonAsAsyncEnumerable_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsAsyncEnumerable",P1,P2,P3])
-
-	Func ReadFromJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsync",P1,P2,P3,P4])
-
-	Func ReadFromJsonAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsync",P1,P2,P3])
-
-	Func ReadFromJsonAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.HttpContentJsonExtensions, System.Net.Http.Json'),"ReadFromJsonAsync",P1,P2])
 
 	Func ReadFromJsonAsync P1
 		if dnIsNamed(P1)
@@ -145,20 +106,11 @@ Class JsonContent from HttpContent
 		ok
 		return self
 
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"Create",P1,P2,P3])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"Create",P1,P2])
-
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"Create",P1])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Http.Json.JsonContent, System.Net.Http.Json'),"Create",P1,P2,P3,P4])
 
 	Func getObjectType
 		return dnRequest("get",[self,"ObjectType"])

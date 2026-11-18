@@ -95,14 +95,11 @@ Class NamedPipeServerStreamAcl from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Create_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func Create_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func Create P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Pipes.NamedPipeServerStreamAcl, System.IO.Pipes'),"Create",P1])
+		ok
+		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 
 Class PipeAccessRule from DotNetObject
@@ -349,10 +346,6 @@ Class PipeSecurity from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorSddlForm",P1])
 		return self
 
-	Func SetSecurityDescriptorSddlForm_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorSddlForm",P1,P2])
-		return self
-
 	Func GetSecurityDescriptorBinaryForm 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSecurityDescriptorBinaryForm"])
 
@@ -362,10 +355,6 @@ Class PipeSecurity from DotNetObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorBinaryForm",P1])
-		return self
-
-	Func SetSecurityDescriptorBinaryForm_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSecurityDescriptorBinaryForm",P1,P2])
 		return self
 
 	Func ModifyAccessRule P1,P2
@@ -534,8 +523,16 @@ Class AnonymousPipeClientStream from PipeStream
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeClientStream, System.IO.Pipes',[P1])
 		return self
 
 
@@ -552,16 +549,16 @@ Class AnonymousPipeServerStream from PipeStream
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Pipes.AnonymousPipeServerStream, System.IO.Pipes',[P1,P2,P3])
 		return self
 
 	Func GetClientHandleAsString 
@@ -591,24 +588,16 @@ Class NamedPipeClientStream from PipeStream
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeClientStream, System.IO.Pipes',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func Connect P1
@@ -623,10 +612,6 @@ Class NamedPipeClientStream from PipeStream
 		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
-	Func Connect_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
-		return self
-
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectAsync",P1])
@@ -635,12 +620,6 @@ Class NamedPipeClientStream from PipeStream
 			return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1])
-
-	Func ConnectAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1])
-
-	Func ConnectAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
 
 	Func getNumberOfServerInstances
 		return dnRequest("get",[self,"NumberOfServerInstances"])
@@ -662,24 +641,16 @@ Class NamedPipeServerStream from PipeStream
 		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1,P2,P3,P4,P5,P6,P7])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.Pipes.NamedPipeServerStream, System.IO.Pipes',[P1])
 		return self
 
 	Func WaitForConnectionAsync P1
@@ -701,9 +672,6 @@ Class NamedPipeServerStream from PipeStream
 	Func WaitForConnection 
 		dnRequest("call",[new DotNetObject(nHandle),"WaitForConnection"])
 		return self
-
-	Func WaitForConnectionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForConnectionAsync",P1])
 
 	Func Disconnect 
 		dnRequest("call",[new DotNetObject(nHandle),"Disconnect"])

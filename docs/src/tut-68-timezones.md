@@ -27,7 +27,7 @@ UTC (*coordinated universal time*) is the same everywhere and has no daylight sa
 
 ### Zones
 
-`TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")` finds a zone by its identifier. On Windows the identifiers are names such as `Eastern Standard Time`, `GMT Standard Time`, `Egypt Standard Time` and `Tokyo Standard Time` (Linux and macOS use `America/New_York`). `ConvertTimeFromUtc(utc, zone)` gives the local time and `ConvertTimeToUtc_2(local, zone)` goes back. `GetUtcOffset(time)` tells the offset *at that moment*, so it includes daylight saving.
+`TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time")` finds a zone by its identifier. On Windows the identifiers are names such as `Eastern Standard Time`, `GMT Standard Time`, `Egypt Standard Time` and `Tokyo Standard Time` (Linux and macOS use `America/New_York`). `ConvertTimeFromUtc(utc, zone)` gives the local time and `ConvertTimeToUtc([ :dateTime = local, :sourceTimeZone = zone ])` goes back. `GetUtcOffset(time)` tells the offset *at that moment*, so it includes daylight saving.
 
 ### Daylight saving
 
@@ -46,7 +46,7 @@ On 10 March 2024 clocks in New York jump from 02:00 to 03:00. The time 02:30 **d
 ## What you learned
 
 - UTC for storing, local time for showing,
-- `FindSystemTimeZoneById`, `ConvertTimeFromUtc`, `ConvertTimeToUtc_2`, `GetUtcOffset`,
+- `FindSystemTimeZoneById`, `ConvertTimeFromUtc`, `ConvertTimeToUtc`, `GetUtcOffset`,
 - daylight saving rules differ and change,
 - durations are added in UTC,
 - invalid and ambiguous times.

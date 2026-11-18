@@ -6,12 +6,12 @@ using {
 }
 
 func main
-	cFolder = new Path().Combine(new Path().GetTempPath(),"tutorial52")
+	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial52"])
 	if new Directory().Exists(cFolder)
 		new Directory().Delete([ :path = cFolder, :recursive = True ])
 	ok
 	new Directory().CreateDirectory(cFolder)
-	cFile = new Path().Combine(cFolder,"app.log")
+	cFile = new Path().Combine([cFolder,"app.log"])
 
 	# 1. A logger writes lines: time, level, message. The level says how important a line is.
 	oLog = new Logger(cFile)
@@ -40,14 +40,14 @@ func main
 	? nl + "3. The last line: " + new File().ReadAllLines(cFile).toList()[len(new File().ReadAllLines(cFile).toList())]
 
 	# 4. Rotation: a log must not grow forever. When the file is too big it is renamed and a new one starts.
-	oSmall = new Logger(new Path().Combine(cFolder,"small.log"))
+	oSmall = new Logger(new Path().Combine([cFolder,"small.log"]))
 	oSmall.setClock("2024-05-17 09:00:00")
 	oSmall.setMaxSize(300)                                  # bytes: tiny, to see the rotation
 	for nLine = 1 to 12
 		oSmall.info("message number " + nLine + " with some more text to fill the file")
 	next
 	? nl + "4. Files in the folder after 12 messages with a limit of 300 bytes:"
-	for cName in sort(new Directory().GetFiles_2(cFolder,"small*").toList())
+	for cName in sort(new Directory().GetFiles([ :path = cFolder, :searchPattern = "small*" ]).toList())
 		? "   " + new Path().GetFileName(cName)
 	next
 	new Directory().Delete([ :path = cFolder, :recursive = True ])
@@ -103,9 +103,9 @@ class Logger
 		rotateIfNeeded()
 		cTime = cClock
 		if cTime = ""
-			cTime = new DateTime(2000,1,1).Now.ToString_1("yyyy-MM-dd HH:mm:ss")
+			cTime = new DateTime(2000,1,1).Now.Format("yyyy-MM-dd HH:mm:ss")
 		ok
-		new File().AppendAllText(cFile,cTime + " " + cLevel + " " + cMessage + windowsnl())
+		new File().AppendAllText([ :path = cFile, :contents = cTime + " " + cLevel + " " + cMessage + windowsnl() ])
 
 	# when the file is bigger than the limit: app.log becomes app.log.1 (an older .1 is replaced), and a new file starts
 	func rotateIfNeeded
@@ -117,5 +117,5 @@ class Logger
 			if new File().Exists(cOld)
 				new File().Delete(cOld)
 			ok
-			new File().Move(cFile,cOld)
+			new File().Move([ :sourceFileName = cFile, :destFileName = cOld ])
 		ok

@@ -227,17 +227,17 @@ Class Decoder from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
-	Func GetCharCount P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1,P2,P3])
+	Func GetCharCount P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCharCount",P1])
+		ok
+		raise("DotNet Error: GetCharCount does not take one argument: use named arguments, GetCharCount([ :parameter = value, ... ])")
 
-	Func GetCharCount_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1,P2,P3,P4])
-
-	Func GetChars P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5])
-
-	Func GetChars_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5,P6])
+	Func GetChars P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChars",P1])
+		ok
+		raise("DotNet Error: GetChars does not take one argument: use named arguments, GetChars([ :parameter = value, ... ])")
 
 	Func Convert P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3,P4,P5,P6,P7])
@@ -427,11 +427,11 @@ Class EncoderFallbackBuffer from Object
 		ok
 		return self
 
-	Func Fallback P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Fallback",P1,P2])
-
-	Func Fallback_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Fallback",P1,P2,P3])
+	Func Fallback P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Fallback",P1])
+		ok
+		raise("DotNet Error: Fallback does not take one argument: use named arguments, Fallback([ :parameter = value, ... ])")
 
 	Func GetNextChar 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNextChar"])
@@ -487,7 +487,7 @@ Class Encoding from Object
 		ok
 		return self
 
-	Func GetPreamble_0 
+	Func GetPreamble_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPreamble"])
 
 	Func Clone 
@@ -499,20 +499,11 @@ Class Encoding from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
 
-	Func GetByteCount_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1,P2,P3])
-
 	Func GetBytes P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetBytes",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
-
-	Func GetBytes_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3])
-
-	Func GetBytes_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3,P4,P5])
 
 	Func GetCharCount P1
 		if dnIsNamed(P1)
@@ -520,20 +511,11 @@ Class Encoding from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1])
 
-	Func GetCharCount_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCharCount",P1,P2,P3])
-
 	Func GetChars P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetChars",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1])
-
-	Func GetChars_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3])
-
-	Func GetChars_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChars",P1,P2,P3,P4,P5])
 
 	Func IsAlwaysNormalized P1
 		if dnIsNamed(P1)
@@ -542,9 +524,6 @@ Class Encoding from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
-
-	Func IsAlwaysNormalized_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsAlwaysNormalized",P1])
 
 	Func GetDecoder 
@@ -565,17 +544,14 @@ Class Encoding from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1])
 
-	Func GetString_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetString",P1,P2,P3])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Convert P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1,P2,P3])
-
-	Func Convert_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1,P2,P3,P4,P5])
+	Func Convert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"Convert",P1])
+		ok
+		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func RegisterProvider P1
 		dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"RegisterProvider",P1])
@@ -587,17 +563,14 @@ Class Encoding from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1])
 
-	Func GetEncoding_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncoding",P1,P2,P3])
-
 	Func GetEncodings 
 		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"GetEncodings"])
 
-	Func CreateTranscodingStream_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3,P4])
-
-	Func CreateTranscodingStream P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1,P2,P3])
+	Func CreateTranscodingStream P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Text.Encoding, System.Private.CoreLib'),"CreateTranscodingStream",P1])
+		ok
+		raise("DotNet Error: CreateTranscodingStream does not take one argument: use named arguments, CreateTranscodingStream([ :parameter = value, ... ])")
 
 	Func getPreamble
 		return dnRequest("get",[self,"Preamble"])
@@ -796,9 +769,6 @@ Class EncodingProvider from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding",P1])
 
-	Func GetEncoding_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEncoding",P1,P2,P3])
-
 	Func GetEncodings 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEncodings"])
 
@@ -825,12 +795,16 @@ Class Rune from ValueType
 		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.Rune, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.Rune, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func CompareTo P1
@@ -847,9 +821,6 @@ Class Rune from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1])
-
-	Func TryCreate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryCreate",P1,P2])
 
 	Func TryGetRuneAt P1,P2
 		return dnRequest("call",[dnTypeCached('System.Text.Rune, System.Private.CoreLib'),"TryGetRuneAt",P1,P2])
@@ -967,35 +938,32 @@ Class StringBuilder from Object
 		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_0 
-		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.StringBuilder, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Text.StringBuilder, System.Private.CoreLib',[P1])
 		return self
 
 	Func EnsureCapacity P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Clear 
 		return dnRequest("call",[new DotNetObject(nHandle),"Clear"])
 
 	Func GetChunks 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChunks"])
-
-	Func Append_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2])
-
-	Func Append_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2,P3])
 
 	Func Append P1
 		if dnIsNamed(P1)
@@ -1012,51 +980,36 @@ Class StringBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
-	Func AppendLine_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
-
 	Func CopyTo P1,P2,P3,P4
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
 		return self
 
-	Func Insert_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3])
+	Func Insert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Insert",P1])
+		ok
+		raise("DotNet Error: Insert does not take one argument: use named arguments, Insert([ :parameter = value, ... ])")
 
 	Func Remove P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
-	Func AppendLine_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1,P2])
-
 	Func AppendJoin P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendJoin",P1,P2])
 
-	Func Insert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
+	Func AppendFormat P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendFormat",P1])
+		ok
+		raise("DotNet Error: AppendFormat does not take one argument: use named arguments, AppendFormat([ :parameter = value, ... ])")
 
-	Func Insert_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2,P3,P4])
-
-	Func AppendFormat P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2])
-
-	Func AppendFormat_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3])
-
-	Func AppendFormat_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3,P4])
-
-	Func AppendFormat_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendFormat",P1,P2,P3,P4,P5])
-
-	Func Replace P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
+	Func Replace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+		ok
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Replace_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3,P4])
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -1161,7 +1114,15 @@ Class DecoderReplacementFallback from DecoderFallback
 		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.DecoderReplacementFallback, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.DecoderReplacementFallback, System.Private.CoreLib',[P1])
 		return self
 
@@ -1221,7 +1182,15 @@ Class EncoderReplacementFallback from EncoderFallback
 		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.EncoderReplacementFallback, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.EncoderReplacementFallback, System.Private.CoreLib',[P1])
 		return self
 
@@ -1255,12 +1224,16 @@ Class UTF32Encoding from Encoding
 		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.UTF32Encoding, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Text.UTF32Encoding, System.Private.CoreLib',[P1])
 		return self
 
 
@@ -1275,7 +1248,15 @@ Class UTF7Encoding from Encoding
 		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.UTF7Encoding, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.UTF7Encoding, System.Private.CoreLib',[P1])
 		return self
 
@@ -1291,12 +1272,16 @@ Class UTF8Encoding from Encoding
 		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.UTF8Encoding, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.UTF8Encoding, System.Private.CoreLib',[P1,P2])
 		return self
 
 
@@ -1313,12 +1298,16 @@ Class UnicodeEncoding from Encoding
 		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.UnicodeEncoding, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Text.UnicodeEncoding, System.Private.CoreLib',[P1])
 		return self
 
 	Func getCharSize

@@ -59,7 +59,7 @@ The difference between two dates is a `TimeSpan`: `Subtract` gives it, and it ha
 
 ### Formats and cultures
 
-`ToString_1("dddd, dd MMMM yyyy HH:mm")` formats a date with a pattern. Some letters: `yyyy` year, `MM` month number, `MMMM` month name, `dd` day, `dddd` weekday, `HH` hour (24), `mm` minute. A *culture* changes the language: `ToString_2("D", new CultureInfo("de-DE"))` writes the long date in German.
+`Format("dddd, dd MMMM yyyy HH:mm")` formats a date with a pattern. Some letters: `yyyy` year, `MM` month number, `MMMM` month name, `dd` day, `dddd` weekday, `HH` hour (24), `mm` minute. A *culture* changes the language: `Format([ :format = "D", :provider = new CultureInfo("de-DE") ])` writes the long date in German.
 
 ## What you learned
 

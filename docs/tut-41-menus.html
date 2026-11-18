@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -197,7 +200,7 @@ nActions = <span class="n">0</span>
 	])
 
 	<span class="c"># 3. A menu item that can be ticked: a ToolStripMenuItem with CheckOnClick. Added to the "Text" menu by hand.</span>
-	oWrapItem = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_1</span>(<span class="s">"Word wrap"</span>)
+	oWrapItem = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_</span>([ :text = <span class="s">"Word wrap"</span> ])
 	oWrapItem.CheckOnClick = <span class="k">True</span>
 	oWrapItem.Checked = <span class="k">True</span>
 	oWrapItem.<span class="f">setCheckedChangedEvent</span>(<span class="s">"wrapChanged()"</span>)
@@ -206,7 +209,7 @@ nActions = <span class="n">0</span>
 	<span class="c"># 4. A context menu: opens with the right mouse button on the text</span>
 	oContext = <span class="k">new</span> <span class="t">ContextMenuStrip</span>()
 	<span class="k">for</span> aItem <span class="k">in</span> [[<span class="s">"Select all"</span>,<span class="s">"oText.SelectAll()"</span>],[<span class="s">"Upper case"</span>,<span class="s">"upperCase()"</span>],[<span class="s">"Clear"</span>,<span class="s">"newText()"</span>]]
-		oEntry = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_1</span>(aItem[<span class="n">1</span>])
+		oEntry = <span class="k">new</span> <span class="t">ToolStripMenuItem</span>().<span class="f">New_</span>([ :text = aItem[<span class="n">1</span>] ])
 		oEntry.<span class="f">setClickEvent</span>(aItem[<span class="n">2</span>])
 		oContext.Items.<span class="f">Add</span>(oEntry)
 	<span class="k">next</span>

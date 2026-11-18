@@ -34,13 +34,12 @@ Class Registry from Object
 	Func GetValue P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"GetValue",P1,P2,P3])
 
-	Func SetValue P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1,P2,P3])
-		return self
-
-	Func SetValue_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1,P2,P3,P4])
-		return self
+	Func SetValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"SetValue",P1])
+			return self
+		ok
+		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func getCurrentUser
 		return dnRequest("get",[dnTypeCached('Microsoft.Win32.Registry, Microsoft.Win32.Registry'),"CurrentUser"])
@@ -113,25 +112,12 @@ Class RegistryKey from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1])
 
-	Func CreateSubKey_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2])
-
-	Func CreateSubKey_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2,P3])
-
-	Func CreateSubKey_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSubKey",P1,P2,P3,P4])
-
 	Func DeleteSubKey P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteSubKey",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKey",P1])
-		return self
-
-	Func DeleteSubKey_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKey",P1,P2])
 		return self
 
 	Func DeleteSubKeyTree P1
@@ -142,10 +128,6 @@ Class RegistryKey from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1])
 		return self
 
-	Func DeleteSubKeyTree_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteSubKeyTree",P1,P2])
-		return self
-
 	Func DeleteValue P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteValue",P1])
@@ -154,21 +136,11 @@ Class RegistryKey from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"DeleteValue",P1])
 		return self
 
-	Func DeleteValue_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DeleteValue",P1,P2])
-		return self
-
 	Func OpenSubKey P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenSubKey",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1])
-
-	Func OpenSubKey_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1,P2])
-
-	Func OpenSubKey_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenSubKey",P1,P2,P3])
 
 	Func GetAccessControl P1
 		if dnIsNamed(P1)
@@ -177,9 +149,6 @@ Class RegistryKey from MarshalByRefObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl",P1])
-
-	Func GetAccessControl_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAccessControl",P1])
 
 	Func SetAccessControl P1
@@ -198,40 +167,30 @@ Class RegistryKey from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func GetValue_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2])
-
-	Func GetValue_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2,P3])
-
 	Func GetValueKind P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValueKind",P1])
 
-	Func SetValue P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
-		return self
-
-	Func SetValue_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3])
-		return self
+	Func SetValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetValue",P1])
+			return self
+		ok
+		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
 	Func OpenBaseKey P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenBaseKey",P1,P2])
 
-	Func OpenRemoteBaseKey P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1,P2])
-
-	Func OpenRemoteBaseKey_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1,P2,P3])
+	Func OpenRemoteBaseKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"OpenRemoteBaseKey",P1])
+		ok
+		raise("DotNet Error: OpenRemoteBaseKey does not take one argument: use named arguments, OpenRemoteBaseKey([ :parameter = value, ... ])")
 
 	Func FromHandle P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1])
-
-	Func FromHandle_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Win32.RegistryKey, Microsoft.Win32.Registry'),"FromHandle",P1,P2])
 
 	Func getSubKeyCount
 		return dnRequest("get",[self,"SubKeyCount"])

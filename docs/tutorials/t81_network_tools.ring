@@ -58,7 +58,7 @@ func portIsOpen cAddress, nPort
 	oClient = new TcpClient()
 	lOpen = False
 	try
-		oTask = oClient.ConnectAsync_2(cAddress,nPort)
+		oTask = oClient.ConnectAsync([ :host = cAddress, :port = nPort ])
 		lOpen = oTask.Wait(500) and oClient.Connected
 	catch
 		lOpen = False                          # refused or failed: the error is the answer

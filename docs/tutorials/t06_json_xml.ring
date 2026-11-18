@@ -42,7 +42,7 @@ func main
 
 	# Changing XML and saving it as text
 	oNew = oDoc.CreateElement("book")
-	oNew.SetAttribute("id","4")
+	oNew.SetAttribute([ :name = "id", :value = "4" ])
 	oNew.InnerText = "A new book"
 	oDoc.DocumentElement.AppendChild(oNew)
 	? "After adding one   : " + oDoc.SelectNodes("//book").Count + " books"

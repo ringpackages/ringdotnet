@@ -998,9 +998,6 @@ Class WpfApplication from DispatcherObject
 		nHandle = dnCreate('System.Windows.Application, PresentationFramework',[])
 		return self
 
-	Func Run_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"Run"])
-
 	Func Run P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Run",P1])
@@ -1022,19 +1019,11 @@ Class WpfApplication from DispatcherObject
 		dnRequest("call",[new DotNetObject(nHandle),"Shutdown",P1])
 		return self
 
-	Func Shutdown_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Shutdown",P1])
-		return self
-
 	Func FindResource P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindResource",P1])
 
 	Func TryFindResource P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TryFindResource",P1])
-
-	Func LoadComponent_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Application, PresentationFramework'),"LoadComponent",P1,P2])
-		return self
 
 	Func LoadComponent P1
 		if dnIsNamed(P1)
@@ -1328,9 +1317,6 @@ Class WpfClipboard from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"ContainsText",P1])
 
-	Func ContainsText_1 P1
-		return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"ContainsText",P1])
-
 	Func Flush 
 		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"Flush"])
 		return self
@@ -1354,9 +1340,6 @@ Class WpfClipboard from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"GetText"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"GetText",P1])
-
-	Func GetText_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"GetText",P1])
 
 	Func SetAudio P1
@@ -1383,10 +1366,6 @@ Class WpfClipboard from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetText",P1])
 		return self
 
-	Func SetText_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetText",P1,P2])
-		return self
-
 	Func GetDataObject 
 		return dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"GetDataObject"])
 
@@ -1401,10 +1380,6 @@ Class WpfClipboard from Object
 		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetDataObject",P1])
 		return self
 
-	Func SetDataObject_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Clipboard, PresentationCore'),"SetDataObject",P1,P2])
-		return self
-
 
 Class ColorConvertedBitmapExtension from MarkupExtension
 
@@ -1417,7 +1392,15 @@ Class ColorConvertedBitmapExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.ColorConvertedBitmapExtension, PresentationFramework',[P1])
 		return self
 
@@ -1438,12 +1421,16 @@ Class Condition from Object
 		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Condition, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Condition, PresentationFramework',[P1])
 		return self
 
 	Func Equals P1
@@ -1632,7 +1619,15 @@ Class CornerRadius from ValueType
 		nHandle = dnCreate('System.Windows.CornerRadius, PresentationFramework',[P1,P2,P3,P4])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.CornerRadius, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.CornerRadius, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.CornerRadius, PresentationFramework',[P1])
 		return self
 
@@ -1913,20 +1908,17 @@ Class WpfDataObject from Object
 		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DataObject, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[P1])
 		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.DataObject, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func GetData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
 
 	Func GetData P1
 		if dnIsNamed(P1)
@@ -1939,12 +1931,6 @@ Class WpfDataObject from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
-
-	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
-
-	Func GetFormats_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -1961,14 +1947,6 @@ Class WpfDataObject from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
-		return self
-
-	Func SetData_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
-		return self
-
-	Func SetData_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
 		return self
 
 	Func ContainsAudio 
@@ -1989,9 +1967,6 @@ Class WpfDataObject from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
 
-	Func ContainsText_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ContainsText",P1])
-
 	Func GetAudioStream 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAudioStream"])
 
@@ -2008,9 +1983,6 @@ Class WpfDataObject from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetText"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
-
-	Func GetText_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetText",P1])
 
 	Func SetAudio P1
@@ -2031,10 +2003,6 @@ Class WpfDataObject from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1])
-		return self
-
-	Func SetText_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetText",P1,P2])
 		return self
 
 	Func Equals P1
@@ -2236,13 +2204,12 @@ Class DependencyProperty from Object
 		ok
 		return self
 
-	Func OverrideMetadata P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OverrideMetadata",P1,P2])
-		return self
-
-	Func OverrideMetadata_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"OverrideMetadata",P1,P2,P3])
-		return self
+	Func OverrideMetadata P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"OverrideMetadata",P1])
+			return self
+		ok
+		raise("DotNet Error: OverrideMetadata does not take one argument: use named arguments, OverrideMetadata([ :parameter = value, ... ])")
 
 	Func GetMetadata P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadata",P1])
@@ -2253,9 +2220,6 @@ Class DependencyProperty from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AddOwner",P1])
 
-	Func AddOwner_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddOwner",P1,P2])
-
 	Func IsValidType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsValidType",P1])
 
@@ -2265,35 +2229,29 @@ Class DependencyProperty from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Register P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1,P2,P3])
+	Func Register P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1])
+		ok
+		raise("DotNet Error: Register does not take one argument: use named arguments, Register([ :parameter = value, ... ])")
 
-	Func Register_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1,P2,P3,P4])
+	Func RegisterReadOnly P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterReadOnly",P1])
+		ok
+		raise("DotNet Error: RegisterReadOnly does not take one argument: use named arguments, RegisterReadOnly([ :parameter = value, ... ])")
 
-	Func Register_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"Register",P1,P2,P3,P4,P5])
+	Func RegisterAttachedReadOnly P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttachedReadOnly",P1])
+		ok
+		raise("DotNet Error: RegisterAttachedReadOnly does not take one argument: use named arguments, RegisterAttachedReadOnly([ :parameter = value, ... ])")
 
-	Func RegisterReadOnly P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterReadOnly",P1,P2,P3,P4])
-
-	Func RegisterReadOnly_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterReadOnly",P1,P2,P3,P4,P5])
-
-	Func RegisterAttachedReadOnly P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttachedReadOnly",P1,P2,P3,P4])
-
-	Func RegisterAttachedReadOnly_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttachedReadOnly",P1,P2,P3,P4,P5])
-
-	Func RegisterAttached P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3])
-
-	Func RegisterAttached_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4])
-
-	Func RegisterAttached_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1,P2,P3,P4,P5])
+	Func RegisterAttached P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.DependencyProperty, WindowsBase'),"RegisterAttached",P1])
+		ok
+		raise("DotNet Error: RegisterAttached does not take one argument: use named arguments, RegisterAttached([ :parameter = value, ... ])")
 
 	Func getName
 		return dnRequest("get",[self,"Name"])
@@ -2359,8 +2317,16 @@ Class DependencyPropertyChangedEventArgs from ValueType
 		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.DependencyPropertyChangedEventArgs, WindowsBase',[P1])
 		return self
 
 	Func getProperty
@@ -2457,8 +2423,16 @@ Class DpiScale from ValueType
 		nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DpiScale, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.DpiScale, PresentationCore',[P1])
 		return self
 
 	Func getDpiScaleX
@@ -2706,7 +2680,15 @@ Class Duration from ValueType
 		nHandle = dnCreate('System.Windows.Duration, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Duration, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Duration, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Duration, PresentationCore',[P1])
 		return self
 
@@ -2730,9 +2712,6 @@ Class Duration from ValueType
 
 	Func Plus P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Plus",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Duration, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasTimeSpan
 		return dnRequest("get",[self,"HasTimeSpan"])
@@ -2784,7 +2763,15 @@ Class DynamicResourceExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.DynamicResourceExtension, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DynamicResourceExtension, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DynamicResourceExtension, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.DynamicResourceExtension, PresentationFramework',[P1])
 		return self
 
@@ -2824,13 +2811,12 @@ Class EventManager from Object
 	Func RegisterRoutedEvent P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterRoutedEvent",P1,P2,P3,P4])
 
-	Func RegisterClassHandler P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterClassHandler",P1,P2,P3])
-		return self
-
-	Func RegisterClassHandler_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterClassHandler",P1,P2,P3,P4])
-		return self
+	Func RegisterClassHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"RegisterClassHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: RegisterClassHandler does not take one argument: use named arguments, RegisterClassHandler([ :parameter = value, ... ])")
 
 	Func GetRoutedEvents 
 		return dnRequest("call",[dnTypeCached('System.Windows.EventManager, PresentationCore'),"GetRoutedEvents"])
@@ -2951,12 +2937,16 @@ Class FigureLength from ValueType
 		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.FigureLength, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.FigureLength, PresentationFramework',[P1,P2])
 		return self
 
 	Func getIsAbsolute
@@ -3422,12 +3412,16 @@ Class FrameworkElementFactory from Object
 		nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.FrameworkElementFactory, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.FrameworkElementFactory, PresentationFramework',[P1,P2])
 		return self
 
 	Func AppendChild P1
@@ -3446,19 +3440,18 @@ Class FrameworkElementFactory from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetResourceReference",P1,P2])
 		return self
 
-	Func AddHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
-		return self
-
-	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
-		return self
+	Func AddHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -3602,8 +3595,16 @@ Class GridLength from ValueType
 		nHandle = dnCreate('System.Windows.GridLength, PresentationFramework',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.GridLength, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.GridLength, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.GridLength, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.GridLength, PresentationFramework',[P1])
 		return self
 
 	Func getIsAbsolute
@@ -3733,17 +3734,11 @@ Class WpfIDataObject from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1])
 
-	Func GetData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetData",P1,P2])
-
 	Func GetDataPresent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataPresent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1])
-
-	Func GetDataPresent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataPresent",P1,P2])
 
 	Func GetFormats P1
 		if dnIsNamed(P1)
@@ -3754,23 +3749,12 @@ Class WpfIDataObject from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
 
-	Func GetFormats_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFormats",P1])
-
 	Func SetData P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetData",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1])
-		return self
-
-	Func SetData_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2])
-		return self
-
-	Func SetData_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetData",P1,P2,P3])
 		return self
 
 
@@ -4323,8 +4307,16 @@ Class Int32Rect from ValueType
 		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Int32Rect, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Int32Rect, WindowsBase',[P1])
 		return self
 
 	Func Equals P1
@@ -4336,11 +4328,11 @@ Class Int32Rect from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Int32Rect, WindowsBase'),"Parse",P1])
@@ -4584,29 +4576,11 @@ Class WpfMessageBox from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Show_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4,P5,P6])
-
-	Func Show_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4,P5])
-
-	Func Show_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4])
-
-	Func Show_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3])
-
-	Func Show_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2])
-
 	Func Show P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1])
-
-	Func Show_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.Windows.MessageBox, PresentationFramework'),"Show",P1,P2,P3,P4,P5,P6,P7])
 
 
 Class NameScope from Object
@@ -4658,10 +4632,6 @@ Class NameScope from Object
 
 	Func Contains P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
 
 	Func ContainsKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
@@ -4752,15 +4722,15 @@ Class WpfPoint from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Offset P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2])
 		return self
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Point, WindowsBase'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Point, WindowsBase'),"Parse",P1])
@@ -4879,16 +4849,16 @@ Class PropertyMetadata from Object
 		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.PropertyMetadata, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.PropertyMetadata, WindowsBase',[P1,P2,P3])
 		return self
 
 	Func Equals P1
@@ -4930,8 +4900,16 @@ Class PropertyPath from Object
 		nHandle = dnCreate('System.Windows.PropertyPath, PresentationFramework',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.PropertyPath, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.PropertyPath, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.PropertyPath, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.PropertyPath, PresentationFramework',[P1])
 		return self
 
 	Func Equals P1
@@ -4991,11 +4969,15 @@ Class Rect from ValueType
 		nHandle = dnCreate('System.Windows.Rect, WindowsBase',[P1,P2,P3,P4])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Rect, WindowsBase',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Rect, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Rect, WindowsBase',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Rect, WindowsBase',[P1])
 		return self
 
@@ -5008,7 +4990,10 @@ Class Rect from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Contains P1
@@ -5016,9 +5001,6 @@ Class Rect from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
-
-	Func Contains_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func IntersectsWith P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
@@ -5053,13 +5035,6 @@ Class Rect from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
-	Func Offset_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1,P2])
-		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2])
-		return self
-
 	Func Inflate P1
 		if dnIsNamed(P1)
 			if nHandle = 0
@@ -5068,13 +5043,6 @@ Class Rect from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Inflate",P1])
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1])
-		return self
-
-	Func Inflate_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1,P2])
-		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Inflate",P1,P2])
 		return self
 
 	Func Transform P1
@@ -5091,26 +5059,8 @@ Class Rect from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2])
 		return self
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Equals",P1,P2])
-
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Parse",P1])
-
-	Func Intersect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Intersect",P1,P2])
-
-	Func Union_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Union",P1,P2])
-
-	Func Offset_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Offset",P1,P2,P3])
-
-	Func Inflate_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Inflate",P1,P2,P3])
-
-	Func Transform_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Rect, WindowsBase'),"Transform",P1,P2])
 
 	Func getIsEmpty
 		return dnRequest("get",[self,"IsEmpty"])
@@ -5438,12 +5388,16 @@ Class RoutedEventArgs from EventArgs
 		nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.RoutedEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.RoutedEventArgs, PresentationCore',[P1,P2])
 		return self
 
 	Func getRoutedEvent
@@ -5645,11 +5599,11 @@ Class WpfSize from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Size, WindowsBase'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Size, WindowsBase'),"Parse",P1])
@@ -5748,8 +5702,16 @@ Class SplashScreen from Object
 		nHandle = dnCreate('System.Windows.SplashScreen, WindowsBase',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.SplashScreen, WindowsBase',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.SplashScreen, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.SplashScreen, WindowsBase',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.SplashScreen, WindowsBase',[P1])
 		return self
 
 	Func Show P1
@@ -5758,10 +5720,6 @@ Class SplashScreen from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Show",P1])
-		return self
-
-	Func Show_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Show",P1,P2])
 		return self
 
 	Func Close P1
@@ -5804,7 +5762,15 @@ Class StaticResourceExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.StaticResourceExtension, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.StaticResourceExtension, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.StaticResourceExtension, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.StaticResourceExtension, PresentationFramework',[P1])
 		return self
 
@@ -5846,12 +5812,16 @@ Class Style from DispatcherObject
 		nHandle = dnCreate('System.Windows.Style, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Style, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Style, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Style, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Style, PresentationFramework',[P1,P2])
 		return self
 
 	Func RegisterName P1,P2
@@ -9297,7 +9267,15 @@ Class TemplateBindingExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.TemplateBindingExtension, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.TemplateBindingExtension, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.TemplateBindingExtension, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.TemplateBindingExtension, PresentationFramework',[P1])
 		return self
 
@@ -9401,8 +9379,16 @@ Class TextDecoration from Animatable
 		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.TextDecoration, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.TextDecoration, PresentationCore',[P1])
 		return self
 
 	Func getPen
@@ -9484,7 +9470,15 @@ Class TextDecorationCollection from Animatable
 		nHandle = dnCreate('System.Windows.TextDecorationCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.TextDecorationCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.TextDecorationCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.TextDecorationCollection, PresentationCore',[P1])
 		return self
 
@@ -9617,7 +9611,15 @@ Class ThemeDictionaryExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.ThemeDictionaryExtension, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.ThemeDictionaryExtension, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.ThemeDictionaryExtension, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.ThemeDictionaryExtension, PresentationFramework',[P1])
 		return self
 
@@ -9646,7 +9648,15 @@ Class ThemeMode from ValueType
 		nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.ThemeMode, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.ThemeMode, PresentationFramework',[P1])
 		return self
 
@@ -9709,7 +9719,15 @@ Class Thickness from ValueType
 		nHandle = dnCreate('System.Windows.Thickness, PresentationFramework',[P1,P2,P3,P4])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Thickness, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Thickness, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Thickness, PresentationFramework',[P1])
 		return self
 
@@ -9768,7 +9786,15 @@ Class TriggerActionCollection from Object
 		nHandle = dnCreate('System.Windows.TriggerActionCollection, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.TriggerActionCollection, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.TriggerActionCollection, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.TriggerActionCollection, PresentationFramework',[P1])
 		return self
 
@@ -10080,21 +10106,19 @@ Class UIElement from Visual
 		nHandle = dnCreate('System.Windows.UIElement, PresentationCore',[])
 		return self
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -10109,13 +10133,12 @@ Class UIElement from Visual
 		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
-	Func AddHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
-		return self
-
-	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
-		return self
+	Func AddHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
@@ -11858,13 +11881,12 @@ Class UIElement3D from Visual3D
 		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
-	Func AddHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
-		return self
-
-	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
-		return self
+	Func AddHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
@@ -13227,7 +13249,10 @@ Class WpfVector from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Normalize 
@@ -13237,9 +13262,6 @@ Class WpfVector from ValueType
 	Func Negate 
 		dnRequest("call",[new DotNetObject(nHandle),"Negate"])
 		return self
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Vector, WindowsBase'),"Parse",P1])
@@ -13785,8 +13807,16 @@ Class ComponentResourceKey from ResourceKey
 		nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.ComponentResourceKey, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.ComponentResourceKey, PresentationFramework',[P1])
 		return self
 
 	Func getTypeInTargetAssembly
@@ -13937,21 +13967,19 @@ Class ContentElement from DependencyObject
 		nHandle = dnCreate('System.Windows.ContentElement, PresentationCore',[])
 		return self
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -13966,13 +13994,12 @@ Class ContentElement from DependencyObject
 		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
-	Func AddHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
-		return self
-
-	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
-		return self
+	Func AddHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
@@ -15255,7 +15282,15 @@ Class DataTemplate from FrameworkTemplate
 		nHandle = dnCreate('System.Windows.DataTemplate, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DataTemplate, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DataTemplate, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.DataTemplate, PresentationFramework',[P1])
 		return self
 
@@ -15364,8 +15399,16 @@ Class EventSetter from SetterBase
 		nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.EventSetter, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.EventSetter, PresentationFramework',[P1])
 		return self
 
 	Func getEvent
@@ -15507,14 +15550,6 @@ Class FrameworkElement from UIElement
 		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1])
 		return self
 
-	Func BeginStoryboard_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2])
-		return self
-
-	Func BeginStoryboard_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2,P3])
-		return self
-
 	Func ShouldSerializeTriggers 
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeTriggers"])
 
@@ -15549,10 +15584,6 @@ Class FrameworkElement from UIElement
 		dnRequest("call",[new DotNetObject(nHandle),"BringIntoView",P1])
 		return self
 
-	Func BringIntoView_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"BringIntoView",P1])
-		return self
-
 	Func BeginInit 
 		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
 		return self
@@ -15576,10 +15607,10 @@ Class FrameworkElement from UIElement
 		dnRequest("call",[new DotNetObject(nHandle),"UpdateDefaultStyle"])
 		return self
 
-	Func GetFlowDirection_1 P1
+	Func GetFlowDirection_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.FrameworkElement, PresentationFramework'),"GetFlowDirection",P1])
 
-	Func SetFlowDirection_2 P1,P2
+	Func SetFlowDirection_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.FrameworkElement, PresentationFramework'),"SetFlowDirection",P1,P2])
 		return self
 
@@ -16295,12 +16326,16 @@ Class Setter from SetterBase
 		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Setter, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Setter, PresentationFramework',[P1])
 		return self
 
 	Func ReceiveMarkupExtension P1,P2
@@ -16389,8 +16424,16 @@ Class SourceChangedEventArgs from RoutedEventArgs
 		nHandle = dnCreate('System.Windows.SourceChangedEventArgs, PresentationCore',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.SourceChangedEventArgs, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.SourceChangedEventArgs, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.SourceChangedEventArgs, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.SourceChangedEventArgs, PresentationCore',[P1])
 		return self
 
 	Func getOldSource
@@ -16507,20 +16550,16 @@ Class UIPropertyMetadata from PropertyMetadata
 		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.UIPropertyMetadata, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.UIPropertyMetadata, PresentationCore',[P1,P2,P3,P4])
 		return self
 
 	Func getIsAnimationProhibited
@@ -16806,7 +16845,15 @@ Class DataTemplateKey from TemplateKey
 		nHandle = dnCreate('System.Windows.DataTemplateKey, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.DataTemplateKey, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.DataTemplateKey, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.DataTemplateKey, PresentationFramework',[P1])
 		return self
 
@@ -16826,10 +16873,10 @@ Class DataTrigger from TriggerBase
 		nHandle = dnCreate('System.Windows.DataTrigger, PresentationFramework',[])
 		return self
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -16873,7 +16920,15 @@ Class EventTrigger from TriggerBase
 		nHandle = dnCreate('System.Windows.EventTrigger, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.EventTrigger, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.EventTrigger, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.EventTrigger, PresentationFramework',[P1])
 		return self
 
@@ -16972,14 +17027,6 @@ Class FrameworkContentElement from ContentElement
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1])
-		return self
-
-	Func BeginStoryboard_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2])
-		return self
-
-	Func BeginStoryboard_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2,P3])
 		return self
 
 	Func BringIntoView 
@@ -17339,28 +17386,16 @@ Class FrameworkPropertyMetadata from UIPropertyMetadata
 		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.FrameworkPropertyMetadata, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.FrameworkPropertyMetadata, PresentationFramework',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func getAffectsMeasure
@@ -17474,7 +17509,15 @@ Class HierarchicalDataTemplate from DataTemplate
 		nHandle = dnCreate('System.Windows.HierarchicalDataTemplate, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.HierarchicalDataTemplate, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.HierarchicalDataTemplate, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.HierarchicalDataTemplate, PresentationFramework',[P1])
 		return self
 
@@ -17605,10 +17648,10 @@ Class Trigger from TriggerBase
 		nHandle = dnCreate('System.Windows.Trigger, PresentationFramework',[])
 		return self
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 

@@ -99,11 +99,11 @@ Class ChangeToken from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func OnChange P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1,P2])
-
-	Func OnChange_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1,P2,P3])
+	Func OnChange P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.Extensions.Primitives.ChangeToken, Microsoft.Extensions.Primitives'),"OnChange",P1])
+		ok
+		raise("DotNet Error: OnChange does not take one argument: use named arguments, OnChange([ :parameter = value, ... ])")
 
 
 Class CompositeChangeToken from Object
@@ -210,12 +210,16 @@ Class StringSegment from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives',[P1,P2,P3])
 		return self
 
 	Func AsSpan P1
@@ -226,12 +230,6 @@ Class StringSegment from ValueType
 			return dnRequest("call",[new DotNetObject(nHandle),"AsSpan"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1])
-
-	Func AsSpan_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1])
-
-	Func AsSpan_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AsSpan",P1,P2])
 
 	Func AsMemory 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsMemory"])
@@ -245,9 +243,6 @@ Class StringSegment from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
 	Func StartsWith P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"StartsWith",P1,P2])
 
@@ -260,35 +255,17 @@ Class StringSegment from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1])
 
-	Func Substring_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1,P2])
-
 	Func Subsegment P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subsegment",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Subsegment",P1])
 
-	Func Subsegment_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Subsegment",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
 	Func IndexOf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
-
-	Func IndexOfAny_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2,P3])
-
-	Func IndexOfAny_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2])
 
 	Func IndexOfAny P1
 		if dnIsNamed(P1)
@@ -313,9 +290,6 @@ Class StringSegment from ValueType
 
 	Func Compare P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Compare",P1,P2,P3])
-
-	Func Equals_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"Equals",P1,P2,P3])
 
 	Func IsNullOrEmpty P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringSegment, Microsoft.Extensions.Primitives'),"IsNullOrEmpty",P1])
@@ -376,12 +350,6 @@ Class StringSegmentComparer from Object
 	Func Compare P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
@@ -421,8 +389,16 @@ Class StringTokenizer from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringTokenizer, Microsoft.Extensions.Primitives',[P1])
 		return self
 
 	Func GetEnumerator 
@@ -443,7 +419,15 @@ Class StringValues from ValueType
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives',[P1])
 		return self
 
@@ -467,9 +451,6 @@ Class StringValues from ValueType
 
 	Func Concat P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Concat",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Extensions.Primitives.StringValues, Microsoft.Extensions.Primitives'),"Equals",P1,P2])
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])

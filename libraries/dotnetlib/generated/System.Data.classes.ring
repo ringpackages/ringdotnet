@@ -373,20 +373,16 @@ Class DataColumn from MarshalByValueComponent
 		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataColumn, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Data.DataColumn, System.Data.Common',[P1,P2,P3,P4])
 		return self
 
 	Func SetOrdinal P1
@@ -605,11 +601,11 @@ Class DataReaderExtensions from Object
 	Func GetFieldValue P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFieldValue",P1,P2])
 
-	Func GetFieldValueAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFieldValueAsync",P1,P2,P3])
-
-	Func GetFieldValueAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFieldValueAsync",P1,P2])
+	Func GetFieldValueAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFieldValueAsync",P1])
+		ok
+		raise("DotNet Error: GetFieldValueAsync does not take one argument: use named arguments, GetFieldValueAsync([ :parameter = value, ... ])")
 
 	Func GetFloat P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"GetFloat",P1,P2])
@@ -647,11 +643,11 @@ Class DataReaderExtensions from Object
 	Func IsDBNull P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNull",P1,P2])
 
-	Func IsDBNullAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNullAsync",P1,P2,P3])
-
-	Func IsDBNullAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNullAsync",P1,P2])
+	Func IsDBNullAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.DataReaderExtensions, System.Data.Common'),"IsDBNullAsync",P1])
+		ok
+		raise("DotNet Error: IsDBNullAsync does not take one argument: use named arguments, IsDBNullAsync([ :parameter = value, ... ])")
 
 
 Class DataRelation from Object
@@ -676,16 +672,16 @@ Class DataRelation from Object
 		nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[P1,P2,P3,P4])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7,P8])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataRelation, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.DataRelation, System.Data.Common',[P1])
 		return self
 
 	Func Equals P1
@@ -810,26 +806,17 @@ Class DataRow from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChildRows",P1])
 
-	Func GetChildRows_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildRows",P1,P2])
-
 	Func GetParentRow P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetParentRow",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRow",P1])
 
-	Func GetParentRow_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRow",P1,P2])
-
 	Func GetParentRows P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetParentRows",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRows",P1])
-
-	Func GetParentRows_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetParentRows",P1,P2])
 
 	Func HasVersion P1
 		return dnRequest("call",[new DotNetObject(nHandle),"HasVersion",P1])
@@ -844,10 +831,6 @@ Class DataRow from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetParentRow",P1])
-		return self
-
-	Func SetParentRow_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetParentRow",P1,P2])
 		return self
 
 	Func SetAdded 
@@ -977,11 +960,11 @@ Class DataRowExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Field P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1,P2])
-
-	Func Field_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1,P2,P3])
+	Func Field P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"Field",P1])
+		ok
+		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
 	Func SetField P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Data.DataRowExtensions, System.Data.Common'),"SetField",P1,P2,P3])
@@ -1006,9 +989,6 @@ Class DataRowView from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func CreateChildView_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateChildView",P1,P2])
 
 	Func CreateChildView P1
 		if dnIsNamed(P1)
@@ -1104,7 +1084,15 @@ Class DataSet from MarshalByValueComponent
 		nHandle = dnCreate('System.Data.DataSet, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataSet, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataSet, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.DataSet, System.Data.Common',[P1])
 		return self
 
@@ -1143,9 +1131,6 @@ Class DataSet from MarshalByValueComponent
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
 
-	Func GetChanges_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
-
 	Func GetXml 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetXml"])
 
@@ -1159,9 +1144,6 @@ Class DataSet from MarshalByValueComponent
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"HasChanges"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges",P1])
-
-	Func HasChanges_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"HasChanges",P1])
 
 	Func InferXmlSchema P1,P2
@@ -1180,18 +1162,11 @@ Class DataSet from MarshalByValueComponent
 		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1])
 		return self
 
-	Func WriteXmlSchema_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1,P2])
-		return self
-
 	Func ReadXml P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadXml",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1])
-
-	Func ReadXml_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadXml",P1,P2])
 
 	Func WriteXml P1
 		if dnIsNamed(P1)
@@ -1199,10 +1174,6 @@ Class DataSet from MarshalByValueComponent
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1])
-		return self
-
-	Func WriteXml_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1,P2])
 		return self
 
 	Func Merge P1
@@ -1213,14 +1184,6 @@ Class DataSet from MarshalByValueComponent
 		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1])
 		return self
 
-	Func Merge_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2])
-		return self
-
-	Func Merge_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2,P3])
-		return self
-
 	Func RejectChanges 
 		dnRequest("call",[new DotNetObject(nHandle),"RejectChanges"])
 		return self
@@ -1229,13 +1192,12 @@ Class DataSet from MarshalByValueComponent
 		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 
-	Func Load_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3,P4])
-		return self
-
-	Func Load_ P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3])
-		return self
+	Func Load_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
+			return self
+		ok
+		raise("DotNet Error: Load does not take one argument: use named arguments, Load([ :parameter = value, ... ])")
 
 	Func CreateDataReader P1
 		if dnIsNamed(P1)
@@ -1244,9 +1206,6 @@ Class DataSet from MarshalByValueComponent
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader",P1])
-
-	Func CreateDataReader_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateDataReader",P1])
 
 	Func GetDataSetSchema P1
@@ -1392,12 +1351,16 @@ Class DataTable from MarshalByValueComponent
 		nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataTable, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.DataTable, System.Data.Common',[P1,P2])
 		return self
 
 	Func GetObjectData P1,P2
@@ -1438,9 +1401,6 @@ Class DataTable from MarshalByValueComponent
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
 
-	Func GetChanges_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChanges",P1])
-
 	Func GetErrors 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetErrors"])
 
@@ -1468,15 +1428,6 @@ Class DataTable from MarshalByValueComponent
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
 
-	Func Select_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
-
-	Func Select_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-
-	Func Select_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2,P3])
-
 	Func BeginLoadData 
 		dnRequest("call",[new DotNetObject(nHandle),"BeginLoadData"])
 		return self
@@ -1496,28 +1447,12 @@ Class DataTable from MarshalByValueComponent
 		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1])
 		return self
 
-	Func Merge_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2])
-		return self
-
-	Func Merge_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1,P2,P3])
-		return self
-
 	Func Load_ P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
-		return self
-
-	Func Load_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
-		return self
-
-	Func Load_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3])
 		return self
 
 	Func CreateDataReader 
@@ -1531,24 +1466,12 @@ Class DataTable from MarshalByValueComponent
 		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1])
 		return self
 
-	Func WriteXml_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1,P2])
-		return self
-
-	Func WriteXml_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXml",P1,P2,P3])
-		return self
-
 	Func WriteXmlSchema P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteXmlSchema",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1])
-		return self
-
-	Func WriteXmlSchema_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteXmlSchema",P1,P2])
 		return self
 
 	Func ReadXml P1
@@ -1821,14 +1744,6 @@ Class DataTableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1])
 
-	Func CopyToDataTable_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1,P2,P3])
-		return self
-
-	Func CopyToDataTable_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"CopyToDataTable",P1,P2,P3,P4])
-		return self
-
 	Func AsDataView P1
 		return dnRequest("call",[dnTypeCached('System.Data.DataTableExtensions, System.Data.Common'),"AsDataView",P1])
 
@@ -1888,12 +1803,16 @@ Class DataView from MarshalByValueComponent
 		nHandle = dnCreate('System.Data.DataView, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataView, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataView, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.DataView, System.Data.Common',[P1])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Data.DataView, System.Data.Common',[P1,P2,P3,P4])
 		return self
 
 	Func AddNew 
@@ -1932,15 +1851,6 @@ Class DataView from MarshalByValueComponent
 			return dnRequest("call",[new DotNetObject(nHandle),"ToTable"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1])
-
-	Func ToTable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1])
-
-	Func ToTable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1,P2])
-
-	Func ToTable_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ToTable",P1,P2,P3])
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -2051,7 +1961,15 @@ Class DataViewManager from MarshalByValueComponent
 		nHandle = dnCreate('System.Data.DataViewManager, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.DataViewManager, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.DataViewManager, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.DataViewManager, System.Data.Common',[P1])
 		return self
 
@@ -2235,29 +2153,29 @@ Class EnumerableRowCollectionExtensions from Object
 	Func Where P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"Where",P1,P2])
 
-	Func OrderBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderBy",P1,P2])
+	Func OrderBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderBy",P1])
+		ok
+		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
-	Func OrderBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderBy",P1,P2,P3])
+	Func OrderByDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderByDescending",P1])
+		ok
+		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
-	Func OrderByDescending P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderByDescending",P1,P2])
+	Func ThenBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenBy",P1])
+		ok
+		raise("DotNet Error: ThenBy does not take one argument: use named arguments, ThenBy([ :parameter = value, ... ])")
 
-	Func OrderByDescending_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"OrderByDescending",P1,P2,P3])
-
-	Func ThenBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenBy",P1,P2])
-
-	Func ThenBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenBy",P1,P2,P3])
-
-	Func ThenByDescending P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenByDescending",P1,P2])
-
-	Func ThenByDescending_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenByDescending",P1,P2,P3])
+	Func ThenByDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"ThenByDescending",P1])
+		ok
+		raise("DotNet Error: ThenByDescending does not take one argument: use named arguments, ThenByDescending([ :parameter = value, ... ])")
 
 	Func Select P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.EnumerableRowCollectionExtensions, System.Data.Common'),"Select",P1,P2])
@@ -2687,9 +2605,6 @@ Class IDbCommand from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
-	Func ExecuteReader_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
 	Func ExecuteScalar 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
@@ -2764,9 +2679,6 @@ Class IDbConnection from DotNetObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
-
-	Func BeginTransaction_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
 	Func Close 
@@ -3146,17 +3058,17 @@ Class TypedTableBaseExtensions from Object
 	Func Where P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"Where",P1,P2])
 
-	Func OrderBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderBy",P1,P2])
+	Func OrderBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderBy",P1])
+		ok
+		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
-	Func OrderBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderBy",P1,P2,P3])
-
-	Func OrderByDescending P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderByDescending",P1,P2])
-
-	Func OrderByDescending_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderByDescending",P1,P2,P3])
+	Func OrderByDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"OrderByDescending",P1])
+		ok
+		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
 	Func Select P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.TypedTableBaseExtensions, System.Data.Common'),"Select",P1,P2])
@@ -3184,9 +3096,6 @@ Class ConstraintCollection from InternalDataCollectionBase
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
@@ -3235,20 +3144,6 @@ Class DataColumnCollection from InternalDataCollectionBase
 		ok
 		return self
 
-	Func Add_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-		return self
-
-	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
-		return self
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func Add P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -3257,6 +3152,10 @@ Class DataColumnCollection from InternalDataCollectionBase
 			return dnRequest("call",[new DotNetObject(nHandle),"Add"])
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return self
+
+	Func AddRange P1
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func CanRemove P1
@@ -3312,15 +3211,6 @@ Class DataRelationCollection from InternalDataCollectionBase
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-
-	Func Add_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3,P4])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -3408,17 +3298,6 @@ Class DataTableCollection from InternalDataCollectionBase
 		ok
 		return self
 
-	Func Add_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-		return self
-
-	Func AddRange P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
-		return self
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func Add P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -3427,6 +3306,10 @@ Class DataTableCollection from InternalDataCollectionBase
 			return dnRequest("call",[new DotNetObject(nHandle),"Add"])
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
+		return self
+
+	Func AddRange P1
+		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
 	Func CanRemove P1
@@ -3442,17 +3325,11 @@ Class DataTableCollection from InternalDataCollectionBase
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
-	Func Contains_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
-
 	Func IndexOf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
-
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
 
 	Func Remove P1
 		if dnIsNamed(P1)
@@ -3464,10 +3341,6 @@ Class DataTableCollection from InternalDataCollectionBase
 
 	Func RemoveAt P1
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
-		return self
-
-	Func Remove_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 		return self
 
 	Func Item P1
@@ -3508,16 +3381,16 @@ Class ForeignKeyConstraint from Constraint
 		nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[P1,P2,P3])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7,P8])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.ForeignKeyConstraint, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.ForeignKeyConstraint, System.Data.Common',[P1])
 		return self
 
 	Func getColumns
@@ -3574,12 +3447,16 @@ Class UniqueConstraint from Constraint
 		nHandle = dnCreate('System.Data.UniqueConstraint, System.Data.Common',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.UniqueConstraint, System.Data.Common',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.UniqueConstraint, System.Data.Common',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.UniqueConstraint, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.UniqueConstraint, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.UniqueConstraint, System.Data.Common',[P1])
 		return self
 
 	Func getColumns

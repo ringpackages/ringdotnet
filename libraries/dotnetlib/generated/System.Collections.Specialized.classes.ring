@@ -78,9 +78,26 @@ Class BitVector32 from ValueType
 		nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Specialized.BitVector32, System.Collections.Specialized',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.BitVector32, System.Collections.Specialized',[P1])
 		return self
+
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
 
 	Func CreateMask P1
 		if dnIsNamed(P1)
@@ -91,20 +108,11 @@ Class BitVector32 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
 
-	Func CreateMask_1 P1
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateMask",P1])
-
 	Func CreateSection P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1])
-
-	Func CreateSection_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"CreateSection",P1,P2])
-
-	Func ToString_1 P1
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.BitVector32, System.Collections.Specialized'),"ToString",P1])
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -143,9 +151,6 @@ Class CollectionsUtil from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
 
-	Func CreateCaseInsensitiveHashtable_1 P1
-		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveHashtable",P1])
-
 	Func CreateCaseInsensitiveSortedList 
 		return dnRequest("call",[dnTypeCached('System.Collections.Specialized.CollectionsUtil, System.Collections.NonGeneric'),"CreateCaseInsensitiveSortedList"])
 
@@ -169,12 +174,16 @@ Class HybridDictionary from Object
 		nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Specialized.HybridDictionary, System.Collections.Specialized',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -300,7 +309,15 @@ Class ListDictionary from Object
 		nHandle = dnCreate('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.ListDictionary, System.Collections.Specialized',[P1])
 		return self
 
@@ -435,12 +452,16 @@ Class OrderedDictionary from Object
 		nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Specialized.OrderedDictionary, System.Collections.Specialized',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -727,19 +748,23 @@ Class NameValueCollection from NameObjectCollectionBase
 		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Collections.Specialized.NameValueCollection, System.Collections.Specialized',[P1,P2,P3])
-		return self
-
-	Func Add_1 P1
+	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
@@ -753,10 +778,6 @@ Class NameValueCollection from NameObjectCollectionBase
 
 	Func HasKeys 
 		return dnRequest("call",[new DotNetObject(nHandle),"HasKeys"])
-
-	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
 
 	Func Get_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Get",P1])

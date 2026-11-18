@@ -34,7 +34,7 @@ oList.Add(3)  oList.Add(1)  oList.Add(2)
 oList.Sort(NULL)
 ? "ArrayList      : " + oList.Item(0) + oList.Item(1) + oList.Item(2)
 oQuery = new NameValueCollection()
-oQuery.Add("tag","ring")  oQuery.Add("tag","dotnet")  oQuery.Add("page","2")
+oQuery.Add([ :name = "tag", :value = "ring" ])  oQuery.Add([ :name = "tag", :value = "dotnet" ])  oQuery.Add([ :name = "page", :value = "2" ])
 ? "Query values   : " + oQuery.Item("tag") + " | " + oQuery.Item("page")
 
 func split cText, cSep

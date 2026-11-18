@@ -44,7 +44,7 @@ func fetch cMethod, cPath, cBody
 		oTask = oClient.GetAsync(cUrl + cPath)
 	else
 		oContent = new StringContent(cBody)
-		oTask = oClient.PostAsync(cUrl + cPath,oContent)
+		oTask = oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ])
 	ok
 	for nTry = 1 to 50
 		if oServer.serveOne(100)

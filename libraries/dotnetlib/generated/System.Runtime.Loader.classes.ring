@@ -50,8 +50,16 @@ Class AssemblyLoadContext from Object
 		nHandle = dnCreate('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib',[P1])
 		return self
 
 	Func SetProfileOptimizationRoot P1
@@ -77,9 +85,6 @@ Class AssemblyLoadContext from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromStream",P1])
 
-	Func LoadFromStream_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadFromStream",P1,P2])
-
 	Func Unload 
 		dnRequest("call",[new DotNetObject(nHandle),"Unload"])
 		return self
@@ -104,9 +109,6 @@ Class AssemblyLoadContext from Object
 
 	Func GetAssemblyName P1
 		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"GetAssemblyName",P1])
-
-	Func EnterContextualReflection_1 P1
-		return dnRequest("call",[dnTypeCached('System.Runtime.Loader.AssemblyLoadContext, System.Private.CoreLib'),"EnterContextualReflection",P1])
 
 	Func setResolvingUnmanagedDllEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"ResolvingUnmanagedDll",dnCallback(P1)])

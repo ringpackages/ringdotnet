@@ -11,7 +11,7 @@ using {
 
 func main
 	# STEP 1. Make a sample log file (a real program would read an existing file)
-	cLog = new Path().Combine(new Path().GetTempPath(),"tutorial21.log")
+	cLog = new Path().Combine([new Path().GetTempPath(),"tutorial21.log"])
 	makeLog(cLog)
 	? "STEP 1: log written, " + len(new File().ReadAllLines(cLog).toList()) + " lines"
 
@@ -53,13 +53,13 @@ func main
 	next
 
 	# STEP 5. Save a JSON report and read it back
-	cReport = new Path().Combine(new Path().GetTempPath(),"tutorial21-report.json")
+	cReport = new Path().Combine([new Path().GetTempPath(),"tutorial21-report.json"])
 	aReport = [
 		["lines",nLines],
 		["errors",len(aErrors)],
 		["different",len(aDistinct)]
 	]
-	new File().WriteAllText(cReport,webJsonText(aReport))
+	new File().WriteAllText([ :path = cReport, :contents = webJsonText(aReport) ])
 	? nl + "STEP 5: report " + new File().ReadAllText(cReport)
 	new File().Delete(cLog)
 	new File().Delete(cReport)
@@ -98,4 +98,4 @@ func makeLog cFile
 	for cLine in aLines
 		cText += cLine + windowsnl()
 	next
-	new File().WriteAllText(cFile,cText)
+	new File().WriteAllText([ :path = cFile, :contents = cText ])

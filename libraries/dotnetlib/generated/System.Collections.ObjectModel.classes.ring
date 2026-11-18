@@ -36,7 +36,15 @@ Class ObservableObjectList from DotNetObject
 		nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.ObjectModel.ObservableCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[P1])
 		return self
 
@@ -169,7 +177,15 @@ Class StringCollectionList from Object
 		nHandle = dnCreate('System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -233,7 +249,15 @@ Class ObservableStringList from StringCollectionList
 		nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.ObjectModel.ObservableCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.ObjectModel.ObservableCollection`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.ObjectModel',[P1])
 		return self
 

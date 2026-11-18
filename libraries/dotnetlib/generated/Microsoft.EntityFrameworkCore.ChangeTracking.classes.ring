@@ -167,30 +167,6 @@ Class CaseInsensitiveValueComparer from DotNetObject
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ChangeTracking.CaseInsensitiveValueComparer, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
-	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
-
-	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
-
-	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
-
-	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
-	Func ToString 
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
@@ -205,6 +181,24 @@ Class CaseInsensitiveValueComparer from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
+
+	Func Snapshot P1
+		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
+
+	Func ExtractEqualsBody P1,P2
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
+
+	Func ExtractHashCodeBody P1
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
+
+	Func ExtractSnapshotBody P1
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
+
+	Func GetType_ 
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+
+	Func ToString 
+		return dnRequest("call",[new DotNetObject(nHandle),"ToString"])
 
 	Func getObjectEqualsExpression
 		return dnRequest("get",[self,"ObjectEqualsExpression"])
@@ -276,13 +270,12 @@ Class ChangeTracker from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AcceptAllChanges"])
 		return self
 
-	Func TrackGraph P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TrackGraph",P1,P2])
-		return self
-
-	Func TrackGraph_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"TrackGraph",P1,P2,P3])
-		return self
+	Func TrackGraph P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TrackGraph",P1])
+			return self
+		ok
+		raise("DotNet Error: TrackGraph does not take one argument: use named arguments, TrackGraph([ :parameter = value, ... ])")
 
 	Func CascadeChanges 
 		dnRequest("call",[new DotNetObject(nHandle),"CascadeChanges"])
@@ -490,9 +483,6 @@ Class EntityEntry from Object
 	Func GetDatabaseValues 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValues"])
 
-	Func GetDatabaseValuesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
-
 	Func GetDatabaseValuesAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDatabaseValuesAsync",P1])
@@ -505,9 +495,6 @@ Class EntityEntry from Object
 	Func Reload 
 		dnRequest("call",[new DotNetObject(nHandle),"Reload"])
 		return self
-
-	Func ReloadAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReloadAsync",P1])
 
 	Func ReloadAsync P1
 		if dnIsNamed(P1)
@@ -677,17 +664,11 @@ Class IDependentKeyValueFactory from DotNetObject
 		ok
 		return self
 
-	Func CreatePrincipalEquatableKey_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1,P2])
-
 	Func CreatePrincipalEquatableKey P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreatePrincipalEquatableKey",P1])
-
-	Func CreateDependentEquatableKey_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDependentEquatableKey",P1,P2])
 
 	Func CreateDependentEquatableKey P1
 		if dnIsNamed(P1)
@@ -710,11 +691,11 @@ Class IEntityEntryGraphIterator from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"TraverseGraph",P1,P2])
 		return self
 
-	Func TraverseGraphAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TraverseGraphAsync",P1,P2,P3])
-
-	Func TraverseGraphAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TraverseGraphAsync",P1,P2])
+	Func TraverseGraphAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TraverseGraphAsync",P1])
+		ok
+		raise("DotNet Error: TraverseGraphAsync does not take one argument: use named arguments, TraverseGraphAsync([ :parameter = value, ... ])")
 
 
 Class IPrincipalKeyValueFactory from DotNetObject
@@ -726,9 +707,6 @@ Class IPrincipalKeyValueFactory from DotNetObject
 			return self
 		ok
 		return self
-
-	Func CreateEquatableKey_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEquatableKey",P1,P2])
 
 	Func CreateEquatableKey P1
 		if dnIsNamed(P1)
@@ -851,27 +829,6 @@ Class ValueComparer from Object
 		ok
 		return self
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
-	Func Snapshot P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
-
-	Func ExtractEqualsBody P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
-
-	Func ExtractHashCodeBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
-
-	Func ExtractSnapshotBody P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
-
-	Func GetType_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
@@ -887,14 +844,26 @@ Class ValueComparer from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
+	Func Snapshot P1
+		return dnRequest("call",[new DotNetObject(nHandle),"Snapshot",P1])
+
+	Func ExtractEqualsBody P1,P2
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractEqualsBody",P1,P2])
+
+	Func ExtractHashCodeBody P1
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractHashCodeBody",P1])
+
+	Func ExtractSnapshotBody P1
+		return dnRequest("call",[new DotNetObject(nHandle),"ExtractSnapshotBody",P1])
+
+	Func GetType_ 
+		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
+
 	Func GetGenericSnapshotMethod P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"GetGenericSnapshotMethod",P1])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"Add",P1,P2])
-
-	Func CreateDefault_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTracking.ValueComparer, Microsoft.EntityFrameworkCore'),"CreateDefault",P1,P2])
 
 	Func CreateDefault P1
 		if dnIsNamed(P1)
@@ -1154,13 +1123,6 @@ Class NavigationEntry from MemberEntry
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
-	Func Load_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
-		return self
-
-	Func LoadAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
-
 	Func LoadAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
@@ -1169,9 +1131,6 @@ Class NavigationEntry from MemberEntry
 			return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
-
-	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
 
 	Func Query 
 		return dnRequest("call",[new DotNetObject(nHandle),"Query"])

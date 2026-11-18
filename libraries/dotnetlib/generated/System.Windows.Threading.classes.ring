@@ -114,29 +114,17 @@ Class Dispatcher from Object
 		dnRequest("call",[new DotNetObject(nHandle),"InvokeShutdown"])
 		return self
 
-	Func BeginInvoke P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2])
+	Func BeginInvoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginInvoke",P1])
+		ok
+		raise("DotNet Error: BeginInvoke does not take one argument: use named arguments, BeginInvoke([ :parameter = value, ... ])")
 
-	Func BeginInvoke_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2,P3])
-
-	Func BeginInvoke_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginInvoke",P1,P2,P3,P4])
-
-	Func Invoke_1 P1
+	Func Invoke P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Invoke",P1])
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1])
-		return self
-
-	Func Invoke P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2])
-		return self
-
-	Func Invoke_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3])
-		return self
-
-	Func Invoke_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4])
 		return self
 
 	Func InvokeAsync P1
@@ -144,15 +132,6 @@ Class Dispatcher from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1])
-
-	Func InvokeAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2])
-
-	Func InvokeAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeAsync",P1,P2,P3])
-
-	Func Invoke_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Invoke",P1,P2,P3,P4,P5])
 
 	Func DisableProcessing 
 		return dnRequest("call",[new DotNetObject(nHandle),"DisableProcessing"])
@@ -182,9 +161,6 @@ Class Dispatcher from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
-
-	Func Yield_1 P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Threading.Dispatcher, WindowsBase'),"Yield",P1])
 
 	Func ValidatePriority P1,P2
@@ -419,9 +395,6 @@ Class DispatcherOperation from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 
-	Func Wait_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
-
 	Func Abort 
 		return dnRequest("call",[new DotNetObject(nHandle),"Abort"])
 
@@ -546,12 +519,16 @@ Class DispatcherSynchronizationContext from SynchronizationContext
 		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Threading.DispatcherSynchronizationContext, WindowsBase',[P1,P2])
 		return self
 
 
@@ -571,16 +548,16 @@ Class DispatcherTimer from Object
 		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherTimer, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Threading.DispatcherTimer, WindowsBase',[P1,P2,P3,P4])
 		return self
 
 	Func Start 
@@ -641,7 +618,15 @@ Class DispatcherFrame from DispatcherObject
 		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Threading.DispatcherFrame, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Threading.DispatcherFrame, WindowsBase',[P1])
 		return self
 

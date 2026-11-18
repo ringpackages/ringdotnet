@@ -17,9 +17,9 @@ lLoading = False
 
 func main
 	# the tasks are saved here (a test uses a temporary file)
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial24-tasks.json")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial24-tasks.json"])
 	if uiSelfTest()
-		cFile = new Path().Combine(new Path().GetTempPath(),"tutorial24-test.json")
+		cFile = new Path().Combine([new Path().GetTempPath(),"tutorial24-test.json"])
 		if new File().Exists(cFile)
 			new File().Delete(cFile)
 		ok
@@ -56,7 +56,7 @@ func addTask
 	if cText = ""
 		return
 	ok
-	oTasks.Items.Add_2(cText,False)
+	oTasks.Items.Add([ :item = cText, :isChecked = False ])
 	oNew.Text = ""
 	saveTasks()
 	refreshStatus()
@@ -90,7 +90,7 @@ func saveTasks
 		aList + [oTasks.GetItemChecked(nIndex),oTasks.Items.Item(nIndex)]      # [done, text]: see the note about pairs
 	next
 	cJson = new JsonSerializer().Serialize(aList)
-	new File().WriteAllText(cFile,cJson)
+	new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
 func loadTasks
 	if not new File().Exists(cFile)
@@ -101,7 +101,7 @@ func loadTasks
 	oRoot = oDocument.RootElement
 	for nIndex = 0 to oRoot.GetArrayLength() - 1
 		oTask = oRoot.Item(nIndex)
-		oTasks.Items.Add_2(oTask.Item(1).GetString(),oTask.Item(0).GetInt32() = 1)
+		oTasks.Items.Add([ :item = oTask.Item(1).GetString(), :isChecked = oTask.Item(0).GetInt32() = 1 ])
 	next
 	oDocument.Dispose()
 	lLoading = False

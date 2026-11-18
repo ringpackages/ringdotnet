@@ -159,9 +159,6 @@ Class HistoryRepository from Object
 	Func Exists 
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
-	Func ExistsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
-
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
@@ -181,9 +178,6 @@ Class HistoryRepository from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
-	Func CreateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
-
 	Func CreateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAsync",P1])
@@ -196,9 +190,6 @@ Class HistoryRepository from Object
 	Func AcquireDatabaseLock 
 		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLock"])
 
-	Func AcquireDatabaseLockAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
-
 	Func AcquireDatabaseLockAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
@@ -210,9 +201,6 @@ Class HistoryRepository from Object
 
 	Func GetAppliedMigrations 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrations"])
-
-	Func GetAppliedMigrationsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
 
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
@@ -435,9 +423,6 @@ Class IHistoryRepository from DotNetObject
 	Func Exists 
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists"])
 
-	Func ExistsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExistsAsync",P1])
-
 	Func ExistsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExistsAsync",P1])
@@ -451,9 +436,6 @@ Class IHistoryRepository from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Create"])
 		return self
 
-	Func CreateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAsync",P1])
-
 	Func CreateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateAsync",P1])
@@ -465,9 +447,6 @@ Class IHistoryRepository from DotNetObject
 
 	Func CreateIfNotExists 
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateIfNotExists"])
-
-	Func CreateIfNotExistsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIfNotExistsAsync",P1])
 
 	Func CreateIfNotExistsAsync P1
 		if dnIsNamed(P1)
@@ -481,9 +460,6 @@ Class IHistoryRepository from DotNetObject
 	Func GetAppliedMigrations 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrations"])
 
-	Func GetAppliedMigrationsAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
-
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAppliedMigrationsAsync",P1])
@@ -495,9 +471,6 @@ Class IHistoryRepository from DotNetObject
 
 	Func AcquireDatabaseLock 
 		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLock"])
-
-	Func AcquireDatabaseLockAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcquireDatabaseLockAsync",P1])
 
 	Func AcquireDatabaseLockAsync P1
 		if dnIsNamed(P1)
@@ -546,30 +519,17 @@ Class IMigrationCommandExecutor from DotNetObject
 		ok
 		return self
 
-	Func ExecuteNonQuery P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2])
-		return self
+	Func ExecuteNonQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
+		ok
+		raise("DotNet Error: ExecuteNonQuery does not take one argument: use named arguments, ExecuteNonQuery([ :parameter = value, ... ])")
 
-	Func ExecuteNonQuery_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2,P3,P4,P5])
-
-	Func ExecuteNonQuery_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2,P3,P4])
-
-	Func ExecuteNonQueryAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3])
-
-	Func ExecuteNonQueryAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
-
-	Func ExecuteNonQueryAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4,P5,P6])
-
-	Func ExecuteNonQueryAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4,P5])
-
-	Func ExecuteNonQueryAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3,P4])
+	Func ExecuteNonQueryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteNonQueryAsync does not take one argument: use named arguments, ExecuteNonQueryAsync([ :parameter = value, ... ])")
 
 
 Class IMigrationsAnnotationProvider from DotNetObject
@@ -641,11 +601,11 @@ Class IMigrationsDatabaseLock from DotNetObject
 	Func ReacquireIfNeeded P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeeded",P1,P2])
 
-	Func ReacquireIfNeededAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeededAsync",P1,P2,P3])
-
-	Func ReacquireIfNeededAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReacquireIfNeededAsync",P1,P2])
+	Func ReacquireIfNeededAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReacquireIfNeededAsync",P1])
+		ok
+		raise("DotNet Error: ReacquireIfNeededAsync does not take one argument: use named arguments, ReacquireIfNeededAsync([ :parameter = value, ... ])")
 
 
 Class IMigrationsIdGenerator from DotNetObject
@@ -695,12 +655,6 @@ Class IMigrationsSqlGenerator from DotNetObject
 		ok
 		return self
 
-	Func Generate_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2,P3])
-
-	Func Generate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2])
-
 	Func Generate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Generate",P1])
@@ -718,10 +672,6 @@ Class IMigrator from DotNetObject
 		ok
 		return self
 
-	Func Migrate_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Migrate",P1])
-		return self
-
 	Func Migrate P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Migrate",P1])
@@ -734,12 +684,6 @@ Class IMigrator from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Migrate",P1])
 		return self
 
-	Func MigrateAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1,P2])
-
-	Func MigrateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1])
-
 	Func MigrateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MigrateAsync",P1])
@@ -748,15 +692,6 @@ Class IMigrator from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MigrateAsync",P1])
-
-	Func GenerateScript_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1,P2,P3])
-
-	Func GenerateScript_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1,P2])
-
-	Func GenerateScript_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GenerateScript",P1])
 
 	Func GenerateScript P1
 		if dnIsNamed(P1)
@@ -836,182 +771,35 @@ Class MigrationBuilder from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func AddColumn_17 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17])
+	Func AddColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddColumn",P1])
+		ok
+		raise("DotNet Error: AddColumn does not take one argument: use named arguments, AddColumn([ :parameter = value, ... ])")
 
-	Func AddColumn_16 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16])
+	Func AddForeignKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddForeignKey",P1])
+		ok
+		raise("DotNet Error: AddForeignKey does not take one argument: use named arguments, AddForeignKey([ :parameter = value, ... ])")
 
-	Func AddColumn_15 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15])
+	Func AddPrimaryKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddPrimaryKey",P1])
+		ok
+		raise("DotNet Error: AddPrimaryKey does not take one argument: use named arguments, AddPrimaryKey([ :parameter = value, ... ])")
 
-	Func AddColumn_14 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14])
+	Func AddUniqueConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddUniqueConstraint",P1])
+		ok
+		raise("DotNet Error: AddUniqueConstraint does not take one argument: use named arguments, AddUniqueConstraint([ :parameter = value, ... ])")
 
-	Func AddColumn_13 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13])
-
-	Func AddColumn_12 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12])
-
-	Func AddColumn_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
-
-	Func AddColumn_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func AddColumn_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func AddColumn_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func AddColumn_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6,P7])
-
-	Func AddColumn_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5,P6])
-
-	Func AddColumn_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4,P5])
-
-	Func AddColumn_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3,P4])
-
-	Func AddColumn_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2,P3])
-
-	Func AddColumn P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddColumn",P1,P2])
-
-	Func AddForeignKey_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func AddForeignKey_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func AddForeignKey_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4,P5,P6,P7])
-
-	Func AddForeignKey_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4,P5,P6])
-
-	Func AddForeignKey_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4,P5])
-
-	Func AddForeignKey P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddForeignKey",P1,P2,P3,P4])
-
-	Func AddPrimaryKey_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddPrimaryKey",P1,P2,P3,P4])
-
-	Func AddPrimaryKey P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddPrimaryKey",P1,P2,P3])
-
-	Func AddUniqueConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddUniqueConstraint",P1,P2,P3,P4])
-
-	Func AddUniqueConstraint P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddUniqueConstraint",P1,P2,P3])
-
-	Func AlterColumn_32 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32])
-
-	Func AlterColumn_31 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31])
-
-	Func AlterColumn_30 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30])
-
-	Func AlterColumn_29 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29])
-
-	Func AlterColumn_28 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28])
-
-	Func AlterColumn_27 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27])
-
-	Func AlterColumn_26 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26])
-
-	Func AlterColumn_25 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25])
-
-	Func AlterColumn_24 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24])
-
-	Func AlterColumn_23 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23])
-
-	Func AlterColumn_22 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22])
-
-	Func AlterColumn_21 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21])
-
-	Func AlterColumn_20 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20])
-
-	Func AlterColumn_19 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19])
-
-	Func AlterColumn_18 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18])
-
-	Func AlterColumn_17 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17])
-
-	Func AlterColumn_16 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16])
-
-	Func AlterColumn_15 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15])
-
-	Func AlterColumn_14 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14])
-
-	Func AlterColumn_13 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13])
-
-	Func AlterColumn_12 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12])
-
-	Func AlterColumn_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
-
-	Func AlterColumn_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func AlterColumn_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func AlterColumn_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func AlterColumn_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6,P7])
-
-	Func AlterColumn_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5,P6])
-
-	Func AlterColumn_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4,P5])
-
-	Func AlterColumn_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3,P4])
-
-	Func AlterColumn_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2,P3])
-
-	Func AlterColumn P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterColumn",P1,P2])
-
-	Func AlterDatabase_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterDatabase",P1,P2])
-
-	Func AlterDatabase_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterDatabase",P1])
+	Func AlterColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AlterColumn",P1])
+		ok
+		raise("DotNet Error: AlterColumn does not take one argument: use named arguments, AlterColumn([ :parameter = value, ... ])")
 
 	Func AlterDatabase P1
 		if dnIsNamed(P1)
@@ -1022,47 +810,11 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AlterDatabase",P1])
 
-	Func AlterSequence_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func AlterSequence_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func AlterSequence_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func AlterSequence_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5,P6,P7])
-
-	Func AlterSequence_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5,P6])
-
-	Func AlterSequence_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4,P5])
-
-	Func AlterSequence_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3,P4])
-
-	Func AlterSequence_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2,P3])
-
-	Func AlterSequence_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1,P2])
-
 	Func AlterSequence P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AlterSequence",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AlterSequence",P1])
-
-	Func AlterTable_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterTable",P1,P2,P3,P4])
-
-	Func AlterTable_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterTable",P1,P2,P3])
-
-	Func AlterTable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AlterTable",P1,P2])
 
 	Func AlterTable P1
 		if dnIsNamed(P1)
@@ -1070,41 +822,14 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AlterTable",P1])
 
-	Func CreateIndex_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIndex",P1,P2,P3,P4,P5,P6,P7])
-
-	Func CreateIndex_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIndex",P1,P2,P3,P4,P5,P6])
-
-	Func CreateIndex_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIndex",P1,P2,P3,P4,P5])
-
-	Func CreateIndex_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIndex",P1,P2,P3,P4])
-
-	Func CreateIndex P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateIndex",P1,P2,P3])
+	Func CreateIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateIndex",P1])
+		ok
+		raise("DotNet Error: CreateIndex does not take one argument: use named arguments, CreateIndex([ :parameter = value, ... ])")
 
 	Func EnsureSchema P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureSchema",P1])
-
-	Func CreateSequence_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2,P3,P4,P5,P6,P7])
-
-	Func CreateSequence_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2,P3,P4,P5,P6])
-
-	Func CreateSequence_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2,P3,P4,P5])
-
-	Func CreateSequence_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2,P3,P4])
-
-	Func CreateSequence_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2,P3])
-
-	Func CreateSequence_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1,P2])
 
 	Func CreateSequence P1
 		if dnIsNamed(P1)
@@ -1112,47 +837,35 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSequence",P1])
 
-	Func CreateCheckConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCheckConstraint",P1,P2,P3,P4])
+	Func CreateCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateCheckConstraint",P1])
+		ok
+		raise("DotNet Error: CreateCheckConstraint does not take one argument: use named arguments, CreateCheckConstraint([ :parameter = value, ... ])")
 
-	Func CreateCheckConstraint P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCheckConstraint",P1,P2,P3])
+	Func AddCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddCheckConstraint",P1])
+		ok
+		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
 
-	Func AddCheckConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"AddCheckConstraint",P1,P2,P3,P4])
+	Func CreateTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateTable",P1])
+		ok
+		raise("DotNet Error: CreateTable does not take one argument: use named arguments, CreateTable([ :parameter = value, ... ])")
 
-	Func AddCheckConstraint P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddCheckConstraint",P1,P2,P3])
+	Func DropColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DropColumn",P1])
+		ok
+		raise("DotNet Error: DropColumn does not take one argument: use named arguments, DropColumn([ :parameter = value, ... ])")
 
-	Func CreateTable_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTable",P1,P2,P3,P4,P5])
-
-	Func CreateTable_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTable",P1,P2,P3,P4])
-
-	Func CreateTable_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTable",P1,P2,P3])
-
-	Func CreateTable P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateTable",P1,P2])
-
-	Func DropColumn_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropColumn",P1,P2,P3])
-
-	Func DropColumn P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropColumn",P1,P2])
-
-	Func DropForeignKey_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropForeignKey",P1,P2,P3])
-
-	Func DropForeignKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropForeignKey",P1,P2])
-
-	Func DropIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropIndex",P1,P2,P3])
-
-	Func DropIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropIndex",P1,P2])
+	Func DropForeignKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DropForeignKey",P1])
+		ok
+		raise("DotNet Error: DropForeignKey does not take one argument: use named arguments, DropForeignKey([ :parameter = value, ... ])")
 
 	Func DropIndex P1
 		if dnIsNamed(P1)
@@ -1160,17 +873,14 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DropIndex",P1])
 
-	Func DropPrimaryKey_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropPrimaryKey",P1,P2,P3])
-
-	Func DropPrimaryKey P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropPrimaryKey",P1,P2])
+	Func DropPrimaryKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DropPrimaryKey",P1])
+		ok
+		raise("DotNet Error: DropPrimaryKey does not take one argument: use named arguments, DropPrimaryKey([ :parameter = value, ... ])")
 
 	Func DropSchema P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DropSchema",P1])
-
-	Func DropSequence_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropSequence",P1,P2])
 
 	Func DropSequence P1
 		if dnIsNamed(P1)
@@ -1178,14 +888,11 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DropSequence",P1])
 
-	Func DropCheckConstraint_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropCheckConstraint",P1,P2,P3])
-
-	Func DropCheckConstraint P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropCheckConstraint",P1,P2])
-
-	Func DropTable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropTable",P1,P2])
+	Func DropCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DropCheckConstraint",P1])
+		ok
+		raise("DotNet Error: DropCheckConstraint does not take one argument: use named arguments, DropCheckConstraint([ :parameter = value, ... ])")
 
 	Func DropTable P1
 		if dnIsNamed(P1)
@@ -1193,35 +900,23 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DropTable",P1])
 
-	Func DropUniqueConstraint_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DropUniqueConstraint",P1,P2,P3])
+	Func DropUniqueConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DropUniqueConstraint",P1])
+		ok
+		raise("DotNet Error: DropUniqueConstraint does not take one argument: use named arguments, DropUniqueConstraint([ :parameter = value, ... ])")
 
-	Func DropUniqueConstraint P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DropUniqueConstraint",P1,P2])
+	Func RenameColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RenameColumn",P1])
+		ok
+		raise("DotNet Error: RenameColumn does not take one argument: use named arguments, RenameColumn([ :parameter = value, ... ])")
 
-	Func RenameColumn_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameColumn",P1,P2,P3,P4])
-
-	Func RenameColumn P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameColumn",P1,P2,P3])
-
-	Func RenameIndex_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameIndex",P1,P2,P3,P4])
-
-	Func RenameIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameIndex",P1,P2,P3])
-
-	Func RenameIndex P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameIndex",P1,P2])
-
-	Func RenameSequence_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameSequence",P1,P2,P3,P4])
-
-	Func RenameSequence_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameSequence",P1,P2,P3])
-
-	Func RenameSequence_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameSequence",P1,P2])
+	Func RenameIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RenameIndex",P1])
+		ok
+		raise("DotNet Error: RenameIndex does not take one argument: use named arguments, RenameIndex([ :parameter = value, ... ])")
 
 	Func RenameSequence P1
 		if dnIsNamed(P1)
@@ -1229,26 +924,11 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RenameSequence",P1])
 
-	Func RenameTable_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameTable",P1,P2,P3,P4])
-
-	Func RenameTable_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameTable",P1,P2,P3])
-
-	Func RenameTable_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RenameTable",P1,P2])
-
 	Func RenameTable P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RenameTable",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RenameTable",P1])
-
-	Func RestartSequence_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RestartSequence",P1,P2,P3])
-
-	Func RestartSequence_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RestartSequence",P1,P2])
 
 	Func RestartSequence P1
 		if dnIsNamed(P1)
@@ -1256,44 +936,29 @@ Class MigrationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RestartSequence",P1])
 
-	Func Sql_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Sql",P1,P2])
-
 	Func Sql P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Sql",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Sql",P1])
 
-	Func InsertData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"InsertData",P1,P2,P3,P4])
+	Func InsertData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"InsertData",P1])
+		ok
+		raise("DotNet Error: InsertData does not take one argument: use named arguments, InsertData([ :parameter = value, ... ])")
 
-	Func InsertData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"InsertData",P1,P2,P3])
+	Func DeleteData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeleteData",P1])
+		ok
+		raise("DotNet Error: DeleteData does not take one argument: use named arguments, DeleteData([ :parameter = value, ... ])")
 
-	Func InsertData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"InsertData",P1,P2,P3,P4,P5])
-
-	Func DeleteData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteData",P1,P2,P3,P4])
-
-	Func DeleteData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteData",P1,P2,P3])
-
-	Func DeleteData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteData",P1,P2,P3,P4,P5])
-
-	Func UpdateData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateData",P1,P2,P3,P4,P5,P6])
-
-	Func UpdateData P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateData",P1,P2,P3,P4,P5])
-
-	Func UpdateData_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateData",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func UpdateData_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"UpdateData",P1,P2,P3,P4,P5,P6,P7])
+	Func UpdateData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"UpdateData",P1])
+		ok
+		raise("DotNet Error: UpdateData does not take one argument: use named arguments, UpdateData([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1326,24 +991,23 @@ Class MigrationCommand from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationCommand, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
-
-	Func ExecuteNonQuery_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1,P2])
 
 	Func ExecuteNonQuery P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery",P1])
-
-	Func ExecuteNonQueryAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2,P3])
-
-	Func ExecuteNonQueryAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1,P2])
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -1387,9 +1051,6 @@ Class MigrationCommandListBuilder from Object
 	Func GetCommandList 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCommandList"])
 
-	Func EndCommand_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EndCommand",P1])
-
 	Func EndCommand P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EndCommand",P1])
@@ -1409,9 +1070,6 @@ Class MigrationCommandListBuilder from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"AppendLine"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
-
-	Func AppendLine_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
 	Func AppendLines P1
@@ -1549,12 +1207,6 @@ Class MigrationsSqlGenerator from Object
 		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Migrations.MigrationsSqlGenerator, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
-
-	Func Generate_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2,P3])
-
-	Func Generate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Generate",P1,P2])
 
 	Func Generate P1
 		if dnIsNamed(P1)

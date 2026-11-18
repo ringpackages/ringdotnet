@@ -1355,21 +1355,21 @@ Class CoreLoggerExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailed",P1,P2,P3])
 		return self
 
-	Func SaveChangesFailedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailedAsync",P1,P2,P3,P4])
-
-	Func SaveChangesFailedAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailedAsync",P1,P2,P3])
+	Func SaveChangesFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesFailedAsync",P1])
+		ok
+		raise("DotNet Error: SaveChangesFailedAsync does not take one argument: use named arguments, SaveChangesFailedAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesCanceled P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCanceled",P1,P2])
 		return self
 
-	Func SaveChangesCanceledAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCanceledAsync",P1,P2,P3])
-
-	Func SaveChangesCanceledAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCanceledAsync",P1,P2])
+	Func SaveChangesCanceledAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCanceledAsync",P1])
+		ok
+		raise("DotNet Error: SaveChangesCanceledAsync does not take one argument: use named arguments, SaveChangesCanceledAsync([ :parameter = value, ... ])")
 
 	Func OldModelVersionWarning P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OldModelVersionWarning",P1,P2,P3])
@@ -1378,11 +1378,11 @@ Class CoreLoggerExtensions from Object
 	Func OptimisticConcurrencyException P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OptimisticConcurrencyException",P1,P2,P3,P4,P5])
 
-	Func OptimisticConcurrencyExceptionAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OptimisticConcurrencyExceptionAsync",P1,P2,P3,P4,P5,P6])
-
-	Func OptimisticConcurrencyExceptionAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OptimisticConcurrencyExceptionAsync",P1,P2,P3,P4,P5])
+	Func OptimisticConcurrencyExceptionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"OptimisticConcurrencyExceptionAsync",P1])
+		ok
+		raise("DotNet Error: OptimisticConcurrencyExceptionAsync does not take one argument: use named arguments, OptimisticConcurrencyExceptionAsync([ :parameter = value, ... ])")
 
 	Func DuplicateDependentEntityTypeInstanceWarning P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"DuplicateDependentEntityTypeInstanceWarning",P1,P2,P3])
@@ -1670,20 +1670,20 @@ Class CoreLoggerExtensions from Object
 	Func SaveChangesStarting P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesStarting",P1,P2])
 
-	Func SaveChangesStartingAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesStartingAsync",P1,P2,P3])
-
-	Func SaveChangesStartingAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesStartingAsync",P1,P2])
+	Func SaveChangesStartingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesStartingAsync",P1])
+		ok
+		raise("DotNet Error: SaveChangesStartingAsync does not take one argument: use named arguments, SaveChangesStartingAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesCompleted P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCompleted",P1,P2,P3])
 
-	Func SaveChangesCompletedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCompletedAsync",P1,P2,P3,P4])
-
-	Func SaveChangesCompletedAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCompletedAsync",P1,P2,P3])
+	Func SaveChangesCompletedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"SaveChangesCompletedAsync",P1])
+		ok
+		raise("DotNet Error: SaveChangesCompletedAsync does not take one argument: use named arguments, SaveChangesCompletedAsync([ :parameter = value, ... ])")
 
 	Func ContextDisposed P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.CoreLoggerExtensions, Microsoft.EntityFrameworkCore'),"ContextDisposed",P1,P2])
@@ -3210,23 +3210,23 @@ Class DbCommandInterceptor from Object
 	Func NonQueryExecuting P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecuting",P1,P2,P3])
 
-	Func ReaderExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1,P2,P3,P4])
+	Func ReaderExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1])
+		ok
+		raise("DotNet Error: ReaderExecutingAsync does not take one argument: use named arguments, ReaderExecutingAsync([ :parameter = value, ... ])")
 
-	Func ReaderExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1,P2,P3])
+	Func ScalarExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1])
+		ok
+		raise("DotNet Error: ScalarExecutingAsync does not take one argument: use named arguments, ScalarExecutingAsync([ :parameter = value, ... ])")
 
-	Func ScalarExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1,P2,P3,P4])
-
-	Func ScalarExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1,P2,P3])
-
-	Func NonQueryExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1,P2,P3,P4])
-
-	Func NonQueryExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1,P2,P3])
+	Func NonQueryExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1])
+		ok
+		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecuted",P1,P2,P3])
@@ -3237,43 +3237,43 @@ Class DbCommandInterceptor from Object
 	Func NonQueryExecuted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecuted",P1,P2,P3])
 
-	Func ReaderExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1,P2,P3,P4])
+	Func ReaderExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1])
+		ok
+		raise("DotNet Error: ReaderExecutedAsync does not take one argument: use named arguments, ReaderExecutedAsync([ :parameter = value, ... ])")
 
-	Func ReaderExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1,P2,P3])
+	Func ScalarExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1])
+		ok
+		raise("DotNet Error: ScalarExecutedAsync does not take one argument: use named arguments, ScalarExecutedAsync([ :parameter = value, ... ])")
 
-	Func ScalarExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1,P2,P3,P4])
-
-	Func ScalarExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1,P2,P3])
-
-	Func NonQueryExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1,P2,P3,P4])
-
-	Func NonQueryExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1,P2,P3])
+	Func NonQueryExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1])
+		ok
+		raise("DotNet Error: NonQueryExecutedAsync does not take one argument: use named arguments, NonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"CommandCanceled",P1,P2])
 		return self
 
-	Func CommandCanceledAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3])
-
-	Func CommandCanceledAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2])
+	Func CommandCanceledAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandCanceledAsync",P1])
+		ok
+		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func CommandFailed P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"CommandFailed",P1,P2])
 		return self
 
-	Func CommandFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandFailedAsync",P1,P2,P3])
-
-	Func CommandFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandFailedAsync",P1,P2])
+	Func CommandFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandFailedAsync",P1])
+		ok
+		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderClosing",P1,P2,P3])
@@ -3307,21 +3307,21 @@ Class DbConnectionInterceptor from Object
 	Func ConnectionOpening P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpening",P1,P2,P3])
 
-	Func ConnectionOpeningAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3,P4])
-
-	Func ConnectionOpeningAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3])
+	Func ConnectionOpeningAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionOpeningAsync does not take one argument: use named arguments, ConnectionOpeningAsync([ :parameter = value, ... ])")
 
 	Func ConnectionOpened P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpened",P1,P2])
 		return self
 
-	Func ConnectionOpenedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3])
-
-	Func ConnectionOpenedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2])
+	Func ConnectionOpenedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosing",P1,P2,P3])
@@ -3353,11 +3353,11 @@ Class DbConnectionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailed",P1,P2])
 		return self
 
-	Func ConnectionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2,P3])
-
-	Func ConnectionFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2])
+	Func ConnectionFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionFailedAsync does not take one argument: use named arguments, ConnectionFailedAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -3379,26 +3379,26 @@ Class DbTransactionInterceptor from Object
 	Func TransactionStarted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStarted",P1,P2,P3])
 
-	Func TransactionStartingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3,P4])
+	Func TransactionStartingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionStartingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartingAsync does not take one argument: use named arguments, TransactionStartingAsync([ :parameter = value, ... ])")
 
-	Func TransactionStartingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3])
-
-	Func TransactionStartedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3,P4])
-
-	Func TransactionStartedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3])
+	Func TransactionStartedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionStartedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsed",P1,P2,P3])
 
-	Func TransactionUsedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3,P4])
-
-	Func TransactionUsedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3])
+	Func TransactionUsedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionUsedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitting",P1,P2,P3])
@@ -3407,17 +3407,17 @@ Class DbTransactionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitted",P1,P2])
 		return self
 
-	Func TransactionCommittingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3,P4])
+	Func TransactionCommittingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittingAsync does not take one argument: use named arguments, TransactionCommittingAsync([ :parameter = value, ... ])")
 
-	Func TransactionCommittingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3])
-
-	Func TransactionCommittedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2,P3])
-
-	Func TransactionCommittedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2])
+	Func TransactionCommittedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBack",P1,P2,P3])
@@ -3426,17 +3426,17 @@ Class DbTransactionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBack",P1,P2])
 		return self
 
-	Func TransactionRollingBackAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3,P4])
+	Func TransactionRollingBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRollingBackAsync does not take one argument: use named arguments, TransactionRollingBackAsync([ :parameter = value, ... ])")
 
-	Func TransactionRollingBackAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3])
-
-	Func TransactionRolledBackAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2,P3])
-
-	Func TransactionRolledBackAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2])
+	Func TransactionRolledBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepoint",P1,P2,P3])
@@ -3445,17 +3445,17 @@ Class DbTransactionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepoint",P1,P2])
 		return self
 
-	Func CreatingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3,P4])
+	Func CreatingSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatingSavepointAsync does not take one argument: use named arguments, CreatingSavepointAsync([ :parameter = value, ... ])")
 
-	Func CreatingSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3])
-
-	Func CreatedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2,P3])
-
-	Func CreatedSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2])
+	Func CreatedSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepoint",P1,P2,P3])
@@ -3464,17 +3464,17 @@ Class DbTransactionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepoint",P1,P2])
 		return self
 
-	Func RollingBackToSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3,P4])
+	Func RollingBackToSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RollingBackToSavepointAsync does not take one argument: use named arguments, RollingBackToSavepointAsync([ :parameter = value, ... ])")
 
-	Func RollingBackToSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3])
-
-	Func RolledBackToSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2,P3])
-
-	Func RolledBackToSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2])
+	Func RolledBackToSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepoint",P1,P2,P3])
@@ -3483,27 +3483,27 @@ Class DbTransactionInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepoint",P1,P2])
 		return self
 
-	Func ReleasingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3,P4])
+	Func ReleasingSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasingSavepointAsync does not take one argument: use named arguments, ReleasingSavepointAsync([ :parameter = value, ... ])")
 
-	Func ReleasingSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3])
-
-	Func ReleasedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2,P3])
-
-	Func ReleasedSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2])
+	Func ReleasedSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasedSavepointAsync does not take one argument: use named arguments, ReleasedSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionFailed P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionFailed",P1,P2])
 		return self
 
-	Func TransactionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2,P3])
-
-	Func TransactionFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2])
+	Func TransactionFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionFailedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionFailedAsync does not take one argument: use named arguments, TransactionFailedAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -3650,23 +3650,23 @@ Class IDbCommandInterceptor from DotNetObject
 	Func NonQueryExecuting P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecuting",P1,P2,P3])
 
-	Func ReaderExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1,P2,P3,P4])
+	Func ReaderExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1])
+		ok
+		raise("DotNet Error: ReaderExecutingAsync does not take one argument: use named arguments, ReaderExecutingAsync([ :parameter = value, ... ])")
 
-	Func ReaderExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutingAsync",P1,P2,P3])
+	Func ScalarExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1])
+		ok
+		raise("DotNet Error: ScalarExecutingAsync does not take one argument: use named arguments, ScalarExecutingAsync([ :parameter = value, ... ])")
 
-	Func ScalarExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1,P2,P3,P4])
-
-	Func ScalarExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutingAsync",P1,P2,P3])
-
-	Func NonQueryExecutingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1,P2,P3,P4])
-
-	Func NonQueryExecutingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1,P2,P3])
+	Func NonQueryExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NonQueryExecutingAsync",P1])
+		ok
+		raise("DotNet Error: NonQueryExecutingAsync does not take one argument: use named arguments, NonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func ReaderExecuted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecuted",P1,P2,P3])
@@ -3677,43 +3677,43 @@ Class IDbCommandInterceptor from DotNetObject
 	Func NonQueryExecuted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecuted",P1,P2,P3])
 
-	Func ReaderExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1,P2,P3,P4])
+	Func ReaderExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1])
+		ok
+		raise("DotNet Error: ReaderExecutedAsync does not take one argument: use named arguments, ReaderExecutedAsync([ :parameter = value, ... ])")
 
-	Func ReaderExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReaderExecutedAsync",P1,P2,P3])
+	Func ScalarExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1])
+		ok
+		raise("DotNet Error: ScalarExecutedAsync does not take one argument: use named arguments, ScalarExecutedAsync([ :parameter = value, ... ])")
 
-	Func ScalarExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1,P2,P3,P4])
-
-	Func ScalarExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ScalarExecutedAsync",P1,P2,P3])
-
-	Func NonQueryExecutedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1,P2,P3,P4])
-
-	Func NonQueryExecutedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1,P2,P3])
+	Func NonQueryExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NonQueryExecutedAsync",P1])
+		ok
+		raise("DotNet Error: NonQueryExecutedAsync does not take one argument: use named arguments, NonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"CommandCanceled",P1,P2])
 		return self
 
-	Func CommandCanceledAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3])
-
-	Func CommandCanceledAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2])
+	Func CommandCanceledAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandCanceledAsync",P1])
+		ok
+		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func CommandFailed P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"CommandFailed",P1,P2])
 		return self
 
-	Func CommandFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandFailedAsync",P1,P2,P3])
-
-	Func CommandFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandFailedAsync",P1,P2])
+	Func CommandFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandFailedAsync",P1])
+		ok
+		raise("DotNet Error: CommandFailedAsync does not take one argument: use named arguments, CommandFailedAsync([ :parameter = value, ... ])")
 
 	Func DataReaderClosing P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderClosing",P1,P2,P3])
@@ -3744,21 +3744,21 @@ Class IDbConnectionInterceptor from DotNetObject
 	Func ConnectionOpening P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpening",P1,P2,P3])
 
-	Func ConnectionOpeningAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3,P4])
-
-	Func ConnectionOpeningAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1,P2,P3])
+	Func ConnectionOpeningAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionOpeningAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionOpeningAsync does not take one argument: use named arguments, ConnectionOpeningAsync([ :parameter = value, ... ])")
 
 	Func ConnectionOpened P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpened",P1,P2])
 		return self
 
-	Func ConnectionOpenedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3])
-
-	Func ConnectionOpenedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2])
+	Func ConnectionOpenedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosing",P1,P2,P3])
@@ -3790,11 +3790,11 @@ Class IDbConnectionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailed",P1,P2])
 		return self
 
-	Func ConnectionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2,P3])
-
-	Func ConnectionFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1,P2])
+	Func ConnectionFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionFailedAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionFailedAsync does not take one argument: use named arguments, ConnectionFailedAsync([ :parameter = value, ... ])")
 
 
 Class IDbContextLogger from DotNetObject
@@ -3831,26 +3831,26 @@ Class IDbTransactionInterceptor from DotNetObject
 	Func TransactionStarted P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStarted",P1,P2,P3])
 
-	Func TransactionStartingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3,P4])
+	Func TransactionStartingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionStartingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartingAsync does not take one argument: use named arguments, TransactionStartingAsync([ :parameter = value, ... ])")
 
-	Func TransactionStartingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartingAsync",P1,P2,P3])
-
-	Func TransactionStartedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3,P4])
-
-	Func TransactionStartedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionStartedAsync",P1,P2,P3])
+	Func TransactionStartedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionStartedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsed",P1,P2,P3])
 
-	Func TransactionUsedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3,P4])
-
-	Func TransactionUsedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionUsedAsync",P1,P2,P3])
+	Func TransactionUsedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionUsedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitting",P1,P2,P3])
@@ -3859,17 +3859,17 @@ Class IDbTransactionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionCommitted",P1,P2])
 		return self
 
-	Func TransactionCommittingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3,P4])
+	Func TransactionCommittingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittingAsync does not take one argument: use named arguments, TransactionCommittingAsync([ :parameter = value, ... ])")
 
-	Func TransactionCommittingAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittingAsync",P1,P2,P3])
-
-	Func TransactionCommittedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2,P3])
-
-	Func TransactionCommittedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1,P2])
+	Func TransactionCommittedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionCommittedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBack",P1,P2,P3])
@@ -3878,17 +3878,17 @@ Class IDbTransactionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBack",P1,P2])
 		return self
 
-	Func TransactionRollingBackAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3,P4])
+	Func TransactionRollingBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRollingBackAsync does not take one argument: use named arguments, TransactionRollingBackAsync([ :parameter = value, ... ])")
 
-	Func TransactionRollingBackAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRollingBackAsync",P1,P2,P3])
-
-	Func TransactionRolledBackAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2,P3])
-
-	Func TransactionRolledBackAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1,P2])
+	Func TransactionRolledBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionRolledBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepoint",P1,P2,P3])
@@ -3897,17 +3897,17 @@ Class IDbTransactionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepoint",P1,P2])
 		return self
 
-	Func CreatingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3,P4])
+	Func CreatingSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatingSavepointAsync does not take one argument: use named arguments, CreatingSavepointAsync([ :parameter = value, ... ])")
 
-	Func CreatingSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatingSavepointAsync",P1,P2,P3])
-
-	Func CreatedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2,P3])
-
-	Func CreatedSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1,P2])
+	Func CreatedSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreatedSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatedSavepointAsync does not take one argument: use named arguments, CreatedSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepoint",P1,P2,P3])
@@ -3916,17 +3916,17 @@ Class IDbTransactionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepoint",P1,P2])
 		return self
 
-	Func RollingBackToSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3,P4])
+	Func RollingBackToSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RollingBackToSavepointAsync does not take one argument: use named arguments, RollingBackToSavepointAsync([ :parameter = value, ... ])")
 
-	Func RollingBackToSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RollingBackToSavepointAsync",P1,P2,P3])
-
-	Func RolledBackToSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2,P3])
-
-	Func RolledBackToSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1,P2])
+	Func RolledBackToSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"RolledBackToSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RolledBackToSavepointAsync does not take one argument: use named arguments, RolledBackToSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingSavepoint P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepoint",P1,P2,P3])
@@ -3935,27 +3935,27 @@ Class IDbTransactionInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepoint",P1,P2])
 		return self
 
-	Func ReleasingSavepointAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3,P4])
+	Func ReleasingSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasingSavepointAsync does not take one argument: use named arguments, ReleasingSavepointAsync([ :parameter = value, ... ])")
 
-	Func ReleasingSavepointAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasingSavepointAsync",P1,P2,P3])
-
-	Func ReleasedSavepointAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2,P3])
-
-	Func ReleasedSavepointAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1,P2])
+	Func ReleasedSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReleasedSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasedSavepointAsync does not take one argument: use named arguments, ReleasedSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionFailed P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"TransactionFailed",P1,P2])
 		return self
 
-	Func TransactionFailedAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2,P3])
-
-	Func TransactionFailedAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TransactionFailedAsync",P1,P2])
+	Func TransactionFailedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TransactionFailedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionFailedAsync does not take one argument: use named arguments, TransactionFailedAsync([ :parameter = value, ... ])")
 
 
 Class IDiagnosticsLogger from DotNetObject
@@ -4248,23 +4248,23 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 	Func CommandNonQueryExecuting P1,P2,P3,P4,P5,P6,P7
 		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecuting",P1,P2,P3,P4,P5,P6,P7])
 
-	Func CommandReaderExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func CommandReaderExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandReaderExecutingAsync",P1])
+		ok
+		raise("DotNet Error: CommandReaderExecutingAsync does not take one argument: use named arguments, CommandReaderExecutingAsync([ :parameter = value, ... ])")
 
-	Func CommandReaderExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
+	Func CommandScalarExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandScalarExecutingAsync",P1])
+		ok
+		raise("DotNet Error: CommandScalarExecutingAsync does not take one argument: use named arguments, CommandScalarExecutingAsync([ :parameter = value, ... ])")
 
-	Func CommandScalarExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CommandScalarExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
-
-	Func CommandNonQueryExecutingAsync_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CommandNonQueryExecutingAsync P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutingAsync",P1,P2,P3,P4,P5,P6,P7])
+	Func CommandNonQueryExecutingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandNonQueryExecutingAsync",P1])
+		ok
+		raise("DotNet Error: CommandNonQueryExecutingAsync does not take one argument: use named arguments, CommandNonQueryExecutingAsync([ :parameter = value, ... ])")
 
 	Func CommandReaderExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
 		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
@@ -4275,43 +4275,43 @@ Class IRelationalCommandDiagnosticsLogger from DotNetObject
 	Func CommandNonQueryExecuted P1,P2,P3,P4,P5,P6,P7,P8,P9
 		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecuted",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
-	Func CommandReaderExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+	Func CommandReaderExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandReaderExecutedAsync",P1])
+		ok
+		raise("DotNet Error: CommandReaderExecutedAsync does not take one argument: use named arguments, CommandReaderExecutedAsync([ :parameter = value, ... ])")
 
-	Func CommandReaderExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandReaderExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func CommandScalarExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandScalarExecutedAsync",P1])
+		ok
+		raise("DotNet Error: CommandScalarExecutedAsync does not take one argument: use named arguments, CommandScalarExecutedAsync([ :parameter = value, ... ])")
 
-	Func CommandScalarExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func CommandScalarExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandScalarExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func CommandNonQueryExecutedAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func CommandNonQueryExecutedAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandNonQueryExecutedAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func CommandNonQueryExecutedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandNonQueryExecutedAsync",P1])
+		ok
+		raise("DotNet Error: CommandNonQueryExecutedAsync does not take one argument: use named arguments, CommandNonQueryExecutedAsync([ :parameter = value, ... ])")
 
 	Func CommandError P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
 		dnRequest("call",[new DotNetObject(nHandle),"CommandError",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
-	Func CommandErrorAsync_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
-
-	Func CommandErrorAsync P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+	Func CommandErrorAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandErrorAsync",P1])
+		ok
+		raise("DotNet Error: CommandErrorAsync does not take one argument: use named arguments, CommandErrorAsync([ :parameter = value, ... ])")
 
 	Func CommandCanceled P1,P2,P3,P4,P5,P6,P7,P8,P9
 		dnRequest("call",[new DotNetObject(nHandle),"CommandCanceled",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 		return self
 
-	Func CommandCanceledAsync_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func CommandCanceledAsync P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"CommandCanceledAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func CommandCanceledAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommandCanceledAsync",P1])
+		ok
+		raise("DotNet Error: CommandCanceledAsync does not take one argument: use named arguments, CommandCanceledAsync([ :parameter = value, ... ])")
 
 	Func DataReaderDisposing P1,P2,P3,P4,P5,P6,P7,P8
 		return dnRequest("call",[new DotNetObject(nHandle),"DataReaderDisposing",P1,P2,P3,P4,P5,P6,P7,P8])
@@ -4374,11 +4374,11 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpened",P1,P2,P3])
 		return self
 
-	Func ConnectionOpenedAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3,P4])
-
-	Func ConnectionOpenedAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1,P2,P3])
+	Func ConnectionOpenedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionOpenedAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionOpenedAsync does not take one argument: use named arguments, ConnectionOpenedAsync([ :parameter = value, ... ])")
 
 	Func ConnectionClosing P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionClosing",P1,P2])
@@ -4397,11 +4397,11 @@ Class IRelationalConnectionDiagnosticsLogger from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"ConnectionError",P1,P2,P3,P4,P5])
 		return self
 
-	Func ConnectionErrorAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionErrorAsync",P1,P2,P3,P4,P5,P6])
-
-	Func ConnectionErrorAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectionErrorAsync",P1,P2,P3,P4,P5])
+	Func ConnectionErrorAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectionErrorAsync",P1])
+		ok
+		raise("DotNet Error: ConnectionErrorAsync does not take one argument: use named arguments, ConnectionErrorAsync([ :parameter = value, ... ])")
 
 	Func ShouldLogConnectionCreate P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldLogConnectionCreate",P1])
@@ -4436,20 +4436,17 @@ Class ISaveChangesInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailed",P1])
 		return self
 
-	Func SavingChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2,P3])
+	Func SavingChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SavingChangesAsync",P1])
+		ok
+		raise("DotNet Error: SavingChangesAsync does not take one argument: use named arguments, SavingChangesAsync([ :parameter = value, ... ])")
 
-	Func SavingChangesAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2])
-
-	Func SavedChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2,P3])
-
-	Func SavedChangesAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2])
-
-	Func SaveChangesFailedAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailedAsync",P1,P2])
+	Func SavedChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SavedChangesAsync",P1])
+		ok
+		raise("DotNet Error: SavedChangesAsync does not take one argument: use named arguments, SavedChangesAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesFailedAsync P1
 		if dnIsNamed(P1)
@@ -4461,9 +4458,6 @@ Class ISaveChangesInterceptor from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceled",P1])
 		return self
 
-	Func SaveChangesCanceledAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1,P2])
-
 	Func SaveChangesCanceledAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1])
@@ -4473,11 +4467,11 @@ Class ISaveChangesInterceptor from DotNetObject
 	Func ThrowingConcurrencyException P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyException",P1,P2])
 
-	Func ThrowingConcurrencyExceptionAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2,P3])
-
-	Func ThrowingConcurrencyExceptionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2])
+	Func ThrowingConcurrencyExceptionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1])
+		ok
+		raise("DotNet Error: ThrowingConcurrencyExceptionAsync does not take one argument: use named arguments, ThrowingConcurrencyExceptionAsync([ :parameter = value, ... ])")
 
 
 Class ISingletonInterceptor from DotNetObject
@@ -4504,7 +4498,15 @@ Class IdentityResolutionInterceptionData from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.IdentityResolutionInterceptionData, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -4547,7 +4549,15 @@ Class InstantiationBindingInterceptionData from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.InstantiationBindingInterceptionData, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -5283,8 +5293,16 @@ Class MaterializationInterceptionData from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.MaterializationInterceptionData, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func GetPropertyValue P1
@@ -5858,124 +5876,124 @@ Class RelationalLoggerExtensions from Object
 	Func TransactionStarting P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStarting",P1,P2,P3,P4,P5])
 
-	Func TransactionStartingAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartingAsync",P1,P2,P3,P4,P5,P6])
-
-	Func TransactionStartingAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartingAsync",P1,P2,P3,P4,P5])
+	Func TransactionStartingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartingAsync does not take one argument: use named arguments, TransactionStartingAsync([ :parameter = value, ... ])")
 
 	Func TransactionStarted P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStarted",P1,P2,P3,P4,P5,P6])
 
-	Func TransactionStartedAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartedAsync",P1,P2,P3,P4,P5,P6,P7])
-
-	Func TransactionStartedAsync P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartedAsync",P1,P2,P3,P4,P5,P6])
+	Func TransactionStartedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionStartedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionStartedAsync does not take one argument: use named arguments, TransactionStartedAsync([ :parameter = value, ... ])")
 
 	Func TransactionUsed P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionUsed",P1,P2,P3,P4,P5])
 
-	Func TransactionUsedAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionUsedAsync",P1,P2,P3,P4,P5,P6])
-
-	Func TransactionUsedAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionUsedAsync",P1,P2,P3,P4,P5])
+	Func TransactionUsedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionUsedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionUsedAsync does not take one argument: use named arguments, TransactionUsedAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitting P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommitting",P1,P2,P3,P4,P5])
 
-	Func TransactionCommittingAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittingAsync",P1,P2,P3,P4,P5,P6])
-
-	Func TransactionCommittingAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittingAsync",P1,P2,P3,P4,P5])
+	Func TransactionCommittingAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittingAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittingAsync does not take one argument: use named arguments, TransactionCommittingAsync([ :parameter = value, ... ])")
 
 	Func TransactionCommitted P1,P2,P3,P4,P5,P6
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommitted",P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func TransactionCommittedAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittedAsync",P1,P2,P3,P4,P5,P6,P7])
-
-	Func TransactionCommittedAsync P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittedAsync",P1,P2,P3,P4,P5,P6])
+	Func TransactionCommittedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionCommittedAsync",P1])
+		ok
+		raise("DotNet Error: TransactionCommittedAsync does not take one argument: use named arguments, TransactionCommittedAsync([ :parameter = value, ... ])")
 
 	Func TransactionRolledBack P1,P2,P3,P4,P5,P6
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRolledBack",P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func TransactionRolledBackAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRolledBackAsync",P1,P2,P3,P4,P5,P6,P7])
-
-	Func TransactionRolledBackAsync P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRolledBackAsync",P1,P2,P3,P4,P5,P6])
+	Func TransactionRolledBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRolledBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRolledBackAsync does not take one argument: use named arguments, TransactionRolledBackAsync([ :parameter = value, ... ])")
 
 	Func TransactionRollingBack P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRollingBack",P1,P2,P3,P4,P5])
 
-	Func TransactionRollingBackAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRollingBackAsync",P1,P2,P3,P4,P5,P6])
-
-	Func TransactionRollingBackAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRollingBackAsync",P1,P2,P3,P4,P5])
+	Func TransactionRollingBackAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionRollingBackAsync",P1])
+		ok
+		raise("DotNet Error: TransactionRollingBackAsync does not take one argument: use named arguments, TransactionRollingBackAsync([ :parameter = value, ... ])")
 
 	Func CreatingTransactionSavepoint P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatingTransactionSavepoint",P1,P2,P3,P4,P5])
 
-	Func CreatingTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatingTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func CreatingTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatingTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func CreatingTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatingTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatingTransactionSavepointAsync does not take one argument: use named arguments, CreatingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func CreatedTransactionSavepoint P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatedTransactionSavepoint",P1,P2,P3,P4,P5])
 		return self
 
-	Func CreatedTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatedTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func CreatedTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatedTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func CreatedTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"CreatedTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: CreatedTransactionSavepointAsync does not take one argument: use named arguments, CreatedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RollingBackToTransactionSavepoint P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RollingBackToTransactionSavepoint",P1,P2,P3,P4,P5])
 
-	Func RollingBackToTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RollingBackToTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func RollingBackToTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RollingBackToTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func RollingBackToTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RollingBackToTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RollingBackToTransactionSavepointAsync does not take one argument: use named arguments, RollingBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func RolledBackToTransactionSavepoint P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RolledBackToTransactionSavepoint",P1,P2,P3,P4,P5])
 		return self
 
-	Func RolledBackToTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RolledBackToTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func RolledBackToTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RolledBackToTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func RolledBackToTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"RolledBackToTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: RolledBackToTransactionSavepointAsync does not take one argument: use named arguments, RolledBackToTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasingTransactionSavepoint P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasingTransactionSavepoint",P1,P2,P3,P4,P5])
 
-	Func ReleasingTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasingTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func ReleasingTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasingTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func ReleasingTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasingTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasingTransactionSavepointAsync does not take one argument: use named arguments, ReleasingTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func ReleasedTransactionSavepoint P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasedTransactionSavepoint",P1,P2,P3,P4,P5])
 		return self
 
-	Func ReleasedTransactionSavepointAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasedTransactionSavepointAsync",P1,P2,P3,P4,P5,P6])
-
-	Func ReleasedTransactionSavepointAsync P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasedTransactionSavepointAsync",P1,P2,P3,P4,P5])
+	Func ReleasedTransactionSavepointAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"ReleasedTransactionSavepointAsync",P1])
+		ok
+		raise("DotNet Error: ReleasedTransactionSavepointAsync does not take one argument: use named arguments, ReleasedTransactionSavepointAsync([ :parameter = value, ... ])")
 
 	Func TransactionDisposed P1,P2,P3,P4,P5
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionDisposed",P1,P2,P3,P4,P5])
@@ -5989,11 +6007,11 @@ Class RelationalLoggerExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionError",P1,P2,P3,P4,P5,P6,P7,P8])
 		return self
 
-	Func TransactionErrorAsync_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func TransactionErrorAsync P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionErrorAsync",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func TransactionErrorAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"TransactionErrorAsync",P1])
+		ok
+		raise("DotNet Error: TransactionErrorAsync does not take one argument: use named arguments, TransactionErrorAsync([ :parameter = value, ... ])")
 
 	Func AmbientTransactionWarning P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"AmbientTransactionWarning",P1,P2,P3])
@@ -7248,20 +7266,17 @@ Class SaveChangesInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailed",P1])
 		return self
 
-	Func SavingChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2,P3])
+	Func SavingChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SavingChangesAsync",P1])
+		ok
+		raise("DotNet Error: SavingChangesAsync does not take one argument: use named arguments, SavingChangesAsync([ :parameter = value, ... ])")
 
-	Func SavingChangesAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SavingChangesAsync",P1,P2])
-
-	Func SavedChangesAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2,P3])
-
-	Func SavedChangesAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SavedChangesAsync",P1,P2])
-
-	Func SaveChangesFailedAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesFailedAsync",P1,P2])
+	Func SavedChangesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SavedChangesAsync",P1])
+		ok
+		raise("DotNet Error: SavedChangesAsync does not take one argument: use named arguments, SavedChangesAsync([ :parameter = value, ... ])")
 
 	Func SaveChangesFailedAsync P1
 		if dnIsNamed(P1)
@@ -7273,9 +7288,6 @@ Class SaveChangesInterceptor from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceled",P1])
 		return self
 
-	Func SaveChangesCanceledAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1,P2])
-
 	Func SaveChangesCanceledAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesCanceledAsync",P1])
@@ -7285,11 +7297,11 @@ Class SaveChangesInterceptor from Object
 	Func ThrowingConcurrencyException P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyException",P1,P2])
 
-	Func ThrowingConcurrencyExceptionAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2,P3])
-
-	Func ThrowingConcurrencyExceptionAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1,P2])
+	Func ThrowingConcurrencyExceptionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ThrowingConcurrencyExceptionAsync",P1])
+		ok
+		raise("DotNet Error: ThrowingConcurrencyExceptionAsync does not take one argument: use named arguments, ThrowingConcurrencyExceptionAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -7447,11 +7459,15 @@ Class UpdatingIdentityResolutionInterceptor from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Diagnostics.UpdatingIdentityResolutionInterceptor, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -7478,9 +7494,6 @@ Class WarningsConfiguration from Object
 
 	Func WithDefaultBehavior P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithDefaultBehavior",P1])
-
-	Func WithExplicit_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WithExplicit",P1,P2])
 
 	Func WithExplicit P1
 		if dnIsNamed(P1)
@@ -7808,10 +7821,6 @@ Class EventDefinition from EventDefinitionBase
 
 	Func GenerateMessage 
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateMessage"])
-
-	Func Log_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Log",P1,P2])
-		return self
 
 	Func Log P1
 		if dnIsNamed(P1)

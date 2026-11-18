@@ -29,7 +29,7 @@ oSW.Stop()
 ? "Elapsed ms >= 0 : " + (oSW.getElapsedMilliseconds() >= 0)
 
 oPath = new Path()
-? oPath.Combine("a","b")
+? oPath.Combine(["a","b"])
 ? oPath.GetFileName("c:/x/file.txt")
 
 oEnv = new Environment()

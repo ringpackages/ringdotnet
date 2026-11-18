@@ -15,7 +15,7 @@ func main
 
 	# STEP 2. The client connects. The connection is accepted by the operating system at once.
 	oClient = new TcpClient()
-	oClient.Connect("127.0.0.1",nPort)
+	oClient.Connect([ :hostname = "127.0.0.1", :port = nPort ])
 	? "STEP 2: the client is connected: " + oClient.Connected
 
 	# STEP 3. The server accepts the waiting connection. Each side gets a stream to read and write.

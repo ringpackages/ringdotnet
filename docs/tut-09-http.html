@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -198,7 +201,7 @@ cUrl = <span class="s">""</span>
 		oTask = oClient.<span class="f">GetAsync</span>(cUrl + cPath)
 	<span class="k">else</span>
 		oContent = <span class="k">new</span> <span class="t">StringContent</span>(cBody)
-		oTask = oClient.<span class="f">PostAsync</span>(cUrl + cPath,oContent)
+		oTask = oClient.<span class="f">PostAsync</span>([ :requestUri = cUrl + cPath, :content = oContent ])
 	<span class="k">ok</span>
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>
 		<span class="k">if</span> oServer.<span class="f">serveOne</span>(<span class="n">100</span>)

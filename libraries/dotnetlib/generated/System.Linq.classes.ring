@@ -18,23 +18,17 @@ Class Enumerable from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Aggregate P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1,P2])
-
-	Func Aggregate_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1,P2,P3])
-
-	Func Aggregate_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1,P2,P3,P4])
+	Func Aggregate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Aggregate",P1])
+		ok
+		raise("DotNet Error: Aggregate does not take one argument: use named arguments, Aggregate([ :parameter = value, ... ])")
 
 	Func Any P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1])
-
-	Func Any_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Any",P1,P2])
 
 	Func All P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"All",P1,P2])
@@ -51,9 +45,6 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Average",P1])
 
-	Func Average_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Average",P1,P2])
-
 	Func Cast P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Cast",P1])
 
@@ -63,32 +54,29 @@ Class Enumerable from Object
 	Func Concat P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Concat",P1,P2])
 
-	Func Contains P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Contains",P1,P2])
+	Func Contains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Contains",P1])
+		ok
+		raise("DotNet Error: Contains does not take one argument: use named arguments, Contains([ :parameter = value, ... ])")
 
-	Func Contains_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Contains",P1,P2,P3])
+	Func AggregateBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1])
+		ok
+		raise("DotNet Error: AggregateBy does not take one argument: use named arguments, AggregateBy([ :parameter = value, ... ])")
 
-	Func AggregateBy_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1,P2,P3,P4,P5])
-
-	Func AggregateBy P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"AggregateBy",P1,P2,P3,P4])
-
-	Func CountBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1,P2,P3])
-
-	Func CountBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1,P2])
+	Func CountBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"CountBy",P1])
+		ok
+		raise("DotNet Error: CountBy does not take one argument: use named arguments, CountBy([ :parameter = value, ... ])")
 
 	Func Count P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1])
-
-	Func Count_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Count",P1,P2])
 
 	Func TryGetNonEnumeratedCount P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"TryGetNonEnumeratedCount",P1])
@@ -99,17 +87,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1])
 
-	Func LongCount_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LongCount",P1,P2])
-
 	Func DefaultIfEmpty P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1])
-
-	Func DefaultIfEmpty_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DefaultIfEmpty",P1,P2])
 
 	Func Distinct P1
 		if dnIsNamed(P1)
@@ -117,14 +99,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Distinct",P1])
 
-	Func Distinct_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Distinct",P1,P2])
-
-	Func DistinctBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DistinctBy",P1,P2])
-
-	Func DistinctBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DistinctBy",P1,P2,P3])
+	Func DistinctBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"DistinctBy",P1])
+		ok
+		raise("DotNet Error: DistinctBy does not take one argument: use named arguments, DistinctBy([ :parameter = value, ... ])")
 
 	Func ElementAt P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ElementAt",P1,P2])
@@ -138,17 +117,17 @@ Class Enumerable from Object
 	Func Empty 
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Empty"])
 
-	Func Except P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Except",P1,P2])
+	Func Except P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Except",P1])
+		ok
+		raise("DotNet Error: Except does not take one argument: use named arguments, Except([ :parameter = value, ... ])")
 
-	Func Except_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Except",P1,P2,P3])
-
-	Func ExceptBy P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ExceptBy",P1,P2,P3])
-
-	Func ExceptBy_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ExceptBy",P1,P2,P3,P4])
+	Func ExceptBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ExceptBy",P1])
+		ok
+		raise("DotNet Error: ExceptBy does not take one argument: use named arguments, ExceptBy([ :parameter = value, ... ])")
 
 	Func First P1
 		if dnIsNamed(P1)
@@ -156,59 +135,44 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1])
 
-	Func First_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"First",P1,P2])
-
 	Func FirstOrDefault P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1])
 
-	Func FirstOrDefault_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1,P2])
+	Func GroupBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1])
+		ok
+		raise("DotNet Error: GroupBy does not take one argument: use named arguments, GroupBy([ :parameter = value, ... ])")
 
-	Func FirstOrDefault_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"FirstOrDefault",P1,P2,P3])
-
-	Func GroupBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1,P2])
-
-	Func GroupBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1,P2,P3])
-
-	Func GroupBy_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1,P2,P3,P4])
-
-	Func GroupBy_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupBy",P1,P2,P3,P4,P5])
-
-	Func GroupJoin P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupJoin",P1,P2,P3,P4,P5])
-
-	Func GroupJoin_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupJoin",P1,P2,P3,P4,P5,P6])
+	Func GroupJoin P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"GroupJoin",P1])
+		ok
+		raise("DotNet Error: GroupJoin does not take one argument: use named arguments, GroupJoin([ :parameter = value, ... ])")
 
 	Func Index P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Index",P1])
 
-	Func Intersect P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Intersect",P1,P2])
+	Func Intersect P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Intersect",P1])
+		ok
+		raise("DotNet Error: Intersect does not take one argument: use named arguments, Intersect([ :parameter = value, ... ])")
 
-	Func Intersect_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Intersect",P1,P2,P3])
+	Func IntersectBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"IntersectBy",P1])
+		ok
+		raise("DotNet Error: IntersectBy does not take one argument: use named arguments, IntersectBy([ :parameter = value, ... ])")
 
-	Func IntersectBy P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"IntersectBy",P1,P2,P3])
-
-	Func IntersectBy_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"IntersectBy",P1,P2,P3,P4])
-
-	Func Join P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Join",P1,P2,P3,P4,P5])
-
-	Func Join_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Join",P1,P2,P3,P4,P5,P6])
+	Func Join P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Join",P1])
+		ok
+		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
 	Func Last P1
 		if dnIsNamed(P1)
@@ -216,29 +180,17 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1])
 
-	Func Last_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Last",P1,P2])
-
 	Func LastOrDefault P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1])
 
-	Func LastOrDefault_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1,P2])
-
-	Func LastOrDefault_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"LastOrDefault",P1,P2,P3])
-
-	Func ToLookup P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1,P2])
-
-	Func ToLookup_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1,P2,P3])
-
-	Func ToLookup_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1,P2,P3,P4])
+	Func ToLookup P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToLookup",P1])
+		ok
+		raise("DotNet Error: ToLookup does not take one argument: use named arguments, ToLookup([ :parameter = value, ... ])")
 
 	Func Max P1
 		if dnIsNamed(P1)
@@ -246,14 +198,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Max",P1])
 
-	Func Max_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Max",P1,P2])
-
-	Func MaxBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MaxBy",P1,P2])
-
-	Func MaxBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MaxBy",P1,P2,P3])
+	Func MaxBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MaxBy",P1])
+		ok
+		raise("DotNet Error: MaxBy does not take one argument: use named arguments, MaxBy([ :parameter = value, ... ])")
 
 	Func Min P1
 		if dnIsNamed(P1)
@@ -261,14 +210,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Min",P1])
 
-	Func Min_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Min",P1,P2])
-
-	Func MinBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MinBy",P1,P2])
-
-	Func MinBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MinBy",P1,P2,P3])
+	Func MinBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"MinBy",P1])
+		ok
+		raise("DotNet Error: MinBy does not take one argument: use named arguments, MinBy([ :parameter = value, ... ])")
 
 	Func OfType P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OfType",P1])
@@ -279,14 +225,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Order",P1])
 
-	Func Order_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Order",P1,P2])
-
-	Func OrderBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderBy",P1,P2])
-
-	Func OrderBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderBy",P1,P2,P3])
+	Func OrderBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderBy",P1])
+		ok
+		raise("DotNet Error: OrderBy does not take one argument: use named arguments, OrderBy([ :parameter = value, ... ])")
 
 	Func OrderDescending P1
 		if dnIsNamed(P1)
@@ -294,26 +237,23 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderDescending",P1])
 
-	Func OrderDescending_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderDescending",P1,P2])
+	Func OrderByDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderByDescending",P1])
+		ok
+		raise("DotNet Error: OrderByDescending does not take one argument: use named arguments, OrderByDescending([ :parameter = value, ... ])")
 
-	Func OrderByDescending P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderByDescending",P1,P2])
+	Func ThenBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenBy",P1])
+		ok
+		raise("DotNet Error: ThenBy does not take one argument: use named arguments, ThenBy([ :parameter = value, ... ])")
 
-	Func OrderByDescending_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"OrderByDescending",P1,P2,P3])
-
-	Func ThenBy P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenBy",P1,P2])
-
-	Func ThenBy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenBy",P1,P2,P3])
-
-	Func ThenByDescending P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenByDescending",P1,P2])
-
-	Func ThenByDescending_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenByDescending",P1,P2,P3])
+	Func ThenByDescending P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ThenByDescending",P1])
+		ok
+		raise("DotNet Error: ThenByDescending does not take one argument: use named arguments, ThenByDescending([ :parameter = value, ... ])")
 
 	Func Range P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Range",P1,P2])
@@ -327,17 +267,17 @@ Class Enumerable from Object
 	Func Select P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Select",P1,P2])
 
-	Func SelectMany P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SelectMany",P1,P2])
+	Func SelectMany P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SelectMany",P1])
+		ok
+		raise("DotNet Error: SelectMany does not take one argument: use named arguments, SelectMany([ :parameter = value, ... ])")
 
-	Func SelectMany_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SelectMany",P1,P2,P3])
-
-	Func SequenceEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SequenceEqual",P1,P2])
-
-	Func SequenceEqual_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SequenceEqual",P1,P2,P3])
+	Func SequenceEqual P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SequenceEqual",P1])
+		ok
+		raise("DotNet Error: SequenceEqual does not take one argument: use named arguments, SequenceEqual([ :parameter = value, ... ])")
 
 	Func Single P1
 		if dnIsNamed(P1)
@@ -345,20 +285,11 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1])
 
-	Func Single_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Single",P1,P2])
-
 	Func SingleOrDefault P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1])
-
-	Func SingleOrDefault_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1,P2])
-
-	Func SingleOrDefault_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"SingleOrDefault",P1,P2,P3])
 
 	Func Skip P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Skip",P1,P2])
@@ -374,9 +305,6 @@ Class Enumerable from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1])
-
-	Func Sum_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Sum",P1,P2])
 
 	Func Take P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Take",P1,P2])
@@ -396,43 +324,31 @@ Class Enumerable from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1])
 
-	Func ToDictionary_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1,P2])
-
-	Func ToDictionary_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1,P2,P3])
-
-	Func ToDictionary_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToDictionary",P1,P2,P3,P4])
-
 	Func ToHashSet P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1])
 
-	Func ToHashSet_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"ToHashSet",P1,P2])
+	Func Union P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Union",P1])
+		ok
+		raise("DotNet Error: Union does not take one argument: use named arguments, Union([ :parameter = value, ... ])")
 
-	Func Union P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Union",P1,P2])
-
-	Func Union_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Union",P1,P2,P3])
-
-	Func UnionBy P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"UnionBy",P1,P2,P3])
-
-	Func UnionBy_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"UnionBy",P1,P2,P3,P4])
+	Func UnionBy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"UnionBy",P1])
+		ok
+		raise("DotNet Error: UnionBy does not take one argument: use named arguments, UnionBy([ :parameter = value, ... ])")
 
 	Func Where P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Where",P1,P2])
 
-	Func Zip_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Zip",P1,P2,P3])
-
-	Func Zip P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Zip",P1,P2])
+	Func Zip P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Enumerable, System.Linq'),"Zip",P1])
+		ok
+		raise("DotNet Error: Zip does not take one argument: use named arguments, Zip([ :parameter = value, ... ])")
 
 

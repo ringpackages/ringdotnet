@@ -134,7 +134,7 @@ func saveAsDialog
 
 func saveTo cName
 	try
-		new File().WriteAllText(cName,oEditor.Text)
+		new File().WriteAllText([ :path = cName, :contents = oEditor.Text ])
 	catch
 		uiMessage("Can't save " + cName + nl + cCatchError,"Notepad")
 		return
@@ -198,7 +198,7 @@ func selfTest
 	oEditor.Text = "Hello" + windowsnl() + "Ring and .NET"
 	dnAssert("modified after typing",lModified,1)
 	dnAssert("title has a star","*" = right(left(oForm.Text,len("Untitled*")),1),True)
-	cTemp = new Path().Combine(new Path().GetTempPath(),"notepad_selftest.txt")
+	cTemp = new Path().Combine([new Path().GetTempPath(),"notepad_selftest.txt"])
 	saveTo(cTemp)
 	dnAssert("saved",new File().Exists(cTemp),True)
 	dnAssert("not modified after save",lModified,0)

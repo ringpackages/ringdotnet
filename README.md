@@ -73,7 +73,7 @@ new Console().WriteLine("Hi")
 ? new Math().Max(3,9)                   # static members are called on an instance
 ```
 
-Ring has no overloading, so the plain name of a method is its parameterless form when it has one, otherwise its shortest overload (`Append`, `WriteLine`, `Join`); the other arities are `Name_N` (`Next_2(1,10)`, `Round_2(x,2)`). Overloads whose parameters are arrays (except `byte[]`/`char[]`), delegates, comparers or spans never decide the plain name. The parameterless form wins when the type has one (`Cancel()`, `Wait()`, `Reverse()`), except `Write*` methods (`WriteLine("x")`); `ToString()` keeps its parameterless form. A method with optional parameters is available with every number of parameters from the required ones up (`Serialize(value)`, `Serialize_2(value,options)`). Static and instance methods with the same name and arity are one method (a class used without an object calls the static one). Constructors work the same way: `init()` is parameterless when the type has such a constructor (structs always do), otherwise the shortest one, and the other constructors are `New_N` (`new MemoryStream().New_1(bytes)`); user defined implicit conversions are applied to arguments (a string becomes an `XName`); `tools/dotnetmanifest.ring` can choose another `init` size per type. Names that are Ring keywords get a trailing `_` (`ForEach_`, `Exit_`). The bridge still picks the real overload from the argument types (whole numbers prefer `int`). Binary data (`byte[]`) travels as Ring strings.
+Ring has no overloading, so a .NET method name with several overloads is **one Ring method with one parameter**: `Name(NULL)` calls the parameterless overload, `Name(value)` the overload with one parameter, and `Name([ :param = value ])` chooses the overload by the .NET parameter names (`Round([ :value = x, :digits = 2 ])`, `Next_([ :minValue = 1, :maxValue = 10 ])`). A `params` array takes a plain list (`Combine(["a","b","c"])`). `ToString()` keeps its parameterless form; its forms with parameters are `Format` (`oDate.Format("yyyy-MM-dd")`). Constructors: `init` is the parameterless or shortest one, the others are `New_([ :param = value ])` (or `dnNew("Class",[ :param = value ])`). A name whose overloads all have the same number of parameters (`Math.Max(a,b)`) stays positional.
 
 Types with classes: see the manifest. Among them the closed generic collections StringList, NumberList, ObjectList (`List<T>`), StringDictionary, NumberDictionary, ObjectDictionary (`Dictionary<string,T>`), StringSet, StringQueue, StringStack. Indexers become `Item(index)` / `SetItem(index,value)`; `toList()` copies a collection to a Ring list:
 
@@ -101,7 +101,7 @@ oProcess.WaitForExit(NULL)                       # the parameterless overload of
 oSB = dnNew("StringBuilder",[ :value = "Hello" ])
 ```
 
-Methods whose plain form takes two or more parameters, or whose overloads all have the same number of parameters, stay positional. `ToString` and `ToList` keep their plain forms (`ToString_1(format)`).
+A name whose overloads all have the same number of parameters stays positional. `ToString` and `ToList` keep their plain forms (`Format(format)` is the form of `ToString` with parameters).
 
 ## LINQ
 
@@ -226,7 +226,7 @@ Pass `dnCallback(cCode)` wherever a .NET delegate is expected (`Action`, `Func`,
 ```ring
 nTotal = 0
 oList.ForEach_(dnCallback("nTotal += len(aDotNetArgs[1])"))           # ForEach is a Ring keyword, so ForEach_
-oList.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
+oList.Sort(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
 oList.FindAll(dnCallback("xDotNetResult = left(aDotNetArgs[1],1) = 'a'"))
 ```
 

@@ -98,7 +98,7 @@ func selfTest
 	dnAssert("swatch sets the color",cColor,"Green")
 	oSize.Value = 12
 	dnAssert("pen size from the track bar value",oSize.Value,12)
-	cFile = new Path().Combine(new Path().GetTempPath(),"paint_selftest.png")
+	cFile = new Path().Combine([new Path().GetTempPath(),"paint_selftest.png"])
 	saveTo(cFile)
 	dnAssert("picture saved",new File().Exists(cFile),True)
 	dnAssert("PNG signature",substr(new File().ReadAllBytes(cFile),"PNG") > 0,True)

@@ -76,7 +76,7 @@ func saveFile
 			return
 		ok
 	ok
-	new File().WriteAllText(cFileName,oEditor.Text)
+	new File().WriteAllText([ :path = cFileName, :contents = oEditor.Text ])
 	lChanged = False
 	cShortName = new Path().GetFileName(cFileName)
 	oForm.Text = "Tiny editor - " + cShortName
@@ -85,7 +85,7 @@ func saveFile
 func selfTest
 	oEditor.Text = "Hello from the test"
 	dnAssert("the text changed",lChanged,True)
-	cTemp = new Path().Combine(new Path().GetTempPath(),"tutorial13.txt")
+	cTemp = new Path().Combine([new Path().GetTempPath(),"tutorial13.txt"])
 	cFileName = cTemp
 	saveFile()
 	dnAssert("saved",new File().ReadAllText(cTemp),"Hello from the test")

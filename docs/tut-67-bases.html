@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -165,21 +168,21 @@ using {
 	oConvert = <span class="k">new</span> <span class="t">Convert</span>()
 
 	<span class="c"># 1. The same number in different bases: 2 (binary), 8 (octal), 10 (decimal), 16 (hexadecimal)</span>
-	? <span class="s">"1. 255 in base 2 : "</span> + oConvert.<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">2</span>)
-	? <span class="s">"   255 in base 8 : "</span> + oConvert.<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">8</span>)
-	? <span class="s">"   255 in base 16: "</span> + oConvert.<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">16</span>)
+	? <span class="s">"1. 255 in base 2 : "</span> + oConvert.<span class="f">Format</span>([ :value = <span class="n">255</span>, :toBase = <span class="n">2</span> ])
+	? <span class="s">"   255 in base 8 : "</span> + oConvert.<span class="f">Format</span>([ :value = <span class="n">255</span>, :toBase = <span class="n">8</span> ])
+	? <span class="s">"   255 in base 16: "</span> + oConvert.<span class="f">Format</span>([ :value = <span class="n">255</span>, :toBase = <span class="n">16</span> ])
 
 	<span class="c"># 2. And back: a text in a base to a number</span>
-	? nl + <span class="s">"2. 'ff' in base 16       = "</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"ff"</span>,<span class="n">16</span>)
-	? <span class="s">"   '11111111' in base 2 = "</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"11111111"</span>,<span class="n">2</span>)
-	? <span class="s">"   '777' in base 8      = "</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"777"</span>,<span class="n">8</span>)
+	? nl + <span class="s">"2. 'ff' in base 16       = "</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"ff"</span>, :fromBase = <span class="n">16</span> ])
+	? <span class="s">"   '11111111' in base 2 = "</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"11111111"</span>, :fromBase = <span class="n">2</span> ])
+	? <span class="s">"   '777' in base 8      = "</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"777"</span>, :fromBase = <span class="n">8</span> ])
 
 	<span class="c"># 3. Why hexadecimal? One hex digit is exactly 4 bits, so a byte is two digits. Colors, memory addresses and hashes use it.</span>
 	nRed = <span class="n">255</span>
 	nGreen = <span class="n">128</span>
 	nBlue = <span class="n">0</span>
 	? nl + <span class="s">"3. the color (255,128,0) is #"</span> + hex2(nRed) + hex2(nGreen) + hex2(nBlue)
-	? <span class="s">"   #1e90ff is ("</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"1e"</span>,<span class="n">16</span>) + <span class="s">","</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"90"</span>,<span class="n">16</span>) + <span class="s">","</span> + oConvert.<span class="f">ToInt32_2</span>(<span class="s">"ff"</span>,<span class="n">16</span>) + <span class="s">")"</span>
+	? <span class="s">"   #1e90ff is ("</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"1e"</span>, :fromBase = <span class="n">16</span> ]) + <span class="s">","</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"90"</span>, :fromBase = <span class="n">16</span> ]) + <span class="s">","</span> + oConvert.<span class="f">ToInt32</span>([ :value = <span class="s">"ff"</span>, :fromBase = <span class="n">16</span> ]) + <span class="s">")"</span>
 
 	<span class="c"># 4. Bits: count the ones, test if a number is a power of two, shift</span>
 	oBits = <span class="k">new</span> <span class="t">BitOperations</span>()
@@ -188,7 +191,7 @@ using {
 	? <span class="s">"   2 to the power of 10 = "</span> + (<span class="n">1</span> &lt;&lt; <span class="n">10</span>) + <span class="s">", and 1024 / 2^3 = "</span> + (<span class="n">1024</span> &gt;&gt; <span class="n">3</span>)
 
 	<span class="c"># 5. A negative number in binary: the computer uses "two's complement", all the bits are turned over</span>
-	? nl + <span class="s">"5. -5 as 32 bits: "</span> + oConvert.<span class="f">ToString_2</span>(-<span class="n">5</span>,<span class="n">2</span>)
+	? nl + <span class="s">"5. -5 as 32 bits: "</span> + oConvert.<span class="f">Format</span>([ :value = -<span class="n">5</span>, :toBase = <span class="n">2</span> ])
 
 	<span class="c"># 6. The size of a Ring number: a double is exact only up to 2^53 = 9007199254740992</span>
 	? nl + <span class="s">"6. 9007199254740992 + 1 = "</span> + (<span class="n">9007199254740992</span> + <span class="n">1</span>) + <span class="s">"  (the +1 is lost)"</span>
@@ -208,7 +211,7 @@ using {
 	? nl + <span class="s">"8. 30! = "</span> + oFactorial.<span class="f">ToString</span>()
 
 <span class="k">func</span> <span class="f">hex2</span> nValue
-	cText = <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToString_2</span>(nValue,<span class="n">16</span>)
+	cText = <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = nValue, :toBase = <span class="n">16</span> ])
 	<span class="k">if</span> len(cText) = <span class="n">1</span>
 		cText = <span class="s">"0"</span> + cText
 	<span class="k">ok</span>
@@ -245,7 +248,7 @@ using {
 8. 30! = 265252859812191058636308480000000</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="converting">Converting<a class="anchor" href="#converting">#</a></h3>
-<p><code>Convert.ToString(number, base)</code> writes a number in a base and <code>Convert.ToInt32(text, base)</code> reads it. In Ring the two-argument forms are called <code>ToString_2</code> and <code>ToInt32_2</code>. A color is three numbers: <code>hex2</code> writes each as two hex digits, with a leading zero when needed, and the reverse takes each pair of digits.</p>
+<p><code>Convert.ToString(number, base)</code> writes a number in a base and <code>Convert.ToInt32(text, base)</code> reads it. In Ring the two-argument forms take a list of named values: <code>Format([ :value = 255, :toBase = 16 ])</code> and <code>ToInt32([ :value = "ff", :fromBase = 16 ])</code> (<code>ToString</code> with parameters is <code>Format</code>). A color is three numbers: <code>hex2</code> writes each as two hex digits, with a leading zero when needed, and the reverse takes each pair of digits.</p>
 <h3 id="bits">Bits<a class="anchor" href="#bits">#</a></h3>
 <p><code>BitOperations.PopCount(n)</code> counts the one-bits (255 has 8, 256 has 1) and <code>IsPow2(n)</code> tests for a power of two — a number that is a power of two has exactly one bit set. In Ring, <code>1 &lt;&lt; 10</code> shifts the bits left (multiplies by 2 ten times: 1024) and <code>1024 &gt;&gt; 3</code> shifts right (divides by 8). The operators <code>&amp;</code>, <code>|</code> and <code>~</code> are explained in <a href="tut-65-enums.html">tutorial 65</a>.</p>
 <p>A negative number such as −5 is stored in <strong>two's complement</strong>: write 5 (<code>000…0101</code>), turn all the bits over (<code>111…1010</code>) and add 1 (<code>111…1011</code>). The output of step 5 is exactly that, 32 bits long.</p>

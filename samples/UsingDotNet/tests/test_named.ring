@@ -21,8 +21,13 @@ func main
 	dnAssert("Append by names",oSB.ToString(),"Hello!")
 
 	oDate = new DateTime(2024,7,4)
-	dnAssert("ToString keeps ToString() and ToString_1(format)",oDate.ToString_1("yyyy-MM-dd"),"2024-07-04")
-	dnAssert("a method whose plain form takes 2 parameters keeps its positional form",new Path().Combine("a","b"),"a" + "\" + "b")
+	dnAssert("ToString keeps ToString() and Format(format)",oDate.Format("yyyy-MM-dd"),"2024-07-04")
+	oPath = new Path()
+	dnAssert("a params array takes a plain list",oPath.Combine(["a","b","c"]),"a" + "\" + "b" + "\" + "c")
+	dnAssert("the same method by parameter names",oPath.Combine([ :path1 = "a", :path2 = "b" ]),"a" + "\" + "b")
+	dnAssert("an overloaded name has no numbered methods",isattribute(new Path(),"Combine_3") = 0 and ismethod(oPath,"Combine_3") = 0,True)
+	oBuilder2 = new StringBuilder("ab")
+	dnAssert("a constructor by names: New_",new StringBuilder("x").New_([ :value = "abc", :capacity = 16 ]).ToString(),"abc")
 
 	# inside braces
 	oBuilder = new StringBuilder("a") {

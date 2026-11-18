@@ -344,7 +344,7 @@ Class ExpressionsExpression from Object
 	Func ReduceExtensions 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReduceExtensions"])
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -353,299 +353,242 @@ Class ExpressionsExpression from Object
 	Func Assign P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Assign",P1,P2])
 
-	Func MakeBinary P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeBinary",P1,P2,P3])
+	Func MakeBinary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeBinary",P1])
+		ok
+		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
-	Func MakeBinary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeBinary",P1,P2,P3,P4,P5])
-
-	Func MakeBinary_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeBinary",P1,P2,P3,P4,P5,P6])
-
-	Func Equal P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Equal",P1,P2])
-
-	Func Equal_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Equal",P1,P2,P3,P4])
+	Func Equal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Equal",P1])
+		ok
+		raise("DotNet Error: Equal does not take one argument: use named arguments, Equal([ :parameter = value, ... ])")
 
 	Func ReferenceEqual P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ReferenceEqual",P1,P2])
 
-	Func NotEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NotEqual",P1,P2])
-
-	Func NotEqual_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NotEqual",P1,P2,P3,P4])
+	Func NotEqual P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NotEqual",P1])
+		ok
+		raise("DotNet Error: NotEqual does not take one argument: use named arguments, NotEqual([ :parameter = value, ... ])")
 
 	Func ReferenceNotEqual P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ReferenceNotEqual",P1,P2])
 
-	Func GreaterThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThan",P1,P2])
-
-	Func GreaterThan_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThan",P1,P2,P3,P4])
-
-	Func LessThan P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThan",P1,P2])
-
-	Func LessThan_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThan",P1,P2,P3,P4])
-
-	Func GreaterThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThanOrEqual",P1,P2])
-
-	Func GreaterThanOrEqual_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThanOrEqual",P1,P2,P3,P4])
-
-	Func LessThanOrEqual P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThanOrEqual",P1,P2])
-
-	Func LessThanOrEqual_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThanOrEqual",P1,P2,P3,P4])
-
-	Func AndAlso P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAlso",P1,P2])
-
-	Func AndAlso_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAlso",P1,P2,P3])
-
-	Func OrElse P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrElse",P1,P2])
-
-	Func OrElse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrElse",P1,P2,P3])
-
-	Func Coalesce P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Coalesce",P1,P2])
-
-	Func Coalesce_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Coalesce",P1,P2,P3])
-
-	Func Add P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Add",P1,P2])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Add",P1,P2,P3])
-
-	Func AddAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssign",P1,P2])
-
-	Func AddAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssign",P1,P2,P3])
-
-	Func AddAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssign",P1,P2,P3,P4])
-
-	Func AddAssignChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssignChecked",P1,P2])
-
-	Func AddAssignChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssignChecked",P1,P2,P3])
-
-	Func AddAssignChecked_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssignChecked",P1,P2,P3,P4])
-
-	Func AddChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddChecked",P1,P2])
-
-	Func AddChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddChecked",P1,P2,P3])
-
-	Func Subtract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Subtract",P1,P2])
-
-	Func Subtract_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Subtract",P1,P2,P3])
-
-	Func SubtractAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssign",P1,P2])
-
-	Func SubtractAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssign",P1,P2,P3])
-
-	Func SubtractAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssign",P1,P2,P3,P4])
-
-	Func SubtractAssignChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssignChecked",P1,P2])
-
-	Func SubtractAssignChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssignChecked",P1,P2,P3])
-
-	Func SubtractAssignChecked_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssignChecked",P1,P2,P3,P4])
-
-	Func SubtractChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractChecked",P1,P2])
-
-	Func SubtractChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractChecked",P1,P2,P3])
-
-	Func Divide P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Divide",P1,P2])
-
-	Func Divide_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Divide",P1,P2,P3])
-
-	Func DivideAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"DivideAssign",P1,P2])
-
-	Func DivideAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"DivideAssign",P1,P2,P3])
-
-	Func DivideAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"DivideAssign",P1,P2,P3,P4])
-
-	Func Modulo P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Modulo",P1,P2])
-
-	Func Modulo_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Modulo",P1,P2,P3])
-
-	Func ModuloAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ModuloAssign",P1,P2])
-
-	Func ModuloAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ModuloAssign",P1,P2,P3])
-
-	Func ModuloAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ModuloAssign",P1,P2,P3,P4])
-
-	Func Multiply P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Multiply",P1,P2])
-
-	Func Multiply_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Multiply",P1,P2,P3])
-
-	Func MultiplyAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssign",P1,P2])
-
-	Func MultiplyAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssign",P1,P2,P3])
-
-	Func MultiplyAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssign",P1,P2,P3,P4])
-
-	Func MultiplyAssignChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssignChecked",P1,P2])
-
-	Func MultiplyAssignChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssignChecked",P1,P2,P3])
-
-	Func MultiplyAssignChecked_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssignChecked",P1,P2,P3,P4])
-
-	Func MultiplyChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyChecked",P1,P2])
-
-	Func MultiplyChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyChecked",P1,P2,P3])
-
-	Func LeftShift P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShift",P1,P2])
-
-	Func LeftShift_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShift",P1,P2,P3])
-
-	Func LeftShiftAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShiftAssign",P1,P2])
-
-	Func LeftShiftAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShiftAssign",P1,P2,P3])
-
-	Func LeftShiftAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShiftAssign",P1,P2,P3,P4])
-
-	Func RightShift P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShift",P1,P2])
-
-	Func RightShift_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShift",P1,P2,P3])
-
-	Func RightShiftAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShiftAssign",P1,P2])
-
-	Func RightShiftAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShiftAssign",P1,P2,P3])
-
-	Func RightShiftAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShiftAssign",P1,P2,P3,P4])
-
-	Func And_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"And",P1,P2])
-
-	Func And_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"And",P1,P2,P3])
-
-	Func AndAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAssign",P1,P2])
-
-	Func AndAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAssign",P1,P2,P3])
-
-	Func AndAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAssign",P1,P2,P3,P4])
-
-	Func Or_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Or",P1,P2])
-
-	Func Or_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Or",P1,P2,P3])
-
-	Func OrAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrAssign",P1,P2])
-
-	Func OrAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrAssign",P1,P2,P3])
-
-	Func OrAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrAssign",P1,P2,P3,P4])
-
-	Func ExclusiveOr P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOr",P1,P2])
-
-	Func ExclusiveOr_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOr",P1,P2,P3])
-
-	Func ExclusiveOrAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOrAssign",P1,P2])
-
-	Func ExclusiveOrAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOrAssign",P1,P2,P3])
-
-	Func ExclusiveOrAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOrAssign",P1,P2,P3,P4])
-
-	Func Power P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Power",P1,P2])
-
-	Func Power_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Power",P1,P2,P3])
-
-	Func PowerAssign P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PowerAssign",P1,P2])
-
-	Func PowerAssign_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PowerAssign",P1,P2,P3])
-
-	Func PowerAssign_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PowerAssign",P1,P2,P3,P4])
+	Func GreaterThan P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThan",P1])
+		ok
+		raise("DotNet Error: GreaterThan does not take one argument: use named arguments, GreaterThan([ :parameter = value, ... ])")
+
+	Func LessThan P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThan",P1])
+		ok
+		raise("DotNet Error: LessThan does not take one argument: use named arguments, LessThan([ :parameter = value, ... ])")
+
+	Func GreaterThanOrEqual P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GreaterThanOrEqual",P1])
+		ok
+		raise("DotNet Error: GreaterThanOrEqual does not take one argument: use named arguments, GreaterThanOrEqual([ :parameter = value, ... ])")
+
+	Func LessThanOrEqual P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LessThanOrEqual",P1])
+		ok
+		raise("DotNet Error: LessThanOrEqual does not take one argument: use named arguments, LessThanOrEqual([ :parameter = value, ... ])")
+
+	Func AndAlso P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAlso",P1])
+		ok
+		raise("DotNet Error: AndAlso does not take one argument: use named arguments, AndAlso([ :parameter = value, ... ])")
+
+	Func OrElse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrElse",P1])
+		ok
+		raise("DotNet Error: OrElse does not take one argument: use named arguments, OrElse([ :parameter = value, ... ])")
+
+	Func Coalesce P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Coalesce",P1])
+		ok
+		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
+
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Add",P1])
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
+
+	Func AddAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssign",P1])
+		ok
+		raise("DotNet Error: AddAssign does not take one argument: use named arguments, AddAssign([ :parameter = value, ... ])")
+
+	Func AddAssignChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddAssignChecked",P1])
+		ok
+		raise("DotNet Error: AddAssignChecked does not take one argument: use named arguments, AddAssignChecked([ :parameter = value, ... ])")
+
+	Func AddChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AddChecked",P1])
+		ok
+		raise("DotNet Error: AddChecked does not take one argument: use named arguments, AddChecked([ :parameter = value, ... ])")
+
+	Func Subtract P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Subtract",P1])
+		ok
+		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
+
+	Func SubtractAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssign",P1])
+		ok
+		raise("DotNet Error: SubtractAssign does not take one argument: use named arguments, SubtractAssign([ :parameter = value, ... ])")
+
+	Func SubtractAssignChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractAssignChecked",P1])
+		ok
+		raise("DotNet Error: SubtractAssignChecked does not take one argument: use named arguments, SubtractAssignChecked([ :parameter = value, ... ])")
+
+	Func SubtractChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SubtractChecked",P1])
+		ok
+		raise("DotNet Error: SubtractChecked does not take one argument: use named arguments, SubtractChecked([ :parameter = value, ... ])")
+
+	Func Divide P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Divide",P1])
+		ok
+		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
+
+	Func DivideAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"DivideAssign",P1])
+		ok
+		raise("DotNet Error: DivideAssign does not take one argument: use named arguments, DivideAssign([ :parameter = value, ... ])")
+
+	Func Modulo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Modulo",P1])
+		ok
+		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
+
+	Func ModuloAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ModuloAssign",P1])
+		ok
+		raise("DotNet Error: ModuloAssign does not take one argument: use named arguments, ModuloAssign([ :parameter = value, ... ])")
+
+	Func Multiply P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Multiply",P1])
+		ok
+		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
+
+	Func MultiplyAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssign",P1])
+		ok
+		raise("DotNet Error: MultiplyAssign does not take one argument: use named arguments, MultiplyAssign([ :parameter = value, ... ])")
+
+	Func MultiplyAssignChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyAssignChecked",P1])
+		ok
+		raise("DotNet Error: MultiplyAssignChecked does not take one argument: use named arguments, MultiplyAssignChecked([ :parameter = value, ... ])")
+
+	Func MultiplyChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MultiplyChecked",P1])
+		ok
+		raise("DotNet Error: MultiplyChecked does not take one argument: use named arguments, MultiplyChecked([ :parameter = value, ... ])")
+
+	Func LeftShift P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShift",P1])
+		ok
+		raise("DotNet Error: LeftShift does not take one argument: use named arguments, LeftShift([ :parameter = value, ... ])")
+
+	Func LeftShiftAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"LeftShiftAssign",P1])
+		ok
+		raise("DotNet Error: LeftShiftAssign does not take one argument: use named arguments, LeftShiftAssign([ :parameter = value, ... ])")
+
+	Func RightShift P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShift",P1])
+		ok
+		raise("DotNet Error: RightShift does not take one argument: use named arguments, RightShift([ :parameter = value, ... ])")
+
+	Func RightShiftAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RightShiftAssign",P1])
+		ok
+		raise("DotNet Error: RightShiftAssign does not take one argument: use named arguments, RightShiftAssign([ :parameter = value, ... ])")
+
+	Func And_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"And",P1])
+		ok
+		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
+
+	Func AndAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"AndAssign",P1])
+		ok
+		raise("DotNet Error: AndAssign does not take one argument: use named arguments, AndAssign([ :parameter = value, ... ])")
+
+	Func Or_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Or",P1])
+		ok
+		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
+
+	Func OrAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OrAssign",P1])
+		ok
+		raise("DotNet Error: OrAssign does not take one argument: use named arguments, OrAssign([ :parameter = value, ... ])")
+
+	Func ExclusiveOr P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOr",P1])
+		ok
+		raise("DotNet Error: ExclusiveOr does not take one argument: use named arguments, ExclusiveOr([ :parameter = value, ... ])")
+
+	Func ExclusiveOrAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ExclusiveOrAssign",P1])
+		ok
+		raise("DotNet Error: ExclusiveOrAssign does not take one argument: use named arguments, ExclusiveOrAssign([ :parameter = value, ... ])")
+
+	Func Power P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Power",P1])
+		ok
+		raise("DotNet Error: Power does not take one argument: use named arguments, Power([ :parameter = value, ... ])")
+
+	Func PowerAssign P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PowerAssign",P1])
+		ok
+		raise("DotNet Error: PowerAssign does not take one argument: use named arguments, PowerAssign([ :parameter = value, ... ])")
 
 	Func ArrayIndex P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ArrayIndex",P1,P2])
-
-	Func Block_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Block",P1,P2])
-
-	Func Block_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Block",P1,P2,P3])
-
-	Func Block_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Block",P1,P2,P3,P4])
-
-	Func Block_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Block",P1,P2,P3,P4,P5])
 
 	Func Block P1
 		if dnIsNamed(P1)
@@ -653,20 +596,20 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Block",P1])
 
-	Func Catch_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Catch",P1,P2])
-
-	Func Catch_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Catch",P1,P2,P3])
+	Func Catch_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Catch",P1])
+		ok
+		raise("DotNet Error: Catch does not take one argument: use named arguments, Catch([ :parameter = value, ... ])")
 
 	Func MakeCatchBlock P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeCatchBlock",P1,P2,P3,P4])
 
-	Func Condition P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Condition",P1,P2,P3])
-
-	Func Condition_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Condition",P1,P2,P3,P4])
+	Func Condition P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Condition",P1])
+		ok
+		raise("DotNet Error: Condition does not take one argument: use named arguments, Condition([ :parameter = value, ... ])")
 
 	Func IfThen P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IfThen",P1,P2])
@@ -679,9 +622,6 @@ Class ExpressionsExpression from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Constant",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Constant",P1])
-
-	Func Constant_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Constant",P1,P2])
 
 	Func DebugInfo P1,P2,P3,P4,P5
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"DebugInfo",P1,P2,P3,P4,P5])
@@ -698,29 +638,17 @@ Class ExpressionsExpression from Object
 	Func ElementInit P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ElementInit",P1,P2])
 
-	Func Dynamic P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Dynamic",P1,P2,P3])
+	Func Dynamic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Dynamic",P1])
+		ok
+		raise("DotNet Error: Dynamic does not take one argument: use named arguments, Dynamic([ :parameter = value, ... ])")
 
-	Func Dynamic_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4])
-
-	Func Dynamic_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4,P5])
-
-	Func Dynamic_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4,P5,P6])
-
-	Func MakeDynamic P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3])
-
-	Func MakeDynamic_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4])
-
-	Func MakeDynamic_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4,P5])
-
-	Func MakeDynamic_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4,P5,P6])
+	Func MakeDynamic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeDynamic",P1])
+		ok
+		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
 	Func Break_ P1
 		if dnIsNamed(P1)
@@ -728,20 +656,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Break",P1])
 
-	Func Break_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Break",P1,P2])
-
-	Func Break_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Break",P1,P2,P3])
-
 	Func Continue_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Continue",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Continue",P1])
-
-	Func Continue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Continue",P1,P2])
 
 	Func Return_ P1
 		if dnIsNamed(P1)
@@ -749,23 +668,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Return",P1])
 
-	Func Return_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Return",P1,P2])
-
-	Func Return_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Return",P1,P2,P3])
-
 	Func Goto P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Goto",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Goto",P1])
-
-	Func Goto_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Goto",P1,P2])
-
-	Func Goto_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Goto",P1,P2,P3])
 
 	Func MakeGoto P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeGoto",P1,P2,P3,P4])
@@ -776,17 +683,14 @@ Class ExpressionsExpression from Object
 	Func ArrayAccess P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ArrayAccess",P1,P2])
 
-	Func Property_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Property",P1,P2,P3])
+	Func Property P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Property",P1])
+		ok
+		raise("DotNet Error: Property does not take one argument: use named arguments, Property([ :parameter = value, ... ])")
 
 	Func Invoke P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Invoke",P1,P2])
-
-	Func Label_1 P1
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Label",P1])
-
-	Func Label_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Label",P1,P2])
 
 	Func Label P1
 		if dnIsNamed(P1)
@@ -797,17 +701,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Label",P1])
 
-	Func Lambda P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Lambda",P1,P2])
-
-	Func Lambda_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Lambda",P1,P2,P3])
-
-	Func Lambda_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Lambda",P1,P2,P3,P4])
-
-	Func Lambda_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Lambda",P1,P2,P3,P4,P5])
+	Func Lambda P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Lambda",P1])
+		ok
+		raise("DotNet Error: Lambda does not take one argument: use named arguments, Lambda([ :parameter = value, ... ])")
 
 	Func GetFuncType P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GetFuncType",P1])
@@ -824,11 +722,11 @@ Class ExpressionsExpression from Object
 	Func GetDelegateType P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"GetDelegateType",P1])
 
-	Func ListInit P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ListInit",P1,P2])
-
-	Func ListInit_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ListInit",P1,P2,P3])
+	Func ListInit P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ListInit",P1])
+		ok
+		raise("DotNet Error: ListInit does not take one argument: use named arguments, ListInit([ :parameter = value, ... ])")
 
 	Func Loop_ P1
 		if dnIsNamed(P1)
@@ -836,23 +734,14 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Loop",P1])
 
-	Func Loop_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Loop",P1,P2])
-
-	Func Loop_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Loop",P1,P2,P3])
-
 	Func Bind P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Bind",P1,P2])
 
-	Func Field P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Field",P1,P2])
-
-	Func Field_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Field",P1,P2,P3])
-
-	Func Property P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Property",P1,P2])
+	Func Field P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Field",P1])
+		ok
+		raise("DotNet Error: Field does not take one argument: use named arguments, Field([ :parameter = value, ... ])")
 
 	Func PropertyOrField P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PropertyOrField",P1,P2])
@@ -869,38 +758,17 @@ Class ExpressionsExpression from Object
 	Func MemberBind P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MemberBind",P1,P2])
 
-	Func Call_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1,P2])
-
-	Func Call_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1,P2,P3])
-
-	Func Call_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1,P2,P3,P4])
-
-	Func Call_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1,P2,P3,P4,P5])
-
-	Func Call_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1,P2,P3,P4,P5,P6])
+	Func Call_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Call",P1])
+		ok
+		raise("DotNet Error: Call does not take one argument: use named arguments, Call([ :parameter = value, ... ])")
 
 	Func NewArrayInit P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NewArrayInit",P1,P2])
 
 	Func NewArrayBounds P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NewArrayBounds",P1,P2])
-
-	Func New_ P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"New",P1])
-		ok
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"New",P1])
-
-	Func New_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"New",P1,P2])
-
-	Func New_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"New",P1,P2,P3])
 
 	Func Parameter P1
 		if dnIsNamed(P1)
@@ -914,44 +782,23 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Variable",P1])
 
-	Func Parameter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Parameter",P1,P2])
-
-	Func Variable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Variable",P1,P2])
-
 	Func RuntimeVariables P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"RuntimeVariables",P1])
 
 	Func SwitchCase P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SwitchCase",P1,P2])
 
-	Func Switch_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Switch",P1,P2])
-
-	Func Switch_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Switch",P1,P2,P3])
-
-	Func Switch_ P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Switch",P1,P2,P3,P4])
-
-	Func Switch_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Switch",P1,P2,P3,P4,P5])
+	Func Switch_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Switch",P1])
+		ok
+		raise("DotNet Error: Switch does not take one argument: use named arguments, Switch([ :parameter = value, ... ])")
 
 	Func SymbolDocument P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SymbolDocument",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SymbolDocument",P1])
-
-	Func SymbolDocument_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SymbolDocument",P1,P2])
-
-	Func SymbolDocument_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SymbolDocument",P1,P2,P3])
-
-	Func SymbolDocument_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"SymbolDocument",P1,P2,P3,P4])
 
 	Func TryFault P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"TryFault",P1,P2])
@@ -974,11 +821,11 @@ Class ExpressionsExpression from Object
 	Func TypeEqual P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"TypeEqual",P1,P2])
 
-	Func MakeUnary P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeUnary",P1,P2,P3])
-
-	Func MakeUnary_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeUnary",P1,P2,P3,P4])
+	Func MakeUnary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"MakeUnary",P1])
+		ok
+		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func Negate P1
 		if dnIsNamed(P1)
@@ -986,17 +833,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Negate",P1])
 
-	Func Negate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Negate",P1,P2])
-
 	Func UnaryPlus P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"UnaryPlus",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"UnaryPlus",P1])
-
-	Func UnaryPlus_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"UnaryPlus",P1,P2])
 
 	Func NegateChecked P1
 		if dnIsNamed(P1)
@@ -1004,17 +845,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NegateChecked",P1])
 
-	Func NegateChecked_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"NegateChecked",P1,P2])
-
 	Func Not_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Not",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Not",P1])
-
-	Func Not_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Not",P1,P2])
 
 	Func IsFalse P1
 		if dnIsNamed(P1)
@@ -1022,17 +857,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IsFalse",P1])
 
-	Func IsFalse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IsFalse",P1,P2])
-
 	Func IsTrue P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IsTrue",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IsTrue",P1])
-
-	Func IsTrue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"IsTrue",P1,P2])
 
 	Func OnesComplement P1
 		if dnIsNamed(P1)
@@ -1040,26 +869,23 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OnesComplement",P1])
 
-	Func OnesComplement_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"OnesComplement",P1,P2])
-
 	Func TypeAs P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"TypeAs",P1,P2])
 
 	Func Unbox P1,P2
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Unbox",P1,P2])
 
-	Func Convert P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Convert",P1,P2])
+	Func Convert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Convert",P1])
+		ok
+		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
-	Func Convert_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Convert",P1,P2,P3])
-
-	Func ConvertChecked P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ConvertChecked",P1,P2])
-
-	Func ConvertChecked_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ConvertChecked",P1,P2,P3])
+	Func ConvertChecked P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ConvertChecked",P1])
+		ok
+		raise("DotNet Error: ConvertChecked does not take one argument: use named arguments, ConvertChecked([ :parameter = value, ... ])")
 
 	Func ArrayLength P1
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"ArrayLength",P1])
@@ -1076,17 +902,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Rethrow",P1])
 
-	Func Rethrow_1 P1
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Rethrow",P1])
-
 	Func Throw P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Throw",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Throw",P1])
-
-	Func Throw_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Throw",P1,P2])
 
 	Func Increment P1
 		if dnIsNamed(P1)
@@ -1094,17 +914,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Increment",P1])
 
-	Func Increment_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Increment",P1,P2])
-
 	Func Decrement P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Decrement",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Decrement",P1])
-
-	Func Decrement_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"Decrement",P1,P2])
 
 	Func PreIncrementAssign P1
 		if dnIsNamed(P1)
@@ -1112,17 +926,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PreIncrementAssign",P1])
 
-	Func PreIncrementAssign_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PreIncrementAssign",P1,P2])
-
 	Func PreDecrementAssign P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PreDecrementAssign",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PreDecrementAssign",P1])
-
-	Func PreDecrementAssign_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PreDecrementAssign",P1,P2])
 
 	Func PostIncrementAssign P1
 		if dnIsNamed(P1)
@@ -1130,17 +938,11 @@ Class ExpressionsExpression from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PostIncrementAssign",P1])
 
-	Func PostIncrementAssign_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PostIncrementAssign",P1,P2])
-
 	Func PostDecrementAssign P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PostDecrementAssign",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PostDecrementAssign",P1])
-
-	Func PostDecrementAssign_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.Expression, System.Linq.Expressions'),"PostDecrementAssign",P1,P2])
 
 	Func getNodeType
 		return dnRequest("get",[self,"NodeType"])
@@ -1185,9 +987,6 @@ Class ExpressionVisitor from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Visit_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.ExpressionVisitor, System.Linq.Expressions'),"Visit",P1,P2])
 
 
 Class IArgumentProvider from DotNetObject
@@ -1250,7 +1049,7 @@ Class LabelTarget from Object
 		ok
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -1603,29 +1402,17 @@ Class DynamicExpression from ExpressionsExpression
 	Func Update P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 
-	Func Dynamic P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"Dynamic",P1,P2,P3])
+	Func Dynamic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"Dynamic",P1])
+		ok
+		raise("DotNet Error: Dynamic does not take one argument: use named arguments, Dynamic([ :parameter = value, ... ])")
 
-	Func Dynamic_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4])
-
-	Func Dynamic_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4,P5])
-
-	Func Dynamic_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"Dynamic",P1,P2,P3,P4,P5,P6])
-
-	Func MakeDynamic P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3])
-
-	Func MakeDynamic_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4])
-
-	Func MakeDynamic_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4,P5])
-
-	Func MakeDynamic_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"MakeDynamic",P1,P2,P3,P4,P5,P6])
+	Func MakeDynamic P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Linq.Expressions.DynamicExpression, System.Linq.Expressions'),"MakeDynamic",P1])
+		ok
+		raise("DotNet Error: MakeDynamic does not take one argument: use named arguments, MakeDynamic([ :parameter = value, ... ])")
 
 	Func getBinder
 		return dnRequest("get",[self,"Binder"])
@@ -1836,9 +1623,6 @@ Class LambdaExpression from ExpressionsExpression
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Compile"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Compile",P1])
-
-	Func Compile_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Compile",P1])
 
 	Func getParameters

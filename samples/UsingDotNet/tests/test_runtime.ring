@@ -17,7 +17,7 @@ dnImport("System.Security.Cryptography.X509Certificates")
 dnImport("Microsoft.Win32")
 
 # Reflection
-oType = new Type().GetType_1("System.Math")
+oType = new Type().GetType("System.Math")
 dnAssert("Type.FullName",oType.FullName,"System.Math")
 dnAssert("Type.IsAbstract static class",oType.IsAbstract,1)
 aMethods = oType.GetMethods(NULL).toList()
@@ -25,23 +25,23 @@ dnAssert("Type.GetMethods",len(aMethods) > 20,1)
 dnAssert("MethodInfo wrapped",isobject(aMethods[1]) and isattribute(aMethods[1],"Name"),1)
 oAsm = new Assembly().Load_("System.Linq")
 dnAssert("Assembly.GetName",oAsm.GetName(NULL).Name,"System.Linq")
-oProp = new Type().GetType_1("System.String").GetProperty("Length")
+oProp = new Type().GetType("System.String").GetProperty("Length")
 dnAssert("PropertyInfo.PropertyType",oProp.PropertyType.Name,"Int32")
-dnAssert("Activator via Type",new Activator().CreateInstance_1(new Type().GetType_1("System.Text.StringBuilder")).ToString(),"")
+dnAssert("Activator via Type",new Activator().CreateInstance(new Type().GetType("System.Text.StringBuilder")).ToString(),"")
 
 # Interop and runtime information
 dnAssert("RuntimeInformation.OSDescription",len(new RuntimeInformation().OSDescription) > 0,1)
 dnAssert("RuntimeInformation.ProcessArchitecture",new RuntimeInformation().ProcessArchitecture,"X64")
-dnAssert("Marshal.SizeOf int",new Marshal().SizeOf_1(new Type().GetType_1("System.Int64")),8)
+dnAssert("Marshal.SizeOf int",new Marshal().SizeOf(new Type().GetType("System.Int64")),8)
 
 # Big numbers
 oBig = new BigInteger().Parse("123456789012345678901234567890")
 dnAssert("BigInteger.Multiply",new BigInteger().Multiply(oBig,2).ToString(),"246913578024691357802469135780")
 dnAssert("BigInteger.Pow",new BigInteger().Pow(2,100).ToString(),"1267650600228229401496703205376")
 dnAssert("BigInteger.IsEven",oBig.IsEven,1)
-oComplex = new Complex().New_2(3,4)
+oComplex = new Complex().New_([ :real = 3, :imaginary = 4 ])
 dnAssert("Complex.Magnitude",oComplex.Magnitude,5)
-dnAssert("Vector2",new Vector2().New_2(3,4).Length(),5)
+dnAssert("Vector2",new Vector2().New_([ :x = 3, :y = 4 ]).Length(),5)
 
 # Timers (no ticks: events run only on the Ring thread)
 oTimer = new TimersTimer()
@@ -67,7 +67,7 @@ oClient.Close()  oServer.Close()
 # Windows only: registry and identity
 if iswindows()
 	oKey = new Registry().CurrentUser.CreateSubKey("RingDotNetTest")
-	oKey.SetValue("answer",42)
+	oKey.SetValue([ :name = "answer", :value = 42 ])
 	dnAssert("Registry round trip",number(oKey.GetValue("answer")),42)
 	oKey.Close()
 	new Registry().CurrentUser.DeleteSubKey("RingDotNetTest")
@@ -84,13 +84,13 @@ dnAssert("HtmlEncoder",new HtmlEncoder().Default.Encode("<a & b>"),"&lt;a &amp; 
 dnAssert("UrlEncoder",new UrlEncoder().Default.Encode("a b"),"a%20b")
 
 # Tar
-cTemp = new Path().Combine(new Path().GetTempPath(),"ringdotnet_tar_" + random(100000))
+cTemp = new Path().Combine([new Path().GetTempPath(),"ringdotnet_tar_" + random(100000)])
 new Directory().CreateDirectory(cTemp)
-new File().WriteAllText(new Path().Combine(cTemp,"one.txt"),"1")
+new File().WriteAllText([ :path = new Path().Combine([cTemp,"one.txt"]), :contents = "1" ])
 cTar = cTemp + ".tar"
 new TarFile().CreateFromDirectory(cTemp,cTar,0)
 dnAssert("TarFile created",new File().Exists(cTar),1)
-new Directory().Delete_2(cTemp,1)
+new Directory().Delete([ :path = cTemp, :recursive = 1 ])
 new File().Delete(cTar)
 
 # Concurrent collections
@@ -103,6 +103,6 @@ dnAssert("ConcurrentDictionary.TryAdd",oDict.TryAdd("k",5),1)
 dnAssert("ConcurrentDictionary.Count",oDict.Count,1)
 
 # X509
-dnAssert("X509Store available",new X509Store().New_2("My","CurrentUser").Name,"My")
+dnAssert("X509Store available",new X509Store().New_([ :storeName = "My", :storeLocation = "CurrentUser" ]).Name,"My")
 
 nFail = dnTestSummary()

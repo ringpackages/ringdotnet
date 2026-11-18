@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -164,22 +167,22 @@ using {
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 	oDirectory = <span class="k">new</span> <span class="t">Directory</span>()
 	oFile = <span class="k">new</span> <span class="t">File</span>()
-	cWork = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"tutorial46"</span>)
+	cWork = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"tutorial46"</span>])
 	<span class="k">if</span> oDirectory.<span class="f">Exists</span>(cWork)
 		oDirectory.<span class="f">Delete</span>([ :path = cWork, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
-	cSource = oPath.<span class="f">Combine</span>(cWork,<span class="s">"documents"</span>)
-	cBackups = oPath.<span class="f">Combine</span>(cWork,<span class="s">"backups"</span>)
-	oDirectory.<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>(cSource,<span class="s">"notes"</span>))
+	cSource = oPath.<span class="f">Combine</span>([cWork,<span class="s">"documents"</span>])
+	cBackups = oPath.<span class="f">Combine</span>([cWork,<span class="s">"backups"</span>])
+	oDirectory.<span class="f">CreateDirectory</span>(oPath.<span class="f">Combine</span>([cSource,<span class="s">"notes"</span>]))
 	oDirectory.<span class="f">CreateDirectory</span>(cBackups)
-	oFile.<span class="f">WriteAllText</span>(oPath.<span class="f">Combine</span>(cSource,<span class="s">"report.txt"</span>),<span class="s">"Annual report"</span> + nl + copies(<span class="s">"lorem ipsum "</span>,<span class="n">50</span>))
-	oFile.<span class="f">WriteAllText</span>(oPath.<span class="f">Combine</span>(cSource,<span class="s">"notes/todo.txt"</span>),<span class="s">"buy milk"</span>)
-	? <span class="s">"The folder to protect has "</span> + len(oDirectory.<span class="f">GetFiles_3</span>(cSource,<span class="s">"*"</span>,<span class="s">"AllDirectories"</span>).<span class="f">toList</span>()) + <span class="s">" files"</span>
+	oFile.<span class="f">WriteAllText</span>([ :path = oPath.<span class="f">Combine</span>([cSource,<span class="s">"report.txt"</span>]), :contents = <span class="s">"Annual report"</span> + nl + copies(<span class="s">"lorem ipsum "</span>,<span class="n">50</span>) ])
+	oFile.<span class="f">WriteAllText</span>([ :path = oPath.<span class="f">Combine</span>([cSource,<span class="s">"notes/todo.txt"</span>]), :contents = <span class="s">"buy milk"</span> ])
+	? <span class="s">"The folder to protect has "</span> + len(oDirectory.<span class="f">GetFiles</span>([ :path = cSource, :searchPattern = <span class="s">"*"</span>, :searchOption = <span class="s">"AllDirectories"</span> ]).<span class="f">toList</span>()) + <span class="s">" files"</span>
 
 	<span class="c"># STEP 1. A backup is a zip file named with the date and time, so that the names sort in time order</span>
 	aStamps = [<span class="s">"2024-05-01_0900"</span>,<span class="s">"2024-05-02_0900"</span>,<span class="s">"2024-05-03_0900"</span>,<span class="s">"2024-05-04_0900"</span>,<span class="s">"2024-05-05_0900"</span>]
 	<span class="k">for</span> cStamp <span class="k">in</span> aStamps
-		oFile.<span class="f">WriteAllText</span>(oPath.<span class="f">Combine</span>(cSource,<span class="s">"report.txt"</span>),<span class="s">"Annual report, version of "</span> + cStamp + nl + copies(<span class="s">"lorem ipsum "</span>,<span class="n">50</span>))
+		oFile.<span class="f">WriteAllText</span>([ :path = oPath.<span class="f">Combine</span>([cSource,<span class="s">"report.txt"</span>]), :contents = <span class="s">"Annual report, version of "</span> + cStamp + nl + copies(<span class="s">"lorem ipsum "</span>,<span class="n">50</span>) ])
 		makeBackup(cSource,cBackups,cStamp)
 	<span class="k">next</span>
 	? nl + <span class="s">"STEP 1: five backups made:"</span>
@@ -191,23 +194,23 @@ using {
 	showBackups(cBackups)
 
 	<span class="c"># STEP 3. Restore the newest backup into a new folder and check that it has our latest report</span>
-	cRestore = oPath.<span class="f">Combine</span>(cWork,<span class="s">"restored"</span>)
+	cRestore = oPath.<span class="f">Combine</span>([cWork,<span class="s">"restored"</span>])
 	cLatest = restoreLatest(cBackups,cRestore)
 	? nl + <span class="s">"STEP 3: restored "</span> + oPath.<span class="f">GetFileName</span>(cLatest)
-	? <span class="s">"   the restored report says: "</span> + left(oFile.<span class="f">ReadAllText</span>(oPath.<span class="f">Combine</span>(cRestore,<span class="s">"report.txt"</span>)),<span class="n">38</span>)
-	? <span class="s">"   restored files: "</span> + len(oDirectory.<span class="f">GetFiles_3</span>(cRestore,<span class="s">"*"</span>,<span class="s">"AllDirectories"</span>).<span class="f">toList</span>())
+	? <span class="s">"   the restored report says: "</span> + left(oFile.<span class="f">ReadAllText</span>(oPath.<span class="f">Combine</span>([cRestore,<span class="s">"report.txt"</span>])),<span class="n">38</span>)
+	? <span class="s">"   restored files: "</span> + len(oDirectory.<span class="f">GetFiles</span>([ :path = cRestore, :searchPattern = <span class="s">"*"</span>, :searchOption = <span class="s">"AllDirectories"</span> ]).<span class="f">toList</span>())
 
 	oDirectory.<span class="f">Delete</span>([ :path = cWork, :recursive = <span class="k">True</span> ])
 
 <span class="c"># STEP 1: zip the source folder to backups/backup-&lt;stamp&gt;.zip</span>
 <span class="k">func</span> <span class="f">makeBackup</span> cSource, cBackups, cStamp
-	cZip = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBackups,<span class="s">"backup-"</span> + cStamp + <span class="s">".zip"</span>)
-	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>(cSource,cZip)
+	cZip = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBackups,<span class="s">"backup-"</span> + cStamp + <span class="s">".zip"</span>])
+	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>([ :sourceDirectoryName = cSource, :destinationArchiveFileName = cZip ])
 	<span class="k">return</span> cZip
 
 <span class="c"># the backups, oldest first (the names sort the same way as the dates)</span>
 <span class="k">func</span> <span class="f">listBackups</span> cBackups
-	<span class="k">return</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles_2</span>(cBackups,<span class="s">"backup-*.zip"</span>).<span class="f">toList</span>())
+	<span class="k">return</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>([ :path = cBackups, :searchPattern = <span class="s">"backup-*.zip"</span> ]).<span class="f">toList</span>())
 
 <span class="k">func</span> <span class="f">showBackups</span> cBackups
 	<span class="k">for</span> cFile <span class="k">in</span> listBackups(cBackups)
@@ -228,7 +231,7 @@ using {
 <span class="k">func</span> <span class="f">restoreLatest</span> cBackups, cFolder
 	aList = listBackups(cBackups)
 	cLatest = aList[len(aList)]
-	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">ExtractToDirectory</span>(cLatest,cFolder)
+	<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">ExtractToDirectory</span>([ :sourceArchiveFileName = cLatest, :destinationDirectoryName = cFolder ])
 	<span class="k">return</span> cLatest
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
@@ -256,7 +259,7 @@ STEP 3: restored backup-2024-05-05_0900.zip
    restored files: 2</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="names-that-sort">Names that sort<a class="anchor" href="#names-that-sort">#</a></h3>
-<p><code>2024-05-03_0900</code> sorts correctly as <em>text</em> because the biggest unit comes first and every part has a fixed width (<code>05</code>, not <code>5</code>). That is why <code>sort(list of names)</code> puts the oldest backup first. A stamp like <code>3-5-2024</code> would sort wrongly. A real program makes the stamp from the clock: <code>new DateTime().Now.ToString_1("yyyy-MM-dd_HHmm")</code>; the tutorial passes fixed stamps so that the output is repeatable.</p>
+<p><code>2024-05-03_0900</code> sorts correctly as <em>text</em> because the biggest unit comes first and every part has a fixed width (<code>05</code>, not <code>5</code>). That is why <code>sort(list of names)</code> puts the oldest backup first. A stamp like <code>3-5-2024</code> would sort wrongly. A real program makes the stamp from the clock: <code>new DateTime().Now.Format("yyyy-MM-dd_HHmm")</code>; the tutorial passes fixed stamps so that the output is repeatable.</p>
 <h3 id="making-a-backup">Making a backup<a class="anchor" href="#making-a-backup">#</a></h3>
 <p><code>ZipFile.CreateFromDirectory(folder, zipFile)</code> compresses the folder, with its subfolders, into a zip. It raises an error if the zip file already exists: another reason for a unique name.</p>
 <h3 id="retention">Retention<a class="anchor" href="#retention">#</a></h3>

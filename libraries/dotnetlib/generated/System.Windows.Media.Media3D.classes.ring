@@ -420,7 +420,10 @@ Class Camera from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getTransform
@@ -495,7 +498,10 @@ Class GeneralTransform3D from Animatable
 	Func TransformBounds P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TransformBounds",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getInverse
@@ -518,7 +524,15 @@ Class GeneralTransform3DCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeneralTransform3DCollection, PresentationCore',[P1])
 		return self
 
@@ -631,7 +645,10 @@ Class Material from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 
@@ -648,7 +665,15 @@ Class MaterialCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MaterialCollection, PresentationCore',[P1])
 		return self
 
@@ -731,8 +756,16 @@ Class Matrix3D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[])
 		return self
 
-	Func New_16 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16
-		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Matrix3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Matrix3D, PresentationCore',[P1])
 		return self
 
 	Func SetIdentity 
@@ -803,14 +836,14 @@ Class Matrix3D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Multiply",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Matrix3D, PresentationCore'),"Parse",P1])
@@ -981,7 +1014,10 @@ Class Model3D from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getBounds
@@ -1017,7 +1053,15 @@ Class Model3DCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Model3DCollection, PresentationCore',[P1])
 		return self
 
@@ -1110,8 +1154,16 @@ Class Point3D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point3D, PresentationCore',[P1])
 		return self
 
 	Func Offset P1,P2,P3
@@ -1127,7 +1179,10 @@ Class Point3D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Add P1,P2
@@ -1138,9 +1193,6 @@ Class Point3D from ValueType
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Multiply",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point3D, PresentationCore'),"Parse",P1])
@@ -1180,7 +1232,15 @@ Class Point3DCollection from Freezable
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point3DCollection, PresentationCore',[P1])
 		return self
 
@@ -1216,7 +1276,10 @@ Class Point3DCollection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -1276,8 +1339,16 @@ Class Point4D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Point4D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Point4D, PresentationCore',[P1])
 		return self
 
 	Func Offset P1,P2,P3,P4
@@ -1293,7 +1364,10 @@ Class Point4D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Add P1,P2
@@ -1304,9 +1378,6 @@ Class Point4D from ValueType
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Multiply",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Point4D, PresentationCore'),"Parse",P1])
@@ -1373,12 +1444,16 @@ Class WpfQuaternion from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[P1,P2,P3,P4])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Quaternion, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Quaternion, PresentationCore',[P1])
 		return self
 
 	Func Conjugate 
@@ -1402,7 +1477,10 @@ Class WpfQuaternion from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Add P1,P2
@@ -1414,14 +1492,11 @@ Class WpfQuaternion from ValueType
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Multiply",P1,P2])
 
-	Func Slerp P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Slerp",P1,P2,P3])
-
-	Func Slerp_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Slerp",P1,P2,P3,P4])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Equals",P1,P2])
+	Func Slerp P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Slerp",P1])
+		ok
+		raise("DotNet Error: Slerp does not take one argument: use named arguments, Slerp([ :parameter = value, ... ])")
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Quaternion, PresentationCore'),"Parse",P1])
@@ -1552,12 +1627,16 @@ Class Rect3D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[P1,P2])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Rect3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Rect3D, PresentationCore',[P1])
 		return self
 
 	Func Contains P1
@@ -1565,9 +1644,6 @@ Class Rect3D from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
-
-	Func Contains_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2,P3])
 
 	Func IntersectsWith P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IntersectsWith",P1])
@@ -1602,10 +1678,6 @@ Class Rect3D from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1])
 		return self
 
-	Func Offset_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Offset",P1,P2,P3])
-		return self
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
@@ -1615,23 +1687,11 @@ Class Rect3D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func Intersect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Intersect",P1,P2])
-
-	Func Union_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Union",P1,P2])
-
-	Func Offset_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1,P2])
-
-	Func Offset_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Offset",P1,P2,P3,P4])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Rect3D, PresentationCore'),"Parse",P1])
@@ -1729,7 +1789,10 @@ Class Rotation3D from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getIdentity
@@ -1756,8 +1819,16 @@ Class Size3D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Size3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Size3D, PresentationCore',[P1])
 		return self
 
 	Func Equals P1
@@ -1769,11 +1840,11 @@ Class Size3D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Size3D, PresentationCore'),"Parse",P1])
@@ -1837,7 +1908,15 @@ Class Transform3DCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Transform3DCollection, PresentationCore',[P1])
 		return self
 
@@ -1904,8 +1983,16 @@ Class Vector3D from ValueType
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3D, PresentationCore',[P1])
 		return self
 
 	Func Normalize 
@@ -1925,7 +2012,10 @@ Class Vector3D from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func AngleBetween P1,P2
@@ -1948,9 +2038,6 @@ Class Vector3D from ValueType
 
 	Func CrossProduct P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"CrossProduct",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Media3D.Vector3D, PresentationCore'),"Parse",P1])
@@ -2002,7 +2089,15 @@ Class Vector3DCollection from Freezable
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.Vector3DCollection, PresentationCore',[P1])
 		return self
 
@@ -2038,7 +2133,10 @@ Class Vector3DCollection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -2114,10 +2212,6 @@ Class Viewport3DVisual from Visual
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
-
-	Func HitTest_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2,P3])
-		return self
 
 	Func getParent
 		return dnRequest("get",[self,"Parent"])
@@ -2248,21 +2342,19 @@ Class Visual3D from DependencyObject
 	Func TransformToDescendant P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TransformToDescendant",P1])
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -2364,8 +2456,16 @@ Class AxisAngleRotation3D from Rotation3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.AxisAngleRotation3D, PresentationCore',[P1])
 		return self
 
 	Func getAxis
@@ -2413,7 +2513,15 @@ Class DiffuseMaterial from Material
 		nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.DiffuseMaterial, PresentationCore',[P1])
 		return self
 
@@ -2473,7 +2581,15 @@ Class EmissiveMaterial from Material
 		nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.EmissiveMaterial, PresentationCore',[P1])
 		return self
 
@@ -2550,8 +2666,16 @@ Class GeometryModel3D from Model3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.GeometryModel3D, PresentationCore',[P1])
 		return self
 
 	Func getGeometry
@@ -2665,8 +2789,16 @@ Class MatrixCamera from Camera
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixCamera, PresentationCore',[P1])
 		return self
 
 	Func getViewMatrix
@@ -2936,7 +3068,15 @@ Class QuaternionRotation3D from Rotation3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.QuaternionRotation3D, PresentationCore',[P1])
 		return self
 
@@ -3060,8 +3200,16 @@ Class SpecularMaterial from Material
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.SpecularMaterial, PresentationCore',[P1])
 		return self
 
 	Func getColor
@@ -3118,7 +3266,7 @@ Class Transform3D from GeneralTransform3D
 		ok
 		return self
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func getIsAffine
@@ -3246,7 +3394,15 @@ Class AmbientLight from Light
 		nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.AmbientLight, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.AmbientLight, PresentationCore',[P1])
 		return self
 
@@ -3265,8 +3421,16 @@ Class DirectionalLight from Light
 		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.DirectionalLight, PresentationCore',[P1])
 		return self
 
 	Func getDirection
@@ -3297,7 +3461,15 @@ Class MatrixTransform3D from Transform3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.MatrixTransform3D, PresentationCore',[P1])
 		return self
 
@@ -3329,8 +3501,16 @@ Class OrthographicCamera from ProjectionCamera
 		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.OrthographicCamera, PresentationCore',[P1])
 		return self
 
 	Func getWidth
@@ -3361,8 +3541,16 @@ Class PerspectiveCamera from ProjectionCamera
 		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.PerspectiveCamera, PresentationCore',[P1])
 		return self
 
 	Func getFieldOfView
@@ -3505,8 +3693,16 @@ Class PointLight from PointLightBase
 		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.PointLight, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.PointLight, PresentationCore',[P1])
 		return self
 
 
@@ -3530,16 +3726,16 @@ Class RotateTransform3D from AffineTransform3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Media3D.RotateTransform3D, PresentationCore',[P1,P2,P3,P4])
 		return self
 
 	Func getCenterX
@@ -3619,20 +3815,16 @@ Class ScaleTransform3D from AffineTransform3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[P1,P2])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.Media3D.ScaleTransform3D, PresentationCore',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func getScaleX
@@ -3732,8 +3924,16 @@ Class SpotLight from PointLightBase
 		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.SpotLight, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Media3D.SpotLight, PresentationCore',[P1])
 		return self
 
 	Func getDirection
@@ -3794,12 +3994,16 @@ Class TranslateTransform3D from AffineTransform3D
 		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Media3D.TranslateTransform3D, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getOffsetX

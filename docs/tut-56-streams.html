@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -200,7 +203,7 @@ using {
 	? <span class="s">"4. the text is the same after the round trip: "</span> + yesNo(cBack = cText)
 
 	<span class="c"># 5. Files are streams too: File.OpenRead / OpenWrite give a FileStream, with the same Read/Write methods</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial57.gz"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial57.gz"</span>])
 	oFileStream = <span class="k">new</span> <span class="t">File</span>().<span class="f">Create</span>(cFile)
 	oFileGzip = <span class="k">new</span> <span class="t">GZipStream</span>(oFileStream,<span class="s">"Compress"</span>)
 	oFileWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(oFileGzip)

@@ -1349,21 +1349,19 @@ Class Animatable from Freezable
 		ok
 		return self
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -1440,10 +1438,10 @@ Class BooleanKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -1586,10 +1584,10 @@ Class ByteKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -1732,10 +1730,10 @@ Class CharKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2029,9 +2027,6 @@ Class ClockCollection from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.ClockCollection, PresentationCore'),"Equals",P1,P2])
-
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
@@ -2125,10 +2120,10 @@ Class ColorKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2291,10 +2286,10 @@ Class DecimalKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2437,10 +2432,10 @@ Class DoubleKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2607,21 +2602,19 @@ Class IAnimatable from DotNetObject
 		ok
 		return self
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -2727,10 +2720,10 @@ Class Int16KeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2873,10 +2866,10 @@ Class Int32KeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3019,10 +3012,10 @@ Class Int64KeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3161,18 +3154,25 @@ Class KeySpline from Freezable
 		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[P1,P2,P3,P4])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.KeySpline, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.KeySpline, PresentationCore',[P1])
 		return self
 
 	Func GetSplineProgress P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSplineProgress",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getControlPoint1
@@ -3216,7 +3216,7 @@ Class KeyTime from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func FromPercent P1
@@ -3224,9 +3224,6 @@ Class KeyTime from ValueType
 
 	Func FromTimeSpan P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"FromTimeSpan",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.KeyTime, PresentationCore'),"Equals",P1,P2])
 
 	Func getTimeSpan
 		return dnRequest("get",[self,"TimeSpan"])
@@ -3277,10 +3274,10 @@ Class MatrixKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3423,10 +3420,10 @@ Class ObjectKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3569,10 +3566,10 @@ Class Point3DKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3715,10 +3712,10 @@ Class PointKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -3861,10 +3858,10 @@ Class QuaternionKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4007,10 +4004,10 @@ Class RectKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4152,7 +4149,15 @@ Class RepeatBehavior from ValueType
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.RepeatBehavior, PresentationCore',[P1])
 		return self
 
@@ -4165,11 +4170,11 @@ Class RepeatBehavior from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.RepeatBehavior, PresentationCore'),"Equals",P1,P2])
 
 	Func getHasCount
 		return dnRequest("get",[self,"HasCount"])
@@ -4232,10 +4237,10 @@ Class Rotation3DKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4378,10 +4383,10 @@ Class SingleKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4524,10 +4529,10 @@ Class SizeKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4670,10 +4675,10 @@ Class StringKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4816,10 +4821,10 @@ Class ThicknessKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -4962,10 +4967,10 @@ Class Vector3DKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -5108,10 +5113,10 @@ Class VectorKeyFrame from Freezable
 	Func InterpolateValue P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InterpolateValue",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -5375,12 +5380,16 @@ Class DiscreteBooleanKeyFrame from BooleanKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteBooleanKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5395,12 +5404,16 @@ Class DiscreteByteKeyFrame from ByteKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteByteKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5415,12 +5428,16 @@ Class DiscreteCharKeyFrame from CharKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteCharKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5435,12 +5452,16 @@ Class DiscreteColorKeyFrame from ColorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteColorKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5455,12 +5476,16 @@ Class DiscreteDecimalKeyFrame from DecimalKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDecimalKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5475,12 +5500,16 @@ Class DiscreteDoubleKeyFrame from DoubleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteDoubleKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5495,12 +5524,16 @@ Class DiscreteInt16KeyFrame from Int16KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt16KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5515,12 +5548,16 @@ Class DiscreteInt32KeyFrame from Int32KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt32KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5535,12 +5572,16 @@ Class DiscreteInt64KeyFrame from Int64KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteInt64KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5555,12 +5596,16 @@ Class DiscreteMatrixKeyFrame from MatrixKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteMatrixKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5575,12 +5620,16 @@ Class DiscreteObjectKeyFrame from ObjectKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteObjectKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5595,12 +5644,16 @@ Class DiscretePoint3DKeyFrame from Point3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePoint3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5615,12 +5668,16 @@ Class DiscretePointKeyFrame from PointKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscretePointKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5635,12 +5692,16 @@ Class DiscreteQuaternionKeyFrame from QuaternionKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteQuaternionKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5655,12 +5716,16 @@ Class DiscreteRectKeyFrame from RectKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRectKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5675,12 +5740,16 @@ Class DiscreteRotation3DKeyFrame from Rotation3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteRotation3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5695,12 +5764,16 @@ Class DiscreteSingleKeyFrame from SingleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSingleKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5715,12 +5788,16 @@ Class DiscreteSizeKeyFrame from SizeKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteSizeKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5735,12 +5812,16 @@ Class DiscreteStringKeyFrame from StringKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteStringKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5755,12 +5836,16 @@ Class DiscreteThicknessKeyFrame from ThicknessKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteThicknessKeyFrame, PresentationFramework',[P1,P2])
 		return self
 
 
@@ -5775,12 +5860,16 @@ Class DiscreteVector3DKeyFrame from Vector3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVector3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5795,12 +5884,16 @@ Class DiscreteVectorKeyFrame from VectorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DiscreteVectorKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -5818,16 +5911,16 @@ Class EasingByteKeyFrame from ByteKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingByteKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -5858,16 +5951,16 @@ Class EasingColorKeyFrame from ColorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingColorKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -5898,16 +5991,16 @@ Class EasingDecimalKeyFrame from DecimalKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDecimalKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -5938,16 +6031,16 @@ Class EasingDoubleKeyFrame from DoubleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingDoubleKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -5978,16 +6071,16 @@ Class EasingInt16KeyFrame from Int16KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt16KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6018,16 +6111,16 @@ Class EasingInt32KeyFrame from Int32KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt32KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6058,16 +6151,16 @@ Class EasingInt64KeyFrame from Int64KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingInt64KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6098,16 +6191,16 @@ Class EasingPoint3DKeyFrame from Point3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPoint3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6138,16 +6231,16 @@ Class EasingPointKeyFrame from PointKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingPointKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6180,16 +6273,16 @@ Class EasingQuaternionKeyFrame from QuaternionKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingQuaternionKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getUseShortestPath
@@ -6233,16 +6326,16 @@ Class EasingRectKeyFrame from RectKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRectKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6273,16 +6366,16 @@ Class EasingRotation3DKeyFrame from Rotation3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingRotation3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6313,16 +6406,16 @@ Class EasingSingleKeyFrame from SingleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSingleKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6353,16 +6446,16 @@ Class EasingSizeKeyFrame from SizeKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingSizeKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6393,16 +6486,16 @@ Class EasingThicknessKeyFrame from ThicknessKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingThicknessKeyFrame, PresentationFramework',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6433,16 +6526,16 @@ Class EasingVector3DKeyFrame from Vector3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVector3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6473,16 +6566,16 @@ Class EasingVectorKeyFrame from VectorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.EasingVectorKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getEasingFunction
@@ -6581,12 +6674,16 @@ Class LinearByteKeyFrame from ByteKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearByteKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6601,12 +6698,16 @@ Class LinearColorKeyFrame from ColorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearColorKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6621,12 +6722,16 @@ Class LinearDecimalKeyFrame from DecimalKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearDecimalKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6641,12 +6746,16 @@ Class LinearDoubleKeyFrame from DoubleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearDoubleKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6661,12 +6770,16 @@ Class LinearInt16KeyFrame from Int16KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt16KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6681,12 +6794,16 @@ Class LinearInt32KeyFrame from Int32KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt32KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6701,12 +6818,16 @@ Class LinearInt64KeyFrame from Int64KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearInt64KeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6721,12 +6842,16 @@ Class LinearPoint3DKeyFrame from Point3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearPoint3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6741,12 +6866,16 @@ Class LinearPointKeyFrame from PointKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearPointKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6764,12 +6893,16 @@ Class LinearQuaternionKeyFrame from QuaternionKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearQuaternionKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 	Func getUseShortestPath
@@ -6797,12 +6930,16 @@ Class LinearRectKeyFrame from RectKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearRectKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6817,12 +6954,16 @@ Class LinearRotation3DKeyFrame from Rotation3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearRotation3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6837,12 +6978,16 @@ Class LinearSingleKeyFrame from SingleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearSingleKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6857,12 +7002,16 @@ Class LinearSizeKeyFrame from SizeKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearSizeKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6877,12 +7026,16 @@ Class LinearThicknessKeyFrame from ThicknessKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearThicknessKeyFrame, PresentationFramework',[P1,P2])
 		return self
 
 
@@ -6897,12 +7050,16 @@ Class LinearVector3DKeyFrame from Vector3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearVector3DKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -6917,12 +7074,16 @@ Class LinearVectorKeyFrame from VectorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.LinearVectorKeyFrame, PresentationCore',[P1,P2])
 		return self
 
 
@@ -7117,16 +7278,16 @@ Class SplineByteKeyFrame from ByteKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineByteKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7157,16 +7318,16 @@ Class SplineColorKeyFrame from ColorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineColorKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7197,16 +7358,16 @@ Class SplineDecimalKeyFrame from DecimalKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDecimalKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7237,16 +7398,16 @@ Class SplineDoubleKeyFrame from DoubleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineDoubleKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7277,16 +7438,16 @@ Class SplineInt16KeyFrame from Int16KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt16KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7317,16 +7478,16 @@ Class SplineInt32KeyFrame from Int32KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt32KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7357,16 +7518,16 @@ Class SplineInt64KeyFrame from Int64KeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineInt64KeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7397,16 +7558,16 @@ Class SplinePoint3DKeyFrame from Point3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePoint3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7437,16 +7598,16 @@ Class SplinePointKeyFrame from PointKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplinePointKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7479,16 +7640,16 @@ Class SplineQuaternionKeyFrame from QuaternionKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineQuaternionKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getUseShortestPath
@@ -7532,16 +7693,16 @@ Class SplineRectKeyFrame from RectKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRectKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7572,16 +7733,16 @@ Class SplineRotation3DKeyFrame from Rotation3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineRotation3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7612,16 +7773,16 @@ Class SplineSingleKeyFrame from SingleKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSingleKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7652,16 +7813,16 @@ Class SplineSizeKeyFrame from SizeKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineSizeKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7692,16 +7853,16 @@ Class SplineThicknessKeyFrame from ThicknessKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineThicknessKeyFrame, PresentationFramework',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7732,16 +7893,16 @@ Class SplineVector3DKeyFrame from Vector3DKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVector3DKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7772,16 +7933,16 @@ Class SplineVectorKeyFrame from VectorKeyFrame
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SplineVectorKeyFrame, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getKeySpline
@@ -7847,9 +8008,6 @@ Class Timeline from Animatable
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateClock"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateClock",P1])
-
-	Func CreateClock_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateClock",P1])
 
 	Func GetDesiredFrameRate P1
@@ -8036,7 +8194,15 @@ Class TimelineCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.TimelineCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.TimelineCollection, PresentationCore',[P1])
 		return self
 
@@ -8291,16 +8457,16 @@ Class ParallelTimeline from TimelineGroup
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.ParallelTimeline, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getSlipBehavior
@@ -8482,16 +8648,16 @@ Class ByteAnimation from ByteAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.ByteAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.ByteAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -8645,16 +8811,16 @@ Class ColorAnimation from ColorAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.ColorAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.ColorAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -8784,16 +8950,16 @@ Class DecimalAnimation from DecimalAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.DecimalAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -8923,16 +9089,16 @@ Class DoubleAnimation from DoubleAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.DoubleAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9121,16 +9287,16 @@ Class Int16Animation from Int16AnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int16Animation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Int16Animation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9260,16 +9426,16 @@ Class Int32Animation from Int32AnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int32Animation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Int32Animation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9399,16 +9565,16 @@ Class Int64Animation from Int64AnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Int64Animation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Int64Animation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9667,16 +9833,16 @@ Class Point3DAnimation from Point3DAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Point3DAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9806,16 +9972,16 @@ Class PointAnimation from PointAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.PointAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.PointAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -9991,16 +10157,16 @@ Class QuaternionAnimation from QuaternionAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.QuaternionAnimation, PresentationCore',[P1])
 		return self
 
 	Func getUseShortestPath
@@ -10143,16 +10309,16 @@ Class RectAnimation from RectAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.RectAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.RectAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -10282,16 +10448,16 @@ Class Rotation3DAnimation from Rotation3DAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Rotation3DAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -10421,16 +10587,16 @@ Class SingleAnimation from SingleAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SingleAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.SingleAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -10560,16 +10726,16 @@ Class SizeAnimation from SizeAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.SizeAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.SizeAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -10694,22 +10860,6 @@ Class Storyboard from ParallelTimeline
 		nHandle = dnCreate('System.Windows.Media.Animation.Storyboard, PresentationFramework',[])
 		return self
 
-	Func Begin_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1])
-		return self
-
-	Func Begin_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2])
-		return self
-
-	Func Begin_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2,P3])
-		return self
-
-	Func Begin_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1,P2,P3,P4])
-		return self
-
 	Func Begin P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Begin",P1])
@@ -10722,9 +10872,6 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[new DotNetObject(nHandle),"Begin",P1])
 		return self
 
-	Func GetCurrentGlobalSpeed_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
-
 	Func GetCurrentGlobalSpeed P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
@@ -10733,9 +10880,6 @@ Class Storyboard from ParallelTimeline
 			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentGlobalSpeed",P1])
-
-	Func GetCurrentIteration_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentIteration",P1])
 
 	Func GetCurrentIteration P1
 		if dnIsNamed(P1)
@@ -10746,9 +10890,6 @@ Class Storyboard from ParallelTimeline
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentIteration",P1])
 
-	Func GetCurrentProgress_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
-
 	Func GetCurrentProgress P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
@@ -10757,9 +10898,6 @@ Class Storyboard from ParallelTimeline
 			return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentProgress",P1])
-
-	Func GetCurrentState_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentState",P1])
 
 	Func GetCurrentState P1
 		if dnIsNamed(P1)
@@ -10770,9 +10908,6 @@ Class Storyboard from ParallelTimeline
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentState",P1])
 
-	Func GetCurrentTime_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentTime",P1])
-
 	Func GetCurrentTime P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCurrentTime",P1])
@@ -10782,9 +10917,6 @@ Class Storyboard from ParallelTimeline
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCurrentTime",P1])
 
-	Func GetIsPaused_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused",P1])
-
 	Func GetIsPaused P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetIsPaused",P1])
@@ -10793,10 +10925,6 @@ Class Storyboard from ParallelTimeline
 			return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIsPaused",P1])
-
-	Func Pause_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Pause",P1])
-		return self
 
 	Func Pause P1
 		if dnIsNamed(P1)
@@ -10808,10 +10936,6 @@ Class Storyboard from ParallelTimeline
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Pause",P1])
-		return self
-
-	Func Remove_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
 	Func Remove P1
@@ -10826,10 +10950,6 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
 
-	Func Resume_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Resume",P1])
-		return self
-
 	Func Resume P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Resume",P1])
@@ -10842,28 +10962,12 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[new DotNetObject(nHandle),"Resume",P1])
 		return self
 
-	Func Seek_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2,P3])
-		return self
-
-	Func Seek_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1,P2])
-		return self
-
 	Func Seek P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Seek",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Seek",P1])
-		return self
-
-	Func SeekAlignedToLastTick_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1,P2,P3])
-		return self
-
-	Func SeekAlignedToLastTick_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1,P2])
 		return self
 
 	Func SeekAlignedToLastTick P1
@@ -10874,16 +10978,12 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[new DotNetObject(nHandle),"SeekAlignedToLastTick",P1])
 		return self
 
-	Func SetSpeedRatio_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSpeedRatio",P1,P2])
-		return self
-
-	Func SetSpeedRatio_1 P1
+	Func SetSpeedRatio_ P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetSpeedRatio",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetSpeedRatio",P1])
-		return self
-
-	Func SkipToFill_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"SkipToFill",P1])
 		return self
 
 	Func SkipToFill P1
@@ -10896,10 +10996,6 @@ Class Storyboard from ParallelTimeline
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SkipToFill",P1])
-		return self
-
-	Func Stop_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Stop",P1])
 		return self
 
 	Func Stop P1
@@ -10932,7 +11028,7 @@ Class Storyboard from ParallelTimeline
 		dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"SetTargetProperty",P1,P2])
 		return self
 
-	Func GetTargetProperty_1 P1
+	Func GetTargetProperty_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Animation.Storyboard, PresentationFramework'),"GetTargetProperty",P1])
 
 	Func getTargetProperty
@@ -10995,16 +11091,16 @@ Class ThicknessAnimation from ThicknessAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.ThicknessAnimation, PresentationFramework',[P1])
 		return self
 
 	Func getFrom
@@ -11134,16 +11230,16 @@ Class Vector3DAnimation from Vector3DAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.Vector3DAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom
@@ -11273,16 +11369,16 @@ Class VectorAnimation from VectorAnimationBase
 		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Animation.VectorAnimation, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Animation.VectorAnimation, PresentationCore',[P1])
 		return self
 
 	Func getFrom

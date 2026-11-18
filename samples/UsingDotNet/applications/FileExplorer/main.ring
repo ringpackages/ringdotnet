@@ -93,7 +93,7 @@ func showFolder
 			oInfo = new FileInfo(cFile)
 			oItem = dnNew("ListViewItem",[ :text = oInfo.Name ])
 			oItem.SubItems.Add(sizeText(oInfo.Length))
-			oItem.SubItems.Add(oInfo.LastWriteTime.ToString_1("yyyy-MM-dd HH:mm"))
+			oItem.SubItems.Add(oInfo.LastWriteTime.Format("yyyy-MM-dd HH:mm"))
 			oList.Items.Add(oItem)
 			nFiles++
 		next
@@ -106,14 +106,14 @@ func showFolder
 func selfTest
 	# a small folder tree in the temp folder
 	oPath = new Path()
-	cBase = oPath.Combine(oPath.GetTempPath(),"explorer_selftest")
+	cBase = oPath.Combine([oPath.GetTempPath(),"explorer_selftest"])
 	if new Directory().Exists(cBase)
 		new Directory().Delete([ :path = cBase, :recursive = True ])
 	ok
-	new Directory().CreateDirectory(oPath.Combine(cBase,"docs"))
-	new Directory().CreateDirectory(oPath.Combine(cBase,"images/icons"))
-	new File().WriteAllText(oPath.Combine(cBase,"readme.txt"),"hello")
-	new File().WriteAllText(oPath.Combine(cBase,"docs/manual.txt"),copy("x",2048))
+	new Directory().CreateDirectory(oPath.Combine([cBase,"docs"]))
+	new Directory().CreateDirectory(oPath.Combine([cBase,"images/icons"]))
+	new File().WriteAllText([ :path = oPath.Combine([cBase,"readme.txt"]), :contents = "hello" ])
+	new File().WriteAllText([ :path = oPath.Combine([cBase,"docs/manual.txt"]), :contents = copy("x",2048) ])
 	setRoot(cBase)
 	dnAssert("root node",oTree.Nodes.Count,1)
 	dnAssert("two sub folders",oTree.Nodes.Item(0).Nodes.Count,2)

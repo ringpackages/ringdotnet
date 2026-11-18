@@ -85,7 +85,7 @@ func niceMax nValue
 	return nValue
 
 func savePng
-	cFile = new Path().Combine(new Path().GetTempPath(),"sales-chart.png")
+	cFile = new Path().Combine([new Path().GetTempPath(),"sales-chart.png"])
 	oCanvas.oBitmap.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 	uiMessage("Saved to " + cFile,"Chart")
 
@@ -100,7 +100,7 @@ func selfTest
 	nAprilX = floor(50 + 3 * nSlot + nSlot / 2)          # pixel positions are whole numbers
 	dnAssert("the April bar is crimson",oCanvas.pixel(nAprilX,C_HEIGHT - 60),"ffdc143c")
 	# save it
-	cFile = new Path().Combine(new Path().GetTempPath(),"sales-chart-test.png")
+	cFile = new Path().Combine([new Path().GetTempPath(),"sales-chart-test.png"])
 	oCanvas.oBitmap.Save([ :filename = cFile, :format = new ImageFormat().Png ])
 	dnAssert("the file was saved",new File().Exists(cFile),True)
 	new File().Delete(cFile)

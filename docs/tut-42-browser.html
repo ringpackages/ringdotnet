@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -194,9 +197,9 @@ cRoot = <span class="s">""</span>
 		FullRowSelect = <span class="k">True</span>
 		GridLines = <span class="k">True</span>
 	}
-	oList.Columns.<span class="f">Add_2</span>(<span class="s">"Name"</span>,<span class="n">180</span>)
-	oList.Columns.<span class="f">Add_2</span>(<span class="s">"Size"</span>,<span class="n">80</span>)
-	oList.Columns.<span class="f">Add_2</span>(<span class="s">"Modified"</span>,<span class="n">130</span>)
+	oList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Name"</span>, :width = <span class="n">180</span> ])
+	oList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Size"</span>, :width = <span class="n">80</span> ])
+	oList.Columns.<span class="f">Add</span>([ :text = <span class="s">"Modified"</span>, :width = <span class="n">130</span> ])
 	oSplit.Panel2.Controls.<span class="f">Add</span>(oList)
 
 	oStatus = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">0</span>,<span class="n">0</span>,<span class="n">640</span>,<span class="n">22</span>)
@@ -229,9 +232,9 @@ cRoot = <span class="s">""</span>
 	nBytes = <span class="n">0</span>
 	<span class="k">for</span> cFile <span class="k">in</span> sort(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>(cFolder).<span class="f">toList</span>())
 		oInfo = <span class="k">new</span> <span class="t">FileInfo</span>(cFile)
-		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_1</span>(oInfo.Name)
+		oItem = <span class="k">new</span> <span class="t">ListViewItem</span>().<span class="f">New_</span>([ :text = oInfo.Name ])
 		oItem.SubItems.<span class="f">Add</span>(sizeText(oInfo.Length))
-		oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
+		oItem.SubItems.<span class="f">Add</span>(oInfo.LastWriteTime.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd HH:mm"</span>))
 		oList.Items.<span class="f">Add</span>(oItem)
 		nFiles++
 		nBytes += oInfo.Length
@@ -250,18 +253,18 @@ cRoot = <span class="s">""</span>
 
 <span class="c"># a demo folder with folders and files</span>
 <span class="k">func</span> <span class="f">makeDemoFolder</span>
-	cBase = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial42"</span>)
+	cBase = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial42"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cBase)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cBase, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
 	<span class="k">for</span> cName <span class="k">in</span> [<span class="s">"Projects/Ring"</span>,<span class="s">"Projects/Web"</span>,<span class="s">"Pictures"</span>,<span class="s">"Documents/2024"</span>]
-		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,cName))
+		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,cName]))
 	<span class="k">next</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,<span class="s">"readme.txt"</span>),<span class="s">"A demo folder"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,<span class="s">"Projects/Ring/main.ring"</span>),copies(<span class="s">"? 'hello'"</span> + nl,<span class="n">40</span>))
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,<span class="s">"Projects/Ring/notes.txt"</span>),copies(<span class="s">"some notes "</span>,<span class="n">100</span>))
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,<span class="s">"Projects/Web/index.html"</span>),<span class="s">"&lt;html&gt;&lt;/html&gt;"</span>)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cBase,<span class="s">"Documents/2024/report.txt"</span>),copies(<span class="s">"report line"</span> + nl,<span class="n">500</span>))
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,<span class="s">"readme.txt"</span>]), :contents = <span class="s">"A demo folder"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,<span class="s">"Projects/Ring/main.ring"</span>]), :contents = copies(<span class="s">"? 'hello'"</span> + nl,<span class="n">40</span>) ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,<span class="s">"Projects/Ring/notes.txt"</span>]), :contents = copies(<span class="s">"some notes "</span>,<span class="n">100</span>) ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,<span class="s">"Projects/Web/index.html"</span>]), :contents = <span class="s">"&lt;html&gt;&lt;/html&gt;"</span> ])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cBase,<span class="s">"Documents/2024/report.txt"</span>]), :contents = copies(<span class="s">"report line"</span> + nl,<span class="n">500</span>) ])
 	<span class="k">return</span> cBase
 
 <span class="k">func</span> <span class="f">copies</span> cText, nTimes
@@ -296,9 +299,9 @@ cRoot = <span class="s">""</span>
 <p><code>Tag</code> is a free property that can hold <em>anything</em>: here the <strong>full path</strong> of the folder. The node's <code>Text</code> is only the name; when the user picks a node, the program reads its <code>Tag</code> to know which folder it is.</p>
 <div class="callout tip"><span class="t">Tip</span><p>For a very big tree, build only the first level and add the subfolders when a node is <em>expanded</em> (event <code>BeforeExpand</code>). Walking a whole disk at start would take too long.</p></div>
 <h3 id="reacting-to-the-choice">Reacting to the choice<a class="anchor" href="#reacting-to-the-choice">#</a></h3>
-<p><code>setAfterSelectEvent("folderChosen()")</code> runs when a node is selected. The function reads <code>oTree.SelectedNode.Tag</code>, clears the list, and adds a <code>ListViewItem</code> for every file: <code>new ListViewItem().New_1(name)</code> makes the row with its first column, and <code>SubItems.Add(text)</code> fills the other columns (size, modified date).</p>
+<p><code>setAfterSelectEvent("folderChosen()")</code> runs when a node is selected. The function reads <code>oTree.SelectedNode.Tag</code>, clears the list, and adds a <code>ListViewItem</code> for every file: <code>new ListViewItem().New_([ :text = name ])</code> makes the row with its first column, and <code>SubItems.Add(text)</code> fills the other columns (size, modified date).</p>
 <h3 id="the-listview">The ListView<a class="anchor" href="#the-listview">#</a></h3>
-<p><code>View = "Details"</code> shows columns like Explorer; <code>Columns.Add_2("Name",180)</code> adds a column with a title and a width in pixels; <code>FullRowSelect</code> highlights a whole row; <code>GridLines</code> draws lines. A <code>ListView</code> can also show icons (<code>LargeIcon</code>, <code>SmallIcon</code>, <code>List</code>).</p>
+<p><code>View = "Details"</code> shows columns like Explorer; <code>Columns.Add([ :text = "Name", :width = 180 ])</code> adds a column with a title and a width in pixels; <code>FullRowSelect</code> highlights a whole row; <code>GridLines</code> draws lines. A <code>ListView</code> can also show icons (<code>LargeIcon</code>, <code>SmallIcon</code>, <code>List</code>).</p>
 <h3 id="file-sizes">File sizes<a class="anchor" href="#file-sizes">#</a></h3>
 <p><code>sizeText</code> turns <code>1536</code> into <code>1.5 KB</code>. <code>uiNumber(...)</code> formats a number without Ring's fixed two decimals (otherwise <code>1.5</code> would be written <code>1.50</code>).</p>
 <h3 id="testing">Testing<a class="anchor" href="#testing">#</a></h3>

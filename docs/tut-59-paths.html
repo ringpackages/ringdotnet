@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -163,9 +166,9 @@ using {
 	oPath = <span class="k">new</span> <span class="t">Path</span>()
 
 	<span class="c"># 1. Build a path with Combine, never with + "\": Combine uses the right separator for the system and never doubles it</span>
-	cFile = oPath.<span class="f">Combine_3</span>(<span class="s">"reports"</span>,<span class="s">"2024"</span>,<span class="s">"january.txt"</span>)
+	cFile = oPath.<span class="f">Combine</span>([<span class="s">"reports"</span>,<span class="s">"2024"</span>,<span class="s">"january.txt"</span>])
 	? <span class="s">"1. Combine: "</span> + cFile
-	? <span class="s">"   Combine with a rooted second part restarts the path: "</span> + oPath.<span class="f">Combine</span>(<span class="s">"reports"</span>,<span class="s">"/etc/hosts"</span>)
+	? <span class="s">"   Combine with a rooted second part restarts the path: "</span> + oPath.<span class="f">Combine</span>([<span class="s">"reports"</span>,<span class="s">"/etc/hosts"</span>])
 
 	<span class="c"># 2. Take a path apart</span>
 	cFull = <span class="s">"C:\data\reports\2024\summary.final.txt"</span>
@@ -195,14 +198,14 @@ using {
 	? <span class="s">"   the temporary folder exists? "</span> + yesNo(<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(oPath.<span class="f">GetTempPath</span>()))
 
 	<span class="c"># 6. Environment variables: settings from outside (a password, a folder, a mode). Always provide a default.</span>
-	oEnvironment.<span class="f">SetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_MODE"</span>,<span class="s">"fast"</span>)
+	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"TUTORIAL60_MODE"</span>, :value = <span class="s">"fast"</span> ])
 	? nl + <span class="s">"6. TUTORIAL60_MODE = "</span> + oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_MODE"</span>)
 	cMissing = oEnvironment.<span class="f">GetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_NOT_SET"</span>)
 	<span class="k">if</span> isobject(cMissing)                                 <span class="c"># .NET null comes to Ring as an object that IsNull()</span>
 		cMissing = <span class="s">"(default)"</span>
 	<span class="k">ok</span>
 	? <span class="s">"   a variable that is not set: "</span> + cMissing
-	oEnvironment.<span class="f">SetEnvironmentVariable</span>(<span class="s">"TUTORIAL60_MODE"</span>,<span class="k">NULL</span>)
+	oEnvironment.<span class="f">SetEnvironmentVariable</span>([ :variable = <span class="s">"TUTORIAL60_MODE"</span>, :value = <span class="k">NULL</span> ])
 
 	<span class="c"># 7. The system: which one runs the program</span>
 	? nl + <span class="s">"7. 64-bit process? "</span> + yesNo(oEnvironment.Is64BitProcess) + <span class="s">", the new line is "</span> + len(oEnvironment.NewLine) + <span class="s">" character(s) long"</span>
@@ -235,7 +238,7 @@ using {
 7. 64-bit process? yes, the new line is 2 character(s) long</code></pre></div>
 <h2 id="how-it-works">How it works<a class="anchor" href="#how-it-works">#</a></h2>
 <h3 id="combine-and-split">Combine and split<a class="anchor" href="#combine-and-split">#</a></h3>
-<p><code>Path.Combine</code> joins parts (two parts: <code>Combine</code>, three: <code>Combine_3</code>, four: <code>Combine_4</code>). Careful: if a later part is <strong>rooted</strong> (starts with a separator or a drive), the earlier parts are dropped. That is correct behaviour but a classic surprise when the part comes from user input.</p>
+<p><code>Path.Combine</code> joins parts: give a list of the parts (<code>Combine([a, b, c])</code>) or name them (<code>Combine([ :path1 = a, :path2 = b ])</code>). Careful: if a later part is <strong>rooted</strong> (starts with a separator or a drive), the earlier parts are dropped. That is correct behaviour but a classic surprise when the part comes from user input.</p>
 <p><code>GetFileName</code>, <code>GetFileNameWithoutExtension</code>, <code>GetExtension</code>, <code>GetDirectoryName</code> and <code>ChangeExtension</code> take a path apart or change one piece. Use them instead of searching for dots and slashes yourself: <code>summary.final.txt</code> has <em>two</em> dots, and only the last one starts the extension.</p>
 <h3 id="relative-and-absolute">Relative and absolute<a class="anchor" href="#relative-and-absolute">#</a></h3>
 <p><code>data.txt</code> means "in the current folder" and the current folder changes with how the program is started. <code>GetFullPath</code> makes the path complete. Programs that should find their own files build the path from a known place, not from the current folder.</p>

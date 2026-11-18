@@ -237,12 +237,6 @@ Class FilterCollection from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func AddService P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddService",P1])
@@ -251,12 +245,6 @@ Class FilterCollection from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"AddService"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AddService",P1])
-
-	Func AddService_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AddService",P1])
-
-	Func AddService_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddService",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -390,8 +378,16 @@ Class FilterItem from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.Filters.FilterItem, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
 	Func Equals P1

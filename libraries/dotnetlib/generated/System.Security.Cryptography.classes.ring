@@ -686,21 +686,19 @@ Class AesCcm from Object
 		nHandle = dnCreate('System.Security.Cryptography.AesCcm, System.Security.Cryptography',[P1])
 		return self
 
-	Func Encrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4,P5])
-		return self
+	Func Encrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Encrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
-	Func Encrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4])
-		return self
-
-	Func Decrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4,P5])
-		return self
-
-	Func Decrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4])
-		return self
+	Func Decrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Decrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -744,25 +742,31 @@ Class AesGcm from Object
 		nHandle = dnCreate('System.Security.Cryptography.AesGcm, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.AesGcm, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.AesGcm, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.AesGcm, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.AesGcm, System.Security.Cryptography',[P1])
 		return self
 
-	Func Encrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4,P5])
-		return self
+	Func Encrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Encrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
-	Func Encrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4])
-		return self
-
-	Func Decrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4,P5])
-		return self
-
-	Func Decrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4])
-		return self
+	Func Decrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Decrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -810,8 +814,16 @@ Class AsnEncodedData from Object
 		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedData, System.Security.Cryptography',[P1])
 		return self
 
 	Func CopyFrom P1
@@ -854,7 +866,15 @@ Class AsnEncodedDataCollection from Object
 		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.AsnEncodedDataCollection, System.Security.Cryptography',[P1])
 		return self
 
@@ -980,9 +1000,6 @@ Class AsymmetricAlgorithm from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.AsymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
-
 	Func getKeySize
 		return dnRequest("get",[self,"KeySize"])
 
@@ -1061,9 +1078,6 @@ Class AsymmetricKeyExchangeFormatter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateKeyExchange",P1])
 
-	Func CreateKeyExchange_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateKeyExchange",P1,P2])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -1137,21 +1151,19 @@ Class ChaCha20Poly1305 from Object
 		nHandle = dnCreate('System.Security.Cryptography.ChaCha20Poly1305, System.Security.Cryptography',[P1])
 		return self
 
-	Func Encrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4,P5])
-		return self
+	Func Encrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Encrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Encrypt does not take one argument: use named arguments, Encrypt([ :parameter = value, ... ])")
 
-	Func Encrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Encrypt",P1,P2,P3,P4])
-		return self
-
-	Func Decrypt_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4,P5])
-		return self
-
-	Func Decrypt P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Decrypt",P1,P2,P3,P4])
-		return self
+	Func Decrypt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Decrypt",P1])
+			return self
+		ok
+		raise("DotNet Error: Decrypt does not take one argument: use named arguments, Decrypt([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -1401,41 +1413,23 @@ Class CngKey from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Create",P1,P2,P3])
-
 	Func Exists P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1])
 
-	Func Exists_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1,P2])
-
-	Func Exists_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Exists",P1,P2,P3])
-
-	Func Import_ P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1,P2])
-
-	Func Import_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1,P2,P3])
+	Func Import_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Import",P1])
+		ok
+		raise("DotNet Error: Import does not take one argument: use named arguments, Import([ :parameter = value, ... ])")
 
 	Func Open P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1])
-
-	Func Open_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1,P2])
-
-	Func Open_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CngKey, System.Security.Cryptography'),"Open",P1,P2,P3])
 
 	Func getAlgorithm
 		return dnRequest("get",[self,"Algorithm"])
@@ -1687,8 +1681,16 @@ Class CngProperty from ValueType
 		nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.CngProperty, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.CngProperty, System.Security.Cryptography',[P1])
 		return self
 
 	Func GetValue 
@@ -1839,20 +1841,16 @@ Class CngUIPolicy from Object
 		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.CngUIPolicy, System.Security.Cryptography',[P1])
 		return self
 
 	Func Equals P1
@@ -1909,9 +1907,6 @@ Class CryptoConfig from Object
 		dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"AddAlgorithm",P1,P2])
 		return self
 
-	Func CreateFromName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1,P2])
-
 	Func CreateFromName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptoConfig, System.Security.Cryptography'),"CreateFromName",P1])
@@ -1948,16 +1943,21 @@ Class CryptoStream from Stream
 		nHandle = dnCreate('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.CryptoStream, System.Security.Cryptography',[P1])
 		return self
 
 	Func FlushFinalBlock 
 		dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlock"])
 		return self
-
-	Func FlushFinalBlockAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FlushFinalBlockAsync",P1])
 
 	Func FlushFinalBlockAsync P1
 		if dnIsNamed(P1)
@@ -1995,26 +1995,20 @@ Class CryptographicOperations from Object
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashDataAsync",P1,P2])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func HmacData P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacData",P1,P2,P3])
 
-	Func HmacDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1,P2,P3,P4])
-
-	Func HmacDataAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1,P2,P3])
-
-	Func HmacDataAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1,P2,P3,P4,P5])
+	Func HmacDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.CryptographicOperations, System.Security.Cryptography'),"HmacDataAsync",P1])
+		ok
+		raise("DotNet Error: HmacDataAsync does not take one argument: use named arguments, HmacDataAsync([ :parameter = value, ... ])")
 
 
 Class CspKeyContainerInfo from Object
@@ -2136,16 +2130,16 @@ Class CspParameters from Object
 		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.CspParameters, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.CspParameters, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 	Func Equals P1
@@ -2563,7 +2557,15 @@ Class FromBase64Transform from Object
 		nHandle = dnCreate('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.FromBase64Transform, System.Security.Cryptography',[P1])
 		return self
 
@@ -2622,26 +2624,23 @@ Class HKDF from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Extract_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2,P3])
+	Func Extract P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1])
+		ok
+		raise("DotNet Error: Extract does not take one argument: use named arguments, Extract([ :parameter = value, ... ])")
 
-	Func Extract P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Extract",P1,P2])
+	Func Expand P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1])
+		ok
+		raise("DotNet Error: Expand does not take one argument: use named arguments, Expand([ :parameter = value, ... ])")
 
-	Func Expand_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1,P2,P3,P4])
-
-	Func Expand P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"Expand",P1,P2,P3])
-
-	Func DeriveKey_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3,P4,P5])
-
-	Func DeriveKey_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3,P4])
-
-	Func DeriveKey P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1,P2,P3])
+	Func DeriveKey P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HKDF, System.Security.Cryptography'),"DeriveKey",P1])
+		ok
+		raise("DotNet Error: DeriveKey does not take one argument: use named arguments, DeriveKey([ :parameter = value, ... ])")
 
 
 Class HashAlgorithm from Object
@@ -2666,12 +2665,6 @@ Class HashAlgorithm from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ComputeHash",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHash",P1])
-
-	Func ComputeHash_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHash",P1,P2,P3])
-
-	Func ComputeHashAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ComputeHashAsync",P1,P2])
 
 	Func ComputeHashAsync P1
 		if dnIsNamed(P1)
@@ -2707,9 +2700,6 @@ Class HashAlgorithm from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getHashSize
@@ -2770,7 +2760,15 @@ Class HashAlgorithmName from ValueType
 		nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HashAlgorithmName, System.Security.Cryptography',[P1])
 		return self
 
@@ -2928,10 +2926,6 @@ Class IncrementalHash from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1])
 		return self
 
-	Func AppendData_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AppendData",P1,P2,P3])
-		return self
-
 	Func GetHashAndReset 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashAndReset"])
 
@@ -3017,8 +3011,16 @@ Class Kmac128 from Object
 		nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac128, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.Kmac128, System.Security.Cryptography',[P1])
 		return self
 
 	Func AppendData P1
@@ -3041,20 +3043,17 @@ Class Kmac128 from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HashData_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
+	Func HashData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashData",P1])
+		ok
+		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
-	Func HashData P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashData",P1,P2,P3])
-
-	Func HashDataAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4,P5])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
-
-	Func HashDataAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Kmac128, System.Security.Cryptography'),"IsSupported"])
@@ -3076,8 +3075,16 @@ Class Kmac256 from Object
 		nHandle = dnCreate('System.Security.Cryptography.Kmac256, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.Kmac256, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.Kmac256, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.Kmac256, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.Kmac256, System.Security.Cryptography',[P1])
 		return self
 
 	Func AppendData P1
@@ -3100,20 +3107,17 @@ Class Kmac256 from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HashData_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
+	Func HashData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashData",P1])
+		ok
+		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
-	Func HashData P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashData",P1,P2,P3])
-
-	Func HashDataAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4,P5])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
-
-	Func HashDataAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Kmac256, System.Security.Cryptography'),"IsSupported"])
@@ -3135,8 +3139,16 @@ Class KmacXof128 from Object
 		nHandle = dnCreate('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.KmacXof128, System.Security.Cryptography',[P1])
 		return self
 
 	Func AppendData P1
@@ -3159,20 +3171,17 @@ Class KmacXof128 from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HashData_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
+	Func HashData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashData",P1])
+		ok
+		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
-	Func HashData P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashData",P1,P2,P3])
-
-	Func HashDataAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4,P5])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
-
-	Func HashDataAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.KmacXof128, System.Security.Cryptography'),"IsSupported"])
@@ -3194,8 +3203,16 @@ Class KmacXof256 from Object
 		nHandle = dnCreate('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.KmacXof256, System.Security.Cryptography',[P1])
 		return self
 
 	Func AppendData P1
@@ -3218,20 +3235,17 @@ Class KmacXof256 from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HashData_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashData",P1,P2,P3,P4])
+	Func HashData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashData",P1])
+		ok
+		raise("DotNet Error: HashData does not take one argument: use named arguments, HashData([ :parameter = value, ... ])")
 
-	Func HashData P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashData",P1,P2,P3])
-
-	Func HashDataAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4,P5])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
-
-	Func HashDataAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.KmacXof256, System.Security.Cryptography'),"IsSupported"])
@@ -3271,12 +3285,16 @@ Class Oid from Object
 		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.Oid, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.Oid, System.Security.Cryptography',[P1,P2])
 		return self
 
 	Func Equals P1
@@ -3705,10 +3723,6 @@ Class RandomNumberGenerator from Object
 		dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1])
 		return self
 
-	Func GetBytes_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"GetBytes",P1,P2,P3])
-		return self
-
 	Func GetNonZeroBytes P1
 		dnRequest("call",[new DotNetObject(nHandle),"GetNonZeroBytes",P1])
 		return self
@@ -3725,20 +3739,11 @@ Class RandomNumberGenerator from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"Create",P1])
-
-	Func GetInt32_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1,P2])
-
 	Func GetInt32 P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetInt32",P1])
-
-	Func GetHexString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RandomNumberGenerator, System.Security.Cryptography'),"GetHexString",P1,P2])
 
 	Func GetHexString P1
 		if dnIsNamed(P1)
@@ -3785,8 +3790,16 @@ Class SafeEvpPKeyHandle from SafeHandle
 		nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.SafeEvpPKeyHandle, System.Security.Cryptography',[P1])
 		return self
 
 	Func DuplicateHandle 
@@ -3851,11 +3864,11 @@ Class Shake128 from Object
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashDataAsync",P1,P2])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Shake128, System.Security.Cryptography'),"IsSupported"])
@@ -3907,11 +3920,11 @@ Class Shake256 from Object
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"HashDataAsync",P1,P2])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.Shake256, System.Security.Cryptography'),"IsSupported"])
@@ -3936,7 +3949,15 @@ Class SignatureDescription from Object
 		nHandle = dnCreate('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.SignatureDescription, System.Security.Cryptography',[P1])
 		return self
 
@@ -4008,10 +4029,7 @@ Class SymmetricAlgorithm from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateDecryptor"])
 		ok
-		raise("DotNet Error: CreateDecryptor does not take one argument: use CreateDecryptor(NULL), CreateDecryptor_N(...) or named arguments")
-
-	Func CreateDecryptor_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateDecryptor",P1,P2])
+		raise("DotNet Error: CreateDecryptor does not take one argument: use named arguments, CreateDecryptor([ :parameter = value, ... ])")
 
 	Func CreateEncryptor P1
 		if dnIsNamed(P1)
@@ -4020,10 +4038,7 @@ Class SymmetricAlgorithm from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CreateEncryptor"])
 		ok
-		raise("DotNet Error: CreateEncryptor does not take one argument: use CreateEncryptor(NULL), CreateEncryptor_N(...) or named arguments")
-
-	Func CreateEncryptor_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateEncryptor",P1,P2])
+		raise("DotNet Error: CreateEncryptor does not take one argument: use named arguments, CreateEncryptor([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -4047,20 +4062,11 @@ Class SymmetricAlgorithm from Object
 	Func GetCiphertextLengthEcb P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthEcb",P1,P2])
 
-	Func GetCiphertextLengthCbc_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1,P2])
-
 	Func GetCiphertextLengthCbc P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCbc",P1])
-
-	Func GetCiphertextLengthCfb_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1,P2,P3])
-
-	Func GetCiphertextLengthCfb_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCiphertextLengthCfb",P1,P2])
 
 	Func GetCiphertextLengthCfb P1
 		if dnIsNamed(P1)
@@ -4074,35 +4080,29 @@ Class SymmetricAlgorithm from Object
 	Func EncryptEcb P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EncryptEcb",P1,P2])
 
-	Func DecryptCbc_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCbc",P1,P2,P3])
+	Func DecryptCbc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DecryptCbc",P1])
+		ok
+		raise("DotNet Error: DecryptCbc does not take one argument: use named arguments, DecryptCbc([ :parameter = value, ... ])")
 
-	Func DecryptCbc P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCbc",P1,P2])
+	Func EncryptCbc P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EncryptCbc",P1])
+		ok
+		raise("DotNet Error: EncryptCbc does not take one argument: use named arguments, EncryptCbc([ :parameter = value, ... ])")
 
-	Func EncryptCbc_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCbc",P1,P2,P3])
+	Func DecryptCfb P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DecryptCfb",P1])
+		ok
+		raise("DotNet Error: DecryptCfb does not take one argument: use named arguments, DecryptCfb([ :parameter = value, ... ])")
 
-	Func EncryptCbc P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCbc",P1,P2])
-
-	Func DecryptCfb_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2,P3,P4])
-
-	Func DecryptCfb_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2,P3])
-
-	Func DecryptCfb P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DecryptCfb",P1,P2])
-
-	Func EncryptCfb_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2,P3,P4])
-
-	Func EncryptCfb_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2,P3])
-
-	Func EncryptCfb P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EncryptCfb",P1,P2])
+	Func EncryptCfb P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"EncryptCfb",P1])
+		ok
+		raise("DotNet Error: EncryptCfb does not take one argument: use named arguments, EncryptCfb([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -4114,9 +4114,6 @@ Class SymmetricAlgorithm from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
-
-	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SymmetricAlgorithm, System.Security.Cryptography'),"Create",P1])
 
 	Func getFeedbackSize
@@ -4258,9 +4255,6 @@ Class Aes from SymmetricAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.Aes, System.Security.Cryptography'),"Create",P1])
-
 
 Class DES from SymmetricAlgorithm
 
@@ -4279,9 +4273,6 @@ Class DES from SymmetricAlgorithm
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
-
-	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DES, System.Security.Cryptography'),"Create",P1])
 
 	Func IsWeakKey P1
@@ -4314,44 +4305,26 @@ Class DSA from AsymmetricAlgorithm
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignature",P1])
 
-	Func VerifySignature P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifySignature",P1,P2])
+	Func VerifySignature P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifySignature",P1])
+		ok
+		raise("DotNet Error: VerifySignature does not take one argument: use named arguments, VerifySignature([ :parameter = value, ... ])")
 
-	Func SignData P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
+	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
+		ok
+		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
-	Func SignData_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
-
-	Func SignData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4])
-
-	Func SignData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4,P5])
-
-	Func VerifyData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
-
-	Func VerifyData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5])
-
-	Func VerifyData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5,P6])
-
-	Func CreateSignature_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSignature",P1,P2])
-
-	Func VerifyData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
-
-	Func VerifySignature_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifySignature",P1,P2,P3])
+	Func VerifyData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifyData",P1])
+		ok
+		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
 	Func GetMaxSignatureSize P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxSignatureSize",P1])
-
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.DSA, System.Security.Cryptography'),"Create",P1])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -4374,7 +4347,15 @@ Class DSASignatureDeformatter from AsymmetricSignatureDeformatter
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureDeformatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4390,7 +4371,15 @@ Class DSASignatureFormatter from AsymmetricSignatureFormatter
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSASignatureFormatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4475,9 +4464,6 @@ Class KeyedHashAlgorithm from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.KeyedHashAlgorithm, System.Security.Cryptography'),"Create",P1])
-
 	Func getKey
 		return dnRequest("get",[self,"Key"])
 
@@ -4508,23 +4494,14 @@ Class MD5 from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"Create",P1])
-
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.MD5, System.Security.Cryptography'),"HashSizeInBits"])
@@ -4575,16 +4552,16 @@ Class PasswordDeriveBytes from DeriveBytes
 		nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[P1,P2,P3])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.PasswordDeriveBytes, System.Security.Cryptography',[P1])
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
@@ -4633,9 +4610,6 @@ Class RC2 from SymmetricAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RC2, System.Security.Cryptography'),"Create",P1])
-
 	Func getEffectiveKeySize
 		return dnRequest("get",[self,"EffectiveKeySize"])
 
@@ -4682,17 +4656,17 @@ Class RSA from AsymmetricAlgorithm
 	Func EncryptValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EncryptValue",P1])
 
-	Func SignData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
+	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
+		ok
+		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
-	Func SignData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4,P5])
-
-	Func VerifyData P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
-
-	Func VerifyData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5,P6])
+	Func VerifyData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifyData",P1])
+		ok
+		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
 	Func ExportRSAPrivateKey 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExportRSAPrivateKey"])
@@ -4715,9 +4689,6 @@ Class RSA from AsymmetricAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.RSA, System.Security.Cryptography'),"Create",P1])
-
 
 Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 
@@ -4730,7 +4701,15 @@ Class RSAOAEPKeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeDeformatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4749,7 +4728,15 @@ Class RSAOAEPKeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOAEPKeyExchangeFormatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4781,7 +4768,15 @@ Class RSAPKCS1KeyExchangeDeformatter from AsymmetricKeyExchangeDeformatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeDeformatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4806,7 +4801,15 @@ Class RSAPKCS1KeyExchangeFormatter from AsymmetricKeyExchangeFormatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1KeyExchangeFormatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4829,7 +4832,15 @@ Class RSAPKCS1SignatureDeformatter from AsymmetricSignatureDeformatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureDeformatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4845,7 +4856,15 @@ Class RSAPKCS1SignatureFormatter from AsymmetricSignatureFormatter
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAPKCS1SignatureFormatter, System.Security.Cryptography',[P1])
 		return self
 
@@ -4865,12 +4884,16 @@ Class Rfc2898DeriveBytes from DeriveBytes
 		nHandle = dnCreate('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.Rfc2898DeriveBytes, System.Security.Cryptography',[P1])
 		return self
 
 	Func CryptDeriveKey P1,P2,P3,P4
@@ -4922,23 +4945,14 @@ Class SHA1 from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"Create",P1])
-
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA1, System.Security.Cryptography'),"HashSizeInBits"])
@@ -4975,23 +4989,14 @@ Class SHA256 from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"Create",P1])
-
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA256, System.Security.Cryptography'),"HashSizeInBits"])
@@ -5028,23 +5033,14 @@ Class SHA384 from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"Create",P1])
-
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA384, System.Security.Cryptography'),"HashSizeInBits"])
@@ -5079,17 +5075,11 @@ Class SHA3_256 from HashAlgorithm
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA3_256, System.Security.Cryptography'),"IsSupported"])
@@ -5130,17 +5120,11 @@ Class SHA3_384 from HashAlgorithm
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA3_384, System.Security.Cryptography'),"IsSupported"])
@@ -5181,17 +5165,11 @@ Class SHA3_512 from HashAlgorithm
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"HashData",P1])
 
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA3_512, System.Security.Cryptography'),"IsSupported"])
@@ -5234,23 +5212,14 @@ Class SHA512 from HashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"Create",P1])
-
 	Func HashData P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashData",P1])
-
-	Func HashDataAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2])
 
 	Func HashDataAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashDataAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashDataAsync",P1])
-
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.SHA512, System.Security.Cryptography'),"HashSizeInBits"])
@@ -5284,9 +5253,6 @@ Class TripleDES from SymmetricAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"Create",P1])
-
 	Func IsWeakKey P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.TripleDES, System.Security.Cryptography'),"IsWeakKey",P1])
 
@@ -5302,16 +5268,16 @@ Class AesCng from Aes
 		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.AesCng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.AesCng, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 
@@ -5328,7 +5294,15 @@ Class DSACng from DSA
 		nHandle = dnCreate('System.Security.Cryptography.DSACng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.DSACng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.DSACng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSACng, System.Security.Cryptography',[P1])
 		return self
 
@@ -5355,12 +5329,16 @@ Class DSACryptoServiceProvider from DSA
 		nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.DSACryptoServiceProvider, System.Security.Cryptography',[P1,P2])
 		return self
 
 	Func ExportCspBlob P1
@@ -5376,20 +5354,11 @@ Class DSACryptoServiceProvider from DSA
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1])
 
-	Func VerifyData P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2])
-
 	Func SignHash P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2])
 
 	Func VerifyHash P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3])
-
-	Func SignData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
-
-	Func VerifyData_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func getCspKeyContainerInfo
 		return dnRequest("get",[self,"CspKeyContainerInfo"])
@@ -5432,7 +5401,15 @@ Class DSAOpenSsl from DSA
 		nHandle = dnCreate('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.DSAOpenSsl, System.Security.Cryptography',[P1])
 		return self
 
@@ -5455,17 +5432,17 @@ Class ECDiffieHellman from ECAlgorithm
 	Func DeriveKeyMaterial P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyMaterial",P1])
 
-	Func DeriveKeyFromHash P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHash",P1,P2])
+	Func DeriveKeyFromHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeriveKeyFromHash",P1])
+		ok
+		raise("DotNet Error: DeriveKeyFromHash does not take one argument: use named arguments, DeriveKeyFromHash([ :parameter = value, ... ])")
 
-	Func DeriveKeyFromHash_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHash",P1,P2,P3,P4])
-
-	Func DeriveKeyFromHmac P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHmac",P1,P2,P3])
-
-	Func DeriveKeyFromHmac_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyFromHmac",P1,P2,P3,P4,P5])
+	Func DeriveKeyFromHmac P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"DeriveKeyFromHmac",P1])
+		ok
+		raise("DotNet Error: DeriveKeyFromHmac does not take one argument: use named arguments, DeriveKeyFromHmac([ :parameter = value, ... ])")
 
 	Func DeriveKeyTls P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"DeriveKeyTls",P1,P2,P3])
@@ -5480,9 +5457,6 @@ Class ECDiffieHellman from ECAlgorithm
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
-
-	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDiffieHellman, System.Security.Cryptography'),"Create",P1])
 
 	Func getPublicKey
@@ -5502,32 +5476,11 @@ Class ECDsa from ECAlgorithm
 		ok
 		return self
 
-	Func SignData P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
-
-	Func SignData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4])
-
-	Func SignData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4,P5])
-
-	Func SignData_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
-
-	Func SignHash_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2])
-
-	Func VerifyData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
-
-	Func VerifyData_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5])
-
-	Func VerifyData_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4,P5,P6])
-
-	Func VerifyData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
+	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
+		ok
+		raise("DotNet Error: SignData does not take one argument: use named arguments, SignData([ :parameter = value, ... ])")
 
 	Func SignHash P1
 		if dnIsNamed(P1)
@@ -5535,11 +5488,17 @@ Class ECDsa from ECAlgorithm
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1])
 
-	Func VerifyHash P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2])
+	Func VerifyData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifyData",P1])
+		ok
+		raise("DotNet Error: VerifyData does not take one argument: use named arguments, VerifyData([ :parameter = value, ... ])")
 
-	Func VerifyHash_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3])
+	Func VerifyHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifyHash",P1])
+		ok
+		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
 
 	Func GetMaxSignatureSize P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMaxSignatureSize",P1])
@@ -5551,9 +5510,6 @@ Class ECDsa from ECAlgorithm
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
-
-	Func Create_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.ECDsa, System.Security.Cryptography'),"Create",P1])
 
 
@@ -5578,9 +5534,6 @@ Class HMAC from KeyedHashAlgorithm
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"Create",P1])
 
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMAC, System.Security.Cryptography'),"Create",P1])
-
 	Func getHashName
 		return dnRequest("get",[self,"HashName"])
 
@@ -5602,7 +5555,15 @@ Class RSACng from RSA
 		nHandle = dnCreate('System.Security.Cryptography.RSACng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSACng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSACng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSACng, System.Security.Cryptography',[P1])
 		return self
 
@@ -5629,12 +5590,16 @@ Class RSACryptoServiceProvider from RSA
 		nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.RSACryptoServiceProvider, System.Security.Cryptography',[P1,P2])
 		return self
 
 	Func ExportCspBlob P1
@@ -5644,32 +5609,17 @@ Class RSACryptoServiceProvider from RSA
 		dnRequest("call",[new DotNetObject(nHandle),"ImportCspBlob",P1])
 		return self
 
-	Func SignData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3,P4])
+	Func SignHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignHash",P1])
+		ok
+		raise("DotNet Error: SignHash does not take one argument: use named arguments, SignHash([ :parameter = value, ... ])")
 
-	Func SignData P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
-
-	Func SignHash P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2])
-
-	Func VerifyData P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
-
-	Func VerifyHash P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3])
-
-	Func SignHash_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignHash",P1,P2,P3])
-
-	Func VerifyHash_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyHash",P1,P2,P3,P4])
-
-	Func SignData_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2,P3])
-
-	Func VerifyData_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3,P4])
+	Func VerifyHash P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"VerifyHash",P1])
+		ok
+		raise("DotNet Error: VerifyHash does not take one argument: use named arguments, VerifyHash([ :parameter = value, ... ])")
 
 	Func getCspKeyContainerInfo
 		return dnRequest("get",[self,"CspKeyContainerInfo"])
@@ -5712,7 +5662,15 @@ Class RSAOpenSsl from RSA
 		nHandle = dnCreate('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.RSAOpenSsl, System.Security.Cryptography',[P1])
 		return self
 
@@ -5731,16 +5689,16 @@ Class TripleDESCng from TripleDES
 		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.TripleDESCng, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 
@@ -5765,16 +5723,20 @@ Class ECDiffieHellmanCng from ECDiffieHellman
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanCng, System.Security.Cryptography',[P1])
 		return self
 
 	Func DeriveSecretAgreementHandle P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DeriveSecretAgreementHandle",P1])
-
-	Func FromXmlString_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1,P2])
-		return self
 
 	Func FromXmlString P1
 		if dnIsNamed(P1)
@@ -5857,7 +5819,15 @@ Class ECDiffieHellmanOpenSsl from ECDiffieHellman
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDiffieHellmanOpenSsl, System.Security.Cryptography',[P1])
 		return self
 
@@ -5879,28 +5849,17 @@ Class ECDsaCng from ECDsa
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaCng, System.Security.Cryptography',[P1])
 		return self
-
-	Func FromXmlString_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1,P2])
-		return self
-
-	Func SignData P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1])
-
-	Func VerifyData P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2])
-
-	Func SignData_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1,P2])
-
-	Func VerifyData_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"VerifyData",P1,P2,P3])
 
 	Func FromXmlString P1
 		if dnIsNamed(P1)
@@ -5909,6 +5868,12 @@ Class ECDsaCng from ECDsa
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"FromXmlString",P1])
 		return self
+
+	Func SignData P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SignData",P1])
+		ok
+		return dnRequest("call",[new DotNetObject(nHandle),"SignData",P1])
 
 	Func getHashAlgorithm
 		return dnRequest("get",[self,"HashAlgorithm"])
@@ -5935,7 +5900,15 @@ Class ECDsaOpenSsl from ECDsa
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.ECDsaOpenSsl, System.Security.Cryptography',[P1])
 		return self
 
@@ -5957,21 +5930,26 @@ Class HMACMD5 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACMD5, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACMD5, System.Security.Cryptography'),"HashSizeInBits"])
@@ -6000,25 +5978,26 @@ Class HMACSHA1 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography',[P1,P2])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACSHA1, System.Security.Cryptography'),"HashSizeInBits"])
@@ -6047,21 +6026,26 @@ Class HMACSHA256 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getHashSizeInBits
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACSHA256, System.Security.Cryptography'),"HashSizeInBits"])
@@ -6091,21 +6075,26 @@ Class HMACSHA384 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA384, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
 		return dnRequest("get",[self,"ProduceLegacyHmacValues"])
@@ -6142,21 +6131,26 @@ Class HMACSHA3_256 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACSHA3_256, System.Security.Cryptography'),"IsSupported"])
@@ -6192,21 +6186,26 @@ Class HMACSHA3_384 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACSHA3_384, System.Security.Cryptography'),"IsSupported"])
@@ -6242,21 +6241,26 @@ Class HMACSHA3_512 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getIsSupported
 		return dnRequest("get",[dnTypeCached('System.Security.Cryptography.HMACSHA3_512, System.Security.Cryptography'),"IsSupported"])
@@ -6292,21 +6296,26 @@ Class HMACSHA512 from HMAC
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography',[P1])
 		return self
 
 	Func HashData P1,P2
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashData",P1,P2])
 
-	Func HashDataAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3])
-
-	Func HashDataAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2])
-
-	Func HashDataAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashDataAsync",P1,P2,P3,P4])
+	Func HashDataAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.HMACSHA512, System.Security.Cryptography'),"HashDataAsync",P1])
+		ok
+		raise("DotNet Error: HashDataAsync does not take one argument: use named arguments, HashDataAsync([ :parameter = value, ... ])")
 
 	Func getProduceLegacyHmacValues
 		return dnRequest("get",[self,"ProduceLegacyHmacValues"])

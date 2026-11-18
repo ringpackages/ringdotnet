@@ -469,10 +469,6 @@ Class AdornerLayer from FrameworkElement
 		dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
 		return self
 
-	Func Update_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
-		return self
-
 	Func GetAdorners P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAdorners",P1])
 
@@ -607,8 +603,16 @@ Class DocumentPage from Object
 		nHandle = dnCreate('System.Windows.Documents.DocumentPage, PresentationCore',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Documents.DocumentPage, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.DocumentPage, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.DocumentPage, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Documents.DocumentPage, PresentationCore',[P1])
 		return self
 
 	Func Dispose 
@@ -683,10 +687,6 @@ Class DocumentPaginator from Object
 		dnRequest("call",[new DotNetObject(nHandle),"GetPageAsync",P1])
 		return self
 
-	Func GetPageAsync_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetPageAsync",P1,P2])
-		return self
-
 	Func ComputePageCount 
 		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCount"])
 		return self
@@ -700,10 +700,6 @@ Class DocumentPaginator from Object
 			dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync",P1])
-		return self
-
-	Func ComputePageCountAsync_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"ComputePageCountAsync",P1])
 		return self
 
@@ -1538,7 +1534,15 @@ Class FlowDocument from FrameworkContentElement
 		nHandle = dnCreate('System.Windows.Documents.FlowDocument, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.FlowDocument, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.FlowDocument, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.FlowDocument, PresentationFramework',[P1])
 		return self
 
@@ -3137,46 +3141,46 @@ Class TextElement from FrameworkContentElement
 		ok
 		return self
 
-	Func SetFontFamily_2 P1,P2
+	Func SetFontFamily_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetFontFamily",P1,P2])
 		return self
 
-	Func GetFontFamily_1 P1
+	Func GetFontFamily_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetFontFamily",P1])
 
-	Func SetFontStyle_2 P1,P2
+	Func SetFontStyle_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetFontStyle",P1,P2])
 		return self
 
-	Func GetFontStyle_1 P1
+	Func GetFontStyle_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetFontStyle",P1])
 
-	Func SetFontWeight_2 P1,P2
+	Func SetFontWeight_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetFontWeight",P1,P2])
 		return self
 
-	Func GetFontWeight_1 P1
+	Func GetFontWeight_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetFontWeight",P1])
 
-	Func SetFontStretch_2 P1,P2
+	Func SetFontStretch_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetFontStretch",P1,P2])
 		return self
 
-	Func GetFontStretch_1 P1
+	Func GetFontStretch_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetFontStretch",P1])
 
-	Func SetFontSize_2 P1,P2
+	Func SetFontSize_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetFontSize",P1,P2])
 		return self
 
-	Func GetFontSize_1 P1
+	Func GetFontSize_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetFontSize",P1])
 
-	Func SetForeground_2 P1,P2
+	Func SetForeground_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"SetForeground",P1,P2])
 		return self
 
-	Func GetForeground_1 P1
+	Func GetForeground_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.TextElement, PresentationFramework'),"GetForeground",P1])
 
 	Func getElementStart
@@ -3353,13 +3357,12 @@ Class TextRange from Object
 	Func CanLoad P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CanLoad",P1])
 
-	Func Save P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
-		return self
-
-	Func Save_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2,P3])
-		return self
+	Func Save P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Save",P1])
+			return self
+		ok
+		raise("DotNet Error: Save does not take one argument: use named arguments, Save([ :parameter = value, ... ])")
 
 	Func Load_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
@@ -3499,305 +3502,305 @@ Class Typography from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func SetStandardLigatures_2 P1,P2
+	Func SetStandardLigatures_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStandardLigatures",P1,P2])
 		return self
 
-	Func GetStandardLigatures_1 P1
+	Func GetStandardLigatures_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStandardLigatures",P1])
 
-	Func SetContextualLigatures_2 P1,P2
+	Func SetContextualLigatures_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetContextualLigatures",P1,P2])
 		return self
 
-	Func GetContextualLigatures_1 P1
+	Func GetContextualLigatures_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetContextualLigatures",P1])
 
-	Func SetDiscretionaryLigatures_2 P1,P2
+	Func SetDiscretionaryLigatures_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetDiscretionaryLigatures",P1,P2])
 		return self
 
-	Func GetDiscretionaryLigatures_1 P1
+	Func GetDiscretionaryLigatures_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetDiscretionaryLigatures",P1])
 
-	Func SetHistoricalLigatures_2 P1,P2
+	Func SetHistoricalLigatures_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetHistoricalLigatures",P1,P2])
 		return self
 
-	Func GetHistoricalLigatures_1 P1
+	Func GetHistoricalLigatures_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetHistoricalLigatures",P1])
 
-	Func SetAnnotationAlternates_2 P1,P2
+	Func SetAnnotationAlternates_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetAnnotationAlternates",P1,P2])
 		return self
 
-	Func GetAnnotationAlternates_1 P1
+	Func GetAnnotationAlternates_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetAnnotationAlternates",P1])
 
-	Func SetContextualAlternates_2 P1,P2
+	Func SetContextualAlternates_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetContextualAlternates",P1,P2])
 		return self
 
-	Func GetContextualAlternates_1 P1
+	Func GetContextualAlternates_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetContextualAlternates",P1])
 
-	Func SetHistoricalForms_2 P1,P2
+	Func SetHistoricalForms_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetHistoricalForms",P1,P2])
 		return self
 
-	Func GetHistoricalForms_1 P1
+	Func GetHistoricalForms_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetHistoricalForms",P1])
 
-	Func SetKerning_2 P1,P2
+	Func SetKerning_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetKerning",P1,P2])
 		return self
 
-	Func GetKerning_1 P1
+	Func GetKerning_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetKerning",P1])
 
-	Func SetCapitalSpacing_2 P1,P2
+	Func SetCapitalSpacing_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetCapitalSpacing",P1,P2])
 		return self
 
-	Func GetCapitalSpacing_1 P1
+	Func GetCapitalSpacing_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetCapitalSpacing",P1])
 
-	Func SetCaseSensitiveForms_2 P1,P2
+	Func SetCaseSensitiveForms_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetCaseSensitiveForms",P1,P2])
 		return self
 
-	Func GetCaseSensitiveForms_1 P1
+	Func GetCaseSensitiveForms_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetCaseSensitiveForms",P1])
 
-	Func SetStylisticSet1_2 P1,P2
+	Func SetStylisticSet1_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet1",P1,P2])
 		return self
 
-	Func GetStylisticSet1_1 P1
+	Func GetStylisticSet1_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet1",P1])
 
-	Func SetStylisticSet2_2 P1,P2
+	Func SetStylisticSet2_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet2",P1,P2])
 		return self
 
-	Func GetStylisticSet2_1 P1
+	Func GetStylisticSet2_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet2",P1])
 
-	Func SetStylisticSet3_2 P1,P2
+	Func SetStylisticSet3_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet3",P1,P2])
 		return self
 
-	Func GetStylisticSet3_1 P1
+	Func GetStylisticSet3_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet3",P1])
 
-	Func SetStylisticSet4_2 P1,P2
+	Func SetStylisticSet4_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet4",P1,P2])
 		return self
 
-	Func GetStylisticSet4_1 P1
+	Func GetStylisticSet4_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet4",P1])
 
-	Func SetStylisticSet5_2 P1,P2
+	Func SetStylisticSet5_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet5",P1,P2])
 		return self
 
-	Func GetStylisticSet5_1 P1
+	Func GetStylisticSet5_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet5",P1])
 
-	Func SetStylisticSet6_2 P1,P2
+	Func SetStylisticSet6_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet6",P1,P2])
 		return self
 
-	Func GetStylisticSet6_1 P1
+	Func GetStylisticSet6_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet6",P1])
 
-	Func SetStylisticSet7_2 P1,P2
+	Func SetStylisticSet7_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet7",P1,P2])
 		return self
 
-	Func GetStylisticSet7_1 P1
+	Func GetStylisticSet7_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet7",P1])
 
-	Func SetStylisticSet8_2 P1,P2
+	Func SetStylisticSet8_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet8",P1,P2])
 		return self
 
-	Func GetStylisticSet8_1 P1
+	Func GetStylisticSet8_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet8",P1])
 
-	Func SetStylisticSet9_2 P1,P2
+	Func SetStylisticSet9_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet9",P1,P2])
 		return self
 
-	Func GetStylisticSet9_1 P1
+	Func GetStylisticSet9_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet9",P1])
 
-	Func SetStylisticSet10_2 P1,P2
+	Func SetStylisticSet10_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet10",P1,P2])
 		return self
 
-	Func GetStylisticSet10_1 P1
+	Func GetStylisticSet10_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet10",P1])
 
-	Func SetStylisticSet11_2 P1,P2
+	Func SetStylisticSet11_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet11",P1,P2])
 		return self
 
-	Func GetStylisticSet11_1 P1
+	Func GetStylisticSet11_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet11",P1])
 
-	Func SetStylisticSet12_2 P1,P2
+	Func SetStylisticSet12_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet12",P1,P2])
 		return self
 
-	Func GetStylisticSet12_1 P1
+	Func GetStylisticSet12_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet12",P1])
 
-	Func SetStylisticSet13_2 P1,P2
+	Func SetStylisticSet13_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet13",P1,P2])
 		return self
 
-	Func GetStylisticSet13_1 P1
+	Func GetStylisticSet13_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet13",P1])
 
-	Func SetStylisticSet14_2 P1,P2
+	Func SetStylisticSet14_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet14",P1,P2])
 		return self
 
-	Func GetStylisticSet14_1 P1
+	Func GetStylisticSet14_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet14",P1])
 
-	Func SetStylisticSet15_2 P1,P2
+	Func SetStylisticSet15_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet15",P1,P2])
 		return self
 
-	Func GetStylisticSet15_1 P1
+	Func GetStylisticSet15_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet15",P1])
 
-	Func SetStylisticSet16_2 P1,P2
+	Func SetStylisticSet16_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet16",P1,P2])
 		return self
 
-	Func GetStylisticSet16_1 P1
+	Func GetStylisticSet16_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet16",P1])
 
-	Func SetStylisticSet17_2 P1,P2
+	Func SetStylisticSet17_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet17",P1,P2])
 		return self
 
-	Func GetStylisticSet17_1 P1
+	Func GetStylisticSet17_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet17",P1])
 
-	Func SetStylisticSet18_2 P1,P2
+	Func SetStylisticSet18_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet18",P1,P2])
 		return self
 
-	Func GetStylisticSet18_1 P1
+	Func GetStylisticSet18_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet18",P1])
 
-	Func SetStylisticSet19_2 P1,P2
+	Func SetStylisticSet19_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet19",P1,P2])
 		return self
 
-	Func GetStylisticSet19_1 P1
+	Func GetStylisticSet19_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet19",P1])
 
-	Func SetStylisticSet20_2 P1,P2
+	Func SetStylisticSet20_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticSet20",P1,P2])
 		return self
 
-	Func GetStylisticSet20_1 P1
+	Func GetStylisticSet20_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticSet20",P1])
 
-	Func SetFraction_2 P1,P2
+	Func SetFraction_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetFraction",P1,P2])
 		return self
 
-	Func GetFraction_1 P1
+	Func GetFraction_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetFraction",P1])
 
-	Func SetSlashedZero_2 P1,P2
+	Func SetSlashedZero_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetSlashedZero",P1,P2])
 		return self
 
-	Func GetSlashedZero_1 P1
+	Func GetSlashedZero_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetSlashedZero",P1])
 
-	Func SetMathematicalGreek_2 P1,P2
+	Func SetMathematicalGreek_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetMathematicalGreek",P1,P2])
 		return self
 
-	Func GetMathematicalGreek_1 P1
+	Func GetMathematicalGreek_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetMathematicalGreek",P1])
 
-	Func SetEastAsianExpertForms_2 P1,P2
+	Func SetEastAsianExpertForms_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetEastAsianExpertForms",P1,P2])
 		return self
 
-	Func GetEastAsianExpertForms_1 P1
+	Func GetEastAsianExpertForms_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetEastAsianExpertForms",P1])
 
-	Func SetVariants_2 P1,P2
+	Func SetVariants_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetVariants",P1,P2])
 		return self
 
-	Func GetVariants_1 P1
+	Func GetVariants_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetVariants",P1])
 
-	Func SetCapitals_2 P1,P2
+	Func SetCapitals_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetCapitals",P1,P2])
 		return self
 
-	Func GetCapitals_1 P1
+	Func GetCapitals_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetCapitals",P1])
 
-	Func SetNumeralStyle_2 P1,P2
+	Func SetNumeralStyle_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetNumeralStyle",P1,P2])
 		return self
 
-	Func GetNumeralStyle_1 P1
+	Func GetNumeralStyle_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetNumeralStyle",P1])
 
-	Func SetNumeralAlignment_2 P1,P2
+	Func SetNumeralAlignment_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetNumeralAlignment",P1,P2])
 		return self
 
-	Func GetNumeralAlignment_1 P1
+	Func GetNumeralAlignment_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetNumeralAlignment",P1])
 
-	Func SetEastAsianWidths_2 P1,P2
+	Func SetEastAsianWidths_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetEastAsianWidths",P1,P2])
 		return self
 
-	Func GetEastAsianWidths_1 P1
+	Func GetEastAsianWidths_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetEastAsianWidths",P1])
 
-	Func SetEastAsianLanguage_2 P1,P2
+	Func SetEastAsianLanguage_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetEastAsianLanguage",P1,P2])
 		return self
 
-	Func GetEastAsianLanguage_1 P1
+	Func GetEastAsianLanguage_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetEastAsianLanguage",P1])
 
-	Func SetStandardSwashes_2 P1,P2
+	Func SetStandardSwashes_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStandardSwashes",P1,P2])
 		return self
 
-	Func GetStandardSwashes_1 P1
+	Func GetStandardSwashes_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStandardSwashes",P1])
 
-	Func SetContextualSwashes_2 P1,P2
+	Func SetContextualSwashes_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetContextualSwashes",P1,P2])
 		return self
 
-	Func GetContextualSwashes_1 P1
+	Func GetContextualSwashes_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetContextualSwashes",P1])
 
-	Func SetStylisticAlternates_2 P1,P2
+	Func SetStylisticAlternates_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"SetStylisticAlternates",P1,P2])
 		return self
 
-	Func GetStylisticAlternates_1 P1
+	Func GetStylisticAlternates_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Typography, PresentationFramework'),"GetStylisticAlternates",P1])
 
 	Func getStandardLigatures
@@ -4419,32 +4422,32 @@ Class Block from TextElement
 		ok
 		return self
 
-	Func SetIsHyphenationEnabled_2 P1,P2
+	Func SetIsHyphenationEnabled_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"SetIsHyphenationEnabled",P1,P2])
 		return self
 
-	Func GetIsHyphenationEnabled_1 P1
+	Func GetIsHyphenationEnabled_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"GetIsHyphenationEnabled",P1])
 
-	Func SetTextAlignment_2 P1,P2
+	Func SetTextAlignment_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"SetTextAlignment",P1,P2])
 		return self
 
-	Func GetTextAlignment_1 P1
+	Func GetTextAlignment_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"GetTextAlignment",P1])
 
-	Func SetLineHeight_2 P1,P2
+	Func SetLineHeight_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"SetLineHeight",P1,P2])
 		return self
 
-	Func GetLineHeight_1 P1
+	Func GetLineHeight_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"GetLineHeight",P1])
 
-	Func SetLineStackingStrategy_2 P1,P2
+	Func SetLineStackingStrategy_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"SetLineStackingStrategy",P1,P2])
 		return self
 
-	Func GetLineStackingStrategy_1 P1
+	Func GetLineStackingStrategy_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Documents.Block, PresentationFramework'),"GetLineStackingStrategy",P1])
 
 	Func getSiblingBlocks
@@ -4645,10 +4648,6 @@ Class DynamicDocumentPaginator from DocumentPaginator
 		dnRequest("call",[new DotNetObject(nHandle),"GetPageNumberAsync",P1])
 		return self
 
-	Func GetPageNumberAsync_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"GetPageNumberAsync",P1,P2])
-		return self
-
 	Func GetPagePosition P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPagePosition",P1])
 
@@ -4838,7 +4837,15 @@ Class ListItem from TextElement
 		nHandle = dnCreate('System.Windows.Documents.ListItem, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.ListItem, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.ListItem, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.ListItem, PresentationFramework',[P1])
 		return self
 
@@ -5011,7 +5018,15 @@ Class TableCell from TextElement
 		nHandle = dnCreate('System.Windows.Documents.TableCell, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.TableCell, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.TableCell, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.TableCell, PresentationFramework',[P1])
 		return self
 
@@ -5225,9 +5240,6 @@ Class TextPointer from ContentPosition
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTextInRun",P1])
 
-	Func GetTextInRun_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTextInRun",P1,P2,P3,P4])
-
 	Func GetAdjacentElement P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAdjacentElement",P1])
 
@@ -5236,9 +5248,6 @@ Class TextPointer from ContentPosition
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPositionAtOffset",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionAtOffset",P1])
-
-	Func GetPositionAtOffset_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPositionAtOffset",P1,P2])
 
 	Func GetNextContextPosition P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNextContextPosition",P1])
@@ -5468,7 +5477,15 @@ Class BlockUIContainer from Block
 		nHandle = dnCreate('System.Windows.Documents.BlockUIContainer, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.BlockUIContainer, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.BlockUIContainer, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.BlockUIContainer, PresentationFramework',[P1])
 		return self
 
@@ -5493,12 +5510,16 @@ Class InlineUIContainer from Inline
 		nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.InlineUIContainer, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.InlineUIContainer, PresentationFramework',[P1,P2])
 		return self
 
 	Func getChild
@@ -5520,7 +5541,15 @@ Class LineBreak from Inline
 		nHandle = dnCreate('System.Windows.Documents.LineBreak, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.LineBreak, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.LineBreak, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.LineBreak, PresentationFramework',[P1])
 		return self
 
@@ -5544,7 +5573,15 @@ Class List from Block
 		nHandle = dnCreate('System.Windows.Documents.List, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.List, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.List, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.List, PresentationFramework',[P1])
 		return self
 
@@ -5619,7 +5656,15 @@ Class Paragraph from Block
 		nHandle = dnCreate('System.Windows.Documents.Paragraph, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Paragraph, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Paragraph, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Paragraph, PresentationFramework',[P1])
 		return self
 
@@ -5725,12 +5770,16 @@ Class Run from Inline
 		nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Run, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Run, PresentationFramework',[P1,P2])
 		return self
 
 	Func ShouldSerializeText P1
@@ -5764,7 +5813,15 @@ Class Section from Block
 		nHandle = dnCreate('System.Windows.Documents.Section, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Section, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Section, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Section, PresentationFramework',[P1])
 		return self
 
@@ -5798,12 +5855,16 @@ Class Span from Inline
 		nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Span, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Span, PresentationFramework',[P1,P2])
 		return self
 
 	Func ShouldSerializeInlines P1
@@ -5872,12 +5933,16 @@ Class Bold from Span
 		nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Bold, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Bold, PresentationFramework',[P1,P2])
 		return self
 
 
@@ -5909,12 +5974,16 @@ Class Figure from AnchoredBlock
 		nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Figure, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Figure, PresentationFramework',[P1,P2])
 		return self
 
 	Func getHorizontalAnchor
@@ -6038,12 +6107,16 @@ Class Floater from AnchoredBlock
 		nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Floater, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Floater, PresentationFramework',[P1,P2])
 		return self
 
 	Func getHorizontalAlignment
@@ -6097,12 +6170,16 @@ Class Hyperlink from Span
 		nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Hyperlink, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Hyperlink, PresentationFramework',[P1,P2])
 		return self
 
 	Func DoClick 
@@ -6208,12 +6285,16 @@ Class Italic from Span
 		nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Italic, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Italic, PresentationFramework',[P1,P2])
 		return self
 
 
@@ -6228,12 +6309,16 @@ Class Underline from Span
 		nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Documents.Underline, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Documents.Underline, PresentationFramework',[P1,P2])
 		return self
 
 

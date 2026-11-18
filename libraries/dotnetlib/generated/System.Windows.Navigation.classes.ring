@@ -208,10 +208,10 @@ Class JournalEntry from DependencyObject
 		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
-	Func GetName_1 P1
+	Func GetName_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"GetName",P1])
 
-	Func SetName_2 P1,P2
+	Func SetName_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Navigation.JournalEntry, PresentationFramework'),"SetName",P1,P2])
 		return self
 
@@ -573,12 +573,6 @@ Class NavigationService from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 
-	Func Navigate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
-
-	Func Navigate_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2,P3])
-
 	Func GoForward 
 		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
 		return self
@@ -723,9 +717,6 @@ Class NavigationWindow from Window
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Navigate",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
-
-	Func Navigate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
 
 	Func GoForward 
 		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])

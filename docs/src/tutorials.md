@@ -127,6 +127,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-79-processes-talk.html"><div class="ic">79</div><b>Two programs talking</b><span>Named pipes between processes, Process.Start, and a mutex for one copy.</span></a>
 <a class="card" href="tut-80-json-nodes.html"><div class="ic">80</div><b>JSON as a tree</b><span>JsonNode: read, edit, build, merge and clone JSON.</span></a>
 <a class="card" href="tut-81-network-tools.html"><div class="ic">81</div><b>Network tools</b><span>IPAddress, Dns, Ping, interfaces and a port check, all on this computer.</span></a>
+<a class="card" href="tut-82-shared-memory.html"><div class="ic">82</div><b>Shared memory</b><span>Memory-mapped files shared by two programs, and a file edited in place.</span></a>
+<a class="card" href="tut-83-tasks-waiting.html"><div class="ic">83</div><b>Tasks that wait</b><span>Task.Delay, WhenAll, WhenAny, time limits and cancellation.</span></a>
+<a class="card" href="tut-84-http-client.html"><div class="ic">84</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, cancelling and saving a download.</span></a>
 </div>
 
 ## Learning path

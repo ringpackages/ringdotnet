@@ -50,14 +50,6 @@ Class TextEncoder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Encode",P1])
 
-	Func Encode_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Encode",P1,P2])
-		return self
-
-	Func Encode_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Encode",P1,P2,P3,P4])
-		return self
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -79,7 +71,15 @@ Class TextEncoderSettings from Object
 		nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Text.Encodings.Web.TextEncoderSettings, System.Text.Encodings.Web',[P1])
 		return self
 

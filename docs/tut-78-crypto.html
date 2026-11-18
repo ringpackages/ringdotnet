@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -197,12 +200,12 @@ using {
 	oHash = <span class="k">new</span> <span class="t">HashAlgorithmName</span>().SHA256
 	oPadding = <span class="k">new</span> <span class="t">RSASignaturePadding</span>().Pkcs1
 	cOrder = <span class="s">"Pay 100 to Ann"</span>
-	cSignature = oSigner.<span class="f">SignData</span>(cOrder,oHash,oPadding)
+	cSignature = oSigner.<span class="f">SignData</span>([ :data = cOrder, :hashAlgorithm = oHash, :padding = oPadding ])
 	oVerifier = <span class="k">new</span> <span class="t">RSA</span>().<span class="f">Create</span>(<span class="k">NULL</span>)
 	oVerifier.<span class="f">FromXmlString</span>(cPublicKey)
 	? nl + <span class="s">"6. the signature has "</span> + len(cSignature) + <span class="s">" bytes (a 2048-bit key)"</span>
-	? <span class="s">"   verified with the public key: "</span> + yesNo(oVerifier.<span class="f">VerifyData</span>(cOrder,cSignature,oHash,oPadding))
-	? <span class="s">"   the order was changed to 'Pay 900 to Ann': "</span> + yesNo(oVerifier.<span class="f">VerifyData</span>(<span class="s">"Pay 900 to Ann"</span>,cSignature,oHash,oPadding))
+	? <span class="s">"   verified with the public key: "</span> + yesNo(oVerifier.<span class="f">VerifyData</span>([ :data = cOrder, :signature = cSignature, :hashAlgorithm = oHash, :padding = oPadding ]))
+	? <span class="s">"   the order was changed to 'Pay 900 to Ann': "</span> + yesNo(oVerifier.<span class="f">VerifyData</span>([ :data = <span class="s">"Pay 900 to Ann"</span>, :signature = cSignature, :hashAlgorithm = oHash, :padding = oPadding ]))
 
 <span class="c"># the keys of a password: PBKDF2 with SHA-256, 100000 rounds, nBytes long</span>
 <span class="k">func</span> <span class="f">deriveKeys</span> cPassword, cSalt

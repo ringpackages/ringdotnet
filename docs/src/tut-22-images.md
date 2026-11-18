@@ -58,7 +58,7 @@ Colours are `new Color().SteelBlue`, `new Color().Black`... (the names of the .N
 
 ### A gray copy
 
-A pixel is gray when its red, green and blue are equal. The average `(R + G + B) / 3` is a simple conversion. Two loops visit every pixel: for every `nY`, for every `nX`, read the colour, compute the gray value, write it with `SetPixel`. `new Color().FromArgb_3(r,g,b)` makes a colour from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use `LockBits` or leave the work to a library.
+A pixel is gray when its red, green and blue are equal. The average `(R + G + B) / 3` is a simple conversion. Two loops visit every pixel: for every `nY`, for every `nX`, read the colour, compute the gray value, write it with `SetPixel`. `new Color().FromArgb([ :red = r, :green = g, :blue = b ])` makes a colour from three numbers. Pixel loops are slow in any language that goes through a bridge: for big images use `LockBits` or leave the work to a library.
 
 ### Resizing
 

@@ -9,12 +9,12 @@ using {
 
 func main
 	# STEP 1. A folder with some files: three of them have the same content, two others as well
-	cFolder = new Path().Combine(new Path().GetTempPath(),"tutorial31")
+	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial31"])
 	if new Directory().Exists(cFolder)
 		new Directory().Delete([ :path = cFolder, :recursive = True ])
 	ok
 	new Directory().CreateDirectory(cFolder)
-	new Directory().CreateDirectory(new Path().Combine(cFolder,"old"))
+	new Directory().CreateDirectory(new Path().Combine([cFolder,"old"]))
 	makeFile(cFolder,"report.txt","Quarterly report: all good.")
 	makeFile(cFolder,"report copy.txt","Quarterly report: all good.")
 	makeFile(cFolder,"old/report 2023.txt","Quarterly report: all good.")
@@ -24,7 +24,7 @@ func main
 	? "STEP 1: made six files in a folder and its subfolder"
 
 	# STEP 2. Find every file, also in the subfolders
-	aFiles = new Directory().GetFiles_3(cFolder,"*.txt","AllDirectories").toList()
+	aFiles = new Directory().GetFiles([ :path = cFolder, :searchPattern = "*.txt", :searchOption = "AllDirectories" ]).toList()
 	? "STEP 2: " + len(aFiles) + " files found"
 
 	# STEP 3. The fingerprint of a file is the hash of its content. Same content = same hash.
@@ -61,8 +61,8 @@ func main
 	new Directory().Delete([ :path = cFolder, :recursive = True ])
 
 func makeFile cFolder, cName, cText
-	cPath = new Path().Combine(cFolder,cName)
-	new File().WriteAllText(cPath,cText)
+	cPath = new Path().Combine([cFolder,cName])
+	new File().WriteAllText([ :path = cPath, :contents = cText ])
 
 # the SHA-256 hash of the content of a file, as text
 func hashOf cFile

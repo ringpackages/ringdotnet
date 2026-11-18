@@ -46,11 +46,11 @@ oNode.Tag = cFolder
 
 ### Reacting to the choice
 
-`setAfterSelectEvent("folderChosen()")` runs when a node is selected. The function reads `oTree.SelectedNode.Tag`, clears the list, and adds a `ListViewItem` for every file: `new ListViewItem().New_1(name)` makes the row with its first column, and `SubItems.Add(text)` fills the other columns (size, modified date).
+`setAfterSelectEvent("folderChosen()")` runs when a node is selected. The function reads `oTree.SelectedNode.Tag`, clears the list, and adds a `ListViewItem` for every file: `new ListViewItem().New_([ :text = name ])` makes the row with its first column, and `SubItems.Add(text)` fills the other columns (size, modified date).
 
 ### The ListView
 
-`View = "Details"` shows columns like Explorer; `Columns.Add_2("Name",180)` adds a column with a title and a width in pixels; `FullRowSelect` highlights a whole row; `GridLines` draws lines. A `ListView` can also show icons (`LargeIcon`, `SmallIcon`, `List`).
+`View = "Details"` shows columns like Explorer; `Columns.Add([ :text = "Name", :width = 180 ])` adds a column with a title and a width in pixels; `FullRowSelect` highlights a whole row; `GridLines` draws lines. A `ListView` can also show icons (`LargeIcon`, `SmallIcon`, `List`).
 
 ### File sizes
 

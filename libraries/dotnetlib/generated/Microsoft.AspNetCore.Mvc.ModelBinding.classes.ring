@@ -384,7 +384,15 @@ Class BindingInfo from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
@@ -399,9 +407,6 @@ Class BindingInfo from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1])
-
-	Func GetBindingInfo_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.BindingInfo, Microsoft.AspNetCore.Mvc.Abstractions'),"GetBindingInfo",P1,P2])
 
 	Func getBindingSource
 		return dnRequest("get",[self,"BindingSource"])
@@ -606,7 +611,15 @@ Class CompositeValueProvider from DotNetObject
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
@@ -618,9 +631,6 @@ Class CompositeValueProvider from DotNetObject
 
 	Func GetKeysFromPrefix P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetKeysFromPrefix",P1])
-
-	Func Filter_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
 	Func Filter P1
 		if dnIsNamed(P1)
@@ -681,9 +691,6 @@ Class CompositeValueProvider from DotNetObject
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1])
 
-	Func CreateAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.CompositeValueProvider, Microsoft.AspNetCore.Mvc.Core'),"CreateAsync",P1,P2])
-
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
 
@@ -717,9 +724,6 @@ Class EmptyModelMetadataProvider from DotNetObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMetadataForParameter",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1])
-
-	Func GetMetadataForParameter_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1,P2])
 
 	Func GetMetadataForType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForType",P1])
@@ -757,8 +761,16 @@ Class EnumGroupAndName from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.EnumGroupAndName, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
 	Func getGroup
@@ -1126,11 +1138,11 @@ Class ModelAttributes from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetAttributesForProperty P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1,P2])
-
-	Func GetAttributesForProperty_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1,P2,P3])
+	Func GetAttributesForProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForProperty",P1])
+		ok
+		raise("DotNet Error: GetAttributesForProperty does not take one argument: use named arguments, GetAttributesForProperty([ :parameter = value, ... ])")
 
 	Func GetAttributesForType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForType",P1])
@@ -1140,9 +1152,6 @@ Class ModelAttributes from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1])
-
-	Func GetAttributesForParameter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelAttributes, Microsoft.AspNetCore.Mvc.Core'),"GetAttributesForParameter",P1,P2])
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
@@ -1248,9 +1257,6 @@ Class ModelBinderProviderContext from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateBinder",P1])
 
-	Func CreateBinder_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateBinder",P1,P2])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -1300,10 +1306,6 @@ Class ModelBinderProviderExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
 		return self
 
-	Func RemoveType_2 P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderProviderExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1,P2])
-		return self
-
 
 Class ModelBindingContext from Object
 
@@ -1332,9 +1334,6 @@ Class ModelBindingContext from Object
 		ok
 		return self
 
-	Func EnterNestedScope_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"EnterNestedScope",P1,P2,P3,P4])
-
 	Func EnterNestedScope P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnterNestedScope",P1])
@@ -1342,7 +1341,7 @@ Class ModelBindingContext from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"EnterNestedScope"])
 		ok
-		raise("DotNet Error: EnterNestedScope does not take one argument: use EnterNestedScope(NULL), EnterNestedScope_N(...) or named arguments")
+		raise("DotNet Error: EnterNestedScope does not take one argument: use named arguments, EnterNestedScope([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1504,8 +1503,16 @@ Class ModelError from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelError, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
 	Func Equals P1
@@ -1662,7 +1669,7 @@ Class ModelMetadata from Object
 		ok
 		return self
 
-	Func GetDisplayName_0 
+	Func GetDisplayName_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDisplayName"])
 
 	Func Equals P1
@@ -2033,9 +2040,6 @@ Class ModelMetadataProvider from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1])
 
-	Func GetMetadataForParameter_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForParameter",P1,P2])
-
 	Func GetMetadataForProperty P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMetadataForProperty",P1,P2])
 
@@ -2153,31 +2157,38 @@ Class ModelStateDictionary from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
 		return self
 
 	Func TryAddModelException P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelException",P1,P2])
 
-	Func AddModelError_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddModelError",P1,P2,P3])
-		return self
+	Func AddModelError P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddModelError",P1])
+			return self
+		ok
+		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
 
-	Func TryAddModelError_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelError",P1,P2,P3])
-
-	Func AddModelError P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddModelError",P1,P2])
-		return self
-
-	Func TryAddModelError P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddModelError",P1,P2])
+	Func TryAddModelError P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"TryAddModelError",P1])
+		ok
+		raise("DotNet Error: TryAddModelError does not take one argument: use named arguments, TryAddModelError([ :parameter = value, ... ])")
 
 	Func GetFieldValidationState P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValidationState",P1])
 
-	Func GetValidationState_1 P1
+	Func GetValidationState_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValidationState",P1])
 
 	Func MarkFieldValid P1
@@ -2192,13 +2203,12 @@ Class ModelStateDictionary from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Merge",P1])
 		return self
 
-	Func SetModelValue_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetModelValue",P1,P2,P3])
-		return self
-
-	Func SetModelValue P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetModelValue",P1,P2])
-		return self
+	Func SetModelValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetModelValue",P1])
+			return self
+		ok
+		raise("DotNet Error: SetModelValue does not take one argument: use named arguments, SetModelValue([ :parameter = value, ... ])")
 
 	Func ClearValidationState P1
 		dnRequest("call",[new DotNetObject(nHandle),"ClearValidationState",P1])
@@ -2307,16 +2317,15 @@ Class ModelStateDictionaryExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddModelError P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1,P2,P3])
-		return self
+	Func AddModelError P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1])
+			return self
+		ok
+		raise("DotNet Error: AddModelError does not take one argument: use named arguments, AddModelError([ :parameter = value, ... ])")
 
 	Func TryAddModelException P1,P2,P3
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"TryAddModelException",P1,P2,P3])
-		return self
-
-	Func AddModelError_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionaryExtensions, Microsoft.AspNetCore.Mvc.ViewFeatures'),"AddModelError",P1,P2,P3,P4])
 		return self
 
 	Func Remove P1,P2
@@ -2400,17 +2409,12 @@ Class ObjectModelValidator from Object
 		ok
 		return self
 
-	Func Validate P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4])
-		return self
-
-	Func Validate_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4,P5])
-		return self
-
-	Func Validate_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3,P4,P5,P6])
-		return self
+	Func Validate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
+			return self
+		ok
+		raise("DotNet Error: Validate does not take one argument: use named arguments, Validate([ :parameter = value, ... ])")
 
 	Func GetValidationVisitor P1,P2,P3,P4,P5
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValidationVisitor",P1,P2,P3,P4,P5])
@@ -2430,11 +2434,11 @@ Class ParameterBinder from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3,P4,P5])
 		return self
 
-	Func BindModelAsync P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"BindModelAsync",P1,P2,P3,P4,P5,P6])
-
-	Func BindModelAsync_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"BindModelAsync",P1,P2,P3,P4,P5,P6,P7])
+	Func BindModelAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BindModelAsync",P1])
+		ok
+		raise("DotNet Error: BindModelAsync does not take one argument: use named arguments, BindModelAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -2515,7 +2519,7 @@ Class SuppressChildValidationMetadataProvider from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CreateValidationMetadata",P1])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -2617,10 +2621,6 @@ Class ValueProviderFactoryExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1])
 		return self
 
-	Func RemoveType_2 P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderFactoryExtensions, Microsoft.AspNetCore.Mvc.Core'),"RemoveType",P1,P2])
-		return self
-
 
 Class ValueProviderResult from ValueType
 
@@ -2639,12 +2639,16 @@ Class ValueProviderResult from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.ValueProviderResult, Microsoft.AspNetCore.Mvc.Abstractions',[P1,P2])
 		return self
 
 	Func GetEnumerator 
@@ -2775,9 +2779,6 @@ Class JQueryValueProvider from BindingSourceValueProvider
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
 
-	Func Filter_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Filter",P1])
-
 	Func getCulture
 		return dnRequest("get",[self,"Culture"])
 
@@ -2819,8 +2820,16 @@ Class RouteValueProvider from BindingSourceValueProvider
 		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Mvc.ModelBinding.RouteValueProvider, Microsoft.AspNetCore.Mvc.Core',[P1])
 		return self
 
 

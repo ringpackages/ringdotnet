@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -183,7 +186,7 @@ using {
 
 	<span class="c"># 5. Structs are small values (a date, a point)</span>
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)
-	? <span class="s">"A DateTime       : "</span> + oDate.<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">" is a "</span> + oDate.DayOfWeek
+	? <span class="s">"A DateTime       : "</span> + oDate.<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">" is a "</span> + oDate.DayOfWeek
 
 	<span class="c"># 6. Collections hold many objects</span>
 	oNames = <span class="k">new</span> <span class="t">StringList</span>()
@@ -220,8 +223,8 @@ Is it null?      : 1</code></pre></div>
 <p><code>new Math().Max(3,9)</code> does not need <em>a</em> math object: <code>Max</code> belongs to the class. Ring still writes <code>new Math()</code> to reach it; the object is just a doorway to the class.</p>
 <p>Ring prints the number <code>3.14159...</code> as <code>3.14</code> because Ring shows two decimals by default. The value itself is not rounded. Use <code>decimals(5)</code> at the top of a program to see more.</p>
 <h3 id="5-structs">5. Structs<a class="anchor" href="#5-structs">#</a></h3>
-<p>A <code>DateTime</code> is a <em>struct</em>: a small value. <code>new DateTime(2024,12,25)</code> is a date. <code>ToString_1("yyyy-MM-dd")</code> formats it, and <code>DayOfWeek</code> is an enum, so Ring gets the text <code>Wednesday</code>.</p>
-<div class="callout tip"><span class="t">Tip</span><p>The <code>_1</code> in <code>ToString_1</code> means "the version of <code>ToString</code> with 1 parameter". You will see this often; <a href="concepts.html#naming-rules">Core concepts</a> explains why.</p></div>
+<p>A <code>DateTime</code> is a <em>struct</em>: a small value. <code>new DateTime(2024,12,25)</code> is a date. <code>Format("yyyy-MM-dd")</code> formats it, and <code>DayOfWeek</code> is an enum, so Ring gets the text <code>Wednesday</code>.</p>
+<div class="callout tip"><span class="t">Tip</span><p><code>ToString()</code> has no parameters; <code>Format("yyyy-MM-dd")</code> is its form with a pattern. A .NET method that exists in several forms becomes one Ring method that takes one value, <code>NULL</code> or a list of <code>:name = value</code> pairs; <a href="concepts.html#naming-rules">Core concepts</a> explains it.</p></div>
 <h3 id="6-collections">6. Collections<a class="anchor" href="#6-collections">#</a></h3>
 <p><code>StringList</code> holds texts, in order. <code>Add</code> adds one, <code>Count</code> says how many, <code>Item(0)</code> reads the first (the position starts at 0, like in .NET).</p>
 <h3 id="7-null">7. null<a class="anchor" href="#7-null">#</a></h3>

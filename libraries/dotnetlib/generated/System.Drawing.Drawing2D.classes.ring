@@ -97,7 +97,15 @@ Class Blend from Object
 		nHandle = dnCreate('System.Drawing.Drawing2D.Blend, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Blend, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.Blend, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.Blend, System.Drawing.Common',[P1])
 		return self
 
@@ -133,7 +141,15 @@ Class ColorBlend from Object
 		nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.ColorBlend, System.Drawing.Common',[P1])
 		return self
 
@@ -171,12 +187,16 @@ Class CustomLineCap from MarshalByRefObject
 		nHandle = dnCreate('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Drawing2D.CustomLineCap, System.Drawing.Common',[P1])
 		return self
 
 	Func Dispose 
@@ -250,16 +270,16 @@ Class GraphicsPath from MarshalByRefObject
 		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Drawing2D.GraphicsPath, System.Drawing.Common',[P1,P2,P3])
 		return self
 
 	Func Clone 
@@ -300,54 +320,42 @@ Class GraphicsPath from MarshalByRefObject
 	Func GetLastPoint 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLastPoint"])
 
-	Func IsVisible_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2])
-
 	Func IsVisible P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsVisible",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1])
 
-	Func IsVisible_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IsVisible",P1,P2,P3])
+	Func IsOutlineVisible P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsOutlineVisible",P1])
+		ok
+		raise("DotNet Error: IsOutlineVisible does not take one argument: use named arguments, IsOutlineVisible([ :parameter = value, ... ])")
 
-	Func IsOutlineVisible_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2,P3])
-
-	Func IsOutlineVisible P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2])
-
-	Func IsOutlineVisible_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"IsOutlineVisible",P1,P2,P3,P4])
-
-	Func AddLine P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddLine",P1,P2])
-		return self
-
-	Func AddLine_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"AddLine",P1,P2,P3,P4])
-		return self
+	Func AddLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddLine",P1])
+			return self
+		ok
+		raise("DotNet Error: AddLine does not take one argument: use named arguments, AddLine([ :parameter = value, ... ])")
 
 	Func AddLines P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddLines",P1])
 		return self
 
-	Func AddArc P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddArc",P1,P2,P3])
-		return self
+	Func AddArc P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddArc",P1])
+			return self
+		ok
+		raise("DotNet Error: AddArc does not take one argument: use named arguments, AddArc([ :parameter = value, ... ])")
 
-	Func AddArc_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"AddArc",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func AddBezier P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"AddBezier",P1,P2,P3,P4])
-		return self
-
-	Func AddBezier_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[new DotNetObject(nHandle),"AddBezier",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
+	Func AddBezier P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddBezier",P1])
+			return self
+		ok
+		raise("DotNet Error: AddBezier does not take one argument: use named arguments, AddBezier([ :parameter = value, ... ])")
 
 	Func AddBeziers P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddBeziers",P1])
@@ -361,24 +369,12 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1])
 		return self
 
-	Func AddCurve_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1,P2])
-		return self
-
-	Func AddCurve_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"AddCurve",P1,P2,P3,P4])
-		return self
-
 	Func AddClosedCurve P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AddClosedCurve",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"AddClosedCurve",P1])
-		return self
-
-	Func AddClosedCurve_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddClosedCurve",P1,P2])
 		return self
 
 	Func AddRectangle P1
@@ -401,17 +397,12 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"AddEllipse",P1])
 		return self
 
-	Func AddEllipse_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"AddEllipse",P1,P2,P3,P4])
-		return self
-
-	Func AddPie P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddPie",P1,P2,P3])
-		return self
-
-	Func AddPie_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"AddPie",P1,P2,P3,P4,P5,P6])
-		return self
+	Func AddPie P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddPie",P1])
+			return self
+		ok
+		raise("DotNet Error: AddPie does not take one argument: use named arguments, AddPie([ :parameter = value, ... ])")
 
 	Func AddPolygon P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddPolygon",P1])
@@ -438,12 +429,6 @@ Class GraphicsPath from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
 
-	Func GetBounds_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1])
-
-	Func GetBounds_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetBounds",P1,P2])
-
 	Func Flatten P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Flatten",P1])
@@ -456,14 +441,6 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1])
 		return self
 
-	Func Flatten_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1])
-		return self
-
-	Func Flatten_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Flatten",P1,P2])
-		return self
-
 	Func Widen P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Widen",P1])
@@ -472,29 +449,12 @@ Class GraphicsPath from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1])
 		return self
 
-	Func Widen_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1,P2])
-		return self
-
-	Func Widen_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Widen",P1,P2,P3])
-		return self
-
-	Func Warp P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2])
-		return self
-
-	Func Warp_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3])
-		return self
-
-	Func Warp_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3,P4])
-		return self
-
-	Func Warp_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"Warp",P1,P2,P3,P4,P5])
-		return self
+	Func Warp P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Warp",P1])
+			return self
+		ok
+		raise("DotNet Error: Warp does not take one argument: use named arguments, Warp([ :parameter = value, ... ])")
 
 	Func getFillMode
 		return dnRequest("get",[self,"FillMode"])
@@ -555,9 +515,6 @@ Class GraphicsPathIterator from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"NextSubpath",P1])
 
-	Func NextSubpath_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"NextSubpath",P1])
-
 	Func NextPathType 
 		return dnRequest("call",[new DotNetObject(nHandle),"NextPathType"])
 
@@ -568,9 +525,6 @@ Class GraphicsPathIterator from MarshalByRefObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"NextMarker"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"NextMarker",P1])
-
-	Func NextMarker_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"NextMarker",P1])
 
 	Func HasCurve 
@@ -625,8 +579,16 @@ Class HatchBrush from Brush
 		nHandle = dnCreate('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Drawing2D.HatchBrush, System.Drawing.Common',[P1])
 		return self
 
 	Func getHatchStyle
@@ -667,8 +629,16 @@ Class LinearGradientBrush from Brush
 		nHandle = dnCreate('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',[P1,P2,P3,P4])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Drawing2D.LinearGradientBrush, System.Drawing.Common',[P1])
 		return self
 
 	Func SetSigmaBellShape P1
@@ -679,20 +649,12 @@ Class LinearGradientBrush from Brush
 		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1])
 		return self
 
-	Func SetSigmaBellShape_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1,P2])
-		return self
-
 	Func SetBlendTriangularShape P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
-		return self
-
-	Func SetBlendTriangularShape_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1,P2])
 		return self
 
 	Func ResetTransform 
@@ -707,25 +669,19 @@ Class LinearGradientBrush from Brush
 		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
-	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
-		return self
+	Func TranslateTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateTransform",P1])
+			return self
+		ok
+		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
-	Func TranslateTransform P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
-		return self
-
-	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
-		return self
-
-	Func ScaleTransform P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
-		return self
-
-	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
-		return self
+	Func ScaleTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ScaleTransform",P1])
+			return self
+		ok
+		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
@@ -733,10 +689,6 @@ Class LinearGradientBrush from Brush
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
-		return self
-
-	Func RotateTransform_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func getLinearColors
@@ -806,16 +758,16 @@ Class Matrix from MarshalByRefObject
 		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Drawing.Drawing2D.Matrix, System.Drawing.Common',[P1,P2])
 		return self
 
 	Func Dispose 
@@ -837,25 +789,19 @@ Class Matrix from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1])
 		return self
 
-	Func Multiply_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2])
-		return self
+	Func Translate P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Translate",P1])
+			return self
+		ok
+		raise("DotNet Error: Translate does not take one argument: use named arguments, Translate([ :parameter = value, ... ])")
 
-	Func Translate P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
-		return self
-
-	Func Translate_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2,P3])
-		return self
-
-	Func Scale P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2])
-		return self
-
-	Func Scale_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Scale",P1,P2,P3])
-		return self
+	Func Scale P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Scale",P1])
+			return self
+		ok
+		raise("DotNet Error: Scale does not take one argument: use named arguments, Scale([ :parameter = value, ... ])")
 
 	Func Rotate P1
 		if dnIsNamed(P1)
@@ -865,25 +811,19 @@ Class Matrix from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Rotate",P1])
 		return self
 
-	Func Rotate_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Rotate",P1,P2])
-		return self
+	Func RotateAt P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"RotateAt",P1])
+			return self
+		ok
+		raise("DotNet Error: RotateAt does not take one argument: use named arguments, RotateAt([ :parameter = value, ... ])")
 
-	Func RotateAt P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RotateAt",P1,P2])
-		return self
-
-	Func RotateAt_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"RotateAt",P1,P2,P3])
-		return self
-
-	Func Shear P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Shear",P1,P2])
-		return self
-
-	Func Shear_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Shear",P1,P2,P3])
-		return self
+	Func Shear P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Shear",P1])
+			return self
+		ok
+		raise("DotNet Error: Shear does not take one argument: use named arguments, Shear([ :parameter = value, ... ])")
 
 	Func Invert 
 		dnRequest("call",[new DotNetObject(nHandle),"Invert"])
@@ -992,8 +932,16 @@ Class PathGradientBrush from Brush
 		nHandle = dnCreate('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Drawing2D.PathGradientBrush, System.Drawing.Common',[P1])
 		return self
 
 	Func SetSigmaBellShape P1
@@ -1004,20 +952,12 @@ Class PathGradientBrush from Brush
 		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1])
 		return self
 
-	Func SetSigmaBellShape_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetSigmaBellShape",P1,P2])
-		return self
-
 	Func SetBlendTriangularShape P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1])
-		return self
-
-	Func SetBlendTriangularShape_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetBlendTriangularShape",P1,P2])
 		return self
 
 	Func ResetTransform 
@@ -1032,25 +972,19 @@ Class PathGradientBrush from Brush
 		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1])
 		return self
 
-	Func MultiplyTransform_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"MultiplyTransform",P1,P2])
-		return self
+	Func TranslateTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TranslateTransform",P1])
+			return self
+		ok
+		raise("DotNet Error: TranslateTransform does not take one argument: use named arguments, TranslateTransform([ :parameter = value, ... ])")
 
-	Func TranslateTransform P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2])
-		return self
-
-	Func TranslateTransform_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"TranslateTransform",P1,P2,P3])
-		return self
-
-	Func ScaleTransform P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2])
-		return self
-
-	Func ScaleTransform_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ScaleTransform",P1,P2,P3])
-		return self
+	Func ScaleTransform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ScaleTransform",P1])
+			return self
+		ok
+		raise("DotNet Error: ScaleTransform does not take one argument: use named arguments, ScaleTransform([ :parameter = value, ... ])")
 
 	Func RotateTransform P1
 		if dnIsNamed(P1)
@@ -1058,10 +992,6 @@ Class PathGradientBrush from Brush
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1])
-		return self
-
-	Func RotateTransform_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RotateTransform",P1,P2])
 		return self
 
 	Func getCenterColor
@@ -1166,8 +1096,16 @@ Class AdjustableArrowCap from CustomLineCap
 		nHandle = dnCreate('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Drawing2D.AdjustableArrowCap, System.Drawing.Common',[P1])
 		return self
 
 	Func getHeight

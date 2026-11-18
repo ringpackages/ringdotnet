@@ -324,11 +324,11 @@ Class BitmapDecoder from DispatcherObject
 	Func CreateInPlaceBitmapMetadataWriter 
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateInPlaceBitmapMetadataWriter"])
 
-	Func Create P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1,P2,P3])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1,P2,P3,P4])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapDecoder, PresentationCore'),"Create",P1])
+		ok
+		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func setDownloadCompletedEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadCompleted",dnCallback(P1)])
@@ -651,8 +651,16 @@ Class BitmapPalette from DispatcherObject
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapPalette, PresentationCore',[P1])
 		return self
 
 	Func getColors
@@ -921,19 +929,18 @@ Class BitmapSource from ImageSource
 		ok
 		return self
 
-	Func CopyPixels_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyPixels",P1,P2,P3,P4])
-		return self
+	Func CopyPixels P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"CopyPixels",P1])
+			return self
+		ok
+		raise("DotNet Error: CopyPixels does not take one argument: use named arguments, CopyPixels([ :parameter = value, ... ])")
 
-	Func CopyPixels P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CopyPixels",P1,P2,P3])
-		return self
-
-	Func Create P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Create_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Imaging.BitmapSource, PresentationCore'),"Create",P1])
+		ok
+		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func setDownloadCompletedEvent P1
 		dnRequest("setevent",[new DotNetObject(nHandle),"DownloadCompleted",dnCallback(P1)])
@@ -1053,15 +1060,6 @@ Class BitmapFrame from BitmapSource
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1,P2,P3])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Imaging.BitmapFrame, PresentationCore'),"Create",P1,P2,P3,P4])
-
 	Func getBaseUri
 		return dnRequest("get",[self,"BaseUri"])
 
@@ -1119,12 +1117,16 @@ Class BitmapImage from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.BitmapImage, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Imaging.BitmapImage, PresentationCore',[P1,P2])
 		return self
 
 	Func BeginInit 
@@ -1316,8 +1318,16 @@ Class ColorConvertedBitmap from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.ColorConvertedBitmap, PresentationCore',[P1])
 		return self
 
 	Func BeginInit 
@@ -1397,8 +1407,16 @@ Class CroppedBitmap from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.CroppedBitmap, PresentationCore',[P1])
 		return self
 
 	Func BeginInit 
@@ -1456,8 +1474,16 @@ Class FormatConvertedBitmap from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.FormatConvertedBitmap, PresentationCore',[P1])
 		return self
 
 	Func BeginInit 
@@ -1749,8 +1775,16 @@ Class TransformedBitmap from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.TransformedBitmap, PresentationCore',[P1])
 		return self
 
 	Func BeginInit 
@@ -1971,8 +2005,16 @@ Class WriteableBitmap from BitmapSource
 		nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[P1])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Imaging.WriteableBitmap, PresentationCore',[P1])
 		return self
 
 	Func AddDirtyRect P1
@@ -1990,17 +2032,12 @@ Class WriteableBitmap from BitmapSource
 		dnRequest("call",[new DotNetObject(nHandle),"Unlock"])
 		return self
 
-	Func WritePixels_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func WritePixels_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4,P5])
-		return self
-
-	Func WritePixels P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"WritePixels",P1,P2,P3,P4])
-		return self
+	Func WritePixels P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WritePixels",P1])
+			return self
+		ok
+		raise("DotNet Error: WritePixels does not take one argument: use named arguments, WritePixels([ :parameter = value, ... ])")
 
 	Func getBackBuffer
 		return dnRequest("get",[self,"BackBuffer"])

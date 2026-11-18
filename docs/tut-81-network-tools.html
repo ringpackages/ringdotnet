@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html" class="cur">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -210,7 +213,7 @@ using {
 	oClient = <span class="k">new</span> <span class="t">TcpClient</span>()
 	lOpen = <span class="k">False</span>
 	<span class="k">try</span>
-		oTask = oClient.<span class="f">ConnectAsync_2</span>(cAddress,nPort)
+		oTask = oClient.<span class="f">ConnectAsync</span>([ :host = cAddress, :port = nPort ])
 		lOpen = oTask.<span class="f">Wait</span>(<span class="n">500</span>) <span class="k">and</span> oClient.Connected
 	<span class="k">catch</span>
 		lOpen = <span class="k">False</span>                          <span class="c"># refused or failed: the error is the answer</span>
@@ -251,16 +254,16 @@ using {
 <h3 id="interfaces">Interfaces<a class="anchor" href="#interfaces">#</a></h3>
 <p><code>NetworkInterface.GetAllNetworkInterfaces()</code> lists the network cards (and virtual ones). <code>NetworkInterfaceType</code> is a text: <code>Ethernet</code>, <code>Wireless80211</code>, <code>Loopback</code>... Their addresses and speeds are properties too; this lesson only counts them, because the details are about <em>your</em> computer.</p>
 <h3 id="is-the-port-open">Is the port open?<a class="anchor" href="#is-the-port-open">#</a></h3>
-<p>The last step starts a <code>TcpListener</code> on port 0 (the system chooses a free port) and checks it with <code>portIsOpen</code>: <code>ConnectAsync_2(address, port)</code> starts the connection, <code>Task.Wait(500)</code> waits at most half a second, and a refused connection raises an error that the <code>try</code> turns into <em>no</em>. While the listener runs the answer is <em>yes</em>; after <code>Stop()</code> it is <em>no</em>. This is the whole idea of a port scanner — and the reason for the rules below.</p>
+<p>The last step starts a <code>TcpListener</code> on port 0 (the system chooses a free port) and checks it with <code>portIsOpen</code>: <code>ConnectAsync([ :host = address, :port = port ])</code> starts the connection, <code>Task.Wait(500)</code> waits at most half a second, and a refused connection raises an error that the <code>try</code> turns into <em>no</em>. While the listener runs the answer is <em>yes</em>; after <code>Stop()</code> it is <em>no</em>. This is the whole idea of a port scanner — and the reason for the rules below.</p>
 <div class="callout warn"><span class="t">Warning</span><p>Only test ports of computers that are yours or that you have permission to test. Scanning other people's computers can be a crime and is always rude. This tutorial only touches <code>127.0.0.1</code>.</p></div>
 <div class="callout note"><span class="t">Note</span><p>The <code>catch</code> in <code>portIsOpen</code> also catches Ring programming mistakes (a wrong method name, for example), which then look like "port closed". While you develop, print <code>cCatchError</code> in the <code>catch</code> block.</p></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li><code>IPAddress</code>, <code>IPEndPoint</code>,</li><li><code>out</code> parameters come back as a list,</li><li><code>Dns</code>, <code>Ping</code>, <code>NetworkInterface</code>,</li><li>a connection test with a time limit.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Write <code>waitForPort(address, port, seconds)</code> that tries every 200 ms and returns when the port opens.</li><li>List the open ports of 127.0.0.1 between 8000 and 8010 after starting two listeners.</li><li>Ping <code>127.0.0.1</code> five times and print the average round trip.</li><li>Resolve a real host name with <code>Dns.GetHostEntry</code> and handle the error when there is no network.</li></ol>
-<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<p>You have reached the end of the tutorials. Keep <a href="concepts.html">Core concepts</a>, the <a href="api.html">class reference</a> and <a href="gotchas.html">Gotchas &amp; limits</a> at hand, and read the <a href="gallery-apps.html">applications</a> for bigger programs.</p>
-<div class="pager"><a href="tut-80-json-nodes.html"><small>Previous</small>80. JSON as a tree</a><a class="next" href="concepts.html"><small>Next</small>Core concepts</a></div>
+<h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
+<p><a href="tut-82-shared-memory.html">Tutorial 82: Shared memory</a></p>
+<div class="pager"><a href="tut-80-json-nodes.html"><small>Previous</small>80. JSON as a tree</a><a class="next" href="tut-82-shared-memory.html"><small>Next</small>82. Shared memory</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

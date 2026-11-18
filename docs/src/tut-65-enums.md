@@ -28,7 +28,7 @@ Step 1 compares the value with a text: `oDate.DayOfWeek = "Friday"`. It reads li
 
 ### Names, `IsDefined` and `Parse`
 
-`Enum.GetNames(type)` lists all the names ([tutorial 20](tut-20-reflection.html) explains `dnType`). `IsDefined` asks whether a text is a valid name; use `IsDefined_2(type, text)` (the two-argument form). `Enum.Parse` checks and converts: a wrong name raises an error that says *Requested value 'Funday' was not found*. When the text comes from a user or a file, either test it first or `try` / `catch` ([tutorial 7](tut-07-errors.html)).
+`Enum.GetNames(type)` lists all the names ([tutorial 20](tut-20-reflection.html) explains `dnType`). `IsDefined` asks whether a text is a valid name; use `IsDefined([ :enumType = type, :value = text ])` (the two-argument form). `Enum.Parse` checks and converts: a wrong name raises an error that says *Requested value 'Funday' was not found*. When the text comes from a user or a file, either test it first or `try` / `catch` ([tutorial 7](tut-07-errors.html)).
 
 ### Flags
 
@@ -51,7 +51,7 @@ Read and write are `1 | 2 = 3`; adding run (`4`) gives `7`; removing write leave
 ## What you learned
 
 - enum values are texts in Ring,
-- `GetNames`, `IsDefined_2`, `Parse`,
+- `GetNames`, `IsDefined`, `Parse`,
 - flag enums are comma-separated texts,
 - bit flags with `|`, `&` and `~`.
 

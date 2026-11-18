@@ -76,8 +76,16 @@ Class DirectoryBrowserMiddleware from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.DirectoryBrowserMiddleware, Microsoft.AspNetCore.StaticFiles',[P1])
 		return self
 
 	Func Invoke P1
@@ -100,7 +108,15 @@ Class FileExtensionContentTypeProvider from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider, Microsoft.AspNetCore.StaticFiles',[P1])
 		return self
 

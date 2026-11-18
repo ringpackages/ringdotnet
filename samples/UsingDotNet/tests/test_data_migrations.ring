@@ -4,7 +4,7 @@ dnUseData()
 dnImport("System.IO")
 
 func main
-	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_migrate_test.db")
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_migrate_test.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

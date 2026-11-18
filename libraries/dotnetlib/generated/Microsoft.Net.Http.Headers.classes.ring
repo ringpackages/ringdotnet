@@ -474,12 +474,16 @@ Class AspContentRangeHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.ContentRangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Equals P1
@@ -537,8 +541,16 @@ Class CookieHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.CookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Equals P1
@@ -592,8 +604,16 @@ Class AspEntityTagHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.EntityTagHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Equals P1
@@ -1388,9 +1408,6 @@ Class HeaderUtilities from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1])
 
-	Func FormatDate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"FormatDate",P1,P2])
-
 	Func RemoveQuotes P1
 		return dnRequest("call",[dnTypeCached('Microsoft.Net.Http.Headers.HeaderUtilities, Microsoft.Net.Http.Headers'),"RemoveQuotes",P1])
 
@@ -1431,8 +1448,16 @@ Class AspMediaTypeHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.MediaTypeHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func IsSubsetOf P1
@@ -1450,7 +1475,7 @@ Class AspMediaTypeHeaderValue from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Parse P1
@@ -1607,8 +1632,16 @@ Class AspNameValueHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.NameValueHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Copy 
@@ -1718,8 +1751,16 @@ Class AspRangeHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.RangeHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Equals P1
@@ -1788,8 +1829,16 @@ Class SetCookieHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.SetCookieHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func AppendToStringBuilder P1
@@ -1901,8 +1950,16 @@ Class AspStringWithQualityHeaderValue from Object
 		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Net.Http.Headers.StringWithQualityHeaderValue, Microsoft.Net.Http.Headers',[P1])
 		return self
 
 	Func Equals P1

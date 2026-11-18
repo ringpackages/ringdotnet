@@ -111,8 +111,16 @@ Class Margins from Object
 		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Printing.Margins, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Printing.Margins, System.Drawing.Common',[P1])
 		return self
 
 	Func Clone 
@@ -185,7 +193,15 @@ Class PageSettings from Object
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Printing.PageSettings, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Drawing.Printing.PageSettings, System.Drawing.Common',[P1])
 		return self
 
@@ -294,8 +310,16 @@ Class PaperSize from Object
 		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Drawing.Printing.PaperSize, System.Drawing.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Drawing.Printing.PaperSize, System.Drawing.Common',[P1])
 		return self
 
 	Func Equals P1
@@ -698,12 +722,6 @@ Class PrinterSettings from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
 
-	Func CreateMeasurementGraphics_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1])
-
-	Func CreateMeasurementGraphics_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateMeasurementGraphics",P1,P2])
-
 	Func GetHdevmode P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHdevmode",P1])
@@ -711,9 +729,6 @@ Class PrinterSettings from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode",P1])
-
-	Func GetHdevmode_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHdevmode",P1])
 
 	Func GetHdevnames 

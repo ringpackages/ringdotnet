@@ -1681,48 +1681,18 @@ Class Ping from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
 
-	Func Send_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
-
-	Func Send_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
-
-	Func Send_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
-
-	Func SendAsync P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
-		return self
-
-	Func SendAsync_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
-		return self
-
-	Func SendAsync_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
-		return self
-
-	Func SendAsync_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4,P5])
-		return self
+	Func SendAsync P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
+			return self
+		ok
+		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendPingAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendPingAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1])
-
-	Func SendPingAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2])
-
-	Func SendPingAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3])
-
-	Func SendPingAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3,P4])
-
-	Func SendPingAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SendPingAsync",P1,P2,P3,P4,P5])
 
 	Func SendAsyncCancel 
 		dnRequest("call",[new DotNetObject(nHandle),"SendAsyncCancel"])
@@ -1770,8 +1740,16 @@ Class PingOptions from Object
 		nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.NetworkInformation.PingOptions, System.Net.Ping',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.NetworkInformation.PingOptions, System.Net.Ping',[P1])
 		return self
 
 	Func Equals P1

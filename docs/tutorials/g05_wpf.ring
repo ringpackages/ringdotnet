@@ -43,7 +43,7 @@ func main
 	wpfFind(oWindow,"greet").setClickEvent("oGreet.Text = 'Hello, ' + oNameBox.Text + '!'")
 
 	# 4. Data binding: the text follows the slider, with no code at all
-	oBinding = new WpfBinding().New_1("Value")
+	oBinding = new WpfBinding().New_([ :path = "Value" ])
 	oBinding.Source = oSlider
 	oValue.SetBinding(oValue.TextProperty,oBinding)
 
@@ -55,7 +55,7 @@ func main
 	wpfEnd()
 
 func selfTest
-	wpfFind(oWindow,"greet").RaiseEvent(new RoutedEventArgs().New_1(new WpfButtonBase().ClickEvent))
+	wpfFind(oWindow,"greet").RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))
 	dnAssert("greeting",oGreet.Text,"Hello, Ring!")
 	oSlider.Value = 100
 	dnAssert("binding",oValue.Text,"100")

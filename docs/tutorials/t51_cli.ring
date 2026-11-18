@@ -20,8 +20,8 @@ func main
 	ok
 
 	# no arguments: a demonstration. A file with some text first.
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial51.txt")
-	new File().WriteAllText(cFile,"The cat and the dog. The dog and the bird! A cat, a dog, a bird and the fish.")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial51.txt"])
+	new File().WriteAllText([ :path = cFile, :contents = "The cat and the dog. The dog and the bird! A cat, a dog, a bird and the fish." ])
 	? "$ wordstat --help"
 	showResult(run(["--help"]))
 	? nl + "$ wordstat tutorial51.txt --top 3"

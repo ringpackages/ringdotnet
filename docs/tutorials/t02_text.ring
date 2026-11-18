@@ -16,10 +16,10 @@ func main
 
 	# .NET adds helpers that Ring does not have. String's static methods:
 	oString = new String()
-	? "Join            : " + oString.Join("-",aWords)
-	? "Format          : " + oString.Format_3("{0} has {1} items","The list",3)
+	? "Join            : " + oString.Join([ :separator = "-", :value = aWords ])
+	? "Format          : " + oString.Format([ :format = "{0} has {1} items", :arg0 = "The list", :arg1 = 3 ])
 	? "Empty or blank? : " + oString.IsNullOrWhiteSpace("   ")
-	? "Compare (a < b) : " + oString.Compare("apple","banana")
+	? "Compare (a < b) : " + oString.Compare([ :strA = "apple", :strB = "banana" ])
 
 	# Title case needs the culture of the user
 	oText = new CultureInfo("en-US").TextInfo
@@ -34,7 +34,7 @@ func main
 	? "StringBuilder   : " + len(oBuilder.ToString()) + " characters"
 
 	# Numbers in other bases, and Base64
-	? "255 in hex      : " + new Convert().ToString_2(255,16)
+	? "255 in hex      : " + new Convert().Format([ :value = 255, :toBase = 16 ])
 	? "Base64          : " + new Convert().ToBase64String("Ring")
 
 	# Regular expressions: patterns for text
@@ -45,7 +45,7 @@ func main
 	for nIndex = 0 to oMatches.Count - 1
 		? "  " + oMatches.Item(nIndex).Value
 	next
-	? "Replaced        : " + oEmail.Replace(cMail,"<hidden>")
+	? "Replaced        : " + oEmail.Replace([ :input = cMail, :replacement = "<hidden>" ])
 	? "Is it a number? : " + new Regex("^[0-9]+$").IsMatch("12345") + " " + new Regex("^[0-9]+$").IsMatch("12x45")
 
 	# Encodings: text <-> bytes

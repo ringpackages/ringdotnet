@@ -1,0 +1,12 @@
+1. the parent wrote the int 21 at position 0 and the double 3.5 at position 8
+2. the parent wrote a text at position 100
+
+3. the child says:
+   I read the int 21, the double 3.50
+
+   and the text 'Hello from the parent'
+
+4. the answer of the child at position 4 (21 * 2): 42
+   the text of the child at position 300: Hello from the child
+
+5. a file of 12 bytes: the second number was 20, now it is 99; the first is 10 and the third 30

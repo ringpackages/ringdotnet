@@ -40,7 +40,7 @@ Everything happens in `transform`: it writes the stylesheet text to a file, then
 ```ring
 oTransform = new XslCompiledTransform()
 oTransform.Load_(cSheet)                 # compile the stylesheet (Load is a Ring keyword, so the method is Load_)
-oTransform.Transform(cInput,cOutput)     # input file -> output file
+oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])     # input file -> output file
 ```
 
 `Load_` and `Transform` take file names in this form; the output file is read back with `File.ReadAllText`. Compiling is the slow part, so a program that transforms many documents compiles the stylesheet once and calls `Transform` many times.

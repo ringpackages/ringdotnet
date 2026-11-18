@@ -161,7 +161,15 @@ Class ArrayList from Object
 		nHandle = dnCreate('System.Collections.ArrayList, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.ArrayList, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.ArrayList, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.ArrayList, System.Private.CoreLib',[P1])
 		return self
 
@@ -172,17 +180,11 @@ Class ArrayList from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -202,14 +204,6 @@ Class ArrayList from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
 	Func GetEnumerator P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEnumerator",P1])
@@ -217,22 +211,13 @@ Class ArrayList from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 		ok
-		raise("DotNet Error: GetEnumerator does not take one argument: use GetEnumerator(NULL), GetEnumerator_N(...) or named arguments")
-
-	Func GetEnumerator_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator",P1,P2])
+		raise("DotNet Error: GetEnumerator does not take one argument: use named arguments, GetEnumerator([ :parameter = value, ... ])")
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
-
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
 
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
@@ -247,12 +232,6 @@ Class ArrayList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -275,11 +254,7 @@ Class ArrayList from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func SetRange P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetRange",P1,P2])
@@ -300,14 +275,6 @@ Class ArrayList from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
 		return self
 
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
-		return self
-
 	Func ToArray P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToArray",P1])
@@ -315,9 +282,6 @@ Class ArrayList from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ToArray"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToArray",P1])
-
-	Func ToArray_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ToArray",P1])
 
 	Func TrimToSize 
@@ -404,8 +368,16 @@ Class BitArray from Object
 		nHandle = dnCreate('System.Collections.BitArray, System.Collections',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.BitArray, System.Collections',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.BitArray, System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.BitArray, System.Collections',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Collections.BitArray, System.Collections',[P1])
 		return self
 
 	Func Get_ P1
@@ -509,7 +481,15 @@ Class CaseInsensitiveComparer from Object
 		nHandle = dnCreate('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.CaseInsensitiveComparer, System.Collections.NonGeneric',[P1])
 		return self
 
@@ -657,8 +637,16 @@ Class DictionaryEntry from ValueType
 		nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.DictionaryEntry, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Collections.DictionaryEntry, System.Private.CoreLib',[P1])
 		return self
 
 	Func Deconstruct 
@@ -698,20 +686,16 @@ Class Hashtable from Object
 		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Hashtable, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Collections.Hashtable, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
 	Func Add P1,P2
@@ -1213,12 +1197,16 @@ Class Queue from Object
 		nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Queue, System.Collections.NonGeneric',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Queue, System.Collections.NonGeneric',[P1,P2])
 		return self
 
 	Func Clone 
@@ -1325,12 +1313,16 @@ Class SortedList from Object
 		nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.SortedList, System.Collections.NonGeneric',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.SortedList, System.Collections.NonGeneric',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1472,7 +1464,15 @@ Class Stack from Object
 		nHandle = dnCreate('System.Collections.Stack, System.Collections.NonGeneric',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Stack, System.Collections.NonGeneric',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Stack, System.Collections.NonGeneric',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Stack, System.Collections.NonGeneric',[P1])
 		return self
 

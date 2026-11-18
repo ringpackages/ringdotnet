@@ -43,7 +43,7 @@ func main
 	])
 
 	# 3. A menu item that can be ticked: a ToolStripMenuItem with CheckOnClick. Added to the "Text" menu by hand.
-	oWrapItem = new ToolStripMenuItem().New_1("Word wrap")
+	oWrapItem = new ToolStripMenuItem().New_([ :text = "Word wrap" ])
 	oWrapItem.CheckOnClick = True
 	oWrapItem.Checked = True
 	oWrapItem.setCheckedChangedEvent("wrapChanged()")
@@ -52,7 +52,7 @@ func main
 	# 4. A context menu: opens with the right mouse button on the text
 	oContext = new ContextMenuStrip()
 	for aItem in [["Select all","oText.SelectAll()"],["Upper case","upperCase()"],["Clear","newText()"]]
-		oEntry = new ToolStripMenuItem().New_1(aItem[1])
+		oEntry = new ToolStripMenuItem().New_([ :text = aItem[1] ])
 		oEntry.setClickEvent(aItem[2])
 		oContext.Items.Add(oEntry)
 	next

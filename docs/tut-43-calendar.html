@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -177,9 +180,9 @@ using {
 
 	<span class="c"># 5. Adding to a date: months of different length, and the end of the month</span>
 	oStart = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">1</span>,<span class="n">31</span>)
-	? nl + <span class="s">"2024-01-31 plus one month : "</span> + oStart.<span class="f">AddMonths</span>(<span class="n">1</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">" (February has no 31st: the last day is used)"</span>
-	? <span class="s">"   plus one year (leap day)  : "</span> + <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">2</span>,<span class="n">29</span>).<span class="f">AddYears</span>(<span class="n">1</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
-	? <span class="s">"   plus 100 days             : "</span> + oStart.<span class="f">AddDays</span>(<span class="n">100</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
+	? nl + <span class="s">"2024-01-31 plus one month : "</span> + oStart.<span class="f">AddMonths</span>(<span class="n">1</span>).<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>) + <span class="s">" (February has no 31st: the last day is used)"</span>
+	? <span class="s">"   plus one year (leap day)  : "</span> + <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">2</span>,<span class="n">29</span>).<span class="f">AddYears</span>(<span class="n">1</span>).<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
+	? <span class="s">"   plus 100 days             : "</span> + oStart.<span class="f">AddDays</span>(<span class="n">100</span>).<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
 
 	<span class="c"># 6. The week number and the day of the year</span>
 	oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>)
@@ -189,7 +192,7 @@ using {
 <span class="k">func</span> <span class="f">monthCalendar</span> nYear, nMonth
 	oFirst = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>)
 	nDays = <span class="k">new</span> <span class="t">DateTime</span>(nYear,nMonth,<span class="n">1</span>).<span class="f">DaysInMonth</span>(nYear,nMonth)
-	cText = <span class="s">""</span> + oFirst.<span class="f">ToString_1</span>(<span class="s">"MMMM yyyy"</span>) + <span class="s">" ("</span> + nDays + <span class="s">" days)"</span> + nl
+	cText = <span class="s">""</span> + oFirst.<span class="f">Format</span>(<span class="s">"MMMM yyyy"</span>) + <span class="s">" ("</span> + nDays + <span class="s">" days)"</span> + nl
 	cText += <span class="s">"   Mo Tu We Th Fr Sa Su"</span> + nl + <span class="s">"   "</span>
 	<span class="c"># the column of the first day: Monday = 0 ... Sunday = 6</span>
 	aWeekdays = [<span class="s">"Monday"</span>,<span class="s">"Tuesday"</span>,<span class="s">"Wednesday"</span>,<span class="s">"Thursday"</span>,<span class="s">"Friday"</span>,<span class="s">"Saturday"</span>,<span class="s">"Sunday"</span>]

@@ -48,24 +48,16 @@ Class Claim from Object
 		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Claims.Claim, System.Security.Claims',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Claims.Claim, System.Security.Claims',[P1])
 		return self
 
 	Func Clone P1
@@ -77,14 +69,11 @@ Class Claim from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
 
-	Func Clone_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Clone",P1])
-
 	Func WriteTo P1
 		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -754,24 +743,16 @@ Class ClaimsIdentity from Object
 		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Claims.ClaimsIdentity, System.Security.Claims',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Security.Claims.ClaimsIdentity, System.Security.Claims',[P1,P2,P3,P4,P5])
 		return self
 
 	Func Clone 
@@ -798,11 +779,11 @@ Class ClaimsIdentity from Object
 	Func FindFirst P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindFirst",P1])
 
-	Func HasClaim_1 P1
+	Func HasClaim P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasClaim",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1])
-
-	Func HasClaim P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1,P2])
 
 	Func WriteTo P1
 		dnRequest("call",[new DotNetObject(nHandle),"WriteTo",P1])
@@ -905,7 +886,15 @@ Class ClaimsPrincipal from Object
 		nHandle = dnCreate('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Claims.ClaimsPrincipal, System.Security.Claims',[P1])
 		return self
 
@@ -926,11 +915,11 @@ Class ClaimsPrincipal from Object
 	Func FindFirst P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindFirst",P1])
 
-	Func HasClaim_1 P1
+	Func HasClaim P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasClaim",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1])
-
-	Func HasClaim P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HasClaim",P1,P2])
 
 	Func IsInRole P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsInRole",P1])

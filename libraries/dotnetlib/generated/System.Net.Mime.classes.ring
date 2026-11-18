@@ -43,7 +43,15 @@ Class ContentDisposition from Object
 		nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mime.ContentDisposition, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Mime.ContentDisposition, System.Net.Mail',[P1])
 		return self
 
@@ -123,7 +131,15 @@ Class ContentType from Object
 		nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Mime.ContentType, System.Net.Mail',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Mime.ContentType, System.Net.Mail',[P1])
 		return self
 

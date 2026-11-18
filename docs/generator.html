@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -176,7 +179,7 @@ ring gendotnet.ring System.Text System.IO # only these</code></pre></div>
 <p>When two namespaces contain a class with the same short name, the later one gets a prefix: <code>System.Timers.Timer</code> becomes <code>TimersTimer</code>, WPF's <code>Button</code> becomes <code>WpfButton</code>, ASP.NET's <code>MediaTypeHeaderValue</code> becomes <code>AspMediaTypeHeaderValue</code>, EF's clashing names start with <code>Ef</code>.</p>
 <h2 id="overload-rules">Overload rules<a class="anchor" href="#overload-rules">#</a></h2>
 <p>The generator names overloads so that the <strong>plain name</strong> is the most useful one:</p>
-<ul><li>the parameterless form wins when the type has one (<code>Cancel()</code>, <code>Wait()</code>, <code>Reverse()</code>), except <code>Write*</code> methods;</li><li>otherwise the shortest overload is the plain name;</li><li>overloads whose parameters are arrays (except <code>byte[]</code> / <code>char[]</code>), delegates, comparers or spans never decide the plain name;</li><li>all other overloads are <code>Name_N</code> where N is the parameter count;</li><li><code>ToString()</code> keeps its parameterless form;</li><li>a method with optional parameters is available with every number of parameters from the required ones up;</li><li>a static and an instance method with the same name and arity are one method;</li><li>names that are Ring keywords get a trailing <code>_</code>.</li></ul>
+<ul><li>the parameterless form wins when the type has one (<code>Cancel()</code>, <code>Wait()</code>, <code>Reverse()</code>), except <code>Write*</code> methods;</li><li>otherwise the shortest overload is the plain name;</li><li>overloads whose parameters are arrays (except <code>byte[]</code> / <code>char[]</code>), delegates, comparers or spans never decide the plain name;</li><li>a name with overloads of several parameter counts is one method that takes one parameter (<code>NULL</code>, a value, or a list of <code>:name = value</code>); the constructors other than <code>init</code> are <code>New_</code>;</li><li><code>ToString()</code> keeps its parameterless form;</li><li>a method with optional parameters is available with every number of parameters from the required ones up;</li><li>a static and an instance method with the same name and arity are one method;</li><li>names that are Ring keywords get a trailing <code>_</code>.</li></ul>
 <p><code>:prefer</code> overrides the choice for a method.</p>
 <h2 id="how-a-wrapper-class-looks">How a wrapper class looks<a class="anchor" href="#how-a-wrapper-class-looks">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">Class</span> StringBuilder <span class="k">from</span> Object

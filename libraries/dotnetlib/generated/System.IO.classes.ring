@@ -186,12 +186,16 @@ Class BinaryReader from Object
 		nHandle = dnCreate('System.IO.BinaryReader, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.BinaryReader, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.BinaryReader, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.BinaryReader, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.BinaryReader, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.BinaryReader, System.Private.CoreLib',[P1])
 		return self
 
 	Func Dispose 
@@ -212,7 +216,7 @@ Class BinaryReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 		ok
-		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
+		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadByte 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadByte"])
@@ -259,9 +263,6 @@ Class BinaryReader from Object
 	Func ReadString 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadString"])
 
-	Func Read_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
-
 	Func ReadChars P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadChars",P1])
 
@@ -298,12 +299,16 @@ Class BinaryWriter from Object
 		nHandle = dnCreate('System.IO.BinaryWriter, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.BinaryWriter, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.BinaryWriter, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.BinaryWriter, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.BinaryWriter, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.BinaryWriter, System.Private.CoreLib',[P1])
 		return self
 
 	Func Close 
@@ -330,10 +335,6 @@ Class BinaryWriter from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
-		return self
-
-	Func Write_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
 		return self
 
 	Func Write7BitEncodedInt P1
@@ -381,12 +382,6 @@ Class Directory from Object
 			return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateDirectory",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateDirectory",P1])
-
-	Func CreateDirectory_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateDirectory",P1,P2])
-
-	Func CreateTempSubdirectory_1 P1
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"CreateTempSubdirectory",P1])
 
 	Func CreateTempSubdirectory P1
 		if dnIsNamed(P1)
@@ -448,23 +443,11 @@ Class Directory from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFiles",P1])
 
-	Func GetFiles_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFiles",P1,P2])
-
-	Func GetFiles_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFiles",P1,P2,P3])
-
 	Func GetDirectories P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectories",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectories",P1])
-
-	Func GetDirectories_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectories",P1,P2])
-
-	Func GetDirectories_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectories",P1,P2,P3])
 
 	Func GetFileSystemEntries P1
 		if dnIsNamed(P1)
@@ -472,23 +455,11 @@ Class Directory from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFileSystemEntries",P1])
 
-	Func GetFileSystemEntries_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFileSystemEntries",P1,P2])
-
-	Func GetFileSystemEntries_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetFileSystemEntries",P1,P2,P3])
-
 	Func EnumerateDirectories P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateDirectories",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateDirectories",P1])
-
-	Func EnumerateDirectories_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateDirectories",P1,P2])
-
-	Func EnumerateDirectories_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateDirectories",P1,P2,P3])
 
 	Func EnumerateFiles P1
 		if dnIsNamed(P1)
@@ -496,23 +467,11 @@ Class Directory from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFiles",P1])
 
-	Func EnumerateFiles_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFiles",P1,P2])
-
-	Func EnumerateFiles_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFiles",P1,P2,P3])
-
 	Func EnumerateFileSystemEntries P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFileSystemEntries",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFileSystemEntries",P1])
-
-	Func EnumerateFileSystemEntries_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFileSystemEntries",P1,P2])
-
-	Func EnumerateFileSystemEntries_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"EnumerateFileSystemEntries",P1,P2,P3])
 
 	Func GetDirectoryRoot P1
 		return dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"GetDirectoryRoot",P1])
@@ -534,10 +493,6 @@ Class Directory from Object
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"Delete",P1])
-		return self
-
-	Func Delete_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.Directory, System.Private.CoreLib'),"Delete",P1,P2])
 		return self
 
 	Func GetLogicalDrives 
@@ -750,25 +705,18 @@ Class File from Object
 	Func AppendText P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendText",P1])
 
-	Func Copy P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Copy",P1,P2])
-		return self
-
-	Func Copy_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Copy",P1,P2,P3])
-		return self
+	Func Copy P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Copy",P1])
+			return self
+		ok
+		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Create",P1,P2,P3])
 
 	Func Delete P1
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Delete",P1])
@@ -777,29 +725,11 @@ Class File from Object
 	Func Exists P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Exists",P1])
 
-	Func Open P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1,P2])
-
-	Func Open_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1,P2,P3])
-
-	Func Open_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1,P2,P3,P4])
-
-	Func OpenHandle_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4,P5,P6])
-
-	Func OpenHandle_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4,P5])
-
-	Func OpenHandle_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3,P4])
-
-	Func OpenHandle_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2,P3])
-
-	Func OpenHandle_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"OpenHandle",P1,P2])
+	Func Open P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Open",P1])
+		ok
+		raise("DotNet Error: Open does not take one argument: use named arguments, Open([ :parameter = value, ... ])")
 
 	Func OpenHandle P1
 		if dnIsNamed(P1)
@@ -875,16 +805,12 @@ Class File from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllText",P1])
 
-	Func ReadAllText_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllText",P1,P2])
-
-	Func WriteAllText P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllText",P1,P2])
-		return self
-
-	Func WriteAllText_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllText",P1,P2,P3])
-		return self
+	Func WriteAllText P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllText",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteAllText does not take one argument: use named arguments, WriteAllText([ :parameter = value, ... ])")
 
 	Func ReadAllBytes P1
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytes",P1])
@@ -897,11 +823,11 @@ Class File from Object
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytes",P1,P2])
 		return self
 
-	Func AppendAllBytesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1,P2,P3])
-
-	Func AppendAllBytesAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1,P2])
+	Func AppendAllBytesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllBytesAsync",P1])
+		ok
+		raise("DotNet Error: AppendAllBytesAsync does not take one argument: use named arguments, AppendAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLines P1
 		if dnIsNamed(P1)
@@ -909,20 +835,11 @@ Class File from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1])
 
-	Func ReadAllLines_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLines",P1,P2])
-
 	Func ReadLines P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1])
-
-	Func ReadLines_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLines",P1,P2])
-
-	Func ReadLinesAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1,P2])
 
 	Func ReadLinesAsync P1
 		if dnIsNamed(P1)
@@ -930,48 +847,40 @@ Class File from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1])
 
-	Func ReadLinesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadLinesAsync",P1,P2,P3])
+	Func WriteAllLines P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLines",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteAllLines does not take one argument: use named arguments, WriteAllLines([ :parameter = value, ... ])")
 
-	Func WriteAllLines P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLines",P1,P2])
-		return self
+	Func AppendAllText P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllText",P1])
+			return self
+		ok
+		raise("DotNet Error: AppendAllText does not take one argument: use named arguments, AppendAllText([ :parameter = value, ... ])")
 
-	Func WriteAllLines_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLines",P1,P2,P3])
-		return self
+	Func AppendAllLines P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLines",P1])
+			return self
+		ok
+		raise("DotNet Error: AppendAllLines does not take one argument: use named arguments, AppendAllLines([ :parameter = value, ... ])")
 
-	Func AppendAllText P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllText",P1,P2])
-		return self
+	Func Replace P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Replace",P1])
+			return self
+		ok
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
-	Func AppendAllText_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllText",P1,P2,P3])
-		return self
-
-	Func AppendAllLines P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLines",P1,P2])
-		return self
-
-	Func AppendAllLines_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLines",P1,P2,P3])
-		return self
-
-	Func Replace P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Replace",P1,P2,P3])
-		return self
-
-	Func Replace_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Replace",P1,P2,P3,P4])
-		return self
-
-	Func Move P1,P2
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Move",P1,P2])
-		return self
-
-	Func Move_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Move",P1,P2,P3])
-		return self
+	Func Move P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Move",P1])
+			return self
+		ok
+		raise("DotNet Error: Move does not take one argument: use named arguments, Move([ :parameter = value, ... ])")
 
 	Func Encrypt P1
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Encrypt",P1])
@@ -981,29 +890,17 @@ Class File from Object
 		dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"Decrypt",P1])
 		return self
 
-	Func ReadAllTextAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1,P2])
-
 	Func ReadAllTextAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1])
 
-	Func ReadAllTextAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllTextAsync",P1,P2,P3])
-
-	Func WriteAllTextAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2,P3])
-
-	Func WriteAllTextAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2])
-
-	Func WriteAllTextAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1,P2,P3,P4])
-
-	Func ReadAllBytesAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1,P2])
+	Func WriteAllTextAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllTextAsync",P1])
+		ok
+		raise("DotNet Error: WriteAllTextAsync does not take one argument: use named arguments, WriteAllTextAsync([ :parameter = value, ... ])")
 
 	Func ReadAllBytesAsync P1
 		if dnIsNamed(P1)
@@ -1011,14 +908,11 @@ Class File from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllBytesAsync",P1])
 
-	Func WriteAllBytesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1,P2,P3])
-
-	Func WriteAllBytesAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1,P2])
-
-	Func ReadAllLinesAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1,P2])
+	Func WriteAllBytesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllBytesAsync",P1])
+		ok
+		raise("DotNet Error: WriteAllBytesAsync does not take one argument: use named arguments, WriteAllBytesAsync([ :parameter = value, ... ])")
 
 	Func ReadAllLinesAsync P1
 		if dnIsNamed(P1)
@@ -1026,35 +920,23 @@ Class File from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1])
 
-	Func ReadAllLinesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"ReadAllLinesAsync",P1,P2,P3])
+	Func WriteAllLinesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1])
+		ok
+		raise("DotNet Error: WriteAllLinesAsync does not take one argument: use named arguments, WriteAllLinesAsync([ :parameter = value, ... ])")
 
-	Func WriteAllLinesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2,P3])
+	Func AppendAllTextAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1])
+		ok
+		raise("DotNet Error: AppendAllTextAsync does not take one argument: use named arguments, AppendAllTextAsync([ :parameter = value, ... ])")
 
-	Func WriteAllLinesAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2])
-
-	Func WriteAllLinesAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"WriteAllLinesAsync",P1,P2,P3,P4])
-
-	Func AppendAllTextAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2,P3])
-
-	Func AppendAllTextAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2])
-
-	Func AppendAllTextAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllTextAsync",P1,P2,P3,P4])
-
-	Func AppendAllLinesAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2,P3])
-
-	Func AppendAllLinesAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2])
-
-	Func AppendAllLinesAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1,P2,P3,P4])
+	Func AppendAllLinesAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"AppendAllLinesAsync",P1])
+		ok
+		raise("DotNet Error: AppendAllLinesAsync does not take one argument: use named arguments, AppendAllLinesAsync([ :parameter = value, ... ])")
 
 	Func CreateSymbolicLink P1,P2
 		return dnRequest("call",[dnTypeCached('System.IO.File, System.Private.CoreLib'),"CreateSymbolicLink",P1,P2])
@@ -1319,12 +1201,16 @@ Class FileSystemWatcher from Component
 		nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.FileSystemWatcher, System.IO.FileSystem.Watcher',[P1,P2])
 		return self
 
 	Func WaitForChanged P1
@@ -1332,9 +1218,6 @@ Class FileSystemWatcher from Component
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitForChanged",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitForChanged",P1])
-
-	Func WaitForChanged_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForChanged",P1,P2])
 
 	Func BeginInit 
 		dnRequest("call",[new DotNetObject(nHandle),"BeginInit"])
@@ -1486,28 +1369,16 @@ Class Path from Object
 	Func HasExtension P1
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"HasExtension",P1])
 
-	Func Combine P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1,P2])
-
-	Func Combine_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1,P2,P3])
-
-	Func Combine_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1,P2,P3,P4])
-
-	Func Combine_1 P1
+	Func Combine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Combine",P1])
 
-	Func Join P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1,P2])
-
-	Func Join_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1,P2,P3])
-
-	Func Join_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1,P2,P3,P4])
-
-	Func Join_1 P1
+	Func Join P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1])
+		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"Join",P1])
 
 	Func GetRelativePath P1,P2
@@ -1522,7 +1393,7 @@ Class Path from Object
 	Func GetInvalidFileNameChars 
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetInvalidFileNameChars"])
 
-	Func GetInvalidPathChars_0 
+	Func GetInvalidPathChars_ 
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetInvalidPathChars"])
 
 	Func GetFullPath P1
@@ -1530,9 +1401,6 @@ Class Path from Object
 			return dnRequest("callnamed",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1])
-
-	Func GetFullPath_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetFullPath",P1,P2])
 
 	Func GetTempPath 
 		return dnRequest("call",[dnTypeCached('System.IO.Path, System.Private.CoreLib'),"GetTempPath"])
@@ -1600,21 +1468,21 @@ Class RandomAccess from Object
 	Func Read P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"Read",P1,P2,P3])
 
-	Func ReadAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1,P2,P3,P4])
-
-	Func ReadAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1,P2,P3])
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"ReadAsync",P1])
+		ok
+		raise("DotNet Error: ReadAsync does not take one argument: use named arguments, ReadAsync([ :parameter = value, ... ])")
 
 	Func Write P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"Write",P1,P2,P3])
 		return self
 
-	Func WriteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1,P2,P3,P4])
-
-	Func WriteAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1,P2,P3])
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"WriteAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 	Func FlushToDisk P1
 		dnRequest("call",[dnTypeCached('System.IO.RandomAccess, System.Private.CoreLib'),"FlushToDisk",P1])
@@ -1649,21 +1517,11 @@ Class Stream from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CopyToAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1])
-
-	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
-
-	Func CopyToAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2,P3])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -1689,47 +1547,29 @@ Class Stream from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
-	Func FlushAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
-
 	Func BeginRead P1,P2,P3,P4,P5
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginRead",P1,P2,P3,P4,P5])
 
 	Func EndRead P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndRead",P1])
 
-	Func ReadAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3])
-
-	Func ReadAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3,P4])
-
-	Func ReadAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2])
-
-	Func ReadAsync_1 P1
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
-	Func ReadExactlyAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2])
-
-	Func ReadExactlyAsync_1 P1
+	Func ReadExactlyAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadExactlyAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1])
 
-	Func ReadExactlyAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2,P3,P4])
-
-	Func ReadExactlyAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadExactlyAsync",P1,P2,P3])
-
-	Func ReadAtLeastAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2,P3,P4])
-
-	Func ReadAtLeastAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2,P3])
-
-	Func ReadAtLeastAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1,P2])
+	Func ReadAtLeastAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAtLeastAsync",P1])
+		ok
+		raise("DotNet Error: ReadAtLeastAsync does not take one argument: use named arguments, ReadAtLeastAsync([ :parameter = value, ... ])")
 
 	Func BeginWrite P1,P2,P3,P4,P5
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginWrite",P1,P2,P3,P4,P5])
@@ -1738,16 +1578,10 @@ Class Stream from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"EndWrite",P1])
 		return self
 
-	Func WriteAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3])
-
-	Func WriteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3,P4])
-
-	Func WriteAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2])
-
-	Func WriteAsync_1 P1
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
 
 	Func Seek P1,P2
@@ -1863,10 +1697,7 @@ Class TextReader from MarshalByRefObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Read"])
 		ok
-		raise("DotNet Error: Read does not take one argument: use Read(NULL), Read_N(...) or named arguments")
-
-	Func Read_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Read",P1,P2,P3])
+		raise("DotNet Error: Read does not take one argument: use named arguments, Read([ :parameter = value, ... ])")
 
 	Func ReadToEnd 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEnd"])
@@ -1886,9 +1717,6 @@ Class TextReader from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1])
 
-	Func ReadLineAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadLineAsync",P1])
-
 	Func ReadToEndAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
@@ -1898,25 +1726,16 @@ Class TextReader from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
 
-	Func ReadToEndAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToEndAsync",P1])
-
-	Func ReadAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2,P3])
-
-	Func ReadAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1,P2])
-
-	Func ReadAsync_1 P1
+	Func ReadAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
-	Func ReadBlockAsync P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1,P2,P3])
-
-	Func ReadBlockAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1,P2])
-
-	Func ReadBlockAsync_1 P1
+	Func ReadBlockAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadBlockAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadBlockAsync",P1])
 
 	Func Synchronized P1
@@ -1967,22 +1786,6 @@ Class TextWriter from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
 		return self
 
-	Func Write_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3])
-		return self
-
-	Func Write_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
-		return self
-
-	Func Write_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2,P3,P4])
-		return self
-
-	Func WriteLine_0 
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine"])
-		return self
-
 	Func WriteLine P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteLine",P1])
@@ -1995,29 +1798,11 @@ Class TextWriter from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
 		return self
 
-	Func WriteLine_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2,P3])
-		return self
-
-	Func WriteLine_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2])
-		return self
-
-	Func WriteLine_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2,P3,P4])
-		return self
-
 	Func WriteAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1])
-
-	Func WriteAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2])
-
-	Func WriteAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteAsync",P1,P2,P3])
 
 	Func WriteLineAsync P1
 		if dnIsNamed(P1)
@@ -2028,15 +1813,6 @@ Class TextWriter from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1])
 
-	Func WriteLineAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1,P2])
-
-	Func WriteLineAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync",P1,P2,P3])
-
-	Func WriteLineAsync_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteLineAsync"])
-
 	Func FlushAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FlushAsync",P1])
@@ -2044,9 +1820,6 @@ Class TextWriter from MarshalByRefObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
-
-	Func FlushAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FlushAsync",P1])
 
 	Func Synchronized P1
@@ -2096,8 +1869,16 @@ Class UnmanagedMemoryAccessor from Object
 		nHandle = dnCreate('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.UnmanagedMemoryAccessor, System.Private.CoreLib',[P1])
 		return self
 
 	Func Dispose 
@@ -2238,8 +2019,16 @@ Class BufferedStream from Stream
 		nHandle = dnCreate('System.IO.BufferedStream, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.BufferedStream, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.BufferedStream, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.BufferedStream, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.BufferedStream, System.Private.CoreLib',[P1])
 		return self
 
 	Func getUnderlyingStream
@@ -2285,12 +2074,6 @@ Class DirectoryInfo from FileSystemInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
 
-	Func GetFiles_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1])
-
-	Func GetFiles_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFiles",P1,P2])
-
 	Func GetFileSystemInfos P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
@@ -2299,12 +2082,6 @@ Class DirectoryInfo from FileSystemInfo
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
-
-	Func GetFileSystemInfos_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1])
-
-	Func GetFileSystemInfos_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFileSystemInfos",P1,P2])
 
 	Func GetDirectories P1
 		if dnIsNamed(P1)
@@ -2315,12 +2092,6 @@ Class DirectoryInfo from FileSystemInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1])
 
-	Func GetDirectories_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1])
-
-	Func GetDirectories_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDirectories",P1,P2])
-
 	Func EnumerateDirectories P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
@@ -2329,12 +2100,6 @@ Class DirectoryInfo from FileSystemInfo
 			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
-
-	Func EnumerateDirectories_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1])
-
-	Func EnumerateDirectories_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateDirectories",P1,P2])
 
 	Func EnumerateFiles P1
 		if dnIsNamed(P1)
@@ -2345,12 +2110,6 @@ Class DirectoryInfo from FileSystemInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1])
 
-	Func EnumerateFiles_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1])
-
-	Func EnumerateFiles_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFiles",P1,P2])
-
 	Func EnumerateFileSystemInfos P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
@@ -2359,12 +2118,6 @@ Class DirectoryInfo from FileSystemInfo
 			return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
-
-	Func EnumerateFileSystemInfos_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1])
-
-	Func EnumerateFileSystemInfos_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateFileSystemInfos",P1,P2])
 
 	Func MoveTo P1
 		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
@@ -2379,10 +2132,6 @@ Class DirectoryInfo from FileSystemInfo
 			dnRequest("call",[new DotNetObject(nHandle),"Delete"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
-		return self
-
-	Func Delete_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
 		return self
 
@@ -2436,17 +2185,8 @@ Class FileInfo from FileSystemInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 
-	Func CopyTo_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-
 	Func Create 
 		return dnRequest("call",[new DotNetObject(nHandle),"Create"])
-
-	Func Open_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1,P2])
-
-	Func Open_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Open",P1,P2,P3])
 
 	Func OpenRead 
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenRead"])
@@ -2462,15 +2202,11 @@ Class FileInfo from FileSystemInfo
 		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1])
 		return self
 
-	Func MoveTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"MoveTo",P1,P2])
-		return self
-
-	Func Replace P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
-
-	Func Replace_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
+	Func Replace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+		ok
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Decrypt 
 		dnRequest("call",[new DotNetObject(nHandle),"Decrypt"])
@@ -2522,20 +2258,16 @@ Class FileStream from Stream
 		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.FileStream, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.FileStream, System.Private.CoreLib',[P1])
 		return self
 
 	Func Lock P1,P2
@@ -2555,10 +2287,6 @@ Class FileStream from Stream
 			dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
-		return self
-
-	Func Flush_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Flush",P1])
 		return self
 
@@ -2600,24 +2328,16 @@ Class MemoryStream from Stream
 		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.MemoryStream, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.IO.MemoryStream, System.Private.CoreLib',[P1,P2,P3,P4,P5])
 		return self
 
 	Func GetBuffer 
@@ -2683,20 +2403,16 @@ Class StreamReader from TextReader
 		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.StreamReader, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.StreamReader, System.Private.CoreLib',[P1])
 		return self
 
 	Func DiscardBufferedData 
@@ -2739,16 +2455,16 @@ Class StreamWriter from TextWriter
 		nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.StreamWriter, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.StreamWriter, System.Private.CoreLib',[P1])
 		return self
 
 	Func getAutoFlush
@@ -2791,12 +2507,16 @@ Class StringWriter from TextWriter
 		nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.StringWriter, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.IO.StringWriter, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func GetStringBuilder 
@@ -2817,8 +2537,16 @@ Class UnmanagedMemoryStream from Stream
 		nHandle = dnCreate('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.IO.UnmanagedMemoryStream, System.Private.CoreLib',[P1])
 		return self
 
 	Func getCapacity

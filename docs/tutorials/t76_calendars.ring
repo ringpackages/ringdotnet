@@ -19,27 +19,27 @@ func main
 
 	# 2. From a Hijri date to a Gregorian date: ToDateTime. The first day of Ramadan 1445.
 	oHijri = new UmAlQuraCalendar()
-	oRamadan = oHijri.ToDateTime(1445,9,1,0,0,0,0)
-	? nl + "2. 1 Ramadan 1445 is " + oRamadan.ToString_1("yyyy-MM-dd") + ", a " + oRamadan.DayOfWeek
+	oRamadan = oHijri.ToDateTime([ :year = 1445, :month = 9, :day = 1, :hour = 0, :minute = 0, :second = 0, :millisecond = 0 ])
+	? nl + "2. 1 Ramadan 1445 is " + oRamadan.Format("yyyy-MM-dd") + ", a " + oRamadan.DayOfWeek
 
 	# 3. Month lengths: a Hijri month has 29 or 30 days (Umm al-Qura follows tables of the moon)
 	? nl + "3. the months of 1445:"
 	for nMonth = 1 to 12
-		? "   month " + padLeft("" + nMonth,2) + ": " + oHijri.GetDaysInMonth(1445,nMonth) + " days, starts " + oHijri.ToDateTime(1445,nMonth,1,0,0,0,0).ToString_1("yyyy-MM-dd")
+		? "   month " + padLeft("" + nMonth,2) + ": " + oHijri.GetDaysInMonth([ :year = 1445, :month = nMonth ]) + " days, starts " + oHijri.ToDateTime([ :year = 1445, :month = nMonth, :day = 1, :hour = 0, :minute = 0, :second = 0, :millisecond = 0 ]).Format("yyyy-MM-dd")
 	next
 
 	# 4. Month and day names in the language and the calendar of a culture. ar-SA uses Arabic names and the Hijri calendar.
 	oArabic = new CultureInfo("ar-SA")
 	oEnglish = new CultureInfo("en-US")
 	? nl + "4. in ar-SA the culture's own calendar is " + oArabic.Calendar.GetType().Name
-	? "   " + oDate.ToString_2("dddd, d MMMM yyyy",oArabic)
-	? "   " + oDate.ToString_2("dddd, d MMMM yyyy",oEnglish)
+	? "   " + oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oArabic ])
+	? "   " + oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oEnglish ])
 
 	# 5. How long is a year? The Hijri year is 354 or 355 days, about 11 days shorter than the Gregorian year, so Ramadan moves back
 	? nl + "5. the first day of Ramadan, year after year:"
 	for nYear = 1445 to 1449
-		oStart = oHijri.ToDateTime(nYear,9,1,0,0,0,0)
-		? "   " + nYear + ": " + oStart.ToString_1("yyyy-MM-dd")
+		oStart = oHijri.ToDateTime([ :year = nYear, :month = 9, :day = 1, :hour = 0, :minute = 0, :second = 0, :millisecond = 0 ])
+		? "   " + nYear + ": " + oStart.Format("yyyy-MM-dd")
 	next
 
 	# 6. Leap years of the Gregorian calendar

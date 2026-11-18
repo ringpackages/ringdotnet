@@ -163,7 +163,15 @@ Class StringList from Object
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -178,17 +186,11 @@ Class StringList from Object
 	Func AsReadOnly 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsReadOnly"])
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -206,14 +208,6 @@ Class StringList from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func EnsureCapacity P1
@@ -234,12 +228,6 @@ Class StringList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
-	Func FindIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2,P3])
-
 	Func FindLast P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
@@ -248,12 +236,6 @@ Class StringList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLastIndex",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1])
-
-	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2,P3])
 
 	Func ForEach_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"ForEach",P1])
@@ -274,12 +256,6 @@ Class StringList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
@@ -293,12 +269,6 @@ Class StringList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -323,11 +293,7 @@ Class StringList from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
@@ -339,14 +305,6 @@ Class StringList from Object
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
 		return self
 
 	Func ToArray 
@@ -397,7 +355,15 @@ Class NumberList from Object
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.List`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.List`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -412,17 +378,11 @@ Class NumberList from Object
 	Func AsReadOnly 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsReadOnly"])
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -440,14 +400,6 @@ Class NumberList from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func EnsureCapacity P1
@@ -468,12 +420,6 @@ Class NumberList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
-	Func FindIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2,P3])
-
 	Func FindLast P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
@@ -482,12 +428,6 @@ Class NumberList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLastIndex",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1])
-
-	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2,P3])
 
 	Func ForEach_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"ForEach",P1])
@@ -508,12 +448,6 @@ Class NumberList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
@@ -527,12 +461,6 @@ Class NumberList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -557,11 +485,7 @@ Class NumberList from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
@@ -573,14 +497,6 @@ Class NumberList from Object
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
 		return self
 
 	Func ToArray 
@@ -631,7 +547,15 @@ Class IntList from Object
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -646,17 +570,11 @@ Class IntList from Object
 	Func AsReadOnly 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsReadOnly"])
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -674,14 +592,6 @@ Class IntList from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func EnsureCapacity P1
@@ -702,12 +612,6 @@ Class IntList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
-	Func FindIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2,P3])
-
 	Func FindLast P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
@@ -716,12 +620,6 @@ Class IntList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLastIndex",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1])
-
-	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2,P3])
 
 	Func ForEach_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"ForEach",P1])
@@ -742,12 +640,6 @@ Class IntList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
@@ -761,12 +653,6 @@ Class IntList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -791,11 +677,7 @@ Class IntList from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
@@ -807,14 +689,6 @@ Class IntList from Object
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
 		return self
 
 	Func ToArray 
@@ -865,7 +739,15 @@ Class ObjectList from Object
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.List`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -880,17 +762,11 @@ Class ObjectList from Object
 	Func AsReadOnly 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsReadOnly"])
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -908,14 +784,6 @@ Class ObjectList from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func EnsureCapacity P1
@@ -936,12 +804,6 @@ Class ObjectList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
-	Func FindIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2,P3])
-
 	Func FindLast P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
@@ -950,12 +812,6 @@ Class ObjectList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLastIndex",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1])
-
-	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2,P3])
 
 	Func ForEach_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"ForEach",P1])
@@ -976,12 +832,6 @@ Class ObjectList from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
@@ -995,12 +845,6 @@ Class ObjectList from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -1025,11 +869,7 @@ Class ObjectList from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
@@ -1041,14 +881,6 @@ Class ObjectList from Object
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
 		return self
 
 	Func ToArray 
@@ -1102,12 +934,16 @@ Class StringDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1162,10 +998,6 @@ Class StringDictionary from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -1227,12 +1059,16 @@ Class NumberDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1287,10 +1123,6 @@ Class NumberDictionary from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -1352,12 +1184,16 @@ Class ObjectDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1412,10 +1248,6 @@ Class ObjectDictionary from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -1477,12 +1309,16 @@ Class NumberKeyDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Dictionary`2[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.Dictionary`2[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1537,10 +1373,6 @@ Class NumberKeyDictionary from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -1601,12 +1433,16 @@ Class SortedStringDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1687,12 +1523,16 @@ Class SortedObjectDictionary from Object
 		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.SortedDictionary`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1774,12 +1614,16 @@ Class SortedObjectList from Object
 		nHandle = dnCreate('System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.SortedList`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Add P1,P2
@@ -1886,12 +1730,16 @@ Class StringSet from Object
 		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Clear 
@@ -1969,14 +1817,6 @@ Class StringSet from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
-	Func CopyTo_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
-		return self
-
 	Func RemoveWhere P1
 		return dnRequest("call",[new DotNetObject(nHandle),"RemoveWhere",P1])
 
@@ -1992,10 +1832,6 @@ Class StringSet from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -2039,12 +1875,16 @@ Class NumberSet from Object
 		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.HashSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Clear 
@@ -2122,14 +1962,6 @@ Class NumberSet from Object
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
-	Func CopyTo_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
-		return self
-
 	Func RemoveWhere P1
 		return dnRequest("call",[new DotNetObject(nHandle),"RemoveWhere",P1])
 
@@ -2145,10 +1977,6 @@ Class NumberSet from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -2193,12 +2021,16 @@ Class SortedStringSet from Object
 		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Add P1
@@ -2220,14 +2052,6 @@ Class SortedStringSet from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
-	Func CopyTo_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
 		return self
 
 	Func GetEnumerator 
@@ -2291,9 +2115,6 @@ Class SortedStringSet from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
-	Func CreateSetComparer_1 P1
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
-
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 
@@ -2335,12 +2156,16 @@ Class SortedNumberSet from Object
 		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Add P1
@@ -2362,14 +2187,6 @@ Class SortedNumberSet from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
-	Func CopyTo_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3])
 		return self
 
 	Func GetEnumerator 
@@ -2433,9 +2250,6 @@ Class SortedNumberSet from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
 
-	Func CreateSetComparer_1 P1
-		return dnRequest("call",[dnTypeCached('System.Collections.Generic.SortedSet`1[[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections'),"CreateSetComparer",P1])
-
 	Func getCount
 		return dnRequest("get",[self,"Count"])
 
@@ -2475,7 +2289,15 @@ Class StringQueue from Object
 		nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Queue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -2524,10 +2346,6 @@ Class StringQueue from Object
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
-	Func TrimExcess_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
 	Func EnsureCapacity P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
@@ -2561,7 +2379,15 @@ Class ObjectQueue from Object
 		nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Queue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Queue`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
@@ -2610,10 +2436,6 @@ Class ObjectQueue from Object
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
-	Func TrimExcess_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
 	Func EnsureCapacity P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EnsureCapacity",P1])
 
@@ -2647,7 +2469,15 @@ Class StringStack from Object
 		nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Stack`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
 		return self
 
@@ -2674,10 +2504,6 @@ Class StringStack from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -2733,7 +2559,15 @@ Class ObjectStack from Object
 		nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.Stack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.Stack`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
 		return self
 
@@ -2760,10 +2594,6 @@ Class ObjectStack from Object
 			dnRequest("call",[new DotNetObject(nHandle),"TrimExcess"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
-		return self
-
-	Func TrimExcess_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"TrimExcess",P1])
 		return self
 
@@ -2820,7 +2650,15 @@ Class StringLinkedList from Object
 		nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.LinkedList`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
 		return self
 
@@ -2912,7 +2750,15 @@ Class ObjectLinkedList from Object
 		nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.LinkedList`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.LinkedList`1[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
 		return self
 
@@ -3004,12 +2850,16 @@ Class StringPriorityQueue from Object
 		nHandle = dnCreate('System.Collections.Generic.PriorityQueue`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.PriorityQueue`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.PriorityQueue`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Collections.Generic.PriorityQueue`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.PriorityQueue`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Collections',[P1,P2])
 		return self
 
 	Func Enqueue P1,P2
@@ -3041,13 +2891,6 @@ Class StringPriorityQueue from Object
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"EnqueueRange",P1])
 		return self
-
-	Func EnqueueRange_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"EnqueueRange",P1,P2])
-		return self
-
-	Func Remove_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
 	Func Remove P1
 		if dnIsNamed(P1)
@@ -3102,8 +2945,16 @@ Class StringPair from ValueType
 		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func Deconstruct 
@@ -3136,8 +2987,16 @@ Class ObjectPair from ValueType
 		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func Deconstruct 
@@ -3170,8 +3029,16 @@ Class NumberPair from ValueType
 		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Double, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib',[P1])
 		return self
 
 	Func Deconstruct 

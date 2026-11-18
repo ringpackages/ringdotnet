@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -161,7 +164,7 @@ using {
 }
 
 <span class="k">func</span> <span class="f">main</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial45.dat"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial45.dat"</span>])
 
 	<span class="c"># 1. A binary file stores values as bytes, not as readable text. We invent a tiny format:</span>
 	<span class="c">#      the text "RDN1" (a "magic number": it says what kind of file this is), then</span>
@@ -194,7 +197,7 @@ using {
 	oReader.<span class="f">Close</span>()
 
 	<span class="c"># 4. Checking the magic number protects against opening the wrong kind of file</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,<span class="s">"just some text, not our format"</span>)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = <span class="s">"just some text, not our format"</span> ])
 	<span class="k">if</span> readMagic(cFile) != <span class="s">"RDN1"</span>
 		? nl + <span class="s">"4. Not our file format: refused"</span>
 	<span class="k">ok</span>

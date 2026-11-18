@@ -41,7 +41,7 @@ func main
 	# 5. Comparing texts: "é" typed in the two ways looks the same but the bytes differ. Normalize before comparing.
 	cComposed = "é"
 	? nl + "5. Looks the same, but equal as bytes? " + yesNo(cComposed = cDecomposed)
-	nSame = new String().Compare_4(cComposed,cDecomposed,False,new CultureInfo("en-US"))
+	nSame = new String().Compare([ :strA = cComposed, :strB = cDecomposed, :ignoreCase = False, :culture = new CultureInfo("en-US") ])
 	? "   Compared as TEXT with a culture (en-US): " + yesNo(nSame = 0)
 
 	# 6. Categories: .NET knows what kind of character something is

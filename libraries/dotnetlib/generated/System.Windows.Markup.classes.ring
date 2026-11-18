@@ -560,8 +560,16 @@ Class NamespaceMapEntry from Object
 		nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Markup.NamespaceMapEntry, PresentationFramework',[P1])
 		return self
 
 	Func Equals P1
@@ -606,7 +614,15 @@ Class ParserContext from Object
 		nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.ParserContext, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.ParserContext, PresentationFramework',[P1])
 		return self
 
@@ -755,9 +771,6 @@ Class ValueSerializer from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1])
 
-	Func GetSerializerFor_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Markup.ValueSerializer, System.Xaml'),"GetSerializerFor",P1,P2])
-
 
 Class XData from Object
 
@@ -825,12 +838,6 @@ Class XamlReader from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
 
-	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2])
-
-	Func LoadAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1,P2,P3])
-
 	Func CancelAsync 
 		dnRequest("call",[new DotNetObject(nHandle),"CancelAsync"])
 		return self
@@ -844,23 +851,11 @@ Class XamlReader from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Parse",P1,P2,P3])
-
 	Func Load_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1])
-
-	Func Load_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1,P2])
-
-	Func Load_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"Load",P1,P2,P3])
 
 	Func GetWpfSchemaContext 
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlReader, PresentationFramework'),"GetWpfSchemaContext"])
@@ -926,19 +921,16 @@ Class XamlTypeMapper from Object
 		nHandle = dnCreate('System.Windows.Markup.XamlTypeMapper, PresentationFramework',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Markup.XamlTypeMapper, PresentationFramework',[P1,P2])
-		return self
-
-	Func GetType_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetType",P1,P2])
-
-	Func AddMappingProcessingInstruction P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddMappingProcessingInstruction",P1,P2,P3])
-		return self
-
-	Func SetAssemblyPath P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAssemblyPath",P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.XamlTypeMapper, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.XamlTypeMapper, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Markup.XamlTypeMapper, PresentationFramework',[P1])
 		return self
 
 	Func GetType P1
@@ -948,7 +940,15 @@ Class XamlTypeMapper from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 		ok
-		raise("DotNet Error: GetType does not take one argument: use GetType(NULL), GetType_N(...) or named arguments")
+		raise("DotNet Error: GetType does not take one argument: use named arguments, GetType([ :parameter = value, ... ])")
+
+	Func AddMappingProcessingInstruction P1,P2,P3
+		dnRequest("call",[new DotNetObject(nHandle),"AddMappingProcessingInstruction",P1,P2,P3])
+		return self
+
+	Func SetAssemblyPath P1,P2
+		dnRequest("call",[new DotNetObject(nHandle),"SetAssemblyPath",P1,P2])
+		return self
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -978,10 +978,6 @@ Class XamlWriter from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework'),"Save",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework'),"Save",P1])
-
-	Func Save_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Windows.Markup.XamlWriter, PresentationFramework'),"Save",P1,P2])
-		return self
 
 
 Class XmlAttributeProperties from Object
@@ -1125,7 +1121,15 @@ Class XmlnsDictionary from Object
 		nHandle = dnCreate('System.Windows.Markup.XmlnsDictionary, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.XmlnsDictionary, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.XmlnsDictionary, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.XmlnsDictionary, PresentationFramework',[P1])
 		return self
 
@@ -1248,7 +1252,15 @@ Class ArrayExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.Markup.ArrayExtension, System.Xaml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.ArrayExtension, System.Xaml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.ArrayExtension, System.Xaml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.ArrayExtension, System.Xaml',[P1])
 		return self
 
@@ -1260,7 +1272,7 @@ Class ArrayExtension from MarkupExtension
 		dnRequest("call",[new DotNetObject(nHandle),"AddText",P1])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
@@ -1316,7 +1328,7 @@ Class PropertyDefinition from MemberDefinition
 		nHandle = dnCreate('System.Windows.Markup.PropertyDefinition, System.Xaml',[])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getType
@@ -1353,7 +1365,15 @@ Class Reference from MarkupExtension
 		nHandle = dnCreate('System.Windows.Markup.Reference, System.Xaml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.Reference, System.Xaml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.Reference, System.Xaml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.Reference, System.Xaml',[P1])
 		return self
 
@@ -1379,7 +1399,15 @@ Class StaticExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.Markup.StaticExtension, System.Xaml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.StaticExtension, System.Xaml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.StaticExtension, System.Xaml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.StaticExtension, System.Xaml',[P1])
 		return self
 
@@ -1411,11 +1439,19 @@ Class TypeExtension from MarkupExtension
 		nHandle = dnCreate('System.Windows.Markup.TypeExtension, System.Xaml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Markup.TypeExtension, System.Xaml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Markup.TypeExtension, System.Xaml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Markup.TypeExtension, System.Xaml',[P1])
 		return self
 
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func getTypeName

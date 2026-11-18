@@ -299,10 +299,6 @@ Class AuthorizationHandlerContext from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1])
 		return self
 
-	Func Fail_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1])
-		return self
-
 	Func Succeed P1
 		dnRequest("call",[new DotNetObject(nHandle),"Succeed",P1])
 		return self
@@ -364,12 +360,16 @@ Class AuthorizationMiddleware from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Authorization.AuthorizationMiddleware, Microsoft.AspNetCore.Authorization.Policy',[P1])
 		return self
 
 	Func Invoke P1
@@ -446,11 +446,11 @@ Class AuthorizationPolicy from Object
 	Func Combine P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"Combine",P1])
 
-	Func CombineAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2])
-
-	Func CombineAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1,P2,P3])
+	Func CombineAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationPolicy, Microsoft.AspNetCore.Authorization'),"CombineAsync",P1])
+		ok
+		raise("DotNet Error: CombineAsync does not take one argument: use named arguments, CombineAsync([ :parameter = value, ... ])")
 
 	Func getRequirements
 		return dnRequest("get",[self,"Requirements"])
@@ -487,9 +487,6 @@ Class AuthorizationPolicyBuilder from Object
 
 	Func Combine P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Combine",P1])
-
-	Func RequireClaim_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RequireClaim",P1,P2])
 
 	Func RequireClaim P1
 		if dnIsNamed(P1)
@@ -549,9 +546,6 @@ Class AuthorizationResult from Object
 	Func Success 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Success"])
 
-	Func Failed_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Failed",P1])
-
 	Func Failed P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationResult, Microsoft.AspNetCore.Authorization'),"Failed",P1])
@@ -587,11 +581,11 @@ Class AuthorizationServiceExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AuthorizeAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"AuthorizeAsync",P1,P2,P3,P4])
-
-	Func AuthorizeAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"AuthorizeAsync",P1,P2,P3])
+	Func AuthorizeAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authorization.AuthorizationServiceExtensions, Microsoft.AspNetCore.Authorization'),"AuthorizeAsync",P1])
+		ok
+		raise("DotNet Error: AuthorizeAsync does not take one argument: use named arguments, AuthorizeAsync([ :parameter = value, ... ])")
 
 
 Class DefaultAuthorizationEvaluator from Object

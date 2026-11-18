@@ -310,15 +310,26 @@ Class DataColumnMapping from MarshalByRefObject
 		nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.Common.DataColumnMapping, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.Common.DataColumnMapping, System.Data.Common',[P1])
 		return self
 
-	Func GetDataColumnBySchemaAction P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDataColumnBySchemaAction",P1,P2,P3])
-
-	Func GetDataColumnBySchemaAction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1,P2,P3,P4,P5])
+	Func GetDataColumnBySchemaAction P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Data.Common.DataColumnMapping, System.Data.Common'),"GetDataColumnBySchemaAction",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDataColumnBySchemaAction",P1])
+		ok
+		raise("DotNet Error: GetDataColumnBySchemaAction does not take one argument: use named arguments, GetDataColumnBySchemaAction([ :parameter = value, ... ])")
 
 	Func getDataSetColumn
 		return dnRequest("get",[self,"DataSetColumn"])
@@ -353,9 +364,6 @@ Class DataColumnMappingCollection from MarshalByRefObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
@@ -431,12 +439,16 @@ Class DataTableMapping from MarshalByRefObject
 		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.Common.DataTableMapping, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.Common.DataTableMapping, System.Data.Common',[P1])
 		return self
 
 	Func GetDataColumn P1,P2,P3,P4,P5
@@ -491,9 +503,6 @@ Class DataTableMappingCollection from MarshalByRefObject
 	Func AddRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddRange",P1])
 		return self
-
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -562,9 +571,6 @@ Class DbBatch from Object
 		ok
 		return self
 
-	Func ExecuteReader_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
 	Func ExecuteReader P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteReader",P1])
@@ -573,9 +579,6 @@ Class DbBatch from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
-	Func ExecuteReaderAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
 	Func ExecuteReaderAsync P1
 		if dnIsNamed(P1)
@@ -586,14 +589,8 @@ Class DbBatch from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
-	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
-
 	Func ExecuteNonQuery 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQuery"])
-
-	Func ExecuteNonQueryAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
@@ -607,9 +604,6 @@ Class DbBatch from Object
 	Func ExecuteScalar 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
-	Func ExecuteScalarAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
-
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
@@ -622,9 +616,6 @@ Class DbBatch from Object
 	Func Prepare 
 		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
 		return self
-
-	Func PrepareAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
 
 	Func PrepareAsync P1
 		if dnIsNamed(P1)
@@ -1020,9 +1011,6 @@ Class DbCommand from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
 
-	Func ExecuteReader_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReader",P1])
-
 	Func ExecuteNonQueryAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
@@ -1030,9 +1018,6 @@ Class DbCommand from Component
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
-
-	Func ExecuteNonQueryAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteNonQueryAsync",P1])
 
 	Func ExecuteReaderAsync P1
@@ -1044,12 +1029,6 @@ Class DbCommand from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
 
-	Func ExecuteReaderAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1])
-
-	Func ExecuteReaderAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteReaderAsync",P1,P2])
-
 	Func ExecuteScalarAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
@@ -1059,18 +1038,12 @@ Class DbCommand from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
 
-	Func ExecuteScalarAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalarAsync",P1])
-
 	Func ExecuteScalar 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteScalar"])
 
 	Func Prepare 
 		dnRequest("call",[new DotNetObject(nHandle),"Prepare"])
 		return self
-
-	Func PrepareAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"PrepareAsync",P1])
 
 	Func PrepareAsync P1
 		if dnIsNamed(P1)
@@ -1168,9 +1141,6 @@ Class DbCommandBuilder from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInsertCommand",P1])
 
-	Func GetInsertCommand_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInsertCommand",P1])
-
 	Func GetUpdateCommand P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetUpdateCommand",P1])
@@ -1180,9 +1150,6 @@ Class DbCommandBuilder from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetUpdateCommand",P1])
 
-	Func GetUpdateCommand_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUpdateCommand",P1])
-
 	Func GetDeleteCommand P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetDeleteCommand",P1])
@@ -1190,9 +1157,6 @@ Class DbCommandBuilder from Component
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteCommand"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteCommand",P1])
-
-	Func GetDeleteCommand_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDeleteCommand",P1])
 
 	Func QuoteIdentifier P1
@@ -1289,12 +1253,6 @@ Class DbConnection from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
 
-	Func BeginTransaction_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransaction",P1])
-
-	Func BeginTransactionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
-
 	Func BeginTransactionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
@@ -1303,9 +1261,6 @@ Class DbConnection from Component
 			return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1])
-
-	Func BeginTransactionAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginTransactionAsync",P1,P2])
 
 	Func Close 
 		dnRequest("call",[new DotNetObject(nHandle),"Close"])
@@ -1320,9 +1275,6 @@ Class DbConnection from Component
 	Func ChangeDatabase P1
 		dnRequest("call",[new DotNetObject(nHandle),"ChangeDatabase",P1])
 		return self
-
-	Func ChangeDatabaseAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ChangeDatabaseAsync",P1,P2])
 
 	Func ChangeDatabaseAsync P1
 		if dnIsNamed(P1)
@@ -1349,15 +1301,6 @@ Class DbConnection from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema",P1])
 
-	Func GetSchema_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema",P1])
-
-	Func GetSchema_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchema",P1,P2])
-
-	Func GetSchemaAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync",P1])
-
 	Func GetSchemaAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSchemaAsync",P1])
@@ -1366,12 +1309,6 @@ Class DbConnection from Component
 			return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync",P1])
-
-	Func GetSchemaAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync",P1,P2])
-
-	Func GetSchemaAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaAsync",P1,P2,P3])
 
 	Func Open 
 		dnRequest("call",[new DotNetObject(nHandle),"Open"])
@@ -1384,9 +1321,6 @@ Class DbConnection from Component
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync",P1])
-
-	Func OpenAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenAsync",P1])
 
 	Func setStateChangeEvent P1
@@ -1460,7 +1394,15 @@ Class DbConnectionStringBuilder from Object
 		nHandle = dnCreate('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.Common.DbConnectionStringBuilder, System.Data.Common',[P1])
 		return self
 
@@ -1490,13 +1432,12 @@ Class DbConnectionStringBuilder from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AppendKeyValuePair P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1,P2,P3])
-		return self
-
-	Func AppendKeyValuePair_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1,P2,P3,P4])
-		return self
+	Func AppendKeyValuePair P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Data.Common.DbConnectionStringBuilder, System.Data.Common'),"AppendKeyValuePair",P1])
+			return self
+		ok
+		raise("DotNet Error: AppendKeyValuePair does not take one argument: use named arguments, AppendKeyValuePair([ :parameter = value, ... ])")
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -1599,9 +1540,6 @@ Class DbDataReader from MarshalByRefObject
 	Func GetSchemaTable 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTable"])
 
-	Func GetSchemaTableAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTableAsync",P1])
-
 	Func GetSchemaTableAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSchemaTableAsync",P1])
@@ -1610,9 +1548,6 @@ Class DbDataReader from MarshalByRefObject
 			return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTableAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSchemaTableAsync",P1])
-
-	Func GetColumnSchemaAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetColumnSchemaAsync",P1])
 
 	Func GetColumnSchemaAsync P1
 		if dnIsNamed(P1)
@@ -1695,9 +1630,6 @@ Class DbDataReader from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValueAsync",P1])
 
-	Func GetFieldValueAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFieldValueAsync",P1,P2])
-
 	Func GetValues P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValues",P1])
 
@@ -1709,9 +1641,6 @@ Class DbDataReader from MarshalByRefObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsDBNullAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsDBNullAsync",P1])
-
-	Func IsDBNullAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsDBNullAsync",P1,P2])
 
 	Func NextResult 
 		return dnRequest("call",[new DotNetObject(nHandle),"NextResult"])
@@ -1728,9 +1657,6 @@ Class DbDataReader from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
 
-	Func ReadAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsync",P1])
-
 	Func NextResultAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextResultAsync",P1])
@@ -1738,9 +1664,6 @@ Class DbDataReader from MarshalByRefObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"NextResultAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"NextResultAsync",P1])
-
-	Func NextResultAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"NextResultAsync",P1])
 
 	Func Item P1
@@ -1912,9 +1835,6 @@ Class DbDataSource from Object
 	Func OpenConnection 
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnection"])
 
-	Func OpenConnectionAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
-
 	Func OpenConnectionAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
@@ -1923,9 +1843,6 @@ Class DbDataSource from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"OpenConnectionAsync",P1])
-
-	Func CreateCommand_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateCommand",P1])
 
 	Func CreateCommand P1
 		if dnIsNamed(P1)
@@ -1986,8 +1903,16 @@ Class DbEnumerator from Object
 		nHandle = dnCreate('System.Data.Common.DbEnumerator, System.Data.Common',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.Common.DbEnumerator, System.Data.Common',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.Common.DbEnumerator, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.Common.DbEnumerator, System.Data.Common',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Data.Common.DbEnumerator, System.Data.Common',[P1])
 		return self
 
 	Func MoveNext 
@@ -2687,9 +2612,6 @@ Class DbTransaction from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Commit"])
 		return self
 
-	Func CommitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
-
 	Func CommitAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitAsync",P1])
@@ -2718,9 +2640,6 @@ Class DbTransaction from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
 		return self
 
-	Func RollbackAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
-
 	Func RollbackAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"RollbackAsync",P1])
@@ -2730,20 +2649,11 @@ Class DbTransaction from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1])
 
-	Func SaveAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1,P2])
-
 	Func SaveAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SaveAsync",P1])
-
-	Func RollbackAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RollbackAsync",P1,P2])
-
-	Func ReleaseAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReleaseAsync",P1,P2])
 
 	Func ReleaseAsync P1
 		if dnIsNamed(P1)
@@ -2753,10 +2663,6 @@ Class DbTransaction from MarshalByRefObject
 
 	Func Save P1
 		dnRequest("call",[new DotNetObject(nHandle),"Save",P1])
-		return self
-
-	Func Rollback_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
 		return self
 
 	Func getConnection
@@ -2818,10 +2724,6 @@ Class RowUpdatedEventArgs from EventArgs
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyToRows",P1])
-		return self
-
-	Func CopyToRows_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyToRows",P1,P2])
 		return self
 
 	Func getCommand
@@ -3197,8 +3099,11 @@ Class DbDataAdapter from DataAdapter
 		ok
 		return self
 
-	Func FillSchema_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FillSchema",P1,P2,P3])
+	Func FillSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"FillSchema",P1])
+		ok
+		raise("DotNet Error: FillSchema does not take one argument: use named arguments, FillSchema([ :parameter = value, ... ])")
 
 	Func Fill P1
 		if dnIsNamed(P1)
@@ -3206,23 +3111,11 @@ Class DbDataAdapter from DataAdapter
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1])
 
-	Func Fill_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2])
-
-	Func Fill_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2,P3,P4])
-
-	Func Fill_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Fill",P1,P2,P3])
-
 	Func Update P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Update",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1])
-
-	Func Update_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Update",P1,P2])
 
 	Func getDeleteCommand
 		return dnRequest("get",[self,"DeleteCommand"])

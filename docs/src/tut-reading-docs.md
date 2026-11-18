@@ -53,9 +53,8 @@ Console.WriteLine(text);
 
 C# lets the same method name have several versions (*overloads*) with different parameters. Ring does not. RingDotNet handles it like this:
 
-- the **plain name** takes the most common form,
-- extra forms are named `Name_2`, `Name_3` (by number of parameters), or
-- you pass **named arguments** in a list: `oMath.Round([ :value = 3.14159, :digits = 2 ])`. The names are the parameter names that you read in the documentation.
+- a name with several forms becomes **one method that takes one value**: `NULL` for the form without parameters, a value for the form with one parameter, and
+- a list of **named arguments** for the others: `oMath.Round([ :value = 3.14159, :digits = 2 ])`. The names are the parameter names that you read in the documentation.
 
 The [class reference](api.html) shows, for every method, the **Ring calls** next to the **.NET overloads**, so you never have to guess. [Core concepts](concepts.html#naming-rules) lists the rules.
 

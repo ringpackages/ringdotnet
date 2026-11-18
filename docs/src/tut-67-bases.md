@@ -34,7 +34,7 @@ Computers store bits, so base 2 is what they use; but it is long to read. **One 
 
 ### Converting
 
-`Convert.ToString(number, base)` writes a number in a base and `Convert.ToInt32(text, base)` reads it. In Ring the two-argument forms are called `ToString_2` and `ToInt32_2`. A color is three numbers: `hex2` writes each as two hex digits, with a leading zero when needed, and the reverse takes each pair of digits.
+`Convert.ToString(number, base)` writes a number in a base and `Convert.ToInt32(text, base)` reads it. In Ring the two-argument forms take a list of named values: `Format([ :value = 255, :toBase = 16 ])` and `ToInt32([ :value = "ff", :fromBase = 16 ])` (`ToString` with parameters is `Format`). A color is three numbers: `hex2` writes each as two hex digits, with a leading zero when needed, and the reverse takes each pair of digits.
 
 ### Bits
 

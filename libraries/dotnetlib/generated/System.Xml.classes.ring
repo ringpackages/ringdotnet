@@ -319,6 +319,15 @@ Class XmlConvert from Object
 		nHandle = dnCreate('System.Xml.XmlConvert, System.Private.Xml',[])
 		return self
 
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
+
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -373,12 +382,6 @@ Class XmlConvert from Object
 	Func IsWhitespaceChar P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"IsWhitespaceChar",P1])
 
-	Func ToString_1 P1
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToString",P1,P2])
-
 	Func ToBoolean P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToBoolean",P1])
 
@@ -427,17 +430,11 @@ Class XmlConvert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1])
 
-	Func ToDateTime_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTime",P1,P2])
-
 	Func ToDateTimeOffset P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1])
-
-	Func ToDateTimeOffset_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToDateTimeOffset",P1,P2])
 
 	Func ToGuid P1
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlConvert, System.Private.Xml'),"ToGuid",P1])
@@ -454,7 +451,15 @@ Class XmlImplementation from Object
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlImplementation, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.XmlImplementation, System.Private.Xml',[P1])
 		return self
 
@@ -478,17 +483,11 @@ Class XmlNameTable from Object
 		ok
 		return self
 
-	Func Get_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Get",P1,P2,P3])
-
 	Func Get_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Get",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Get",P1])
-
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 
 	Func Add P1
 		if dnIsNamed(P1)
@@ -529,12 +528,6 @@ Class XmlNamedNodeMap from Object
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Item",P1])
-
-	Func GetNamedItem_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNamedItem",P1,P2])
-
-	Func RemoveNamedItem_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveNamedItem",P1,P2])
 
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
@@ -651,17 +644,11 @@ Class XmlNode from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1])
 
-	Func SelectSingleNode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectSingleNode",P1,P2])
-
 	Func SelectNodes P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SelectNodes",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SelectNodes",P1])
-
-	Func SelectNodes_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SelectNodes",P1,P2])
 
 	Func InsertBefore P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"InsertBefore",P1,P2])
@@ -963,16 +950,16 @@ Class XmlParserContext from Object
 		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func New_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlParserContext, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.XmlParserContext, System.Private.Xml',[P1])
 		return self
 
 	Func Equals P1
@@ -1065,19 +1052,29 @@ Class XmlQualifiedName from Object
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlQualifiedName, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.XmlQualifiedName, System.Private.Xml',[P1,P2])
-		return self
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlQualifiedName, System.Private.Xml'),"ToString",P1,P2])
 
 	Func getNamespace
 		return dnRequest("get",[self,"Namespace"])
@@ -1180,10 +1177,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsObject"])
 		ok
-		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use ReadElementContentAsObject(NULL), ReadElementContentAsObject_N(...) or named arguments")
-
-	Func ReadElementContentAsObject_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsObject",P1,P2])
+		raise("DotNet Error: ReadElementContentAsObject does not take one argument: use named arguments, ReadElementContentAsObject([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsBoolean P1
 		if dnIsNamed(P1)
@@ -1192,10 +1186,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsBoolean"])
 		ok
-		raise("DotNet Error: ReadElementContentAsBoolean does not take one argument: use ReadElementContentAsBoolean(NULL), ReadElementContentAsBoolean_N(...) or named arguments")
-
-	Func ReadElementContentAsBoolean_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsBoolean",P1,P2])
+		raise("DotNet Error: ReadElementContentAsBoolean does not take one argument: use named arguments, ReadElementContentAsBoolean([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDateTime P1
 		if dnIsNamed(P1)
@@ -1204,10 +1195,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDateTime"])
 		ok
-		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use ReadElementContentAsDateTime(NULL), ReadElementContentAsDateTime_N(...) or named arguments")
-
-	Func ReadElementContentAsDateTime_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDateTime",P1,P2])
+		raise("DotNet Error: ReadElementContentAsDateTime does not take one argument: use named arguments, ReadElementContentAsDateTime([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDouble P1
 		if dnIsNamed(P1)
@@ -1216,10 +1204,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDouble"])
 		ok
-		raise("DotNet Error: ReadElementContentAsDouble does not take one argument: use ReadElementContentAsDouble(NULL), ReadElementContentAsDouble_N(...) or named arguments")
-
-	Func ReadElementContentAsDouble_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDouble",P1,P2])
+		raise("DotNet Error: ReadElementContentAsDouble does not take one argument: use named arguments, ReadElementContentAsDouble([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsFloat P1
 		if dnIsNamed(P1)
@@ -1228,10 +1213,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsFloat"])
 		ok
-		raise("DotNet Error: ReadElementContentAsFloat does not take one argument: use ReadElementContentAsFloat(NULL), ReadElementContentAsFloat_N(...) or named arguments")
-
-	Func ReadElementContentAsFloat_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsFloat",P1,P2])
+		raise("DotNet Error: ReadElementContentAsFloat does not take one argument: use named arguments, ReadElementContentAsFloat([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsDecimal P1
 		if dnIsNamed(P1)
@@ -1240,10 +1222,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDecimal"])
 		ok
-		raise("DotNet Error: ReadElementContentAsDecimal does not take one argument: use ReadElementContentAsDecimal(NULL), ReadElementContentAsDecimal_N(...) or named arguments")
-
-	Func ReadElementContentAsDecimal_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsDecimal",P1,P2])
+		raise("DotNet Error: ReadElementContentAsDecimal does not take one argument: use named arguments, ReadElementContentAsDecimal([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsInt P1
 		if dnIsNamed(P1)
@@ -1252,10 +1231,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsInt"])
 		ok
-		raise("DotNet Error: ReadElementContentAsInt does not take one argument: use ReadElementContentAsInt(NULL), ReadElementContentAsInt_N(...) or named arguments")
-
-	Func ReadElementContentAsInt_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsInt",P1,P2])
+		raise("DotNet Error: ReadElementContentAsInt does not take one argument: use named arguments, ReadElementContentAsInt([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsLong P1
 		if dnIsNamed(P1)
@@ -1264,10 +1240,7 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsLong"])
 		ok
-		raise("DotNet Error: ReadElementContentAsLong does not take one argument: use ReadElementContentAsLong(NULL), ReadElementContentAsLong_N(...) or named arguments")
-
-	Func ReadElementContentAsLong_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsLong",P1,P2])
+		raise("DotNet Error: ReadElementContentAsLong does not take one argument: use named arguments, ReadElementContentAsLong([ :parameter = value, ... ])")
 
 	Func ReadElementContentAsString P1
 		if dnIsNamed(P1)
@@ -1276,16 +1249,13 @@ Class XmlReader from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsString"])
 		ok
-		raise("DotNet Error: ReadElementContentAsString does not take one argument: use ReadElementContentAsString(NULL), ReadElementContentAsString_N(...) or named arguments")
+		raise("DotNet Error: ReadElementContentAsString does not take one argument: use named arguments, ReadElementContentAsString([ :parameter = value, ... ])")
 
-	Func ReadElementContentAsString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAsString",P1,P2])
-
-	Func ReadElementContentAs P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAs",P1,P2])
-
-	Func ReadElementContentAs_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementContentAs",P1,P2,P3,P4])
+	Func ReadElementContentAs P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadElementContentAs",P1])
+		ok
+		raise("DotNet Error: ReadElementContentAs does not take one argument: use named arguments, ReadElementContentAs([ :parameter = value, ... ])")
 
 	Func GetAttribute P1
 		if dnIsNamed(P1)
@@ -1293,17 +1263,11 @@ Class XmlReader from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1])
 
-	Func GetAttribute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1,P2])
-
 	Func MoveToAttribute P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MoveToAttribute",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToAttribute",P1])
-
-	Func MoveToAttribute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MoveToAttribute",P1,P2])
 
 	Func MoveToFirstAttribute 
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveToFirstAttribute"])
@@ -1368,14 +1332,6 @@ Class XmlReader from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ReadStartElement",P1])
 		return self
 
-	Func ReadStartElement_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ReadStartElement",P1])
-		return self
-
-	Func ReadStartElement_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ReadStartElement",P1,P2])
-		return self
-
 	Func ReadElementString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadElementString",P1])
@@ -1384,12 +1340,6 @@ Class XmlReader from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadElementString"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementString",P1])
-
-	Func ReadElementString_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementString",P1])
-
-	Func ReadElementString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadElementString",P1,P2])
 
 	Func ReadEndElement 
 		dnRequest("call",[new DotNetObject(nHandle),"ReadEndElement"])
@@ -1404,20 +1354,11 @@ Class XmlReader from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsStartElement",P1])
 
-	Func IsStartElement_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsStartElement",P1])
-
-	Func IsStartElement_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsStartElement",P1,P2])
-
 	Func ReadToFollowing P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadToFollowing",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadToFollowing",P1])
-
-	Func ReadToFollowing_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToFollowing",P1,P2])
 
 	Func ReadToDescendant P1
 		if dnIsNamed(P1)
@@ -1425,17 +1366,11 @@ Class XmlReader from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadToDescendant",P1])
 
-	Func ReadToDescendant_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToDescendant",P1,P2])
-
 	Func ReadToNextSibling P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadToNextSibling",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadToNextSibling",P1])
-
-	Func ReadToNextSibling_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadToNextSibling",P1,P2])
 
 	Func ReadInnerXml 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadInnerXml"])
@@ -1515,12 +1450,6 @@ Class XmlReader from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlReader, System.Private.Xml'),"Create",P1,P2,P3])
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -1909,10 +1838,6 @@ Class XmlWriter from Object
 		ok
 		return self
 
-	Func WriteStartDocument_0 
-		dnRequest("call",[new DotNetObject(nHandle),"WriteStartDocument"])
-		return self
-
 	Func WriteStartDocument P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteStartDocument",P1])
@@ -1933,14 +1858,6 @@ Class XmlWriter from Object
 		dnRequest("call",[new DotNetObject(nHandle),"WriteDocType",P1,P2,P3,P4])
 		return self
 
-	Func WriteStartElement_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteStartElement",P1,P2])
-		return self
-
-	Func WriteStartElement_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteStartElement",P1,P2,P3])
-		return self
-
 	Func WriteStartElement P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteStartElement",P1])
@@ -1957,25 +1874,12 @@ Class XmlWriter from Object
 		dnRequest("call",[new DotNetObject(nHandle),"WriteFullEndElement"])
 		return self
 
-	Func WriteAttributeString_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteAttributeString",P1,P2,P3])
-		return self
-
-	Func WriteAttributeString P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteAttributeString",P1,P2])
-		return self
-
-	Func WriteAttributeString_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"WriteAttributeString",P1,P2,P3,P4])
-		return self
-
-	Func WriteStartAttribute_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteStartAttribute",P1,P2])
-		return self
-
-	Func WriteStartAttribute_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteStartAttribute",P1,P2,P3])
-		return self
+	Func WriteAttributeString P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteAttributeString",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteAttributeString does not take one argument: use named arguments, WriteAttributeString([ :parameter = value, ... ])")
 
 	Func WriteStartAttribute P1
 		if dnIsNamed(P1)
@@ -2023,10 +1927,6 @@ Class XmlWriter from Object
 
 	Func WriteChars P1,P2,P3
 		dnRequest("call",[new DotNetObject(nHandle),"WriteChars",P1,P2,P3])
-		return self
-
-	Func WriteRaw_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteRaw",P1,P2,P3])
 		return self
 
 	Func WriteRaw P1
@@ -2080,24 +1980,16 @@ Class XmlWriter from Object
 		dnRequest("call",[new DotNetObject(nHandle),"WriteNode",P1,P2])
 		return self
 
-	Func WriteElementString P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteElementString",P1,P2])
-		return self
-
-	Func WriteElementString_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"WriteElementString",P1,P2,P3])
-		return self
-
-	Func WriteElementString_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"WriteElementString",P1,P2,P3,P4])
-		return self
+	Func WriteElementString P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"WriteElementString",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteElementString does not take one argument: use named arguments, WriteElementString([ :parameter = value, ... ])")
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
-
-	Func WriteStartDocumentAsync_0 
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteStartDocumentAsync"])
 
 	Func WriteStartDocumentAsync P1
 		if dnIsNamed(P1)
@@ -2153,9 +2045,6 @@ Class XmlWriter from Object
 	Func WriteCharsAsync P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"WriteCharsAsync",P1,P2,P3])
 
-	Func WriteRawAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteRawAsync",P1,P2,P3])
-
 	Func WriteRawAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WriteRawAsync",P1])
@@ -2200,9 +2089,6 @@ Class XmlWriter from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Xml.XmlWriter, System.Private.Xml'),"Create",P1,P2])
 
 	Func getSettings
 		return dnRequest("get",[self,"Settings"])
@@ -2465,7 +2351,15 @@ Class XmlDocument from XmlNode
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlDocument, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.XmlDocument, System.Private.Xml',[P1])
 		return self
 
@@ -2517,32 +2411,17 @@ Class XmlDocument from XmlNode
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 
-	Func CreateAttribute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAttribute",P1,P2])
-
-	Func CreateElement_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1,P2])
-
-	Func GetElementsByTagName_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1,P2])
-
 	Func GetElementById P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementById",P1])
 
 	Func ImportNode P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ImportNode",P1,P2])
 
-	Func CreateAttribute_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateAttribute",P1,P2,P3])
-
-	Func CreateElement_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateElement",P1,P2,P3])
-
-	Func CreateNode_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3,P4])
-
-	Func CreateNode P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateNode",P1,P2,P3])
+	Func CreateNode P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateNode",P1])
+		ok
+		raise("DotNet Error: CreateNode does not take one argument: use named arguments, CreateNode([ :parameter = value, ... ])")
 
 	Func ReadNode P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadNode",P1])
@@ -2565,10 +2444,6 @@ Class XmlDocument from XmlNode
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
-		return self
-
-	Func Validate_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2])
 		return self
 
 	Func setNodeInsertingEvent P1
@@ -2777,12 +2652,16 @@ Class XmlTextReader from XmlReader
 		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlTextReader, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.XmlTextReader, System.Private.Xml',[P1])
 		return self
 
 	Func HasLineInfo 
@@ -2890,8 +2769,16 @@ Class XmlTextWriter from XmlWriter
 		nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.XmlTextWriter, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.XmlTextWriter, System.Private.Xml',[P1])
 		return self
 
 	Func getBaseStream
@@ -3106,9 +2993,11 @@ Class XmlElement from XmlLinkedNode
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1])
 
-	Func SetAttribute P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2])
-		return self
+	Func SetAttribute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetAttribute",P1])
+		ok
+		raise("DotNet Error: SetAttribute does not take one argument: use named arguments, SetAttribute([ :parameter = value, ... ])")
 
 	Func RemoveAttribute P1
 		if dnIsNamed(P1)
@@ -3142,36 +3031,11 @@ Class XmlElement from XmlLinkedNode
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1])
 
-	Func GetAttribute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAttribute",P1,P2])
-
-	Func SetAttribute_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SetAttribute",P1,P2,P3])
-
-	Func RemoveAttribute_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"RemoveAttribute",P1,P2])
-		return self
-
-	Func GetAttributeNode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAttributeNode",P1,P2])
-
-	Func SetAttributeNode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SetAttributeNode",P1,P2])
-
-	Func RemoveAttributeNode_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributeNode",P1,P2])
-
-	Func GetElementsByTagName_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElementsByTagName",P1,P2])
-
 	Func HasAttribute P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HasAttribute",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HasAttribute",P1])
-
-	Func HasAttribute_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HasAttribute",P1,P2])
 
 	Func RemoveAttributeAt P1
 		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAttributeAt",P1])

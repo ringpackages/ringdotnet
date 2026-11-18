@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html" class="cur">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -148,7 +151,7 @@
 <article>
 <h1>Tutorial 80: JSON as a tree</h1><p class="lead">JsonDocument reads JSON but cannot change it. JsonNode, JsonObject and JsonArray give you a tree that you can read, edit and build. This lesson changes a configuration, builds a report, merges settings with defaults, and clones a tree.</p>
 <h2 id="what-you-will-learn">What you will learn<a class="anchor" href="#what-you-will-learn">#</a></h2>
-<ul><li>parsing JSON into a tree you can edit (<code>JsonNode</code>, <code>JsonObject</code>, <code>JsonArray</code>),</li><li>reading with <code>Item("key")</code> and <code>Item(index)</code>,</li><li><code>SetItem</code>, <code>Add_2</code>, <code>Remove</code> on objects and <code>Add</code> on arrays,</li><li>building a document from Ring values,</li><li>merging two documents,</li><li><code>DeepClone</code> and <code>DeepEquals</code>.</li></ul>
+<ul><li>parsing JSON into a tree you can edit (<code>JsonNode</code>, <code>JsonObject</code>, <code>JsonArray</code>),</li><li>reading with <code>Item("key")</code> and <code>Item(index)</code>,</li><li><code>SetItem</code>, <code>Add</code>, <code>Remove</code> on objects and <code>Add</code> on arrays,</li><li>building a document from Ring values,</li><li>merging two documents,</li><li><code>DeepClone</code> and <code>DeepEquals</code>.</li></ul>
 <p>These classes are in <code>System.Text.Json.Nodes</code>. <a href="tut-06-json-xml.html">Tutorial 6</a> read JSON with <code>JsonDocument</code>; that class is fast but read-only. Use the nodes when you need to <strong>change</strong> JSON: configuration files, request bodies, data you assemble.</p>
 <h2 id="the-program">The program<a class="anchor" href="#the-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>docs/tutorials/t80_json_nodes.ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># Tutorial 80: JSON as a tree you can change - JsonNode, JsonObject and JsonArray (System.Text.Json.Nodes)</span>
@@ -174,7 +177,7 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 
 	<span class="c"># 3. Change the tree: set a value, add a key, add an array item, remove a key</span>
 	oRoot.<span class="f">SetItem</span>(<span class="s">"port"</span>,<span class="n">9090</span>)
-	oRoot.<span class="f">Add_2</span>(<span class="s">"owner"</span>,<span class="s">"Ann"</span>)
+	oRoot.<span class="f">Add</span>([ :propertyName = <span class="s">"owner"</span>, :value = <span class="s">"Ann"</span> ])
 	oTags.<span class="f">Add</span>(<span class="s">"json"</span>)
 	oRoot.<span class="f">Remove</span>(<span class="s">"debug"</span>)
 	? nl + <span class="s">"3. after the changes:"</span>
@@ -189,17 +192,17 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 	<span class="c"># 5. Build a new document from Ring values. Ring numbers and texts convert by themselves;</span>
 	<span class="c">#    a Ring True is the number 1, so write a real JSON true by parsing it.</span>
 	oNew = <span class="k">new</span> <span class="t">JsonObject</span>()
-	oNew.<span class="f">Add_2</span>(<span class="s">"id"</span>,<span class="n">7</span>)
-	oNew.<span class="f">Add_2</span>(<span class="s">"title"</span>,<span class="s">"Report"</span>)
-	oNew.<span class="f">Add_2</span>(<span class="s">"final"</span>,<span class="k">new</span> <span class="t">JsonNode</span>().<span class="f">Parse</span>(<span class="s">"true"</span>))
+	oNew.<span class="f">Add</span>([ :propertyName = <span class="s">"id"</span>, :value = <span class="n">7</span> ])
+	oNew.<span class="f">Add</span>([ :propertyName = <span class="s">"title"</span>, :value = <span class="s">"Report"</span> ])
+	oNew.<span class="f">Add</span>([ :propertyName = <span class="s">"final"</span>, :value = <span class="k">new</span> <span class="t">JsonNode</span>().<span class="f">Parse</span>(<span class="s">"true"</span>) ])
 	oItems = <span class="k">new</span> <span class="t">JsonArray</span>()
 	<span class="k">for</span> nLine = <span class="n">1</span> <span class="k">to</span> <span class="n">3</span>
 		oLine = <span class="k">new</span> <span class="t">JsonObject</span>()
-		oLine.<span class="f">Add_2</span>(<span class="s">"line"</span>,nLine)
-		oLine.<span class="f">Add_2</span>(<span class="s">"amount"</span>,nLine * <span class="n">10.5</span>)
+		oLine.<span class="f">Add</span>([ :propertyName = <span class="s">"line"</span>, :value = nLine ])
+		oLine.<span class="f">Add</span>([ :propertyName = <span class="s">"amount"</span>, :value = nLine * <span class="n">10.5</span> ])
 		oItems.<span class="f">Add</span>(oLine)
 	<span class="k">next</span>
-	oNew.<span class="f">Add_2</span>(<span class="s">"items"</span>,oItems)
+	oNew.<span class="f">Add</span>([ :propertyName = <span class="s">"items"</span>, :value = oItems ])
 	? nl + <span class="s">"5. a new document: "</span> + oNew.<span class="f">ToJsonString</span>(<span class="k">NULL</span>)
 
 	<span class="c"># 6. Merge: settings with defaults. Values of the second document win; objects are merged, so nothing else is lost.</span>
@@ -329,19 +332,19 @@ C_CONFIG = <span class="s">'{"name":"shop","port":8080,"debug":false,"tags":["we
 <h3 id="reading">Reading<a class="anchor" href="#reading">#</a></h3>
 <p><code>new JsonNode().Parse(text)</code> gives a node; <code>AsObject()</code> and <code>AsArray()</code> give the specific class. <code>oRoot.Item("name")</code> is the child with that key and <code>oTags.Item(0)</code> the first array item (indexes start at 0, as in .NET). Every node has <code>ToString()</code> for simple values — numbers arrive as text, so <code>number(oRoot.Item("port").ToString())</code> — and <code>GetPath()</code>, which names where the node lives (<code>$.tags[0]</code>). <code>GetValueKind()</code> tells <code>Object</code>, <code>Array</code>, <code>String</code>, <code>Number</code>, <code>True</code>, <code>False</code> or <code>Null</code>.</p>
 <h3 id="changing">Changing<a class="anchor" href="#changing">#</a></h3>
-<div class="tablewrap"><table><thead><tr><th>What</th><th>Call</th></tr></thead><tbody><tr><td>set an existing value</td><td><code>oRoot.SetItem("port",9090)</code></td></tr><tr><td>add a key</td><td><code>oRoot.Add_2("owner","Ann")</code></td></tr><tr><td>remove a key</td><td><code>oRoot.Remove("debug")</code></td></tr><tr><td>add an array item</td><td><code>oTags.Add("json")</code></td></tr></tbody></table></div>
-<p><code>Add</code> of an object has two forms, so the key-and-value form is <code>Add_2</code>. A Ring text or number is converted to a JSON value for you.</p>
+<div class="tablewrap"><table><thead><tr><th>What</th><th>Call</th></tr></thead><tbody><tr><td>set an existing value</td><td><code>oRoot.SetItem("port",9090)</code></td></tr><tr><td>add a key</td><td><code>oRoot.Add([ :propertyName = "owner", :value = "Ann" ])</code></td></tr><tr><td>remove a key</td><td><code>oRoot.Remove("debug")</code></td></tr><tr><td>add an array item</td><td><code>oTags.Add("json")</code></td></tr></tbody></table></div>
+<p><code>Add</code> of an object has several forms, so the key-and-value form takes a list of named values (<code>propertyName</code> and <code>value</code>). A Ring text or number is converted to a JSON value for you.</p>
 <h3 id="missing-keys">Missing keys<a class="anchor" href="#missing-keys">#</a></h3>
 <p><code>oRoot.Item("nothing")</code> does not raise an error: it gives the <strong>.NET null</strong>, which arrives in Ring as an object that answers <code>isNull()</code> (<a href="tut-59-paths.html">tutorial 59</a>). Check with <code>ContainsKey</code> when a key is optional.</p>
 <h3 id="building">Building<a class="anchor" href="#building">#</a></h3>
 <p>Step 5 builds a report: a <code>JsonObject</code> with values, a <code>JsonArray</code> of <code>JsonObject</code>s. <code>ToJsonString(NULL)</code> writes compact JSON; with <code>JsonSerializerOptions</code> and <code>WriteIndented = True</code> it writes indented JSON (the <code>pretty</code> helper).</p>
-<div class="callout warn"><span class="t">Warning</span><p>A Ring <code>True</code> is the <strong>number 1</strong>, so <code>Add_2("final",True)</code> writes <code>1</code>. To write a JSON <code>true</code>, parse it: <code>new JsonNode().Parse("true")</code>. The same applies to <code>null</code>: parse <code>"null"</code>.</p></div>
+<div class="callout warn"><span class="t">Warning</span><p>A Ring <code>True</code> is the <strong>number 1</strong>, so <code>Add([ :propertyName = "final", :value = True ])</code> writes <code>1</code>. To write a JSON <code>true</code>, parse it: <code>new JsonNode().Parse("true")</code>. The same applies to <code>null</code>: parse <code>"null"</code>.</p></div>
 <h3 id="merging">Merging<a class="anchor" href="#merging">#</a></h3>
 <p><code>merge(defaults, ours)</code> copies each key of our settings into the defaults. Where both sides hold an <strong>object</strong> (<code>database</code>), it merges them one level deeper, so <code>database.timeout</code> from the defaults survives while <code>database.host</code> and <code>pool</code> come from our settings. The keys of a <code>JsonObject</code> are read by parsing its text again with <code>JsonDocument</code> and listing <code>EnumerateObject()</code>; <code>DeepClone()</code> makes sure that the copied values do not belong to two trees at once (a node can have only one parent).</p>
 <h3 id="cloning-and-comparing">Cloning and comparing<a class="anchor" href="#cloning-and-comparing">#</a></h3>
 <p><code>DeepClone()</code> copies a whole tree. Changing the clone (<code>port</code> → 1) leaves the original alone. <code>DeepEquals(a, b)</code> compares two trees by <strong>content</strong>, not by identity.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<ul><li><code>JsonNode</code>, <code>JsonObject</code>, <code>JsonArray</code>,</li><li><code>Item</code>, <code>SetItem</code>, <code>Add</code>, <code>Add_2</code>, <code>Remove</code>, <code>ContainsKey</code>,</li><li>the Ring <code>True</code> is a number: parse <code>true</code> for JSON,</li><li>merging with a small recursive function,</li><li><code>DeepClone</code> and <code>DeepEquals</code>.</li></ul>
+<ul><li><code>JsonNode</code>, <code>JsonObject</code>, <code>JsonArray</code>,</li><li><code>Item</code>, <code>SetItem</code>, <code>Add</code>, <code>Remove</code>, <code>ContainsKey</code>,</li><li>the Ring <code>True</code> is a number: parse <code>true</code> for JSON,</li><li>merging with a small recursive function,</li><li><code>DeepClone</code> and <code>DeepEquals</code>.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Read a configuration file (<a href="tut-32-settings.html">tutorial 32</a>) into a node, change one value and save it again.</li><li>Write <code>getPath(oRoot, "database.host")</code> that follows a dotted path.</li><li>Write <code>removeNulls(oNode)</code> that deletes all keys with <code>null</code> values, at every depth.</li><li>Send the JSON of step 5 through the pipe of <a href="tut-79-processes-talk.html">tutorial 79</a>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

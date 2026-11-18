@@ -3,7 +3,7 @@ load "dotnet.ring"
 using { "System.IO" "RingDotNet.Data" }
 
 func main
-	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_docs_migrate.db")
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_docs_migrate.db"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok

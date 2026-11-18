@@ -139,7 +139,15 @@ Class XslCompiledTransform from Object
 		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Xml.Xsl.XslCompiledTransform, System.Private.Xml',[P1])
 		return self
 
@@ -151,21 +159,12 @@ Class XslCompiledTransform from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
-	Func Load_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2,P3])
-		return self
-
-	Func Transform P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2])
-		return self
-
-	Func Transform_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3])
-		return self
-
-	Func Transform_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3,P4])
-		return self
+	Func Transform P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Transform",P1])
+			return self
+		ok
+		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -198,19 +197,11 @@ Class XslTransform from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
 		return self
 
-	Func Load_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
-		return self
-
-	Func Transform_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3])
-
-	Func Transform P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2])
-
-	Func Transform_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Transform",P1,P2,P3,P4])
-		return self
+	Func Transform P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Transform",P1])
+		ok
+		raise("DotNet Error: Transform does not take one argument: use named arguments, Transform([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -333,8 +324,16 @@ Class XsltSettings from Object
 		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Xml.Xsl.XsltSettings, System.Private.Xml',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Xml.Xsl.XsltSettings, System.Private.Xml',[P1])
 		return self
 
 	Func Equals P1

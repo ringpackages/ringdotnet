@@ -8,9 +8,9 @@ using {
 	"System.Windows.Forms"
 }
 
-cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_todo.txt")
+cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_todo.txt"])
 if uiSelfTest()
-	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_todo_selftest.txt")
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_todo_selftest.txt"])
 ok
 
 oForm = uiForm("To-do list",360,420)
@@ -70,7 +70,7 @@ func saveTasks
 		ok
 		cText += oList.Items.Item(nIndex) + nl
 	next
-	new File().WriteAllText(cFile,cText)
+	new File().WriteAllText([ :path = cFile, :contents = cText ])
 
 func loadTasks
 	oList.Items.Clear()

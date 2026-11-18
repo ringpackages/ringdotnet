@@ -53,9 +53,9 @@ Ring prints the number `3.14159...` as `3.14` because Ring shows two decimals by
 
 ### 5. Structs
 
-A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date. `ToString_1("yyyy-MM-dd")` formats it, and `DayOfWeek` is an enum, so Ring gets the text `Wednesday`.
+A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date. `Format("yyyy-MM-dd")` formats it, and `DayOfWeek` is an enum, so Ring gets the text `Wednesday`.
 
-> [!TIP] The `_1` in `ToString_1` means "the version of `ToString` with 1 parameter". You will see this often; [Core concepts](concepts.html#naming-rules) explains why.
+> [!TIP] `ToString()` has no parameters; `Format("yyyy-MM-dd")` is its form with a pattern. A .NET method that exists in several forms becomes one Ring method that takes one value, `NULL` or a list of `:name = value` pairs; [Core concepts](concepts.html#naming-rules) explains it.
 
 ### 6. Collections
 

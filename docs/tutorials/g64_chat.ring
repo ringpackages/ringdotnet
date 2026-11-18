@@ -177,7 +177,7 @@ class ChatClient
 	func init cWho, nPort
 		cName = cWho
 		oSocket = new TcpClient()
-		oSocket.Connect("127.0.0.1",nPort)
+		oSocket.Connect([ :hostname = "127.0.0.1", :port = nPort ])
 		oStream = oSocket.GetStream()
 		oReader = new LineReader(oStream)
 		oWriter = new StreamWriter(oStream)

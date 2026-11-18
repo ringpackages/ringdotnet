@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -159,17 +162,17 @@ using { <span class="s">"System"</span> }
 
 <span class="c"># Dates and times</span>
 oNow = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">12</span>,<span class="n">25</span>).<span class="f">AddHours</span>(<span class="n">18.5</span>)
-? <span class="s">"Christmas 2024 : "</span> + oNow.<span class="f">ToString_1</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
-? <span class="s">"Plus 10 days   : "</span> + oNow.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">ToString_1</span>(<span class="s">"yyyy-MM-dd"</span>)
+? <span class="s">"Christmas 2024 : "</span> + oNow.<span class="f">Format</span>(<span class="s">"dddd, dd MMMM yyyy HH:mm"</span>)
+? <span class="s">"Plus 10 days   : "</span> + oNow.<span class="f">AddDays</span>(<span class="n">10</span>).<span class="f">Format</span>(<span class="s">"yyyy-MM-dd"</span>)
 ? <span class="s">"Day of week    : "</span> + oNow.DayOfWeek
 oSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromMinutes</span>(<span class="n">135</span>)
 ? <span class="s">"135 minutes    : "</span> + oSpan.<span class="f">ToString</span>() + <span class="s">" ("</span> + oSpan.TotalHours + <span class="s">" hours)"</span>
 
 <span class="c"># Strings, conversions, math</span>
 oStr = <span class="k">new</span> <span class="t">String</span>()
-? oStr.<span class="f">Join</span>(<span class="s">" | "</span>,[<span class="s">"Ring"</span>,<span class="s">"loves"</span>,<span class="s">".NET"</span>])
+? oStr.<span class="f">Join</span>([ :separator = <span class="s">" | "</span>, :value = [<span class="s">"Ring"</span>,<span class="s">"loves"</span>,<span class="s">".NET"</span>] ])
 ? <span class="s">"Base64         : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToBase64String</span>(<span class="s">"Hello Ring"</span>)
-? <span class="s">"Hex of 255     : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">16</span>)
+? <span class="s">"Hex of 255     : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = <span class="n">255</span>, :toBase = <span class="n">16</span> ])
 ? <span class="s">"2 ^ 20         : "</span> + <span class="k">new</span> <span class="t">Math</span>().<span class="f">Pow</span>(<span class="n">2</span>,<span class="n">20</span>)
 
 <span class="c"># Uri, Guid, Version, Environment</span>
@@ -212,11 +215,11 @@ using {
 
 oPath = <span class="k">new</span> <span class="t">Path</span>()
 oFile = <span class="k">new</span> <span class="t">File</span>()
-cDir = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo"</span>)
+cDir = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo"</span>])
 <span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cDir)
 
 <span class="c"># Text files</span>
-cLog = oPath.<span class="f">Combine</span>(cDir,<span class="s">"log.txt"</span>)
+cLog = oPath.<span class="f">Combine</span>([cDir,<span class="s">"log.txt"</span>])
 oWriter = <span class="k">new</span> <span class="t">StreamWriter</span>(cLog)
 oWriter.<span class="f">WriteLine</span>(<span class="s">"2024-05-17 ERROR disk full"</span>)
 oWriter.<span class="f">WriteLine</span>(<span class="s">"2024-05-18 INFO backup done"</span>)
@@ -233,7 +236,7 @@ oMatches = oRegex.<span class="f">Matches</span>(oFile.<span class="f">ReadAllTe
 	oMatch = oMatches.<span class="f">Item</span>(nLoop)
 	? <span class="s">"  "</span> + oMatch.Groups.<span class="f">Item</span>(<span class="s">"month"</span>).Value + <span class="s">" -&gt; "</span> + trim(oMatch.Groups.<span class="f">Item</span>(<span class="s">"what"</span>).Value)
 <span class="k">next</span>
-? <span class="s">"Cleaned       : "</span> + <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\s+"</span>).<span class="f">Replace</span>(<span class="s">"too    many   spaces"</span>,<span class="s">" "</span>)
+? <span class="s">"Cleaned       : "</span> + <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"\s+"</span>).<span class="f">Replace</span>([ :input = <span class="s">"too    many   spaces"</span>, :replacement = <span class="s">" "</span> ])
 
 <span class="c"># Compression</span>
 oPacked = <span class="k">new</span> <span class="t">MemoryStream</span>()
@@ -243,9 +246,9 @@ oGzip.<span class="f">Write</span>(cData,<span class="n">0</span>,len(cData))
 oGzip.<span class="f">Close</span>()
 ? <span class="s">"GZip          : "</span> + len(cData) + <span class="s">" -&gt; "</span> + len(oPacked.<span class="f">ToArray</span>()) + <span class="s">" bytes"</span>
 
-cZip = oPath.<span class="f">Combine</span>(oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo.zip"</span>)
+cZip = oPath.<span class="f">Combine</span>([oPath.<span class="f">GetTempPath</span>(),<span class="s">"ringdotnet_demo.zip"</span>])
 <span class="k">if</span> oFile.<span class="f">Exists</span>(cZip) oFile.<span class="f">Delete</span>(cZip) <span class="k">ok</span>
-<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>(cDir,cZip)
+<span class="k">new</span> <span class="t">ZipFile</span>().<span class="f">CreateFromDirectory</span>([ :sourceDirectoryName = cDir, :destinationArchiveFileName = cZip ])
 ? <span class="s">"Zip created   : "</span> + <span class="k">new</span> <span class="t">FileInfo</span>(cZip).Length + <span class="s">" bytes"</span>
 
 <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cDir, :recursive = <span class="k">True</span> ])
@@ -335,8 +338,8 @@ cCipher = oAes.<span class="f">CreateEncryptor</span>(<span class="k">NULL</span
 <span class="c"># Cultures</span>
 oUS = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>)
 oDate = <span class="k">new</span> <span class="t">DateTime</span>(<span class="n">2024</span>,<span class="n">7</span>,<span class="n">4</span>)
-? <span class="s">"US date        : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,oUS)
-? <span class="s">"German date    : "</span> + oDate.<span class="f">ToString_2</span>(<span class="s">"D"</span>,<span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>))
+? <span class="s">"US date        : "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"D"</span>, :provider = oUS ])
+? <span class="s">"German date    : "</span> + oDate.<span class="f">Format</span>([ :format = <span class="s">"D"</span>, :provider = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"de-DE"</span>) ])
 ? <span class="s">"Title case     : "</span> + oUS.TextInfo.<span class="f">ToTitleCase</span>(<span class="s">"ring meets dot net"</span>)
 
 <span class="c"># Start a process and read its output</span>

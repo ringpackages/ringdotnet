@@ -87,4 +87,4 @@ func selfTest
 	dnAssert("the style: Margin of a key",wpfFind(oWindow,"key5").Margin.Left,4)
 
 func clickKey cName
-	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().New_1(new WpfButtonBase().ClickEvent))
+	wpfFind(oWindow,cName).RaiseEvent(new RoutedEventArgs().New_([ :routedEvent = new WpfButtonBase().ClickEvent ]))

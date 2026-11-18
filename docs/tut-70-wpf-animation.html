@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -208,37 +211,37 @@ oCheck = <span class="s">""</span>
 	oMove = <span class="k">new</span> <span class="t">DoubleAnimation</span>()
 	oMove.<span class="f">SetProp</span>(<span class="s">"From"</span>,<span class="n">10</span>)                      <span class="c"># From and To can be empty in WPF, so they are set by name</span>
 	oMove.<span class="f">SetProp</span>(<span class="s">"To"</span>,<span class="n">340</span>)
-	oMove.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">2</span>))
+	oMove.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_</span>([ :timeSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">2</span>) ])
 	oMove.AutoReverse = <span class="k">True</span>
 	oMove.RepeatBehavior = <span class="k">new</span> <span class="t">RepeatBehavior</span>().Forever
 	oEase = <span class="k">new</span> <span class="t">SineEase</span>()
 	oEase.EasingMode = <span class="s">"EaseInOut"</span>
 	oMove.EasingFunction = oEase
-	oBall.<span class="f">BeginAnimation</span>(<span class="k">new</span> <span class="t">Canvas</span>().LeftProperty,oMove)
+	oBall.<span class="f">BeginAnimation</span>([ :dp = <span class="k">new</span> <span class="t">Canvas</span>().LeftProperty, :animation = oMove ])
 
 	<span class="c"># the box: Opacity from 1 to 0.1 and back, in 1.5 seconds</span>
 	oFade = <span class="k">new</span> <span class="t">DoubleAnimation</span>()
 	oFade.<span class="f">SetProp</span>(<span class="s">"From"</span>,<span class="n">1</span>)
 	oFade.<span class="f">SetProp</span>(<span class="s">"To"</span>,<span class="n">0.1</span>)
-	oFade.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">1.5</span>))
+	oFade.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_</span>([ :timeSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">1.5</span>) ])
 	oFade.AutoReverse = <span class="k">True</span>
 	oFade.RepeatBehavior = <span class="k">new</span> <span class="t">RepeatBehavior</span>().Forever
-	oBox.<span class="f">BeginAnimation</span>(oBox.OpacityProperty,oFade)
+	oBox.<span class="f">BeginAnimation</span>([ :dp = oBox.OpacityProperty, :animation = oFade ])
 
 	<span class="c"># the green square: the angle of its rotation from 0 to 360 in 3 seconds, a new turn each time</span>
 	oTurn = <span class="k">new</span> <span class="t">DoubleAnimation</span>()
 	oTurn.<span class="f">SetProp</span>(<span class="s">"From"</span>,<span class="n">0</span>)
 	oTurn.<span class="f">SetProp</span>(<span class="s">"To"</span>,<span class="n">360</span>)
-	oTurn.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">3</span>))
+	oTurn.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_</span>([ :timeSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">3</span>) ])
 	oTurn.RepeatBehavior = <span class="k">new</span> <span class="t">RepeatBehavior</span>().Forever
-	oSpin.<span class="f">BeginAnimation</span>(oSpin.AngleProperty,oTurn)
+	oSpin.<span class="f">BeginAnimation</span>([ :dp = oSpin.AngleProperty, :animation = oTurn ])
 	oStatus.Text = <span class="s">"Running"</span>
 
 <span class="c"># an animation is stopped by starting "no animation" (the .NET null) on the property</span>
 <span class="k">func</span> <span class="f">stopAnimations</span>
-	oBall.<span class="f">BeginAnimation</span>(<span class="k">new</span> <span class="t">Canvas</span>().LeftProperty,<span class="f">dnNull</span>())
-	oBox.<span class="f">BeginAnimation</span>(oBox.OpacityProperty,<span class="f">dnNull</span>())
-	oSpin.<span class="f">BeginAnimation</span>(oSpin.AngleProperty,<span class="f">dnNull</span>())
+	oBall.<span class="f">BeginAnimation</span>([ :dp = <span class="k">new</span> <span class="t">Canvas</span>().LeftProperty, :animation = <span class="f">dnNull</span>() ])
+	oBox.<span class="f">BeginAnimation</span>([ :dp = oBox.OpacityProperty, :animation = <span class="f">dnNull</span>() ])
+	oSpin.<span class="f">BeginAnimation</span>([ :dp = oSpin.AngleProperty, :animation = <span class="f">dnNull</span>() ])
 	oStatus.Text = <span class="s">"Stopped"</span>
 
 <span class="k">func</span> <span class="f">selfTest</span>
@@ -261,7 +264,7 @@ oCheck = <span class="s">""</span>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>oMove = <span class="k">new</span> <span class="t">DoubleAnimation</span>()
 oMove.<span class="f">SetProp</span>(<span class="s">"From"</span>,<span class="n">10</span>)
 oMove.<span class="f">SetProp</span>(<span class="s">"To"</span>,<span class="n">340</span>)
-oMove.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_1</span>(<span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">2</span>))
+oMove.Duration = <span class="k">new</span> <span class="t">Duration</span>().<span class="f">New_</span>([ :timeSpan = <span class="k">new</span> <span class="t">TimeSpan</span>().<span class="f">FromSeconds</span>(<span class="n">2</span>) ])
 oMove.AutoReverse = <span class="k">True</span>
 oMove.RepeatBehavior = <span class="k">new</span> <span class="t">RepeatBehavior</span>().Forever
 oBall.<span class="f">BeginAnimation</span>(<span class="k">new</span> <span class="t">Canvas</span>().LeftProperty,oMove)</code></pre></div>

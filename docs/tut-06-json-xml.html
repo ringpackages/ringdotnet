@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -201,7 +204,7 @@ using {
 
 	<span class="c"># Changing XML and saving it as text</span>
 	oNew = oDoc.<span class="f">CreateElement</span>(<span class="s">"book"</span>)
-	oNew.<span class="f">SetAttribute</span>(<span class="s">"id"</span>,<span class="s">"4"</span>)
+	oNew.<span class="f">SetAttribute</span>([ :name = <span class="s">"id"</span>, :value = <span class="s">"4"</span> ])
 	oNew.InnerText = <span class="s">"A new book"</span>
 	oDoc.DocumentElement.<span class="f">AppendChild</span>(oNew)
 	? <span class="s">"After adding one   : "</span> + oDoc.<span class="f">SelectNodes</span>(<span class="s">"//book"</span>).Count + <span class="s">" books"</span>

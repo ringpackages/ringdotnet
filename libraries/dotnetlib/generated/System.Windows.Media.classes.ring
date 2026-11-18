@@ -802,7 +802,10 @@ Class WpfBrush from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getOpacity
@@ -1902,7 +1905,15 @@ Class CharacterMetrics from Object
 		nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.CharacterMetrics, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.CharacterMetrics, PresentationCore',[P1])
 		return self
 
@@ -2002,10 +2013,6 @@ Class CharacterMetricsDictionary from Object
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func ContainsKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
@@ -2065,7 +2072,10 @@ Class WpfColor from ValueType
 		nHandle = dnCreate('System.Windows.Media.Color, PresentationCore',[])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Clamp 
@@ -2110,9 +2120,6 @@ Class WpfColor from ValueType
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Multiply",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Color, PresentationCore'),"Equals",P1,P2])
 
 	Func getColorContext
 		return dnRequest("get",[self,"ColorContext"])
@@ -3291,8 +3298,16 @@ Class DashStyle from Animatable
 		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.DashStyle, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.DashStyle, PresentationCore',[P1])
 		return self
 
 	Func getOffset
@@ -3385,7 +3400,15 @@ Class DoubleCollection from Freezable
 		nHandle = dnCreate('System.Windows.Media.DoubleCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.DoubleCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.DoubleCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.DoubleCollection, PresentationCore',[P1])
 		return self
 
@@ -3421,7 +3444,10 @@ Class DoubleCollection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -3485,7 +3511,15 @@ Class DrawingCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.DrawingCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.DrawingCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.DrawingCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingCollection, PresentationCore',[P1])
 		return self
 
@@ -3553,49 +3587,44 @@ Class DrawingContext from DispatcherObject
 		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
-	Func DrawLine P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3])
-		return self
+	Func DrawLine P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawLine",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawLine does not take one argument: use named arguments, DrawLine([ :parameter = value, ... ])")
 
-	Func DrawLine_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"DrawLine",P1,P2,P3,P4,P5])
-		return self
+	Func DrawRectangle P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawRectangle",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawRectangle does not take one argument: use named arguments, DrawRectangle([ :parameter = value, ... ])")
 
-	Func DrawRectangle P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2,P3])
-		return self
+	Func DrawRoundedRectangle P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawRoundedRectangle does not take one argument: use named arguments, DrawRoundedRectangle([ :parameter = value, ... ])")
 
-	Func DrawRectangle_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRectangle",P1,P2,P3,P4])
-		return self
-
-	Func DrawRoundedRectangle P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawRoundedRectangle_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[new DotNetObject(nHandle),"DrawRoundedRectangle",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func DrawEllipse P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2,P3,P4,P5])
-		return self
-
-	Func DrawEllipse_8 P1,P2,P3,P4,P5,P6,P7,P8
-		dnRequest("call",[new DotNetObject(nHandle),"DrawEllipse",P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
+	Func DrawEllipse P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawEllipse",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawEllipse does not take one argument: use named arguments, DrawEllipse([ :parameter = value, ... ])")
 
 	Func DrawGeometry P1,P2,P3
 		dnRequest("call",[new DotNetObject(nHandle),"DrawGeometry",P1,P2,P3])
 		return self
 
-	Func DrawImage P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2])
-		return self
-
-	Func DrawImage_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawImage",P1,P2,P3])
-		return self
+	Func DrawImage P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawImage",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawImage does not take one argument: use named arguments, DrawImage([ :parameter = value, ... ])")
 
 	Func DrawGlyphRun P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"DrawGlyphRun",P1,P2])
@@ -3605,13 +3634,12 @@ Class DrawingContext from DispatcherObject
 		dnRequest("call",[new DotNetObject(nHandle),"DrawDrawing",P1])
 		return self
 
-	Func DrawVideo P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DrawVideo",P1,P2])
-		return self
-
-	Func DrawVideo_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"DrawVideo",P1,P2,P3])
-		return self
+	Func DrawVideo P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"DrawVideo",P1])
+			return self
+		ok
+		raise("DotNet Error: DrawVideo does not take one argument: use named arguments, DrawVideo([ :parameter = value, ... ])")
 
 	Func PushClip P1
 		dnRequest("call",[new DotNetObject(nHandle),"PushClip",P1])
@@ -3627,10 +3655,6 @@ Class DrawingContext from DispatcherObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"PushOpacity",P1])
-		return self
-
-	Func PushOpacity_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"PushOpacity",P1,P2])
 		return self
 
 	Func PushTransform P1
@@ -3896,12 +3920,16 @@ Class WpfFontFamily from Object
 		nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.FontFamily, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.FontFamily, PresentationCore',[P1,P2])
 		return self
 
 	Func GetTypefaces 
@@ -4117,17 +4145,11 @@ Class Fonts from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1])
 
-	Func GetFontFamilies_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetFontFamilies",P1,P2])
-
 	Func GetTypefaces P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1])
-
-	Func GetTypefaces_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"GetTypefaces",P1,P2])
 
 	Func getSystemFontFamilies
 		return dnRequest("get",[dnTypeCached('System.Windows.Media.Fonts, PresentationCore'),"SystemFontFamilies"])
@@ -4172,16 +4194,16 @@ Class FormattedText from Object
 		nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[P1,P2,P3,P4,P5,P6])
 		return self
 
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.FormattedText, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.FormattedText, PresentationCore',[P1])
 		return self
 
 	Func SetForegroundBrush P1
@@ -4192,20 +4214,12 @@ Class FormattedText from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetForegroundBrush",P1])
 		return self
 
-	Func SetForegroundBrush_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetForegroundBrush",P1,P2,P3])
-		return self
-
 	Func SetFontFamily P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontFamily",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontFamily",P1])
-		return self
-
-	Func SetFontFamily_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontFamily",P1,P2,P3])
 		return self
 
 	Func SetFontSize P1
@@ -4216,20 +4230,12 @@ Class FormattedText from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontSize",P1])
 		return self
 
-	Func SetFontSize_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontSize",P1,P2,P3])
-		return self
-
 	Func SetCulture P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetCulture",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetCulture",P1])
-		return self
-
-	Func SetCulture_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetCulture",P1,P2,P3])
 		return self
 
 	Func SetNumberSubstitution P1
@@ -4240,20 +4246,12 @@ Class FormattedText from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetNumberSubstitution",P1])
 		return self
 
-	Func SetNumberSubstitution_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetNumberSubstitution",P1,P2,P3])
-		return self
-
 	Func SetFontWeight P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontWeight",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontWeight",P1])
-		return self
-
-	Func SetFontWeight_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontWeight",P1,P2,P3])
 		return self
 
 	Func SetFontStyle P1
@@ -4264,20 +4262,12 @@ Class FormattedText from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontStyle",P1])
 		return self
 
-	Func SetFontStyle_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontStyle",P1,P2,P3])
-		return self
-
 	Func SetFontStretch P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetFontStretch",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontStretch",P1])
-		return self
-
-	Func SetFontStretch_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontStretch",P1,P2,P3])
 		return self
 
 	Func SetFontTypeface P1
@@ -4288,20 +4278,12 @@ Class FormattedText from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetFontTypeface",P1])
 		return self
 
-	Func SetFontTypeface_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetFontTypeface",P1,P2,P3])
-		return self
-
 	Func SetTextDecorations P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"SetTextDecorations",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetTextDecorations",P1])
-		return self
-
-	Func SetTextDecorations_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetTextDecorations",P1,P2,P3])
 		return self
 
 	Func SetMaxTextWidths P1
@@ -4319,9 +4301,6 @@ Class FormattedText from Object
 
 	Func BuildGeometry P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BuildGeometry",P1])
-
-	Func BuildHighlightGeometry_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"BuildHighlightGeometry",P1,P2,P3])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -4464,7 +4443,10 @@ Class GeneralTransform from Animatable
 	Func TransformBounds P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TransformBounds",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getInverse
@@ -4487,7 +4469,15 @@ Class GeneralTransformCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.GeneralTransformCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GeneralTransformCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GeneralTransformCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.GeneralTransformCollection, PresentationCore',[P1])
 		return self
 
@@ -4553,9 +4543,6 @@ Class Geometry from Animatable
 		ok
 		return self
 
-	Func GetRenderBounds_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRenderBounds",P1,P2,P3])
-
 	Func GetRenderBounds P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetRenderBounds",P1])
@@ -4565,9 +4552,6 @@ Class Geometry from Animatable
 	Func ShouldSerializeTransform 
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeTransform"])
 
-	Func GetArea_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetArea",P1,P2])
-
 	Func GetArea P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetArea",P1])
@@ -4575,7 +4559,7 @@ Class Geometry from Animatable
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetArea"])
 		ok
-		raise("DotNet Error: GetArea does not take one argument: use GetArea(NULL), GetArea_N(...) or named arguments")
+		raise("DotNet Error: GetArea does not take one argument: use named arguments, GetArea([ :parameter = value, ... ])")
 
 	Func IsEmpty 
 		return dnRequest("call",[new DotNetObject(nHandle),"IsEmpty"])
@@ -4583,23 +4567,17 @@ Class Geometry from Animatable
 	Func MayHaveCurves 
 		return dnRequest("call",[new DotNetObject(nHandle),"MayHaveCurves"])
 
-	Func FillContains_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FillContains",P1,P2,P3])
-
 	Func FillContains P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FillContains",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FillContains",P1])
 
-	Func StrokeContains_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContains",P1,P2,P3,P4])
-
-	Func StrokeContains P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContains",P1,P2])
-
-	Func FillContainsWithDetail_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FillContainsWithDetail",P1,P2,P3])
+	Func StrokeContains P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StrokeContains",P1])
+		ok
+		raise("DotNet Error: StrokeContains does not take one argument: use named arguments, StrokeContains([ :parameter = value, ... ])")
 
 	Func FillContainsWithDetail P1
 		if dnIsNamed(P1)
@@ -4607,14 +4585,11 @@ Class Geometry from Animatable
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FillContainsWithDetail",P1])
 
-	Func StrokeContainsWithDetail_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContainsWithDetail",P1,P2,P3,P4])
-
-	Func StrokeContainsWithDetail P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StrokeContainsWithDetail",P1,P2])
-
-	Func GetFlattenedPathGeometry_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathGeometry",P1,P2])
+	Func StrokeContainsWithDetail P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StrokeContainsWithDetail",P1])
+		ok
+		raise("DotNet Error: StrokeContainsWithDetail does not take one argument: use named arguments, StrokeContainsWithDetail([ :parameter = value, ... ])")
 
 	Func GetFlattenedPathGeometry P1
 		if dnIsNamed(P1)
@@ -4623,19 +4598,13 @@ Class Geometry from Animatable
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathGeometry"])
 		ok
-		raise("DotNet Error: GetFlattenedPathGeometry does not take one argument: use GetFlattenedPathGeometry(NULL), GetFlattenedPathGeometry_N(...) or named arguments")
-
-	Func GetWidenedPathGeometry_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1,P2,P3])
+		raise("DotNet Error: GetFlattenedPathGeometry does not take one argument: use named arguments, GetFlattenedPathGeometry([ :parameter = value, ... ])")
 
 	Func GetWidenedPathGeometry P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetWidenedPathGeometry",P1])
-
-	Func GetOutlinedPathGeometry_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetOutlinedPathGeometry",P1,P2])
 
 	Func GetOutlinedPathGeometry P1
 		if dnIsNamed(P1)
@@ -4644,16 +4613,19 @@ Class Geometry from Animatable
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetOutlinedPathGeometry"])
 		ok
-		raise("DotNet Error: GetOutlinedPathGeometry does not take one argument: use GetOutlinedPathGeometry(NULL), GetOutlinedPathGeometry_N(...) or named arguments")
+		raise("DotNet Error: GetOutlinedPathGeometry does not take one argument: use named arguments, GetOutlinedPathGeometry([ :parameter = value, ... ])")
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
-	Func Combine_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1,P2,P3,P4,P5,P6])
-
-	Func Combine P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1,P2,P3,P4])
+	Func Combine P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Combine",P1])
+		ok
+		raise("DotNet Error: Combine does not take one argument: use named arguments, Combine([ :parameter = value, ... ])")
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Geometry, PresentationCore'),"Parse",P1])
@@ -4703,7 +4675,15 @@ Class GeometryCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.GeometryCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GeometryCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GeometryCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.GeometryCollection, PresentationCore',[P1])
 		return self
 
@@ -4792,16 +4772,16 @@ Class GlyphRun from Object
 		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GlyphRun, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[P1])
-		return self
-
-	Func New_14 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14
-		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14])
-		return self
-
-	Func New_13 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13
-		nHandle = dnCreate('System.Windows.Media.GlyphRun, PresentationCore',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13])
 		return self
 
 	Func GetDistanceFromCaretCharacterHit P1
@@ -4984,12 +4964,16 @@ Class GlyphTypeface from Object
 		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GlyphTypeface, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.GlyphTypeface, PresentationCore',[P1,P2])
 		return self
 
 	Func Equals P1
@@ -5257,11 +5241,22 @@ Class GradientStop from Animatable
 		nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GradientStop, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.GradientStop, PresentationCore',[P1])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getColor
@@ -5304,7 +5299,15 @@ Class GradientStopCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.GradientStopCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GradientStopCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GradientStopCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.GradientStopCollection, PresentationCore',[P1])
 		return self
 
@@ -5340,7 +5343,10 @@ Class GradientStopCollection from Animatable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -5376,8 +5382,16 @@ Class GuidelineSet from Animatable
 		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GuidelineSet, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.GuidelineSet, PresentationCore',[P1])
 		return self
 
 	Func getGuidelinesX
@@ -5468,7 +5482,10 @@ Class ImageSource from Animatable
 		ok
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getWidth
@@ -5527,7 +5544,15 @@ Class Int32Collection from Freezable
 		nHandle = dnCreate('System.Windows.Media.Int32Collection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Int32Collection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Int32Collection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.Int32Collection, PresentationCore',[P1])
 		return self
 
@@ -5563,7 +5588,10 @@ Class Int32Collection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -5638,10 +5666,6 @@ Class LanguageSpecificStringDictionary from Object
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func ContainsKey P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsKey",P1])
 
@@ -5702,8 +5726,16 @@ Class WpfMatrix from ValueType
 		nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Matrix, WindowsBase',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Matrix, WindowsBase',[P1])
 		return self
 
 	Func SetIdentity 
@@ -5782,14 +5814,14 @@ Class WpfMatrix from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Multiply P1,P2
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Multiply",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Equals",P1,P2])
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.Matrix, WindowsBase'),"Parse",P1])
@@ -6128,16 +6160,16 @@ Class MediaTimeline from Timeline
 		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.MediaTimeline, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.MediaTimeline, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getSource
@@ -6172,32 +6204,40 @@ Class NumberSubstitution from Object
 		nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.NumberSubstitution, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.NumberSubstitution, PresentationCore',[P1])
 		return self
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func SetCultureSource_2 P1,P2
+	Func SetCultureSource_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"SetCultureSource",P1,P2])
 		return self
 
-	Func GetCultureSource_1 P1
+	Func GetCultureSource_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"GetCultureSource",P1])
 
-	Func SetCultureOverride_2 P1,P2
+	Func SetCultureOverride_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"SetCultureOverride",P1,P2])
 		return self
 
-	Func GetCultureOverride_1 P1
+	Func GetCultureOverride_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"GetCultureOverride",P1])
 
-	Func SetSubstitution_2 P1,P2
+	Func SetSubstitution_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"SetSubstitution",P1,P2])
 		return self
 
-	Func GetSubstitution_1 P1
+	Func GetSubstitution_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.NumberSubstitution, PresentationCore'),"GetSubstitution",P1])
 
 	Func getCultureSource
@@ -6260,12 +6300,17 @@ Class PathFigure from Animatable
 		nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PathFigure, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.PathFigure, PresentationCore',[P1])
 		return self
-
-	Func GetFlattenedPathFigure_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathFigure",P1,P2])
 
 	Func GetFlattenedPathFigure P1
 		if dnIsNamed(P1)
@@ -6274,12 +6319,15 @@ Class PathFigure from Animatable
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFlattenedPathFigure"])
 		ok
-		raise("DotNet Error: GetFlattenedPathFigure does not take one argument: use GetFlattenedPathFigure(NULL), GetFlattenedPathFigure_N(...) or named arguments")
+		raise("DotNet Error: GetFlattenedPathFigure does not take one argument: use named arguments, GetFlattenedPathFigure([ :parameter = value, ... ])")
 
 	Func MayHaveCurves 
 		return dnRequest("call",[new DotNetObject(nHandle),"MayHaveCurves"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func getStartPoint
@@ -6348,7 +6396,15 @@ Class PathFigureCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.PathFigureCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PathFigureCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PathFigureCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathFigureCollection, PresentationCore',[P1])
 		return self
 
@@ -6384,7 +6440,10 @@ Class PathFigureCollection from Animatable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -6471,7 +6530,15 @@ Class PathSegmentCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.PathSegmentCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PathSegmentCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PathSegmentCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathSegmentCollection, PresentationCore',[P1])
 		return self
 
@@ -6549,8 +6616,16 @@ Class WpfPen from Animatable
 		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Pen, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Pen, PresentationCore',[P1])
 		return self
 
 	Func getBrush
@@ -6681,9 +6756,6 @@ Class PixelFormat from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.PixelFormat, PresentationCore'),"Equals",P1,P2])
-
 	Func getBitsPerPixel
 		return dnRequest("get",[self,"BitsPerPixel"])
 
@@ -6718,9 +6790,6 @@ Class PixelFormatChannelMask from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.PixelFormatChannelMask, PresentationCore'),"Equals",P1,P2])
 
 	Func getMask
 		return dnRequest("get",[self,"Mask"])
@@ -6951,7 +7020,15 @@ Class PointCollection from Freezable
 		nHandle = dnCreate('System.Windows.Media.PointCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PointCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PointCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.PointCollection, PresentationCore',[P1])
 		return self
 
@@ -6987,7 +7064,10 @@ Class PointCollection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -7279,8 +7359,16 @@ Class TextEffect from Animatable
 		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.TextEffect, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.TextEffect, PresentationCore',[P1])
 		return self
 
 	Func getTransform
@@ -7362,7 +7450,15 @@ Class TextEffectCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.TextEffectCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.TextEffectCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.TextEffectCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.TextEffectCollection, PresentationCore',[P1])
 		return self
 
@@ -7482,7 +7578,15 @@ Class TransformCollection from Animatable
 		nHandle = dnCreate('System.Windows.Media.TransformCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.TransformCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.TransformCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.TransformCollection, PresentationCore',[P1])
 		return self
 
@@ -7569,12 +7673,16 @@ Class Typeface from Object
 		nHandle = dnCreate('System.Windows.Media.Typeface, PresentationCore',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.Typeface, PresentationCore',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Windows.Media.Typeface, PresentationCore',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.Typeface, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.Typeface, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.Typeface, PresentationCore',[P1])
 		return self
 
 	Func TryGetGlyphTypeface 
@@ -7675,7 +7783,15 @@ Class VectorCollection from Freezable
 		nHandle = dnCreate('System.Windows.Media.VectorCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.VectorCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.VectorCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.VectorCollection, PresentationCore',[P1])
 		return self
 
@@ -7711,7 +7827,10 @@ Class VectorCollection from Freezable
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -7947,12 +8066,11 @@ Class VisualTreeHelper from Object
 	Func GetEdgeMode P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"GetEdgeMode",P1])
 
-	Func HitTest P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"HitTest",P1,P2])
-
-	Func HitTest_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"HitTest",P1,P2,P3,P4])
-		return self
+	Func HitTest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Windows.Media.VisualTreeHelper, PresentationCore'),"HitTest",P1])
+		ok
+		raise("DotNet Error: HitTest does not take one argument: use named arguments, HitTest([ :parameter = value, ... ])")
 
 
 Class ArcSegment from PathSegment
@@ -7977,8 +8095,16 @@ Class ArcSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.ArcSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.ArcSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoint
@@ -8065,8 +8191,16 @@ Class BezierSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.BezierSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.BezierSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoint1
@@ -8127,7 +8261,15 @@ Class BitmapCache from CacheMode
 		nHandle = dnCreate('System.Windows.Media.BitmapCache, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.BitmapCache, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.BitmapCache, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.BitmapCache, PresentationCore',[P1])
 		return self
 
@@ -8189,7 +8331,15 @@ Class BitmapCacheBrush from WpfBrush
 		nHandle = dnCreate('System.Windows.Media.BitmapCacheBrush, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.BitmapCacheBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.BitmapCacheBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.BitmapCacheBrush, PresentationCore',[P1])
 		return self
 
@@ -8251,16 +8401,16 @@ Class CombinedGeometry from Geometry
 		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.CombinedGeometry, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.CombinedGeometry, PresentationCore',[P1])
 		return self
 
 	Func getGeometryCombineMode
@@ -8335,10 +8485,6 @@ Class ContainerVisual from Visual
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
-
-	Func HitTest_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2,P3])
-		return self
 
 	Func getChildren
 		return dnRequest("get",[self,"Children"])
@@ -8595,7 +8741,15 @@ Class DrawingImage from ImageSource
 		nHandle = dnCreate('System.Windows.Media.DrawingImage, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.DrawingImage, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.DrawingImage, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingImage, PresentationCore',[P1])
 		return self
 
@@ -8631,16 +8785,16 @@ Class EllipseGeometry from Geometry
 		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.EllipseGeometry, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.EllipseGeometry, PresentationCore',[P1,P2,P3,P4])
 		return self
 
 	Func getRadiusX
@@ -8729,8 +8883,16 @@ Class GeometryDrawing from Drawing
 		nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GeometryDrawing, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.GeometryDrawing, PresentationCore',[P1])
 		return self
 
 	Func getBrush
@@ -8872,8 +9034,16 @@ Class GlyphRunDrawing from Drawing
 		nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.GlyphRunDrawing, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.GlyphRunDrawing, PresentationCore',[P1])
 		return self
 
 	Func getGlyphRun
@@ -8991,8 +9161,16 @@ Class ImageDrawing from Drawing
 		nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.ImageDrawing, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.ImageDrawing, PresentationCore',[P1])
 		return self
 
 	Func getImageSource
@@ -9038,12 +9216,16 @@ Class LineGeometry from Geometry
 		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.LineGeometry, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.LineGeometry, PresentationCore',[P1])
 		return self
 
 	Func getStartPoint
@@ -9087,8 +9269,16 @@ Class LineSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.LineSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.LineSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoint
@@ -9121,12 +9311,16 @@ Class PathGeometry from Geometry
 		nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PathGeometry, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.PathGeometry, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func AddGeometry P1
@@ -9224,8 +9418,16 @@ Class PolyBezierSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PolyBezierSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.PolyBezierSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoints
@@ -9256,8 +9458,16 @@ Class PolyLineSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PolyLineSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.PolyLineSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoints
@@ -9288,8 +9498,16 @@ Class PolyQuadraticBezierSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.PolyQuadraticBezierSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoints
@@ -9322,8 +9540,16 @@ Class QuadraticBezierSegment from PathSegment
 		nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.QuadraticBezierSegment, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.QuadraticBezierSegment, PresentationCore',[P1])
 		return self
 
 	Func getPoint1
@@ -9371,16 +9597,16 @@ Class RectangleGeometry from Geometry
 		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.RectangleGeometry, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.RectangleGeometry, PresentationCore',[P1,P2,P3,P4])
 		return self
 
 	Func getRadiusX
@@ -9437,7 +9663,15 @@ Class SolidColorBrush from WpfBrush
 		nHandle = dnCreate('System.Windows.Media.SolidColorBrush, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.SolidColorBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.SolidColorBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.SolidColorBrush, PresentationCore',[P1])
 		return self
 
@@ -9638,7 +9872,7 @@ Class Transform from GeneralTransform
 		ok
 		return self
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
 	Func Parse P1
@@ -9742,7 +9976,15 @@ Class DrawingBrush from TileBrush
 		nHandle = dnCreate('System.Windows.Media.DrawingBrush, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.DrawingBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.DrawingBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.DrawingBrush, PresentationCore',[P1])
 		return self
 
@@ -9809,7 +10051,15 @@ Class ImageBrush from TileBrush
 		nHandle = dnCreate('System.Windows.Media.ImageBrush, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.ImageBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.ImageBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.ImageBrush, PresentationCore',[P1])
 		return self
 
@@ -9843,20 +10093,16 @@ Class WpfLinearGradientBrush from GradientBrush
 		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[P1,P2,P3,P4])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.LinearGradientBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.LinearGradientBrush, PresentationCore',[P1,P2])
 		return self
 
 	Func getStartPoint
@@ -9900,11 +10146,15 @@ Class MatrixTransform from Transform
 		nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.MatrixTransform, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.MatrixTransform, PresentationCore',[P1])
 		return self
 
@@ -9942,11 +10192,15 @@ Class RadialGradientBrush from GradientBrush
 		nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.RadialGradientBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.RadialGradientBrush, PresentationCore',[P1])
 		return self
 
@@ -10021,12 +10275,16 @@ Class RotateTransform from Transform
 		nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.RotateTransform, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Media.RotateTransform, PresentationCore',[P1,P2,P3])
 		return self
 
 	Func getAngle
@@ -10089,12 +10347,16 @@ Class ScaleTransform from Transform
 		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.ScaleTransform, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.ScaleTransform, PresentationCore',[P1])
 		return self
 
 	Func getScaleX
@@ -10170,12 +10432,16 @@ Class SkewTransform from Transform
 		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.SkewTransform, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.SkewTransform, PresentationCore',[P1])
 		return self
 
 	Func getAngleX
@@ -10275,8 +10541,16 @@ Class TranslateTransform from Transform
 		nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.TranslateTransform, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Media.TranslateTransform, PresentationCore',[P1])
 		return self
 
 	Func getX
@@ -10322,7 +10596,15 @@ Class VisualBrush from TileBrush
 		nHandle = dnCreate('System.Windows.Media.VisualBrush, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Media.VisualBrush, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Media.VisualBrush, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Media.VisualBrush, PresentationCore',[P1])
 		return self
 

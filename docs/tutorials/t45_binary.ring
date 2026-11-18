@@ -7,7 +7,7 @@ using {
 }
 
 func main
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial45.dat")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial45.dat"])
 
 	# 1. A binary file stores values as bytes, not as readable text. We invent a tiny format:
 	#      the text "RDN1" (a "magic number": it says what kind of file this is), then
@@ -40,7 +40,7 @@ func main
 	oReader.Close()
 
 	# 4. Checking the magic number protects against opening the wrong kind of file
-	new File().WriteAllText(cFile,"just some text, not our format")
+	new File().WriteAllText([ :path = cFile, :contents = "just some text, not our format" ])
 	if readMagic(cFile) != "RDN1"
 		? nl + "4. Not our file format: refused"
 	ok

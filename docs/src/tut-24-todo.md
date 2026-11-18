@@ -36,7 +36,7 @@ Remember [tutorial 13](tut-13-editor.html): the control that fills the window is
 
 ### Add and remove
 
-`addTask` trims the text, ignores a blank one, adds `Items.Add_2(text, False)` (the second parameter is the initial *checked* state), clears the text box, saves and refreshes the status. `removeTask` removes the selected item (`SelectedIndex` is `-1` when nothing is selected).
+`addTask` trims the text, ignores a blank one, adds `Items.Add([ :item = text, :isChecked = False ])` (the second parameter is the initial *checked* state), clears the text box, saves and refreshes the status. `removeTask` removes the selected item (`SelectedIndex` is `-1` when nothing is selected).
 
 ### Reacting to a tick
 

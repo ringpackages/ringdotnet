@@ -51,7 +51,15 @@ Class QueryBuilder from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Extensions.QueryBuilder, Microsoft.AspNetCore.Http.Extensions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.Extensions.QueryBuilder, Microsoft.AspNetCore.Http.Extensions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.Extensions.QueryBuilder, Microsoft.AspNetCore.Http.Extensions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.Extensions.QueryBuilder, Microsoft.AspNetCore.Http.Extensions',[P1])
 		return self
 
@@ -82,11 +90,11 @@ Class StreamCopyOperation from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func CopyToAsync P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"CopyToAsync",P1,P2,P3,P4])
-
-	Func CopyToAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"CopyToAsync",P1,P2,P3,P4,P5])
+	Func CopyToAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.StreamCopyOperation, Microsoft.AspNetCore.Http.Extensions'),"CopyToAsync",P1])
+		ok
+		raise("DotNet Error: CopyToAsync does not take one argument: use named arguments, CopyToAsync([ :parameter = value, ... ])")
 
 
 Class UriHelper from Object
@@ -102,18 +110,6 @@ Class UriHelper from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func BuildRelative_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1,P2,P3,P4])
-
-	Func BuildRelative_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1,P2,P3])
-
-	Func BuildRelative_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1,P2])
-
-	Func BuildRelative_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
-
 	Func BuildRelative P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
@@ -123,20 +119,11 @@ Class UriHelper from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildRelative",P1])
 
-	Func BuildAbsolute_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2,P3,P4,P5,P6])
-
-	Func BuildAbsolute_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2,P3,P4,P5])
-
-	Func BuildAbsolute_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2,P3,P4])
-
-	Func BuildAbsolute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2,P3])
-
-	Func BuildAbsolute P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1,P2])
+	Func BuildAbsolute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"BuildAbsolute",P1])
+		ok
+		raise("DotNet Error: BuildAbsolute does not take one argument: use named arguments, BuildAbsolute([ :parameter = value, ... ])")
 
 	Func FromAbsolute P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Extensions.UriHelper, Microsoft.AspNetCore.Http.Extensions'),"FromAbsolute",P1])

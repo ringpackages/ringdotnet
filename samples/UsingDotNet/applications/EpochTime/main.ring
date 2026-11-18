@@ -46,8 +46,8 @@ func epochToDate
 	oMessage.Text = ""
 	try
 		oDate = dateOf(number(oEpoch.Text))
-		oUtc.Text = oDate.UtcDateTime.ToString_1(C_FORMAT)
-		oLocal.Text = oDate.LocalDateTime.ToString_1(C_FORMAT)
+		oUtc.Text = oDate.UtcDateTime.Format(C_FORMAT)
+		oLocal.Text = oDate.LocalDateTime.Format(C_FORMAT)
 	catch
 		oMessage.Text = "Invalid epoch value"
 	done

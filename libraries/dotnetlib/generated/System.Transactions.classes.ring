@@ -284,10 +284,6 @@ Class Transaction from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
 		return self
 
-	Func Rollback_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Rollback",P1])
-		return self
-
 	Func EnlistVolatile P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EnlistVolatile",P1,P2])
 
@@ -306,9 +302,6 @@ Class Transaction from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnlistPromotableSinglePhase",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnlistPromotableSinglePhase",P1])
-
-	Func EnlistPromotableSinglePhase_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EnlistPromotableSinglePhase",P1,P2])
 
 	Func PromoteAndEnlistDurable P1,P2,P3,P4
 		return dnRequest("call",[new DotNetObject(nHandle),"PromoteAndEnlistDurable",P1,P2,P3,P4])
@@ -559,16 +552,16 @@ Class TransactionScope from Object
 		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Transactions.TransactionScope, System.Transactions.Local',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Transactions.TransactionScope, System.Transactions.Local',[P1,P2,P3])
 		return self
 
 	Func Dispose 
@@ -594,7 +587,15 @@ Class CommittableTransaction from Transaction
 		nHandle = dnCreate('System.Transactions.CommittableTransaction, System.Transactions.Local',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Transactions.CommittableTransaction, System.Transactions.Local',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Transactions.CommittableTransaction, System.Transactions.Local',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Transactions.CommittableTransaction, System.Transactions.Local',[P1])
 		return self
 
@@ -651,10 +652,6 @@ Class PreparingEnlistment from Enlistment
 		dnRequest("call",[new DotNetObject(nHandle),"ForceRollback",P1])
 		return self
 
-	Func ForceRollback_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"ForceRollback",P1])
-		return self
-
 	Func RecoveryInformation 
 		return dnRequest("call",[new DotNetObject(nHandle),"RecoveryInformation"])
 
@@ -681,10 +678,6 @@ Class SinglePhaseEnlistment from Enlistment
 		dnRequest("call",[new DotNetObject(nHandle),"Aborted",P1])
 		return self
 
-	Func Aborted_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Aborted",P1])
-		return self
-
 	Func Committed 
 		dnRequest("call",[new DotNetObject(nHandle),"Committed"])
 		return self
@@ -698,10 +691,6 @@ Class SinglePhaseEnlistment from Enlistment
 			dnRequest("call",[new DotNetObject(nHandle),"InDoubt"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"InDoubt",P1])
-		return self
-
-	Func InDoubt_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"InDoubt",P1])
 		return self
 

@@ -21,7 +21,7 @@ func main
 	? nl + "2. the days: " + joinWith(oEnum.GetNames(oDays).toList(),", ")
 
 	# 3. Is a text one of the names? Parse turns a text into an enum value, and raises an error if there is no such name.
-	? nl + "3. is 'Friday' a day? " + yesNo(oEnum.IsDefined_2(oDays,"Friday")) + ". Is 'Funday'? " + yesNo(oEnum.IsDefined_2(oDays,"Funday"))
+	? nl + "3. is 'Friday' a day? " + yesNo(oEnum.IsDefined([ :enumType = oDays, :value = "Friday" ])) + ". Is 'Funday'? " + yesNo(oEnum.IsDefined([ :enumType = oDays, :value = "Funday" ]))
 	cDay = oEnum.Parse([ :enumType = oDays, :value = "Friday" ])
 	? "   Parse('Friday') gives " + cDay
 	try
@@ -31,8 +31,8 @@ func main
 	done
 
 	# 4. A method that takes an enum takes the name as a text: a file can be hidden and read only at the same time
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial65.txt")
-	new File().WriteAllText(cFile,"x")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial65.txt"])
+	new File().WriteAllText([ :path = cFile, :contents = "x" ])
 	? nl + "4. attributes of a new file: " + new File().GetAttributes(cFile)
 	new File().SetAttributes(cFile,"ReadOnly, Hidden")                       # several flags: names separated by commas
 	cAttributes = new File().GetAttributes(cFile)

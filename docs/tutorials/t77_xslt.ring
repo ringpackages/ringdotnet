@@ -22,10 +22,10 @@ C_HTML = '<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Tr
 C_HTML += '<xsl:template match="/library"><table><xsl:for-each select="book"><tr class="{@genre}"><td><xsl:value-of select="title"/></td><td><xsl:value-of select="price"/></td></tr></xsl:for-each></table></xsl:template></xsl:stylesheet>'
 
 func main
-	cFolder = new Path().Combine(new Path().GetTempPath(),"tutorial77")
+	cFolder = new Path().Combine([new Path().GetTempPath(),"tutorial77"])
 	new Directory().CreateDirectory(cFolder)
-	cInput = new Path().Combine(cFolder,"library.xml")
-	new File().WriteAllText(cInput,C_XML)
+	cInput = new Path().Combine([cFolder,"library.xml"])
+	new File().WriteAllText([ :path = cInput, :contents = C_XML ])
 
 	# 1. XSLT turns an input document into another document. XslCompiledTransform compiles the stylesheet once; Transform runs it.
 	? "1. a text report, newest book first, with the total price:"
@@ -47,12 +47,12 @@ func main
 
 # compile the stylesheet text, run it over the input file, return the text of the output file
 func transform cFolder, cInput, cStylesheet, cOutputName
-	cSheet = new Path().Combine(cFolder,cOutputName + ".xsl")
-	cOutput = new Path().Combine(cFolder,cOutputName)
-	new File().WriteAllText(cSheet,cStylesheet)
+	cSheet = new Path().Combine([cFolder,cOutputName + ".xsl"])
+	cOutput = new Path().Combine([cFolder,cOutputName])
+	new File().WriteAllText([ :path = cSheet, :contents = cStylesheet ])
 	oTransform = new XslCompiledTransform()
 	oTransform.Load_(cSheet)
-	oTransform.Transform(cInput,cOutput)
+	oTransform.Transform([ :inputUri = cInput, :resultsFile = cOutput ])
 	return new File().ReadAllText(cOutput)
 
 func indent cText

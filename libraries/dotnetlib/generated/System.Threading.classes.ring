@@ -292,8 +292,16 @@ Class Barrier from Object
 		nHandle = dnCreate('System.Threading.Barrier, System.Threading',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Barrier, System.Threading',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Barrier, System.Threading',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Barrier, System.Threading',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Barrier, System.Threading',[P1])
 		return self
 
 	Func AddParticipant 
@@ -320,13 +328,6 @@ Class Barrier from Object
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1])
 		return self
-
-	Func SignalAndWait_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1])
-		return self
-
-	Func SignalAndWait_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SignalAndWait",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -370,7 +371,15 @@ Class CancellationToken from ValueType
 		nHandle = dnCreate('System.Threading.CancellationToken, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.CancellationToken, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.CancellationToken, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.CancellationToken, System.Private.CoreLib',[P1])
 		return self
 
@@ -379,12 +388,6 @@ Class CancellationToken from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Register",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1])
-
-	Func Register_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1,P2])
-
-	Func Register_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Register",P1,P2,P3])
 
 	Func UnsafeRegister P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"UnsafeRegister",P1,P2])
@@ -462,12 +465,16 @@ Class CancellationTokenSource from Object
 		nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.CancellationTokenSource, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.CancellationTokenSource, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Cancel P1
@@ -479,10 +486,6 @@ Class CancellationTokenSource from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Cancel"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Cancel",P1])
-		return self
-
-	Func Cancel_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Cancel",P1])
 		return self
 
@@ -502,9 +505,6 @@ Class CancellationTokenSource from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func CreateLinkedTokenSource_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.CancellationTokenSource, System.Private.CoreLib'),"CreateLinkedTokenSource",P1,P2])
 
 	Func CreateLinkedTokenSource P1
 		if dnIsNamed(P1)
@@ -585,9 +585,6 @@ Class CountdownEvent from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Signal",P1])
 
-	Func Signal_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Signal",P1])
-
 	Func AddCount P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AddCount",P1])
@@ -609,13 +606,6 @@ Class CountdownEvent from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryAddCount",P1])
 
-	Func AddCount_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"AddCount",P1])
-		return self
-
-	Func TryAddCount_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TryAddCount",P1])
-
 	Func Reset P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Reset",P1])
@@ -625,10 +615,6 @@ Class CountdownEvent from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
-		return self
-
-	Func Reset_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Reset",P1])
 		return self
 
@@ -642,13 +628,6 @@ Class CountdownEvent from Object
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
-
-	Func Wait_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
-		return self
-
-	Func Wait_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -735,7 +714,15 @@ Class HostExecutionContext from Object
 		nHandle = dnCreate('System.Threading.HostExecutionContext, System.Threading',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.HostExecutionContext, System.Threading',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.HostExecutionContext, System.Threading',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.HostExecutionContext, System.Threading',[P1])
 		return self
 
@@ -751,10 +738,6 @@ Class HostExecutionContext from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
-		return self
-
-	Func Dispose_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 		return self
 
@@ -881,15 +864,6 @@ Class LazyInitializer from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1])
 
-	Func EnsureInitialized_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1,P2])
-
-	Func EnsureInitialized_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1,P2,P3])
-
-	Func EnsureInitialized_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Threading.LazyInitializer, System.Private.CoreLib'),"EnsureInitialized",P1,P2,P3,P4])
-
 
 Class Lock from Object
 
@@ -918,9 +892,6 @@ Class Lock from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"TryEnter"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
-
-	Func TryEnter_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
 
 	Func Exit_ 
@@ -964,12 +935,16 @@ Class ManualResetEventSlim from Object
 		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.ManualResetEventSlim, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.ManualResetEventSlim, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func Set_ 
@@ -990,13 +965,6 @@ Class ManualResetEventSlim from Object
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
-
-	Func Wait_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
-		return self
-
-	Func Wait_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -1046,9 +1014,6 @@ Class Monitor from Object
 		dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1])
 		return self
 
-	Func Enter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Enter",P1,P2])
-
 	Func Exit_ P1
 		dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Exit",P1])
 		return self
@@ -1059,17 +1024,14 @@ Class Monitor from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1])
 
-	Func TryEnter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1,P2])
-
-	Func TryEnter_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"TryEnter",P1,P2,P3])
-
 	Func IsEntered P1
 		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"IsEntered",P1])
 
-	Func Wait_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1,P2])
+	Func Wait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
 
 	Func Pulse P1
 		dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Pulse",P1])
@@ -1078,15 +1040,6 @@ Class Monitor from Object
 	Func PulseAll P1
 		dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"PulseAll",P1])
 		return self
-
-	Func Wait P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
-		ok
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1])
-
-	Func Wait_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"Wait",P1,P2,P3])
 
 	Func getLockContentionCount
 		return dnRequest("get",[dnTypeCached('System.Threading.Monitor, System.Private.CoreLib'),"LockContentionCount"])
@@ -1165,8 +1118,16 @@ Class Overlapped from Object
 		nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Overlapped, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Overlapped, System.Private.CoreLib',[P1])
 		return self
 
 	Func Pack P1
@@ -1175,17 +1136,11 @@ Class Overlapped from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Pack",P1])
 
-	Func Pack_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Pack",P1,P2])
-
 	Func UnsafePack P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"UnsafePack",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UnsafePack",P1])
-
-	Func UnsafePack_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"UnsafePack",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1239,12 +1194,17 @@ Class PeriodicTimer from Object
 		nHandle = dnCreate('System.Threading.PeriodicTimer, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.PeriodicTimer, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.PeriodicTimer, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.PeriodicTimer, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.PeriodicTimer, System.Private.CoreLib',[P1])
 		return self
-
-	Func WaitForNextTickAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForNextTickAsync",P1])
 
 	Func WaitForNextTickAsync P1
 		if dnIsNamed(P1)
@@ -1392,7 +1352,15 @@ Class ReaderWriterLockSlim from Object
 		nHandle = dnCreate('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.ReaderWriterLockSlim, System.Private.CoreLib',[P1])
 		return self
 
@@ -1531,8 +1499,16 @@ Class SemaphoreSlim from Object
 		nHandle = dnCreate('System.Threading.SemaphoreSlim, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.SemaphoreSlim, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.SemaphoreSlim, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.SemaphoreSlim, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.SemaphoreSlim, System.Private.CoreLib',[P1])
 		return self
 
 	Func Wait P1
@@ -1546,13 +1522,6 @@ Class SemaphoreSlim from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
 		return self
 
-	Func Wait_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Wait",P1])
-		return self
-
-	Func Wait_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Wait",P1,P2])
-
 	Func WaitAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitAsync",P1])
@@ -1561,12 +1530,6 @@ Class SemaphoreSlim from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
-
-	Func WaitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1])
-
-	Func WaitAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitAsync",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -1603,7 +1566,15 @@ Class SpinLock from ValueType
 		nHandle = dnCreate('System.Threading.SpinLock, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.SpinLock, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.SpinLock, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.SpinLock, System.Private.CoreLib',[P1])
 		return self
 
@@ -1616,9 +1587,6 @@ Class SpinLock from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1])
 
-	Func TryEnter_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TryEnter",P1,P2])
-
 	Func Exit_ P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Exit",P1])
@@ -1628,10 +1596,6 @@ Class SpinLock from ValueType
 			dnRequest("call",[new DotNetObject(nHandle),"Exit"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Exit",P1])
-		return self
-
-	Func Exit_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Exit",P1])
 		return self
 
@@ -1680,10 +1644,6 @@ Class SpinWait from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"SpinOnce",P1])
 		return self
 
-	Func SpinOnce_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"SpinOnce",P1])
-		return self
-
 	Func Reset 
 		dnRequest("call",[new DotNetObject(nHandle),"Reset"])
 		return self
@@ -1694,9 +1654,6 @@ Class SpinWait from ValueType
 		ok
 		dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1])
 		return self
-
-	Func SpinUntil_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.SpinWait, System.Private.CoreLib'),"SpinUntil",P1,P2])
 
 	Func getCount
 		return dnRequest("get",[self,"Count"])
@@ -1787,15 +1744,19 @@ Class Thread from DotNetObject
 		ok
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Thread, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Thread, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Thread, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Thread, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func GetApartmentState_0 
+	Func GetApartmentState_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetApartmentState"])
 
 	Func DisableComObjectEagerCleanup 
@@ -1806,16 +1767,15 @@ Class Thread from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Interrupt"])
 		return self
 
-	Func Join_1 P1
+	Func Join P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Join",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			dnRequest("call",[new DotNetObject(nHandle),"Join"])
+		return self
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
-
-	Func Start_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
-		return self
-
-	Func UnsafeStart_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"UnsafeStart",P1])
-		return self
 
 	Func Start P1
 		if dnIsNamed(P1)
@@ -1853,10 +1813,6 @@ Class Thread from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
 		return self
 
-	Func Abort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Abort",P1])
-		return self
-
 	Func Suspend 
 		dnRequest("call",[new DotNetObject(nHandle),"Suspend"])
 		return self
@@ -1865,7 +1821,7 @@ Class Thread from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Resume"])
 		return self
 
-	Func SetApartmentState_1 P1
+	Func SetApartmentState_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"SetApartmentState",P1])
 		return self
 
@@ -1881,16 +1837,6 @@ Class Thread from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Join P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Join",P1])
-		ok
-		if isstring(P1) and P1 = ""
-			dnRequest("call",[new DotNetObject(nHandle),"Join"])
-		return self
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Join",P1])
 
 	Func GetType 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
@@ -2106,17 +2052,11 @@ Class ThreadPool from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1])
 
-	Func QueueUserWorkItem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1,P2])
-
-	Func QueueUserWorkItem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"QueueUserWorkItem",P1,P2,P3])
-
-	Func UnsafeQueueUserWorkItem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeQueueUserWorkItem",P1,P2,P3])
-
-	Func UnsafeQueueUserWorkItem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeQueueUserWorkItem",P1,P2])
+	Func UnsafeQueueUserWorkItem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"UnsafeQueueUserWorkItem",P1])
+		ok
+		raise("DotNet Error: UnsafeQueueUserWorkItem does not take one argument: use named arguments, UnsafeQueueUserWorkItem([ :parameter = value, ... ])")
 
 	Func BindHandle P1
 		return dnRequest("call",[dnTypeCached('System.Threading.ThreadPool, System.Private.CoreLib'),"BindHandle",P1])
@@ -2167,17 +2107,14 @@ Class ThreadPoolBoundHandle from Object
 		ok
 		return self
 
-	Func AllocateNativeOverlapped_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1,P2,P3])
-
-	Func UnsafeAllocateNativeOverlapped P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"UnsafeAllocateNativeOverlapped",P1,P2,P3])
-
 	Func AllocateNativeOverlapped P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AllocateNativeOverlapped",P1])
+
+	Func UnsafeAllocateNativeOverlapped P1,P2,P3
+		return dnRequest("call",[new DotNetObject(nHandle),"UnsafeAllocateNativeOverlapped",P1,P2,P3])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -2238,15 +2175,20 @@ Class Timer from MarshalByRefObject
 		nHandle = dnCreate('System.Threading.Timer, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Threading.Timer, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Timer, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Timer, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Timer, System.Private.CoreLib',[P1])
 		return self
 
 	Func Change P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Change",P1,P2])
-
-	Func Dispose_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Dispose",P1])
 
 	Func Dispose P1
 		if dnIsNamed(P1)
@@ -2310,9 +2252,6 @@ Class WaitHandle from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
-	Func WaitOne_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1])
-
 	Func WaitOne P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"WaitOne",P1])
@@ -2322,23 +2261,11 @@ Class WaitHandle from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1])
 
-	Func WaitOne_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitOne",P1,P2])
-
-	Func WaitAll_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1,P2])
-
 	Func WaitAll P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1])
-
-	Func WaitAll_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAll",P1,P2,P3])
-
-	Func WaitAny_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1,P2])
 
 	Func WaitAny P1
 		if dnIsNamed(P1)
@@ -2346,14 +2273,11 @@ Class WaitHandle from MarshalByRefObject
 		ok
 		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1])
 
-	Func WaitAny_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"WaitAny",P1,P2,P3])
-
-	Func SignalAndWait P1,P2
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2])
-
-	Func SignalAndWait_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1,P2,P3,P4])
+	Func SignalAndWait P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Threading.WaitHandle, System.Private.CoreLib'),"SignalAndWait",P1])
+		ok
+		raise("DotNet Error: SignalAndWait does not take one argument: use named arguments, SignalAndWait([ :parameter = value, ... ])")
 
 	Func getHandle
 		return dnRequest("get",[self,"Handle"])
@@ -2408,8 +2332,16 @@ Class EventWaitHandle from WaitHandle
 		nHandle = dnCreate('System.Threading.EventWaitHandle, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.EventWaitHandle, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.EventWaitHandle, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.EventWaitHandle, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.EventWaitHandle, System.Private.CoreLib',[P1])
 		return self
 
 	Func Reset 
@@ -2436,11 +2368,15 @@ Class Mutex from WaitHandle
 		nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Mutex, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Threading.Mutex, System.Private.CoreLib',[P1])
 		return self
 
@@ -2466,8 +2402,16 @@ Class Semaphore from WaitHandle
 		nHandle = dnCreate('System.Threading.Semaphore, System.Private.CoreLib',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Threading.Semaphore, System.Private.CoreLib',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Threading.Semaphore, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Threading.Semaphore, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Threading.Semaphore, System.Private.CoreLib',[P1])
 		return self
 
 	Func OpenExisting P1

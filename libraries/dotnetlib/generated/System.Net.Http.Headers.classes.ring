@@ -169,8 +169,16 @@ Class AuthenticationHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.AuthenticationHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -450,12 +458,16 @@ Class ContentRangeHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.ContentRangeHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -514,8 +526,16 @@ Class EntityTagHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.EntityTagHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -664,8 +684,16 @@ Class MediaTypeHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -712,8 +740,16 @@ Class NameValueHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.NameValueHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -753,8 +789,16 @@ Class ProductHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.ProductHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -793,8 +837,16 @@ Class ProductInfoHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.ProductInfoHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -869,8 +921,16 @@ Class RangeHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.RangeHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -967,8 +1027,16 @@ Class StringWithQualityHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.StringWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -1045,12 +1113,16 @@ Class ViaHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.ViaHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -1103,8 +1175,16 @@ Class WarningHeaderValue from Object
 		nHandle = dnCreate('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.WarningHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Equals P1
@@ -1662,8 +1742,16 @@ Class MediaTypeWithQualityHeaderValue from MediaTypeHeaderValue
 		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.MediaTypeWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Parse P1
@@ -1693,8 +1781,16 @@ Class NameValueWithParametersHeaderValue from NameValueHeaderValue
 		nHandle = dnCreate('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.NameValueWithParametersHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Parse P1
@@ -1723,8 +1819,16 @@ Class TransferCodingWithQualityHeaderValue from TransferCodingHeaderValue
 		nHandle = dnCreate('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.Headers.TransferCodingWithQualityHeaderValue, System.Net.Http',[P1])
 		return self
 
 	Func Parse P1

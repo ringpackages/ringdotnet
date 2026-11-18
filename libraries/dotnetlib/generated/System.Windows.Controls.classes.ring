@@ -1455,9 +1455,6 @@ Class CalendarBlackoutDatesCollection from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
 
-	Func Contains_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
-
 	Func ContainsAny P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainsAny",P1])
 
@@ -1567,12 +1564,16 @@ Class CalendarDateRange from Object
 		nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.CalendarDateRange, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.CalendarDateRange, PresentationFramework',[P1,P2])
 		return self
 
 	Func Equals P1
@@ -2692,7 +2693,15 @@ Class ControlTemplate from FrameworkTemplate
 		nHandle = dnCreate('System.Windows.Controls.ControlTemplate, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.ControlTemplate, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.ControlTemplate, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.ControlTemplate, PresentationFramework',[P1])
 		return self
 
@@ -2855,10 +2864,6 @@ Class DataGrid from MultiSelector
 		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1])
 		return self
 
-	Func ScrollIntoView_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ScrollIntoView",P1,P2])
-		return self
-
 	Func BeginEdit P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginEdit",P1])
@@ -2866,9 +2871,6 @@ Class DataGrid from MultiSelector
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit",P1])
-
-	Func BeginEdit_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginEdit",P1])
 
 	Func CancelEdit P1
@@ -2880,9 +2882,6 @@ Class DataGrid from MultiSelector
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit",P1])
 
-	Func CancelEdit_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CancelEdit",P1])
-
 	Func CommitEdit P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CommitEdit",P1])
@@ -2890,10 +2889,7 @@ Class DataGrid from MultiSelector
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"CommitEdit"])
 		ok
-		raise("DotNet Error: CommitEdit does not take one argument: use CommitEdit(NULL), CommitEdit_N(...) or named arguments")
-
-	Func CommitEdit_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitEdit",P1,P2])
+		raise("DotNet Error: CommitEdit does not take one argument: use named arguments, CommitEdit([ :parameter = value, ... ])")
 
 	Func SelectAllCells 
 		dnRequest("call",[new DotNetObject(nHandle),"SelectAllCells"])
@@ -3994,11 +3990,15 @@ Class DataGridCellInfo from ValueType
 		nHandle = dnCreate('System.Windows.Controls.DataGridCellInfo, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.DataGridCellInfo, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.DataGridCellInfo, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.DataGridCellInfo, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridCellInfo, PresentationFramework',[P1])
 		return self
 
@@ -4036,8 +4036,16 @@ Class DataGridClipboardCellContent from ValueType
 		nHandle = dnCreate('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.DataGridClipboardCellContent, PresentationFramework',[P1])
 		return self
 
 	Func getItem
@@ -4461,16 +4469,16 @@ Class DataGridLength from ValueType
 		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.DataGridLength, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Controls.DataGridLength, PresentationFramework',[P1,P2,P3,P4])
 		return self
 
 	Func getIsAbsolute
@@ -4904,10 +4912,6 @@ Class DocumentViewer from DocumentViewerBase
 			dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross",P1])
-		return self
-
-	Func FitToMaxPagesAcross_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"FitToMaxPagesAcross",P1])
 		return self
 
@@ -6000,8 +6004,16 @@ Class HierarchicalVirtualizationConstraints from ValueType
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationConstraints, PresentationFramework',[P1])
 		return self
 
 	Func getCacheLength
@@ -6037,8 +6049,16 @@ Class HierarchicalVirtualizationHeaderDesiredSizes from ValueType
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationHeaderDesiredSizes, PresentationFramework',[P1])
 		return self
 
 	Func getLogicalSize
@@ -6074,8 +6094,16 @@ Class HierarchicalVirtualizationItemDesiredSizes from ValueType
 		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[])
 		return self
 
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[P1,P2,P3,P4,P5,P6,P7,P8])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.HierarchicalVirtualizationItemDesiredSizes, PresentationFramework',[P1])
 		return self
 
 	Func getLogicalSize
@@ -6295,10 +6323,6 @@ Class InkCanvas from FrameworkElement
 		dnRequest("call",[new DotNetObject(nHandle),"Select",P1])
 		return self
 
-	Func Select_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Select",P1,P2])
-		return self
-
 	Func HitTestSelection P1
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTestSelection",P1])
 
@@ -6319,10 +6343,6 @@ Class InkCanvas from FrameworkElement
 			dnRequest("call",[new DotNetObject(nHandle),"Paste"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
-		return self
-
-	Func Paste_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Paste",P1])
 		return self
 
@@ -6935,9 +6955,6 @@ Class ItemContainerGenerator from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromContainer",P1])
 
-	Func IndexFromContainer_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexFromContainer",P1,P2])
-
 	Func ContainerFromIndex P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ContainerFromIndex",P1])
 
@@ -7004,7 +7021,15 @@ Class ItemContainerTemplateKey from TemplateKey
 		nHandle = dnCreate('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemContainerTemplateKey, PresentationFramework',[P1])
 		return self
 
@@ -7037,7 +7062,15 @@ Class ItemsPanelTemplate from FrameworkTemplate
 		nHandle = dnCreate('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.ItemsPanelTemplate, PresentationFramework',[P1])
 		return self
 
@@ -7681,12 +7714,16 @@ Class PageRange from ValueType
 		nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.PageRange, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.PageRange, PresentationFramework',[P1,P2])
 		return self
 
 	Func getPageFrom
@@ -7985,7 +8022,15 @@ Class WpfRichTextBox from WpfTextBoxBase
 		nHandle = dnCreate('System.Windows.Controls.RichTextBox, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.RichTextBox, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.RichTextBox, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.RichTextBox, PresentationFramework',[P1])
 		return self
 
@@ -8675,18 +8720,18 @@ Class SpellCheck from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func SetIsEnabled_2 P1,P2
+	Func SetIsEnabled_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"SetIsEnabled",P1,P2])
 		return self
 
-	Func GetIsEnabled_1 P1
+	Func GetIsEnabled_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"GetIsEnabled",P1])
 
-	Func SetSpellingReform_2 P1,P2
+	Func SetSpellingReform_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"SetSpellingReform",P1,P2])
 		return self
 
-	Func GetCustomDictionaries_1 P1
+	Func GetCustomDictionaries_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.SpellCheck, PresentationFramework'),"GetCustomDictionaries",P1])
 
 	Func getIsEnabled
@@ -8959,7 +9004,15 @@ Class TextBlock from FrameworkElement
 		nHandle = dnCreate('System.Windows.Controls.TextBlock, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.TextBlock, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.TextBlock, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.TextBlock, PresentationFramework',[P1])
 		return self
 
@@ -8975,74 +9028,74 @@ Class TextBlock from FrameworkElement
 	Func ShouldSerializeBaselineOffset 
 		return dnRequest("call",[new DotNetObject(nHandle),"ShouldSerializeBaselineOffset"])
 
-	Func SetBaselineOffset_2 P1,P2
+	Func SetBaselineOffset_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetBaselineOffset",P1,P2])
 		return self
 
-	Func GetBaselineOffset_1 P1
+	Func GetBaselineOffset_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetBaselineOffset",P1])
 
-	Func SetFontFamily_2 P1,P2
+	Func SetFontFamily_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetFontFamily",P1,P2])
 		return self
 
-	Func GetFontFamily_1 P1
+	Func GetFontFamily_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetFontFamily",P1])
 
-	Func SetFontStyle_2 P1,P2
+	Func SetFontStyle_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetFontStyle",P1,P2])
 		return self
 
-	Func GetFontStyle_1 P1
+	Func GetFontStyle_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetFontStyle",P1])
 
-	Func SetFontWeight_2 P1,P2
+	Func SetFontWeight_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetFontWeight",P1,P2])
 		return self
 
-	Func GetFontWeight_1 P1
+	Func GetFontWeight_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetFontWeight",P1])
 
-	Func SetFontStretch_2 P1,P2
+	Func SetFontStretch_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetFontStretch",P1,P2])
 		return self
 
-	Func GetFontStretch_1 P1
+	Func GetFontStretch_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetFontStretch",P1])
 
-	Func SetFontSize_2 P1,P2
+	Func SetFontSize_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetFontSize",P1,P2])
 		return self
 
-	Func GetFontSize_1 P1
+	Func GetFontSize_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetFontSize",P1])
 
-	Func SetForeground_2 P1,P2
+	Func SetForeground_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetForeground",P1,P2])
 		return self
 
-	Func GetForeground_1 P1
+	Func GetForeground_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetForeground",P1])
 
-	Func SetLineHeight_2 P1,P2
+	Func SetLineHeight_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetLineHeight",P1,P2])
 		return self
 
-	Func GetLineHeight_1 P1
+	Func GetLineHeight_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetLineHeight",P1])
 
-	Func SetLineStackingStrategy_2 P1,P2
+	Func SetLineStackingStrategy_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetLineStackingStrategy",P1,P2])
 		return self
 
-	Func GetLineStackingStrategy_1 P1
+	Func GetLineStackingStrategy_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetLineStackingStrategy",P1])
 
-	Func SetTextAlignment_2 P1,P2
+	Func SetTextAlignment_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"SetTextAlignment",P1,P2])
 		return self
 
-	Func GetTextAlignment_1 P1
+	Func GetTextAlignment_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.TextBlock, PresentationFramework'),"GetTextAlignment",P1])
 
 	Func getInlines
@@ -9389,9 +9442,6 @@ Class WpfTextBox from WpfTextBoxBase
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRectFromCharacterIndex",P1])
 
-	Func GetRectFromCharacterIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetRectFromCharacterIndex",P1,P2])
-
 	Func GetSpellingError P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSpellingError",P1])
 
@@ -9602,8 +9652,16 @@ Class TextChangedEventArgs from RoutedEventArgs
 		nHandle = dnCreate('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.TextChangedEventArgs, PresentationFramework',[P1])
 		return self
 
 	Func getUndoAction
@@ -9678,11 +9736,11 @@ Class ToolBarTray from FrameworkElement
 		nHandle = dnCreate('System.Windows.Controls.ToolBarTray, PresentationFramework',[])
 		return self
 
-	Func SetIsLocked_2 P1,P2
+	Func SetIsLocked_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolBarTray, PresentationFramework'),"SetIsLocked",P1,P2])
 		return self
 
-	Func GetIsLocked_1 P1
+	Func GetIsLocked_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ToolBarTray, PresentationFramework'),"GetIsLocked",P1])
 
 	Func getBackground
@@ -10183,8 +10241,16 @@ Class ValidationError from Object
 		nHandle = dnCreate('System.Windows.Controls.ValidationError, PresentationFramework',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Windows.Controls.ValidationError, PresentationFramework',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.ValidationError, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.ValidationError, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.ValidationError, PresentationFramework',[P1])
 		return self
 
 	Func Equals P1
@@ -10294,11 +10360,11 @@ Class ValidationRule from Object
 		ok
 		return self
 
-	Func Validate P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2])
-
-	Func Validate_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Validate",P1,P2,P3])
+	Func Validate P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Validate",P1])
+		ok
+		raise("DotNet Error: Validate does not take one argument: use named arguments, Validate([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -10385,12 +10451,16 @@ Class VirtualizationCacheLength from ValueType
 		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.VirtualizationCacheLength, PresentationFramework',[P1,P2])
 		return self
 
 	Func getCacheBeforeViewport
@@ -10527,10 +10597,6 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 		return self
 
-	Func Navigate_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2,P3,P4])
-		return self
-
 	Func NavigateToStream P1
 		dnRequest("call",[new DotNetObject(nHandle),"NavigateToStream",P1])
 		return self
@@ -10559,18 +10625,11 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
 		return self
 
-	Func Refresh_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Refresh",P1])
-		return self
-
 	Func InvokeScript P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeScript",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"InvokeScript",P1])
-
-	Func InvokeScript_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeScript",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -10596,14 +10655,6 @@ Class WpfWebBrowser from DotNetObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1])
-		return self
-
-	Func BeginStoryboard_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2])
-		return self
-
-	Func BeginStoryboard_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginStoryboard",P1,P2,P3])
 		return self
 
 	Func ShouldSerializeTriggers 
@@ -10640,10 +10691,6 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"BringIntoView",P1])
 		return self
 
-	Func BringIntoView_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"BringIntoView",P1])
-		return self
-
 	Func MoveFocus P1
 		return dnRequest("call",[new DotNetObject(nHandle),"MoveFocus",P1])
 
@@ -10673,21 +10720,19 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"UpdateDefaultStyle"])
 		return self
 
-	Func ApplyAnimationClock P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2])
-		return self
+	Func ApplyAnimationClock P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyAnimationClock",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyAnimationClock does not take one argument: use named arguments, ApplyAnimationClock([ :parameter = value, ... ])")
 
-	Func ApplyAnimationClock_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyAnimationClock",P1,P2,P3])
-		return self
-
-	Func BeginAnimation P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2])
-		return self
-
-	Func BeginAnimation_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"BeginAnimation",P1,P2,P3])
-		return self
+	Func BeginAnimation P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAnimation",P1])
+			return self
+		ok
+		raise("DotNet Error: BeginAnimation does not take one argument: use named arguments, BeginAnimation([ :parameter = value, ... ])")
 
 	Func GetAnimationBaseValue P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAnimationBaseValue",P1])
@@ -10702,13 +10747,12 @@ Class WpfWebBrowser from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"RaiseEvent",P1])
 		return self
 
-	Func AddHandler P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2])
-		return self
-
-	Func AddHandler_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddHandler",P1,P2,P3])
-		return self
+	Func AddHandler P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"AddHandler",P1])
+			return self
+		ok
+		raise("DotNet Error: AddHandler does not take one argument: use named arguments, AddHandler([ :parameter = value, ... ])")
 
 	Func RemoveHandler P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveHandler",P1,P2])
@@ -14730,9 +14774,6 @@ Class ItemsControl from WpfControl
 	Func ItemsControlFromItemContainer P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ItemsControlFromItemContainer",P1])
 
-	Func ContainerFromElement_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ItemsControl, PresentationFramework'),"ContainerFromElement",P1,P2])
-
 	Func getItems
 		return dnRequest("get",[self,"Items"])
 
@@ -16334,9 +16375,6 @@ Class Frame from ContentControl
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1])
 
-	Func Navigate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Navigate",P1,P2])
-
 	Func GoForward 
 		dnRequest("call",[new DotNetObject(nHandle),"GoForward"])
 		return self
@@ -16918,53 +16956,53 @@ Class ScrollViewer from ContentControl
 		dnRequest("call",[new DotNetObject(nHandle),"InvalidateScrollInfo"])
 		return self
 
-	Func SetCanContentScroll_2 P1,P2
+	Func SetCanContentScroll_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetCanContentScroll",P1,P2])
 		return self
 
-	Func GetCanContentScroll_1 P1
+	Func GetCanContentScroll_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetCanContentScroll",P1])
 
-	Func SetHorizontalScrollBarVisibility_2 P1,P2
+	Func SetHorizontalScrollBarVisibility_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetHorizontalScrollBarVisibility",P1,P2])
 		return self
 
-	Func GetHorizontalScrollBarVisibility_1 P1
+	Func GetHorizontalScrollBarVisibility_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetHorizontalScrollBarVisibility",P1])
 
-	Func SetVerticalScrollBarVisibility_2 P1,P2
+	Func SetVerticalScrollBarVisibility_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetVerticalScrollBarVisibility",P1,P2])
 		return self
 
-	Func GetVerticalScrollBarVisibility_1 P1
+	Func GetVerticalScrollBarVisibility_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetVerticalScrollBarVisibility",P1])
 
-	Func GetIsDeferredScrollingEnabled_1 P1
+	Func GetIsDeferredScrollingEnabled_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetIsDeferredScrollingEnabled",P1])
 
-	Func SetIsDeferredScrollingEnabled_2 P1,P2
+	Func SetIsDeferredScrollingEnabled_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetIsDeferredScrollingEnabled",P1,P2])
 		return self
 
-	Func SetPanningMode_2 P1,P2
+	Func SetPanningMode_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetPanningMode",P1,P2])
 		return self
 
-	Func GetPanningMode_1 P1
+	Func GetPanningMode_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetPanningMode",P1])
 
-	Func SetPanningDeceleration_2 P1,P2
+	Func SetPanningDeceleration_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetPanningDeceleration",P1,P2])
 		return self
 
-	Func GetPanningDeceleration_1 P1
+	Func GetPanningDeceleration_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetPanningDeceleration",P1])
 
-	Func SetPanningRatio_2 P1,P2
+	Func SetPanningRatio_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"SetPanningRatio",P1,P2])
 		return self
 
-	Func GetPanningRatio_1 P1
+	Func GetPanningRatio_ P1
 		return dnRequest("call",[dnTypeCached('System.Windows.Controls.ScrollViewer, PresentationFramework'),"GetPanningRatio",P1])
 
 	Func setScrollChangedEvent P1

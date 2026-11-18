@@ -48,7 +48,7 @@ aDivide = oCalc.TryDivide(4)                          # out parameters come back
 ? aDivide[2]
 ```
 
-The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, `setXXXEvent()` for events, enums as strings, overload naming (`Name`, `Name_N`), optional parameters and `out` / `ref` results.
+The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, `setXXXEvent()` for events, enums as strings, overloads as one method with a hash list of parameters (`Name([ :param = value ])`), optional parameters and `out` / `ref` results.
 
 ### The example in the package
 

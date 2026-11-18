@@ -642,7 +642,15 @@ Class AddingNewEventArgs from EventArgs
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
 		nHandle = dnCreate('System.ComponentModel.AddingNewEventArgs, System.ComponentModel.TypeConverter',[P1])
 		return self
 
@@ -817,7 +825,15 @@ Class CancelEventArgs from EventArgs
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.CancelEventArgs, System.ComponentModel',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[])
+			return self
+		ok
 		nHandle = dnCreate('System.ComponentModel.CancelEventArgs, System.ComponentModel',[P1])
 		return self
 
@@ -931,9 +947,6 @@ Class ComponentEditor from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EditComponent",P1])
 
-	Func EditComponent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EditComponent",P1,P2])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -949,17 +962,24 @@ Class ComponentResourceManager from ResourceManager
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
 		nHandle = dnCreate('System.ComponentModel.ComponentResourceManager, System.ComponentModel.TypeConverter',[P1])
 		return self
 
-	Func ApplyResources P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyResources",P1,P2])
-		return self
-
-	Func ApplyResources_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"ApplyResources",P1,P2,P3])
-		return self
+	Func ApplyResources P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"ApplyResources",P1])
+			return self
+		ok
+		raise("DotNet Error: ApplyResources does not take one argument: use named arguments, ApplyResources([ :parameter = value, ... ])")
 
 	Func ApplyResourcesToRegisteredType P1,P2,P3
 		dnRequest("call",[new DotNetObject(nHandle),"ApplyResourcesToRegisteredType",P1,P2,P3])
@@ -985,10 +1005,6 @@ Class Container from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-		return self
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Dispose 
@@ -1071,9 +1087,6 @@ Class CustomTypeDescriptor from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
 
-	Func GetEvents_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
-
 	Func GetEventsFromRegisteredType 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEventsFromRegisteredType"])
 
@@ -1088,9 +1101,6 @@ Class CustomTypeDescriptor from Object
 
 	Func GetPropertiesFromRegisteredType 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesFromRegisteredType"])
-
-	Func GetProperties_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetPropertyOwner P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertyOwner",P1])
@@ -1139,8 +1149,16 @@ Class EventDescriptorCollection from Object
 		nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.EventDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
 		return self
 
 	Func Add P1
@@ -1182,12 +1200,6 @@ Class EventDescriptorCollection from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Sort"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-
-	Func Sort_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-
-	Func Sort_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1259,7 +1271,15 @@ Class HandledEventArgs from EventArgs
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
 		nHandle = dnCreate('System.ComponentModel.HandledEventArgs, System.ComponentModel.TypeConverter',[P1])
 		return self
 
@@ -1515,10 +1535,6 @@ Class IContainer from DotNetObject
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func Remove P1
 		dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 		return self
@@ -1572,9 +1588,6 @@ Class ICustomTypeDescriptor from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
 
-	Func GetEvents_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
-
 	Func GetProperties P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetProperties",P1])
@@ -1582,9 +1595,6 @@ Class ICustomTypeDescriptor from DotNetObject
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetProperties"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
-
-	Func GetProperties_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
 	Func GetPropertyOwner P1
@@ -2121,11 +2131,11 @@ Class LicenseManager from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func CreateWithContext P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1,P2])
-
-	Func CreateWithContext_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1,P2,P3])
+	Func CreateWithContext P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CreateWithContext",P1])
+		ok
+		raise("DotNet Error: CreateWithContext does not take one argument: use named arguments, CreateWithContext([ :parameter = value, ... ])")
 
 	Func IsLicensed P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsLicensed",P1])
@@ -2135,9 +2145,6 @@ Class LicenseManager from Object
 			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1])
-
-	Func IsValid_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"IsValid",P1,P2])
 
 	Func LockContext P1
 		dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"LockContext",P1])
@@ -2153,9 +2160,6 @@ Class LicenseManager from Object
 		ok
 		dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1])
 		return self
-
-	Func Validate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"Validate",P1,P2])
 
 	Func getCurrentContext
 		return dnRequest("get",[dnTypeCached('System.ComponentModel.LicenseManager, System.ComponentModel.TypeConverter'),"CurrentContext"])
@@ -2204,8 +2208,16 @@ Class ListChangedEventArgs from EventArgs
 		nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.ListChangedEventArgs, System.ComponentModel.TypeConverter',[P1])
 		return self
 
 	Func getListChangedType
@@ -2278,7 +2290,15 @@ Class ListSortDescriptionCollection from Object
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
 		nHandle = dnCreate('System.ComponentModel.ListSortDescriptionCollection, System.ComponentModel.TypeConverter',[P1])
 		return self
 
@@ -2396,20 +2416,16 @@ Class MaskedTextProvider from Object
 		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1,P2,P3,P4])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.MaskedTextProvider, System.ComponentModel.TypeConverter',[P1])
 		return self
 
 	Func Clone 
@@ -2464,14 +2480,11 @@ Class MaskedTextProvider from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1])
 
-	Func RemoveAt_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"RemoveAt",P1,P2])
-
-	Func Replace P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
-
-	Func Replace_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
+	Func Replace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+		ok
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func Set_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
@@ -2479,20 +2492,11 @@ Class MaskedTextProvider from Object
 	Func ToDisplayString 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDisplayString"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
-
-	Func ToString_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2,P3])
-
-	Func ToString_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2,P3,P4])
-
-	Func ToString_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2,P3,P4,P5])
 
 	Func VerifyChar P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"VerifyChar",P1,P2])
@@ -2807,8 +2811,16 @@ Class PropertyDescriptorCollection from Object
 		nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.PropertyDescriptorCollection, System.ComponentModel.TypeConverter',[P1])
 		return self
 
 	Func Add P1
@@ -2851,12 +2863,6 @@ Class PropertyDescriptorCollection from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Sort"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-
-	Func Sort_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-
-	Func Sort_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2])
 
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
@@ -2947,17 +2953,11 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFrom",P1])
 
-	Func CanConvertFrom_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertFrom",P1,P2])
-
 	Func CanConvertTo P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CanConvertTo",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertTo",P1])
-
-	Func CanConvertTo_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CanConvertTo",P1,P2])
 
 	Func ConvertFrom P1
 		if dnIsNamed(P1)
@@ -2965,17 +2965,11 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFrom",P1])
 
-	Func ConvertFrom_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFrom",P1,P2,P3])
-
 	Func ConvertFromInvariantString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1])
-
-	Func ConvertFromInvariantString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromInvariantString",P1,P2])
 
 	Func ConvertFromString P1
 		if dnIsNamed(P1)
@@ -2983,17 +2977,11 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1])
 
-	Func ConvertFromString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2])
-
-	Func ConvertFromString_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertFromString",P1,P2,P3])
-
-	Func ConvertTo P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertTo",P1,P2])
-
-	Func ConvertTo_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertTo",P1,P2,P3,P4])
+	Func ConvertTo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertTo",P1])
+		ok
+		raise("DotNet Error: ConvertTo does not take one argument: use named arguments, ConvertTo([ :parameter = value, ... ])")
 
 	Func ConvertToInvariantString P1
 		if dnIsNamed(P1)
@@ -3001,29 +2989,17 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToInvariantString",P1])
 
-	Func ConvertToInvariantString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToInvariantString",P1,P2])
-
 	Func ConvertToString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConvertToString",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1])
 
-	Func ConvertToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2])
-
-	Func ConvertToString_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConvertToString",P1,P2,P3])
-
 	Func CreateInstance P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstance",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1])
-
-	Func CreateInstance_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
 
 	Func GetCreateInstanceSupported P1
 		if dnIsNamed(P1)
@@ -3034,20 +3010,11 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateInstanceSupported",P1])
 
-	Func GetCreateInstanceSupported_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCreateInstanceSupported",P1])
-
 	Func GetProperties P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetProperties",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
-
-	Func GetProperties_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1,P2])
-
-	Func GetProperties_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1,P2,P3])
 
 	Func GetPropertiesSupported P1
 		if dnIsNamed(P1)
@@ -3056,9 +3023,6 @@ Class TypeConverter from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported",P1])
-
-	Func GetPropertiesSupported_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPropertiesSupported",P1])
 
 	Func GetStandardValues P1
@@ -3070,9 +3034,6 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValues",P1])
 
-	Func GetStandardValues_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValues",P1])
-
 	Func GetStandardValuesExclusive P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
@@ -3080,9 +3041,6 @@ Class TypeConverter from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
-
-	Func GetStandardValuesExclusive_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesExclusive",P1])
 
 	Func GetStandardValuesSupported P1
@@ -3094,17 +3052,11 @@ Class TypeConverter from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesSupported",P1])
 
-	Func GetStandardValuesSupported_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStandardValuesSupported",P1])
-
 	Func IsValid P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsValid",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsValid",P1])
-
-	Func IsValid_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsValid",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -3147,9 +3099,6 @@ Class TypeDescriptionProvider from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetReflectionType",P1])
 
-	Func GetReflectionType_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetReflectionType",P1,P2])
-
 	Func GetRuntimeType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeType",P1])
 
@@ -3159,17 +3108,11 @@ Class TypeDescriptionProvider from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptor",P1])
 
-	Func GetTypeDescriptor_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptor",P1,P2])
-
 	Func GetTypeDescriptorFromRegisteredType P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1])
-
-	Func GetTypeDescriptorFromRegisteredType_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeDescriptorFromRegisteredType",P1,P2])
 
 	Func IsRegisteredType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsRegisteredType",P1])
@@ -3227,20 +3170,20 @@ Class TypeDescriptor from Object
 		dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateAssociation",P1,P2])
 		return self
 
-	Func CreateEvent_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateEvent",P1,P2,P3,P4])
-
-	Func CreateEvent P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateEvent",P1,P2,P3])
+	Func CreateEvent P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateEvent",P1])
+		ok
+		raise("DotNet Error: CreateEvent does not take one argument: use named arguments, CreateEvent([ :parameter = value, ... ])")
 
 	Func CreateInstance P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateInstance",P1,P2,P3,P4])
 
-	Func CreateProperty_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateProperty",P1,P2,P3,P4])
-
-	Func CreateProperty P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateProperty",P1,P2,P3])
+	Func CreateProperty P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"CreateProperty",P1])
+		ok
+		raise("DotNet Error: CreateProperty does not take one argument: use named arguments, CreateProperty([ :parameter = value, ... ])")
 
 	Func GetAssociation P1,P2
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetAssociation",P1,P2])
@@ -3251,17 +3194,11 @@ Class TypeDescriptor from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetAttributes",P1])
 
-	Func GetAttributes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetAttributes",P1,P2])
-
 	Func GetClassName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetClassName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetClassName",P1])
-
-	Func GetClassName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetClassName",P1,P2])
 
 	Func GetComponentName P1
 		if dnIsNamed(P1)
@@ -3269,17 +3206,11 @@ Class TypeDescriptor from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetComponentName",P1])
 
-	Func GetComponentName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetComponentName",P1,P2])
-
 	Func GetConverter P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverter",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverter",P1])
-
-	Func GetConverter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverter",P1,P2])
 
 	Func GetConverterFromRegisteredType P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetConverterFromRegisteredType",P1])
@@ -3290,23 +3221,17 @@ Class TypeDescriptor from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultEvent",P1])
 
-	Func GetDefaultEvent_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultEvent",P1,P2])
-
 	Func GetDefaultProperty P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultProperty",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultProperty",P1])
 
-	Func GetDefaultProperty_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetDefaultProperty",P1,P2])
-
-	Func GetEditor P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEditor",P1,P2])
-
-	Func GetEditor_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEditor",P1,P2,P3])
+	Func GetEditor P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEditor",P1])
+		ok
+		raise("DotNet Error: GetEditor does not take one argument: use named arguments, GetEditor([ :parameter = value, ... ])")
 
 	Func GetEvents P1
 		if dnIsNamed(P1)
@@ -3316,12 +3241,6 @@ Class TypeDescriptor from Object
 
 	Func GetEventsFromRegisteredType P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEventsFromRegisteredType",P1])
-
-	Func GetEvents_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEvents",P1,P2])
-
-	Func GetEvents_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetEvents",P1,P2,P3])
 
 	Func GetFullComponentName P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetFullComponentName",P1])
@@ -3334,12 +3253,6 @@ Class TypeDescriptor from Object
 
 	Func GetPropertiesFromRegisteredType P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetPropertiesFromRegisteredType",P1])
-
-	Func GetProperties_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProperties",P1,P2])
-
-	Func GetProperties_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProperties",P1,P2,P3])
 
 	Func GetProvider P1
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.TypeDescriptor, System.ComponentModel.TypeConverter'),"GetProvider",P1])
@@ -3430,10 +3343,6 @@ Class BackgroundWorker from Component
 		dnRequest("call",[new DotNetObject(nHandle),"ReportProgress",P1])
 		return self
 
-	Func ReportProgress_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ReportProgress",P1,P2])
-		return self
-
 	Func RunWorkerAsync P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
@@ -3443,10 +3352,6 @@ Class BackgroundWorker from Component
 			dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
-		return self
-
-	Func RunWorkerAsync_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"RunWorkerAsync",P1])
 		return self
 
@@ -3813,12 +3718,6 @@ Class PropertyDescriptor from MemberDescriptor
 			return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1])
-
-	Func GetChildProperties_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1])
-
-	Func GetChildProperties_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetChildProperties",P1,P2])
 
 	Func GetEditor P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEditor",P1])

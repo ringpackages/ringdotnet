@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -174,7 +177,7 @@ oCalc.Name = <span class="s">"mine"</span>                                   <sp
 ? oCalc.<span class="f">Describe</span>([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ])                      <span class="c"># an enum as a string, an optional parameter</span>
 aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)                          <span class="c"># out parameters come back in a list</span>
 ? aDivide[<span class="n">2</span>]</code></pre></div>
-<p>The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, <code>setXXXEvent()</code> for events, enums as strings, overload naming (<code>Name</code>, <code>Name_N</code>), optional parameters and <code>out</code> / <code>ref</code> results.</p>
+<p>The generated classes support the same things as the built-in ones: real inheritance, properties as attributes, <code>setXXXEvent()</code> for events, enums as strings, overloads as one method with a hash list of parameters (<code>Name([ :param = value ])</code>), optional parameters and <code>out</code> / <code>ref</code> results.</p>
 <h3 id="the-example-in-the-package">The example in the package<a class="anchor" href="#the-example-in-the-package">#</a></h3>
 <p><code>samples/UsingDotNet/tests/UserLib</code> is a complete example — a small C# library, the generator run on it, and a test that uses it (<code>samples/UsingDotNet/tests/test_userassembly.ring</code>).</p>
 <details class="src"><summary>samples/UsingDotNet/tests/UserLib/Library.cs</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>samples/UsingDotNet/tests/UserLib/Library.cs</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">using</span> System;
@@ -237,9 +240,9 @@ oCalc.<span class="f">Add</span>(<span class="n">10</span>).<span class="f">Mult
 <span class="f">dnAssert</span>(<span class="s">"property read/write"</span>,oCalc.Name,<span class="s">"calc"</span>)
 oCalc.Name = <span class="s">"mine"</span>
 <span class="f">dnAssert</span>(<span class="s">"property write"</span>,oCalc.Name,<span class="s">"mine"</span>)
-<span class="f">dnAssert</span>(<span class="s">"constructor with parameters"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">New_1</span>(<span class="n">5</span>).Total,<span class="n">5</span>)
+<span class="f">dnAssert</span>(<span class="s">"constructor with parameters"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">New_</span>([ :start = <span class="n">5</span> ]).Total,<span class="n">5</span>)
 <span class="f">dnAssert</span>(<span class="s">"static method"</span>,<span class="k">new</span> <span class="t">Calculator</span>().<span class="f">Square</span>(<span class="n">7</span>),<span class="n">49</span>)
-<span class="f">dnAssert</span>(<span class="s">"enum as string and optional parameter"</span>,oCalc.<span class="f">Describe_2</span>(<span class="s">"High"</span>,<span class="s">"Sum"</span>),<span class="s">"Sum=30 (High)"</span>)
+<span class="f">dnAssert</span>(<span class="s">"enum as string and optional parameter"</span>,oCalc.<span class="f">Describe</span>([ :level = <span class="s">"High"</span>, :prefix = <span class="s">"Sum"</span> ]),<span class="s">"Sum=30 (High)"</span>)
 aDivide = oCalc.<span class="f">TryDivide</span>(<span class="n">4</span>)
 <span class="f">dnAssert</span>(<span class="s">"out parameter ok"</span>,aDivide[<span class="n">1</span>],<span class="n">1</span>)
 <span class="f">dnAssert</span>(<span class="s">"out parameter value"</span>,aDivide[<span class="n">2</span>],<span class="n">7.5</span>)

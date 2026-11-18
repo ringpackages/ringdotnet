@@ -73,7 +73,7 @@ The generator names overloads so that the **plain name** is the most useful one:
 - the parameterless form wins when the type has one (`Cancel()`, `Wait()`, `Reverse()`), except `Write*` methods;
 - otherwise the shortest overload is the plain name;
 - overloads whose parameters are arrays (except `byte[]` / `char[]`), delegates, comparers or spans never decide the plain name;
-- all other overloads are `Name_N` where N is the parameter count;
+- a name with overloads of several parameter counts is one method that takes one parameter (`NULL`, a value, or a list of `:name = value`); the constructors other than `init` are `New_`;
 - `ToString()` keeps its parameterless form;
 - a method with optional parameters is available with every number of parameters from the required ones up;
 - a static and an instance method with the same name and arity are one method;

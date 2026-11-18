@@ -9,9 +9,9 @@ func main
 	oPath = new Path()
 
 	# 1. Build a path with Combine, never with + "\": Combine uses the right separator for the system and never doubles it
-	cFile = oPath.Combine_3("reports","2024","january.txt")
+	cFile = oPath.Combine(["reports","2024","january.txt"])
 	? "1. Combine: " + cFile
-	? "   Combine with a rooted second part restarts the path: " + oPath.Combine("reports","/etc/hosts")
+	? "   Combine with a rooted second part restarts the path: " + oPath.Combine(["reports","/etc/hosts"])
 
 	# 2. Take a path apart
 	cFull = "C:\data\reports\2024\summary.final.txt"
@@ -41,14 +41,14 @@ func main
 	? "   the temporary folder exists? " + yesNo(new Directory().Exists(oPath.GetTempPath()))
 
 	# 6. Environment variables: settings from outside (a password, a folder, a mode). Always provide a default.
-	oEnvironment.SetEnvironmentVariable("TUTORIAL60_MODE","fast")
+	oEnvironment.SetEnvironmentVariable([ :variable = "TUTORIAL60_MODE", :value = "fast" ])
 	? nl + "6. TUTORIAL60_MODE = " + oEnvironment.GetEnvironmentVariable("TUTORIAL60_MODE")
 	cMissing = oEnvironment.GetEnvironmentVariable("TUTORIAL60_NOT_SET")
 	if isobject(cMissing)                                 # .NET null comes to Ring as an object that IsNull()
 		cMissing = "(default)"
 	ok
 	? "   a variable that is not set: " + cMissing
-	oEnvironment.SetEnvironmentVariable("TUTORIAL60_MODE",NULL)
+	oEnvironment.SetEnvironmentVariable([ :variable = "TUTORIAL60_MODE", :value = NULL ])
 
 	# 7. The system: which one runs the program
 	? nl + "7. 64-bit process? " + yesNo(oEnvironment.Is64BitProcess) + ", the new line is " + len(oEnvironment.NewLine) + " character(s) long"

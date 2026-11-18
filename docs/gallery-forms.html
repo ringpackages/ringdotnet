@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -694,7 +697,7 @@ oTimer.<span class="f">Start</span>()
 
 <span class="k">func</span> <span class="f">tick</span>
 	oNow = <span class="f">dnType</span>(<span class="s">"System.DateTime"</span>).<span class="f">getProp</span>(<span class="s">"Now"</span>)
-	oClock.Text = oNow.<span class="f">ToString_1</span>(<span class="s">"HH:mm:ss"</span>)</code></pre></div></details></div></div><div class="item" id="splitcontainer"><div class="pic"><img src="img/shots/forms-19_splitcontainer.png" alt="Splitcontainer" loading="lazy"></div><div class="info"><h3>Splitcontainer</h3><p>A split container with two panels</p><div class="run"><code>ring samples/UsingDotNet/Forms/19_splitcontainer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A split container with two panels</span>
+	oClock.Text = oNow.<span class="f">Format</span>(<span class="s">"HH:mm:ss"</span>)</code></pre></div></details></div></div><div class="item" id="splitcontainer"><div class="pic"><img src="img/shots/forms-19_splitcontainer.png" alt="Splitcontainer" loading="lazy"></div><div class="info"><h3>Splitcontainer</h3><p>A split container with two panels</p><div class="run"><code>ring samples/UsingDotNet/Forms/19_splitcontainer.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># A split container with two panels</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>
 using {
@@ -925,7 +928,7 @@ oForm.Controls.<span class="f">Add</span>(oGrid)
 	<span class="f">dnAssert</span>(<span class="s">"three rows"</span>,oGrid.Rows.Count,<span class="n">3</span>)
 	<span class="f">dnAssert</span>(<span class="s">"two columns"</span>,oGrid.Columns.Count,<span class="n">2</span>)
 	<span class="f">dnAssert</span>(<span class="s">"cell value"</span>,oGrid.Rows.<span class="f">Item</span>(<span class="n">1</span>).Cells.<span class="f">Item</span>(<span class="n">0</span>).Value,<span class="s">"Bob"</span>)
-	oGrid.<span class="f">Sort</span>(oGrid.Columns.<span class="f">Item</span>(<span class="n">1</span>),<span class="s">"Descending"</span>)
+	oGrid.<span class="f">Sort</span>([ :dataGridViewColumn = oGrid.Columns.<span class="f">Item</span>(<span class="n">1</span>), :direction = <span class="s">"Descending"</span> ])
 	<span class="f">dnAssert</span>(<span class="s">"sorted by age"</span>,oGrid.Rows.<span class="f">Item</span>(<span class="n">0</span>).Cells.<span class="f">Item</span>(<span class="n">0</span>).Value,<span class="s">"Cy"</span>)</code></pre></div></details></div></div><div class="item" id="form-events"><div class="pic"><img src="img/shots/forms-27_form_events.png" alt="Form events" loading="lazy"></div><div class="info"><h3>Form events</h3><p>The life of a form: Load, Shown, Resize and FormClosing events</p><div class="run"><code>ring samples/UsingDotNet/Forms/27_form_events.ring</code></div><details><summary>Source code</summary><div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="c"># The life of a form: Load, Shown, Resize and FormClosing events</span>
 
 <span class="k">load</span> <span class="s">"dotnet.ring"</span>

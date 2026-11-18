@@ -130,7 +130,15 @@ Class SqlBinary from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBinary, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBinary, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlBinary, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBinary, System.Data.Common',[P1])
 		return self
 
@@ -154,9 +162,6 @@ Class SqlBinary from ValueType
 
 	Func Concat P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Concat",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBinary, System.Data.Common'),"NotEquals",P1,P2])
@@ -225,7 +230,15 @@ Class SqlBoolean from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBoolean, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBoolean, System.Data.Common',[P1])
 		return self
 
@@ -282,9 +295,6 @@ Class SqlBoolean from ValueType
 
 	Func Xor P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Xor",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlBoolean, System.Data.Common'),"NotEquals",P1,P2])
@@ -379,7 +389,15 @@ Class SqlByte from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlByte, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlByte, System.Data.Common',[P1])
 		return self
 
@@ -455,9 +473,6 @@ Class SqlByte from ValueType
 	Func Xor P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Xor",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"Equals",P1,P2])
-
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlByte, System.Data.Common'),"NotEquals",P1,P2])
 
@@ -529,7 +544,15 @@ Class SqlBytes from Object
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBytes, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlBytes, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlBytes, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlBytes, System.Data.Common',[P1])
 		return self
 
@@ -623,7 +646,15 @@ Class SqlChars from Object
 		nHandle = dnCreate('System.Data.SqlTypes.SqlChars, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlChars, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlChars, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlChars, System.Data.Common',[P1])
 		return self
 
@@ -713,24 +744,16 @@ Class SqlDateTime from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDateTime, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1,P2,P3])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDateTime, System.Data.Common',[P1,P2])
 		return self
 
 	Func ToSqlString 
@@ -756,9 +779,6 @@ Class SqlDateTime from ValueType
 
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Subtract",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDateTime, System.Data.Common'),"NotEquals",P1,P2])
@@ -859,16 +879,16 @@ Class SqlDecimal from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDecimal, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[P1])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[P1,P2,P3,P4])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.Data.SqlTypes.SqlDecimal, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7])
 		return self
 
 	Func ToDouble 
@@ -933,9 +953,6 @@ Class SqlDecimal from ValueType
 
 	Func Divide P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Divide",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDecimal, System.Data.Common'),"NotEquals",P1,P2])
@@ -1063,7 +1080,15 @@ Class SqlDouble from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDouble, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlDouble, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlDouble, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlDouble, System.Data.Common',[P1])
 		return self
 
@@ -1120,9 +1145,6 @@ Class SqlDouble from ValueType
 
 	Func Divide P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Divide",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlDouble, System.Data.Common'),"NotEquals",P1,P2])
@@ -1190,12 +1212,16 @@ Class SqlGuid from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlGuid, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[P1])
-		return self
-
-	Func New_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		nHandle = dnCreate('System.Data.SqlTypes.SqlGuid, System.Data.Common',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
 		return self
 
 	Func ToByteArray 
@@ -1221,9 +1247,6 @@ Class SqlGuid from ValueType
 
 	Func Parse P1
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Parse",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlGuid, System.Data.Common'),"NotEquals",P1,P2])
@@ -1276,7 +1299,15 @@ Class SqlInt16 from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt16, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt16, System.Data.Common',[P1])
 		return self
 
@@ -1352,9 +1383,6 @@ Class SqlInt16 from ValueType
 	Func Xor P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Xor",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"Equals",P1,P2])
-
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt16, System.Data.Common'),"NotEquals",P1,P2])
 
@@ -1424,7 +1452,15 @@ Class SqlInt32 from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt32, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt32, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlInt32, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt32, System.Data.Common',[P1])
 		return self
 
@@ -1500,9 +1536,6 @@ Class SqlInt32 from ValueType
 	Func Xor P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Xor",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"Equals",P1,P2])
-
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt32, System.Data.Common'),"NotEquals",P1,P2])
 
@@ -1572,7 +1605,15 @@ Class SqlInt64 from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlInt64, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlInt64, System.Data.Common',[P1])
 		return self
 
@@ -1648,9 +1689,6 @@ Class SqlInt64 from ValueType
 	Func Xor P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Xor",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"Equals",P1,P2])
-
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlInt64, System.Data.Common'),"NotEquals",P1,P2])
 
@@ -1720,7 +1758,15 @@ Class SqlMoney from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlMoney, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlMoney, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlMoney, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlMoney, System.Data.Common',[P1])
 		return self
 
@@ -1796,9 +1842,6 @@ Class SqlMoney from ValueType
 	Func Divide P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Divide",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"Equals",P1,P2])
-
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlMoney, System.Data.Common'),"NotEquals",P1,P2])
 
@@ -1868,7 +1911,15 @@ Class SqlSingle from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlSingle, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlSingle, System.Data.Common',[P1])
 		return self
 
@@ -1925,9 +1976,6 @@ Class SqlSingle from ValueType
 
 	Func Divide P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Divide",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlSingle, System.Data.Common'),"NotEquals",P1,P2])
@@ -2005,27 +2053,15 @@ Class SqlString from ValueType
 		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlString, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlString, System.Data.Common',[P1])
 		return self
 
@@ -2088,9 +2124,6 @@ Class SqlString from ValueType
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Add",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"Equals",P1,P2])
 
 	Func NotEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Data.SqlTypes.SqlString, System.Data.Common'),"NotEquals",P1,P2])
@@ -2203,7 +2236,15 @@ Class SqlXml from Object
 		nHandle = dnCreate('System.Data.SqlTypes.SqlXml, System.Data.Common',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Data.SqlTypes.SqlXml, System.Data.Common',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Data.SqlTypes.SqlXml, System.Data.Common',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Data.SqlTypes.SqlXml, System.Data.Common',[P1])
 		return self
 

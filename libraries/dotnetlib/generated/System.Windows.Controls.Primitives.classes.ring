@@ -579,8 +579,16 @@ Class CustomPopupPlacement from ValueType
 		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.Primitives.CustomPopupPlacement, PresentationFramework',[P1])
 		return self
 
 	Func getPoint
@@ -1006,8 +1014,16 @@ Class GeneratorPosition from ValueType
 		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Controls.Primitives.GeneratorPosition, PresentationFramework',[P1])
 		return self
 
 	Func getIndex
@@ -1153,11 +1169,11 @@ Class IItemContainerGenerator from DotNetObject
 	Func GetItemContainerGeneratorForPanel P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetItemContainerGeneratorForPanel",P1])
 
-	Func StartAt P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAt",P1,P2])
-
-	Func StartAt_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAt",P1,P2,P3])
+	Func StartAt P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartAt",P1])
+		ok
+		raise("DotNet Error: StartAt does not take one argument: use named arguments, StartAt([ :parameter = value, ... ])")
 
 	Func GenerateNext 
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateNext"])
@@ -1676,10 +1692,10 @@ Class RangeBase from WpfControl
 		ok
 		return self
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 
@@ -2789,10 +2805,10 @@ Class Track from FrameworkElement
 	Func ValueFromDistance P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ValueFromDistance",P1,P2])
 
-	Func GetValue_1 P1
+	Func GetValue_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func SetValue_2 P1,P2
+	Func SetValue_ P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
 		return self
 

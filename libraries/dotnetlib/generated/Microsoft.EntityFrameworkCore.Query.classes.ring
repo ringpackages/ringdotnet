@@ -899,8 +899,16 @@ Class EntityMaterializerSourceParameters from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityMaterializerSourceParameters, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func Deconstruct 
@@ -1042,18 +1050,6 @@ Class ExpressionEqualityComparer from Object
 		ok
 		return self
 
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func Equals P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
 	Func GetHashCode P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetHashCode",P1])
@@ -1062,6 +1058,12 @@ Class ExpressionEqualityComparer from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
+
+	Func Equals P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
+		ok
+		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
 	Func getInstance
 		return dnRequest("get",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ExpressionEqualityComparer, Microsoft.EntityFrameworkCore'),"Instance"])
@@ -1107,12 +1109,6 @@ Class ExpressionPrinter from ExpressionVisitor
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
 
-	Func AppendLine_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLine",P1])
-
-	Func AppendLines_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AppendLines",P1,P2])
-
 	Func AppendLines P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AppendLines",P1])
@@ -1125,9 +1121,6 @@ Class ExpressionPrinter from ExpressionVisitor
 	Func Append P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Append",P1])
 
-	Func PrintExpression_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PrintExpression",P1,P2])
-
 	Func PrintExpression P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"PrintExpression",P1])
@@ -1139,10 +1132,6 @@ Class ExpressionPrinter from ExpressionVisitor
 
 	Func GenerateBinaryOperator P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GenerateBinaryOperator",P1])
-
-	Func VisitCollection_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"VisitCollection",P1,P2])
-		return self
 
 	Func VisitCollection P1
 		if dnIsNamed(P1)
@@ -1253,9 +1242,6 @@ Class IAsyncQueryProvider from DotNetObject
 		ok
 		return self
 
-	Func ExecuteAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAsync",P1,P2])
-
 	Func ExecuteAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAsync",P1])
@@ -1287,11 +1273,11 @@ Class IEntityMaterializerSource from DotNetObject
 		ok
 		return self
 
-	Func CreateMaterializeExpression_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1,P2,P3])
-
-	Func CreateMaterializeExpression P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1,P2])
+	Func CreateMaterializeExpression P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateMaterializeExpression",P1])
+		ok
+		raise("DotNet Error: CreateMaterializeExpression does not take one argument: use named arguments, CreateMaterializeExpression([ :parameter = value, ... ])")
 
 	Func GetMaterializer P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMaterializer",P1])
@@ -1712,20 +1698,17 @@ Class ISqlExpressionFactory from DotNetObject
 	Func ApplyDefaultTypeMapping P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ApplyDefaultTypeMapping",P1])
 
-	Func MakeUnary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4,P5])
+	Func MakeUnary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeUnary",P1])
+		ok
+		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
-	Func MakeUnary_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4])
-
-	Func MakeUnary P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3])
-
-	Func MakeBinary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4,P5])
-
-	Func MakeBinary P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4])
+	Func MakeBinary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeBinary",P1])
+		ok
+		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Equal",P1,P2])
@@ -1751,62 +1734,62 @@ Class ISqlExpressionFactory from DotNetObject
 	Func OrElse P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"OrElse",P1,P2])
 
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
-	Func Add P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+	Func Subtract P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subtract",P1])
+		ok
+		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
-	Func Subtract_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2,P3])
+	Func Multiply P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Multiply",P1])
+		ok
+		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
-	Func Subtract P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2])
+	Func Divide P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Divide",P1])
+		ok
+		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
-	Func Multiply_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2,P3])
+	Func Modulo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Modulo",P1])
+		ok
+		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
-	Func Multiply P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2])
+	Func And_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"And",P1])
+		ok
+		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
-	Func Divide_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2,P3])
+	Func Or_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Or",P1])
+		ok
+		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
-	Func Divide P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2])
-
-	Func Modulo_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2,P3])
-
-	Func Modulo P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2])
-
-	Func And_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2,P3])
-
-	Func And_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2])
-
-	Func Or_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2,P3])
-
-	Func Or_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2])
-
-	Func Coalesce_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2,P3])
-
-	Func Coalesce P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2])
+	Func Coalesce P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Coalesce",P1])
+		ok
+		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsNotNull",P1])
 
-	Func Convert_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3])
-
-	Func Convert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2])
+	Func Convert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Convert",P1])
+		ok
+		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Not",P1])
@@ -1814,38 +1797,23 @@ Class ISqlExpressionFactory from DotNetObject
 	Func Negate P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Negate",P1])
 
-	Func Case_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3,P4])
+	Func Case_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Case",P1])
+		ok
+		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
-	Func Case_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3])
+	Func Function_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Function",P1])
+		ok
+		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
-	Func Case_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2])
-
-	Func Function_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6])
-
-	Func Function_ P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5])
-
-	Func Function_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Function_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func NiladicFunction_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4])
-
-	Func NiladicFunction P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3])
-
-	Func NiladicFunction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5])
-
-	Func NiladicFunction_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5,P6])
+	Func NiladicFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NiladicFunction",P1])
+		ok
+		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
@@ -1853,23 +1821,17 @@ Class ISqlExpressionFactory from DotNetObject
 	Func In_ P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
 
-	Func Like_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2,P3])
-
-	Func Like P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2])
-
-	Func Constant_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2])
+	Func Like P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Like",P1])
+		ok
+		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Constant P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Constant",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1])
-
-	Func Constant_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2,P3])
 
 	Func Fragment P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Fragment",P1])
@@ -1891,8 +1853,16 @@ Class IncludeExpression from ExpressionsExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.IncludeExpression, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func Update P1,P2
@@ -2260,8 +2230,16 @@ Class NonQueryExpression from ExpressionsExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.NonQueryExpression, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func Update P1
@@ -2298,7 +2276,15 @@ Class EfPathSegment from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.PathSegment, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
@@ -2411,8 +2397,16 @@ Class QueryCompilationContext from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.QueryCompilationContext, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func AddTag P1
@@ -2689,10 +2683,6 @@ Class QueryContext from Object
 
 	Func AddParameter P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"AddParameter",P1,P2])
-		return self
-
-	Func InitializeStateManager_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"InitializeStateManager",P1])
 		return self
 
 	Func InitializeStateManager P1
@@ -4228,17 +4218,11 @@ Class RelationalSqlTranslatingExpressionVisitor from ExpressionVisitor
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalSqlTranslatingExpressionVisitor, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func Translate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
-
 	Func Translate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Translate",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
-
-	Func TranslateProjection_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"TranslateProjection",P1,P2])
 
 	Func TranslateProjection P1
 		if dnIsNamed(P1)
@@ -4401,17 +4385,11 @@ Class ShapedQueryCompilingExpressionVisitor from ExpressionVisitor
 	Func Visit P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Visit",P1])
 
-	Func SingleAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1,P2])
-
 	Func SingleAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
-
-	Func SingleOrDefaultAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1,P2])
 
 	Func SingleOrDefaultAsync P1
 		if dnIsNamed(P1)
@@ -4613,11 +4591,11 @@ Class SqlExpressionFactory from Object
 	Func ApplyTypeMapping P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"ApplyTypeMapping",P1,P2])
 
-	Func MakeBinary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4,P5])
-
-	Func MakeBinary P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeBinary",P1,P2,P3,P4])
+	Func MakeBinary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeBinary",P1])
+		ok
+		raise("DotNet Error: MakeBinary does not take one argument: use named arguments, MakeBinary([ :parameter = value, ... ])")
 
 	Func Equal P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Equal",P1,P2])
@@ -4643,71 +4621,68 @@ Class SqlExpressionFactory from Object
 	Func OrElse P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"OrElse",P1,P2])
 
-	Func Add_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
+	Func Add P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
-	Func Add P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
+	Func Subtract P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subtract",P1])
+		ok
+		raise("DotNet Error: Subtract does not take one argument: use named arguments, Subtract([ :parameter = value, ... ])")
 
-	Func Subtract_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2,P3])
+	Func Multiply P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Multiply",P1])
+		ok
+		raise("DotNet Error: Multiply does not take one argument: use named arguments, Multiply([ :parameter = value, ... ])")
 
-	Func Subtract P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Subtract",P1,P2])
+	Func Divide P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Divide",P1])
+		ok
+		raise("DotNet Error: Divide does not take one argument: use named arguments, Divide([ :parameter = value, ... ])")
 
-	Func Multiply_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2,P3])
+	Func Modulo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Modulo",P1])
+		ok
+		raise("DotNet Error: Modulo does not take one argument: use named arguments, Modulo([ :parameter = value, ... ])")
 
-	Func Multiply P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Multiply",P1,P2])
+	Func And_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"And",P1])
+		ok
+		raise("DotNet Error: And does not take one argument: use named arguments, And([ :parameter = value, ... ])")
 
-	Func Divide_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2,P3])
+	Func Or_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Or",P1])
+		ok
+		raise("DotNet Error: Or does not take one argument: use named arguments, Or([ :parameter = value, ... ])")
 
-	Func Divide P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1,P2])
+	Func Coalesce P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Coalesce",P1])
+		ok
+		raise("DotNet Error: Coalesce does not take one argument: use named arguments, Coalesce([ :parameter = value, ... ])")
 
-	Func Modulo_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2,P3])
-
-	Func Modulo P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Modulo",P1,P2])
-
-	Func And_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2,P3])
-
-	Func And_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"And",P1,P2])
-
-	Func Or_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2,P3])
-
-	Func Or_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Or",P1,P2])
-
-	Func Coalesce_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2,P3])
-
-	Func Coalesce P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Coalesce",P1,P2])
-
-	Func MakeUnary_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4,P5])
-
-	Func MakeUnary_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3,P4])
-
-	Func MakeUnary P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeUnary",P1,P2,P3])
+	Func MakeUnary P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"MakeUnary",P1])
+		ok
+		raise("DotNet Error: MakeUnary does not take one argument: use named arguments, MakeUnary([ :parameter = value, ... ])")
 
 	Func IsNotNull P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsNotNull",P1])
 
-	Func Convert_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2,P3])
-
-	Func Convert P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Convert",P1,P2])
+	Func Convert P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Convert",P1])
+		ok
+		raise("DotNet Error: Convert does not take one argument: use named arguments, Convert([ :parameter = value, ... ])")
 
 	Func Not_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Not",P1])
@@ -4715,38 +4690,23 @@ Class SqlExpressionFactory from Object
 	Func Negate P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Negate",P1])
 
-	Func Case_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3,P4])
+	Func Case_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Case",P1])
+		ok
+		raise("DotNet Error: Case does not take one argument: use named arguments, Case([ :parameter = value, ... ])")
 
-	Func Case_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2,P3])
+	Func Function_ P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Function",P1])
+		ok
+		raise("DotNet Error: Function does not take one argument: use named arguments, Function([ :parameter = value, ... ])")
 
-	Func Case_ P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Case",P1,P2])
-
-	Func Function_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6])
-
-	Func Function_ P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5])
-
-	Func Function_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Function_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"Function",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func NiladicFunction_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4])
-
-	Func NiladicFunction P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3])
-
-	Func NiladicFunction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5])
-
-	Func NiladicFunction_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"NiladicFunction",P1,P2,P3,P4,P5,P6])
+	Func NiladicFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"NiladicFunction",P1])
+		ok
+		raise("DotNet Error: NiladicFunction does not take one argument: use named arguments, NiladicFunction([ :parameter = value, ... ])")
 
 	Func Exists P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Exists",P1])
@@ -4754,26 +4714,20 @@ Class SqlExpressionFactory from Object
 	Func In_ P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"In",P1,P2])
 
-	Func Like_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2,P3])
-
-	Func Like P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Like",P1,P2])
+	Func Like P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Like",P1])
+		ok
+		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Fragment P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Fragment",P1])
-
-	Func Constant_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2])
 
 	Func Constant P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Constant",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1])
-
-	Func Constant_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Constant",P1,P2,P3])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -4877,16 +4831,16 @@ Class StructuralTypeProjectionExpression from ExpressionsExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.StructuralTypeProjectionExpression, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func MakeNullable 
@@ -4954,9 +4908,6 @@ Class StructuralTypeShaperExpression from ExpressionsExpression
 
 	Func WithType P1
 		return dnRequest("call",[new DotNetObject(nHandle),"WithType",P1])
-
-	Func MakeNullable_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeNullable",P1])
 
 	Func MakeNullable P1
 		if dnIsNamed(P1)
@@ -5031,8 +4982,16 @@ Class EntityQueryRootExpression from QueryRootExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func UpdateEntityType P1
@@ -5058,8 +5017,16 @@ Class InlineQueryRootExpression from QueryRootExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.InlineQueryRootExpression, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func Update P1
@@ -5085,8 +5052,16 @@ Class ParameterQueryRootExpression from QueryRootExpression
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.ParameterQueryRootExpression, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func getParameterExpression
@@ -5230,8 +5205,16 @@ Class RelationalQueryCompilationContext from QueryCompilationContext
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.Query.RelationalQueryCompilationContext, Microsoft.EntityFrameworkCore.Relational',[P1])
 		return self
 
 	Func getQuerySplittingBehavior

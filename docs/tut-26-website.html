@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -245,7 +248,7 @@ aEntries = []                 <span class="c"># the guestbook: [name, message]</
 
 <span class="k">func</span> <span class="f">postForm</span> cPath, cForm
 	oContent = <span class="f">dnNew</span>(<span class="s">"StringContent"</span>,[ :content = cForm, :encoding = <span class="k">new</span> <span class="t">Encoding</span>().UTF8, :mediaType = <span class="s">"application/x-www-form-urlencoded"</span> ])
-	<span class="k">return</span> send(oClient.<span class="f">PostAsync</span>(cUrl + cPath,oContent))
+	<span class="k">return</span> send(oClient.<span class="f">PostAsync</span>([ :requestUri = cUrl + cPath, :content = oContent ]))
 
 <span class="k">func</span> <span class="f">send</span> oTask
 	<span class="k">for</span> nTry = <span class="n">1</span> <span class="k">to</span> <span class="n">50</span>

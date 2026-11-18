@@ -148,8 +148,16 @@ Class IPv6MulticastOption from Object
 		nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.IPv6MulticastOption, System.Net.Sockets',[P1])
 		return self
 
 	Func Equals P1
@@ -217,8 +225,16 @@ Class MulticastOption from Object
 		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.MulticastOption, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.MulticastOption, System.Net.Sockets',[P1])
 		return self
 
 	Func Equals P1
@@ -260,16 +276,16 @@ Class NetworkStream from Stream
 		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1,P2,P3])
-		return self
-
-	Func Close_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.NetworkStream, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.NetworkStream, System.Net.Sockets',[P1])
 		return self
 
 	Func Close P1
@@ -311,8 +327,16 @@ Class SafeSocketHandle from DotNetObject
 		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.SafeSocketHandle, System.Net.Sockets',[P1])
 		return self
 
 	Func DangerousGetHandle 
@@ -382,16 +406,16 @@ Class SendPacketsElement from Object
 		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1,P2,P3,P4])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.SendPacketsElement, System.Net.Sockets',[P1])
 		return self
 
 	Func Equals P1
@@ -487,12 +511,16 @@ Class Socket from Object
 		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.Socket, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.Socket, System.Net.Sockets',[P1])
 		return self
 
 	Func Bind P1
@@ -507,10 +535,6 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
-	Func Connect_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
-		return self
-
 	Func Close P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Close",P1])
@@ -520,10 +544,6 @@ Class Socket from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
-		return self
-
-	Func Close_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Close",P1])
 		return self
 
@@ -539,27 +559,14 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1])
 		return self
 
-	Func Listen_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1])
-		return self
-
 	Func Accept 
 		return dnRequest("call",[new DotNetObject(nHandle),"Accept"])
-
-	Func Send_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
-
-	Func Send_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
 
 	Func Send P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Send",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
-
-	Func Send_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
 
 	Func SendFile P1
 		if dnIsNamed(P1)
@@ -569,27 +576,11 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SendFile",P1])
 		return self
 
-	Func SendFile_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SendFile",P1,P2,P3,P4])
-		return self
-
-	Func SendTo_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SendTo",P1,P2,P3,P4,P5])
-
-	Func SendTo_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendTo",P1,P2,P3,P4])
-
-	Func SendTo_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendTo",P1,P2,P3])
-
-	Func SendTo P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendTo",P1,P2])
-
-	Func Receive_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1,P2,P3])
-
-	Func Receive_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1,P2])
+	Func SendTo P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendTo",P1])
+		ok
+		raise("DotNet Error: SendTo does not take one argument: use named arguments, SendTo([ :parameter = value, ... ])")
 
 	Func Receive P1
 		if dnIsNamed(P1)
@@ -597,23 +588,14 @@ Class Socket from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1])
 
-	Func Receive_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1,P2,P3,P4])
-
 	Func ReceiveMessageFrom P1,P2,P3,P4,P5
 		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveMessageFrom",P1,P2,P3,P4,P5])
 
-	Func ReceiveFrom_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFrom",P1,P2,P3,P4,P5])
-
-	Func ReceiveFrom_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFrom",P1,P2,P3,P4])
-
-	Func ReceiveFrom_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFrom",P1,P2,P3])
-
-	Func ReceiveFrom P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFrom",P1,P2])
+	Func ReceiveFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReceiveFrom",P1])
+		ok
+		raise("DotNet Error: ReceiveFrom does not take one argument: use named arguments, ReceiveFrom([ :parameter = value, ... ])")
 
 	Func IOControl P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"IOControl",P1,P2,P3])
@@ -622,12 +604,11 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetSocketOption",P1,P2,P3])
 		return self
 
-	Func GetSocketOption P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetSocketOption",P1,P2])
-
-	Func GetSocketOption_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"GetSocketOption",P1,P2,P3])
-		return self
+	Func GetSocketOption P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetSocketOption",P1])
+		ok
+		raise("DotNet Error: GetSocketOption does not take one argument: use named arguments, GetSocketOption([ :parameter = value, ... ])")
 
 	Func SetIPProtectionLevel P1
 		dnRequest("call",[new DotNetObject(nHandle),"SetIPProtectionLevel",P1])
@@ -636,11 +617,11 @@ Class Socket from Object
 	Func Poll P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Poll",P1,P2])
 
-	Func BeginConnect P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginConnect",P1,P2,P3])
-
-	Func BeginConnect_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginConnect",P1,P2,P3,P4])
+	Func BeginConnect P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginConnect",P1])
+		ok
+		raise("DotNet Error: BeginConnect does not take one argument: use named arguments, BeginConnect([ :parameter = value, ... ])")
 
 	Func EndConnect P1
 		dnRequest("call",[new DotNetObject(nHandle),"EndConnect",P1])
@@ -657,20 +638,20 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"EndDisconnect",P1])
 		return self
 
-	Func BeginSend_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4,P5,P6])
-
-	Func BeginSend P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4])
+	Func BeginSend P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginSend",P1])
+		ok
+		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndSend",P1])
 
-	Func BeginSendFile P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSendFile",P1,P2,P3])
-
-	Func BeginSendFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSendFile",P1,P2,P3,P4,P5,P6])
+	Func BeginSendFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginSendFile",P1])
+		ok
+		raise("DotNet Error: BeginSendFile does not take one argument: use named arguments, BeginSendFile([ :parameter = value, ... ])")
 
 	Func EndSendFile P1
 		dnRequest("call",[new DotNetObject(nHandle),"EndSendFile",P1])
@@ -682,11 +663,11 @@ Class Socket from Object
 	Func EndSendTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndSendTo",P1])
 
-	Func BeginReceive_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginReceive",P1,P2,P3,P4,P5,P6])
-
-	Func BeginReceive P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginReceive",P1,P2,P3,P4])
+	Func BeginReceive P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginReceive",P1])
+		ok
+		raise("DotNet Error: BeginReceive does not take one argument: use named arguments, BeginReceive([ :parameter = value, ... ])")
 
 	Func EndReceive P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndReceive",P1])
@@ -703,23 +684,26 @@ Class Socket from Object
 	Func EndReceiveFrom P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"EndReceiveFrom",P1,P2])
 
-	Func BeginAccept P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginAccept",P1,P2])
+	Func BeginAccept P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginAccept",P1])
+		ok
+		raise("DotNet Error: BeginAccept does not take one argument: use named arguments, BeginAccept([ :parameter = value, ... ])")
 
 	Func EndAccept P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndAccept",P1])
-
-	Func BeginAccept_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginAccept",P1,P2,P3])
-
-	Func BeginAccept_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginAccept",P1,P2,P3,P4])
 
 	Func Shutdown P1
 		dnRequest("call",[new DotNetObject(nHandle),"Shutdown",P1])
 		return self
 
-	Func AcceptAsync_1 P1
+	Func AcceptAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptAsync",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync"])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
 
 	Func ConnectAsync P1
@@ -774,83 +758,11 @@ Class Socket from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
-	Func AcceptAsync P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptAsync",P1])
-		ok
-		if isstring(P1) and P1 = ""
-			return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync"])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1])
-
-	Func AcceptAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptAsync",P1,P2])
-
-	Func ConnectAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
-
-	Func ConnectAsync_3 P1,P2,P3
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.Net.Sockets.Socket, System.Net.Sockets'),"ConnectAsync",P1,P2,P3])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2,P3])
-
-	Func DisconnectAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DisconnectAsync",P1,P2])
-
-	Func ReceiveAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1,P2])
-
-	Func ReceiveAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1,P2,P3])
-
-	Func ReceiveFromAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFromAsync",P1,P2])
-
-	Func ReceiveFromAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFromAsync",P1,P2,P3])
-
-	Func ReceiveFromAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveFromAsync",P1,P2,P3,P4])
-
-	Func ReceiveMessageFromAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveMessageFromAsync",P1,P2])
-
-	Func ReceiveMessageFromAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveMessageFromAsync",P1,P2,P3])
-
-	Func ReceiveMessageFromAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveMessageFromAsync",P1,P2,P3,P4])
-
-	Func SendAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
-
-	Func SendAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
-
-	Func SendToAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendToAsync",P1,P2])
-
-	Func SendToAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendToAsync",P1,P2,P3])
-
-	Func SendToAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendToAsync",P1,P2,P3,P4])
-
-	Func SendFileAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2])
-
 	Func SendFileAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendFileAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1])
-
-	Func SendFileAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3,P4,P5])
-
-	Func SendFileAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3,P4])
 
 	Func DuplicateAndClose P1
 		return dnRequest("call",[new DotNetObject(nHandle),"DuplicateAndClose",P1])
@@ -1086,19 +998,23 @@ Class SocketAsyncEventArgs from EventArgs
 		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Sockets.SocketAsyncEventArgs, System.Net.Sockets',[P1])
 		return self
 
-	Func SetBuffer P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2])
-		return self
-
-	Func SetBuffer_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1,P2,P3])
-		return self
-
-	Func SetBuffer_1 P1
+	Func SetBuffer P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetBuffer",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"SetBuffer",P1])
 		return self
 
@@ -1358,23 +1274,17 @@ Class SocketTaskExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1])
 
-	Func AcceptAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"AcceptAsync",P1,P2])
+	Func ConnectAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1])
+		ok
+		raise("DotNet Error: ConnectAsync does not take one argument: use named arguments, ConnectAsync([ :parameter = value, ... ])")
 
-	Func ConnectAsync P1,P2
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1,P2])
-
-	Func ConnectAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1,P2,P3])
-
-	Func ConnectAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ConnectAsync",P1,P2,P3,P4])
-
-	Func ReceiveAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1,P2,P3])
-
-	Func ReceiveAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1,P2,P3,P4])
+	Func ReceiveAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveAsync",P1])
+		ok
+		raise("DotNet Error: ReceiveAsync does not take one argument: use named arguments, ReceiveAsync([ :parameter = value, ... ])")
 
 	Func ReceiveFromAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveFromAsync",P1,P2,P3,P4])
@@ -1382,11 +1292,11 @@ Class SocketTaskExtensions from Object
 	Func ReceiveMessageFromAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"ReceiveMessageFromAsync",P1,P2,P3,P4])
 
-	Func SendAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1,P2,P3])
-
-	Func SendAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1,P2,P3,P4])
+	Func SendAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendAsync",P1])
+		ok
+		raise("DotNet Error: SendAsync does not take one argument: use named arguments, SendAsync([ :parameter = value, ... ])")
 
 	Func SendToAsync P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.Net.Sockets.SocketTaskExtensions, System.Net.Sockets'),"SendToAsync",P1,P2,P3,P4])
@@ -1414,33 +1324,31 @@ Class TcpClient from Object
 		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.TcpClient, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.TcpClient, System.Net.Sockets',[P1,P2])
-		return self
-
-	Func Connect P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
-		return self
-
-	Func Connect_1 P1
+	Func Connect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Connect",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
-
-	Func ConnectAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2])
 
 	Func ConnectAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ConnectAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1])
-
-	Func ConnectAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ConnectAsync",P1,P2,P3])
 
 	Func BeginConnect P1,P2,P3,P4
 		return dnRequest("call",[new DotNetObject(nHandle),"BeginConnect",P1,P2,P3,P4])
@@ -1547,7 +1455,15 @@ Class TcpListener from Object
 		nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[P1,P2])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.TcpListener, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Sockets.TcpListener, System.Net.Sockets',[P1])
 		return self
 
@@ -1564,10 +1480,6 @@ Class TcpListener from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Start"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
-		return self
-
-	Func Start_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Start",P1])
 		return self
 
@@ -1609,9 +1521,6 @@ Class TcpListener from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocketAsync",P1])
 
-	Func AcceptSocketAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptSocketAsync",P1])
-
 	Func AcceptTcpClientAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
@@ -1619,9 +1528,6 @@ Class TcpListener from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
-
-	Func AcceptTcpClientAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptTcpClientAsync",P1])
 
 	Func Equals P1
@@ -1669,12 +1575,16 @@ Class UdpClient from Object
 		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.UdpClient, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.UdpClient, System.Net.Sockets',[P1,P2])
 		return self
 
 	Func AllowNatTraversal P1
@@ -1685,14 +1595,11 @@ Class UdpClient from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
 		return self
 
-	Func BeginSend P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4])
-
-	Func BeginSend_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4,P5,P6])
-
-	Func BeginSend_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"BeginSend",P1,P2,P3,P4,P5])
+	Func BeginSend P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"BeginSend",P1])
+		ok
+		raise("DotNet Error: BeginSend does not take one argument: use named arguments, BeginSend([ :parameter = value, ... ])")
 
 	Func EndSend P1
 		return dnRequest("call",[new DotNetObject(nHandle),"EndSend",P1])
@@ -1711,10 +1618,6 @@ Class UdpClient from Object
 		dnRequest("call",[new DotNetObject(nHandle),"JoinMulticastGroup",P1])
 		return self
 
-	Func JoinMulticastGroup_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"JoinMulticastGroup",P1,P2])
-		return self
-
 	Func DropMulticastGroup P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"DropMulticastGroup",P1])
@@ -1723,21 +1626,11 @@ Class UdpClient from Object
 		dnRequest("call",[new DotNetObject(nHandle),"DropMulticastGroup",P1])
 		return self
 
-	Func DropMulticastGroup_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"DropMulticastGroup",P1,P2])
-		return self
-
-	Func SendAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
-
-	Func SendAsync_1 P1
+	Func SendAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1])
-
-	Func SendAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3,P4])
-
-	Func SendAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 
 	Func ReceiveAsync P1
 		if dnIsNamed(P1)
@@ -1748,32 +1641,26 @@ Class UdpClient from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1])
 
-	Func ReceiveAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReceiveAsync",P1])
-
 	Func Close 
 		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
 
-	Func Connect P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1,P2])
-		return self
-
-	Func Connect_1 P1
+	Func Connect P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Connect",P1])
+			return self
+		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Connect",P1])
 		return self
 
 	Func Receive P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Receive",P1])
 
-	Func Send_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
-
-	Func Send_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3,P4])
-
-	Func Send P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
+	Func Send P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Send",P1])
+		ok
+		raise("DotNet Error: Send does not take one argument: use named arguments, Send([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1841,8 +1728,16 @@ Class UdpReceiveResult from ValueType
 		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Sockets.UdpReceiveResult, System.Net.Sockets',[P1])
 		return self
 
 	Func getBuffer

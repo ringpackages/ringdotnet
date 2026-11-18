@@ -15,7 +15,7 @@ func main
 	next
 
 	# For this tutorial the file is in the temp folder
-	cFile = new Path().Combine(new Path().GetTempPath(),"tutorial32-settings.json")
+	cFile = new Path().Combine([new Path().GetTempPath(),"tutorial32-settings.json"])
 	if new File().Exists(cFile)
 		new File().Delete(cFile)
 	ok
@@ -38,7 +38,7 @@ func main
 	showSettings(oAgain)
 
 	# 4. A file that is damaged must not stop the program: use the defaults
-	new File().WriteAllText(cFile,"this is not json {")
+	new File().WriteAllText([ :path = cFile, :contents = "this is not json {" ])
 	oBroken = new Settings(cFile)
 	? nl + "A damaged file: the defaults are used, error was: " + (len(oBroken.cLoadError) > 0)
 	showSettings(oBroken)
@@ -91,7 +91,7 @@ class Settings
 			cJson += '"' + aValues[nIndex][1] + '":' + xValue
 		next
 		cJson += "}"
-		new File().WriteAllText(cFile,cJson)
+		new File().WriteAllText([ :path = cFile, :contents = cJson ])
 
 	# (named readFile: "load" is a Ring keyword)
 	func readFile

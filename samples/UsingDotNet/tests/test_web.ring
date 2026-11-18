@@ -37,10 +37,10 @@ func main
 	oServer.close()
 
 	# ASP.NET types can be used on their own
-	oPath = new PathString().New_1("/api/items")
+	oPath = new PathString().New_([ :value = "/api/items" ])
 	dnAssert("PathString",oPath.Value,"/api/items")
-	dnAssert("PathString.StartsWithSegments",oPath.StartsWithSegments(new PathString().New_1("/api")),1)
-	oQuery = new QueryString().Create_2("name","ring dotnet")
+	dnAssert("PathString.StartsWithSegments",oPath.StartsWithSegments(new PathString().New_([ :value = "/api" ])),1)
+	oQuery = new QueryString().Create([ :name = "name", :value = "ring dotnet" ])
 	dnAssert("QueryString encodes",oQuery.Value,"?name=ring%20dotnet")
 	oMedia = new AspMediaTypeHeaderValue("text/html")
 	dnAssert("MediaTypeHeaderValue",oMedia.MediaType.ToString(),"text/html")
@@ -52,7 +52,7 @@ func fetch cMethod, cPath, cBody
 		oTask = oClient.GetAsync(cUrl + cPath)
 	else
 		oContent = new StringContent(cBody)
-		oTask = oClient.PostAsync(cUrl + cPath,oContent)
+		oTask = oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ])
 	ok
 	for nTry = 1 to 50
 		if oServer.serveOne(100)
@@ -87,7 +87,7 @@ func boom oRequest
 # a form post (application/x-www-form-urlencoded): oRequest.form("name") reads its fields
 func fetchForm cPath, cForm
 	oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
-	oTask = oClient.PostAsync(cUrl + cPath,oContent)
+	oTask = oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ])
 	for nTry = 1 to 50
 		if oServer.serveOne(100)
 			exit

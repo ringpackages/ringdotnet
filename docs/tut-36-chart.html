@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -240,7 +243,7 @@ oCanvas = <span class="s">""</span>
 	<span class="k">return</span> nValue
 
 <span class="k">func</span> <span class="f">savePng</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart.png"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart.png"</span>])
 	oCanvas.oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	<span class="f">uiMessage</span>(<span class="s">"Saved to "</span> + cFile,<span class="s">"Chart"</span>)
 
@@ -255,7 +258,7 @@ oCanvas = <span class="s">""</span>
 	nAprilX = floor(<span class="n">50</span> + <span class="n">3</span> * nSlot + nSlot / <span class="n">2</span>)          <span class="c"># pixel positions are whole numbers</span>
 	<span class="f">dnAssert</span>(<span class="s">"the April bar is crimson"</span>,oCanvas.<span class="f">pixel</span>(nAprilX,C_HEIGHT - <span class="n">60</span>),<span class="s">"ffdc143c"</span>)
 	<span class="c"># save it</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart-test.png"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"sales-chart-test.png"</span>])
 	oCanvas.oBitmap.<span class="f">Save</span>([ :filename = cFile, :format = <span class="k">new</span> <span class="t">ImageFormat</span>().Png ])
 	<span class="f">dnAssert</span>(<span class="s">"the file was saved"</span>,<span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile),<span class="k">True</span>)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)</code></pre></div>

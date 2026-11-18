@@ -108,8 +108,16 @@ Class EmbeddedFileProvider from Object
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Extensions.FileProviders.EmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
 		return self
 
 	Func GetFileInfo P1
@@ -234,16 +242,16 @@ Class ManifestEmbeddedFileProvider from Object
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Extensions.FileProviders.ManifestEmbeddedFileProvider, Microsoft.Extensions.FileProviders.Embedded',[P1])
 		return self
 
 	Func GetDirectoryContents P1
@@ -437,8 +445,16 @@ Class PhysicalFileProvider from Object
 		nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.Extensions.FileProviders.PhysicalFileProvider, Microsoft.Extensions.FileProviders.Physical',[P1])
 		return self
 
 	Func Dispose 

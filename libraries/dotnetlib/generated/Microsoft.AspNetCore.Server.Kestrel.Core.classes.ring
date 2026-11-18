@@ -352,20 +352,6 @@ Class KestrelServerOptions from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
 
-	Func Configure_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1])
-
-	Func Configure_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Configure",P1,P2])
-
-	Func Listen_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1,P2])
-		return self
-
-	Func Listen_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Listen",P1,P2,P3])
-		return self
-
 	Func Listen P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Listen",P1])
@@ -382,20 +368,12 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ListenLocalhost",P1])
 		return self
 
-	Func ListenLocalhost_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ListenLocalhost",P1,P2])
-		return self
-
 	Func ListenAnyIP P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenAnyIP",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ListenAnyIP",P1])
-		return self
-
-	Func ListenAnyIP_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ListenAnyIP",P1,P2])
 		return self
 
 	Func ListenUnixSocket P1
@@ -406,10 +384,6 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ListenUnixSocket",P1])
 		return self
 
-	Func ListenUnixSocket_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ListenUnixSocket",P1,P2])
-		return self
-
 	Func ListenHandle P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenHandle",P1])
@@ -418,20 +392,12 @@ Class KestrelServerOptions from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ListenHandle",P1])
 		return self
 
-	Func ListenHandle_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ListenHandle",P1,P2])
-		return self
-
 	Func ListenNamedPipe P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"ListenNamedPipe",P1])
-		return self
-
-	Func ListenNamedPipe_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"ListenNamedPipe",P1,P2])
 		return self
 
 	Func Equals P1

@@ -40,8 +40,16 @@ Class AssociatedMetadataTypeTypeDescriptionProvider from TypeDescriptionProvider
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.DataAnnotations.AssociatedMetadataTypeTypeDescriptionProvider, System.ComponentModel.Annotations',[P1])
 		return self
 
 
@@ -76,12 +84,16 @@ Class ValidationContext from Object
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationContext, System.ComponentModel.Annotations',[P1])
 		return self
 
 	Func InitializeServiceProvider P1
@@ -142,8 +154,16 @@ Class DataAnnotationsValidationResult from Object
 		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ComponentModel.DataAnnotations.ValidationResult, System.ComponentModel.Annotations',[P1])
 		return self
 
 	Func Equals P1
@@ -185,11 +205,11 @@ Class Validator from Object
 	Func TryValidateProperty P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateProperty",P1,P2,P3])
 
-	Func TryValidateObject P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateObject",P1,P2,P3])
-
-	Func TryValidateObject_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateObject",P1,P2,P3,P4])
+	Func TryValidateObject P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateObject",P1])
+		ok
+		raise("DotNet Error: TryValidateObject does not take one argument: use named arguments, TryValidateObject([ :parameter = value, ... ])")
 
 	Func TryValidateValue P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"TryValidateValue",P1,P2,P3,P4])
@@ -198,13 +218,12 @@ Class Validator from Object
 		dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"ValidateProperty",P1,P2])
 		return self
 
-	Func ValidateObject P1,P2
-		dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"ValidateObject",P1,P2])
-		return self
-
-	Func ValidateObject_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"ValidateObject",P1,P2,P3])
-		return self
+	Func ValidateObject P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"ValidateObject",P1])
+			return self
+		ok
+		raise("DotNet Error: ValidateObject does not take one argument: use named arguments, ValidateObject([ :parameter = value, ... ])")
 
 	Func ValidateValue P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.ComponentModel.DataAnnotations.Validator, System.ComponentModel.Annotations'),"ValidateValue",P1,P2,P3])

@@ -1,0 +1,15 @@
+1. status: OK, body: hello Ann, your header X-Client was: ringdotnet-tutorial
+   the server's header X-Server: ring
+   content type: text/plain; charset=utf-8
+
+2. what the server says for different codes:
+   200 -> OK (OK), success: yes
+   201 -> Created (Created), success: yes
+   404 -> NotFound (Not Found), success: no
+   500 -> InternalServerError (Internal Server Error), success: no
+
+3. EnsureSuccessStatusCode raised: DotNet Error: System.Net.Http.HttpRequestException: Response status co
+
+4. a request cancelled after 300 ms: cancelled = yes, the task says cancelled: yes
+
+5. the download was saved: 12286 bytes, the first line is 'first line of the file'

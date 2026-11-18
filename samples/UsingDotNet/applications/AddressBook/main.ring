@@ -11,9 +11,9 @@ using {
 
 cFile = ""
 if uiSelfTest()
-	cFile = new Path().Combine(new Path().GetTempPath(),"addressbook_selftest.xml")
+	cFile = new Path().Combine([new Path().GetTempPath(),"addressbook_selftest.xml"])
 else
-	cFile = new Path().Combine(new Path().GetTempPath(),"ringdotnet_addressbook.xml")
+	cFile = new Path().Combine([new Path().GetTempPath(),"ringdotnet_addressbook.xml"])
 ok
 
 oTable = new DataTable()

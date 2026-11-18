@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -183,7 +186,7 @@ nFile = <span class="n">0</span>
 		<span class="f">uiButton</span>(oForm,aNames[nIndex],<span class="n">10</span> + nColumn * <span class="n">62</span>,C_HEIGHT + <span class="n">44</span> + nRow * <span class="n">32</span>,<span class="n">58</span>,<span class="n">28</span>,<span class="s">"applyFilter('"</span> + aNames[nIndex] + <span class="s">"')"</span>)
 	<span class="k">next</span>
 	oInfo = <span class="f">uiLabel</span>(oForm,<span class="s">""</span>,<span class="n">10</span>,C_HEIGHT + <span class="n">112</span>,C_WIDTH * <span class="n">2</span> + <span class="n">30</span>,<span class="n">22</span>)
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial63"</span>)
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial63"</span>])
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
 	makeSource()
 	applyFilter(<span class="s">"Original"</span>)
@@ -363,7 +366,7 @@ nFile = <span class="n">0</span>
 <span class="c"># save the pixels as a BMP file (a new name each time: a file that is shown is locked) and give the picture box that image</span>
 <span class="k">func</span> <span class="f">showPixels</span> oPicture, aPixels
 	nFile++
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"image"</span> + nFile + <span class="s">".bmp"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"image"</span> + nFile + <span class="s">".bmp"</span>])
 	saveBmp(aPixels,cFile)
 	oPicture.Image = <span class="f">dnNew</span>(<span class="s">"Bitmap"</span>,[ :filename = cFile ])
 

@@ -91,7 +91,7 @@ func fetchPage cPath
 
 func postForm cPath, cForm
 	oContent = dnNew("StringContent",[ :content = cForm, :encoding = new Encoding().UTF8, :mediaType = "application/x-www-form-urlencoded" ])
-	return send(oClient.PostAsync(cUrl + cPath,oContent))
+	return send(oClient.PostAsync([ :requestUri = cUrl + cPath, :content = oContent ]))
 
 func send oTask
 	for nTry = 1 to 50

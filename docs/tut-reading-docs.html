@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -163,7 +166,7 @@ Console.<span class="f">WriteLine</span>(text);</code></pre></div>
 <div class="tablewrap"><table><thead><tr><th>In C#</th><th>In Ring</th></tr></thead><tbody><tr><td><code>using System.IO;</code></td><td><code>using { "System.IO" }</code></td></tr><tr><td><code>var f = new FileInfo(path);</code></td><td><code>oFile = new FileInfo(cPath)</code></td></tr><tr><td><code>File.ReadAllText(path)</code></td><td><code>new File().ReadAllText(cPath)</code> (a static method is called on <code>new File()</code>)</td></tr><tr><td><code>text.Length</code> (a property)</td><td><code>oText.Length</code></td></tr><tr><td><code>list.Add("x")</code> (a method)</td><td><code>oList.Add("x")</code></td></tr><tr><td><code>button.Click += handler;</code> (an event)</td><td><code>oButton.setClickEvent("handler()")</code></td></tr><tr><td><code>DayOfWeek.Monday</code> (an enum)</td><td><code>"Monday"</code> (a text)</td></tr><tr><td><code>Math.Round(x, 2)</code></td><td><code>oMath.Round([ :value = x, :digits = 2 ])</code></td></tr><tr><td><code>int.TryParse(s, out n)</code> (an <code>out</code> parameter)</td><td><code>aResult = new Int32().TryParse(cText)</code> → <code>[worked, number]</code></td></tr><tr><td><code>null</code></td><td><code>dnNull()</code></td></tr><tr><td><code>new DateTime(2024, 12, 25)</code></td><td><code>new DateTime(2024,12,25)</code></td></tr><tr><td><code>new Point { X = 1, Y = 2 }</code></td><td><code>new Point(1,2)</code></td></tr></tbody></table></div>
 <h3 id="overloads-one-name-different-parameters">Overloads: one name, different parameters<a class="anchor" href="#overloads-one-name-different-parameters">#</a></h3>
 <p>C# lets the same method name have several versions (<em>overloads</em>) with different parameters. Ring does not. RingDotNet handles it like this:</p>
-<ul><li>the <strong>plain name</strong> takes the most common form,</li><li>extra forms are named <code>Name_2</code>, <code>Name_3</code> (by number of parameters), or</li><li>you pass <strong>named arguments</strong> in a list: <code>oMath.Round([ :value = 3.14159, :digits = 2 ])</code>. The names are the parameter names that you read in the documentation.</li></ul>
+<ul><li>a name with several forms becomes <strong>one method that takes one value</strong>: <code>NULL</code> for the form without parameters, a value for the form with one parameter, and</li><li>a list of <strong>named arguments</strong> for the others: <code>oMath.Round([ :value = 3.14159, :digits = 2 ])</code>. The names are the parameter names that you read in the documentation.</li></ul>
 <p>The <a href="api.html">class reference</a> shows, for every method, the <strong>Ring calls</strong> next to the <strong>.NET overloads</strong>, so you never have to guess. <a href="concepts.html#naming-rules">Core concepts</a> lists the rules.</p>
 <h2 id="a-complete-example">A complete example<a class="anchor" href="#a-complete-example">#</a></h2>
 <p>Task: "get the file name from a path". Search → <code>Path.GetFileName</code> in <code>System.IO</code>.</p>

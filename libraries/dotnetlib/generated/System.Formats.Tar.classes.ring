@@ -86,11 +86,11 @@ Class TarEntry from Object
 		dnRequest("call",[new DotNetObject(nHandle),"ExtractToFile",P1,P2])
 		return self
 
-	Func ExtractToFileAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractToFileAsync",P1,P2,P3])
-
-	Func ExtractToFileAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExtractToFileAsync",P1,P2])
+	Func ExtractToFileAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExtractToFileAsync",P1])
+		ok
+		raise("DotNet Error: ExtractToFileAsync does not take one argument: use named arguments, ExtractToFileAsync([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -192,21 +192,21 @@ Class TarFile from Object
 		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectory",P1,P2,P3])
 		return self
 
-	Func CreateFromDirectoryAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1,P2,P3,P4])
-
-	Func CreateFromDirectoryAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1,P2,P3])
+	Func CreateFromDirectoryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"CreateFromDirectoryAsync",P1])
+		ok
+		raise("DotNet Error: CreateFromDirectoryAsync does not take one argument: use named arguments, CreateFromDirectoryAsync([ :parameter = value, ... ])")
 
 	Func ExtractToDirectory P1,P2,P3
 		dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectory",P1,P2,P3])
 		return self
 
-	Func ExtractToDirectoryAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1,P2,P3,P4])
-
-	Func ExtractToDirectoryAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1,P2,P3])
+	Func ExtractToDirectoryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Formats.Tar.TarFile, System.Formats.Tar'),"ExtractToDirectoryAsync",P1])
+		ok
+		raise("DotNet Error: ExtractToDirectoryAsync does not take one argument: use named arguments, ExtractToDirectoryAsync([ :parameter = value, ... ])")
 
 
 Class TarReader from Object
@@ -220,8 +220,16 @@ Class TarReader from Object
 		nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.TarReader, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.TarReader, System.Formats.Tar',[P1])
 		return self
 
 	Func Dispose 
@@ -231,9 +239,6 @@ Class TarReader from Object
 	Func DisposeAsync 
 		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
 
-	Func GetNextEntry_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry",P1])
-
 	Func GetNextEntry P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNextEntry",P1])
@@ -242,12 +247,6 @@ Class TarReader from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntry",P1])
-
-	Func GetNextEntryAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync",P1,P2])
-
-	Func GetNextEntryAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNextEntryAsync",P1])
 
 	Func GetNextEntryAsync P1
 		if dnIsNamed(P1)
@@ -275,12 +274,16 @@ Class TarWriter from Object
 		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.TarWriter, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.TarWriter, System.Formats.Tar',[P1])
 		return self
 
 	Func Dispose 
@@ -289,16 +292,6 @@ Class TarWriter from Object
 
 	Func DisposeAsync 
 		return dnRequest("call",[new DotNetObject(nHandle),"DisposeAsync"])
-
-	Func WriteEntry_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteEntry",P1,P2])
-		return self
-
-	Func WriteEntryAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteEntryAsync",P1,P2,P3])
-
-	Func WriteEntryAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"WriteEntryAsync",P1,P2])
 
 	Func WriteEntry P1
 		if dnIsNamed(P1)
@@ -379,8 +372,16 @@ Class V7TarEntry from TarEntry
 		nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.V7TarEntry, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.V7TarEntry, System.Formats.Tar',[P1])
 		return self
 
 
@@ -398,8 +399,16 @@ Class GnuTarEntry from PosixTarEntry
 		nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.GnuTarEntry, System.Formats.Tar',[P1])
 		return self
 
 	Func getAccessTime
@@ -450,12 +459,16 @@ Class PaxTarEntry from PosixTarEntry
 		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.PaxTarEntry, System.Formats.Tar',[P1])
 		return self
 
 	Func getExtendedAttributes
@@ -476,8 +489,16 @@ Class UstarTarEntry from PosixTarEntry
 		nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Formats.Tar.UstarTarEntry, System.Formats.Tar',[P1])
 		return self
 
 

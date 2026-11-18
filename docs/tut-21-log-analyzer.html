@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -171,7 +174,7 @@ using {
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># STEP 1. Make a sample log file (a real program would read an existing file)</span>
-	cLog = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21.log"</span>)
+	cLog = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21.log"</span>])
 	makeLog(cLog)
 	? <span class="s">"STEP 1: log written, "</span> + len(<span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllLines</span>(cLog).<span class="f">toList</span>()) + <span class="s">" lines"</span>
 
@@ -213,13 +216,13 @@ using {
 	<span class="k">next</span>
 
 	<span class="c"># STEP 5. Save a JSON report and read it back</span>
-	cReport = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21-report.json"</span>)
+	cReport = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial21-report.json"</span>])
 	aReport = [
 		[<span class="s">"lines"</span>,nLines],
 		[<span class="s">"errors"</span>,len(aErrors)],
 		[<span class="s">"different"</span>,len(aDistinct)]
 	]
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cReport,<span class="f">webJsonText</span>(aReport))
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cReport, :contents = <span class="f">webJsonText</span>(aReport) ])
 	? nl + <span class="s">"STEP 5: report "</span> + <span class="k">new</span> <span class="t">File</span>().<span class="f">ReadAllText</span>(cReport)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cLog)
 	<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cReport)
@@ -258,7 +261,7 @@ using {
 	<span class="k">for</span> cLine <span class="k">in</span> aLines
 		cText += cLine + windowsnl()
 	<span class="k">next</span>
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,cText)</code></pre></div>
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cText ])</code></pre></div>
 <div class="code out"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Output</span><button class="copy" type="button">Copy</button></div><pre><code>STEP 1: log written, 31 lines
 STEP 2: 30 lines understood
 

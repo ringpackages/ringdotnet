@@ -40,9 +40,9 @@ func main
 		FullRowSelect = True
 		GridLines = True
 	}
-	oList.Columns.Add_2("Name",180)
-	oList.Columns.Add_2("Size",80)
-	oList.Columns.Add_2("Modified",130)
+	oList.Columns.Add([ :text = "Name", :width = 180 ])
+	oList.Columns.Add([ :text = "Size", :width = 80 ])
+	oList.Columns.Add([ :text = "Modified", :width = 130 ])
 	oSplit.Panel2.Controls.Add(oList)
 
 	oStatus = uiLabel(oForm,"",0,0,640,22)
@@ -75,9 +75,9 @@ func folderChosen
 	nBytes = 0
 	for cFile in sort(new Directory().GetFiles(cFolder).toList())
 		oInfo = new FileInfo(cFile)
-		oItem = new ListViewItem().New_1(oInfo.Name)
+		oItem = new ListViewItem().New_([ :text = oInfo.Name ])
 		oItem.SubItems.Add(sizeText(oInfo.Length))
-		oItem.SubItems.Add(oInfo.LastWriteTime.ToString_1("yyyy-MM-dd HH:mm"))
+		oItem.SubItems.Add(oInfo.LastWriteTime.Format("yyyy-MM-dd HH:mm"))
 		oList.Items.Add(oItem)
 		nFiles++
 		nBytes += oInfo.Length
@@ -96,18 +96,18 @@ func sizeText nBytes
 
 # a demo folder with folders and files
 func makeDemoFolder
-	cBase = new Path().Combine(new Path().GetTempPath(),"tutorial42")
+	cBase = new Path().Combine([new Path().GetTempPath(),"tutorial42"])
 	if new Directory().Exists(cBase)
 		new Directory().Delete([ :path = cBase, :recursive = True ])
 	ok
 	for cName in ["Projects/Ring","Projects/Web","Pictures","Documents/2024"]
-		new Directory().CreateDirectory(new Path().Combine(cBase,cName))
+		new Directory().CreateDirectory(new Path().Combine([cBase,cName]))
 	next
-	new File().WriteAllText(new Path().Combine(cBase,"readme.txt"),"A demo folder")
-	new File().WriteAllText(new Path().Combine(cBase,"Projects/Ring/main.ring"),copies("? 'hello'" + nl,40))
-	new File().WriteAllText(new Path().Combine(cBase,"Projects/Ring/notes.txt"),copies("some notes ",100))
-	new File().WriteAllText(new Path().Combine(cBase,"Projects/Web/index.html"),"<html></html>")
-	new File().WriteAllText(new Path().Combine(cBase,"Documents/2024/report.txt"),copies("report line" + nl,500))
+	new File().WriteAllText([ :path = new Path().Combine([cBase,"readme.txt"]), :contents = "A demo folder" ])
+	new File().WriteAllText([ :path = new Path().Combine([cBase,"Projects/Ring/main.ring"]), :contents = copies("? 'hello'" + nl,40) ])
+	new File().WriteAllText([ :path = new Path().Combine([cBase,"Projects/Ring/notes.txt"]), :contents = copies("some notes ",100) ])
+	new File().WriteAllText([ :path = new Path().Combine([cBase,"Projects/Web/index.html"]), :contents = "<html></html>" ])
+	new File().WriteAllText([ :path = new Path().Combine([cBase,"Documents/2024/report.txt"]), :contents = copies("report line" + nl,500) ])
 	return cBase
 
 func copies cText, nTimes

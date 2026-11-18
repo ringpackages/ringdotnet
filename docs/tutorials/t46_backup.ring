@@ -10,22 +10,22 @@ func main
 	oPath = new Path()
 	oDirectory = new Directory()
 	oFile = new File()
-	cWork = oPath.Combine(oPath.GetTempPath(),"tutorial46")
+	cWork = oPath.Combine([oPath.GetTempPath(),"tutorial46"])
 	if oDirectory.Exists(cWork)
 		oDirectory.Delete([ :path = cWork, :recursive = True ])
 	ok
-	cSource = oPath.Combine(cWork,"documents")
-	cBackups = oPath.Combine(cWork,"backups")
-	oDirectory.CreateDirectory(oPath.Combine(cSource,"notes"))
+	cSource = oPath.Combine([cWork,"documents"])
+	cBackups = oPath.Combine([cWork,"backups"])
+	oDirectory.CreateDirectory(oPath.Combine([cSource,"notes"]))
 	oDirectory.CreateDirectory(cBackups)
-	oFile.WriteAllText(oPath.Combine(cSource,"report.txt"),"Annual report" + nl + copies("lorem ipsum ",50))
-	oFile.WriteAllText(oPath.Combine(cSource,"notes/todo.txt"),"buy milk")
-	? "The folder to protect has " + len(oDirectory.GetFiles_3(cSource,"*","AllDirectories").toList()) + " files"
+	oFile.WriteAllText([ :path = oPath.Combine([cSource,"report.txt"]), :contents = "Annual report" + nl + copies("lorem ipsum ",50) ])
+	oFile.WriteAllText([ :path = oPath.Combine([cSource,"notes/todo.txt"]), :contents = "buy milk" ])
+	? "The folder to protect has " + len(oDirectory.GetFiles([ :path = cSource, :searchPattern = "*", :searchOption = "AllDirectories" ]).toList()) + " files"
 
 	# STEP 1. A backup is a zip file named with the date and time, so that the names sort in time order
 	aStamps = ["2024-05-01_0900","2024-05-02_0900","2024-05-03_0900","2024-05-04_0900","2024-05-05_0900"]
 	for cStamp in aStamps
-		oFile.WriteAllText(oPath.Combine(cSource,"report.txt"),"Annual report, version of " + cStamp + nl + copies("lorem ipsum ",50))
+		oFile.WriteAllText([ :path = oPath.Combine([cSource,"report.txt"]), :contents = "Annual report, version of " + cStamp + nl + copies("lorem ipsum ",50) ])
 		makeBackup(cSource,cBackups,cStamp)
 	next
 	? nl + "STEP 1: five backups made:"
@@ -37,23 +37,23 @@ func main
 	showBackups(cBackups)
 
 	# STEP 3. Restore the newest backup into a new folder and check that it has our latest report
-	cRestore = oPath.Combine(cWork,"restored")
+	cRestore = oPath.Combine([cWork,"restored"])
 	cLatest = restoreLatest(cBackups,cRestore)
 	? nl + "STEP 3: restored " + oPath.GetFileName(cLatest)
-	? "   the restored report says: " + left(oFile.ReadAllText(oPath.Combine(cRestore,"report.txt")),38)
-	? "   restored files: " + len(oDirectory.GetFiles_3(cRestore,"*","AllDirectories").toList())
+	? "   the restored report says: " + left(oFile.ReadAllText(oPath.Combine([cRestore,"report.txt"])),38)
+	? "   restored files: " + len(oDirectory.GetFiles([ :path = cRestore, :searchPattern = "*", :searchOption = "AllDirectories" ]).toList())
 
 	oDirectory.Delete([ :path = cWork, :recursive = True ])
 
 # STEP 1: zip the source folder to backups/backup-<stamp>.zip
 func makeBackup cSource, cBackups, cStamp
-	cZip = new Path().Combine(cBackups,"backup-" + cStamp + ".zip")
-	new ZipFile().CreateFromDirectory(cSource,cZip)
+	cZip = new Path().Combine([cBackups,"backup-" + cStamp + ".zip"])
+	new ZipFile().CreateFromDirectory([ :sourceDirectoryName = cSource, :destinationArchiveFileName = cZip ])
 	return cZip
 
 # the backups, oldest first (the names sort the same way as the dates)
 func listBackups cBackups
-	return sort(new Directory().GetFiles_2(cBackups,"backup-*.zip").toList())
+	return sort(new Directory().GetFiles([ :path = cBackups, :searchPattern = "backup-*.zip" ]).toList())
 
 func showBackups cBackups
 	for cFile in listBackups(cBackups)
@@ -74,7 +74,7 @@ func keepNewest cBackups, nKeep
 func restoreLatest cBackups, cFolder
 	aList = listBackups(cBackups)
 	cLatest = aList[len(aList)]
-	new ZipFile().ExtractToDirectory(cLatest,cFolder)
+	new ZipFile().ExtractToDirectory([ :sourceArchiveFileName = cLatest, :destinationDirectoryName = cFolder ])
 	return cLatest
 
 func copies cText, nTimes

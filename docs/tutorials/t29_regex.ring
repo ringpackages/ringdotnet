@@ -31,7 +31,7 @@ func main
 	? "6. Ann or Cy found         : " + oNames.Count + " times"
 
 	# 7. Replace, also with the captured groups ($1, $2...) - here the date is turned around
-	? "7. Date turned around      : " + new Regex("(\d{4})-(\d{2})-(\d{2})").Replace(cText,"$3/$2/$1")
+	? "7. Date turned around      : " + new Regex("(\d{4})-(\d{2})-(\d{2})").Replace([ :input = cText, :replacement = "$3/$2/$1" ])
 
 	# 8. Split on a pattern: here on a comma and spaces
 	aParts = new Regex(",\s*").Split("one,two,   three,four").toList()

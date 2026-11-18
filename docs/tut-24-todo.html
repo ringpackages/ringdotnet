@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -171,9 +174,9 @@ lLoading = <span class="k">False</span>
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># the tasks are saved here (a test uses a temporary file)</span>
-	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-tasks.json"</span>)
+	cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-tasks.json"</span>])
 	<span class="k">if</span> <span class="f">uiSelfTest</span>()
-		cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-test.json"</span>)
+		cFile = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial24-test.json"</span>])
 		<span class="k">if</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
 			<span class="k">new</span> <span class="t">File</span>().<span class="f">Delete</span>(cFile)
 		<span class="k">ok</span>
@@ -210,7 +213,7 @@ lLoading = <span class="k">False</span>
 	<span class="k">if</span> cText = <span class="s">""</span>
 		<span class="k">return</span>
 	<span class="k">ok</span>
-	oTasks.Items.<span class="f">Add_2</span>(cText,<span class="k">False</span>)
+	oTasks.Items.<span class="f">Add</span>([ :item = cText, :isChecked = <span class="k">False</span> ])
 	oNew.Text = <span class="s">""</span>
 	saveTasks()
 	refreshStatus()
@@ -244,7 +247,7 @@ lLoading = <span class="k">False</span>
 		aList + [oTasks.<span class="f">GetItemChecked</span>(nIndex),oTasks.Items.<span class="f">Item</span>(nIndex)]      <span class="c"># [done, text]: see the note about pairs</span>
 	<span class="k">next</span>
 	cJson = <span class="k">new</span> <span class="t">JsonSerializer</span>().<span class="f">Serialize</span>(aList)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cFile,cJson)
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cFile, :contents = cJson ])
 
 <span class="k">func</span> <span class="f">loadTasks</span>
 	<span class="k">if</span> <span class="k">not</span> <span class="k">new</span> <span class="t">File</span>().<span class="f">Exists</span>(cFile)
@@ -255,7 +258,7 @@ lLoading = <span class="k">False</span>
 	oRoot = oDocument.RootElement
 	<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oRoot.<span class="f">GetArrayLength</span>() - <span class="n">1</span>
 		oTask = oRoot.<span class="f">Item</span>(nIndex)
-		oTasks.Items.<span class="f">Add_2</span>(oTask.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">GetString</span>(),oTask.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">GetInt32</span>() = <span class="n">1</span>)
+		oTasks.Items.<span class="f">Add</span>([ :item = oTask.<span class="f">Item</span>(<span class="n">1</span>).<span class="f">GetString</span>(), :isChecked = oTask.<span class="f">Item</span>(<span class="n">0</span>).<span class="f">GetInt32</span>() = <span class="n">1</span> ])
 	<span class="k">next</span>
 	oDocument.<span class="f">Dispose</span>()
 	lLoading = <span class="k">False</span>
@@ -289,7 +292,7 @@ lLoading = <span class="k">False</span>
 <h3 id="the-window">The window<a class="anchor" href="#the-window">#</a></h3>
 <p>Remember <a href="tut-13-editor.html">tutorial 13</a>: the control that fills the window is added <strong>first</strong>, then the top panel and the status label (the helpers <code>uiPanel</code>, <code>uiLabel</code> and <code>Dock</code> do the rest). <code>CheckOnClick = True</code> makes one click tick or untick an item.</p>
 <h3 id="add-and-remove">Add and remove<a class="anchor" href="#add-and-remove">#</a></h3>
-<p><code>addTask</code> trims the text, ignores a blank one, adds <code>Items.Add_2(text, False)</code> (the second parameter is the initial <em>checked</em> state), clears the text box, saves and refreshes the status. <code>removeTask</code> removes the selected item (<code>SelectedIndex</code> is <code>-1</code> when nothing is selected).</p>
+<p><code>addTask</code> trims the text, ignores a blank one, adds <code>Items.Add([ :item = text, :isChecked = False ])</code> (the second parameter is the initial <em>checked</em> state), clears the text box, saves and refreshes the status. <code>removeTask</code> removes the selected item (<code>SelectedIndex</code> is <code>-1</code> when nothing is selected).</p>
 <h3 id="reacting-to-a-tick">Reacting to a tick<a class="anchor" href="#reacting-to-a-tick">#</a></h3>
 <p><code>setMouseUpEvent("tasksChanged()")</code> runs after the click, when the item's state is already up to date; the function saves and refreshes the status line. (The <code>ItemCheck</code> event runs <em>before</em> the state changes, which makes a status line show the old number.)</p>
 <h3 id="saving-as-json">Saving as JSON<a class="anchor" href="#saving-as-json">#</a></h3>

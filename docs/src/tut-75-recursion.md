@@ -44,7 +44,7 @@ All orders of `[a, b, c]`: choose each item as the first one and put it in front
 
 A folder contains files and other folders, each of which contains... `showTree` prints a folder, then calls itself for each subfolder with one more level of indentation; `folderSize` adds the size of the files and of the subfolders. Recursion is the natural way to walk any tree: folders, XML ([tutorial 72](tut-72-xml.html)), a menu, a family tree.
 
-> [!TIP] .NET can also list all files below a folder in one call (`Directory.GetFiles_3(path, "*", "AllDirectories")`). Write the recursion yourself when you need to do something at each level.
+> [!TIP] .NET can also list all files below a folder in one call (`Directory.GetFiles([ :path = path, :searchPattern = "*", :searchOption = "AllDirectories" ])`). Write the recursion yourself when you need to do something at each level.
 
 ### 6. Flood fill
 

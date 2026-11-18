@@ -146,9 +146,6 @@ Class HttpContent from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStringAsync",P1])
 
-	Func ReadAsStringAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStringAsync",P1])
-
 	Func ReadAsByteArrayAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
@@ -156,9 +153,6 @@ Class HttpContent from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
-
-	Func ReadAsByteArrayAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsByteArrayAsync",P1])
 
 	Func ReadAsStream P1
@@ -170,9 +164,6 @@ Class HttpContent from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStream",P1])
 
-	Func ReadAsStream_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStream",P1])
-
 	Func ReadAsStreamAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
@@ -180,9 +171,6 @@ Class HttpContent from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
-
-	Func ReadAsStreamAsync_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ReadAsStreamAsync",P1])
 
 	Func CopyTo P1,P2,P3
@@ -195,12 +183,6 @@ Class HttpContent from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1])
 
-	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
-
-	Func CopyToAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2,P3])
-
 	Func LoadIntoBufferAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
@@ -209,12 +191,6 @@ Class HttpContent from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
-
-	Func LoadIntoBufferAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1])
-
-	Func LoadIntoBufferAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadIntoBufferAsync",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -259,8 +235,16 @@ Class HttpMessageInvoker from Object
 		nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.HttpMessageInvoker, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.HttpMessageInvoker, System.Net.Http',[P1])
 		return self
 
 	Func Send P1,P2
@@ -375,8 +359,16 @@ Class HttpRequestMessage from Object
 		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.HttpRequestMessage, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.HttpRequestMessage, System.Net.Http',[P1])
 		return self
 
 	Func Dispose 
@@ -482,7 +474,15 @@ Class HttpResponseMessage from Object
 		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.HttpResponseMessage, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Http.HttpResponseMessage, System.Net.Http',[P1])
 		return self
 
@@ -626,8 +626,16 @@ Class ByteArrayContent from HttpContent
 		nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.ByteArrayContent, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.ByteArrayContent, System.Net.Http',[P1])
 		return self
 
 
@@ -670,12 +678,16 @@ Class HttpClient from HttpMessageInvoker
 		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.HttpClient, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.HttpClient, System.Net.Http',[P1,P2])
 		return self
 
 	Func GetStringAsync P1
@@ -684,17 +696,11 @@ Class HttpClient from HttpMessageInvoker
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStringAsync",P1])
 
-	Func GetStringAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStringAsync",P1,P2])
-
 	Func GetByteArrayAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteArrayAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetByteArrayAsync",P1])
-
-	Func GetByteArrayAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByteArrayAsync",P1,P2])
 
 	Func GetStreamAsync P1
 		if dnIsNamed(P1)
@@ -702,38 +708,29 @@ Class HttpClient from HttpMessageInvoker
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetStreamAsync",P1])
 
-	Func GetStreamAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetStreamAsync",P1,P2])
-
 	Func GetAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1])
 
-	Func GetAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1,P2])
+	Func PostAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PostAsync",P1])
+		ok
+		raise("DotNet Error: PostAsync does not take one argument: use named arguments, PostAsync([ :parameter = value, ... ])")
 
-	Func GetAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetAsync",P1,P2,P3])
+	Func PutAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PutAsync",P1])
+		ok
+		raise("DotNet Error: PutAsync does not take one argument: use named arguments, PutAsync([ :parameter = value, ... ])")
 
-	Func PostAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PostAsync",P1,P2])
-
-	Func PostAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"PostAsync",P1,P2,P3])
-
-	Func PutAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PutAsync",P1,P2])
-
-	Func PutAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"PutAsync",P1,P2,P3])
-
-	Func PatchAsync P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PatchAsync",P1,P2])
-
-	Func PatchAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"PatchAsync",P1,P2,P3])
+	Func PatchAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"PatchAsync",P1])
+		ok
+		raise("DotNet Error: PatchAsync does not take one argument: use named arguments, PatchAsync([ :parameter = value, ... ])")
 
 	Func DeleteAsync P1
 		if dnIsNamed(P1)
@@ -741,32 +738,17 @@ Class HttpClient from HttpMessageInvoker
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1])
 
-	Func DeleteAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DeleteAsync",P1,P2])
-
 	Func Send P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Send",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1])
 
-	Func Send_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2])
-
-	Func Send_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Send",P1,P2,P3])
-
 	Func SendAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SendAsync",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1])
-
-	Func SendAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2])
-
-	Func SendAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SendAsync",P1,P2,P3])
 
 	Func CancelPendingRequests 
 		dnRequest("call",[new DotNetObject(nHandle),"CancelPendingRequests"])
@@ -1041,12 +1023,16 @@ Class MultipartContent from HttpContent
 		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.MultipartContent, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.MultipartContent, System.Net.Http',[P1,P2])
 		return self
 
 	Func Add P1
@@ -1362,8 +1348,16 @@ Class StreamContent from HttpContent
 		nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.StreamContent, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.StreamContent, System.Net.Http',[P1])
 		return self
 
 
@@ -1401,7 +1395,15 @@ Class MultipartFormDataContent from MultipartContent
 		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.MultipartFormDataContent, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Net.Http.MultipartFormDataContent, System.Net.Http',[P1])
 		return self
 
@@ -1411,14 +1413,6 @@ Class MultipartFormDataContent from MultipartContent
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-		return self
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
 		return self
 
 
@@ -1433,12 +1427,16 @@ Class StringContent from ByteArrayContent
 		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Net.Http.StringContent, System.Net.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Net.Http.StringContent, System.Net.Http',[P1])
 		return self
 
 

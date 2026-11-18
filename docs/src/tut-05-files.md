@@ -31,7 +31,7 @@ lead: Read and write text files, build paths the right way, get information abou
 
 ### Paths
 
-Never build a path by joining texts with `/` or `\`. `Path.Combine(a,b)` uses the right separator for the computer, and `Path.GetTempPath()` gives a folder where temporary files are allowed. Other `Path` helpers: `GetFileName`, `GetExtension`, `GetFileNameWithoutExtension`, `GetDirectoryName`. They only work on the *text* of a path; the file does not have to exist.
+Never build a path by joining texts with `/` or `\`. `Path.Combine([a,b])` uses the right separator for the computer, and `Path.GetTempPath()` gives a folder where temporary files are allowed. Other `Path` helpers: `GetFileName`, `GetExtension`, `GetFileNameWithoutExtension`, `GetDirectoryName`. They only work on the *text* of a path; the file does not have to exist.
 
 ### Ask before you act
 

@@ -411,9 +411,6 @@ Class AuthenticateResult from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1])
 
-	Func Fail_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticateResult, Microsoft.AspNetCore.Authentication.Abstractions'),"Fail",P1,P2])
-
 	Func getSucceeded
 		return dnRequest("get",[self,"Succeeded"])
 
@@ -464,11 +461,11 @@ Class AuthenticationBuilder from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationBuilder, Microsoft.AspNetCore.Authentication',[P1])
 		return self
 
-	Func AddScheme_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddScheme",P1,P2,P3])
-
-	Func AddScheme P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddScheme",P1,P2])
+	Func AddScheme P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddScheme",P1])
+		ok
+		raise("DotNet Error: AddScheme does not take one argument: use named arguments, AddScheme([ :parameter = value, ... ])")
 
 	Func AddRemoteScheme P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"AddRemoteScheme",P1,P2,P3])
@@ -580,23 +577,11 @@ Class AuthenticationHttpContextExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"AuthenticateAsync",P1])
 
-	Func AuthenticateAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"AuthenticateAsync",P1,P2])
-
-	Func ChallengeAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1,P2])
-
 	Func ChallengeAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1])
-
-	Func ChallengeAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ChallengeAsync",P1,P2,P3])
-
-	Func ForbidAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1,P2])
 
 	Func ForbidAsync P1
 		if dnIsNamed(P1)
@@ -604,17 +589,11 @@ Class AuthenticationHttpContextExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1])
 
-	Func ForbidAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"ForbidAsync",P1,P2,P3])
-
-	Func SignInAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1,P2,P3])
-
-	Func SignInAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1,P2])
-
-	Func SignInAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1,P2,P3,P4])
+	Func SignInAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignInAsync",P1])
+		ok
+		raise("DotNet Error: SignInAsync does not take one argument: use named arguments, SignInAsync([ :parameter = value, ... ])")
 
 	Func SignOutAsync P1
 		if dnIsNamed(P1)
@@ -622,17 +601,11 @@ Class AuthenticationHttpContextExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1])
 
-	Func SignOutAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1,P2])
-
-	Func SignOutAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"SignOutAsync",P1,P2,P3])
-
-	Func GetTokenAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2,P3])
-
-	Func GetTokenAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2])
+	Func GetTokenAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
+		ok
+		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
 
 Class AuthenticationMiddleware from Object
@@ -771,12 +744,16 @@ Class AuthenticationProperties from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationProperties, Microsoft.AspNetCore.Authentication.Abstractions',[P1,P2])
 		return self
 
 	Func Clone 
@@ -958,10 +935,6 @@ Class AuthenticationSchemeOptions from Object
 			dnRequest("call",[new DotNetObject(nHandle),"Validate"])
 		return self
 		ok
-		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
-		return self
-
-	Func Validate_1 P1
 		dnRequest("call",[new DotNetObject(nHandle),"Validate",P1])
 		return self
 
@@ -1170,8 +1143,16 @@ Class AuthenticationTicket from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.AuthenticationTicket, Microsoft.AspNetCore.Authentication.Abstractions',[P1])
 		return self
 
 	Func Clone 
@@ -1257,11 +1238,11 @@ Class AuthenticationTokenExtensions from Object
 	Func GetTokens P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokens",P1])
 
-	Func GetTokenAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2,P3])
-
-	Func GetTokenAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1,P2,P3,P4])
+	Func GetTokenAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.AuthenticationTokenExtensions, Microsoft.AspNetCore.Authentication.Abstractions'),"GetTokenAsync",P1])
+		ok
+		raise("DotNet Error: GetTokenAsync does not take one argument: use named arguments, GetTokenAsync([ :parameter = value, ... ])")
 
 
 Class Base64UrlTextEncoder from Object
@@ -1297,29 +1278,26 @@ Class ClaimActionCollectionMapExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func MapJsonKey P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1,P2,P3])
-		return self
+	Func MapJsonKey P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1])
+			return self
+		ok
+		raise("DotNet Error: MapJsonKey does not take one argument: use named arguments, MapJsonKey([ :parameter = value, ... ])")
 
-	Func MapJsonKey_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonKey",P1,P2,P3,P4])
-		return self
+	Func MapJsonSubKey P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonSubKey",P1])
+			return self
+		ok
+		raise("DotNet Error: MapJsonSubKey does not take one argument: use named arguments, MapJsonSubKey([ :parameter = value, ... ])")
 
-	Func MapJsonSubKey P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonSubKey",P1,P2,P3,P4])
-		return self
-
-	Func MapJsonSubKey_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapJsonSubKey",P1,P2,P3,P4,P5])
-		return self
-
-	Func MapCustomJson P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapCustomJson",P1,P2,P3])
-		return self
-
-	Func MapCustomJson_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapCustomJson",P1,P2,P3,P4])
-		return self
+	Func MapCustomJson P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapCustomJson",P1])
+			return self
+		ok
+		raise("DotNet Error: MapCustomJson does not take one argument: use named arguments, MapCustomJson([ :parameter = value, ... ])")
 
 	Func MapAll P1
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions, Microsoft.AspNetCore.Authentication.OAuth'),"MapAll",P1])
@@ -1619,8 +1597,16 @@ Class PolicySchemeHandler from DotNetObject
 		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Authentication.PolicySchemeHandler, Microsoft.AspNetCore.Authentication',[P1])
 		return self
 
 	Func SignInAsync P1,P2
@@ -1683,17 +1669,11 @@ Class PropertiesDataFormat from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1])
 
-	Func Protect_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1,P2])
-
 	Func Unprotect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Unprotect",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1])
-
-	Func Unprotect_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1,P2])
 
 	Func GetType 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
@@ -1913,17 +1893,11 @@ Class TicketDataFormat from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1])
 
-	Func Protect_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Protect",P1,P2])
-
 	Func Unprotect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Unprotect",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1])
-
-	Func Unprotect_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Unprotect",P1,P2])
 
 	Func GetType 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
@@ -2103,9 +2077,6 @@ Class HandleRequestResult from AuthenticateResult
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1])
-
-	Func Fail_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Fail",P1,P2])
 
 	Func Handle 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Authentication.HandleRequestResult, Microsoft.AspNetCore.Authentication'),"Handle"])

@@ -85,7 +85,15 @@ Class BigInteger from ValueType
 		nHandle = dnCreate('System.Numerics.BigInteger, System.Runtime.Numerics',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.BigInteger, System.Runtime.Numerics',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.BigInteger, System.Runtime.Numerics',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.BigInteger, System.Runtime.Numerics',[P1])
 		return self
 
@@ -101,15 +109,6 @@ Class BigInteger from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
-	Func ToByteArray_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1,P2])
-
-	Func ToByteArray_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
-
-	Func GetByteCount_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
-
 	Func GetByteCount P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetByteCount",P1])
@@ -119,11 +118,11 @@ Class BigInteger from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetByteCount",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetBitLength 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetBitLength"])
@@ -134,20 +133,11 @@ Class BigInteger from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2,P3])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Compare",P1,P2])
@@ -181,9 +171,6 @@ Class BigInteger from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1])
-
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log",P1,P2])
 
 	Func Log10 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"Log10",P1])
@@ -256,9 +243,6 @@ Class BigInteger from ValueType
 
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"MinMagnitude",P1,P2])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.BigInteger, System.Runtime.Numerics'),"TryParse",P1,P2])
 
 	Func getIsPowerOfTwo
 		return dnRequest("get",[self,"IsPowerOfTwo"])
@@ -371,15 +355,23 @@ Class Complex from ValueType
 		nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Complex, System.Runtime.Numerics',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Numerics.Complex, System.Runtime.Numerics',[P1])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func FromPolarCoordinates P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"FromPolarCoordinates",P1,P2])
@@ -450,9 +442,6 @@ Class Complex from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Log",P1])
 
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Log",P1,P2])
-
 	Func Log10 P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Log10",P1])
 
@@ -516,17 +505,17 @@ Class Complex from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"MinMagnitude",P1,P2])
 
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Parse",P1,P2,P3])
+	Func Parse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Parse",P1])
+		ok
+		raise("DotNet Error: Parse does not take one argument: use named arguments, Parse([ :parameter = value, ... ])")
 
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1,P2,P3])
-
-	Func Parse P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"Parse",P1,P2])
-
-	Func TryParse P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1,P2])
+	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Complex, System.Runtime.Numerics'),"TryParse",P1])
+		ok
+		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
 	Func getReal
 		return dnRequest("get",[self,"Real"])
@@ -604,8 +593,16 @@ Class Matrix3x2 from ValueType
 		nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Matrix3x2, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Numerics.Matrix3x2, System.Private.CoreLib',[P1])
 		return self
 
 	Func GetDeterminant 
@@ -620,35 +617,23 @@ Class Matrix3x2 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1])
 
-	Func CreateRotation_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateRotation",P1,P2])
-
 	Func CreateScale P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1])
 
-	Func CreateScale_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1,P2])
-
-	Func CreateScale_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateScale",P1,P2,P3])
-
-	Func CreateSkew P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1,P2])
-
-	Func CreateSkew_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1,P2,P3])
+	Func CreateSkew P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateSkew",P1])
+		ok
+		raise("DotNet Error: CreateSkew does not take one argument: use named arguments, CreateSkew([ :parameter = value, ... ])")
 
 	Func CreateTranslation P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1])
-
-	Func CreateTranslation_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"CreateTranslation",P1,P2])
 
 	Func Invert P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix3x2, System.Private.CoreLib'),"Invert",P1])
@@ -758,11 +743,15 @@ Class Matrix4x4 from ValueType
 		nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[])
 		return self
 
-	Func New_16 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16
-		nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Matrix4x4, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.Matrix4x4, System.Private.CoreLib',[P1])
 		return self
 
@@ -838,17 +827,11 @@ Class Matrix4x4 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1])
 
-	Func CreateRotationX_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationX",P1,P2])
-
 	Func CreateRotationY P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1])
-
-	Func CreateRotationY_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationY",P1,P2])
 
 	Func CreateRotationZ P1
 		if dnIsNamed(P1)
@@ -856,23 +839,11 @@ Class Matrix4x4 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1])
 
-	Func CreateRotationZ_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateRotationZ",P1,P2])
-
-	Func CreateScale_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1,P2,P3])
-
-	Func CreateScale_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1,P2,P3,P4])
-
 	Func CreateScale P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1])
-
-	Func CreateScale_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateScale",P1,P2])
 
 	Func CreateShadow P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateShadow",P1,P2])
@@ -882,9 +853,6 @@ Class Matrix4x4 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1])
-
-	Func CreateTranslation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateTranslation",P1,P2,P3])
 
 	Func CreateViewport P1,P2,P3,P4,P5,P6
 		return dnRequest("call",[dnTypeCached('System.Numerics.Matrix4x4, System.Private.CoreLib'),"CreateViewport",P1,P2,P3,P4,P5,P6])
@@ -1065,15 +1033,15 @@ Class Plane from ValueType
 		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Plane, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.Plane, System.Private.CoreLib',[P1])
 		return self
 
@@ -1129,12 +1097,16 @@ Class Quaternion from ValueType
 		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Quaternion, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Numerics.Quaternion, System.Private.CoreLib',[P1])
 		return self
 
 	Func Length 
@@ -1383,9 +1355,6 @@ Class Vector from Object
 	Func Dot P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Dot",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Equals",P1,P2])
-
 	Func EqualsAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"EqualsAll",P1,P2])
 
@@ -1467,9 +1436,6 @@ Class Vector from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"LoadUnsafe",P1])
 
-	Func LoadUnsafe_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"LoadUnsafe",P1,P2])
-
 	Func Log P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Log",P1])
 
@@ -1530,9 +1496,6 @@ Class Vector from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Round",P1])
 
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Round",P1,P2])
-
 	Func ShiftLeft P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"ShiftLeft",P1,P2])
 
@@ -1551,11 +1514,11 @@ Class Vector from Object
 	Func SquareRoot P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"SquareRoot",P1])
 
-	Func StoreUnsafe P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"StoreUnsafe",P1,P2])
-
-	Func StoreUnsafe_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"StoreUnsafe",P1,P2,P3])
+	Func StoreUnsafe P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"StoreUnsafe",P1])
+		ok
+		raise("DotNet Error: StoreUnsafe does not take one argument: use named arguments, StoreUnsafe([ :parameter = value, ... ])")
 
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector, System.Private.CoreLib'),"Subtract",P1,P2])
@@ -1632,12 +1595,16 @@ Class Vector2 from ValueType
 		nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Vector2, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Vector2, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func CopyTo P1
@@ -1648,21 +1615,17 @@ Class Vector2 from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
 	Func Length 
 		return dnRequest("call",[new DotNetObject(nHandle),"Length"])
 
 	Func LengthSquared 
 		return dnRequest("call",[new DotNetObject(nHandle),"LengthSquared"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Abs",P1])
@@ -1687,9 +1650,6 @@ Class Vector2 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Create",P1,P2])
 
 	Func DegreesToRadians P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"DegreesToRadians",P1])
@@ -1777,9 +1737,6 @@ Class Vector2 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Round",P1,P2])
 
 	Func Sin P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector2, System.Private.CoreLib'),"Sin",P1])
@@ -1924,16 +1881,16 @@ Class Vector3 from ValueType
 		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Vector3, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Numerics.Vector3, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
 	Func CopyTo P1
@@ -1944,21 +1901,17 @@ Class Vector3 from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
 	Func Length 
 		return dnRequest("call",[new DotNetObject(nHandle),"Length"])
 
 	Func LengthSquared 
 		return dnRequest("call",[new DotNetObject(nHandle),"LengthSquared"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Abs",P1])
@@ -1983,12 +1936,6 @@ Class Vector3 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Create",P1,P2,P3])
 
 	Func Cross P1,P2
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Cross",P1,P2])
@@ -2079,9 +2026,6 @@ Class Vector3 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Round",P1,P2])
 
 	Func Sin P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector3, System.Private.CoreLib'),"Sin",P1])
@@ -2241,20 +2185,16 @@ Class Vector4 from ValueType
 		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Numerics.Vector4, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Numerics.Vector4, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
 	Func CopyTo P1
@@ -2265,21 +2205,17 @@ Class Vector4 from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
 
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
-		return self
-
 	Func Length 
 		return dnRequest("call",[new DotNetObject(nHandle),"Length"])
 
 	Func LengthSquared 
 		return dnRequest("call",[new DotNetObject(nHandle),"LengthSquared"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Abs P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Abs",P1])
@@ -2304,15 +2240,6 @@ Class Vector4 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1,P2,P3])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1,P2])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Create",P1,P2,P3,P4])
 
 	Func DegreesToRadians P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"DegreesToRadians",P1])
@@ -2397,9 +2324,6 @@ Class Vector4 from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Round",P1,P2])
 
 	Func Sin P1
 		return dnRequest("call",[dnTypeCached('System.Numerics.Vector4, System.Private.CoreLib'),"Sin",P1])

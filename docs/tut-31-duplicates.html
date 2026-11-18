@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -164,12 +167,12 @@ using {
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># STEP 1. A folder with some files: three of them have the same content, two others as well</span>
-	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial31"</span>)
+	cFolder = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([<span class="k">new</span> <span class="t">Path</span>().<span class="f">GetTempPath</span>(),<span class="s">"tutorial31"</span>])
 	<span class="k">if</span> <span class="k">new</span> <span class="t">Directory</span>().<span class="f">Exists</span>(cFolder)
 		<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 	<span class="k">ok</span>
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(cFolder)
-	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,<span class="s">"old"</span>))
+	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">CreateDirectory</span>(<span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,<span class="s">"old"</span>]))
 	makeFile(cFolder,<span class="s">"report.txt"</span>,<span class="s">"Quarterly report: all good."</span>)
 	makeFile(cFolder,<span class="s">"report copy.txt"</span>,<span class="s">"Quarterly report: all good."</span>)
 	makeFile(cFolder,<span class="s">"old/report 2023.txt"</span>,<span class="s">"Quarterly report: all good."</span>)
@@ -179,7 +182,7 @@ using {
 	? <span class="s">"STEP 1: made six files in a folder and its subfolder"</span>
 
 	<span class="c"># STEP 2. Find every file, also in the subfolders</span>
-	aFiles = <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles_3</span>(cFolder,<span class="s">"*.txt"</span>,<span class="s">"AllDirectories"</span>).<span class="f">toList</span>()
+	aFiles = <span class="k">new</span> <span class="t">Directory</span>().<span class="f">GetFiles</span>([ :path = cFolder, :searchPattern = <span class="s">"*.txt"</span>, :searchOption = <span class="s">"AllDirectories"</span> ]).<span class="f">toList</span>()
 	? <span class="s">"STEP 2: "</span> + len(aFiles) + <span class="s">" files found"</span>
 
 	<span class="c"># STEP 3. The fingerprint of a file is the hash of its content. Same content = same hash.</span>
@@ -216,8 +219,8 @@ using {
 	<span class="k">new</span> <span class="t">Directory</span>().<span class="f">Delete</span>([ :path = cFolder, :recursive = <span class="k">True</span> ])
 
 <span class="k">func</span> <span class="f">makeFile</span> cFolder, cName, cText
-	cPath = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>(cFolder,cName)
-	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>(cPath,cText)
+	cPath = <span class="k">new</span> <span class="t">Path</span>().<span class="f">Combine</span>([cFolder,cName])
+	<span class="k">new</span> <span class="t">File</span>().<span class="f">WriteAllText</span>([ :path = cPath, :contents = cText ])
 
 <span class="c"># the SHA-256 hash of the content of a file, as text</span>
 <span class="k">func</span> <span class="f">hashOf</span> cFile
@@ -239,7 +242,7 @@ STEP 4: duplicates
 <h3 id="step-1-make-test-data">Step 1: make test data<a class="anchor" href="#step-1-make-test-data">#</a></h3>
 <p>The program creates its own folder with files: three with the same text (one in a subfolder, one with a different name), two with the same other text, and one unique file. A demo that makes its own data runs anywhere and can be checked: the answer is known.</p>
 <h3 id="step-2-list-recursively">Step 2: list recursively<a class="anchor" href="#step-2-list-recursively">#</a></h3>
-<p><code>Directory.GetFiles_3(folder, "*.txt", "AllDirectories")</code> returns the files of the folder and of every subfolder. <code>"TopDirectoryOnly"</code> would skip the subfolders. The third parameter is an enum, written as a text.</p>
+<p><code>Directory.GetFiles([ :path = folder, :searchPattern = "*.txt", :searchOption = "AllDirectories" ])</code> returns the files of the folder and of every subfolder. <code>"TopDirectoryOnly"</code> would skip the subfolders. The third parameter is an enum, written as a text.</p>
 <h3 id="step-3-hash-and-group">Step 3: hash and group<a class="anchor" href="#step-3-hash-and-group">#</a></h3>
 <p><code>hashOf(cFile)</code> reads the bytes (<code>File.ReadAllBytes</code>), hashes them (<code>SHA256.HashData</code>) and writes the hash as hexadecimal text. A <code>StringDictionary</code> maps <em>hash → paths</em> with the paths joined by <code>|</code>: if the hash is known, append the path, else start a new entry. <code>TryGetValue</code> tells which.</p>
 <h3 id="step-4-report">Step 4: report<a class="anchor" href="#step-4-report">#</a></h3>

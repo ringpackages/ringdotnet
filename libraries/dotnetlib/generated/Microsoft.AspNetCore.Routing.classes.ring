@@ -456,53 +456,17 @@ Class ControllerLinkGeneratorExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetPathByAction_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func GetPathByAction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1])
+		ok
+		raise("DotNet Error: GetPathByAction does not take one argument: use named arguments, GetPathByAction([ :parameter = value, ... ])")
 
-	Func GetPathByAction_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetPathByAction_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3,P4,P5,P6])
-
-	Func GetPathByAction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3,P4,P5])
-
-	Func GetPathByAction_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3,P4])
-
-	Func GetPathByAction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2,P3])
-
-	Func GetPathByAction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByAction",P1,P2])
-
-	Func GetUriByAction_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func GetUriByAction_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func GetUriByAction_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func GetUriByAction_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetUriByAction_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5,P6])
-
-	Func GetUriByAction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4,P5])
-
-	Func GetUriByAction_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3,P4])
-
-	Func GetUriByAction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2,P3])
-
-	Func GetUriByAction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1,P2])
+	Func GetUriByAction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByAction",P1])
+		ok
+		raise("DotNet Error: GetUriByAction does not take one argument: use named arguments, GetUriByAction([ :parameter = value, ... ])")
 
 
 Class DataTokensMetadata from Object
@@ -611,8 +575,16 @@ Class HttpMethodMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.HttpMethodMetadata, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
 	Func Equals P1
@@ -1085,44 +1057,17 @@ Class LinkGenerator from Object
 		ok
 		return self
 
-	Func GetPathByAddress_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5,P6,P7])
+	Func GetPathByAddress P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetPathByAddress",P1])
+		ok
+		raise("DotNet Error: GetPathByAddress does not take one argument: use named arguments, GetPathByAddress([ :parameter = value, ... ])")
 
-	Func GetPathByAddress_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5,P6])
-
-	Func GetPathByAddress_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4,P5])
-
-	Func GetPathByAddress_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3,P4])
-
-	Func GetPathByAddress_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2,P3])
-
-	Func GetPathByAddress P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetPathByAddress",P1,P2])
-
-	Func GetUriByAddress_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func GetUriByAddress_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func GetUriByAddress_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetUriByAddress_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5,P6])
-
-	Func GetUriByAddress_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4,P5])
-
-	Func GetUriByAddress_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3,P4])
-
-	Func GetUriByAddress P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetUriByAddress",P1,P2,P3])
+	Func GetUriByAddress P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetUriByAddress",P1])
+		ok
+		raise("DotNet Error: GetUriByAddress does not take one argument: use named arguments, GetUriByAddress([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -1141,44 +1086,17 @@ Class LinkGeneratorEndpointNameAddressExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetPathByName_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3,P4,P5,P6,P7])
+	Func GetPathByName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1])
+		ok
+		raise("DotNet Error: GetPathByName does not take one argument: use named arguments, GetPathByName([ :parameter = value, ... ])")
 
-	Func GetPathByName_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3,P4,P5,P6])
-
-	Func GetPathByName_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3,P4,P5])
-
-	Func GetPathByName_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3,P4])
-
-	Func GetPathByName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2,P3])
-
-	Func GetPathByName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByName",P1,P2])
-
-	Func GetUriByName_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func GetUriByName_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func GetUriByName_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetUriByName_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4,P5,P6])
-
-	Func GetUriByName_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4,P5])
-
-	Func GetUriByName_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3,P4])
-
-	Func GetUriByName P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1,P2,P3])
+	Func GetUriByName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorEndpointNameAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByName",P1])
+		ok
+		raise("DotNet Error: GetUriByName does not take one argument: use named arguments, GetUriByName([ :parameter = value, ... ])")
 
 
 Class LinkGeneratorRouteValuesAddressExtensions from Object
@@ -1194,44 +1112,17 @@ Class LinkGeneratorRouteValuesAddressExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetPathByRouteValues_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3,P4,P5,P6,P7])
+	Func GetPathByRouteValues P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1])
+		ok
+		raise("DotNet Error: GetPathByRouteValues does not take one argument: use named arguments, GetPathByRouteValues([ :parameter = value, ... ])")
 
-	Func GetPathByRouteValues_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3,P4,P5,P6])
-
-	Func GetPathByRouteValues_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3,P4,P5])
-
-	Func GetPathByRouteValues_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3,P4])
-
-	Func GetPathByRouteValues_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2,P3])
-
-	Func GetPathByRouteValues P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetPathByRouteValues",P1,P2])
-
-	Func GetUriByRouteValues_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func GetUriByRouteValues_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func GetUriByRouteValues_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetUriByRouteValues_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4,P5,P6])
-
-	Func GetUriByRouteValues_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4,P5])
-
-	Func GetUriByRouteValues_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3,P4])
-
-	Func GetUriByRouteValues P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1,P2,P3])
+	Func GetUriByRouteValues P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.LinkGeneratorRouteValuesAddressExtensions, Microsoft.AspNetCore.Routing'),"GetUriByRouteValues",P1])
+		ok
+		raise("DotNet Error: GetUriByRouteValues does not take one argument: use named arguments, GetUriByRouteValues([ :parameter = value, ... ])")
 
 
 Class LinkOptions from Object
@@ -1343,53 +1234,17 @@ Class PageLinkGeneratorExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func GetPathByPage_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func GetPathByPage P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1])
+		ok
+		raise("DotNet Error: GetPathByPage does not take one argument: use named arguments, GetPathByPage([ :parameter = value, ... ])")
 
-	Func GetPathByPage_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetPathByPage_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4,P5,P6])
-
-	Func GetPathByPage_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4,P5])
-
-	Func GetPathByPage_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3,P4])
-
-	Func GetPathByPage_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2,P3])
-
-	Func GetPathByPage P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetPathByPage",P1,P2])
-
-	Func GetUriByPage_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
-
-	Func GetUriByPage_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-
-	Func GetUriByPage_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func GetUriByPage_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5,P6,P7])
-
-	Func GetUriByPage_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5,P6])
-
-	Func GetUriByPage_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4,P5])
-
-	Func GetUriByPage_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3,P4])
-
-	Func GetUriByPage_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2,P3])
-
-	Func GetUriByPage P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1,P2])
+	Func GetUriByPage P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions, Microsoft.AspNetCore.Mvc.Core'),"GetUriByPage",P1])
+		ok
+		raise("DotNet Error: GetUriByPage does not take one argument: use named arguments, GetUriByPage([ :parameter = value, ... ])")
 
 
 Class ParameterPolicyFactory from Object
@@ -1531,8 +1386,16 @@ Class RouteBuilder from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteBuilder, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
 	Func Build 
@@ -1700,7 +1563,15 @@ Class RouteData from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteData, Microsoft.AspNetCore.Routing.Abstractions',[P1])
 		return self
 
@@ -1908,11 +1779,11 @@ Class RouteHandlerServices from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Map P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"Map",P1,P2,P3,P4,P5,P6])
-
-	Func Map_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"Map",P1,P2,P3,P4,P5,P6,P7])
+	Func Map P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Routing.RouteHandlerServices, Microsoft.AspNetCore.Routing'),"Map",P1])
+		ok
+		raise("DotNet Error: Map does not take one argument: use named arguments, Map([ :parameter = value, ... ])")
 
 
 Class RouteNameMetadata from Object
@@ -1959,10 +1830,6 @@ Class RouteOptions from Object
 		dnRequest("call",[new DotNetObject(nHandle),"SetParameterPolicy",P1])
 		return self
 
-	Func SetParameterPolicy_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetParameterPolicy",P1,P2])
-		return self
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -2007,7 +1874,15 @@ Class RouteValueDictionary from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueDictionary, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
@@ -2084,12 +1959,6 @@ Class RouteValueEqualityComparer from Object
 		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.RouteValueEqualityComparer, Microsoft.AspNetCore.Components',[])
 		return self
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -2259,8 +2128,16 @@ Class VirtualPathContext from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathContext, Microsoft.AspNetCore.Routing.Abstractions',[P1])
 		return self
 
 	Func Equals P1
@@ -2307,8 +2184,16 @@ Class VirtualPathData from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.VirtualPathData, Microsoft.AspNetCore.Routing.Abstractions',[P1])
 		return self
 
 	Func Equals P1
@@ -2384,12 +2269,16 @@ Class Route from RouteBase
 		nHandle = dnCreate('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',[P1,P2,P3])
 		return self
 
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',[P1,P2,P3,P4,P5,P6,P7])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Routing.Route, Microsoft.AspNetCore.Routing',[P1])
 		return self
 
 	Func getRouteTemplate

@@ -1519,29 +1519,47 @@ namespace RingDotNet
 		}
 
 		/* Choose the overload whose parameter names include all the given names and all the required parameters */
+		/* for each parameter the index of the argument with its name (-1: not given), or null when a name matches no parameter */
+		private static int[] MatchNames(ParameterInfo[] ps, string[] names)
+		{
+			int[] given = new int[ps.Length];
+			for (int i = 0; i < given.Length; i++) given[i] = -1;
+			for (int k = 0; k < names.Length; k++)
+			{
+				int found = -1;
+				for (int i = 0; i < ps.Length; i++)
+				{
+					if (!IsOutOnly(ps[i]) && string.Equals(ps[i].Name, names[k], StringComparison.OrdinalIgnoreCase)) { found = i; break; }
+				}
+				if (found < 0 || given[found] >= 0) return null;
+				given[found] = k;
+			}
+			return given;
+		}
+
 		private static MethodBase PickNamed(IEnumerable<MethodBase> candidates, string[] names, object[] values, out object[] converted)
 		{
 			MethodBase best = null;
 			object[] bestArgs = null;
 			int bestScore = int.MinValue;
-			foreach (MethodBase m in candidates)
+			foreach (MethodBase candidate in candidates)
 			{
+				MethodBase m = candidate;
+				if (m is MethodInfo def && def.IsGenericMethodDefinition)
+				{
+					/* a generic method (Enumerable.Contains<T>(source, value)): match the names, then close it with the types of the values */
+					int[] openGiven = MatchNames(def.GetParameters(), names);
+					if (openGiven == null) continue;
+					object[] ordered = new object[openGiven.Length];
+					for (int i = 0; i < ordered.Length; i++) ordered[i] = openGiven[i] >= 0 ? values[openGiven[i]] : null;
+					m = CloseGeneric(def, ordered);
+					if (m == null) continue;
+				}
 				if (m.ContainsGenericParameters) continue;
 				ParameterInfo[] ps = m.GetParameters();
-				int[] given = new int[ps.Length];
-				for (int i = 0; i < given.Length; i++) given[i] = -1;
+				int[] given = MatchNames(ps, names);
+				if (given == null) continue;
 				bool ok = true;
-				for (int k = 0; k < names.Length && ok; k++)
-				{
-					int found = -1;
-					for (int i = 0; i < ps.Length; i++)
-					{
-						if (!IsOutOnly(ps[i]) && string.Equals(ps[i].Name, names[k], StringComparison.OrdinalIgnoreCase)) { found = i; break; }
-					}
-					if (found < 0 || given[found] >= 0) ok = false;
-					else given[found] = k;
-				}
-				if (!ok) continue;
 				object[] conv = new object[ps.Length];
 				int total = 0;
 				for (int i = 0; i < ps.Length && ok; i++)

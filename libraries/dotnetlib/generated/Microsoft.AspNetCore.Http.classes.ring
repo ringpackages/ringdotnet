@@ -571,9 +571,6 @@ Class ConnectionInfo from Object
 		ok
 		return self
 
-	Func GetClientCertificateAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetClientCertificateAsync",P1])
-
 	Func GetClientCertificateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetClientCertificateAsync",P1])
@@ -660,9 +657,6 @@ Class CookieBuilder from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Build",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
-
-	Func Build_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -758,7 +752,15 @@ Class CookieOptions from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.CookieOptions, Microsoft.AspNetCore.Http.Features',[P1])
 		return self
 
@@ -903,9 +905,6 @@ Class EndpointFilterExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AddEndpointFilter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1,P2])
-
 	Func AddEndpointFilter P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterExtensions, Microsoft.AspNetCore.Routing'),"AddEndpointFilter",P1])
@@ -972,30 +971,6 @@ Class EndpointFilterInvocationContext from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4])
-
-	Func Create_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5])
-
-	Func Create_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6])
-
-	Func Create_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func Create_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.EndpointFilterInvocationContext, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2,P3,P4,P5,P6,P7,P8,P9])
 
 	Func getHttpContext
 		return dnRequest("get",[self,"HttpContext"])
@@ -1092,8 +1067,16 @@ Class AspFormCollection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.FormCollection, Microsoft.AspNetCore.Http',[P1])
 		return self
 
 	Func ContainsKey P1
@@ -1160,9 +1143,6 @@ Class FormFile from Object
 	Func CopyTo P1
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
-
-	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
@@ -1244,17 +1224,11 @@ Class FormFileCollection from DotNetObject
 	Func AsReadOnly 
 		return dnRequest("call",[new DotNetObject(nHandle),"AsReadOnly"])
 
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2,P3,P4])
-
 	Func BinarySearch P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"BinarySearch",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1])
-
-	Func BinarySearch_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"BinarySearch",P1,P2])
 
 	Func Clear 
 		dnRequest("call",[new DotNetObject(nHandle),"Clear"])
@@ -1272,14 +1246,6 @@ Class FormFileCollection from DotNetObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
-		return self
-
-	Func CopyTo_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2,P3,P4])
-		return self
-
-	Func CopyTo_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1,P2])
 		return self
 
 	Func EnsureCapacity P1
@@ -1300,12 +1266,6 @@ Class FormFileCollection from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1])
 
-	Func FindIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindIndex",P1,P2,P3])
-
 	Func FindLast P1
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLast",P1])
 
@@ -1314,12 +1274,6 @@ Class FormFileCollection from DotNetObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"FindLastIndex",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1])
-
-	Func FindLastIndex_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindLastIndex",P1,P2,P3])
 
 	Func ForEach_ P1
 		dnRequest("call",[new DotNetObject(nHandle),"ForEach",P1])
@@ -1340,12 +1294,6 @@ Class FormFileCollection from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func Insert P1,P2
 		dnRequest("call",[new DotNetObject(nHandle),"Insert",P1,P2])
 		return self
@@ -1359,12 +1307,6 @@ Class FormFileCollection from DotNetObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOf",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
-
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
 
 	Func Remove P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
@@ -1389,11 +1331,7 @@ Class FormFileCollection from DotNetObject
 			dnRequest("call",[new DotNetObject(nHandle),"Reverse"])
 		return self
 		ok
-		raise("DotNet Error: Reverse does not take one argument: use Reverse(NULL), Reverse_N(...) or named arguments")
-
-	Func Reverse_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Reverse",P1,P2])
-		return self
+		raise("DotNet Error: Reverse does not take one argument: use named arguments, Reverse([ :parameter = value, ... ])")
 
 	Func Sort P1
 		if dnIsNamed(P1)
@@ -1405,14 +1343,6 @@ Class FormFileCollection from DotNetObject
 		return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Sort",P1,P2,P3])
 		return self
 
 	Func ToArray 
@@ -1469,7 +1399,15 @@ Class FragmentString from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.FragmentString, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
@@ -1515,7 +1453,15 @@ Class HeaderDictionary from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HeaderDictionary, Microsoft.AspNetCore.Http',[P1])
 		return self
 
@@ -1525,10 +1471,6 @@ Class HeaderDictionary from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-		return self
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Clear 
@@ -1663,12 +1605,16 @@ Class HostString from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.HostString, Microsoft.AspNetCore.Http.Abstractions',[P1,P2])
 		return self
 
 	Func ToUriComponent 
@@ -1905,9 +1851,6 @@ Class HttpMethods from Object
 	Func GetCanonicalizedValue P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"GetCanonicalizedValue",P1])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"Equals",P1,P2])
-
 	Func getConnect
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Http.HttpMethods, Microsoft.AspNetCore.Http.Abstractions'),"Connect"])
 
@@ -2054,9 +1997,6 @@ Class HttpRequest from Object
 			return self
 		ok
 		return self
-
-	Func ReadFormAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReadFormAsync",P1])
 
 	Func ReadFormAsync P1
 		if dnIsNamed(P1)
@@ -2213,20 +2153,11 @@ Class HttpRequestJsonExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ReadFromJsonAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1,P2])
-
 	Func ReadFromJsonAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1])
-
-	Func ReadFromJsonAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1,P2,P3])
-
-	Func ReadFromJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"ReadFromJsonAsync",P1,P2,P3,P4])
 
 	Func HasJsonContentType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"HasJsonContentType",P1])
@@ -2253,14 +2184,6 @@ Class HttpRequestRewindExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"EnableBuffering",P1])
 		return self
 
-	Func EnableBuffering_2 P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"EnableBuffering",P1,P2])
-		return self
-
-	Func EnableBuffering_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpRequestRewindExtensions, Microsoft.AspNetCore.Http'),"EnableBuffering",P1,P2,P3])
-		return self
-
 
 Class HttpResponse from Object
 
@@ -2282,28 +2205,12 @@ Class HttpResponse from Object
 		ok
 		return self
 
-	Func OnStarting_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OnStarting",P1,P2])
-		return self
-
 	Func OnStarting P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"OnStarting",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"OnStarting",P1])
-		return self
-
-	Func OnCompleted_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1,P2])
-		return self
-
-	Func RegisterForDispose P1
-		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDispose",P1])
-		return self
-
-	Func RegisterForDisposeAsync P1
-		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDisposeAsync",P1])
 		return self
 
 	Func OnCompleted P1
@@ -2314,6 +2221,14 @@ Class HttpResponse from Object
 		dnRequest("call",[new DotNetObject(nHandle),"OnCompleted",P1])
 		return self
 
+	Func RegisterForDispose P1
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDispose",P1])
+		return self
+
+	Func RegisterForDisposeAsync P1
+		dnRequest("call",[new DotNetObject(nHandle),"RegisterForDisposeAsync",P1])
+		return self
+
 	Func Redirect P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Redirect",P1])
@@ -2321,13 +2236,6 @@ Class HttpResponse from Object
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1])
 		return self
-
-	Func Redirect_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Redirect",P1,P2])
-		return self
-
-	Func StartAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
@@ -2416,20 +2324,11 @@ Class HttpResponseJsonExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func WriteAsJsonAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2,P3])
-
-	Func WriteAsJsonAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2])
-
-	Func WriteAsJsonAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2,P3,P4])
-
-	Func WriteAsJsonAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2,P3,P4,P5])
-
-	Func WriteAsJsonAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1,P2,P3,P4,P5,P6])
+	Func WriteAsJsonAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseJsonExtensions, Microsoft.AspNetCore.Http.Extensions'),"WriteAsJsonAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsJsonAsync does not take one argument: use named arguments, WriteAsJsonAsync([ :parameter = value, ... ])")
 
 
 Class HttpResponseWritingExtensions from Object
@@ -2445,14 +2344,11 @@ Class HttpResponseWritingExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func WriteAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1,P2,P3])
-
-	Func WriteAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1,P2])
-
-	Func WriteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1,P2,P3,P4])
+	Func WriteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.HttpResponseWritingExtensions, Microsoft.AspNetCore.Http.Abstractions'),"WriteAsync",P1])
+		ok
+		raise("DotNet Error: WriteAsync does not take one argument: use named arguments, WriteAsync([ :parameter = value, ... ])")
 
 
 Class HttpValidationProblemDetails from ProblemDetails
@@ -2468,7 +2364,15 @@ Class HttpValidationProblemDetails from ProblemDetails
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.HttpValidationProblemDetails, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
@@ -2604,9 +2508,6 @@ Class IFormFile from DotNetObject
 	Func CopyTo P1
 		dnRequest("call",[new DotNetObject(nHandle),"CopyTo",P1])
 		return self
-
-	Func CopyToAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CopyToAsync",P1,P2])
 
 	Func CopyToAsync P1
 		if dnIsNamed(P1)
@@ -3608,13 +3509,12 @@ Class IResponseCookies from DotNetObject
 		ok
 		return self
 
-	Func Append P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2])
-		return self
-
-	Func Append_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Append",P1,P2,P3])
-		return self
+	Func Append P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Append",P1])
+			return self
+		ok
+		raise("DotNet Error: Append does not take one argument: use named arguments, Append([ :parameter = value, ... ])")
 
 	Func Delete P1
 		if dnIsNamed(P1)
@@ -3622,10 +3522,6 @@ Class IResponseCookies from DotNetObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1])
-		return self
-
-	Func Delete_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Delete",P1,P2])
 		return self
 
 
@@ -3668,9 +3564,6 @@ Class ISession from DotNetObject
 		ok
 		return self
 
-	Func LoadAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
-
 	Func LoadAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LoadAsync",P1])
@@ -3679,9 +3572,6 @@ Class ISession from DotNetObject
 			return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LoadAsync",P1])
-
-	Func CommitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CommitAsync",P1])
 
 	Func CommitAsync P1
 		if dnIsNamed(P1)
@@ -3798,29 +3688,17 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 	Func ExcludeFromDescription P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ExcludeFromDescription",P1])
 
-	Func Produces_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1,P2,P3,P4])
+	Func Produces P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1])
+		ok
+		raise("DotNet Error: Produces does not take one argument: use named arguments, Produces([ :parameter = value, ... ])")
 
-	Func Produces_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1,P2,P3])
-
-	Func Produces P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1,P2])
-
-	Func Produces_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Produces",P1,P2,P3,P4,P5])
-
-	Func ProducesProblem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesProblem",P1,P2,P3])
-
-	Func ProducesProblem P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesProblem",P1,P2])
-
-	Func ProducesValidationProblem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesValidationProblem",P1,P2,P3])
-
-	Func ProducesValidationProblem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesValidationProblem",P1,P2])
+	Func ProducesProblem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"ProducesProblem",P1])
+		ok
+		raise("DotNet Error: ProducesProblem does not take one argument: use named arguments, ProducesProblem([ :parameter = value, ... ])")
 
 	Func ProducesValidationProblem P1
 		if dnIsNamed(P1)
@@ -3831,14 +3709,11 @@ Class OpenApiRouteHandlerBuilderExtensions from Object
 	Func WithTags P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithTags",P1,P2])
 
-	Func Accepts P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Accepts",P1,P2,P3])
-
-	Func Accepts_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Accepts",P1,P2,P3,P4])
-
-	Func Accepts_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Accepts",P1,P2,P3,P4,P5])
+	Func Accepts P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"Accepts",P1])
+		ok
+		raise("DotNet Error: Accepts does not take one argument: use named arguments, Accepts([ :parameter = value, ... ])")
 
 	Func WithDescription P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.OpenApiRouteHandlerBuilderExtensions, Microsoft.AspNetCore.Routing'),"WithDescription",P1,P2])
@@ -3862,7 +3737,15 @@ Class PathString from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
@@ -3875,9 +3758,6 @@ Class PathString from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartsWithSegments",P1])
 
-	Func StartsWithSegments_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartsWithSegments",P1,P2])
-
 	Func Add P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
@@ -3886,9 +3766,6 @@ Class PathString from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.PathString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
@@ -3999,15 +3876,19 @@ Class ProducesResponseTypeMetadata from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.ProducesResponseTypeMetadata, Microsoft.AspNetCore.Http.Abstractions',[P1,P2])
-		return self
-
-	Func GetType_0 
+	Func GetType_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetType"])
 
 	Func Equals P1
@@ -4047,7 +3928,15 @@ Class QueryCollection from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryCollection, Microsoft.AspNetCore.Http',[P1])
 		return self
 
@@ -4100,7 +3989,15 @@ Class QueryString from ValueType
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions',[P1])
 		return self
 
@@ -4113,14 +4010,8 @@ Class QueryString from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 
-	Func Add_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-
 	Func FromUriComponent P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"FromUriComponent",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.QueryString, Microsoft.AspNetCore.Http.Abstractions'),"Create",P1,P2])
 
 	Func Create P1
 		if dnIsNamed(P1)
@@ -4160,29 +4051,17 @@ Class RequestDelegateFactory from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func InferMetadata_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1,P2])
-
 	Func InferMetadata P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"InferMetadata",P1])
 
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2,P3])
-
 	Func Create P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestDelegateFactory, Microsoft.AspNetCore.Http.Extensions'),"Create",P1,P2,P3,P4])
 
 
 Class RequestDelegateFactoryOptions from Object
@@ -4308,11 +4187,11 @@ Class RequestFormReaderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ReadFormAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1,P2,P3])
-
-	Func ReadFormAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1,P2])
+	Func ReadFormAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.RequestFormReaderExtensions, Microsoft.AspNetCore.Http'),"ReadFormAsync",P1])
+		ok
+		raise("DotNet Error: ReadFormAsync does not take one argument: use named arguments, ReadFormAsync([ :parameter = value, ... ])")
 
 
 Class RequestTrailerExtensions from Object
@@ -4404,12 +4283,6 @@ Class Results from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Challenge_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Challenge",P1,P2])
-
-	Func Challenge_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
-
 	Func Challenge P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
@@ -4418,12 +4291,6 @@ Class Results from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Challenge"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
-
-	Func Forbid_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Forbid",P1,P2])
-
-	Func Forbid_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Forbid",P1])
 
 	Func Forbid P1
 		if dnIsNamed(P1)
@@ -4434,23 +4301,11 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Forbid",P1])
 
-	Func SignIn_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignIn",P1,P2,P3])
-
-	Func SignIn_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignIn",P1,P2])
-
 	Func SignIn P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignIn",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignIn",P1])
-
-	Func SignOut_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignOut",P1,P2])
-
-	Func SignOut_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignOut",P1])
 
 	Func SignOut P1
 		if dnIsNamed(P1)
@@ -4461,29 +4316,11 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"SignOut",P1])
 
-	Func Content_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2,P3])
-
-	Func Content_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2,P3,P4])
-
-	Func Content_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2])
-
 	Func Content P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Content",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Content",P1])
-
-	Func Text_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2,P3])
-
-	Func Text_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2,P3,P4])
-
-	Func Text_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2])
 
 	Func Text P1
 		if dnIsNamed(P1)
@@ -4491,38 +4328,11 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Text",P1])
 
-	Func Json_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2,P3,P4])
-
-	Func Json_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2,P3])
-
-	Func Json_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2])
-
 	Func Json P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1])
-
-	Func Json_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2,P3,P4,P5])
-
-	Func File_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4,P5,P6])
-
-	Func File_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4,P5])
-
-	Func File_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4])
-
-	Func File_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3])
-
-	Func File_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1,P2])
 
 	Func File P1
 		if dnIsNamed(P1)
@@ -4530,41 +4340,11 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"File",P1])
 
-	Func Bytes_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4,P5,P6])
-
-	Func Bytes_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4,P5])
-
-	Func Bytes_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4])
-
-	Func Bytes_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3])
-
-	Func Bytes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2])
-
 	Func Bytes P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Bytes",P1])
-
-	Func Stream_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4,P5,P6])
-
-	Func Stream_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4,P5])
-
-	Func Stream_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4])
-
-	Func Stream_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3])
-
-	Func Stream_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2])
 
 	Func Stream P1
 		if dnIsNamed(P1)
@@ -4572,44 +4352,17 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Stream",P1])
 
-	Func Redirect_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Redirect",P1,P2,P3])
-
-	Func Redirect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Redirect",P1,P2])
-
 	Func Redirect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Redirect",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Redirect",P1])
 
-	Func LocalRedirect_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1,P2,P3])
-
-	Func LocalRedirect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1,P2])
-
 	Func LocalRedirect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1])
-
-	Func RedirectToRoute_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3,P4,P5])
-
-	Func RedirectToRoute_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3,P4])
-
-	Func RedirectToRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3])
-
-	Func RedirectToRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2])
-
-	Func RedirectToRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1])
 
 	Func RedirectToRoute P1
 		if dnIsNamed(P1)
@@ -4623,9 +4376,6 @@ Class Results from Object
 	Func StatusCode P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"StatusCode",P1])
 
-	Func NotFound_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"NotFound",P1])
-
 	Func NotFound P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"NotFound",P1])
@@ -4638,9 +4388,6 @@ Class Results from Object
 	Func Unauthorized 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Unauthorized"])
 
-	Func BadRequest_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
-
 	Func BadRequest P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
@@ -4649,9 +4396,6 @@ Class Results from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"BadRequest"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
-
-	Func Conflict_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Conflict",P1])
 
 	Func Conflict P1
 		if dnIsNamed(P1)
@@ -4665,9 +4409,6 @@ Class Results from Object
 	Func NoContent 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"NoContent"])
 
-	Func Ok_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
-
 	Func Ok_ P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
@@ -4676,9 +4417,6 @@ Class Results from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Ok"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
-
-	Func UnprocessableEntity_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity",P1])
 
 	Func UnprocessableEntity P1
 		if dnIsNamed(P1)
@@ -4698,27 +4436,6 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"InternalServerError",P1])
 
-	Func InternalServerError_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"InternalServerError",P1])
-
-	Func Problem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4,P5,P6])
-
-	Func Problem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4,P5])
-
-	Func Problem_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4])
-
-	Func Problem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3])
-
-	Func Problem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2])
-
-	Func Problem_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
-
 	Func Problem P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
@@ -4727,24 +4444,6 @@ Class Results from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
-
-	Func ValidationProblem_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4,P5,P6,P7])
-
-	Func ValidationProblem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4,P5,P6])
-
-	Func ValidationProblem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4,P5])
-
-	Func ValidationProblem_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4])
-
-	Func ValidationProblem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3])
-
-	Func ValidationProblem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2])
 
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
@@ -4759,19 +4458,7 @@ Class Results from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Created"])
 		ok
-		raise("DotNet Error: Created does not take one argument: use Created(NULL), Created_N(...) or named arguments")
-
-	Func Created_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Created",P1,P2])
-
-	Func CreatedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1,P2,P3])
-
-	Func CreatedAtRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1,P2])
-
-	Func CreatedAtRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
+		raise("DotNet Error: Created does not take one argument: use named arguments, Created([ :parameter = value, ... ])")
 
 	Func CreatedAtRoute P1
 		if dnIsNamed(P1)
@@ -4782,12 +4469,6 @@ Class Results from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
 
-	Func Accepted_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Accepted",P1,P2])
-
-	Func Accepted_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
-
 	Func Accepted P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
@@ -4796,15 +4477,6 @@ Class Results from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Accepted"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
-
-	Func AcceptedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1,P2,P3])
-
-	Func AcceptedAtRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1,P2])
-
-	Func AcceptedAtRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.Results, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1])
 
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
@@ -4858,17 +4530,11 @@ Class SendFileResponseExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func SendFileAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1,P2,P3])
-
-	Func SendFileAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1,P2])
-
-	Func SendFileAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1,P2,P3,P4,P5])
-
-	Func SendFileAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1,P2,P3,P4])
+	Func SendFileAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.SendFileResponseExtensions, Microsoft.AspNetCore.Http.Extensions'),"SendFileAsync",P1])
+		ok
+		raise("DotNet Error: SendFileAsync does not take one argument: use named arguments, SendFileAsync([ :parameter = value, ... ])")
 
 
 Class SessionExtensions from Object
@@ -5394,8 +5060,16 @@ Class StreamResponseBodyFeature from Object
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.AspNetCore.Http.StreamResponseBodyFeature, Microsoft.AspNetCore.Http',[P1])
 		return self
 
 	Func DisableBuffering 
@@ -5404,9 +5078,6 @@ Class StreamResponseBodyFeature from Object
 
 	Func SendFileAsync P1,P2,P3,P4
 		return dnRequest("call",[new DotNetObject(nHandle),"SendFileAsync",P1,P2,P3,P4])
-
-	Func StartAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartAsync",P1])
 
 	Func StartAsync P1
 		if dnIsNamed(P1)
@@ -5462,12 +5133,6 @@ Class TypedResults from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Challenge_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge",P1,P2])
-
-	Func Challenge_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
-
 	Func Challenge P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
@@ -5476,12 +5141,6 @@ Class TypedResults from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Challenge",P1])
-
-	Func Forbid_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Forbid",P1,P2])
-
-	Func Forbid_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Forbid",P1])
 
 	Func Forbid P1
 		if dnIsNamed(P1)
@@ -5492,23 +5151,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Forbid",P1])
 
-	Func SignIn_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignIn",P1,P2,P3])
-
-	Func SignIn_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignIn",P1,P2])
-
 	Func SignIn P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignIn",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignIn",P1])
-
-	Func SignOut_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignOut",P1,P2])
-
-	Func SignOut_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignOut",P1])
 
 	Func SignOut P1
 		if dnIsNamed(P1)
@@ -5519,29 +5166,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"SignOut",P1])
 
-	Func Content_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2,P3])
-
-	Func Content_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2,P3,P4])
-
-	Func Content_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1,P2])
-
 	Func Content P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Content",P1])
-
-	Func Text_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2,P3])
-
-	Func Text_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2,P3,P4])
-
-	Func Text_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Text",P1,P2])
 
 	Func Text P1
 		if dnIsNamed(P1)
@@ -5549,35 +5178,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Text",P1])
 
-	Func Json_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2,P3,P4])
-
-	Func Json_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2,P3])
-
-	Func Json_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1,P2])
-
 	Func Json P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Json",P1])
-
-	Func File_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4,P5,P6])
-
-	Func File_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4,P5])
-
-	Func File_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3,P4])
-
-	Func File_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1,P2,P3])
-
-	Func File_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1,P2])
 
 	Func File P1
 		if dnIsNamed(P1)
@@ -5585,41 +5190,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"File",P1])
 
-	Func Bytes_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4,P5,P6])
-
-	Func Bytes_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4,P5])
-
-	Func Bytes_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3,P4])
-
-	Func Bytes_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2,P3])
-
-	Func Bytes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1,P2])
-
 	Func Bytes P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Bytes",P1])
-
-	Func Stream_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4,P5,P6])
-
-	Func Stream_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4,P5])
-
-	Func Stream_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3,P4])
-
-	Func Stream_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2,P3])
-
-	Func Stream_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1,P2])
 
 	Func Stream P1
 		if dnIsNamed(P1)
@@ -5627,41 +5202,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Stream",P1])
 
-	Func PhysicalFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1,P2,P3,P4,P5,P6])
-
-	Func PhysicalFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1,P2,P3,P4,P5])
-
-	Func PhysicalFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1,P2,P3,P4])
-
-	Func PhysicalFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1,P2,P3])
-
-	Func PhysicalFile_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1,P2])
-
 	Func PhysicalFile P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"PhysicalFile",P1])
-
-	Func VirtualFile_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1,P2,P3,P4,P5,P6])
-
-	Func VirtualFile_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1,P2,P3,P4,P5])
-
-	Func VirtualFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1,P2,P3,P4])
-
-	Func VirtualFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1,P2,P3])
-
-	Func VirtualFile_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1,P2])
 
 	Func VirtualFile P1
 		if dnIsNamed(P1)
@@ -5669,44 +5214,17 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"VirtualFile",P1])
 
-	Func Redirect_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Redirect",P1,P2,P3])
-
-	Func Redirect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Redirect",P1,P2])
-
 	Func Redirect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Redirect",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Redirect",P1])
 
-	Func LocalRedirect_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1,P2,P3])
-
-	Func LocalRedirect_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1,P2])
-
 	Func LocalRedirect P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"LocalRedirect",P1])
-
-	Func RedirectToRoute_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3,P4,P5])
-
-	Func RedirectToRoute_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3,P4])
-
-	Func RedirectToRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2,P3])
-
-	Func RedirectToRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1,P2])
-
-	Func RedirectToRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"RedirectToRoute",P1])
 
 	Func RedirectToRoute P1
 		if dnIsNamed(P1)
@@ -5729,9 +5247,6 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"NotFound",P1])
 
-	Func NotFound_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"NotFound",P1])
-
 	Func Unauthorized 
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Unauthorized"])
 
@@ -5744,9 +5259,6 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
 
-	Func BadRequest_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"BadRequest",P1])
-
 	Func Conflict P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Conflict",P1])
@@ -5754,9 +5266,6 @@ Class TypedResults from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Conflict"])
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Conflict",P1])
-
-	Func Conflict_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Conflict",P1])
 
 	Func NoContent 
@@ -5771,9 +5280,6 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
 
-	Func Ok_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Ok",P1])
-
 	Func UnprocessableEntity P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity",P1])
@@ -5781,9 +5287,6 @@ Class TypedResults from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity"])
 		ok
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity",P1])
-
-	Func UnprocessableEntity_1 P1
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"UnprocessableEntity",P1])
 
 	Func InternalServerError P1
@@ -5795,27 +5298,6 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"InternalServerError",P1])
 
-	Func InternalServerError_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"InternalServerError",P1])
-
-	Func Problem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4,P5,P6])
-
-	Func Problem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4,P5])
-
-	Func Problem_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3,P4])
-
-	Func Problem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2,P3])
-
-	Func Problem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1,P2])
-
-	Func Problem_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
-
 	Func Problem P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
@@ -5824,21 +5306,6 @@ Class TypedResults from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Problem",P1])
-
-	Func ValidationProblem_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4,P5,P6])
-
-	Func ValidationProblem_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4,P5])
-
-	Func ValidationProblem_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3,P4])
-
-	Func ValidationProblem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2,P3])
-
-	Func ValidationProblem_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"ValidationProblem",P1,P2])
 
 	Func ValidationProblem P1
 		if dnIsNamed(P1)
@@ -5855,18 +5322,6 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Created",P1])
 
-	Func Created_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Created",P1])
-
-	Func Created_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Created",P1,P2])
-
-	Func CreatedAtRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1,P2])
-
-	Func CreatedAtRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
-
 	Func CreatedAtRoute P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
@@ -5876,23 +5331,11 @@ Class TypedResults from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1])
 
-	Func CreatedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"CreatedAtRoute",P1,P2,P3])
-
 	Func Accepted P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Accepted",P1])
-
-	Func Accepted_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Accepted",P1,P2])
-
-	Func AcceptedAtRoute_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1,P2])
-
-	Func AcceptedAtRoute_1 P1
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1])
 
 	Func AcceptedAtRoute P1
 		if dnIsNamed(P1)
@@ -5902,9 +5345,6 @@ Class TypedResults from Object
 			return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute"])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1])
-
-	Func AcceptedAtRoute_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"AcceptedAtRoute",P1,P2,P3])
 
 	Func getEmpty
 		return dnRequest("get",[dnTypeCached('Microsoft.AspNetCore.Http.TypedResults, Microsoft.AspNetCore.Http.Results'),"Empty"])
@@ -6005,9 +5445,6 @@ Class WebSocketManager from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
 
-	Func AcceptWebSocketAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"AcceptWebSocketAsync",P1])
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -6051,7 +5488,15 @@ Class DefaultHttpContext from HttpContext
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.AspNetCore.Http.DefaultHttpContext, Microsoft.AspNetCore.Http',[P1])
 		return self
 

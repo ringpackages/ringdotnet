@@ -165,10 +165,6 @@ Class ValidateOptionsResultBuilder from Object
 		nHandle = dnCreate('Microsoft.Extensions.Options.ValidateOptionsResultBuilder, Microsoft.Extensions.Options',[])
 		return self
 
-	Func AddError_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddError",P1,P2])
-		return self
-
 	Func AddError P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AddError",P1])

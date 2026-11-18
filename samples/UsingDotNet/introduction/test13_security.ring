@@ -25,8 +25,8 @@ cCipher = oAes.CreateEncryptor(NULL).TransformFinalBlock(cText,0,len(cText))
 # Cultures
 oUS = new CultureInfo("en-US")
 oDate = new DateTime(2024,7,4)
-? "US date        : " + oDate.ToString_2("D",oUS)
-? "German date    : " + oDate.ToString_2("D",new CultureInfo("de-DE"))
+? "US date        : " + oDate.Format([ :format = "D", :provider = oUS ])
+? "German date    : " + oDate.Format([ :format = "D", :provider = new CultureInfo("de-DE") ])
 ? "Title case     : " + oUS.TextInfo.ToTitleCase("ring meets dot net")
 
 # Start a process and read its output

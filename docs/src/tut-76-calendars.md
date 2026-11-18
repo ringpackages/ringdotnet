@@ -31,7 +31,7 @@ Every calendar has the same three methods, so one helper (`dateText`) works for 
 
 `calendar.ToDateTime(year, month, day, hour, minute, second, millisecond)` builds the `DateTime` from a date in that calendar: `oHijri.ToDateTime(1445,9,1,0,0,0,0)` is 2024-03-11. Step 3 uses it to print the start of each Hijri month: the lengths come from `GetDaysInMonth(1445, month)` and are 29 or 30 days.
 
-> [!NOTE] Calendar methods with several forms follow the usual naming of this package: the form with the fewest arguments has the plain name (`GetDaysInMonth(year, month)`), the others are numbered (`GetDaysInMonth_3(year, month, era)`). `ToDateTime` takes seven values here.
+> [!NOTE] A calendar method with several forms is one Ring method that takes one value or a list of named values: `GetDaysInMonth([ :year = 1445, :month = 9 ])`. `ToDateTime` takes seven values here.
 
 ### Why Ramadan moves
 
@@ -39,7 +39,7 @@ The Hijri year has 354 or 355 days, about eleven days fewer than the Gregorian y
 
 ### Names in the language of a culture
 
-A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by default. `oDate.ToString_2("dddd, d MMMM yyyy", oArabic)` prints the weekday, day, month and year of the *culture's own calendar*: «الاثنين, 1 رمضان 1445». With `en-US` the same date prints as «Monday, 11 March 2024». The format letters come from [tutorial 3](tut-03-numbers-dates.html) and the cultures from [tutorial 33](tut-33-cultures.html).
+A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by default. `oDate.Format([ :format = "dddd, d MMMM yyyy", :provider = oArabic ])` prints the weekday, day, month and year of the *culture's own calendar*: «الاثنين, 1 رمضان 1445». With `en-US` the same date prints as «Monday, 11 March 2024». The format letters come from [tutorial 3](tut-03-numbers-dates.html) and the cultures from [tutorial 33](tut-33-cultures.html).
 
 ### Leap years
 
@@ -59,7 +59,7 @@ A `CultureInfo("ar-SA")` has Arabic names *and* uses the Umm al-Qura calendar by
 1. Print today's date in the Hijri and the Persian calendar.
 2. Find how many days are left until the next 1 Ramadan.
 3. Use `PersianCalendar` to list the months of the current Persian year with their lengths.
-4. Show a date with `ToString_2` in `fa-IR` and `he-IL`.
+4. Show a date with `Format` in `fa-IR` and `he-IL`.
 
 ## Next
 

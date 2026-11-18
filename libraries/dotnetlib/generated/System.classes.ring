@@ -760,7 +760,10 @@ Class IConvertible from DotNetObject
 	Func ToDateTime P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1])
 
-	Func ToString P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func ToType P1,P2
@@ -820,8 +823,11 @@ Class IFormattable from DotNetObject
 		ok
 		return self
 
-	Func ToString P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		raise("DotNet Error: ToString does not take one argument: use named arguments, ToString([ :parameter = value, ... ])")
 
 
 Class ISpanFormattable from DotNetObject
@@ -874,9 +880,6 @@ Class Object from DotNetObject
 
 	Func GetHashCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode"])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Object, System.Private.CoreLib'),"Equals",P1,P2])
 
 	Func ReferenceEquals P1,P2
 		return dnRequest("call",[dnTypeCached('System.Object, System.Private.CoreLib'),"ReferenceEquals",P1,P2])
@@ -1007,15 +1010,6 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructor",P1])
 
-	Func GetConstructor_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructor",P1,P2])
-
-	Func GetConstructor_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructor",P1,P2,P3,P4])
-
-	Func GetConstructor_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructor",P1,P2,P3,P4,P5])
-
 	Func GetConstructors P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetConstructors",P1])
@@ -1025,17 +1019,11 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructors",P1])
 
-	Func GetConstructors_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetConstructors",P1])
-
 	Func GetEvent P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetEvent",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEvent",P1])
-
-	Func GetEvent_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEvent",P1,P2])
 
 	Func GetEvents P1
 		if dnIsNamed(P1)
@@ -1046,17 +1034,11 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
 
-	Func GetEvents_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEvents",P1])
-
 	Func GetField P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetField",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetField",P1])
-
-	Func GetField_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetField",P1,P2])
 
 	Func GetFields P1
 		if dnIsNamed(P1)
@@ -1065,9 +1047,6 @@ Class Type from MemberInfo
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetFields"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetFields",P1])
-
-	Func GetFields_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetFields",P1])
 
 	Func GetFunctionPointerCallingConventions 
@@ -1085,12 +1064,6 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMember",P1])
 
-	Func GetMember_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMember",P1,P2])
-
-	Func GetMember_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMember",P1,P2,P3])
-
 	Func GetMembers P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMembers",P1])
@@ -1103,32 +1076,11 @@ Class Type from MemberInfo
 	Func GetMemberWithSameMetadataDefinitionAs P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMemberWithSameMetadataDefinitionAs",P1])
 
-	Func GetMembers_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMembers",P1])
-
 	Func GetMethod P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetMethod",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1])
-
-	Func GetMethod_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2])
-
-	Func GetMethod_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3])
-
-	Func GetMethod_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3,P4,P5])
-
-	Func GetMethod_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3,P4,P5,P6])
-
-	Func GetMethod_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3,P4])
-
-	Func GetMethod_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethod",P1,P2,P3,P4,P5,P6,P7])
 
 	Func GetMethods P1
 		if dnIsNamed(P1)
@@ -1139,17 +1091,11 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetMethods",P1])
 
-	Func GetMethods_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetMethods",P1])
-
 	Func GetNestedType P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetNestedType",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNestedType",P1])
-
-	Func GetNestedType_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNestedType",P1,P2])
 
 	Func GetNestedTypes P1
 		if dnIsNamed(P1)
@@ -1160,26 +1106,11 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetNestedTypes",P1])
 
-	Func GetNestedTypes_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetNestedTypes",P1])
-
 	Func GetProperty P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetProperty",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1])
-
-	Func GetProperty_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2])
-
-	Func GetProperty_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2,P3])
-
-	Func GetProperty_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2,P3,P4])
-
-	Func GetProperty_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperty",P1,P2,P3,P4,P5,P6])
 
 	Func GetProperties P1
 		if dnIsNamed(P1)
@@ -1190,29 +1121,20 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
 
-	Func GetProperties_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetProperties",P1])
-
 	Func GetDefaultMembers 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDefaultMembers"])
 
-	Func InvokeMember P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2,P3,P4,P5])
-
-	Func InvokeMember_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2,P3,P4,P5,P6])
-
-	Func InvokeMember_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"InvokeMember",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func InvokeMember P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"InvokeMember",P1])
+		ok
+		raise("DotNet Error: InvokeMember does not take one argument: use named arguments, InvokeMember([ :parameter = value, ... ])")
 
 	Func GetInterface P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetInterface",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInterface",P1])
-
-	Func GetInterface_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetInterface",P1,P2])
 
 	Func GetInterfaces 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetInterfaces"])
@@ -1242,9 +1164,6 @@ Class Type from MemberInfo
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"MakeArrayType"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"MakeArrayType",P1])
-
-	Func MakeArrayType_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"MakeArrayType",P1])
 
 	Func MakeByRefType 
@@ -1277,25 +1196,10 @@ Class Type from MemberInfo
 	Func IsAssignableFrom P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsAssignableFrom",P1])
 
-	Func GetType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1,P2,P3])
-
-	Func GetType_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1,P2])
-
-	Func GetType_1 P1
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1])
-
-	Func GetType_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1,P2,P3,P4])
-
-	Func GetType_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetType",P1,P2,P3,P4,P5])
-
 	Func GetTypeFromHandle P1
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromHandle",P1])
 
-	Func GetTypeHandle_1 P1
+	Func GetTypeHandle_ P1
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeHandle",P1])
 
 	Func GetTypeArray P1
@@ -1310,23 +1214,11 @@ Class Type from MemberInfo
 		ok
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1])
 
-	Func GetTypeFromCLSID_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1,P2])
-
-	Func GetTypeFromCLSID_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromCLSID",P1,P2,P3])
-
 	Func GetTypeFromProgID P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1])
-
-	Func GetTypeFromProgID_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1,P2])
-
-	Func GetTypeFromProgID_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"GetTypeFromProgID",P1,P2,P3])
 
 	Func MakeGenericSignatureType P1,P2
 		return dnRequest("call",[dnTypeCached('System.Type, System.Private.CoreLib'),"MakeGenericSignatureType",P1,P2])
@@ -1783,33 +1675,6 @@ Class Activator from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func CreateInstance_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5])
-
-	Func CreateInstance_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2])
-
-	Func CreateInstance_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3])
-
-	Func CreateInstance_1 P1
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
-
-	Func CreateInstanceFrom P1,P2
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1,P2])
-
-	Func CreateInstanceFrom_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1,P2,P3])
-
-	Func CreateInstanceFrom_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CreateInstance_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5,P6])
-
-	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
-
 	Func CreateInstance P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
@@ -1818,6 +1683,12 @@ Class Activator from Object
 			return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstance",P1])
+
+	Func CreateInstanceFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Activator, System.Private.CoreLib'),"CreateInstanceFrom",P1])
+		ok
+		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
 
 Class AppContext from Object
@@ -1965,7 +1836,7 @@ Class Array from Object
 		ok
 		return self
 
-	Func GetLength_1 P1
+	Func GetLength_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLength",P1])
 
 	Func GetUpperBound P1
@@ -1984,25 +1855,14 @@ Class Array from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1])
 
-	Func GetValue_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2])
+	Func SetValue P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"SetValue",P1])
+			return self
+		ok
+		raise("DotNet Error: SetValue does not take one argument: use named arguments, SetValue([ :parameter = value, ... ])")
 
-	Func GetValue_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"GetValue",P1,P2,P3])
-
-	Func SetValue P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2])
-		return self
-
-	Func SetValue_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3])
-		return self
-
-	Func SetValue_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"SetValue",P1,P2,P3,P4])
-		return self
-
-	Func GetLongLength_1 P1
+	Func GetLongLength_ P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetLongLength",P1])
 
 	Func Clone 
@@ -2030,50 +1890,36 @@ Class Array from Object
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1])
 		return self
 
-	Func Clear_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Clear",P1,P2,P3])
-		return self
-
 	Func AsReadOnly P1
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"AsReadOnly",P1])
 
 	Func Resize P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Resize",P1,P2])
 
-	Func CreateInstance P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1,P2])
+	Func CreateInstance P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1])
+		ok
+		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
-	Func CreateInstance_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1,P2,P3])
+	Func CreateInstanceFromArrayType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1])
+		ok
+		raise("DotNet Error: CreateInstanceFromArrayType does not take one argument: use named arguments, CreateInstanceFromArrayType([ :parameter = value, ... ])")
 
-	Func CreateInstance_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstance",P1,P2,P3,P4])
+	Func Copy P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1])
+			return self
+		ok
+		raise("DotNet Error: Copy does not take one argument: use named arguments, Copy([ :parameter = value, ... ])")
 
-	Func CreateInstanceFromArrayType P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1,P2])
-
-	Func CreateInstanceFromArrayType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"CreateInstanceFromArrayType",P1,P2,P3])
-
-	Func Copy P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1,P2,P3])
-		return self
-
-	Func Copy_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Copy",P1,P2,P3,P4,P5])
-		return self
-
-	Func BinarySearch P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1,P2])
-
-	Func BinarySearch_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1,P2,P3,P4])
-
-	Func BinarySearch_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1,P2,P3])
-
-	Func BinarySearch_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1,P2,P3,P4,P5])
+	Func BinarySearch P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"BinarySearch",P1])
+		ok
+		raise("DotNet Error: BinarySearch does not take one argument: use named arguments, BinarySearch([ :parameter = value, ... ])")
 
 	Func ConvertAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ConvertAll",P1,P2])
@@ -2084,13 +1930,12 @@ Class Array from Object
 	Func Exists P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Exists",P1,P2])
 
-	Func Fill P1,P2
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1,P2])
-		return self
-
-	Func Fill_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1,P2,P3,P4])
-		return self
+	Func Fill P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Fill",P1])
+			return self
+		ok
+		raise("DotNet Error: Fill does not take one argument: use named arguments, Fill([ :parameter = value, ... ])")
 
 	Func Find P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Find",P1,P2])
@@ -2098,48 +1943,36 @@ Class Array from Object
 	Func FindAll P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindAll",P1,P2])
 
-	Func FindIndex P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2])
-
-	Func FindIndex_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2,P3])
-
-	Func FindIndex_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1,P2,P3,P4])
+	Func FindIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindIndex",P1])
+		ok
+		raise("DotNet Error: FindIndex does not take one argument: use named arguments, FindIndex([ :parameter = value, ... ])")
 
 	Func FindLast P1,P2
 		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLast",P1,P2])
 
-	Func FindLastIndex P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2])
-
-	Func FindLastIndex_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2,P3])
-
-	Func FindLastIndex_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1,P2,P3,P4])
+	Func FindLastIndex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"FindLastIndex",P1])
+		ok
+		raise("DotNet Error: FindLastIndex does not take one argument: use named arguments, FindLastIndex([ :parameter = value, ... ])")
 
 	Func ForEach_ P1,P2
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"ForEach",P1,P2])
 		return self
 
-	Func IndexOf P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1,P2])
+	Func IndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1])
+		ok
+		raise("DotNet Error: IndexOf does not take one argument: use named arguments, IndexOf([ :parameter = value, ... ])")
 
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1,P2,P3])
-
-	Func IndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"IndexOf",P1,P2,P3,P4])
-
-	Func LastIndexOf P1,P2
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1,P2,P3])
-
-	Func LastIndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1,P2,P3,P4])
+	Func LastIndexOf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"LastIndexOf",P1])
+		ok
+		raise("DotNet Error: LastIndexOf does not take one argument: use named arguments, LastIndexOf([ :parameter = value, ... ])")
 
 	Func Reverse P1
 		if dnIsNamed(P1)
@@ -2149,32 +1982,12 @@ Class Array from Object
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1])
 		return self
 
-	Func Reverse_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Reverse",P1,P2,P3])
-		return self
-
 	Func Sort P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1])
-		return self
-
-	Func Sort_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1,P2])
-		return self
-
-	Func Sort_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1,P2,P3])
-		return self
-
-	Func Sort_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1,P2,P3,P4])
-		return self
-
-	Func Sort_5 P1,P2,P3,P4,P5
-		dnRequest("call",[dnTypeCached('System.Array, System.Private.CoreLib'),"Sort",P1,P2,P3,P4,P5])
 		return self
 
 	Func TrueForAll P1,P2
@@ -2241,6 +2054,15 @@ Class BitConverter from Object
 		ok
 		return self
 
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
+
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -2282,15 +2104,6 @@ Class BitConverter from Object
 
 	Func ToDouble P1,P2
 		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToDouble",P1,P2])
-
-	Func ToString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1,P2,P3])
-
-	Func ToString_1 P1
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToString",P1,P2])
 
 	Func ToBoolean P1,P2
 		return dnRequest("call",[dnTypeCached('System.BitConverter, System.Private.CoreLib'),"ToBoolean",P1,P2])
@@ -2451,9 +2264,6 @@ Class Console from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
 
-	Func ReadKey_1 P1
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadKey",P1])
-
 	Func ResetColor 
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ResetColor"])
 		return self
@@ -2482,19 +2292,14 @@ Class Console from Object
 			dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep"])
 		return self
 		ok
-		raise("DotNet Error: Beep does not take one argument: use Beep(NULL), Beep_N(...) or named arguments")
+		raise("DotNet Error: Beep does not take one argument: use named arguments, Beep([ :parameter = value, ... ])")
 
-	Func Beep_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Beep",P1,P2])
-		return self
-
-	Func MoveBufferArea P1,P2,P3,P4,P5,P6
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func MoveBufferArea_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
+	Func MoveBufferArea P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"MoveBufferArea",P1])
+			return self
+		ok
+		raise("DotNet Error: MoveBufferArea does not take one argument: use named arguments, MoveBufferArea([ :parameter = value, ... ])")
 
 	Func Clear 
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Clear"])
@@ -2513,9 +2318,6 @@ Class Console from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
 
-	Func OpenStandardInput_1 P1
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardInput",P1])
-
 	Func OpenStandardOutput P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
@@ -2525,9 +2327,6 @@ Class Console from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
 
-	Func OpenStandardOutput_1 P1
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardOutput",P1])
-
 	Func OpenStandardError P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
@@ -2535,9 +2334,6 @@ Class Console from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
-
-	Func OpenStandardError_1 P1
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"OpenStandardError",P1])
 
 	Func SetIn P1
@@ -2558,10 +2354,6 @@ Class Console from Object
 	Func ReadLine 
 		return dnRequest("call",[dnTypeCached('System.Console, System.Console'),"ReadLine"])
 
-	Func WriteLine_0 
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine"])
-		return self
-
 	Func WriteLine P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
@@ -2572,30 +2364,6 @@ Class Console from Object
 		return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1])
-		return self
-
-	Func WriteLine_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1,P2,P3])
-		return self
-
-	Func WriteLine_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1,P2])
-		return self
-
-	Func WriteLine_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"WriteLine",P1,P2,P3,P4])
-		return self
-
-	Func Write_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1,P2])
-		return self
-
-	Func Write_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1,P2,P3])
-		return self
-
-	Func Write_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Console, System.Console'),"Write",P1,P2,P3,P4])
 		return self
 
 	Func Write P1
@@ -2796,6 +2564,15 @@ Class Convert from Object
 		ok
 		return self
 
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
+		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
+
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -2805,11 +2582,11 @@ Class Convert from Object
 	Func IsDBNull P1
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"IsDBNull",P1])
 
-	Func ChangeType P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1,P2])
-
-	Func ChangeType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1,P2,P3])
+	Func ChangeType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ChangeType",P1])
+		ok
+		raise("DotNet Error: ChangeType does not take one argument: use named arguments, ChangeType([ :parameter = value, ... ])")
 
 	Func ToBoolean P1
 		if dnIsNamed(P1)
@@ -2817,17 +2594,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1])
 
-	Func ToBoolean_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBoolean",P1,P2])
-
 	Func ToChar P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1])
-
-	Func ToChar_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToChar",P1,P2])
 
 	Func ToSByte P1
 		if dnIsNamed(P1)
@@ -2835,17 +2606,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1])
 
-	Func ToSByte_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSByte",P1,P2])
-
 	Func ToByte P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1])
-
-	Func ToByte_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToByte",P1,P2])
 
 	Func ToInt16 P1
 		if dnIsNamed(P1)
@@ -2853,17 +2618,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1])
 
-	Func ToInt16_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt16",P1,P2])
-
 	Func ToUInt16 P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1])
-
-	Func ToUInt16_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt16",P1,P2])
 
 	Func ToInt32 P1
 		if dnIsNamed(P1)
@@ -2871,17 +2630,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1])
 
-	Func ToInt32_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt32",P1,P2])
-
 	Func ToUInt32 P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1])
-
-	Func ToUInt32_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt32",P1,P2])
 
 	Func ToInt64 P1
 		if dnIsNamed(P1)
@@ -2889,17 +2642,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1])
 
-	Func ToInt64_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToInt64",P1,P2])
-
 	Func ToUInt64 P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1])
-
-	Func ToUInt64_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToUInt64",P1,P2])
 
 	Func ToSingle P1
 		if dnIsNamed(P1)
@@ -2907,17 +2654,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1])
 
-	Func ToSingle_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToSingle",P1,P2])
-
 	Func ToDouble P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1])
-
-	Func ToDouble_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDouble",P1,P2])
 
 	Func ToDecimal P1
 		if dnIsNamed(P1)
@@ -2925,23 +2666,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1])
 
-	Func ToDecimal_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDecimal",P1,P2])
-
 	Func ToDateTime P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1])
-
-	Func ToDateTime_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToDateTime",P1,P2])
-
-	Func ToString_1 P1
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToString",P1,P2])
 
 	Func ToBase64String P1
 		if dnIsNamed(P1)
@@ -2949,20 +2678,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1])
 
-	Func ToBase64String_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1,P2])
-
-	Func ToBase64String_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1,P2,P3])
-
-	Func ToBase64String_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64String",P1,P2,P3,P4])
-
-	Func ToBase64CharArray P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64CharArray",P1,P2,P3,P4,P5])
-
-	Func ToBase64CharArray_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64CharArray",P1,P2,P3,P4,P5,P6])
+	Func ToBase64CharArray P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToBase64CharArray",P1])
+		ok
+		raise("DotNet Error: ToBase64CharArray does not take one argument: use named arguments, ToBase64CharArray([ :parameter = value, ... ])")
 
 	Func FromBase64String P1
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"FromBase64String",P1])
@@ -2979,17 +2699,11 @@ Class Convert from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1])
 
-	Func ToHexString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexString",P1,P2,P3])
-
 	Func ToHexStringLower P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1])
-
-	Func ToHexStringLower_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Convert, System.Private.CoreLib'),"ToHexStringLower",P1,P2,P3])
 
 	Func getDBNull
 		return dnRequest("get",[dnTypeCached('System.Convert, System.Private.CoreLib'),"DBNull"])
@@ -3014,7 +2728,10 @@ Class DBNull from Object
 		dnRequest("call",[new DotNetObject(nHandle),"GetObjectData",P1,P2])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func GetTypeCode 
@@ -3081,29 +2798,27 @@ Class Environment from Object
 		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1])
 		return self
 
-	Func FailFast_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"FailFast",P1,P2])
-		return self
-
 	Func GetEnvironmentVariable P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1])
 
-	Func GetEnvironmentVariable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariable",P1,P2])
-
-	Func GetEnvironmentVariables_1 P1
+	Func GetEnvironmentVariables P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
+		ok
+		if isstring(P1) and P1 = ""
+			return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
+		ok
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
 
-	Func SetEnvironmentVariable P1,P2
-		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1,P2])
-		return self
-
-	Func SetEnvironmentVariable_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1,P2,P3])
-		return self
+	Func SetEnvironmentVariable P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"SetEnvironmentVariable",P1])
+			return self
+		ok
+		raise("DotNet Error: SetEnvironmentVariable does not take one argument: use named arguments, SetEnvironmentVariable([ :parameter = value, ... ])")
 
 	Func GetCommandLineArgs 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetCommandLineArgs"])
@@ -3117,20 +2832,8 @@ Class Environment from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1])
 
-	Func GetFolderPath_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetFolderPath",P1,P2])
-
 	Func GetLogicalDrives 
 		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetLogicalDrives"])
-
-	Func GetEnvironmentVariables P1
-		if dnIsNamed(P1)
-			return dnRequest("callnamed",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
-		ok
-		if isstring(P1) and P1 = ""
-			return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables"])
-		ok
-		return dnRequest("call",[dnTypeCached('System.Environment, System.Private.CoreLib'),"GetEnvironmentVariables",P1])
 
 	Func getCurrentManagedThreadId
 		return dnRequest("get",[dnTypeCached('System.Environment, System.Private.CoreLib'),"CurrentManagedThreadId"])
@@ -3327,7 +3030,10 @@ Class FormattableString from Object
 	Func GetArgument P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetArgument",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Equals P1
@@ -3376,9 +3082,6 @@ Class GC from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
 
-	Func GetGCMemoryInfo_1 P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGCMemoryInfo",P1])
-
 	Func AddMemoryPressure P1
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AddMemoryPressure",P1])
 		return self
@@ -3390,10 +3093,6 @@ Class GC from Object
 	Func GetGeneration P1
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetGeneration",P1])
 
-	Func Collect_1 P1
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
-		return self
-
 	Func Collect P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
@@ -3404,18 +3103,6 @@ Class GC from Object
 		return self
 		ok
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1])
-		return self
-
-	Func Collect_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1,P2])
-		return self
-
-	Func Collect_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1,P2,P3])
-		return self
-
-	Func Collect_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"Collect",P1,P2,P3,P4])
 		return self
 
 	Func CollectionCount P1
@@ -3443,9 +3130,6 @@ Class GC from Object
 	Func GetAllocatedBytesForCurrentThread 
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetAllocatedBytesForCurrentThread"])
 
-	Func GetTotalAllocatedBytes_1 P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
-
 	Func GetTotalAllocatedBytes P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"GetTotalAllocatedBytes",P1])
@@ -3472,9 +3156,6 @@ Class GC from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
 
-	Func WaitForFullGCApproach_1 P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCApproach",P1])
-
 	Func WaitForFullGCComplete P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
@@ -3484,20 +3165,11 @@ Class GC from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
 
-	Func WaitForFullGCComplete_1 P1
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"WaitForFullGCComplete",P1])
-
 	Func TryStartNoGCRegion P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1])
-
-	Func TryStartNoGCRegion_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1,P2])
-
-	Func TryStartNoGCRegion_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"TryStartNoGCRegion",P1,P2,P3])
 
 	Func EndNoGCRegion 
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"EndNoGCRegion"])
@@ -3507,17 +3179,11 @@ Class GC from Object
 		dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"RegisterNoGCRegionCallback",P1,P2])
 		return self
 
-	Func AllocateUninitializedArray_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1,P2])
-
 	Func AllocateUninitializedArray P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateUninitializedArray",P1])
-
-	Func AllocateArray_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.GC, System.Private.CoreLib'),"AllocateArray",P1,P2])
 
 	Func AllocateArray P1
 		if dnIsNamed(P1)
@@ -3695,9 +3361,6 @@ Class Math from Object
 	Func ILogB P1
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"ILogB",P1])
 
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Log",P1,P2])
-
 	Func Max P1,P2
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Max",P1,P2])
 
@@ -3721,12 +3384,6 @@ Class Math from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Sign P1
 		return dnRequest("call",[dnTypeCached('System.Math, System.Private.CoreLib'),"Sign",P1])
@@ -3866,9 +3523,6 @@ Class MathF from Object
 	Func ILogB P1
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"ILogB",P1])
 
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Log",P1,P2])
-
 	Func Max P1,P2
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Max",P1,P2])
 
@@ -3892,12 +3546,6 @@ Class MathF from Object
 			return dnRequest("callnamed",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Sign P1
 		return dnRequest("call",[dnTypeCached('System.MathF, System.Private.CoreLib'),"Sign",P1])
@@ -3940,17 +3588,11 @@ Class MemoryExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func AsSpan_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2])
-
 	Func AsSpan P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1])
-
-	Func AsSpan_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsSpan",P1,P2,P3])
 
 	Func AsMemory P1
 		if dnIsNamed(P1)
@@ -3958,24 +3600,9 @@ Class MemoryExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1])
 
-	Func AsMemory_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1,P2])
-
-	Func AsMemory_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"AsMemory",P1,P2,P3])
-
 	Func CopyTo P1,P2
 		dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"CopyTo",P1,P2])
 		return self
-
-	Func Trim_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"Trim",P1,P2])
-
-	Func TrimStart_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimStart",P1,P2])
-
-	Func TrimEnd_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.MemoryExtensions, System.Private.CoreLib'),"TrimEnd",P1,P2])
 
 	Func Trim P1
 		if dnIsNamed(P1)
@@ -4018,9 +3645,6 @@ Class Nullable from Object
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Compare",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"Equals",P1,P2])
-
 	Func GetUnderlyingType P1
 		return dnRequest("call",[dnTypeCached('System.Nullable, System.Private.CoreLib'),"GetUnderlyingType",P1])
 
@@ -4057,17 +3681,11 @@ Class OperatingSystem from Object
 	Func IsOSPlatform P1
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatform",P1])
 
-	Func IsOSPlatformVersionAtLeast_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4,P5])
-
-	Func IsOSPlatformVersionAtLeast_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3,P4])
-
-	Func IsOSPlatformVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2,P3])
-
-	Func IsOSPlatformVersionAtLeast P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1,P2])
+	Func IsOSPlatformVersionAtLeast P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsOSPlatformVersionAtLeast",P1])
+		ok
+		raise("DotNet Error: IsOSPlatformVersionAtLeast does not take one argument: use named arguments, IsOSPlatformVersionAtLeast([ :parameter = value, ... ])")
 
 	Func IsBrowser 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsBrowser"])
@@ -4081,15 +3699,6 @@ Class OperatingSystem from Object
 	Func IsFreeBSD 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSD"])
 
-	Func IsFreeBSDVersionAtLeast_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2,P3,P4])
-
-	Func IsFreeBSDVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2,P3])
-
-	Func IsFreeBSDVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1,P2])
-
 	Func IsFreeBSDVersionAtLeast P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsFreeBSDVersionAtLeast",P1])
@@ -4098,15 +3707,6 @@ Class OperatingSystem from Object
 
 	Func IsAndroid 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroid"])
-
-	Func IsAndroidVersionAtLeast_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2,P3,P4])
-
-	Func IsAndroidVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2,P3])
-
-	Func IsAndroidVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsAndroidVersionAtLeast",P1,P2])
 
 	Func IsAndroidVersionAtLeast P1
 		if dnIsNamed(P1)
@@ -4117,12 +3717,6 @@ Class OperatingSystem from Object
 	Func IsIOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOS"])
 
-	Func IsIOSVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1,P2,P3])
-
-	Func IsIOSVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1,P2])
-
 	Func IsIOSVersionAtLeast P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsIOSVersionAtLeast",P1])
@@ -4131,12 +3725,6 @@ Class OperatingSystem from Object
 
 	Func IsMacOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOS"])
-
-	Func IsMacOSVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1,P2,P3])
-
-	Func IsMacOSVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacOSVersionAtLeast",P1,P2])
 
 	Func IsMacOSVersionAtLeast P1
 		if dnIsNamed(P1)
@@ -4147,12 +3735,6 @@ Class OperatingSystem from Object
 	Func IsMacCatalyst 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalyst"])
 
-	Func IsMacCatalystVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1,P2,P3])
-
-	Func IsMacCatalystVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1,P2])
-
 	Func IsMacCatalystVersionAtLeast P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsMacCatalystVersionAtLeast",P1])
@@ -4161,12 +3743,6 @@ Class OperatingSystem from Object
 
 	Func IsTvOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOS"])
-
-	Func IsTvOSVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1,P2,P3])
-
-	Func IsTvOSVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsTvOSVersionAtLeast",P1,P2])
 
 	Func IsTvOSVersionAtLeast P1
 		if dnIsNamed(P1)
@@ -4177,12 +3753,6 @@ Class OperatingSystem from Object
 	Func IsWatchOS 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOS"])
 
-	Func IsWatchOSVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1,P2,P3])
-
-	Func IsWatchOSVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1,P2])
-
 	Func IsWatchOSVersionAtLeast P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWatchOSVersionAtLeast",P1])
@@ -4191,15 +3761,6 @@ Class OperatingSystem from Object
 
 	Func IsWindows 
 		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindows"])
-
-	Func IsWindowsVersionAtLeast_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2,P3,P4])
-
-	Func IsWindowsVersionAtLeast_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2,P3])
-
-	Func IsWindowsVersionAtLeast_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.OperatingSystem, System.Private.CoreLib'),"IsWindowsVersionAtLeast",P1,P2])
 
 	Func IsWindowsVersionAtLeast P1
 		if dnIsNamed(P1)
@@ -4249,8 +3810,16 @@ Class Random from Object
 		nHandle = dnCreate('System.Random, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_0 
-		nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Random, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Random, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Random, System.Private.CoreLib',[P1])
 		return self
 
 	Func Next_ P1
@@ -4262,12 +3831,6 @@ Class Random from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1])
 
-	Func Next_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1])
-
-	Func Next_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Next",P1,P2])
-
 	Func NextInt64 P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"NextInt64",P1])
@@ -4276,12 +3839,6 @@ Class Random from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"NextInt64"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1])
-
-	Func NextInt64_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1])
-
-	Func NextInt64_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"NextInt64",P1,P2])
 
 	Func NextSingle 
 		return dnRequest("call",[new DotNetObject(nHandle),"NextSingle"])
@@ -4323,16 +3880,16 @@ Class String from Object
 		ok
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.String, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.String, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.String, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.String, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.String, System.Private.CoreLib',[P1,P2])
 		return self
 
 	Func CompareTo P1
@@ -4344,12 +3901,6 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EndsWith",P1])
 
-	Func EndsWith_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"EndsWith",P1,P2])
-
-	Func EndsWith_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"EndsWith",P1,P2,P3])
-
 	Func Equals P1
 		if dnIsNamed(P1)
 			if nHandle = 0
@@ -4358,12 +3909,6 @@ Class String from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Equals",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func Equals_2 P1,P2
-		if nHandle = 0
-			return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1,P2])
-		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
 
 	Func GetHashCode P1
 		if dnIsNamed(P1)
@@ -4374,20 +3919,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
-
 	Func StartsWith P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"StartsWith",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartsWith",P1])
-
-	Func StartsWith_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartsWith",P1,P2])
-
-	Func StartsWith_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"StartsWith",P1,P2,P3])
 
 	Func Clone 
 		return dnRequest("call",[new DotNetObject(nHandle),"Clone"])
@@ -4403,16 +3939,10 @@ Class String from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ToCharArray"])
 		ok
-		raise("DotNet Error: ToCharArray does not take one argument: use ToCharArray(NULL), ToCharArray_N(...) or named arguments")
-
-	Func ToCharArray_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToCharArray",P1,P2])
+		raise("DotNet Error: ToCharArray does not take one argument: use named arguments, ToCharArray([ :parameter = value, ... ])")
 
 	Func GetPinnableReference 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPinnableReference"])
-
-	Func ToString_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func GetEnumerator 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEnumerator"])
@@ -4432,9 +3962,6 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsNormalized",P1])
 
-	Func IsNormalized_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IsNormalized",P1])
-
 	Func Normalize P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Normalize",P1])
@@ -4442,9 +3969,6 @@ Class String from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Normalize"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Normalize",P1])
-
-	Func Normalize_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Normalize",P1])
 
 	Func Insert P1,P2
@@ -4456,20 +3980,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"PadLeft",P1])
 
-	Func PadLeft_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PadLeft",P1,P2])
-
 	Func PadRight P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"PadRight",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"PadRight",P1])
-
-	Func PadRight_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"PadRight",P1,P2])
-
-	Func Remove_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1,P2])
 
 	Func Remove P1
 		if dnIsNamed(P1)
@@ -4477,14 +3992,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Remove",P1])
 
-	Func Replace_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3,P4])
-
-	Func Replace_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2,P3])
-
-	Func Replace P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Replace",P1,P2])
+	Func Replace P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Replace",P1])
+		ok
+		raise("DotNet Error: Replace does not take one argument: use named arguments, Replace([ :parameter = value, ... ])")
 
 	Func ReplaceLineEndings P1
 		if dnIsNamed(P1)
@@ -4495,29 +4007,17 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ReplaceLineEndings",P1])
 
-	Func ReplaceLineEndings_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ReplaceLineEndings",P1])
-
-	Func Split_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2])
-
 	Func Split P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Split",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1])
 
-	Func Split_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Split",P1,P2,P3])
-
 	Func Substring P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Substring",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1])
-
-	Func Substring_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Substring",P1,P2])
 
 	Func ToLower P1
 		if dnIsNamed(P1)
@@ -4526,9 +4026,6 @@ Class String from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ToLower"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ToLower",P1])
-
-	Func ToLower_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ToLower",P1])
 
 	Func ToLowerInvariant 
@@ -4543,9 +4040,6 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToUpper",P1])
 
-	Func ToUpper_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToUpper",P1])
-
 	Func ToUpperInvariant 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToUpperInvariant"])
 
@@ -4558,9 +4052,6 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Trim",P1])
 
-	Func Trim_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Trim",P1])
-
 	Func TrimStart P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"TrimStart",P1])
@@ -4568,9 +4059,6 @@ Class String from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"TrimStart"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"TrimStart",P1])
-
-	Func TrimStart_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"TrimStart",P1])
 
 	Func TrimEnd P1
@@ -4582,17 +4070,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"TrimEnd",P1])
 
-	Func TrimEnd_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"TrimEnd",P1])
-
 	Func Contains P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Contains",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1])
-
-	Func Contains_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Contains",P1,P2])
 
 	Func IndexOf P1
 		if dnIsNamed(P1)
@@ -4600,26 +4082,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1])
 
-	Func IndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2])
-
-	Func IndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3])
-
 	Func IndexOfAny P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IndexOfAny",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1])
-
-	Func IndexOfAny_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2])
-
-	Func IndexOfAny_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOfAny",P1,P2,P3])
-
-	Func IndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"IndexOf",P1,P2,P3,P4])
 
 	Func LastIndexOf P1
 		if dnIsNamed(P1)
@@ -4627,26 +4094,11 @@ Class String from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1])
 
-	Func LastIndexOf_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2])
-
-	Func LastIndexOf_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3])
-
 	Func LastIndexOfAny P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LastIndexOfAny",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOfAny",P1])
-
-	Func LastIndexOfAny_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOfAny",P1,P2])
-
-	Func LastIndexOfAny_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOfAny",P1,P2,P3])
-
-	Func LastIndexOf_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"LastIndexOf",P1,P2,P3,P4])
 
 	Func Intern P1
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Intern",P1])
@@ -4654,32 +4106,17 @@ Class String from Object
 	Func IsInterned P1
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"IsInterned",P1])
 
-	Func Compare P1,P2
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2])
+	Func Compare P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1])
+		ok
+		raise("DotNet Error: Compare does not take one argument: use named arguments, Compare([ :parameter = value, ... ])")
 
-	Func Compare_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2,P3])
-
-	Func Compare_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2,P3,P4])
-
-	Func Compare_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2,P3,P4,P5])
-
-	Func Compare_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2,P3,P4,P5,P6])
-
-	Func Compare_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Compare",P1,P2,P3,P4,P5,P6,P7])
-
-	Func CompareOrdinal P1,P2
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1,P2])
-
-	Func CompareOrdinal_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1,P2,P3,P4,P5])
-
-	Func Equals_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Equals",P1,P2,P3])
+	Func CompareOrdinal P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"CompareOrdinal",P1])
+		ok
+		raise("DotNet Error: CompareOrdinal does not take one argument: use named arguments, CompareOrdinal([ :parameter = value, ... ])")
 
 	Func Create P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Create",P1,P2,P3])
@@ -4699,32 +4136,17 @@ Class String from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1])
 
-	Func Concat_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1,P2])
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1])
+		ok
+		raise("DotNet Error: Format does not take one argument: use named arguments, Format([ :parameter = value, ... ])")
 
-	Func Concat_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1,P2,P3])
-
-	Func Concat_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Concat",P1,P2,P3,P4])
-
-	Func Format P1,P2
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1,P2])
-
-	Func Format_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1,P2,P3])
-
-	Func Format_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1,P2,P3,P4])
-
-	Func Format_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Format",P1,P2,P3,P4,P5])
-
-	Func Join P1,P2
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1,P2])
-
-	Func Join_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1,P2,P3,P4])
+	Func Join P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.String, System.Private.CoreLib'),"Join",P1])
+		ok
+		raise("DotNet Error: Join does not take one argument: use named arguments, Join([ :parameter = value, ... ])")
 
 	Func Item P1
 		return dnRequest("call",[new DotNetObject(nHandle),"get_Item",P1])
@@ -4761,12 +4183,6 @@ Class StringComparer from Object
 
 	Func Compare P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"Compare",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1,P2])
-
-	Func GetHashCode_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetHashCode",P1])
 
 	Func Equals P1
 		if dnIsNamed(P1)
@@ -4851,17 +4267,11 @@ Class StringNormalizationExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"IsNormalized",P1])
 
-	Func IsNormalized_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"IsNormalized",P1,P2])
-
 	Func Normalize P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1])
-
-	Func Normalize_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.StringNormalizationExtensions, System.Private.CoreLib'),"Normalize",P1,P2])
 
 
 Class TimeProvider from Object
@@ -4886,9 +4296,6 @@ Class TimeProvider from Object
 
 	Func GetTimestamp 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTimestamp"])
-
-	Func GetElapsedTime_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetElapsedTime",P1,P2])
 
 	Func GetElapsedTime P1
 		if dnIsNamed(P1)
@@ -4972,8 +4379,11 @@ Class TimeZoneInfo from Object
 		dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ClearCachedData"])
 		return self
 
-	Func ConvertTimeBySystemTimeZoneId P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeBySystemTimeZoneId",P1,P2])
+	Func ConvertTimeBySystemTimeZoneId P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeBySystemTimeZoneId",P1])
+		ok
+		raise("DotNet Error: ConvertTimeBySystemTimeZoneId does not take one argument: use named arguments, ConvertTimeBySystemTimeZoneId([ :parameter = value, ... ])")
 
 	Func FindSystemTimeZoneById P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"FindSystemTimeZoneById",P1])
@@ -4981,14 +4391,11 @@ Class TimeZoneInfo from Object
 	Func TryFindSystemTimeZoneById P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryFindSystemTimeZoneById",P1])
 
-	Func ConvertTimeBySystemTimeZoneId_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeBySystemTimeZoneId",P1,P2,P3])
-
-	Func ConvertTime P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTime",P1,P2])
-
-	Func ConvertTime_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTime",P1,P2,P3])
+	Func ConvertTime P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTime",P1])
+		ok
+		raise("DotNet Error: ConvertTime does not take one argument: use named arguments, ConvertTime([ :parameter = value, ... ])")
 
 	Func ConvertTimeFromUtc P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeFromUtc",P1,P2])
@@ -4998,9 +4405,6 @@ Class TimeZoneInfo from Object
 			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1])
-
-	Func ConvertTimeToUtc_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"ConvertTimeToUtc",P1,P2])
 
 	Func FromSerializedString P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"FromSerializedString",P1])
@@ -5014,17 +4418,11 @@ Class TimeZoneInfo from Object
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
 
-	Func GetSystemTimeZones_1 P1
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"GetSystemTimeZones",P1])
-
-	Func CreateCustomTimeZone P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1,P2,P3,P4])
-
-	Func CreateCustomTimeZone_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6])
-
-	Func CreateCustomTimeZone_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1,P2,P3,P4,P5,P6,P7])
+	Func CreateCustomTimeZone P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"CreateCustomTimeZone",P1])
+		ok
+		raise("DotNet Error: CreateCustomTimeZone does not take one argument: use named arguments, CreateCustomTimeZone([ :parameter = value, ... ])")
 
 	Func TryConvertIanaIdToWindowsId P1
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertIanaIdToWindowsId",P1])
@@ -5034,9 +4432,6 @@ Class TimeZoneInfo from Object
 			return dnRequest("callnamed",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1])
-
-	Func TryConvertWindowsIdToIanaId_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeZoneInfo, System.Private.CoreLib'),"TryConvertWindowsIdToIanaId",P1,P2])
 
 	Func getId
 		return dnRequest("get",[self,"Id"])
@@ -5111,27 +4506,6 @@ Class Tuple from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4])
-
-	Func Create_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5])
-
-	Func Create_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6])
-
-	Func Create_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.Tuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
 
 
 Class TupleExtensions from Object
@@ -5208,12 +4582,16 @@ Class Uri from Object
 		nHandle = dnCreate('System.Uri, System.Private.Uri',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Uri, System.Private.Uri',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Uri, System.Private.Uri',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Uri, System.Private.Uri',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Uri, System.Private.Uri',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Uri, System.Private.Uri',[P1])
 		return self
 
 	Func GetLeftPart P1
@@ -5532,24 +4910,16 @@ Class UriBuilder from Object
 		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.UriBuilder, System.Private.Uri',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[])
+			return self
+		ok
 		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.UriBuilder, System.Private.Uri',[P1,P2,P3,P4,P5])
 		return self
 
 	Func Equals P1
@@ -5675,20 +5045,16 @@ Class Version from Object
 		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_0 
-		nHandle = dnCreate('System.Version, System.Private.CoreLib',[])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Version, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Version, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Version, System.Private.CoreLib',[P1])
 		return self
 
 	Func Clone 
@@ -5700,7 +5066,10 @@ Class Version from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Parse P1
@@ -5761,8 +5130,16 @@ Class WeakReference from Object
 		nHandle = dnCreate('System.WeakReference, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.WeakReference, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.WeakReference, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.WeakReference, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.WeakReference, System.Private.CoreLib',[P1])
 		return self
 
 	Func GetObjectData P1,P2
@@ -5832,15 +5209,6 @@ Class AppDomain from MarshalByRefObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1])
 
-	Func ExecuteAssembly_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1,P2])
-
-	Func ExecuteAssembly_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssembly",P1,P2,P3,P4])
-
-	Func ExecuteAssemblyByName_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ExecuteAssemblyByName",P1,P2])
-
 	Func ExecuteAssemblyByName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ExecuteAssemblyByName",P1])
@@ -5868,9 +5236,6 @@ Class AppDomain from MarshalByRefObject
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Load",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1])
-
-	Func Load_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Load",P1,P2])
 
 	Func ReflectionOnlyGetAssemblies 
 		return dnRequest("call",[new DotNetObject(nHandle),"ReflectionOnlyGetAssemblies"])
@@ -5910,41 +5275,29 @@ Class AppDomain from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"SetThreadPrincipal",P1])
 		return self
 
-	Func CreateInstance P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2])
+	Func CreateInstance P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstance",P1])
+		ok
+		raise("DotNet Error: CreateInstance does not take one argument: use named arguments, CreateInstance([ :parameter = value, ... ])")
 
-	Func CreateInstance_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3,P4,P5,P6,P7,P8])
+	Func CreateInstanceAndUnwrap P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1])
+		ok
+		raise("DotNet Error: CreateInstanceAndUnwrap does not take one argument: use named arguments, CreateInstanceAndUnwrap([ :parameter = value, ... ])")
 
-	Func CreateInstance_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstance",P1,P2,P3])
+	Func CreateInstanceFrom P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstanceFrom",P1])
+		ok
+		raise("DotNet Error: CreateInstanceFrom does not take one argument: use named arguments, CreateInstanceFrom([ :parameter = value, ... ])")
 
-	Func CreateInstanceAndUnwrap P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2])
-
-	Func CreateInstanceAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CreateInstanceAndUnwrap_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceAndUnwrap",P1,P2,P3])
-
-	Func CreateInstanceFrom P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2])
-
-	Func CreateInstanceFrom_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CreateInstanceFrom_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFrom",P1,P2,P3])
-
-	Func CreateInstanceFromAndUnwrap P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2])
-
-	Func CreateInstanceFromAndUnwrap_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2,P3,P4,P5,P6,P7,P8])
-
-	Func CreateInstanceFromAndUnwrap_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1,P2,P3])
+	Func CreateInstanceFromAndUnwrap P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateInstanceFromAndUnwrap",P1])
+		ok
+		raise("DotNet Error: CreateInstanceFromAndUnwrap does not take one argument: use named arguments, CreateInstanceFromAndUnwrap([ :parameter = value, ... ])")
 
 	Func CreateDomain P1
 		return dnRequest("call",[dnTypeCached('System.AppDomain, System.Private.CoreLib'),"CreateDomain",P1])
@@ -6157,7 +5510,10 @@ Class Boolean from ValueType
 		nHandle = dnCreate('System.Boolean, System.Private.CoreLib',[])
 		return self
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func CompareTo P1
@@ -6202,11 +5558,11 @@ Class Byte from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -6217,20 +5573,11 @@ Class Byte from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -6283,9 +5630,6 @@ Class Byte from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"IsOddInteger",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Byte, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Byte, System.Private.CoreLib'),"MaxValue"])
 
@@ -6316,7 +5660,13 @@ Class Char from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			if nHandle = 0
+				return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
+			ok
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		if nHandle = 0
 			return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToString",P1])
 		ok
@@ -6403,9 +5753,6 @@ Class Char from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1])
 
-	Func ToUpper_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1,P2])
-
 	Func ToUpper P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpper",P1])
@@ -6414,9 +5761,6 @@ Class Char from ValueType
 
 	Func ToUpperInvariant P1
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToUpperInvariant",P1])
-
-	Func ToLower_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"ToLower",P1,P2])
 
 	Func ToLower P1
 		if dnIsNamed(P1)
@@ -6433,32 +5777,11 @@ Class Char from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1])
 
-	Func IsControl_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsControl",P1,P2])
-
-	Func IsDigit_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsDigit",P1,P2])
-
-	Func IsLetter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetter",P1,P2])
-
-	Func IsLetterOrDigit_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLetterOrDigit",P1,P2])
-
-	Func IsLower_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLower",P1,P2])
-
 	Func IsNumber P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1])
-
-	Func IsNumber_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsNumber",P1,P2])
-
-	Func IsPunctuation_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsPunctuation",P1,P2])
 
 	Func IsSeparator P1
 		if dnIsNamed(P1)
@@ -6466,17 +5789,11 @@ Class Char from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1])
 
-	Func IsSeparator_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSeparator",P1,P2])
-
 	Func IsSurrogate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1])
-
-	Func IsSurrogate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogate",P1,P2])
 
 	Func IsSymbol P1
 		if dnIsNamed(P1)
@@ -6484,23 +5801,11 @@ Class Char from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1])
 
-	Func IsSymbol_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSymbol",P1,P2])
-
-	Func IsUpper_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsUpper",P1,P2])
-
-	Func IsWhiteSpace_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsWhiteSpace",P1,P2])
-
 	Func GetUnicodeCategory P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1])
-
-	Func GetUnicodeCategory_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetUnicodeCategory",P1,P2])
 
 	Func GetNumericValue P1
 		if dnIsNamed(P1)
@@ -6508,26 +5813,17 @@ Class Char from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1])
 
-	Func GetNumericValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"GetNumericValue",P1,P2])
-
 	Func IsHighSurrogate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1])
 
-	Func IsHighSurrogate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsHighSurrogate",P1,P2])
-
 	Func IsLowSurrogate P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1])
-
-	Func IsLowSurrogate_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsLowSurrogate",P1,P2])
 
 	Func IsSurrogatePair P1,P2
 		return dnRequest("call",[dnTypeCached('System.Char, System.Private.CoreLib'),"IsSurrogatePair",P1,P2])
@@ -6593,8 +5889,16 @@ Class ConsoleKeyInfo from ValueType
 		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ConsoleKeyInfo, System.Console',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ConsoleKeyInfo, System.Console',[P1])
 		return self
 
 	Func getKeyChar
@@ -6662,8 +5966,16 @@ Class DateOnly from ValueType
 		nHandle = dnCreate('System.DateOnly, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.DateOnly, System.Private.CoreLib',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.DateOnly, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.DateOnly, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.DateOnly, System.Private.CoreLib',[P1])
 		return self
 
 	Func AddDays P1
@@ -6684,9 +5996,6 @@ Class DateOnly from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1])
 
-	Func ToDateTime_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToDateTime",P1,P2])
-
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
@@ -6696,11 +6005,11 @@ Class DateOnly from ValueType
 	Func ToShortDateString 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToShortDateString"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func FromDayNumber P1
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"FromDayNumber",P1])
@@ -6714,20 +6023,11 @@ Class DateOnly from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func ParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2])
-
-	Func ParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
-
-	Func ParseExact_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
+	Func ParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"ParseExact",P1])
+		ok
+		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -6735,17 +6035,11 @@ Class DateOnly from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1])
 
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2,P3])
-
-	Func TryParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1,P2])
-
-	Func TryParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParse",P1,P2])
+	Func TryParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateOnly, System.Private.CoreLib'),"TryParseExact",P1])
+		ok
+		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getYear
 		return dnRequest("get",[self,"Year"])
@@ -6829,36 +6123,16 @@ Class DateTime from ValueType
 		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.DateTime, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func New_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		nHandle = dnCreate('System.DateTime, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
 	Func Add P1
@@ -6936,11 +6210,11 @@ Class DateTime from ValueType
 	Func ToShortTimeString 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToShortTimeString"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func ToUniversalTime 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToUniversalTime"])
@@ -6957,12 +6231,6 @@ Class DateTime from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1])
 
-	Func GetDateTimeFormats_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1])
-
-	Func GetDateTimeFormats_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetDateTimeFormats",P1,P2])
-
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
@@ -6971,9 +6239,6 @@ Class DateTime from ValueType
 
 	Func DaysInMonth P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"DaysInMonth",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Equals",P1,P2])
 
 	Func FromBinary P1
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"FromBinary",P1])
@@ -6999,17 +6264,11 @@ Class DateTime from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
-	Func ParseExact P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
-
-	Func ParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
+	Func ParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"ParseExact",P1])
+		ok
+		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -7017,14 +6276,8 @@ Class DateTime from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1])
 
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1,P2,P3])
-
 	Func TryParseExact P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTime, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getDate
 		return dnRequest("get",[self,"Date"])
@@ -7190,32 +6443,16 @@ Class DateTimeOffset from ValueType
 		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.DateTimeOffset, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_7 P1,P2,P3,P4,P5,P6,P7
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7])
-		return self
-
-	Func New_8 P1,P2,P3,P4,P5,P6,P7,P8
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8])
-		return self
-
-	Func New_9 P1,P2,P3,P4,P5,P6,P7,P8,P9
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9])
-		return self
-
-	Func New_10 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10
-		nHandle = dnCreate('System.DateTimeOffset, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10])
 		return self
 
 	Func ToOffset P1
@@ -7281,11 +6518,11 @@ Class DateTimeOffset from ValueType
 	Func ToLocalTime 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToLocalTime"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func ToUniversalTime 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToUniversalTime"])
@@ -7295,9 +6532,6 @@ Class DateTimeOffset from ValueType
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Compare",P1,P2])
-
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Equals",P1,P2])
 
 	Func FromFileTime P1
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"FromFileTime",P1])
@@ -7314,17 +6548,11 @@ Class DateTimeOffset from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
-	Func ParseExact P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
-
-	Func ParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
+	Func ParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"ParseExact",P1])
+		ok
+		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -7332,14 +6560,8 @@ Class DateTimeOffset from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1])
 
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1,P2,P3])
-
 	Func TryParseExact P1,P2,P3,P4
 		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.DateTimeOffset, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func getDateTime
 		return dnRequest("get",[self,"DateTime"])
@@ -7510,12 +6732,16 @@ Class Decimal from ValueType
 		nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Decimal, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Decimal, System.Private.CoreLib',[P1,P2,P3,P4,P5])
 		return self
 
 	Func CompareTo P1
@@ -7530,11 +6756,11 @@ Class Decimal from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -7557,9 +6783,6 @@ Class Decimal from ValueType
 	Func Divide P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Divide",P1,P2])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Equals",P1,P2])
-
 	Func Floor P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Floor",P1])
 
@@ -7569,20 +6792,11 @@ Class Decimal from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func GetBits P1
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"GetBits",P1])
@@ -7601,12 +6815,6 @@ Class Decimal from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Subtract P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"Subtract",P1,P2])
@@ -7701,9 +6909,6 @@ Class Decimal from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Decimal, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getScale
 		return dnRequest("get",[self,"Scale"])
 
@@ -7766,11 +6971,11 @@ Class Double from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -7805,20 +7010,11 @@ Class Double from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func IsPow2 P1
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"IsPow2",P1])
@@ -7861,12 +7057,6 @@ Class Double from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Truncate",P1])
@@ -7927,9 +7117,6 @@ Class Double from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log",P1])
-
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Log",P1,P2])
 
 	Func LogP1 P1
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"LogP1",P1])
@@ -8005,9 +7192,6 @@ Class Double from ValueType
 
 	Func MultiplyAddEstimate P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func Pow P1,P2
 		return dnRequest("call",[dnTypeCached('System.Double, System.Private.CoreLib'),"Pow",P1,P2])
@@ -8149,12 +7333,6 @@ Class Enum from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
-
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
 
@@ -8164,9 +7342,6 @@ Class Enum from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1])
 
-	Func GetName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetName",P1,P2])
-
 	Func GetNames P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
@@ -8174,9 +7349,6 @@ Class Enum from ValueType
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
-
-	Func GetNames_1 P1
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetNames",P1])
 
 	Func GetUnderlyingType P1
@@ -8191,9 +7363,6 @@ Class Enum from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
 
-	Func GetValues_1 P1
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValues",P1])
-
 	Func GetValuesAsUnderlyingType P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
@@ -8203,35 +7372,17 @@ Class Enum from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
 
-	Func GetValuesAsUnderlyingType_1 P1
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"GetValuesAsUnderlyingType",P1])
-
 	Func IsDefined P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1])
 
-	Func IsDefined_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"IsDefined",P1,P2])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func Parse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"Parse",P1])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Enum, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -8476,16 +7627,16 @@ Class Guid from ValueType
 		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Guid, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Guid, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_11 P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11
-		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Guid, System.Private.CoreLib',[P1,P2,P3,P4])
 		return self
 
 	Func ToByteArray P1
@@ -8497,17 +7648,14 @@ Class Guid from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
 
-	Func ToByteArray_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"ToByteArray",P1])
-
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func CreateVersion7 P1
 		if dnIsNamed(P1)
@@ -8516,9 +7664,6 @@ Class Guid from ValueType
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
-
-	Func CreateVersion7_1 P1
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"CreateVersion7",P1])
 
 	Func Parse P1
@@ -8538,12 +7683,6 @@ Class Guid from ValueType
 
 	Func TryParseExact P1,P2
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParseExact",P1,P2])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func NewGuid 
 		return dnRequest("call",[dnTypeCached('System.Guid, System.Private.CoreLib'),"NewGuid"])
@@ -8602,11 +7741,11 @@ Class Half from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func IsFinite P1
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsFinite",P1])
@@ -8638,20 +7777,11 @@ Class Half from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func IsPow2 P1
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"IsPow2",P1])
@@ -8694,12 +7824,6 @@ Class Half from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Truncate",P1])
@@ -8760,9 +7884,6 @@ Class Half from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1])
-
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log",P1,P2])
 
 	Func Log10 P1
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Log10",P1])
@@ -8838,9 +7959,6 @@ Class Half from ValueType
 
 	Func MultiplyAddEstimate P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func Pow P1,P2
 		return dnRequest("call",[dnTypeCached('System.Half, System.Private.CoreLib'),"Pow",P1,P2])
@@ -9009,10 +8127,6 @@ Class HashCode from ValueType
 		dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
 		return self
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func ToHashCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToHashCode"])
 
@@ -9021,27 +8135,6 @@ Class HashCode from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1])
-
-	Func Combine_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2])
-
-	Func Combine_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3])
-
-	Func Combine_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4])
-
-	Func Combine_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5])
-
-	Func Combine_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6])
-
-	Func Combine_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Combine_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.HashCode, System.Private.CoreLib'),"Combine",P1,P2,P3,P4,P5,P6,P7,P8])
 
 
 Class HttpStyleUriParser from UriParser
@@ -9071,11 +8164,15 @@ Class Index from ValueType
 		nHandle = dnCreate('System.Index, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Index, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Index, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Index, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Index, System.Private.CoreLib',[P1])
 		return self
 
@@ -9127,18 +8224,26 @@ Class Int128 from ValueType
 		nHandle = dnCreate('System.Int128, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Int128, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Int128, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Int128, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Int128, System.Private.CoreLib',[P1])
 		return self
 
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -9146,20 +8251,11 @@ Class Int128 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -9230,9 +8326,6 @@ Class Int128 from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int128, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMinValue
 		return dnRequest("get",[dnTypeCached('System.Int128, System.Private.CoreLib'),"MinValue"])
 
@@ -9281,11 +8374,11 @@ Class Int16 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -9296,20 +8389,11 @@ Class Int16 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -9380,9 +8464,6 @@ Class Int16 from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int16, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Int16, System.Private.CoreLib'),"MaxValue"])
 
@@ -9413,11 +8494,11 @@ Class Int32 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -9431,20 +8512,11 @@ Class Int32 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -9515,9 +8587,6 @@ Class Int32 from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int32, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Int32, System.Private.CoreLib'),"MaxValue"])
 
@@ -9548,11 +8617,11 @@ Class Int64 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -9566,20 +8635,11 @@ Class Int64 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -9650,9 +8710,6 @@ Class Int64 from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Int64, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.Int64, System.Private.CoreLib'),"MaxValue"])
 
@@ -9682,7 +8739,15 @@ Class IntPtr from ValueType
 		nHandle = dnCreate('System.IntPtr, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.IntPtr, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.IntPtr, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.IntPtr, System.Private.CoreLib',[P1])
 		return self
 
@@ -9698,11 +8763,11 @@ Class IntPtr from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Add",P1,P2])
@@ -9716,23 +8781,11 @@ Class IntPtr from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.IntPtr, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -9863,9 +8916,6 @@ Class ModuleHandle from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ResolveTypeHandle",P1])
 
-	Func ResolveTypeHandle_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ResolveTypeHandle",P1,P2,P3])
-
 	Func GetRuntimeMethodHandleFromMetadataToken P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeMethodHandleFromMetadataToken",P1])
 
@@ -9875,9 +8925,6 @@ Class ModuleHandle from ValueType
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ResolveMethodHandle",P1])
 
-	Func ResolveMethodHandle_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ResolveMethodHandle",P1,P2,P3])
-
 	Func GetRuntimeFieldHandleFromMetadataToken P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRuntimeFieldHandleFromMetadataToken",P1])
 
@@ -9886,9 +8933,6 @@ Class ModuleHandle from ValueType
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ResolveFieldHandle",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFieldHandle",P1])
-
-	Func ResolveFieldHandle_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"ResolveFieldHandle",P1,P2,P3])
 
 	Func getMDStreamVersion
 		return dnRequest("get",[self,"MDStreamVersion"])
@@ -9964,8 +9008,16 @@ Class Range from ValueType
 		nHandle = dnCreate('System.Range, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Range, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Range, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Range, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Range, System.Private.CoreLib',[P1])
 		return self
 
 	Func GetOffsetAndLength P1
@@ -10007,8 +9059,16 @@ Class ResolveEventArgs from EventArgs
 		nHandle = dnCreate('System.ResolveEventArgs, System.Private.CoreLib',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.ResolveEventArgs, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.ResolveEventArgs, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.ResolveEventArgs, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.ResolveEventArgs, System.Private.CoreLib',[P1])
 		return self
 
 	Func getName
@@ -10137,11 +9197,11 @@ Class SByte from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -10152,20 +9212,11 @@ Class SByte from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -10236,9 +9287,6 @@ Class SByte from ValueType
 	Func MinMagnitude P1,P2
 		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MinMagnitude",P1,P2])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.SByte, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.SByte, System.Private.CoreLib'),"MaxValue"])
 
@@ -10277,11 +9325,11 @@ Class Single from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -10316,20 +9364,11 @@ Class Single from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func IsPow2 P1
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"IsPow2",P1])
@@ -10372,12 +9411,6 @@ Class Single from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1])
-
-	Func Round_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1,P2])
-
-	Func Round_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Round",P1,P2,P3])
 
 	Func Truncate P1
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Truncate",P1])
@@ -10438,9 +9471,6 @@ Class Single from ValueType
 			return dnRequest("callnamed",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log",P1])
-
-	Func Log_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Log",P1,P2])
 
 	Func LogP1 P1
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"LogP1",P1])
@@ -10516,9 +9546,6 @@ Class Single from ValueType
 
 	Func MultiplyAddEstimate P1,P2,P3
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"MultiplyAddEstimate",P1,P2,P3])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func Pow P1,P2
 		return dnRequest("call",[dnTypeCached('System.Single, System.Private.CoreLib'),"Pow",P1,P2])
@@ -10665,23 +9692,15 @@ Class TimeOnly from ValueType
 		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.TimeOnly, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.TimeOnly, System.Private.CoreLib',[P1])
 		return self
 
@@ -10712,11 +9731,11 @@ Class TimeOnly from ValueType
 	Func ToShortTimeString 
 		return dnRequest("call",[new DotNetObject(nHandle),"ToShortTimeString"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func FromTimeSpan P1
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"FromTimeSpan",P1])
@@ -10730,20 +9749,11 @@ Class TimeOnly from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func ParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1,P2])
-
-	Func ParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
-
-	Func ParseExact_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
+	Func ParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"ParseExact",P1])
+		ok
+		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -10751,17 +9761,11 @@ Class TimeOnly from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1])
 
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1,P2,P3])
-
-	Func TryParseExact P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1,P2])
-
-	Func TryParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParse",P1,P2])
+	Func TryParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeOnly, System.Private.CoreLib'),"TryParseExact",P1])
+		ok
+		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getHour
 		return dnRequest("get",[self,"Hour"])
@@ -10870,24 +9874,16 @@ Class TimeSpan from ValueType
 		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.TimeSpan, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[P1,P2,P3,P4])
-		return self
-
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[P1,P2,P3,P4,P5])
-		return self
-
-	Func New_6 P1,P2,P3,P4,P5,P6
-		nHandle = dnCreate('System.TimeSpan, System.Private.CoreLib',[P1,P2,P3,P4,P5,P6])
 		return self
 
 	Func Add P1
@@ -10920,11 +9916,11 @@ Class TimeSpan from ValueType
 	Func Divide P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Divide",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Compare P1,P2
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Compare",P1,P2])
@@ -10935,41 +9931,11 @@ Class TimeSpan from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1])
 
-	Func Equals_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Equals",P1,P2])
-
-	Func FromDays_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4,P5,P6])
-
-	Func FromDays_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4,P5])
-
-	Func FromDays_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3,P4])
-
-	Func FromDays_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2,P3])
-
-	Func FromDays_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromDays",P1,P2])
-
 	Func FromHours P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1])
-
-	Func FromHours_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3,P4,P5])
-
-	Func FromHours_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3,P4])
-
-	Func FromHours_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2,P3])
-
-	Func FromHours_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromHours",P1,P2])
 
 	Func FromMinutes P1
 		if dnIsNamed(P1)
@@ -10977,29 +9943,11 @@ Class TimeSpan from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1])
 
-	Func FromMinutes_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2,P3,P4])
-
-	Func FromMinutes_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2,P3])
-
-	Func FromMinutes_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMinutes",P1,P2])
-
 	Func FromSeconds P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1])
-
-	Func FromSeconds_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1,P2,P3])
-
-	Func FromSeconds_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromSeconds",P1,P2])
-
-	Func FromMilliseconds_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"FromMilliseconds",P1,P2])
 
 	Func FromMilliseconds P1
 		if dnIsNamed(P1)
@@ -11019,14 +9967,11 @@ Class TimeSpan from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func ParseExact P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1,P2,P3])
-
-	Func ParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1,P2,P3,P4])
+	Func ParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"ParseExact",P1])
+		ok
+		raise("DotNet Error: ParseExact does not take one argument: use named arguments, ParseExact([ :parameter = value, ... ])")
 
 	Func TryParse P1
 		if dnIsNamed(P1)
@@ -11034,14 +9979,11 @@ Class TimeSpan from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParse",P1,P2])
-
-	Func TryParseExact P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1,P2,P3])
-
-	Func TryParseExact_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1,P2,P3,P4])
+	Func TryParseExact P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.TimeSpan, System.Private.CoreLib'),"TryParseExact",P1])
+		ok
+		raise("DotNet Error: TryParseExact does not take one argument: use named arguments, TryParseExact([ :parameter = value, ... ])")
 
 	Func getTicks
 		return dnRequest("get",[self,"Ticks"])
@@ -11300,18 +10242,26 @@ Class UInt128 from ValueType
 		nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.UInt128, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[])
+			return self
+		ok
+		nHandle = dnCreate('System.UInt128, System.Private.CoreLib',[P1])
 		return self
 
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Parse P1
 		if dnIsNamed(P1)
@@ -11319,20 +10269,11 @@ Class UInt128 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -11385,9 +10326,6 @@ Class UInt128 from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"IsOddInteger",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMinValue
 		return dnRequest("get",[dnTypeCached('System.UInt128, System.Private.CoreLib'),"MinValue"])
 
@@ -11430,11 +10368,11 @@ Class UInt16 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -11445,20 +10383,11 @@ Class UInt16 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -11511,9 +10440,6 @@ Class UInt16 from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"IsOddInteger",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.UInt16, System.Private.CoreLib'),"MaxValue"])
 
@@ -11544,11 +10470,11 @@ Class UInt32 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -11562,20 +10488,11 @@ Class UInt32 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -11628,9 +10545,6 @@ Class UInt32 from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"IsOddInteger",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.UInt32, System.Private.CoreLib'),"MaxValue"])
 
@@ -11661,11 +10575,11 @@ Class UInt64 from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func GetTypeCode 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetTypeCode"])
@@ -11679,20 +10593,11 @@ Class UInt64 from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1,P2,P3])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -11745,9 +10650,6 @@ Class UInt64 from ValueType
 	Func IsOddInteger P1
 		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"IsOddInteger",P1])
 
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"TryParse",P1,P2])
-
 	Func getMaxValue
 		return dnRequest("get",[dnTypeCached('System.UInt64, System.Private.CoreLib'),"MaxValue"])
 
@@ -11777,7 +10679,15 @@ Class UIntPtr from ValueType
 		nHandle = dnCreate('System.UIntPtr, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.UIntPtr, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.UIntPtr, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.UIntPtr, System.Private.CoreLib',[P1])
 		return self
 
@@ -11793,11 +10703,11 @@ Class UIntPtr from ValueType
 	Func CompareTo P1
 		return dnRequest("call",[new DotNetObject(nHandle),"CompareTo",P1])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
-
-	Func ToString_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1,P2])
 
 	Func Add P1,P2
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Add",P1,P2])
@@ -11811,23 +10721,11 @@ Class UIntPtr from ValueType
 		ok
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1])
 
-	Func Parse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1,P2])
-
-	Func Parse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"Parse",P1,P2,P3])
-
 	Func TryParse P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1])
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1,P2,P3])
-
-	Func TryParse_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"TryParse",P1,P2])
 
 	Func DivRem P1,P2
 		return dnRequest("call",[dnTypeCached('System.UIntPtr, System.Private.CoreLib'),"DivRem",P1,P2])
@@ -11975,30 +10873,6 @@ Class ValueTuple from ValueType
 			return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_1 P1
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1])
-
-	Func Create_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2])
-
-	Func Create_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3])
-
-	Func Create_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4])
-
-	Func Create_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5])
-
-	Func Create_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6])
-
-	Func Create_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7])
-
-	Func Create_8 P1,P2,P3,P4,P5,P6,P7,P8
-		return dnRequest("call",[dnTypeCached('System.ValueTuple, System.Private.CoreLib'),"Create",P1,P2,P3,P4,P5,P6,P7,P8])
 
 
 Class Void from ValueType

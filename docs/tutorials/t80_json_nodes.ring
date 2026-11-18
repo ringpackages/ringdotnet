@@ -21,7 +21,7 @@ func main
 
 	# 3. Change the tree: set a value, add a key, add an array item, remove a key
 	oRoot.SetItem("port",9090)
-	oRoot.Add_2("owner","Ann")
+	oRoot.Add([ :propertyName = "owner", :value = "Ann" ])
 	oTags.Add("json")
 	oRoot.Remove("debug")
 	? nl + "3. after the changes:"
@@ -36,17 +36,17 @@ func main
 	# 5. Build a new document from Ring values. Ring numbers and texts convert by themselves;
 	#    a Ring True is the number 1, so write a real JSON true by parsing it.
 	oNew = new JsonObject()
-	oNew.Add_2("id",7)
-	oNew.Add_2("title","Report")
-	oNew.Add_2("final",new JsonNode().Parse("true"))
+	oNew.Add([ :propertyName = "id", :value = 7 ])
+	oNew.Add([ :propertyName = "title", :value = "Report" ])
+	oNew.Add([ :propertyName = "final", :value = new JsonNode().Parse("true") ])
 	oItems = new JsonArray()
 	for nLine = 1 to 3
 		oLine = new JsonObject()
-		oLine.Add_2("line",nLine)
-		oLine.Add_2("amount",nLine * 10.5)
+		oLine.Add([ :propertyName = "line", :value = nLine ])
+		oLine.Add([ :propertyName = "amount", :value = nLine * 10.5 ])
 		oItems.Add(oLine)
 	next
-	oNew.Add_2("items",oItems)
+	oNew.Add([ :propertyName = "items", :value = oItems ])
 	? nl + "5. a new document: " + oNew.ToJsonString(NULL)
 
 	# 6. Merge: settings with defaults. Values of the second document win; objects are merged, so nothing else is lost.

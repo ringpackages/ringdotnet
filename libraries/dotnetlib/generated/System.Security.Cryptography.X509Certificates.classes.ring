@@ -226,8 +226,16 @@ Class CertificateRequest from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography',[P1])
 		return self
 
 	Func CreateSigningRequest P1
@@ -239,9 +247,6 @@ Class CertificateRequest from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequest",P1])
 
-	Func CreateSigningRequest_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequest",P1])
-
 	Func CreateSigningRequestPem P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
@@ -251,38 +256,29 @@ Class CertificateRequest from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
 
-	Func CreateSigningRequestPem_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateSigningRequestPem",P1])
-
 	Func CreateSelfSigned P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"CreateSelfSigned",P1,P2])
 
-	Func Create P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2,P3,P4])
-
-	Func Create_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Create",P1,P2,P3,P4,P5])
+	Func Create P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Create",P1])
+		ok
+		raise("DotNet Error: Create does not take one argument: use named arguments, Create([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func LoadSigningRequestPem_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1,P2,P3,P4])
+	Func LoadSigningRequestPem P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1])
+		ok
+		raise("DotNet Error: LoadSigningRequestPem does not take one argument: use named arguments, LoadSigningRequestPem([ :parameter = value, ... ])")
 
-	Func LoadSigningRequestPem_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1,P2,P3])
-
-	Func LoadSigningRequestPem P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequestPem",P1,P2])
-
-	Func LoadSigningRequest_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2,P3,P4])
-
-	Func LoadSigningRequest_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2,P3])
-
-	Func LoadSigningRequest P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1,P2])
+	Func LoadSigningRequest P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRequest, System.Security.Cryptography'),"LoadSigningRequest",P1])
+		ok
+		raise("DotNet Error: LoadSigningRequest does not take one argument: use named arguments, LoadSigningRequest([ :parameter = value, ... ])")
 
 	Func getSubjectName
 		return dnRequest("get",[self,"SubjectName"])
@@ -326,14 +322,6 @@ Class CertificateRevocationListBuilder from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography',[])
 		return self
 
-	Func AddEntry_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"AddEntry",P1,P2,P3])
-		return self
-
-	Func AddEntry_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"AddEntry",P1,P2])
-		return self
-
 	Func AddEntry P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"AddEntry",P1])
@@ -345,23 +333,14 @@ Class CertificateRevocationListBuilder from Object
 	Func RemoveEntry P1
 		return dnRequest("call",[new DotNetObject(nHandle),"RemoveEntry",P1])
 
-	Func Build_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5,P6])
-
-	Func Build_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5])
-
-	Func Build P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4])
-
-	Func Build_7 P1,P2,P3,P4,P5,P6,P7
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1,P2,P3,P4,P5,P6,P7])
+	Func Build P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"Build",P1])
+		ok
+		raise("DotNet Error: Build does not take one argument: use named arguments, Build([ :parameter = value, ... ])")
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func BuildCrlDistributionPointExtension_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.CertificateRevocationListBuilder, System.Security.Cryptography'),"BuildCrlDistributionPointExtension",P1,P2])
 
 	Func BuildCrlDistributionPointExtension P1
 		if dnIsNamed(P1)
@@ -448,7 +427,15 @@ Class Pkcs12LoaderLimits from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.Pkcs12LoaderLimits, System.Security.Cryptography',[P1])
 		return self
 
@@ -571,8 +558,16 @@ Class PublicKey from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.PublicKey, System.Security.Cryptography',[P1])
 		return self
 
 	Func ExportSubjectPublicKeyInfo 
@@ -672,9 +667,6 @@ Class SubjectAlternativeNameBuilder from Object
 		dnRequest("call",[new DotNetObject(nHandle),"AddUserPrincipalName",P1])
 		return self
 
-	Func Build_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Build",P1])
-
 	Func Build P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Build",P1])
@@ -701,15 +693,20 @@ Class X500DistinguishedName from AsnEncodedData
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedName, System.Security.Cryptography',[P1])
 		return self
 
 	Func Decode P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Decode",P1])
-
-	Func EnumerateRelativeDistinguishedNames_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnumerateRelativeDistinguishedNames",P1])
 
 	Func EnumerateRelativeDistinguishedNames P1
 		if dnIsNamed(P1)
@@ -738,13 +735,12 @@ Class X500DistinguishedNameBuilder from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X500DistinguishedNameBuilder, System.Security.Cryptography',[])
 		return self
 
-	Func Add_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2,P3])
-		return self
-
-	Func Add P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
+	Func Add P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
+			return self
+		ok
+		raise("DotNet Error: Add does not take one argument: use named arguments, Add([ :parameter = value, ... ])")
 
 	Func AddEmailAddress P1
 		dnRequest("call",[new DotNetObject(nHandle),"AddEmailAddress",P1])
@@ -836,16 +832,16 @@ Class X509Certificate from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 	Func Reset 
@@ -865,9 +861,6 @@ Class X509Certificate from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1])
 
-	Func Export_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1,P2])
-
 	Func GetRawCertDataString 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetRawCertDataString"])
 
@@ -880,9 +873,6 @@ Class X509Certificate from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHash",P1])
 
-	Func GetCertHash_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHash",P1])
-
 	Func GetCertHashString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"GetCertHashString",P1])
@@ -890,9 +880,6 @@ Class X509Certificate from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString",P1])
-
-	Func GetCertHashString_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetCertHashString",P1])
 
 	Func GetEffectiveDateString 
@@ -934,7 +921,10 @@ Class X509Certificate from Object
 	Func GetIssuerName 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIssuerName"])
 
-	Func ToString_1 P1
+	Func Format P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"ToString",P1])
+		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"ToString",P1])
 
 	Func Import_ P1
@@ -943,10 +933,6 @@ Class X509Certificate from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Import",P1])
-		return self
-
-	Func Import_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2,P3])
 		return self
 
 	Func CreateFromCertFile P1
@@ -1020,7 +1006,15 @@ Class X509CertificateCollection from CollectionBase
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509CertificateCollection, System.Security.Cryptography',[P1])
 		return self
 
@@ -1076,41 +1070,29 @@ Class X509CertificateLoader from Object
 	Func LoadCertificateFromFile P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadCertificateFromFile",P1])
 
-	Func LoadPkcs12_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1,P2,P3,P4])
+	Func LoadPkcs12 P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1])
+		ok
+		raise("DotNet Error: LoadPkcs12 does not take one argument: use named arguments, LoadPkcs12([ :parameter = value, ... ])")
 
-	Func LoadPkcs12_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1,P2,P3])
+	Func LoadPkcs12FromFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1])
+		ok
+		raise("DotNet Error: LoadPkcs12FromFile does not take one argument: use named arguments, LoadPkcs12FromFile([ :parameter = value, ... ])")
 
-	Func LoadPkcs12 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12",P1,P2])
+	Func LoadPkcs12Collection P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1])
+		ok
+		raise("DotNet Error: LoadPkcs12Collection does not take one argument: use named arguments, LoadPkcs12Collection([ :parameter = value, ... ])")
 
-	Func LoadPkcs12FromFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1,P2,P3,P4])
-
-	Func LoadPkcs12FromFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1,P2,P3])
-
-	Func LoadPkcs12FromFile P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12FromFile",P1,P2])
-
-	Func LoadPkcs12Collection_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1,P2,P3,P4])
-
-	Func LoadPkcs12Collection_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1,P2,P3])
-
-	Func LoadPkcs12Collection P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12Collection",P1,P2])
-
-	Func LoadPkcs12CollectionFromFile_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1,P2,P3,P4])
-
-	Func LoadPkcs12CollectionFromFile_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1,P2,P3])
-
-	Func LoadPkcs12CollectionFromFile P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1,P2])
+	Func LoadPkcs12CollectionFromFile P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509CertificateLoader, System.Security.Cryptography'),"LoadPkcs12CollectionFromFile",P1])
+		ok
+		raise("DotNet Error: LoadPkcs12CollectionFromFile does not take one argument: use named arguments, LoadPkcs12CollectionFromFile([ :parameter = value, ... ])")
 
 
 Class X509Chain from Object
@@ -1130,7 +1112,15 @@ Class X509Chain from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Chain, System.Security.Cryptography',[P1])
 		return self
 
@@ -1451,8 +1441,16 @@ Class X509Extension from AsnEncodedData
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Extension, System.Security.Cryptography',[P1])
 		return self
 
 	Func getCritical
@@ -1593,16 +1591,16 @@ Class X509Store from Object
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Store, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 	Func Open P1
@@ -1678,16 +1676,16 @@ Class X509AuthorityInformationAccessExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityInformationAccessExtension, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 	Func EnumerateUris P1
@@ -1716,11 +1714,15 @@ Class X509AuthorityKeyIdentifierExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509AuthorityKeyIdentifierExtension, System.Security.Cryptography',[P1])
 		return self
 
@@ -1776,16 +1778,17 @@ Class X509BasicConstraintsExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[P1,P2,P3,P4])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[P1])
 		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func CreateForCertificateAuthority_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
 
 	Func CreateForCertificateAuthority P1
 		if dnIsNamed(P1)
@@ -1795,9 +1798,6 @@ Class X509BasicConstraintsExtension from X509Extension
 			return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority"])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForCertificateAuthority",P1])
-
-	Func CreateForEndEntity_1 P1
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509BasicConstraintsExtension, System.Security.Cryptography'),"CreateForEndEntity",P1])
 
 	Func CreateForEndEntity P1
 		if dnIsNamed(P1)
@@ -1855,16 +1855,16 @@ Class X509Certificate2 from X509Certificate
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography',[P1,P2,P3])
 		return self
 
 	Func GetNameInfo P1,P2
@@ -1885,32 +1885,23 @@ Class X509Certificate2 from X509Certificate
 	Func ExportCertificatePem 
 		return dnRequest("call",[new DotNetObject(nHandle),"ExportCertificatePem"])
 
-	Func MatchesHostname_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1,P2,P3])
-
-	Func MatchesHostname_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1,P2])
-
 	Func MatchesHostname P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"MatchesHostname",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"MatchesHostname",P1])
 
-	Func GetPublicKey_0 
+	Func GetPublicKey_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetPublicKey"])
 
-	Func GetSerialNumber_0 
+	Func GetSerialNumber_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetSerialNumber"])
 
-	Func GetIssuerName_0 
+	Func GetIssuerName_ 
 		return dnRequest("call",[new DotNetObject(nHandle),"GetIssuerName"])
 
 	Func GetCertContentType P1
 		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"GetCertContentType",P1])
-
-	Func CreateFromPemFile_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Security.Cryptography.X509Certificates.X509Certificate2, System.Security.Cryptography'),"CreateFromPemFile",P1,P2])
 
 	Func CreateFromPemFile P1
 		if dnIsNamed(P1)
@@ -2029,7 +2020,15 @@ Class X509Certificate2Collection from X509CertificateCollection
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509Certificate2Collection, System.Security.Cryptography',[P1])
 		return self
 
@@ -2038,9 +2037,6 @@ Class X509Certificate2Collection from X509CertificateCollection
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Export",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1])
-
-	Func Export_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Export",P1,P2])
 
 	Func Find P1,P2,P3
 		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2,P3])
@@ -2051,14 +2047,6 @@ Class X509Certificate2Collection from X509CertificateCollection
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Import",P1])
-		return self
-
-	Func Import_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2,P3])
-		return self
-
-	Func Import_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Import",P1,P2])
 		return self
 
 	Func RemoveRange P1
@@ -2089,8 +2077,16 @@ Class X509EnhancedKeyUsageExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509EnhancedKeyUsageExtension, System.Security.Cryptography',[P1])
 		return self
 
 	Func getEnhancedKeyUsages
@@ -2113,8 +2109,16 @@ Class X509KeyUsageExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509KeyUsageExtension, System.Security.Cryptography',[P1])
 		return self
 
 	Func getKeyUsages
@@ -2135,11 +2139,15 @@ Class X509SubjectAlternativeNameExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectAlternativeNameExtension, System.Security.Cryptography',[P1])
 		return self
 
@@ -2164,12 +2172,16 @@ Class X509SubjectKeyIdentifierExtension from X509Extension
 		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Cryptography.X509Certificates.X509SubjectKeyIdentifierExtension, System.Security.Cryptography',[P1])
 		return self
 
 	Func getSubjectKeyIdentifier

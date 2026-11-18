@@ -45,7 +45,7 @@ An `IPEndPoint` is an address plus a port. Its constructor has several forms, so
 
 ### Is the port open?
 
-The last step starts a `TcpListener` on port 0 (the system chooses a free port) and checks it with `portIsOpen`: `ConnectAsync_2(address, port)` starts the connection, `Task.Wait(500)` waits at most half a second, and a refused connection raises an error that the `try` turns into *no*. While the listener runs the answer is *yes*; after `Stop()` it is *no*. This is the whole idea of a port scanner — and the reason for the rules below.
+The last step starts a `TcpListener` on port 0 (the system chooses a free port) and checks it with `portIsOpen`: `ConnectAsync([ :host = address, :port = port ])` starts the connection, `Task.Wait(500)` waits at most half a second, and a refused connection raises an error that the `try` turns into *no*. While the listener runs the answer is *yes*; after `Stop()` it is *no*. This is the whole idea of a port scanner — and the reason for the rules below.
 
 > [!WARNING] Only test ports of computers that are yours or that you have permission to test. Scanning other people's computers can be a crime and is always rude. This tutorial only touches `127.0.0.1`.
 
@@ -65,6 +65,6 @@ The last step starts a `TcpListener` on port 0 (the system chooses a free port) 
 3. Ping `127.0.0.1` five times and print the average round trip.
 4. Resolve a real host name with `Dns.GetHostEntry` and handle the error when there is no network.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 82: Shared memory](tut-82-shared-memory.html)

@@ -343,9 +343,6 @@ Class Activity from Object
 		nHandle = dnCreate('System.Diagnostics.Activity, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
-	Func SetStatus_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SetStatus",P1,P2])
-
 	Func SetStatus P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetStatus",P1])
@@ -376,12 +373,6 @@ Class Activity from Object
 	Func AddEvent P1
 		return dnRequest("call",[new DotNetObject(nHandle),"AddEvent",P1])
 
-	Func AddException_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"AddException",P1,P2,P3])
-
-	Func AddException_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddException",P1,P2])
-
 	Func AddException P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"AddException",P1])
@@ -402,12 +393,6 @@ Class Activity from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SetParentId",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SetParentId",P1])
-
-	Func SetParentId_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SetParentId",P1,P2,P3])
-
-	Func SetParentId_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SetParentId",P1,P2])
 
 	Func SetStartTime P1
 		return dnRequest("call",[new DotNetObject(nHandle),"SetStartTime",P1])
@@ -682,23 +667,23 @@ Class ActivityContext from ValueType
 		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
 		return self
 
-	Func New_5 P1,P2,P3,P4,P5
-		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[P1,P2,P3,P4,P5])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[P1,P2,P3,P4])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource',[P1,P2,P3])
-		return self
-
-	Func TryParse_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"TryParse",P1,P2,P3])
-
-	Func TryParse P1,P2
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"TryParse",P1,P2])
+	Func TryParse P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"TryParse",P1])
+		ok
+		raise("DotNet Error: TryParse does not take one argument: use named arguments, TryParse([ :parameter = value, ... ])")
 
 	Func Parse P1,P2
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.ActivityContext, System.Diagnostics.DiagnosticSource'),"Parse",P1,P2])
@@ -749,16 +734,16 @@ Class ActivityEvent from ValueType
 		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[P1])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[P1,P2,P3])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.ActivityEvent, System.Diagnostics.DiagnosticSource',[P1,P2])
 		return self
 
 	Func EnumerateTagObjects 
@@ -797,11 +782,15 @@ Class ActivityLink from ValueType
 		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[P1,P2])
-		return self
-
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityLink, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
@@ -904,37 +893,26 @@ Class ActivitySource from Object
 		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.ActivitySource, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
 	Func HasListeners 
 		return dnRequest("call",[new DotNetObject(nHandle),"HasListeners"])
 
-	Func CreateActivity P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateActivity",P1,P2])
-
-	Func CreateActivity_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateActivity",P1,P2,P3,P4,P5,P6])
-
-	Func CreateActivity_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateActivity",P1,P2,P3,P4,P5])
-
-	Func CreateActivity_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateActivity",P1,P2,P3,P4])
-
-	Func CreateActivity_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"CreateActivity",P1,P2,P3])
-
-	Func StartActivity_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2])
-
-	Func StartActivity_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1])
+	Func CreateActivity P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[new DotNetObject(nHandle),"CreateActivity",P1])
+		ok
+		raise("DotNet Error: CreateActivity does not take one argument: use named arguments, CreateActivity([ :parameter = value, ... ])")
 
 	Func StartActivity P1
 		if dnIsNamed(P1)
@@ -944,18 +922,6 @@ Class ActivitySource from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"StartActivity"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1])
-
-	Func StartActivity_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2,P3,P4,P5,P6])
-
-	Func StartActivity_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2,P3,P4,P5])
-
-	Func StartActivity_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2,P3,P4])
-
-	Func StartActivity_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2,P3])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -1021,12 +987,16 @@ Class ActivityTagsCollection from Object
 		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.ActivityTagsCollection, System.Diagnostics.DiagnosticSource',[P1])
-		return self
-
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
 		return self
 
 	Func Add P1
@@ -1142,10 +1112,6 @@ Class CorrelationManager from Object
 		dnRequest("call",[new DotNetObject(nHandle),"StopLogicalOperation"])
 		return self
 
-	Func StartLogicalOperation_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"StartLogicalOperation",P1])
-		return self
-
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
@@ -1226,27 +1192,11 @@ Class Debug from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1])
 		return self
 
-	Func Print_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Print",P1,P2])
-		return self
-
 	Func Assert P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
 		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1])
-		return self
-
-	Func Assert_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1,P2])
-		return self
-
-	Func Assert_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1,P2,P3])
-		return self
-
-	Func Assert_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Assert",P1,P2,P3,P4])
 		return self
 
 	Func Fail P1
@@ -1255,10 +1205,6 @@ Class Debug from Object
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1])
-		return self
-
-	Func Fail_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Fail",P1,P2])
 		return self
 
 	Func WriteLine P1
@@ -1277,29 +1223,17 @@ Class Debug from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1])
 		return self
 
-	Func WriteLine_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLine",P1,P2])
-		return self
+	Func WriteIf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteIf",P1])
+		ok
+		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
-	Func Write_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"Write",P1,P2])
-		return self
-
-	Func WriteIf P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteIf",P1,P2])
-		return self
-
-	Func WriteIf_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteIf",P1,P2,P3])
-		return self
-
-	Func WriteLineIf P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1,P2])
-		return self
-
-	Func WriteLineIf_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1,P2,P3])
-		return self
+	Func WriteLineIf P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"WriteLineIf",P1])
+		ok
+		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func getAutoFlush
 		return dnRequest("get",[dnTypeCached('System.Diagnostics.Debug, System.Private.CoreLib'),"AutoFlush"])
@@ -1475,12 +1409,6 @@ Class DiagnosticSource from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"IsEnabled",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1])
-
-	Func IsEnabled_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1,P2,P3])
-
-	Func IsEnabled_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1,P2])
 
 	Func StartActivity P1,P2
 		return dnRequest("call",[new DotNetObject(nHandle),"StartActivity",P1,P2])
@@ -1874,9 +1802,6 @@ Class Process from Component
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitForInputIdle",P1])
 
-	Func WaitForInputIdle_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForInputIdle",P1])
-
 	Func Close 
 		dnRequest("call",[new DotNetObject(nHandle),"Close"])
 		return self
@@ -1906,12 +1831,6 @@ Class Process from Component
 		return self
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExit",P1])
-
-	Func WaitForExit_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExit",P1])
-
-	Func WaitForExitAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"WaitForExitAsync",P1])
 
 	Func WaitForExitAsync P1
 		if dnIsNamed(P1)
@@ -1950,13 +1869,6 @@ Class Process from Component
 		dnRequest("call",[new DotNetObject(nHandle),"Kill",P1])
 		return self
 
-	Func Kill_1 P1
-		dnRequest("call",[new DotNetObject(nHandle),"Kill",P1])
-		return self
-
-	Func GetProcessById_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1,P2])
-
 	Func GetProcessById P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessById",P1])
@@ -1978,26 +1890,8 @@ Class Process from Component
 		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
 
-	Func GetProcesses_1 P1
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcesses",P1])
-
 	Func GetCurrentProcess 
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetCurrentProcess"])
-
-	Func Start_1 P1
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1])
-
-	Func Start_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1,P2])
-
-	Func GetProcessesByName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"GetProcessesByName",P1,P2])
-
-	Func Start_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1,P2,P3,P4])
-
-	Func Start_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"Start",P1,P2,P3,P4,P5])
 
 	Func EnterDebugMode 
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Process, System.Diagnostics.Process'),"EnterDebugMode"])
@@ -2456,12 +2350,16 @@ Class ProcessStartInfo from Object
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.ProcessStartInfo, System.Diagnostics.Process',[P1,P2])
 		return self
 
 	Func Equals P1
@@ -2800,16 +2698,16 @@ Class StackFrame from Object
 		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.StackFrame, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.StackFrame, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
 	Func GetMethod 
@@ -2886,16 +2784,16 @@ Class StackTrace from Object
 		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.StackTrace, System.Private.CoreLib',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.StackTrace, System.Private.CoreLib',[P1,P2,P3])
 		return self
 
 	Func GetFrame P1
@@ -2968,9 +2866,6 @@ Class Stopwatch from Object
 			return dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1])
-
-	Func GetElapsedTime_2 P1,P2
-		return dnRequest("call",[dnTypeCached('System.Diagnostics.Stopwatch, System.Private.CoreLib'),"GetElapsedTime",P1,P2])
 
 	Func getIsRunning
 		return dnRequest("get",[self,"IsRunning"])
@@ -3086,10 +2981,6 @@ Class TagList from ValueType
 		nHandle = dnCreate('System.Diagnostics.TagList, System.Diagnostics.DiagnosticSource',[])
 		return self
 
-	Func Add_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Add",P1,P2])
-		return self
-
 	Func Add P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Add",P1])
@@ -3182,24 +3073,12 @@ Class Trace from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Assert",P1])
 		return self
 
-	Func Assert_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Assert",P1,P2])
-		return self
-
-	Func Assert_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Assert",P1,P2,P3])
-		return self
-
 	Func Fail P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Fail",P1])
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Fail",P1])
-		return self
-
-	Func Fail_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Fail",P1,P2])
 		return self
 
 	Func Refresh 
@@ -3214,20 +3093,12 @@ Class Trace from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceInformation",P1])
 		return self
 
-	Func TraceInformation_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceInformation",P1,P2])
-		return self
-
 	Func TraceWarning P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceWarning",P1])
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceWarning",P1])
-		return self
-
-	Func TraceWarning_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceWarning",P1,P2])
 		return self
 
 	Func TraceError P1
@@ -3238,20 +3109,12 @@ Class Trace from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceError",P1])
 		return self
 
-	Func TraceError_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"TraceError",P1,P2])
-		return self
-
 	Func Write P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Write",P1])
 			return self
 		ok
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Write",P1])
-		return self
-
-	Func Write_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Write",P1,P2])
 		return self
 
 	Func WriteLine P1
@@ -3262,25 +3125,19 @@ Class Trace from Object
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLine",P1])
 		return self
 
-	Func WriteLine_2 P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLine",P1,P2])
-		return self
+	Func WriteIf P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteIf",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteIf does not take one argument: use named arguments, WriteIf([ :parameter = value, ... ])")
 
-	Func WriteIf P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteIf",P1,P2])
-		return self
-
-	Func WriteIf_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteIf",P1,P2,P3])
-		return self
-
-	Func WriteLineIf P1,P2
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLineIf",P1,P2])
-		return self
-
-	Func WriteLineIf_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLineIf",P1,P2,P3])
-		return self
+	Func WriteLineIf P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"WriteLineIf",P1])
+			return self
+		ok
+		raise("DotNet Error: WriteLineIf does not take one argument: use named arguments, WriteLineIf([ :parameter = value, ... ])")
 
 	Func Indent 
 		dnRequest("call",[dnTypeCached('System.Diagnostics.Trace, System.Diagnostics.TraceSource'),"Indent"])
@@ -3456,20 +3313,12 @@ Class TraceListener from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1])
 		return self
 
-	Func Fail_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Fail",P1,P2])
-		return self
-
 	Func Write P1
 		if dnIsNamed(P1)
 			dnRequest("callnamed",[new DotNetObject(nHandle),"Write",P1])
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Write",P1])
-		return self
-
-	Func Write_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Write",P1,P2])
 		return self
 
 	Func WriteLine P1
@@ -3480,25 +3329,16 @@ Class TraceListener from MarshalByRefObject
 		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1])
 		return self
 
-	Func WriteLine_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"WriteLine",P1,P2])
-		return self
-
 	Func TraceData P1,P2,P3,P4,P5
 		dnRequest("call",[new DotNetObject(nHandle),"TraceData",P1,P2,P3,P4,P5])
 		return self
 
-	Func TraceEvent P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4])
-		return self
-
-	Func TraceEvent_5 P1,P2,P3,P4,P5
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4,P5])
-		return self
-
-	Func TraceEvent_6 P1,P2,P3,P4,P5,P6
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4,P5,P6])
-		return self
+	Func TraceEvent P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TraceEvent",P1])
+			return self
+		ok
+		raise("DotNet Error: TraceEvent does not take one argument: use named arguments, TraceEvent([ :parameter = value, ... ])")
 
 	Func getAttributes
 		return dnRequest("get",[self,"Attributes"])
@@ -3629,8 +3469,16 @@ Class TraceSource from Object
 		nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.TraceSource, System.Diagnostics.TraceSource',[P1])
 		return self
 
 	Func Close 
@@ -3641,17 +3489,12 @@ Class TraceSource from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Flush"])
 		return self
 
-	Func TraceEvent P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2])
-		return self
-
-	Func TraceEvent_3 P1,P2,P3
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3])
-		return self
-
-	Func TraceEvent_4 P1,P2,P3,P4
-		dnRequest("call",[new DotNetObject(nHandle),"TraceEvent",P1,P2,P3,P4])
-		return self
+	Func TraceEvent P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[new DotNetObject(nHandle),"TraceEvent",P1])
+			return self
+		ok
+		raise("DotNet Error: TraceEvent does not take one argument: use named arguments, TraceEvent([ :parameter = value, ... ])")
 
 	Func TraceData P1,P2,P3
 		dnRequest("call",[new DotNetObject(nHandle),"TraceData",P1,P2,P3])
@@ -3663,10 +3506,6 @@ Class TraceSource from Object
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"TraceInformation",P1])
-		return self
-
-	Func TraceInformation_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"TraceInformation",P1,P2])
 		return self
 
 	Func TraceTransfer P1,P2,P3
@@ -3729,8 +3568,16 @@ Class BooleanSwitch from Switch_
 		nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.BooleanSwitch, System.Diagnostics.TraceSource',[P1])
 		return self
 
 	Func getEnabled
@@ -3784,15 +3631,6 @@ Class DiagnosticListener from DiagnosticSource
 		nHandle = dnCreate('System.Diagnostics.DiagnosticListener, System.Diagnostics.DiagnosticSource',[P1])
 		return self
 
-	Func Subscribe_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"Subscribe",P1,P2,P3,P4])
-
-	Func Subscribe_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"Subscribe",P1,P2,P3])
-
-	Func Subscribe_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Subscribe",P1,P2])
-
 	Func Subscribe P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Subscribe",P1])
@@ -3810,9 +3648,6 @@ Class DiagnosticListener from DiagnosticSource
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1])
-
-	Func IsEnabled_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"IsEnabled",P1])
 
 	Func getName
@@ -3883,8 +3718,16 @@ Class SourceSwitch from Switch_
 		nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.SourceSwitch, System.Diagnostics.TraceSource',[P1])
 		return self
 
 	Func ShouldTrace P1
@@ -3911,12 +3754,16 @@ Class TextWriterTraceListener from TraceListener
 		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.TextWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1,P2])
 		return self
 
 	Func getWriter
@@ -3944,8 +3791,16 @@ Class TraceSwitch from Switch_
 		nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.TraceSwitch, System.Diagnostics.TraceSource',[P1])
 		return self
 
 	Func getLevel
@@ -3991,7 +3846,15 @@ Class ConsoleTraceListener from TextWriterTraceListener
 		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Diagnostics.ConsoleTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
 		return self
 
@@ -4009,8 +3872,16 @@ Class DelimitedListTraceListener from TextWriterTraceListener
 		nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.DelimitedListTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
 		return self
 
 	Func getDelimiter
@@ -4032,8 +3903,16 @@ Class XmlWriterTraceListener from TextWriterTraceListener
 		nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Diagnostics.XmlWriterTraceListener, System.Diagnostics.TextWriterTraceListener',[P1])
 		return self
 
 

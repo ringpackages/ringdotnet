@@ -384,7 +384,15 @@ Class GestureRecognizer from DependencyObject
 		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Ink.GestureRecognizer, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Ink.GestureRecognizer, PresentationCore',[P1])
 		return self
 
@@ -517,8 +525,16 @@ Class Stroke from Object
 		nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Ink.Stroke, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Ink.Stroke, PresentationCore',[P1])
 		return self
 
 	Func Clone 
@@ -559,10 +575,6 @@ Class Stroke from Object
 		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1])
 		return self
 
-	Func Draw_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Draw",P1,P2])
-		return self
-
 	Func GetClipResult P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetClipResult",P1])
 
@@ -572,17 +584,11 @@ Class Stroke from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"GetEraseResult",P1])
 
-	Func GetEraseResult_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"GetEraseResult",P1,P2])
-
 	Func HitTest P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"HitTest",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
-
-	Func HitTest_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
 
 	Func GetGeometry P1
 		if dnIsNamed(P1)
@@ -591,9 +597,6 @@ Class Stroke from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry",P1])
-
-	Func GetGeometry_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"GetGeometry",P1])
 
 	Func Equals P1
@@ -676,12 +679,16 @@ Class StrokeCollection from DotNetObject
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Ink.StrokeCollection, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Windows.Ink.StrokeCollection, PresentationCore',[P1])
-		return self
-
-	Func Save_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Save",P1,P2])
 		return self
 
 	Func Save P1
@@ -740,9 +747,6 @@ Class StrokeCollection from DotNetObject
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1])
 
-	Func HitTest_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"HitTest",P1,P2])
-
 	Func Clip P1
 		dnRequest("call",[new DotNetObject(nHandle),"Clip",P1])
 		return self
@@ -753,10 +757,6 @@ Class StrokeCollection from DotNetObject
 			return self
 		ok
 		dnRequest("call",[new DotNetObject(nHandle),"Erase",P1])
-		return self
-
-	Func Erase_2 P1,P2
-		dnRequest("call",[new DotNetObject(nHandle),"Erase",P1,P2])
 		return self
 
 	Func Draw P1
@@ -962,8 +962,16 @@ Class EllipseStylusShape from StylusShape
 		nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Ink.EllipseStylusShape, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Ink.EllipseStylusShape, PresentationCore',[P1])
 		return self
 
 
@@ -1016,8 +1024,16 @@ Class RectangleStylusShape from StylusShape
 		nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[P1,P2])
 		return self
 
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[P1,P2,P3])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Windows.Ink.RectangleStylusShape, PresentationCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Windows.Ink.RectangleStylusShape, PresentationCore',[P1])
 		return self
 
 

@@ -34,11 +34,11 @@ One rule is important: **a .NET string is not an object in Ring**, it is just a 
 | Call | Result |
 |---|---|
 | `oString.Join("-",aWords)` | all the words with `-` between them |
-| `oString.Format_3("{0} has {1} items","The list",3)` | `{0}`, `{1}` are replaced by the arguments |
+| `oString.Format([ :format = "{0} has {1} items", :arg0 = "The list", :arg1 = 3 ])` | `{0}`, `{1}` are replaced by the arguments |
 | `oString.IsNullOrWhiteSpace("   ")` | true for empty or blank text |
 | `oString.Compare("apple","banana")` | `-1` if the first sorts before the second, `0` if equal, `1` if after |
 
-`Format_3` ends with `_3` because this version of `Format` takes three parameters (the pattern and two values).
+`String.Format` exists in several forms, so in Ring it is one method that takes a list of named values: the pattern (`format`) and the values (`arg0`, `arg1`).
 
 ### Title case needs a culture
 
@@ -50,7 +50,7 @@ Adding to a Ring text in a loop copies the text every time. A `StringBuilder` gr
 
 ### Base64 and numbers in other bases
 
-`Convert.ToString_2(255,16)` writes a number in base 16 (`ff`). `Convert.ToBase64String("Ring")` encodes bytes as text (`UmluZw==`); Base64 is how binary data is sent in e-mail and web pages.
+`Convert.Format([ :value = 255, :toBase = 16 ])` writes a number in base 16 (`ff`). `Convert.ToBase64String("Ring")` encodes bytes as text (`UmluZw==`); Base64 is how binary data is sent in e-mail and web pages.
 
 ### Regular expressions
 
@@ -78,7 +78,7 @@ A computer stores bytes, not letters. An *encoding* says how letters become byte
 ## Exercises
 
 1. Use `Regex` to find every number in `"I have 3 cats and 12 fish"`. (Pattern: `[0-9]+`.)
-2. Use `String.Format_3` to print `Ann is 31 years old` from the values `"Ann"` and `31`.
+2. Use `String.Format` with a list of named values to print `Ann is 31 years old` from the values `"Ann"` and `31`.
 3. Write a function `isEmail(cText)` that returns true when `Regex.IsMatch` says the text looks like `name@site.com`.
 4. Encode your name to Base64 with `Convert.ToBase64String`, then decode it with `Convert.FromBase64String`.
 

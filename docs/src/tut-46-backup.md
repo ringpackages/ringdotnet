@@ -30,7 +30,7 @@ lead: Copy a folder into a zip file named by date, keep only the newest few, and
 
 ### Names that sort
 
-`2024-05-03_0900` sorts correctly as *text* because the biggest unit comes first and every part has a fixed width (`05`, not `5`). That is why `sort(list of names)` puts the oldest backup first. A stamp like `3-5-2024` would sort wrongly. A real program makes the stamp from the clock: `new DateTime().Now.ToString_1("yyyy-MM-dd_HHmm")`; the tutorial passes fixed stamps so that the output is repeatable.
+`2024-05-03_0900` sorts correctly as *text* because the biggest unit comes first and every part has a fixed width (`05`, not `5`). That is why `sort(list of names)` puts the oldest backup first. A stamp like `3-5-2024` would sort wrongly. A real program makes the stamp from the clock: `new DateTime().Now.Format("yyyy-MM-dd_HHmm")`; the tutorial passes fixed stamps so that the output is repeatable.
 
 ### Making a backup
 

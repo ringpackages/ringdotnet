@@ -118,6 +118,9 @@
 <a href="../tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="../tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="../tut-81-network-tools.html">81. Network tools</a>
+<a href="../tut-82-shared-memory.html">82. Shared memory</a>
+<a href="../tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="../tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="../concepts.html">Core concepts</a>
 <a href="../core-api.html">Core functions</a>
@@ -151,15 +154,15 @@
 <div class="clsbody">
 <p class="net"><code>System.Drawing.Text.FontCollection</code> · assembly <code>System.Drawing.Common</code></p>
 <p class="muted">Implements: IDisposable</p>
-<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Families</code></td><td><code>FontFamily[]</code></td><td>read</td><td><code>o.getFamilies()</code></td></tr></tbody></table></div>
-<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><span class="muted">—</span></td><td><code>void Dispose()</code></td></tr></tbody></table></div>
+<h4>Properties and fields</h4><div class="tablewrap"><table class="api"><thead><tr><th>Name</th><th>Type</th><th>Access</th><th>In Ring</th></tr></thead><tbody><tr><td><code>Families</code></td><td><code>FontFamily[]</code></td><td>read</td><td><code>o.Families</code></td></tr></tbody></table></div>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>Dispose</code></td><td><code>Dispose()</code></td><td><code>void Dispose()</code></td></tr></tbody></table></div>
 </div></details>
 <details class="cls" id="c-InstalledFontCollection"><summary><b>InstalledFontCollection</b> <span class="muted">class sealed · extends <a href="#c-FontCollection">FontCollection</a></span></summary>
 <div class="clsbody">
 <p class="net"><code>System.Drawing.Text.InstalledFontCollection</code> · assembly <code>System.Drawing.Common</code></p>
 <p class="muted">Implements: IDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new InstalledFontCollection()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new InstalledFontCollection(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("InstalledFontCollection",[ :param = value ])</code> by parameter names.</p>
+<p class="muted">Ring: <code>new InstalledFontCollection(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new InstalledFontCollection().New_([ :param = value ])</code> or <code>dnNew("InstalledFontCollection",[ :param = value ])</code>.</p>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <details class="cls" id="c-PrivateFontCollection"><summary><b>PrivateFontCollection</b> <span class="muted">class sealed · extends <a href="#c-FontCollection">FontCollection</a></span></summary>
@@ -167,8 +170,8 @@
 <p class="net"><code>System.Drawing.Text.PrivateFontCollection</code> · assembly <code>System.Drawing.Common</code></p>
 <p class="muted">Implements: IDisposable</p>
 <h4>Constructors</h4><div class="tablewrap"><table class="api"><tbody><tr><td><code>new PrivateFontCollection()</code></td></tr></tbody></table></div>
-<p class="muted">Ring: <code>new PrivateFontCollection(args)</code> uses one constructor, the others are <code>New_N(args)</code>; or <code>dnNew("PrivateFontCollection",[ :param = value ])</code> by parameter names.</p>
-<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddFontFile</code></td><td><span class="muted">—</span></td><td><code>void AddFontFile(string filename)</code></td></tr><tr><td><code>AddMemoryFont</code></td><td><span class="muted">—</span></td><td><code>void AddMemoryFont(IntPtr memory, int length)</code></td></tr></tbody></table></div>
+<p class="muted">Ring: <code>new PrivateFontCollection(args)</code> uses one constructor; the others are chosen by the parameter names: <code>new PrivateFontCollection().New_([ :param = value ])</code> or <code>dnNew("PrivateFontCollection",[ :param = value ])</code>.</p>
+<h4>Methods</h4><div class="tablewrap"><table class="api"><thead><tr><th>Method</th><th>Ring call</th><th>.NET overloads</th></tr></thead><tbody><tr><td><code>AddFontFile</code></td><td><code>AddFontFile(p1)</code></td><td><code>void AddFontFile(string filename)</code></td></tr><tr><td><code>AddMemoryFont</code></td><td><code>AddMemoryFont(p1,p2)</code></td><td><code>void AddMemoryFont(IntPtr memory, int length)</code></td></tr></tbody></table></div>
 <p class="muted">Members of the base class are inherited.</p>
 </div></details>
 <div class="pager"></div>

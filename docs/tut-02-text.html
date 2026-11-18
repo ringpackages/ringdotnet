@@ -118,6 +118,9 @@
 <a href="tut-79-processes-talk.html">79. Two programs talking</a>
 <a href="tut-80-json-nodes.html">80. JSON as a tree</a>
 <a href="tut-81-network-tools.html">81. Network tools</a>
+<a href="tut-82-shared-memory.html">82. Shared memory</a>
+<a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
+<a href="tut-84-http-client.html">84. HttpClient in depth</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -171,10 +174,10 @@ using {
 
 	<span class="c"># .NET adds helpers that Ring does not have. String's static methods:</span>
 	oString = <span class="k">new</span> <span class="t">String</span>()
-	? <span class="s">"Join            : "</span> + oString.<span class="f">Join</span>(<span class="s">"-"</span>,aWords)
-	? <span class="s">"Format          : "</span> + oString.<span class="f">Format_3</span>(<span class="s">"{0} has {1} items"</span>,<span class="s">"The list"</span>,<span class="n">3</span>)
+	? <span class="s">"Join            : "</span> + oString.<span class="f">Join</span>([ :separator = <span class="s">"-"</span>, :value = aWords ])
+	? <span class="s">"Format          : "</span> + oString.<span class="f">Format</span>([ :format = <span class="s">"{0} has {1} items"</span>, :arg0 = <span class="s">"The list"</span>, :arg1 = <span class="n">3</span> ])
 	? <span class="s">"Empty or blank? : "</span> + oString.<span class="f">IsNullOrWhiteSpace</span>(<span class="s">"   "</span>)
-	? <span class="s">"Compare (a &lt; b) : "</span> + oString.<span class="f">Compare</span>(<span class="s">"apple"</span>,<span class="s">"banana"</span>)
+	? <span class="s">"Compare (a &lt; b) : "</span> + oString.<span class="f">Compare</span>([ :strA = <span class="s">"apple"</span>, :strB = <span class="s">"banana"</span> ])
 
 	<span class="c"># Title case needs the culture of the user</span>
 	oText = <span class="k">new</span> <span class="t">CultureInfo</span>(<span class="s">"en-US"</span>).TextInfo
@@ -189,7 +192,7 @@ using {
 	? <span class="s">"StringBuilder   : "</span> + len(oBuilder.<span class="f">ToString</span>()) + <span class="s">" characters"</span>
 
 	<span class="c"># Numbers in other bases, and Base64</span>
-	? <span class="s">"255 in hex      : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToString_2</span>(<span class="n">255</span>,<span class="n">16</span>)
+	? <span class="s">"255 in hex      : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">Format</span>([ :value = <span class="n">255</span>, :toBase = <span class="n">16</span> ])
 	? <span class="s">"Base64          : "</span> + <span class="k">new</span> <span class="t">Convert</span>().<span class="f">ToBase64String</span>(<span class="s">"Ring"</span>)
 
 	<span class="c"># Regular expressions: patterns for text</span>
@@ -200,7 +203,7 @@ using {
 	<span class="k">for</span> nIndex = <span class="n">0</span> <span class="k">to</span> oMatches.Count - <span class="n">1</span>
 		? <span class="s">"  "</span> + oMatches.<span class="f">Item</span>(nIndex).Value
 	<span class="k">next</span>
-	? <span class="s">"Replaced        : "</span> + oEmail.<span class="f">Replace</span>(cMail,<span class="s">"&lt;hidden&gt;"</span>)
+	? <span class="s">"Replaced        : "</span> + oEmail.<span class="f">Replace</span>([ :input = cMail, :replacement = <span class="s">"&lt;hidden&gt;"</span> ])
 	? <span class="s">"Is it a number? : "</span> + <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"^[0-9]+$"</span>).<span class="f">IsMatch</span>(<span class="s">"12345"</span>) + <span class="s">" "</span> + <span class="k">new</span> <span class="t">Regex</span>(<span class="s">"^[0-9]+$"</span>).<span class="f">IsMatch</span>(<span class="s">"12x45"</span>)
 
 	<span class="c"># Encodings: text &lt;-&gt; bytes</span>
@@ -226,14 +229,14 @@ UTF-8 bytes     : 4 for Ring, 7 with an accent</code></pre></div>
 <h3 id="ring-first">Ring first<a class="anchor" href="#ring-first">#</a></h3>
 <p><code>upper(trim(cSentence))</code> is Ring. The words are found by turning spaces into new lines and reading each line as an item: <code>str2list(substr(cSentence," ",nl))</code>.</p>
 <h3 id="strings-static-helpers">String's static helpers<a class="anchor" href="#strings-static-helpers">#</a></h3>
-<div class="tablewrap"><table><thead><tr><th>Call</th><th>Result</th></tr></thead><tbody><tr><td><code>oString.Join("-",aWords)</code></td><td>all the words with <code>-</code> between them</td></tr><tr><td><code>oString.Format_3("{0} has {1} items","The list",3)</code></td><td><code>{0}</code>, <code>{1}</code> are replaced by the arguments</td></tr><tr><td><code>oString.IsNullOrWhiteSpace("   ")</code></td><td>true for empty or blank text</td></tr><tr><td><code>oString.Compare("apple","banana")</code></td><td><code>-1</code> if the first sorts before the second, <code>0</code> if equal, <code>1</code> if after</td></tr></tbody></table></div>
-<p><code>Format_3</code> ends with <code>_3</code> because this version of <code>Format</code> takes three parameters (the pattern and two values).</p>
+<div class="tablewrap"><table><thead><tr><th>Call</th><th>Result</th></tr></thead><tbody><tr><td><code>oString.Join("-",aWords)</code></td><td>all the words with <code>-</code> between them</td></tr><tr><td><code>oString.Format([ :format = "{0} has {1} items", :arg0 = "The list", :arg1 = 3 ])</code></td><td><code>{0}</code>, <code>{1}</code> are replaced by the arguments</td></tr><tr><td><code>oString.IsNullOrWhiteSpace("   ")</code></td><td>true for empty or blank text</td></tr><tr><td><code>oString.Compare("apple","banana")</code></td><td><code>-1</code> if the first sorts before the second, <code>0</code> if equal, <code>1</code> if after</td></tr></tbody></table></div>
+<p><code>String.Format</code> exists in several forms, so in Ring it is one method that takes a list of named values: the pattern (<code>format</code>) and the values (<code>arg0</code>, <code>arg1</code>).</p>
 <h3 id="title-case-needs-a-culture">Title case needs a culture<a class="anchor" href="#title-case-needs-a-culture">#</a></h3>
 <p>Capital letters depend on the language. <code>new CultureInfo("en-US").TextInfo.ToTitleCase(...)</code> makes <code>Ring Meets Dot Net</code>. A <em>culture</em> describes how a language writes text, numbers and dates.</p>
 <h3 id="stringbuilder-for-long-texts">StringBuilder for long texts<a class="anchor" href="#stringbuilder-for-long-texts">#</a></h3>
 <p>Adding to a Ring text in a loop copies the text every time. A <code>StringBuilder</code> grows in place, so use it when you build a big text (a report, a file). <code>AppendLine(NULL)</code> adds a new line; <code>NULL</code> means "no argument" for a method that has several versions.</p>
 <h3 id="base64-and-numbers-in-other-bases">Base64 and numbers in other bases<a class="anchor" href="#base64-and-numbers-in-other-bases">#</a></h3>
-<p><code>Convert.ToString_2(255,16)</code> writes a number in base 16 (<code>ff</code>). <code>Convert.ToBase64String("Ring")</code> encodes bytes as text (<code>UmluZw==</code>); Base64 is how binary data is sent in e-mail and web pages.</p>
+<p><code>Convert.Format([ :value = 255, :toBase = 16 ])</code> writes a number in base 16 (<code>ff</code>). <code>Convert.ToBase64String("Ring")</code> encodes bytes as text (<code>UmluZw==</code>); Base64 is how binary data is sent in e-mail and web pages.</p>
 <h3 id="regular-expressions">Regular expressions<a class="anchor" href="#regular-expressions">#</a></h3>
 <p>A <em>regular expression</em> (regex) is a pattern for text. <code>[a-z]+@[a-z]+\.com</code> means "letters, an @, letters, <code>.com</code>". <code>Regex</code> can:</p>
 <div class="tablewrap"><table><thead><tr><th>Method</th><th>Job</th></tr></thead><tbody><tr><td><code>Matches(text)</code></td><td>find all the places that match</td></tr><tr><td><code>Replace(text, replacement)</code></td><td>replace every match</td></tr><tr><td><code>IsMatch(text)</code></td><td>does the text match?</td></tr></tbody></table></div>
@@ -243,7 +246,7 @@ UTF-8 bytes     : 4 for Ring, 7 with an accent</code></pre></div>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
 <ul><li>Use Ring's own functions for basic text work; call <code>String</code>'s static helpers when you need <code>Join</code>, <code>Format</code>, <code>Compare</code>.</li><li><code>StringBuilder</code> builds long texts efficiently.</li><li><code>Regex</code> finds, tests and replaces patterns.</li><li>Text, bytes and encodings are different things.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
-<ol><li>Use <code>Regex</code> to find every number in <code>"I have 3 cats and 12 fish"</code>. (Pattern: <code>[0-9]+</code>.)</li><li>Use <code>String.Format_3</code> to print <code>Ann is 31 years old</code> from the values <code>"Ann"</code> and <code>31</code>.</li><li>Write a function <code>isEmail(cText)</code> that returns true when <code>Regex.IsMatch</code> says the text looks like <code>name@site.com</code>.</li><li>Encode your name to Base64 with <code>Convert.ToBase64String</code>, then decode it with <code>Convert.FromBase64String</code>.</li></ol>
+<ol><li>Use <code>Regex</code> to find every number in <code>"I have 3 cats and 12 fish"</code>. (Pattern: <code>[0-9]+</code>.)</li><li>Use <code>String.Format</code> with a list of named values to print <code>Ann is 31 years old</code> from the values <code>"Ann"</code> and <code>31</code>.</li><li>Write a function <code>isEmail(cText)</code> that returns true when <code>Regex.IsMatch</code> says the text looks like <code>name@site.com</code>.</li><li>Encode your name to Base64 with <code>Convert.ToBase64String</code>, then decode it with <code>Convert.FromBase64String</code>.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
 <p><a href="tut-03-numbers-dates.html">Tutorial 3: Numbers, dates and times</a>.</p>
 <div class="pager"><a href="tut-01-first-look.html"><small>Previous</small>1. A first look</a><a class="next" href="tut-03-numbers-dates.html"><small>Next</small>3. Numbers, dates, times</a></div>

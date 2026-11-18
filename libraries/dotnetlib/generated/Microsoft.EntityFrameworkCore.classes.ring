@@ -366,12 +366,6 @@ Class ChangeTrackerExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func ToDebugString_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore'),"ToDebugString",P1,P2,P3])
-
-	Func ToDebugString_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore'),"ToDebugString",P1,P2])
-
 	Func ToDebugString P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ChangeTrackerExtensions, Microsoft.EntityFrameworkCore'),"ToDebugString",P1])
@@ -404,9 +398,6 @@ Class DbContext from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
 
-	Func Set_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Set",P1])
-
 	Func SaveChanges P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChanges",P1])
@@ -416,12 +407,6 @@ Class DbContext from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
 
-	Func SaveChanges_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChanges",P1])
-
-	Func SaveChangesAsync_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
-
 	Func SaveChangesAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
@@ -430,9 +415,6 @@ Class DbContext from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1])
-
-	Func SaveChangesAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SaveChangesAsync",P1,P2])
 
 	Func Dispose 
 		dnRequest("call",[new DotNetObject(nHandle),"Dispose"])
@@ -446,9 +428,6 @@ Class DbContext from Object
 
 	Func Add P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Add",P1])
-
-	Func AddAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddAsync",P1,P2])
 
 	Func AddAsync P1
 		if dnIsNamed(P1)
@@ -486,18 +465,6 @@ Class DbContext from Object
 	Func RemoveRange P1
 		dnRequest("call",[new DotNetObject(nHandle),"RemoveRange",P1])
 		return self
-
-	Func AddRangeAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"AddRangeAsync",P1,P2])
-
-	Func Find_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Find",P1,P2])
-
-	Func FindAsync_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"FindAsync",P1,P2])
-
-	Func FindAsync_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"FindAsync",P1,P2,P3])
 
 	Func Find P1
 		if dnIsNamed(P1)
@@ -580,8 +547,16 @@ Class DbContextId from ValueType
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
+		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextId, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
 	Func getInstanceId
@@ -660,7 +635,15 @@ Class DbContextOptionsBuilder from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.DbContextOptionsBuilder, Microsoft.EntityFrameworkCore',[P1])
 		return self
 
@@ -670,23 +653,11 @@ Class DbContextOptionsBuilder from Object
 	Func UseLoggerFactory P1
 		return dnRequest("call",[new DotNetObject(nHandle),"UseLoggerFactory",P1])
 
-	Func LogTo_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2,P3])
-
-	Func LogTo_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2])
-
 	Func LogTo P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"LogTo",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1])
-
-	Func LogTo_4 P1,P2,P3,P4
-		return dnRequest("call",[new DotNetObject(nHandle),"LogTo",P1,P2,P3,P4])
-
-	Func EnableThreadSafetyChecks_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks",P1])
 
 	Func EnableThreadSafetyChecks P1
 		if dnIsNamed(P1)
@@ -696,9 +667,6 @@ Class DbContextOptionsBuilder from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnableThreadSafetyChecks",P1])
-
-	Func EnableDetailedErrors_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnableDetailedErrors",P1])
 
 	Func EnableDetailedErrors P1
 		if dnIsNamed(P1)
@@ -718,9 +686,6 @@ Class DbContextOptionsBuilder from Object
 	Func UseApplicationServiceProvider P1
 		return dnRequest("call",[new DotNetObject(nHandle),"UseApplicationServiceProvider",P1])
 
-	Func UseRootApplicationServiceProvider_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
-
 	Func UseRootApplicationServiceProvider P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
@@ -730,9 +695,6 @@ Class DbContextOptionsBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"UseRootApplicationServiceProvider",P1])
 
-	Func EnableSensitiveDataLogging_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
-
 	Func EnableSensitiveDataLogging P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
@@ -741,9 +703,6 @@ Class DbContextOptionsBuilder from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"EnableSensitiveDataLogging",P1])
-
-	Func EnableServiceProviderCaching_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"EnableServiceProviderCaching",P1])
 
 	Func EnableServiceProviderCaching P1
 		if dnIsNamed(P1)
@@ -818,11 +777,11 @@ Class DbFunctionsExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Like P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Like",P1,P2,P3])
-
-	Func Like_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Like",P1,P2,P3,P4])
+	Func Like P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Like",P1])
+		ok
+		raise("DotNet Error: Like does not take one argument: use named arguments, Like([ :parameter = value, ... ])")
 
 	Func Random P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.DbFunctionsExtensions, Microsoft.EntityFrameworkCore'),"Random",P1])
@@ -911,26 +870,17 @@ Class EntityFrameworkQueryableExtensions from Object
 	Func ToQueryString P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToQueryString",P1])
 
-	Func AnyAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AnyAsync",P1,P2])
-
 	Func AnyAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AnyAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AnyAsync",P1])
 
-	Func AnyAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AnyAsync",P1,P2,P3])
-
-	Func AllAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AllAsync",P1,P2,P3])
-
-	Func AllAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AllAsync",P1,P2])
-
-	Func CountAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"CountAsync",P1,P2])
+	Func AllAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AllAsync",P1])
+		ok
+		raise("DotNet Error: AllAsync does not take one argument: use named arguments, AllAsync([ :parameter = value, ... ])")
 
 	Func CountAsync P1
 		if dnIsNamed(P1)
@@ -938,35 +888,23 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"CountAsync",P1])
 
-	Func CountAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"CountAsync",P1,P2,P3])
-
-	Func LongCountAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LongCountAsync",P1,P2])
-
 	Func LongCountAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LongCountAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LongCountAsync",P1])
 
-	Func LongCountAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LongCountAsync",P1,P2,P3])
+	Func ElementAtAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtAsync",P1])
+		ok
+		raise("DotNet Error: ElementAtAsync does not take one argument: use named arguments, ElementAtAsync([ :parameter = value, ... ])")
 
-	Func ElementAtAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtAsync",P1,P2,P3])
-
-	Func ElementAtAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtAsync",P1,P2])
-
-	Func ElementAtOrDefaultAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtOrDefaultAsync",P1,P2,P3])
-
-	Func ElementAtOrDefaultAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtOrDefaultAsync",P1,P2])
-
-	Func FirstAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstAsync",P1,P2])
+	Func ElementAtOrDefaultAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ElementAtOrDefaultAsync",P1])
+		ok
+		raise("DotNet Error: ElementAtOrDefaultAsync does not take one argument: use named arguments, ElementAtOrDefaultAsync([ :parameter = value, ... ])")
 
 	Func FirstAsync P1
 		if dnIsNamed(P1)
@@ -974,23 +912,11 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstAsync",P1])
 
-	Func FirstAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstAsync",P1,P2,P3])
-
-	Func FirstOrDefaultAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstOrDefaultAsync",P1,P2])
-
 	Func FirstOrDefaultAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstOrDefaultAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstOrDefaultAsync",P1])
-
-	Func FirstOrDefaultAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"FirstOrDefaultAsync",P1,P2,P3])
-
-	Func LastAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastAsync",P1,P2])
 
 	Func LastAsync P1
 		if dnIsNamed(P1)
@@ -998,23 +924,11 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastAsync",P1])
 
-	Func LastAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastAsync",P1,P2,P3])
-
-	Func LastOrDefaultAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastOrDefaultAsync",P1,P2])
-
 	Func LastOrDefaultAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastOrDefaultAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastOrDefaultAsync",P1])
-
-	Func LastOrDefaultAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LastOrDefaultAsync",P1,P2,P3])
-
-	Func SingleAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleAsync",P1,P2])
 
 	Func SingleAsync P1
 		if dnIsNamed(P1)
@@ -1022,23 +936,11 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleAsync",P1])
 
-	Func SingleAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleAsync",P1,P2,P3])
-
-	Func SingleOrDefaultAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1,P2])
-
 	Func SingleOrDefaultAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1])
-
-	Func SingleOrDefaultAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SingleOrDefaultAsync",P1,P2,P3])
-
-	Func MinAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MinAsync",P1,P2])
 
 	Func MinAsync P1
 		if dnIsNamed(P1)
@@ -1046,23 +948,11 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MinAsync",P1])
 
-	Func MinAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MinAsync",P1,P2,P3])
-
-	Func MaxAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MaxAsync",P1,P2])
-
 	Func MaxAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MaxAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MaxAsync",P1])
-
-	Func MaxAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"MaxAsync",P1,P2,P3])
-
-	Func SumAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SumAsync",P1,P2])
 
 	Func SumAsync P1
 		if dnIsNamed(P1)
@@ -1070,29 +960,17 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SumAsync",P1])
 
-	Func SumAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"SumAsync",P1,P2,P3])
-
-	Func AverageAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AverageAsync",P1,P2])
-
 	Func AverageAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AverageAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AverageAsync",P1])
 
-	Func AverageAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AverageAsync",P1,P2,P3])
-
-	Func ContainsAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ContainsAsync",P1,P2,P3])
-
-	Func ContainsAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ContainsAsync",P1,P2])
-
-	Func ToListAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToListAsync",P1,P2])
+	Func ContainsAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ContainsAsync",P1])
+		ok
+		raise("DotNet Error: ContainsAsync does not take one argument: use named arguments, ContainsAsync([ :parameter = value, ... ])")
 
 	Func ToListAsync P1
 		if dnIsNamed(P1)
@@ -1100,26 +978,17 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToListAsync",P1])
 
-	Func ToArrayAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToArrayAsync",P1,P2])
-
 	Func ToArrayAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToArrayAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToArrayAsync",P1])
 
-	Func ToHashSetAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToHashSetAsync",P1,P2])
-
 	Func ToHashSetAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToHashSetAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToHashSetAsync",P1])
-
-	Func ToHashSetAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToHashSetAsync",P1,P2,P3])
 
 	Func Include P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"Include",P1,P2])
@@ -1145,17 +1014,8 @@ Class EntityFrameworkQueryableExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AsTracking",P1])
 
-	Func AsTracking_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AsTracking",P1,P2])
-
 	Func TagWith P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"TagWith",P1,P2])
-
-	Func TagWithCallSite_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"TagWithCallSite",P1,P2,P3])
-
-	Func TagWithCallSite_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"TagWithCallSite",P1,P2])
 
 	Func TagWithCallSite P1
 		if dnIsNamed(P1)
@@ -1167,41 +1027,29 @@ Class EntityFrameworkQueryableExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"Load",P1])
 		return self
 
-	Func LoadAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LoadAsync",P1,P2])
-
 	Func LoadAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LoadAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"LoadAsync",P1])
 
-	Func ToDictionaryAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1,P2,P3])
+	Func ToDictionaryAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1])
+		ok
+		raise("DotNet Error: ToDictionaryAsync does not take one argument: use named arguments, ToDictionaryAsync([ :parameter = value, ... ])")
 
-	Func ToDictionaryAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1,P2])
-
-	Func ToDictionaryAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1,P2,P3,P4])
-
-	Func ToDictionaryAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ToDictionaryAsync",P1,P2,P3,P4,P5])
-
-	Func ForEachAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ForEachAsync",P1,P2,P3])
-
-	Func ForEachAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ForEachAsync",P1,P2])
+	Func ForEachAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ForEachAsync",P1])
+		ok
+		raise("DotNet Error: ForEachAsync does not take one argument: use named arguments, ForEachAsync([ :parameter = value, ... ])")
 
 	Func AsAsyncEnumerable P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"AsAsyncEnumerable",P1])
 
 	Func ExecuteDelete P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteDelete",P1])
-
-	Func ExecuteDeleteAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteDeleteAsync",P1,P2])
 
 	Func ExecuteDeleteAsync P1
 		if dnIsNamed(P1)
@@ -1212,11 +1060,11 @@ Class EntityFrameworkQueryableExtensions from Object
 	Func ExecuteUpdate P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdate",P1,P2])
 
-	Func ExecuteUpdateAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdateAsync",P1,P2,P3])
-
-	Func ExecuteUpdateAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdateAsync",P1,P2])
+	Func ExecuteUpdateAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions, Microsoft.EntityFrameworkCore'),"ExecuteUpdateAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteUpdateAsync does not take one argument: use named arguments, ExecuteUpdateAsync([ :parameter = value, ... ])")
 
 
 Class ExecutionStrategyExtensions from Object
@@ -1232,51 +1080,29 @@ Class ExecutionStrategyExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Execute P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"Execute",P1,P2])
-		return self
+	Func Execute P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"Execute",P1])
+		ok
+		raise("DotNet Error: Execute does not take one argument: use named arguments, Execute([ :parameter = value, ... ])")
 
-	Func Execute_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"Execute",P1,P2,P3])
-		return self
+	Func ExecuteAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteAsync does not take one argument: use named arguments, ExecuteAsync([ :parameter = value, ... ])")
 
-	Func ExecuteAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1,P2])
+	Func ExecuteInTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransaction",P1])
+		ok
+		raise("DotNet Error: ExecuteInTransaction does not take one argument: use named arguments, ExecuteInTransaction([ :parameter = value, ... ])")
 
-	Func ExecuteAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1,P2,P3])
-
-	Func ExecuteAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1,P2,P3,P4])
-
-	Func Execute_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"Execute",P1,P2,P3,P4])
-
-	Func ExecuteAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteAsync",P1,P2,P3,P4,P5])
-
-	Func ExecuteInTransaction P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransaction",P1,P2,P3])
-		return self
-
-	Func ExecuteInTransactionAsync P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1,P2,P3])
-
-	Func ExecuteInTransactionAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1,P2,P3,P4])
-
-	Func ExecuteInTransaction_4 P1,P2,P3,P4
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransaction",P1,P2,P3,P4])
-		return self
-
-	Func ExecuteInTransactionAsync_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5])
-
-	Func ExecuteInTransaction_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransaction",P1,P2,P3,P4,P5])
-
-	Func ExecuteInTransactionAsync_6 P1,P2,P3,P4,P5,P6
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1,P2,P3,P4,P5,P6])
+	Func ExecuteInTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions, Microsoft.EntityFrameworkCore'),"ExecuteInTransactionAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteInTransactionAsync does not take one argument: use named arguments, ExecuteInTransactionAsync([ :parameter = value, ... ])")
 
 
 Class ModelBuilder from Object
@@ -1292,16 +1118,16 @@ Class ModelBuilder from Object
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',[])
+			return self
+		ok
 		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('Microsoft.EntityFrameworkCore.ModelBuilder, Microsoft.EntityFrameworkCore',[P1,P2,P3])
 		return self
 
 	Func HasAnnotation P1,P2
@@ -1322,18 +1148,6 @@ Class ModelBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1])
 
-	Func Entity_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Entity",P1])
-
-	Func SharedTypeEntity_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1,P2])
-
-	Func Entity_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Entity",P1,P2])
-
-	Func SharedTypeEntity_3 P1,P2,P3
-		return dnRequest("call",[new DotNetObject(nHandle),"SharedTypeEntity",P1,P2,P3])
-
 	Func Ignore P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Ignore",P1])
@@ -1343,14 +1157,8 @@ Class ModelBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
 
-	Func Ignore_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Ignore",P1])
-
 	Func ApplyConfiguration P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ApplyConfiguration",P1])
-
-	Func ApplyConfigurationsFromAssembly_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"ApplyConfigurationsFromAssembly",P1,P2])
 
 	Func ApplyConfigurationsFromAssembly P1
 		if dnIsNamed(P1)
@@ -1365,9 +1173,6 @@ Class ModelBuilder from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"Owned"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"Owned",P1])
-
-	Func Owned_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Owned",P1])
 
 	Func HasChangeTrackingStrategy P1
@@ -1414,9 +1219,6 @@ Class ModelConfigurationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"IgnoreAny",P1])
 
-	Func IgnoreAny_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"IgnoreAny",P1])
-
 	Func Properties P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Properties",P1])
@@ -1425,12 +1227,6 @@ Class ModelConfigurationBuilder from Object
 			return dnRequest("call",[new DotNetObject(nHandle),"Properties"])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Properties",P1])
-
-	Func Properties_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"Properties",P1])
-
-	Func Properties_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Properties",P1,P2])
 
 	Func DefaultTypeMapping P1
 		if dnIsNamed(P1)
@@ -1441,12 +1237,6 @@ Class ModelConfigurationBuilder from Object
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"DefaultTypeMapping",P1])
 
-	Func DefaultTypeMapping_1 P1
-		return dnRequest("call",[new DotNetObject(nHandle),"DefaultTypeMapping",P1])
-
-	Func DefaultTypeMapping_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"DefaultTypeMapping",P1,P2])
-
 	Func ComplexProperties P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"ComplexProperties",P1])
@@ -1454,9 +1244,6 @@ Class ModelConfigurationBuilder from Object
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperties"])
 		ok
-		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperties",P1])
-
-	Func ComplexProperties_1 P1
 		return dnRequest("call",[new DotNetObject(nHandle),"ComplexProperties",P1])
 
 	Func CreateModelBuilder P1
@@ -1558,9 +1345,6 @@ Class PropertyBaseExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func Format_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.PropertyBaseExtensions, Microsoft.EntityFrameworkCore'),"Format",P1,P2])
-
 	Func Format P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.PropertyBaseExtensions, Microsoft.EntityFrameworkCore'),"Format",P1])
@@ -1607,9 +1391,6 @@ Class RelationalComplexTypePrimitiveCollectionBuilderExtensions from Object
 	Func HasColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
 
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
-
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
@@ -1622,29 +1403,17 @@ Class RelationalComplexTypePrimitiveCollectionBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func HasDefaultValueSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1,P2])
-
 	Func HasComputedColumnSql P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func HasComputedColumnSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2])
-
-	Func HasComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2,P3])
-
 	Func HasDefaultValue P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
-
-	Func HasDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1,P2])
 
 	Func HasComment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2])
@@ -1678,9 +1447,6 @@ Class RelationalComplexTypePropertyBuilderExtensions from Object
 	Func HasColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
 
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
-
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
@@ -1693,29 +1459,17 @@ Class RelationalComplexTypePropertyBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func HasDefaultValueSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1,P2])
-
 	Func HasComputedColumnSql P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func HasComputedColumnSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2])
-
-	Func HasComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2,P3])
-
 	Func HasDefaultValue P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
-
-	Func HasDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1,P2])
 
 	Func HasComment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalComplexTypePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2])
@@ -1746,9 +1500,6 @@ Class RelationalDatabaseFacadeExtensions from Object
 	Func GetAppliedMigrations P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetAppliedMigrations",P1])
 
-	Func GetAppliedMigrationsAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetAppliedMigrationsAsync",P1,P2])
-
 	Func GetAppliedMigrationsAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetAppliedMigrationsAsync",P1])
@@ -1757,9 +1508,6 @@ Class RelationalDatabaseFacadeExtensions from Object
 
 	Func GetPendingMigrations P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetPendingMigrations",P1])
-
-	Func GetPendingMigrationsAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetPendingMigrationsAsync",P1,P2])
 
 	Func GetPendingMigrationsAsync P1
 		if dnIsNamed(P1)
@@ -1775,21 +1523,11 @@ Class RelationalDatabaseFacadeExtensions from Object
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"Migrate",P1])
 		return self
 
-	Func Migrate_2 P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"Migrate",P1,P2])
-		return self
-
-	Func MigrateAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"MigrateAsync",P1,P2])
-
 	Func MigrateAsync P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"MigrateAsync",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"MigrateAsync",P1])
-
-	Func MigrateAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"MigrateAsync",P1,P2,P3])
 
 	Func ExecuteSqlRaw P1,P2,P3
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRaw",P1,P2,P3])
@@ -1806,37 +1544,33 @@ Class RelationalDatabaseFacadeExtensions from Object
 	Func SqlQuery P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SqlQuery",P1,P2])
 
-	Func ExecuteSqlInterpolatedAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlInterpolatedAsync",P1,P2,P3])
+	Func ExecuteSqlInterpolatedAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlInterpolatedAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteSqlInterpolatedAsync does not take one argument: use named arguments, ExecuteSqlInterpolatedAsync([ :parameter = value, ... ])")
 
-	Func ExecuteSqlInterpolatedAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlInterpolatedAsync",P1,P2])
+	Func ExecuteSqlAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteSqlAsync does not take one argument: use named arguments, ExecuteSqlAsync([ :parameter = value, ... ])")
 
-	Func ExecuteSqlAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlAsync",P1,P2,P3])
-
-	Func ExecuteSqlAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlAsync",P1,P2])
-
-	Func ExecuteSqlRawAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRawAsync",P1,P2,P3])
-
-	Func ExecuteSqlRawAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRawAsync",P1,P2])
-
-	Func ExecuteSqlRawAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRawAsync",P1,P2,P3,P4])
+	Func ExecuteSqlRawAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExecuteSqlRawAsync",P1])
+		ok
+		raise("DotNet Error: ExecuteSqlRawAsync does not take one argument: use named arguments, ExecuteSqlRawAsync([ :parameter = value, ... ])")
 
 	Func GetDbConnection P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDbConnection",P1])
 
-	Func SetDbConnection_3 P1,P2,P3
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDbConnection",P1,P2,P3])
-		return self
-
-	Func SetDbConnection P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDbConnection",P1,P2])
-		return self
+	Func SetDbConnection P1
+		if dnIsNamed(P1)
+			dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDbConnection",P1])
+			return self
+		ok
+		raise("DotNet Error: SetDbConnection does not take one argument: use named arguments, SetDbConnection([ :parameter = value, ... ])")
 
 	Func GetConnectionString P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetConnectionString",P1])
@@ -1848,9 +1582,6 @@ Class RelationalDatabaseFacadeExtensions from Object
 	Func OpenConnection P1
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"OpenConnection",P1])
 		return self
-
-	Func OpenConnectionAsync_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"OpenConnectionAsync",P1,P2])
 
 	Func OpenConnectionAsync P1
 		if dnIsNamed(P1)
@@ -1868,26 +1599,23 @@ Class RelationalDatabaseFacadeExtensions from Object
 	Func BeginTransaction P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"BeginTransaction",P1,P2])
 
-	Func BeginTransactionAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"BeginTransactionAsync",P1,P2,P3])
+	Func BeginTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"BeginTransactionAsync",P1])
+		ok
+		raise("DotNet Error: BeginTransactionAsync does not take one argument: use named arguments, BeginTransactionAsync([ :parameter = value, ... ])")
 
-	Func BeginTransactionAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"BeginTransactionAsync",P1,P2])
+	Func UseTransaction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransaction",P1])
+		ok
+		raise("DotNet Error: UseTransaction does not take one argument: use named arguments, UseTransaction([ :parameter = value, ... ])")
 
-	Func UseTransaction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransaction",P1,P2])
-
-	Func UseTransaction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransaction",P1,P2,P3])
-
-	Func UseTransactionAsync_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransactionAsync",P1,P2,P3])
-
-	Func UseTransactionAsync P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransactionAsync",P1,P2])
-
-	Func UseTransactionAsync_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransactionAsync",P1,P2,P3,P4])
+	Func UseTransactionAsync P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTransactionAsync",P1])
+		ok
+		raise("DotNet Error: UseTransactionAsync does not take one argument: use named arguments, UseTransactionAsync([ :parameter = value, ... ])")
 
 	Func SetCommandTimeout P1,P2
 		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCommandTimeout",P1,P2])
@@ -1942,20 +1670,17 @@ Class RelationalElementTypeBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasStoreType P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasStoreType",P1,P2])
+	Func HasStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasStoreType",P1])
+		ok
+		raise("DotNet Error: HasStoreType does not take one argument: use named arguments, HasStoreType([ :parameter = value, ... ])")
 
-	Func HasStoreType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasStoreType",P1,P2,P3])
-
-	Func CanSetStoreType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetStoreType",P1,P2,P3])
-
-	Func CanSetStoreType P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetStoreType",P1,P2])
-
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
+	Func CanSetStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetStoreType",P1])
+		ok
+		raise("DotNet Error: CanSetStoreType does not take one argument: use named arguments, CanSetStoreType([ :parameter = value, ... ])")
 
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
@@ -1963,14 +1688,11 @@ Class RelationalElementTypeBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func IsFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2,P3])
-
-	Func CanSetFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFixedLength",P1,P2,P3])
-
-	Func CanSetFixedLength P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFixedLength",P1,P2])
+	Func CanSetFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFixedLength",P1])
+		ok
+		raise("DotNet Error: CanSetFixedLength does not take one argument: use named arguments, CanSetFixedLength([ :parameter = value, ... ])")
 
 
 Class RelationalElementTypeExtensions from Object
@@ -1989,12 +1711,11 @@ Class RelationalElementTypeExtensions from Object
 	Func GetStoreType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetStoreType",P1])
 
-	Func SetStoreType P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetStoreType",P1,P2])
-		return self
-
-	Func SetStoreType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetStoreType",P1,P2,P3])
+	Func SetStoreType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetStoreType",P1])
+		ok
+		raise("DotNet Error: SetStoreType does not take one argument: use named arguments, SetStoreType([ :parameter = value, ... ])")
 
 	Func GetStoreTypeConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetStoreTypeConfigurationSource",P1])
@@ -2005,15 +1726,11 @@ Class RelationalElementTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
-
-	Func SetIsFixedLength P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1,P2])
-		return self
-
-	Func SetIsFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1,P2,P3])
+	Func SetIsFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1])
+		ok
+		raise("DotNet Error: SetIsFixedLength does not take one argument: use named arguments, SetIsFixedLength([ :parameter = value, ... ])")
 
 	Func GetIsFixedLengthConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalElementTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsFixedLengthConfigurationSource",P1])
@@ -2047,164 +1764,149 @@ Class RelationalEntityTypeBuilderExtensions from Object
 	Func UseTptMappingStrategy P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseTptMappingStrategy",P1])
 
-	Func UseMappingStrategy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseMappingStrategy",P1,P2,P3])
+	Func UseMappingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseMappingStrategy",P1])
+		ok
+		raise("DotNet Error: UseMappingStrategy does not take one argument: use named arguments, UseMappingStrategy([ :parameter = value, ... ])")
 
-	Func UseMappingStrategy P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseMappingStrategy",P1,P2])
+	Func CanSetMappingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMappingStrategy",P1])
+		ok
+		raise("DotNet Error: CanSetMappingStrategy does not take one argument: use named arguments, CanSetMappingStrategy([ :parameter = value, ... ])")
 
-	Func CanSetMappingStrategy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMappingStrategy",P1,P2,P3])
+	Func ExcludeTableFromMigrations P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExcludeTableFromMigrations",P1])
+		ok
+		raise("DotNet Error: ExcludeTableFromMigrations does not take one argument: use named arguments, ExcludeTableFromMigrations([ :parameter = value, ... ])")
 
-	Func CanSetMappingStrategy P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMappingStrategy",P1,P2])
+	Func CanExcludeTableFromMigrations P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanExcludeTableFromMigrations",P1])
+		ok
+		raise("DotNet Error: CanExcludeTableFromMigrations does not take one argument: use named arguments, CanExcludeTableFromMigrations([ :parameter = value, ... ])")
 
-	Func ExcludeTableFromMigrations_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExcludeTableFromMigrations",P1,P2,P3])
+	Func ToSqlQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSqlQuery",P1])
+		ok
+		raise("DotNet Error: ToSqlQuery does not take one argument: use named arguments, ToSqlQuery([ :parameter = value, ... ])")
 
-	Func ExcludeTableFromMigrations P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ExcludeTableFromMigrations",P1,P2])
+	Func CanSetSqlQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSqlQuery",P1])
+		ok
+		raise("DotNet Error: CanSetSqlQuery does not take one argument: use named arguments, CanSetSqlQuery([ :parameter = value, ... ])")
 
-	Func CanExcludeTableFromMigrations_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanExcludeTableFromMigrations",P1,P2,P3])
+	Func ToFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToFunction",P1])
+		ok
+		raise("DotNet Error: ToFunction does not take one argument: use named arguments, ToFunction([ :parameter = value, ... ])")
 
-	Func CanExcludeTableFromMigrations P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanExcludeTableFromMigrations",P1,P2])
+	Func CanSetFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFunction",P1])
+		ok
+		raise("DotNet Error: CanSetFunction does not take one argument: use named arguments, CanSetFunction([ :parameter = value, ... ])")
 
-	Func ToSqlQuery P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSqlQuery",P1,P2])
+	Func HasCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasCheckConstraint",P1])
+		ok
+		raise("DotNet Error: HasCheckConstraint does not take one argument: use named arguments, HasCheckConstraint([ :parameter = value, ... ])")
 
-	Func ToSqlQuery_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSqlQuery",P1,P2,P3])
+	Func CanHaveCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanHaveCheckConstraint",P1])
+		ok
+		raise("DotNet Error: CanHaveCheckConstraint does not take one argument: use named arguments, CanHaveCheckConstraint([ :parameter = value, ... ])")
 
-	Func CanSetSqlQuery_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSqlQuery",P1,P2,P3])
+	Func HasComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1])
+		ok
+		raise("DotNet Error: HasComment does not take one argument: use named arguments, HasComment([ :parameter = value, ... ])")
 
-	Func CanSetSqlQuery P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSqlQuery",P1,P2])
+	Func CanSetComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1])
+		ok
+		raise("DotNet Error: CanSetComment does not take one argument: use named arguments, CanSetComment([ :parameter = value, ... ])")
 
-	Func ToFunction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToFunction",P1,P2])
+	Func HasJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: HasJsonPropertyName does not take one argument: use named arguments, HasJsonPropertyName([ :parameter = value, ... ])")
 
-	Func ToFunction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToFunction",P1,P2,P3])
+	Func CanSetJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: CanSetJsonPropertyName does not take one argument: use named arguments, CanSetJsonPropertyName([ :parameter = value, ... ])")
 
-	Func CanSetFunction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFunction",P1,P2,P3])
+	Func ToTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToTable",P1])
+		ok
+		raise("DotNet Error: ToTable does not take one argument: use named arguments, ToTable([ :parameter = value, ... ])")
 
-	Func CanSetFunction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFunction",P1,P2])
+	Func SplitToTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToTable",P1])
+		ok
+		raise("DotNet Error: SplitToTable does not take one argument: use named arguments, SplitToTable([ :parameter = value, ... ])")
 
-	Func HasCheckConstraint P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasCheckConstraint",P1,P2,P3])
+	Func CanSetTable P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTable",P1])
+		ok
+		raise("DotNet Error: CanSetTable does not take one argument: use named arguments, CanSetTable([ :parameter = value, ... ])")
 
-	Func HasCheckConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasCheckConstraint",P1,P2,P3,P4])
+	Func ToSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSchema",P1])
+		ok
+		raise("DotNet Error: ToSchema does not take one argument: use named arguments, ToSchema([ :parameter = value, ... ])")
 
-	Func CanHaveCheckConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanHaveCheckConstraint",P1,P2,P3,P4])
+	Func CanSetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSchema",P1])
+		ok
+		raise("DotNet Error: CanSetSchema does not take one argument: use named arguments, CanSetSchema([ :parameter = value, ... ])")
 
-	Func CanHaveCheckConstraint P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanHaveCheckConstraint",P1,P2,P3])
+	Func ToView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToView",P1])
+		ok
+		raise("DotNet Error: ToView does not take one argument: use named arguments, ToView([ :parameter = value, ... ])")
 
-	Func HasComment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2])
+	Func SplitToView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToView",P1])
+		ok
+		raise("DotNet Error: SplitToView does not take one argument: use named arguments, SplitToView([ :parameter = value, ... ])")
 
-	Func HasComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2,P3])
+	Func CanSetView P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetView",P1])
+		ok
+		raise("DotNet Error: CanSetView does not take one argument: use named arguments, CanSetView([ :parameter = value, ... ])")
 
-	Func CanSetComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1,P2,P3])
+	Func ToViewSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToViewSchema",P1])
+		ok
+		raise("DotNet Error: ToViewSchema does not take one argument: use named arguments, ToViewSchema([ :parameter = value, ... ])")
 
-	Func CanSetComment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1,P2])
-
-	Func HasJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2,P3])
-
-	Func HasJsonPropertyName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2])
-
-	Func CanSetJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1,P2,P3])
-
-	Func CanSetJsonPropertyName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1,P2])
-
-	Func ToTable P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToTable",P1,P2])
-
-	Func ToTable_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToTable",P1,P2,P3])
-
-	Func ToTable_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToTable",P1,P2,P3,P4])
-
-	Func SplitToTable P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToTable",P1,P2,P3])
-
-	Func SplitToTable_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToTable",P1,P2,P3,P4])
-
-	Func CanSetTable_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTable",P1,P2,P3])
-
-	Func CanSetTable P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTable",P1,P2])
-
-	Func ToSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSchema",P1,P2,P3])
-
-	Func ToSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToSchema",P1,P2])
-
-	Func CanSetSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSchema",P1,P2,P3])
-
-	Func CanSetSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetSchema",P1,P2])
-
-	Func ToView P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToView",P1,P2])
-
-	Func ToView_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToView",P1,P2,P3])
-
-	Func ToView_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToView",P1,P2,P3,P4])
-
-	Func SplitToView P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToView",P1,P2,P3])
-
-	Func SplitToView_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"SplitToView",P1,P2,P3,P4])
-
-	Func CanSetView_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetView",P1,P2,P3])
-
-	Func CanSetView P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetView",P1,P2])
-
-	Func ToViewSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToViewSchema",P1,P2,P3])
-
-	Func ToViewSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToViewSchema",P1,P2])
-
-	Func CanSetViewSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetViewSchema",P1,P2,P3])
-
-	Func CanSetViewSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetViewSchema",P1,P2])
-
-	Func UpdateUsingStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UpdateUsingStoredProcedure",P1,P2])
-
-	Func UpdateUsingStoredProcedure_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UpdateUsingStoredProcedure",P1,P2,P3])
-
-	Func UpdateUsingStoredProcedure_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UpdateUsingStoredProcedure",P1,P2,P3,P4])
+	Func CanSetViewSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetViewSchema",P1])
+		ok
+		raise("DotNet Error: CanSetViewSchema does not take one argument: use named arguments, CanSetViewSchema([ :parameter = value, ... ])")
 
 	Func UpdateUsingStoredProcedure P1
 		if dnIsNamed(P1)
@@ -2212,29 +1914,11 @@ Class RelationalEntityTypeBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UpdateUsingStoredProcedure",P1])
 
-	Func DeleteUsingStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"DeleteUsingStoredProcedure",P1,P2])
-
-	Func DeleteUsingStoredProcedure_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"DeleteUsingStoredProcedure",P1,P2,P3])
-
-	Func DeleteUsingStoredProcedure_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"DeleteUsingStoredProcedure",P1,P2,P3,P4])
-
 	Func DeleteUsingStoredProcedure P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"DeleteUsingStoredProcedure",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"DeleteUsingStoredProcedure",P1])
-
-	Func InsertUsingStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"InsertUsingStoredProcedure",P1,P2])
-
-	Func InsertUsingStoredProcedure_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"InsertUsingStoredProcedure",P1,P2,P3])
-
-	Func InsertUsingStoredProcedure_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"InsertUsingStoredProcedure",P1,P2,P3,P4])
 
 	Func InsertUsingStoredProcedure P1
 		if dnIsNamed(P1)
@@ -2261,21 +1945,17 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetTableName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableName",P1])
 
-	Func GetDefaultTableName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultTableName",P1,P2])
-
 	Func GetDefaultTableName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultTableName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultTableName",P1])
 
-	Func SetTableName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1,P2])
-		return self
-
-	Func SetTableName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1,P2,P3])
+	Func SetTableName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1])
+		ok
+		raise("DotNet Error: SetTableName does not take one argument: use named arguments, SetTableName([ :parameter = value, ... ])")
 
 	Func GetTableNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableNameConfigurationSource",P1])
@@ -2286,12 +1966,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetDefaultSchema P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultSchema",P1])
 
-	Func SetSchema P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSchema",P1,P2])
-		return self
-
-	Func SetSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSchema",P1,P2,P3])
+	Func SetSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSchema",P1])
+		ok
+		raise("DotNet Error: SetSchema does not take one argument: use named arguments, SetSchema([ :parameter = value, ... ])")
 
 	Func GetSchemaConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetSchemaConfigurationSource",P1])
@@ -2308,12 +1987,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetDefaultViewName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultViewName",P1])
 
-	Func SetViewName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewName",P1,P2])
-		return self
-
-	Func SetViewName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewName",P1,P2,P3])
+	Func SetViewName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewName",P1])
+		ok
+		raise("DotNet Error: SetViewName does not take one argument: use named arguments, SetViewName([ :parameter = value, ... ])")
 
 	Func GetViewNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetViewNameConfigurationSource",P1])
@@ -2324,12 +2002,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetDefaultViewSchema P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultViewSchema",P1])
 
-	Func SetViewSchema P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewSchema",P1,P2])
-		return self
-
-	Func SetViewSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewSchema",P1,P2,P3])
+	Func SetViewSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetViewSchema",P1])
+		ok
+		raise("DotNet Error: SetViewSchema does not take one argument: use named arguments, SetViewSchema([ :parameter = value, ... ])")
 
 	Func GetViewSchemaConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetViewSchemaConfigurationSource",P1])
@@ -2340,12 +2017,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetSqlQuery P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetSqlQuery",P1])
 
-	Func SetSqlQuery P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSqlQuery",P1,P2])
-		return self
-
-	Func SetSqlQuery_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSqlQuery",P1,P2,P3])
+	Func SetSqlQuery P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetSqlQuery",P1])
+		ok
+		raise("DotNet Error: SetSqlQuery does not take one argument: use named arguments, SetSqlQuery([ :parameter = value, ... ])")
 
 	Func GetSqlQueryConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetSqlQueryConfigurationSource",P1])
@@ -2353,12 +2029,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetFunctionName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFunctionName",P1])
 
-	Func SetFunctionName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFunctionName",P1,P2])
-		return self
-
-	Func SetFunctionName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFunctionName",P1,P2,P3])
+	Func SetFunctionName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFunctionName",P1])
+		ok
+		raise("DotNet Error: SetFunctionName does not take one argument: use named arguments, SetFunctionName([ :parameter = value, ... ])")
 
 	Func GetFunctionNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFunctionNameConfigurationSource",P1])
@@ -2371,9 +2046,6 @@ Class RelationalEntityTypeExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDeleteStoredProcedure",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDeleteStoredProcedure",P1])
-
-	Func SetDeleteStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDeleteStoredProcedure",P1,P2])
 
 	Func RemoveDeleteStoredProcedure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveDeleteStoredProcedure",P1])
@@ -2390,9 +2062,6 @@ Class RelationalEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetInsertStoredProcedure",P1])
 
-	Func SetInsertStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetInsertStoredProcedure",P1,P2])
-
 	Func RemoveInsertStoredProcedure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveInsertStoredProcedure",P1])
 
@@ -2408,9 +2077,6 @@ Class RelationalEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetUpdateStoredProcedure",P1])
 
-	Func SetUpdateStoredProcedure_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetUpdateStoredProcedure",P1,P2])
-
 	Func RemoveUpdateStoredProcedure P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveUpdateStoredProcedure",P1])
 
@@ -2420,11 +2086,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func FindCheckConstraint P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindCheckConstraint",P1,P2])
 
-	Func AddCheckConstraint P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddCheckConstraint",P1,P2,P3])
-
-	Func AddCheckConstraint_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddCheckConstraint",P1,P2,P3,P4])
+	Func AddCheckConstraint P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddCheckConstraint",P1])
+		ok
+		raise("DotNet Error: AddCheckConstraint does not take one argument: use named arguments, AddCheckConstraint([ :parameter = value, ... ])")
 
 	Func RemoveCheckConstraint P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveCheckConstraint",P1,P2])
@@ -2438,12 +2104,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetComment P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
 
-	Func SetComment P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1,P2])
-		return self
-
-	Func SetComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1,P2,P3])
+	Func SetComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1])
+		ok
+		raise("DotNet Error: SetComment does not take one argument: use named arguments, SetComment([ :parameter = value, ... ])")
 
 	Func GetCommentConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCommentConfigurationSource",P1])
@@ -2454,17 +2119,14 @@ Class RelationalEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
 
-	Func GetMappingFragments_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1,P2])
-
 	Func FindMappingFragment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindMappingFragment",P1,P2])
 
-	Func GetOrCreateMappingFragment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateMappingFragment",P1,P2])
-
-	Func GetOrCreateMappingFragment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateMappingFragment",P1,P2,P3])
+	Func GetOrCreateMappingFragment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateMappingFragment",P1])
+		ok
+		raise("DotNet Error: GetOrCreateMappingFragment does not take one argument: use named arguments, GetOrCreateMappingFragment([ :parameter = value, ... ])")
 
 	Func RemoveMappingFragment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveMappingFragment",P1,P2])
@@ -2478,18 +2140,11 @@ Class RelationalEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsTableExcludedFromMigrations",P1])
 
-	Func IsTableExcludedFromMigrations_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsTableExcludedFromMigrations",P1,P2])
-
-	Func SetIsTableExcludedFromMigrations P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsTableExcludedFromMigrations",P1,P2])
-		return self
-
-	Func SetIsTableExcludedFromMigrations_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsTableExcludedFromMigrations",P1,P2,P3])
-
-	Func SetIsTableExcludedFromMigrations_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsTableExcludedFromMigrations",P1,P2,P3,P4])
+	Func SetIsTableExcludedFromMigrations P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsTableExcludedFromMigrations",P1])
+		ok
+		raise("DotNet Error: SetIsTableExcludedFromMigrations does not take one argument: use named arguments, SetIsTableExcludedFromMigrations([ :parameter = value, ... ])")
 
 	Func GetIsTableExcludedFromMigrationsConfigurationSource P1
 		if dnIsNamed(P1)
@@ -2497,18 +2152,14 @@ Class RelationalEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsTableExcludedFromMigrationsConfigurationSource",P1])
 
-	Func GetIsTableExcludedFromMigrationsConfigurationSource_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsTableExcludedFromMigrationsConfigurationSource",P1,P2])
-
 	Func GetMappingStrategy P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingStrategy",P1])
 
-	Func SetMappingStrategy P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMappingStrategy",P1,P2])
-		return self
-
-	Func SetMappingStrategy_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMappingStrategy",P1,P2,P3])
+	Func SetMappingStrategy P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMappingStrategy",P1])
+		ok
+		raise("DotNet Error: SetMappingStrategy does not take one argument: use named arguments, SetMappingStrategy([ :parameter = value, ... ])")
 
 	Func GetMappingStrategyConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingStrategyConfigurationSource",P1])
@@ -2516,12 +2167,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func IsMappedToJson P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsMappedToJson",P1])
 
-	Func SetContainerColumnName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnName",P1,P2])
-		return self
-
-	Func SetContainerColumnName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnName",P1,P2,P3])
+	Func SetContainerColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnName",P1])
+		ok
+		raise("DotNet Error: SetContainerColumnName does not take one argument: use named arguments, SetContainerColumnName([ :parameter = value, ... ])")
 
 	Func GetContainerColumnNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnNameConfigurationSource",P1])
@@ -2529,12 +2179,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetContainerColumnName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnName",P1])
 
-	Func SetContainerColumnType P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnType",P1,P2])
-		return self
-
-	Func SetContainerColumnType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnType",P1,P2,P3])
+	Func SetContainerColumnType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnType",P1])
+		ok
+		raise("DotNet Error: SetContainerColumnType does not take one argument: use named arguments, SetContainerColumnType([ :parameter = value, ... ])")
 
 	Func GetContainerColumnTypeConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnTypeConfigurationSource",P1])
@@ -2542,12 +2191,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetContainerColumnType P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnType",P1])
 
-	Func SetContainerColumnTypeMapping P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnTypeMapping",P1,P2])
-		return self
-
-	Func SetContainerColumnTypeMapping_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnTypeMapping",P1,P2,P3])
+	Func SetContainerColumnTypeMapping P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetContainerColumnTypeMapping",P1])
+		ok
+		raise("DotNet Error: SetContainerColumnTypeMapping does not take one argument: use named arguments, SetContainerColumnTypeMapping([ :parameter = value, ... ])")
 
 	Func GetContainerColumnTypeMappingConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnTypeMappingConfigurationSource",P1])
@@ -2555,11 +2203,11 @@ Class RelationalEntityTypeExtensions from Object
 	Func GetContainerColumnTypeMapping P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetContainerColumnTypeMapping",P1])
 
-	Func SetJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1,P2,P3])
-
-	Func SetJsonPropertyName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1,P2])
+	Func SetJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: SetJsonPropertyName does not take one argument: use named arguments, SetJsonPropertyName([ :parameter = value, ... ])")
 
 	Func GetJsonPropertyName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalEntityTypeExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyName",P1])
@@ -2587,17 +2235,17 @@ Class RelationalForeignKeyBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasConstraintName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasConstraintName",P1,P2])
+	Func HasConstraintName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasConstraintName",P1])
+		ok
+		raise("DotNet Error: HasConstraintName does not take one argument: use named arguments, HasConstraintName([ :parameter = value, ... ])")
 
-	Func HasConstraintName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasConstraintName",P1,P2,P3])
-
-	Func CanSetConstraintName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetConstraintName",P1,P2,P3])
-
-	Func CanSetConstraintName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetConstraintName",P1,P2])
+	Func CanSetConstraintName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetConstraintName",P1])
+		ok
+		raise("DotNet Error: CanSetConstraintName does not take one argument: use named arguments, CanSetConstraintName([ :parameter = value, ... ])")
 
 
 Class RelationalForeignKeyExtensions from Object
@@ -2619,24 +2267,17 @@ Class RelationalForeignKeyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetConstraintName",P1])
 
-	Func GetConstraintName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetConstraintName",P1,P2,P3])
-
 	Func GetDefaultName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1])
 
-	Func GetDefaultName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1,P2,P3])
-
-	Func SetConstraintName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetConstraintName",P1,P2])
-		return self
-
-	Func SetConstraintName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetConstraintName",P1,P2,P3])
+	Func SetConstraintName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetConstraintName",P1])
+		ok
+		raise("DotNet Error: SetConstraintName does not take one argument: use named arguments, SetConstraintName([ :parameter = value, ... ])")
 
 	Func GetConstraintNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalForeignKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetConstraintNameConfigurationSource",P1])
@@ -2664,32 +2305,32 @@ Class RelationalIndexBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasDatabaseName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1,P2])
+	Func HasDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1])
+		ok
+		raise("DotNet Error: HasDatabaseName does not take one argument: use named arguments, HasDatabaseName([ :parameter = value, ... ])")
 
 	Func HasName P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasName",P1,P2])
 
-	Func HasDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1,P2,P3])
+	Func CanSetDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1])
+		ok
+		raise("DotNet Error: CanSetDatabaseName does not take one argument: use named arguments, CanSetDatabaseName([ :parameter = value, ... ])")
 
-	Func CanSetDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1,P2,P3])
+	Func HasFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasFilter",P1])
+		ok
+		raise("DotNet Error: HasFilter does not take one argument: use named arguments, HasFilter([ :parameter = value, ... ])")
 
-	Func CanSetDatabaseName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1,P2])
-
-	Func HasFilter P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasFilter",P1,P2])
-
-	Func HasFilter_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasFilter",P1,P2,P3])
-
-	Func CanSetFilter_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFilter",P1,P2,P3])
-
-	Func CanSetFilter P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFilter",P1,P2])
+	Func CanSetFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetFilter",P1])
+		ok
+		raise("DotNet Error: CanSetFilter does not take one argument: use named arguments, CanSetFilter([ :parameter = value, ... ])")
 
 
 Class RelationalIndexExtensions from Object
@@ -2711,24 +2352,17 @@ Class RelationalIndexExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseName",P1])
 
-	Func GetDatabaseName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseName",P1,P2])
-
 	Func GetDefaultDatabaseName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1])
 
-	Func GetDefaultDatabaseName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1,P2])
-
-	Func SetDatabaseName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1,P2])
-		return self
-
-	Func SetDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1,P2,P3])
+	Func SetDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1])
+		ok
+		raise("DotNet Error: SetDatabaseName does not take one argument: use named arguments, SetDatabaseName([ :parameter = value, ... ])")
 
 	Func GetDatabaseNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseNameConfigurationSource",P1])
@@ -2739,15 +2373,11 @@ Class RelationalIndexExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFilter",P1])
 
-	Func GetFilter_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFilter",P1,P2])
-
-	Func SetFilter P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFilter",P1,P2])
-		return self
-
-	Func SetFilter_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFilter",P1,P2,P3])
+	Func SetFilter P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetFilter",P1])
+		ok
+		raise("DotNet Error: SetFilter does not take one argument: use named arguments, SetFilter([ :parameter = value, ... ])")
 
 	Func GetFilterConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalIndexExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetFilterConfigurationSource",P1])
@@ -2772,17 +2402,17 @@ Class RelationalKeyBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasName",P1,P2])
+	Func HasName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasName",P1])
+		ok
+		raise("DotNet Error: HasName does not take one argument: use named arguments, HasName([ :parameter = value, ... ])")
 
-	Func HasName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasName",P1,P2,P3])
-
-	Func CanSetName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetName",P1,P2,P3])
-
-	Func CanSetName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetName",P1,P2])
+	Func CanSetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetName",P1])
+		ok
+		raise("DotNet Error: CanSetName does not take one argument: use named arguments, CanSetName([ :parameter = value, ... ])")
 
 
 Class RelationalKeyExtensions from Object
@@ -2804,24 +2434,17 @@ Class RelationalKeyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetName",P1])
 
-	Func GetName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetName",P1,P2])
-
 	Func GetDefaultName P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1])
 
-	Func GetDefaultName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultName",P1,P2])
-
-	Func SetName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetName",P1,P2])
-		return self
-
-	Func SetName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetName",P1,P2,P3])
+	Func SetName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetName",P1])
+		ok
+		raise("DotNet Error: SetName does not take one argument: use named arguments, SetName([ :parameter = value, ... ])")
 
 	Func GetNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalKeyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetNameConfigurationSource",P1])
@@ -2846,62 +2469,53 @@ Class RelationalModelBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasSequence_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1,P2,P3])
+	Func HasSequence P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1])
+		ok
+		raise("DotNet Error: HasSequence does not take one argument: use named arguments, HasSequence([ :parameter = value, ... ])")
 
-	Func HasSequence P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1,P2])
+	Func HasDbFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDbFunction",P1])
+		ok
+		raise("DotNet Error: HasDbFunction does not take one argument: use named arguments, HasDbFunction([ :parameter = value, ... ])")
 
-	Func HasSequence_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1,P2,P3,P4])
+	Func HasDefaultSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultSchema",P1])
+		ok
+		raise("DotNet Error: HasDefaultSchema does not take one argument: use named arguments, HasDefaultSchema([ :parameter = value, ... ])")
 
-	Func HasSequence_5 P1,P2,P3,P4,P5
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasSequence",P1,P2,P3,P4,P5])
+	Func CanSetDefaultSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultSchema",P1])
+		ok
+		raise("DotNet Error: CanSetDefaultSchema does not take one argument: use named arguments, CanSetDefaultSchema([ :parameter = value, ... ])")
 
-	Func HasDbFunction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDbFunction",P1,P2])
+	Func HasMaxIdentifierLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasMaxIdentifierLength",P1])
+		ok
+		raise("DotNet Error: HasMaxIdentifierLength does not take one argument: use named arguments, HasMaxIdentifierLength([ :parameter = value, ... ])")
 
-	Func HasDbFunction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDbFunction",P1,P2,P3])
+	Func CanSetMaxIdentifierLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMaxIdentifierLength",P1])
+		ok
+		raise("DotNet Error: CanSetMaxIdentifierLength does not take one argument: use named arguments, CanSetMaxIdentifierLength([ :parameter = value, ... ])")
 
-	Func HasDbFunction_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDbFunction",P1,P2,P3,P4])
+	Func UseCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1])
+		ok
+		raise("DotNet Error: UseCollation does not take one argument: use named arguments, UseCollation([ :parameter = value, ... ])")
 
-	Func HasDefaultSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultSchema",P1,P2])
-
-	Func HasDefaultSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultSchema",P1,P2,P3])
-
-	Func CanSetDefaultSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultSchema",P1,P2,P3])
-
-	Func CanSetDefaultSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultSchema",P1,P2])
-
-	Func HasMaxIdentifierLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasMaxIdentifierLength",P1,P2,P3])
-
-	Func HasMaxIdentifierLength P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasMaxIdentifierLength",P1,P2])
-
-	Func CanSetMaxIdentifierLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMaxIdentifierLength",P1,P2,P3])
-
-	Func CanSetMaxIdentifierLength P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetMaxIdentifierLength",P1,P2])
-
-	Func UseCollation P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1,P2])
-
-	Func UseCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1,P2,P3])
-
-	Func CanSetCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1,P2,P3])
-
-	Func CanSetCollation P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1,P2])
+	Func CanSetCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1])
+		ok
+		raise("DotNet Error: CanSetCollation does not take one argument: use named arguments, CanSetCollation([ :parameter = value, ... ])")
 
 
 Class RelationalModelExtensions from Object
@@ -2920,12 +2534,11 @@ Class RelationalModelExtensions from Object
 	Func GetDefaultSchema P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultSchema",P1])
 
-	Func SetDefaultSchema P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultSchema",P1,P2])
-		return self
-
-	Func SetDefaultSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultSchema",P1,P2,P3])
+	Func SetDefaultSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultSchema",P1])
+		ok
+		raise("DotNet Error: SetDefaultSchema does not take one argument: use named arguments, SetDefaultSchema([ :parameter = value, ... ])")
 
 	Func GetDefaultSchemaConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultSchemaConfigurationSource",P1])
@@ -2936,36 +2549,32 @@ Class RelationalModelExtensions from Object
 	Func GetMaxIdentifierLength P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMaxIdentifierLength",P1])
 
-	Func SetMaxIdentifierLength P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMaxIdentifierLength",P1,P2])
-		return self
-
-	Func SetMaxIdentifierLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMaxIdentifierLength",P1,P2,P3])
+	Func SetMaxIdentifierLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetMaxIdentifierLength",P1])
+		ok
+		raise("DotNet Error: SetMaxIdentifierLength does not take one argument: use named arguments, SetMaxIdentifierLength([ :parameter = value, ... ])")
 
 	Func GetMaxIdentifierLengthConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMaxIdentifierLengthConfigurationSource",P1])
 
-	Func FindSequence_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSequence",P1,P2,P3])
+	Func FindSequence P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSequence",P1])
+		ok
+		raise("DotNet Error: FindSequence does not take one argument: use named arguments, FindSequence([ :parameter = value, ... ])")
 
-	Func FindSequence P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSequence",P1,P2])
+	Func AddSequence P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddSequence",P1])
+		ok
+		raise("DotNet Error: AddSequence does not take one argument: use named arguments, AddSequence([ :parameter = value, ... ])")
 
-	Func AddSequence_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddSequence",P1,P2,P3])
-
-	Func AddSequence P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddSequence",P1,P2])
-
-	Func AddSequence_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddSequence",P1,P2,P3,P4])
-
-	Func RemoveSequence_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveSequence",P1,P2,P3])
-
-	Func RemoveSequence P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveSequence",P1,P2])
+	Func RemoveSequence P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveSequence",P1])
+		ok
+		raise("DotNet Error: RemoveSequence does not take one argument: use named arguments, RemoveSequence([ :parameter = value, ... ])")
 
 	Func GetSequences P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetSequences",P1])
@@ -2973,14 +2582,11 @@ Class RelationalModelExtensions from Object
 	Func FindDbFunction P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindDbFunction",P1,P2])
 
-	Func AddDbFunction P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddDbFunction",P1,P2])
-
-	Func AddDbFunction_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddDbFunction",P1,P2,P3])
-
-	Func AddDbFunction_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddDbFunction",P1,P2,P3,P4])
+	Func AddDbFunction P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"AddDbFunction",P1])
+		ok
+		raise("DotNet Error: AddDbFunction does not take one argument: use named arguments, AddDbFunction([ :parameter = value, ... ])")
 
 	Func RemoveDbFunction P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveDbFunction",P1,P2])
@@ -2991,12 +2597,11 @@ Class RelationalModelExtensions from Object
 	Func GetCollation P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
 
-	Func SetCollation P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1,P2])
-		return self
-
-	Func SetCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1,P2,P3])
+	Func SetCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1])
+		ok
+		raise("DotNet Error: SetCollation does not take one argument: use named arguments, SetCollation([ :parameter = value, ... ])")
 
 	Func GetCollationConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalModelExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollationConfigurationSource",P1])
@@ -3020,9 +2625,6 @@ Class RelationalOwnedNavigationBuilderExtensions from Object
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToJson",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToJson",P1])
-
-	Func ToJson_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"ToJson",P1,P2])
 
 	Func HasColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalOwnedNavigationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
@@ -3053,9 +2655,6 @@ Class RelationalPrimitiveCollectionBuilderExtensions from Object
 	Func HasColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
 
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
-
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
@@ -3068,29 +2667,17 @@ Class RelationalPrimitiveCollectionBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func HasDefaultValueSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1,P2])
-
 	Func HasComputedColumnSql P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func HasComputedColumnSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2])
-
-	Func HasComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2,P3])
-
 	Func HasDefaultValue P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
-
-	Func HasDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1,P2])
 
 	Func HasComment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPrimitiveCollectionBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2])
@@ -3118,9 +2705,6 @@ Class RelationalPropertiesConfigurationBuilderExtensions from Object
 	Func HaveColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertiesConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HaveColumnType",P1,P2])
 
-	Func AreFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertiesConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AreFixedLength",P1,P2])
-
 	Func AreFixedLength P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertiesConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"AreFixedLength",P1])
@@ -3144,50 +2728,41 @@ Class RelationalPropertyBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasColumnName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1,P2])
+	Func HasColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1])
+		ok
+		raise("DotNet Error: HasColumnName does not take one argument: use named arguments, HasColumnName([ :parameter = value, ... ])")
 
-	Func HasColumnName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1,P2,P3])
+	Func CanSetColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnName",P1])
+		ok
+		raise("DotNet Error: CanSetColumnName does not take one argument: use named arguments, CanSetColumnName([ :parameter = value, ... ])")
 
-	Func HasColumnName_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnName",P1,P2,P3,P4])
+	Func HasColumnOrder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnOrder",P1])
+		ok
+		raise("DotNet Error: HasColumnOrder does not take one argument: use named arguments, HasColumnOrder([ :parameter = value, ... ])")
 
-	Func CanSetColumnName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnName",P1,P2,P3])
+	Func CanSetColumnOrder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnOrder",P1])
+		ok
+		raise("DotNet Error: CanSetColumnOrder does not take one argument: use named arguments, CanSetColumnOrder([ :parameter = value, ... ])")
 
-	Func CanSetColumnName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnName",P1,P2])
+	Func HasColumnType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1])
+		ok
+		raise("DotNet Error: HasColumnType does not take one argument: use named arguments, HasColumnType([ :parameter = value, ... ])")
 
-	Func CanSetColumnName_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnName",P1,P2,P3,P4])
-
-	Func HasColumnOrder P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnOrder",P1,P2])
-
-	Func HasColumnOrder_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnOrder",P1,P2,P3])
-
-	Func CanSetColumnOrder_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnOrder",P1,P2,P3])
-
-	Func CanSetColumnOrder P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnOrder",P1,P2])
-
-	Func HasColumnType P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
-
-	Func HasColumnType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2,P3])
-
-	Func CanSetColumnType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnType",P1,P2,P3])
-
-	Func CanSetColumnType P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnType",P1,P2])
-
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
+	Func CanSetColumnType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetColumnType",P1])
+		ok
+		raise("DotNet Error: CanSetColumnType does not take one argument: use named arguments, CanSetColumnType([ :parameter = value, ... ])")
 
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
@@ -3195,14 +2770,11 @@ Class RelationalPropertyBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func IsFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2,P3])
-
-	Func CanSetIsFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsFixedLength",P1,P2,P3])
-
-	Func CanSetIsFixedLength P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsFixedLength",P1,P2])
+	Func CanSetIsFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsFixedLength",P1])
+		ok
+		raise("DotNet Error: CanSetIsFixedLength does not take one argument: use named arguments, CanSetIsFixedLength([ :parameter = value, ... ])")
 
 	Func HasDefaultValueSql P1
 		if dnIsNamed(P1)
@@ -3210,17 +2782,11 @@ Class RelationalPropertyBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1])
 
-	Func HasDefaultValueSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1,P2])
-
-	Func HasDefaultValueSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValueSql",P1,P2,P3])
-
-	Func CanSetDefaultValueSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValueSql",P1,P2,P3])
-
-	Func CanSetDefaultValueSql P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValueSql",P1,P2])
+	Func CanSetDefaultValueSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValueSql",P1])
+		ok
+		raise("DotNet Error: CanSetDefaultValueSql does not take one argument: use named arguments, CanSetDefaultValueSql([ :parameter = value, ... ])")
 
 	Func HasComputedColumnSql P1
 		if dnIsNamed(P1)
@@ -3228,29 +2794,23 @@ Class RelationalPropertyBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1])
 
-	Func HasComputedColumnSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2])
+	Func IsStoredComputedColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsStoredComputedColumn",P1])
+		ok
+		raise("DotNet Error: IsStoredComputedColumn does not take one argument: use named arguments, IsStoredComputedColumn([ :parameter = value, ... ])")
 
-	Func HasComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComputedColumnSql",P1,P2,P3])
+	Func CanSetComputedColumnSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComputedColumnSql",P1])
+		ok
+		raise("DotNet Error: CanSetComputedColumnSql does not take one argument: use named arguments, CanSetComputedColumnSql([ :parameter = value, ... ])")
 
-	Func IsStoredComputedColumn_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsStoredComputedColumn",P1,P2,P3])
-
-	Func IsStoredComputedColumn P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsStoredComputedColumn",P1,P2])
-
-	Func CanSetComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComputedColumnSql",P1,P2,P3])
-
-	Func CanSetComputedColumnSql P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComputedColumnSql",P1,P2])
-
-	Func CanSetIsStoredComputedColumn_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsStoredComputedColumn",P1,P2,P3])
-
-	Func CanSetIsStoredComputedColumn P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsStoredComputedColumn",P1,P2])
+	Func CanSetIsStoredComputedColumn P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetIsStoredComputedColumn",P1])
+		ok
+		raise("DotNet Error: CanSetIsStoredComputedColumn does not take one argument: use named arguments, CanSetIsStoredComputedColumn([ :parameter = value, ... ])")
 
 	Func HasDefaultValue P1
 		if dnIsNamed(P1)
@@ -3258,53 +2818,47 @@ Class RelationalPropertyBuilderExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1])
 
-	Func HasDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1,P2])
+	Func CanSetDefaultValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValue",P1])
+		ok
+		raise("DotNet Error: CanSetDefaultValue does not take one argument: use named arguments, CanSetDefaultValue([ :parameter = value, ... ])")
 
-	Func HasDefaultValue_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDefaultValue",P1,P2,P3])
+	Func HasComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1])
+		ok
+		raise("DotNet Error: HasComment does not take one argument: use named arguments, HasComment([ :parameter = value, ... ])")
 
-	Func CanSetDefaultValue_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValue",P1,P2,P3])
+	Func CanSetComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1])
+		ok
+		raise("DotNet Error: CanSetComment does not take one argument: use named arguments, CanSetComment([ :parameter = value, ... ])")
 
-	Func CanSetDefaultValue P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDefaultValue",P1,P2])
+	Func UseCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1])
+		ok
+		raise("DotNet Error: UseCollation does not take one argument: use named arguments, UseCollation([ :parameter = value, ... ])")
 
-	Func HasComment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2])
+	Func CanSetCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1])
+		ok
+		raise("DotNet Error: CanSetCollation does not take one argument: use named arguments, CanSetCollation([ :parameter = value, ... ])")
 
-	Func HasComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasComment",P1,P2,P3])
+	Func HasJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: HasJsonPropertyName does not take one argument: use named arguments, HasJsonPropertyName([ :parameter = value, ... ])")
 
-	Func CanSetComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1,P2,P3])
-
-	Func CanSetComment P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetComment",P1,P2])
-
-	Func UseCollation P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1,P2])
-
-	Func UseCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"UseCollation",P1,P2,P3])
-
-	Func CanSetCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1,P2,P3])
-
-	Func CanSetCollation P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetCollation",P1,P2])
-
-	Func HasJsonPropertyName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2])
-
-	Func HasJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasJsonPropertyName",P1,P2,P3])
-
-	Func CanSetJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1,P2,P3])
-
-	Func CanSetJsonPropertyName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1,P2])
+	Func CanSetJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: CanSetJsonPropertyName does not take one argument: use named arguments, CanSetJsonPropertyName([ :parameter = value, ... ])")
 
 
 Class RelationalPropertyExtensions from Object
@@ -3329,9 +2883,6 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1])
 
-	Func GetColumnName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnName",P1,P2])
-
 	Func GetDefaultColumnBaseName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnBaseName",P1])
 
@@ -3341,18 +2892,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1])
 
-	Func GetDefaultColumnName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultColumnName",P1,P2])
-
-	Func SetColumnName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1,P2])
-		return self
-
-	Func SetColumnName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1,P2,P3])
-
-	Func SetColumnName_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1,P2,P3,P4])
+	Func SetColumnName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnName",P1])
+		ok
+		raise("DotNet Error: SetColumnName does not take one argument: use named arguments, SetColumnName([ :parameter = value, ... ])")
 
 	Func GetColumnNameConfigurationSource P1
 		if dnIsNamed(P1)
@@ -3360,24 +2904,17 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1])
 
-	Func GetColumnNameConfigurationSource_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnNameConfigurationSource",P1,P2])
-
 	Func GetColumnOrder P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1])
 
-	Func GetColumnOrder_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrder",P1,P2])
-
-	Func SetColumnOrder P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnOrder",P1,P2])
-		return self
-
-	Func SetColumnOrder_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnOrder",P1,P2,P3])
+	Func SetColumnOrder P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnOrder",P1])
+		ok
+		raise("DotNet Error: SetColumnOrder does not take one argument: use named arguments, SetColumnOrder([ :parameter = value, ... ])")
 
 	Func GetColumnOrderConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnOrderConfigurationSource",P1])
@@ -3388,15 +2925,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1])
 
-	Func GetColumnType_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnType",P1,P2])
-
-	Func SetColumnType P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnType",P1,P2])
-		return self
-
-	Func SetColumnType_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnType",P1,P2,P3])
+	Func SetColumnType P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetColumnType",P1])
+		ok
+		raise("DotNet Error: SetColumnType does not take one argument: use named arguments, SetColumnType([ :parameter = value, ... ])")
 
 	Func GetColumnTypeConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetColumnTypeConfigurationSource",P1])
@@ -3440,15 +2973,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1])
 
-	Func GetDefaultValueSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSql",P1,P2])
-
-	Func SetDefaultValueSql P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValueSql",P1,P2])
-		return self
-
-	Func SetDefaultValueSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValueSql",P1,P2,P3])
+	Func SetDefaultValueSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValueSql",P1])
+		ok
+		raise("DotNet Error: SetDefaultValueSql does not take one argument: use named arguments, SetDefaultValueSql([ :parameter = value, ... ])")
 
 	Func GetDefaultValueSqlConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueSqlConfigurationSource",P1])
@@ -3459,15 +2988,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1])
 
-	Func GetComputedColumnSql_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSql",P1,P2])
-
-	Func SetComputedColumnSql P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComputedColumnSql",P1,P2])
-		return self
-
-	Func SetComputedColumnSql_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComputedColumnSql",P1,P2,P3])
+	Func SetComputedColumnSql P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComputedColumnSql",P1])
+		ok
+		raise("DotNet Error: SetComputedColumnSql does not take one argument: use named arguments, SetComputedColumnSql([ :parameter = value, ... ])")
 
 	Func GetComputedColumnSqlConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComputedColumnSqlConfigurationSource",P1])
@@ -3478,15 +3003,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1])
 
-	Func GetIsStored_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStored",P1,P2])
-
-	Func SetIsStored P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsStored",P1,P2])
-		return self
-
-	Func SetIsStored_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsStored",P1,P2,P3])
+	Func SetIsStored P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsStored",P1])
+		ok
+		raise("DotNet Error: SetIsStored does not take one argument: use named arguments, SetIsStored([ :parameter = value, ... ])")
 
 	Func GetIsStoredConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsStoredConfigurationSource",P1])
@@ -3503,18 +3024,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1])
 
-	Func GetDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValue",P1,P2])
-
-	Func TryGetDefaultValue_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"TryGetDefaultValue",P1,P2])
-
-	Func SetDefaultValue P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValue",P1,P2])
-		return self
-
-	Func SetDefaultValue_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValue",P1,P2,P3])
+	Func SetDefaultValue P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDefaultValue",P1])
+		ok
+		raise("DotNet Error: SetDefaultValue does not take one argument: use named arguments, SetDefaultValue([ :parameter = value, ... ])")
 
 	Func GetDefaultValueConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultValueConfigurationSource",P1])
@@ -3537,15 +3051,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1])
 
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
-
-	Func SetIsFixedLength P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1,P2])
-		return self
-
-	Func SetIsFixedLength_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1,P2,P3])
+	Func SetIsFixedLength P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetIsFixedLength",P1])
+		ok
+		raise("DotNet Error: SetIsFixedLength does not take one argument: use named arguments, SetIsFixedLength([ :parameter = value, ... ])")
 
 	Func GetIsFixedLengthConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetIsFixedLengthConfigurationSource",P1])
@@ -3556,24 +3066,17 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1])
 
-	Func IsColumnNullable_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsColumnNullable",P1,P2])
-
 	Func GetComment P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1])
 
-	Func GetComment_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetComment",P1,P2])
-
-	Func SetComment P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1,P2])
-		return self
-
-	Func SetComment_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1,P2,P3])
+	Func SetComment P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetComment",P1])
+		ok
+		raise("DotNet Error: SetComment does not take one argument: use named arguments, SetComment([ :parameter = value, ... ])")
 
 	Func GetCommentConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCommentConfigurationSource",P1])
@@ -3584,15 +3087,11 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1])
 
-	Func GetCollation_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollation",P1,P2])
-
-	Func SetCollation P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1,P2])
-		return self
-
-	Func SetCollation_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1,P2,P3])
+	Func SetCollation P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetCollation",P1])
+		ok
+		raise("DotNet Error: SetCollation does not take one argument: use named arguments, SetCollation([ :parameter = value, ... ])")
 
 	Func GetCollationConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetCollationConfigurationSource",P1])
@@ -3606,9 +3105,6 @@ Class RelationalPropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1])
 
-	Func FindRelationalTypeMapping_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindRelationalTypeMapping",P1,P2])
-
 	Func FindSharedStoreObjectRootProperty P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindSharedStoreObjectRootProperty",P1,P2])
 
@@ -3618,11 +3114,11 @@ Class RelationalPropertyExtensions from Object
 	Func FindOverrides P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindOverrides",P1,P2])
 
-	Func GetOrCreateOverrides P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateOverrides",P1,P2])
-
-	Func GetOrCreateOverrides_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateOverrides",P1,P2,P3])
+	Func GetOrCreateOverrides P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetOrCreateOverrides",P1])
+		ok
+		raise("DotNet Error: GetOrCreateOverrides does not take one argument: use named arguments, GetOrCreateOverrides([ :parameter = value, ... ])")
 
 	Func RemoveOverrides P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"RemoveOverrides",P1,P2])
@@ -3636,12 +3132,11 @@ Class RelationalPropertyExtensions from Object
 	Func GetJsonPropertyName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyName",P1])
 
-	Func SetJsonPropertyName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1,P2])
-		return self
-
-	Func SetJsonPropertyName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1,P2,P3])
+	Func SetJsonPropertyName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetJsonPropertyName",P1])
+		ok
+		raise("DotNet Error: SetJsonPropertyName does not take one argument: use named arguments, SetJsonPropertyName([ :parameter = value, ... ])")
 
 	Func GetJsonPropertyNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalPropertyExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetJsonPropertyNameConfigurationSource",P1])
@@ -3692,41 +3187,41 @@ Class RelationalTriggerBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1,P2,P3])
+	Func HasDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1])
+		ok
+		raise("DotNet Error: HasDatabaseName does not take one argument: use named arguments, HasDatabaseName([ :parameter = value, ... ])")
 
-	Func HasDatabaseName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasDatabaseName",P1,P2])
+	Func CanSetDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1])
+		ok
+		raise("DotNet Error: CanSetDatabaseName does not take one argument: use named arguments, CanSetDatabaseName([ :parameter = value, ... ])")
 
-	Func CanSetDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1,P2,P3])
+	Func HasTableName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableName",P1])
+		ok
+		raise("DotNet Error: HasTableName does not take one argument: use named arguments, HasTableName([ :parameter = value, ... ])")
 
-	Func CanSetDatabaseName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetDatabaseName",P1,P2])
+	Func CanSetTableName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableName",P1])
+		ok
+		raise("DotNet Error: CanSetTableName does not take one argument: use named arguments, CanSetTableName([ :parameter = value, ... ])")
 
-	Func HasTableName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableName",P1,P2,P3])
+	Func HasTableSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableSchema",P1])
+		ok
+		raise("DotNet Error: HasTableSchema does not take one argument: use named arguments, HasTableSchema([ :parameter = value, ... ])")
 
-	Func HasTableName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableName",P1,P2])
-
-	Func CanSetTableName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableName",P1,P2,P3])
-
-	Func CanSetTableName P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableName",P1,P2])
-
-	Func HasTableSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableSchema",P1,P2,P3])
-
-	Func HasTableSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasTableSchema",P1,P2])
-
-	Func CanSetTableSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableSchema",P1,P2,P3])
-
-	Func CanSetTableSchema P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableSchema",P1,P2])
+	Func CanSetTableSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"CanSetTableSchema",P1])
+		ok
+		raise("DotNet Error: CanSetTableSchema does not take one argument: use named arguments, CanSetTableSchema([ :parameter = value, ... ])")
 
 
 Class RelationalTriggerExtensions from Object
@@ -3754,18 +3249,11 @@ Class RelationalTriggerExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1])
 
-	Func GetDatabaseName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseName",P1,P2])
-
-	Func GetDefaultDatabaseName_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDefaultDatabaseName",P1,P2])
-
-	Func SetDatabaseName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1,P2])
-		return self
-
-	Func SetDatabaseName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1,P2,P3])
+	Func SetDatabaseName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetDatabaseName",P1])
+		ok
+		raise("DotNet Error: SetDatabaseName does not take one argument: use named arguments, SetDatabaseName([ :parameter = value, ... ])")
 
 	Func GetDatabaseNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetDatabaseNameConfigurationSource",P1])
@@ -3773,12 +3261,11 @@ Class RelationalTriggerExtensions from Object
 	Func GetTableName P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableName",P1])
 
-	Func SetTableName P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1,P2])
-		return self
-
-	Func SetTableName_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1,P2,P3])
+	Func SetTableName P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableName",P1])
+		ok
+		raise("DotNet Error: SetTableName does not take one argument: use named arguments, SetTableName([ :parameter = value, ... ])")
 
 	Func GetTableNameConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableNameConfigurationSource",P1])
@@ -3786,12 +3273,11 @@ Class RelationalTriggerExtensions from Object
 	Func GetTableSchema P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableSchema",P1])
 
-	Func SetTableSchema P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableSchema",P1,P2])
-		return self
-
-	Func SetTableSchema_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableSchema",P1,P2,P3])
+	Func SetTableSchema P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"SetTableSchema",P1])
+		ok
+		raise("DotNet Error: SetTableSchema does not take one argument: use named arguments, SetTableSchema([ :parameter = value, ... ])")
 
 	Func GetTableSchemaConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTriggerExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetTableSchemaConfigurationSource",P1])
@@ -3867,9 +3353,6 @@ Class RelationalTypeBaseExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1])
 
-	Func GetMappingFragments_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"GetMappingFragments",P1,P2])
-
 	Func FindMappingFragment P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeBaseExtensions, Microsoft.EntityFrameworkCore.Relational'),"FindMappingFragment",P1,P2])
 
@@ -3904,9 +3387,6 @@ Class RelationalTypeMappingConfigurationBuilderExtensions from Object
 
 	Func HasColumnType P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeMappingConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"HasColumnType",P1,P2])
-
-	Func IsFixedLength_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.RelationalTypeMappingConfigurationBuilderExtensions, Microsoft.EntityFrameworkCore.Relational'),"IsFixedLength",P1,P2])
 
 	Func IsFixedLength P1
 		if dnIsNamed(P1)
@@ -3981,20 +3461,11 @@ Class SqliteDbContextOptionsBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func UseSqlite_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1,P2])
-
 	Func UseSqlite P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1])
-
-	Func UseSqlite_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1,P2,P3])
-
-	Func UseSqlite_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbContextOptionsBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlite",P1,P2,P3,P4])
 
 
 Class SqliteDbFunctionsExtensions from Object
@@ -4016,17 +3487,17 @@ Class SqliteDbFunctionsExtensions from Object
 	Func Hex P1,P2
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Hex",P1,P2])
 
-	Func Unhex P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Unhex",P1,P2])
+	Func Unhex P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Unhex",P1])
+		ok
+		raise("DotNet Error: Unhex does not take one argument: use named arguments, Unhex([ :parameter = value, ... ])")
 
-	Func Unhex_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Unhex",P1,P2,P3])
-
-	Func Substr P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Substr",P1,P2,P3])
-
-	Func Substr_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Substr",P1,P2,P3,P4])
+	Func Substr P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteDbFunctionsExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"Substr",P1])
+		ok
+		raise("DotNet Error: Substr does not take one argument: use named arguments, Substr([ :parameter = value, ... ])")
 
 
 Class SqliteEntityTypeBuilderExtensions from Object
@@ -4042,23 +3513,17 @@ Class SqliteEntityTypeBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func UseSqlReturningClause_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3])
+	Func UseSqlReturningClause P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
+		ok
+		raise("DotNet Error: UseSqlReturningClause does not take one argument: use named arguments, UseSqlReturningClause([ :parameter = value, ... ])")
 
-	Func UseSqlReturningClause P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2])
-
-	Func UseSqlReturningClause_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3,P4])
-
-	Func CanUseSqlReturningClause_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1,P2,P3])
-
-	Func CanUseSqlReturningClause P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1,P2])
-
-	Func CanUseSqlReturningClause_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1,P2,P3,P4])
+	Func CanUseSqlReturningClause P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanUseSqlReturningClause",P1])
+		ok
+		raise("DotNet Error: CanUseSqlReturningClause does not take one argument: use named arguments, CanUseSqlReturningClause([ :parameter = value, ... ])")
 
 
 Class SqliteEntityTypeExtensions from Object
@@ -4080,27 +3545,17 @@ Class SqliteEntityTypeExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
 
-	Func UseSqlReturningClause P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2])
-		return self
-
-	Func UseSqlReturningClause_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3])
+	Func UseSqlReturningClause P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
+		ok
+		raise("DotNet Error: UseSqlReturningClause does not take one argument: use named arguments, UseSqlReturningClause([ :parameter = value, ... ])")
 
 	Func GetUseSqlReturningClauseConfigurationSource P1
 		if dnIsNamed(P1)
 			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
-
-	Func GetUseSqlReturningClauseConfigurationSource_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1,P2])
-
-	Func IsSqlReturningClauseUsed_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1,P2])
-
-	Func UseSqlReturningClause_4 P1,P2,P3,P4
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3,P4])
 
 
 Class SqliteEntityTypeMappingFragmentExtensions from Object
@@ -4119,12 +3574,11 @@ Class SqliteEntityTypeMappingFragmentExtensions from Object
 	Func IsSqlReturningClauseUsed P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"IsSqlReturningClauseUsed",P1])
 
-	Func UseSqlReturningClause P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2])
-		return self
-
-	Func UseSqlReturningClause_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2,P3])
+	Func UseSqlReturningClause P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1])
+		ok
+		raise("DotNet Error: UseSqlReturningClause does not take one argument: use named arguments, UseSqlReturningClause([ :parameter = value, ... ])")
 
 	Func GetUseSqlReturningClauseConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteEntityTypeMappingFragmentExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetUseSqlReturningClauseConfigurationSource",P1])
@@ -4143,17 +3597,17 @@ Class SqlitePropertyBuilderExtensions from Object
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
 
-	Func HasSrid P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1,P2])
+	Func HasSrid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1])
+		ok
+		raise("DotNet Error: HasSrid does not take one argument: use named arguments, HasSrid([ :parameter = value, ... ])")
 
-	Func HasSrid_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"HasSrid",P1,P2,P3])
-
-	Func CanSetSrid_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanSetSrid",P1,P2,P3])
-
-	Func CanSetSrid P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanSetSrid",P1,P2])
+	Func CanSetSrid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"CanSetSrid",P1])
+		ok
+		raise("DotNet Error: CanSetSrid does not take one argument: use named arguments, CanSetSrid([ :parameter = value, ... ])")
 
 
 Class SqlitePropertyExtensions from Object
@@ -4175,15 +3629,11 @@ Class SqlitePropertyExtensions from Object
 		ok
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSrid",P1])
 
-	Func GetSrid_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSrid",P1,P2])
-
-	Func SetSrid P1,P2
-		dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"SetSrid",P1,P2])
-		return self
-
-	Func SetSrid_3 P1,P2,P3
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"SetSrid",P1,P2,P3])
+	Func SetSrid P1
+		if dnIsNamed(P1)
+			return dnRequest("callnamed",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"SetSrid",P1])
+		ok
+		raise("DotNet Error: SetSrid does not take one argument: use named arguments, SetSrid([ :parameter = value, ... ])")
 
 	Func GetSridConfigurationSource P1
 		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqlitePropertyExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"GetSridConfigurationSource",P1])
@@ -4201,9 +3651,6 @@ Class SqliteTableBuilderExtensions from Object
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
-
-	Func UseSqlReturningClause_2 P1,P2
-		return dnRequest("call",[dnTypeCached('Microsoft.EntityFrameworkCore.SqliteTableBuilderExtensions, Microsoft.EntityFrameworkCore.Sqlite'),"UseSqlReturningClause",P1,P2])
 
 	Func UseSqlReturningClause P1
 		if dnIsNamed(P1)

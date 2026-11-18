@@ -56,7 +56,7 @@ dnAssert("generic name",dnGenericName("A.B",["X","Y"]),"A.B`2[[X],[Y]]")
 # Callbacks (any Ring code) and events
 oNames = new StringList()
 oNames.Add("bb")  oNames.Add("a")  oNames.Add("ccc")
-oNames.Sort_1(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
+oNames.Sort(dnCallback("xDotNetResult = len(aDotNetArgs[1]) - len(aDotNetArgs[2])"))
 dnAssert("callback sort",oNames.Item(0),"a")
 nEvents = 0
 oObs = new ObservableStringList()

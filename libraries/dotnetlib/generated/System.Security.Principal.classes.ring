@@ -143,7 +143,15 @@ Class IdentityReferenceCollection from Object
 		nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[])
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Principal.IdentityReferenceCollection, System.Security.Principal.Windows',[P1])
 		return self
 
@@ -173,9 +181,6 @@ Class IdentityReferenceCollection from Object
 			return dnRequest("callnamed",[new DotNetObject(nHandle),"Translate",P1])
 		ok
 		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1])
-
-	Func Translate_2 P1,P2
-		return dnRequest("call",[new DotNetObject(nHandle),"Translate",P1,P2])
 
 	Func Equals P1
 		return dnRequest("call",[new DotNetObject(nHandle),"Equals",P1])
@@ -216,20 +221,16 @@ Class WindowsIdentity from ClaimsIdentity
 		ok
 		return self
 
-	Func New_1 P1
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[])
+			return self
+		ok
 		nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[P1])
-		return self
-
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[P1,P2])
-		return self
-
-	Func New_3 P1,P2,P3
-		nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[P1,P2,P3])
-		return self
-
-	Func New_4 P1,P2,P3,P4
-		nHandle = dnCreate('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows',[P1,P2,P3,P4])
 		return self
 
 	Func Dispose 
@@ -243,9 +244,6 @@ Class WindowsIdentity from ClaimsIdentity
 		if isstring(P1) and P1 = ""
 			return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent"])
 		ok
-		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
-
-	Func GetCurrent_1 P1
 		return dnRequest("call",[dnTypeCached('System.Security.Principal.WindowsIdentity, System.Security.Principal.Windows'),"GetCurrent",P1])
 
 	Func GetAnonymous 
@@ -366,8 +364,16 @@ Class NTAccount from IdentityReference
 		nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Principal.NTAccount, System.Security.Principal.Windows',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Principal.NTAccount, System.Security.Principal.Windows',[P1])
 		return self
 
 
@@ -387,8 +393,16 @@ Class SecurityIdentifier from IdentityReference
 		nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[P1])
 		return self
 
-	Func New_2 P1,P2
-		nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[P1,P2])
+	Func New_ P1
+		if dnIsNamed(P1)
+			nHandle = dnCreateNamed('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',P1)
+			return self
+		ok
+		if isstring(P1) and P1 = ""
+			nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[])
+			return self
+		ok
+		nHandle = dnCreate('System.Security.Principal.SecurityIdentifier, System.Security.Principal.Windows',[P1])
 		return self
 
 	Func IsAccountSid 
