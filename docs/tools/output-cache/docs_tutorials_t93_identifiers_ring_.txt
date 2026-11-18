@@ -1,0 +1,16 @@
+1. a new Guid has 36 characters, with dashes at 9, 14, 19 and 24: 1
+   two new Guids are different: 1
+
+2. parsed: 0f8fad5b-d9cb-469f-a165-70867728950e
+   format N: 0f8fad5bd9cb469fa16570867728950e
+   format B: {0f8fad5b-d9cb-469f-a165-70867728950e}
+   Empty is all zeros: 00000000-0000-0000-0000-000000000000
+   TryParse of 'hello': success = 0
+
+3. as text, '1.10.0' < '1.9.0' is 1
+   as Version, 1.10.0 is later than 1.9.0: 1
+   parts of 1.10.0: major 1, minor 10, build 0
+
+4. sorted versions: 1.2.0 1.9.0 1.10.0 2.0.1 10.0.0 
+
+5. the runtime version is 6 or later: 1

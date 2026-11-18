@@ -136,6 +136,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-88-compression.html"><div class="ic">88</div><b>Compression</b><span>GZip, Deflate and Brotli streams, sizes, round trips and a .gz file.</span></a>
 <a class="card" href="tut-89-concurrent-collections.html"><div class="ic">89</div><b>Collections for many threads</b><span>Concurrent queue, stack, blocking collection and dictionary.</span></a>
 <a class="card" href="tut-90-big-numbers.html"><div class="ic">90</div><b>Big numbers</b><span>BigInteger for exact big whole numbers, and Complex numbers.</span></a>
+<a class="card" href="tut-91-udp.html"><div class="ic">91</div><b>UDP</b><span>Datagrams between sockets, answers, time limits and lost messages.</span></a>
+<a class="card" href="tut-92-data-structures.html"><div class="ic">92</div><b>More data structures</b><span>PriorityQueue, SortedSet, SortedDictionary, LinkedList and BitArray.</span></a>
+<a class="card" href="tut-93-identifiers.html"><div class="ic">93</div><b>Identifiers and versions</b><span>Guid, Version, and sorting version numbers by number.</span></a>
 </div>
 
 ## Learning path

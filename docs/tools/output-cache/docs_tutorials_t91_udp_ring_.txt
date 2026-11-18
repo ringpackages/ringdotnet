@@ -1,0 +1,13 @@
+1. the server socket is bound to a port: 1
+
+2. three datagrams sent; the server has data waiting: 20
+   datagram 1: 'one' (3 bytes)
+   datagram 2: 'two and more' (12 bytes)
+   datagram 3: 'three' (5 bytes)
+
+3. the server got 'ping' from the port of the client socket: 1
+   the client got 'pong'
+
+4. waited 300 ms with no sender: a datagram arrived = 0
+
+5. sent to port 9 where nobody listens: no error, the data is just gone

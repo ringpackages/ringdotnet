@@ -1,0 +1,19 @@
+1. 4 tasks, most urgent first:
+   fix the server
+   call the customer
+   write the report
+   answer the mail
+
+2. sorted set of 7 numbers with duplicates: 5 kept, from 3 to 100
+   in order: 3 7 19 42 100 
+   Contains(19): 1, Contains(20): 0
+
+3. sorted dictionary, keys in order: apple banana fig pear 
+
+4. linked list: a b b2 c  (first = a, last = c)
+   after Remove(b): a b2 c 
+
+5. bits:  0101100000
+   other: 0001000001
+   AND:   0001000000
+   OR:    0101100001

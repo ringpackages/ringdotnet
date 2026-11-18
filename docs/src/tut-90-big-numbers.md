@@ -54,6 +54,6 @@ A `Complex` has `Real` and `Imaginary` parts. `i` is `Complex(0, 1)` and `i * i`
 3. Write `isEven(oBig)` with `Remainder`, and test it with 2^100 and 2^100 + 1.
 4. Multiply two complex numbers by hand and check the result with `Multiply`.
 
-## Where to go next
+## Next
 
-You have reached the end of the tutorials. Keep [Core concepts](concepts.html), the [class reference](api.html) and [Gotchas & limits](gotchas.html) at hand, and read the [applications](gallery-apps.html) for bigger programs.
+[Tutorial 91: UDP](tut-91-udp.html)
