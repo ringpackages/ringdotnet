@@ -136,7 +136,7 @@ The connection text selects the provider:
 
 ## The full EF API
 
-Everything in EF Core is also wrapped as classes (`dnImport("Microsoft.EntityFrameworkCore")`, `.ChangeTracking`, `.Infrastructure`, `.Metadata`, `.Metadata.Builders`, `.Storage`, `.Query`, `.Migrations`, `.Diagnostics`, `Microsoft.Data.Sqlite`; clashing names start with `Ef`). `oDb.context()` returns the real `DbContext`:
+Everything in EF Core is also wrapped as classes (`using { "Microsoft.EntityFrameworkCore" }`, `.ChangeTracking`, `.Infrastructure`, `.Metadata`, `.Metadata.Builders`, `.Storage`, `.Query`, `.Migrations`, `.Diagnostics`, `Microsoft.Data.Sqlite`; clashing names start with `Ef`). `oDb.context()` returns the real `DbContext`:
 
 ```ring
 oContext = oDb.context()

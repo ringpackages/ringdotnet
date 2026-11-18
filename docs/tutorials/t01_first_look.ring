@@ -8,7 +8,7 @@ using {
 
 func main
 	# 1. The runtime that runs inside your Ring program
-	? "Runtime          : " + dnVersion()
+	? "Runtime          : .NET " + new Environment().Version.ToString()
 
 	# 2. Everything in .NET is an object of some type (a class)
 	oText = new StringBuilder("Hello")

@@ -5,7 +5,7 @@ lead: Typed .NET collections with Ring syntax, indexers, copying to Ring lists, 
 
 ## Typed collections
 
-The common closed generic collections have ready-made classes (`dnImport("System.Collections.Generic")`):
+The common closed generic collections have ready-made classes (`using { "System.Collections.Generic" }`):
 
 | Class | .NET type |
 |---|---|
@@ -60,7 +60,7 @@ See [Callbacks & events](callbacks-events.html).
 
 ## LINQ
 
-`dnImport("System.Linq")` loads `Enumerable` and a fluent wrapper, `dnQuery(...)`, that works on a **Ring list or any .NET collection**. The lambda is Ring code: it reads `aDotNetArgs[1]` and writes `xDotNetResult`.
+`using { "System.Linq" }` loads `Enumerable` and a fluent wrapper, `dnQuery(...)`, that works on a **Ring list or any .NET collection**. The lambda is Ring code: it reads `aDotNetArgs[1]` and writes `xDotNetResult`.
 
 ```ring
 using { "System.Linq" }

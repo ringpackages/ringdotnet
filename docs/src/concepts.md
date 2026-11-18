@@ -5,7 +5,7 @@ lead: How .NET looks from Ring — class and method names, overloads, properties
 
 ## Classes with the same names as .NET
 
-After `dnImport("Namespace")` every public type of that namespace is a Ring class with the **same short name** and the same members:
+After `using { "Namespace" }` every public type of that namespace is a Ring class with the **same short name** and the same members:
 
 ```ring
 using { "System.Text" }

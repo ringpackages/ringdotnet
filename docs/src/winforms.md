@@ -8,8 +8,10 @@ lead: Build desktop programs with every Windows Forms control, plus a few short 
 ```ring
 load "dotnetlib.ring"
 dnUseDesktop()                         # the Windows Desktop runtime, and an STA Ring thread
-using { "System.Drawing" }
-dnImport("System.Windows.Forms")       # also loads the GUI helpers
+using {
+	"System.Drawing"
+	"System.Windows.Forms"             # also loads the GUI helpers
+}
 
 oForm = ""                             # globals used by event code
 oCount = ""

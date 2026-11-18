@@ -31,7 +31,7 @@ ring t01_first_look.ring
 
 ### 1. The runtime
 
-`dnVersion()` asks the .NET runtime that runs inside your Ring program for its version. Nothing is installed "next to" Ring: the runtime is part of your program while it runs.
+`new Environment().Version` asks the .NET runtime that runs inside your Ring program for its version (`Environment` is a class of the `System` namespace that the `using` block opened). Nothing is installed "next to" Ring: the runtime is part of your program while it runs.
 
 ### 2. Everything is an object of some type
 
@@ -69,7 +69,7 @@ A `DateTime` is a *struct*: a small value. `new DateTime(2024,12,25)` is a date.
 
 | Idea | Example |
 |---|---|
-| a runtime inside your program | `dnVersion()` |
+| a runtime inside your program | `new Environment().Version` |
 | create an object | `new StringBuilder("Hello")` |
 | a property | `oText.Length` |
 | a method | `oText.Append(", .NET")` |

@@ -5,7 +5,7 @@ lead: A tour of the base class library as seen from Ring — dates, text, files,
 
 ## What is wrapped
 
-Every namespace below has generated classes, loaded on demand with `dnImport("Name")`.
+Every namespace below has generated classes, loaded on demand with `using { "Name" }`.
 
 | Area | Namespaces |
 |---|---|

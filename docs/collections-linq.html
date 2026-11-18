@@ -118,7 +118,7 @@
 <article>
 <h1>Collections &amp; LINQ</h1><p class="lead">Typed .NET collections with Ring syntax, indexers, copying to Ring lists, and LINQ queries over Ring lists or any .NET collection.</p>
 <h2 id="typed-collections">Typed collections<a class="anchor" href="#typed-collections">#</a></h2>
-<p>The common closed generic collections have ready-made classes (<code>dnImport("System.Collections.Generic")</code>):</p>
+<p>The common closed generic collections have ready-made classes (<code>using { "System.Collections.Generic" }</code>):</p>
 <div class="tablewrap"><table><thead><tr><th>Class</th><th>.NET type</th></tr></thead><tbody><tr><td><code>StringList</code>, <code>NumberList</code>, <code>ObjectList</code></td><td><code>List&lt;string&gt;</code>, <code>List&lt;double&gt;</code>, <code>List&lt;object&gt;</code></td></tr><tr><td><code>StringDictionary</code>, <code>NumberDictionary</code>, <code>ObjectDictionary</code></td><td><code>Dictionary&lt;string, T&gt;</code></td></tr><tr><td><code>StringSet</code></td><td><code>HashSet&lt;string&gt;</code></td></tr><tr><td><code>StringQueue</code>, <code>StringStack</code></td><td><code>Queue&lt;string&gt;</code>, <code>Stack&lt;string&gt;</code></td></tr></tbody></table></div>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Collections.Generic"</span> }
 
@@ -267,7 +267,7 @@ oList.<span class="f">Sort</span>([ :comparison = <span class="f">dnCallback</sp
 oList.<span class="f">ForEach_</span>(<span class="f">dnCallback</span>(<span class="s">"? aDotNetArgs[1]"</span>))</code></pre></div>
 <p>See <a href="callbacks-events.html">Callbacks &amp; events</a>.</p>
 <h2 id="linq">LINQ<a class="anchor" href="#linq">#</a></h2>
-<p><code>dnImport("System.Linq")</code> loads <code>Enumerable</code> and a fluent wrapper, <code>dnQuery(...)</code>, that works on a <strong>Ring list or any .NET collection</strong>. The lambda is Ring code: it reads <code>aDotNetArgs[1]</code> and writes <code>xDotNetResult</code>.</p>
+<p><code>using { "System.Linq" }</code> loads <code>Enumerable</code> and a fluent wrapper, <code>dnQuery(...)</code>, that works on a <strong>Ring list or any .NET collection</strong>. The lambda is Ring code: it reads <code>aDotNetArgs[1]</code> and writes <code>xDotNetResult</code>.</p>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code>using { <span class="s">"System.Linq"</span> }
 
 aSales = [<span class="n">120</span>, <span class="n">45</span>, <span class="n">300</span>, <span class="n">15</span>, <span class="n">210</span>, <span class="n">99</span>, <span class="n">81</span>]

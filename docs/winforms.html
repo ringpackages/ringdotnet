@@ -120,8 +120,10 @@
 <h2 id="the-shape-of-a-program">The shape of a program<a class="anchor" href="#the-shape-of-a-program">#</a></h2>
 <div class="code"><div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>Ring</span><button class="copy" type="button">Copy</button></div><pre><code><span class="k">load</span> <span class="s">"dotnetlib.ring"</span>
 <span class="f">dnUseDesktop</span>()                         <span class="c"># the Windows Desktop runtime, and an STA Ring thread</span>
-using { <span class="s">"System.Drawing"</span> }
-<span class="f">dnImport</span>(<span class="s">"System.Windows.Forms"</span>)       <span class="c"># also loads the GUI helpers</span>
+using {
+	<span class="s">"System.Drawing"</span>
+	<span class="s">"System.Windows.Forms"</span>             <span class="c"># also loads the GUI helpers</span>
+}
 
 oForm = <span class="s">""</span>                             <span class="c"># globals used by event code</span>
 oCount = <span class="s">""</span>

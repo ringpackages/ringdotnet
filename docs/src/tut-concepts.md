@@ -16,11 +16,12 @@ Two things make up .NET:
 
 ```ring
 load "dotnetlib.ring"
-? dnVersion()          # the runtime that is running inside your Ring program
+using { "System" }
+? new Environment().Version.ToString()   # the runtime that is running inside your Ring program
 ```
 
 ```output
-.NET 9.0.15
+9.0.15
 ```
 
 ## Classes and objects

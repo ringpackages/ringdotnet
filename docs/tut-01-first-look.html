@@ -133,7 +133,7 @@ using {
 
 <span class="k">func</span> <span class="f">main</span>
 	<span class="c"># 1. The runtime that runs inside your Ring program</span>
-	? <span class="s">"Runtime          : "</span> + <span class="f">dnVersion</span>()
+	? <span class="s">"Runtime          : .NET "</span> + <span class="k">new</span> <span class="t">Environment</span>().Version.<span class="f">ToString</span>()
 
 	<span class="c"># 2. Everything in .NET is an object of some type (a class)</span>
 	oText = <span class="k">new</span> <span class="t">StringBuilder</span>(<span class="s">"Hello"</span>)
@@ -179,7 +179,7 @@ A list of names  : 2 items, first is Ann
 Is it null?      : 1</code></pre></div>
 <h2 id="how-it-works-step-by-step">How it works, step by step<a class="anchor" href="#how-it-works-step-by-step">#</a></h2>
 <h3 id="1-the-runtime">1. The runtime<a class="anchor" href="#1-the-runtime">#</a></h3>
-<p><code>dnVersion()</code> asks the .NET runtime that runs inside your Ring program for its version. Nothing is installed "next to" Ring: the runtime is part of your program while it runs.</p>
+<p><code>new Environment().Version</code> asks the .NET runtime that runs inside your Ring program for its version (<code>Environment</code> is a class of the <code>System</code> namespace that the <code>using</code> block opened). Nothing is installed "next to" Ring: the runtime is part of your program while it runs.</p>
 <h3 id="2-everything-is-an-object-of-some-type">2. Everything is an object of some type<a class="anchor" href="#2-everything-is-an-object-of-some-type">#</a></h3>
 <p><code>new StringBuilder("Hello")</code> creates an object. <code>GetType()</code> is a method that every .NET object has; it returns an object that <em>describes</em> the type. Its properties <code>FullName</code>, <code>Namespace</code> and <code>IsClass</code> tell you what you are holding: a class called <code>System.Text.StringBuilder</code> in the namespace <code>System.Text</code>.</p>
 <div class="callout note"><span class="t">Note</span><p>Always write the parentheses: <code>new StringBuilder("Hello")</code>. In Ring, <code>new X</code> without them does not run the constructor.</p></div>
@@ -197,7 +197,7 @@ Is it null?      : 1</code></pre></div>
 <h3 id="7-null">7. null<a class="anchor" href="#7-null">#</a></h3>
 <p><code>dnNull()</code> is the .NET <code>null</code>: "no object". <code>isNull()</code> checks it. Ring prints <code>1</code> for true.</p>
 <h2 id="what-you-learned">What you learned<a class="anchor" href="#what-you-learned">#</a></h2>
-<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a runtime inside your program</td><td><code>dnVersion()</code></td></tr><tr><td>create an object</td><td><code>new StringBuilder("Hello")</code></td></tr><tr><td>a property</td><td><code>oText.Length</code></td></tr><tr><td>a method</td><td><code>oText.Append(", .NET")</code></td></tr><tr><td>a static member</td><td><code>new Math().Max(3,9)</code></td></tr><tr><td>a struct and an enum</td><td><code>DateTime</code>, <code>DayOfWeek</code></td></tr><tr><td>a collection</td><td><code>StringList</code></td></tr><tr><td>no object</td><td><code>dnNull()</code></td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th>Idea</th><th>Example</th></tr></thead><tbody><tr><td>a runtime inside your program</td><td><code>new Environment().Version</code></td></tr><tr><td>create an object</td><td><code>new StringBuilder("Hello")</code></td></tr><tr><td>a property</td><td><code>oText.Length</code></td></tr><tr><td>a method</td><td><code>oText.Append(", .NET")</code></td></tr><tr><td>a static member</td><td><code>new Math().Max(3,9)</code></td></tr><tr><td>a struct and an enum</td><td><code>DateTime</code>, <code>DayOfWeek</code></td></tr><tr><td>a collection</td><td><code>StringList</code></td></tr><tr><td>no object</td><td><code>dnNull()</code></td></tr></tbody></table></div>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Change the program to print the type of a <code>DateTime</code> object. Which namespace is it in?</li><li>Create a <code>StringBuilder</code> and append your name five times with a loop. What is its <code>Length</code>?</li><li>Use <code>new Math()</code> to print the square root of 2 and the larger of <code>7</code> and <code>19</code>.</li><li>Find <code>Environment.MachineName</code> in the <a href="api.html">class reference</a> (namespace <code>System</code>) and print it.</li></ol>
 <h2 id="next">Next<a class="anchor" href="#next">#</a></h2>

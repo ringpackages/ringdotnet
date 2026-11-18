@@ -33,7 +33,7 @@ Each entry describes one namespace:
 
 | Key | Meaning |
 |---|---|
-| `:namespace` | the .NET namespace, also the name used with `dnImport("...")` |
+| `:namespace` | the .NET namespace, also the name used with `using { "..." }` |
 | `:assemblies` | assemblies that contain the types (default `System.Private.CoreLib`) |
 | `:all` | `true` wraps every public class and struct of the namespace |
 | `:exclude` | type names that `:all` must skip |

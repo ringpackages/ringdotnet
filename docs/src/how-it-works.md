@@ -13,7 +13,7 @@ lead: The Ring process hosts the .NET runtime and talks to it through a small ma
 <text x="380" y="53" text-anchor="middle" fill="var(--muted)" font-size="12.5">oSB = new StringBuilder("Hi")   ·   oForm.Text = "Hello"   ·   oBtn.setClickEvent("...")</text>
 <rect x="20" y="84" width="720" height="54" rx="12" fill="var(--soft)" stroke="var(--line)"/>
 <text x="380" y="108" text-anchor="middle" fill="var(--text)" font-weight="700">dotnetlib (Ring library)</text>
-<text x="380" y="127" text-anchor="middle" fill="var(--muted)" font-size="12.5">generated wrapper classes · dnImport · dnCallback · gui.ring · wpf.ring · web.ring · data.ring</text>
+<text x="380" y="127" text-anchor="middle" fill="var(--muted)" font-size="12.5">generated wrapper classes · using · dnCallback · gui.ring · wpf.ring · web.ring · data.ring</text>
 <rect x="20" y="158" width="720" height="54" rx="12" fill="var(--soft)" stroke="var(--line)"/>
 <text x="380" y="182" text-anchor="middle" fill="var(--text)" font-weight="700">ring_dotnet.dll (C extension)</text>
 <text x="380" y="201" text-anchor="middle" fill="var(--muted)" font-size="12.5">starts the runtime through hostfxr · sends requests · runs Ring callbacks</text>
@@ -44,7 +44,7 @@ Values travel as a compact tagged text: `s5:Hello` (string), `n2:42` (number), `
 
 ## Generated wrapper classes
 
-`tools/gendotnet.ring` reads the **manifest** (`tools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/`. These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `dnImport("System.IO")` loads one namespace on demand. A class index lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
+`tools/gendotnet.ring` reads the **manifest** (`tools/dotnetmanifest.ring`) and uses reflection to write one Ring class per .NET class into `libraries/dotnetlib/generated/`. These files are plain Ring source with real inheritance, properties (as attributes with `getX`/`setX`), events and enums. `using { "System.IO" }` loads one namespace on demand. A class index lets the library import the right namespace automatically when a returned object has a type that is not loaded yet.
 
 ## Results are wrapped by their real type
 
