@@ -121,6 +121,9 @@
 <a href="tut-82-shared-memory.html">82. Shared memory</a>
 <a href="tut-83-tasks-waiting.html">83. Tasks that wait</a>
 <a href="tut-84-http-client.html" class="cur">84. HttpClient in depth</a>
+<a href="tut-85-feed-programs.html">85. Working with other programs</a>
+<a href="tut-86-escaping.html">86. Escaping</a>
+<a href="tut-87-expressions.html">87. Expression trees</a>
 <h4>The language bridge</h4>
 <a href="concepts.html">Core concepts</a>
 <a href="core-api.html">Core functions</a>
@@ -304,9 +307,9 @@ oClient = <span class="s">""</span>
 <ul><li>one shared <code>HttpClient</code>, default headers,</li><li>request and response headers, <code>ContentType</code>,</li><li><code>StatusCode</code>, <code>ReasonPhrase</code>, <code>IsSuccessStatusCode</code>,</li><li><code>EnsureSuccessStatusCode</code>,</li><li>cancelling with a token,</li><li><code>CopyToAsync</code> to a file.</li></ul>
 <h2 id="exercises">Exercises<a class="anchor" href="#exercises">#</a></h2>
 <ol><li>Add a header <code>Authorization</code> with a fake token and let the server answer <code>401</code> when it is missing.</li><li>Download the file with <code>ResponseHeadersRead</code> and print the <code>ContentLength</code> from the headers before copying.</li><li>Send three requests together and wait with <code>WhenAll</code> (<a href="tut-83-tasks-waiting.html">tutorial 83</a>).</li><li>Retry a request three times with a pause when the status is <code>503</code>.</li></ol>
-<h2 id="where-to-go-next">Where to go next<a class="anchor" href="#where-to-go-next">#</a></h2>
-<p>You have reached the end of the tutorials. Keep <a href="concepts.html">Core concepts</a>, the <a href="api.html">class reference</a> and <a href="gotchas.html">Gotchas &amp; limits</a> at hand, and read the <a href="gallery-apps.html">applications</a> for bigger programs.</p>
-<div class="pager"><a href="tut-83-tasks-waiting.html"><small>Previous</small>83. Tasks that wait</a><a class="next" href="concepts.html"><small>Next</small>Core concepts</a></div>
+<h2 id="next">Next<a class="anchor" href="#next">#</a></h2>
+<p><a href="tut-85-feed-programs.html">Tutorial 85: Working with other programs</a></p>
+<div class="pager"><a href="tut-83-tasks-waiting.html"><small>Previous</small>83. Tasks that wait</a><a class="next" href="tut-85-feed-programs.html"><small>Next</small>85. Working with other programs</a></div>
 <footer class="site">RingDotNet — use .NET classes and methods from Ring programs. Screenshots and output on these pages come from the real samples.</footer>
 </article>
 <aside class="toc" id="toc"></aside>

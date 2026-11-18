@@ -1,0 +1,14 @@
+1. the tree prints as code: (a + b), the kind of its top node: Add
+
+2. the lambda: (a, b) => (a + b); calling it with 2 and 3.5 gives 5.50
+
+3. (a, b) => ((a + b) * 10) with 1 and 2 gives 30
+   (a, b) => IIF((a > b), a, b): max of 7 and 3 is 7, of 2 and 9 is 9
+
+4. (a, b) => Sqrt(((a * a) + (b * b))) with 3 and 4 gives 5
+
+5. one helper, four functions (compiled from a tree built for each operator):
+   a + b with 12 and 4: 16
+   a - b with 12 and 4: 8
+   a * b with 12 and 4: 48
+   a / b with 12 and 4: 3

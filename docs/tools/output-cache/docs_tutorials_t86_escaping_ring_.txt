@@ -1,0 +1,20 @@
+1. text    : <script>alert('x & y')</script>
+   WebUtility.HtmlEncode : &lt;script&gt;alert(&#39;x &amp; y&#39;)&lt;/script&gt;
+   HtmlEncoder           : &lt;script&gt;alert(&#x27;x &amp; y&#x27;)&lt;/script&gt;
+   and back (HtmlDecode) : <b> & "q" é
+
+2. unsafe page: <h1>Hello Ann<img src=x onerror=alert(1)></h1>
+   safe page  : <h1>Hello Ann&lt;img src=x onerror=alert(1)&gt;</h1>
+
+3. a query value: q=rock%20%26%20roll%2F%C3%A9
+
+4. JavaScript string: 'say \u0022hi\u0022 \u003Cb\u003E'
+
+5. JSON string: line one\ntab\ta \u0022quote\u0022
+
+6. XML element: <note>&lt;script&gt;alert('x &amp; y')&lt;/script&gt;</note>
+
+7. the pattern for the literal text: 1\+1=2\ \(a\.b\)\*; it matches the text: yes
+
+8. the attack text 'x' OR '1'='1' as a parameter finds 0 rows (it is only a name that nobody has)
+   the same text joined into the SQL would be: SELECT ... WHERE Name = 'x' OR '1'='1'  -> every row

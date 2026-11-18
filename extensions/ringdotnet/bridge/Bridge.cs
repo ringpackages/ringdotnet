@@ -1350,6 +1350,21 @@ namespace RingDotNet
 		}
 
 		/* Generic methods (LINQ): infer the type arguments from the values; callbacks and unknowns become object */
+		/* does the type mention the generic parameter (List<T>, T[], Func<T, TKey>...)? */
+		private static bool TypeUses(Type type, Type genericParameter)
+		{
+			if (type == genericParameter) return true;
+			if (type.HasElementType) return TypeUses(type.GetElementType(), genericParameter);
+			if (type.IsGenericType)
+			{
+				foreach (Type argument in type.GetGenericArguments())
+				{
+					if (TypeUses(argument, genericParameter)) return true;
+				}
+			}
+			return false;
+		}
+
 		private static MethodInfo CloseGeneric(MethodInfo def, object[] args)
 		{
 			Dictionary<Type, Type> map = new Dictionary<Type, Type>();
@@ -1369,7 +1384,20 @@ namespace RingDotNet
 			Type[] closed = new Type[gps.Length];
 			for (int i = 0; i < gps.Length; i++)
 			{
-				closed[i] = map.TryGetValue(gps[i], out Type found) ? found : typeof(object);
+				if (map.TryGetValue(gps[i], out Type found))
+				{
+					closed[i] = found;
+					continue;
+				}
+				/* a type parameter that the arguments do not tell: object when a parameter uses it (OrderBy<T, TKey>(source, Func<T, TKey>));
+				   when no parameter uses it at all (Lambda<TDelegate>(body, parameters)) the overload is skipped instead of guessed */
+				bool used = false;
+				foreach (ParameterInfo p in ps)
+				{
+					if (TypeUses(p.ParameterType, gps[i])) used = true;
+				}
+				if (!used) return null;
+				closed[i] = typeof(object);
 			}
 			try { return def.MakeGenericMethod(closed); }
 			catch (ArgumentException) { return null; }

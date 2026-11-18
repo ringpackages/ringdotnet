@@ -1,0 +1,11 @@
+1. sort answered: apple, fig, pear   (exit code 0)
+
+2. sorted, and only the lines with an 'e': apple, pear
+
+3. the child read the variable that the parent set: hello from the parent program
+
+4. a failing command: exit code 1, standard error says 'File Not Found'
+   a command that succeeds has exit code 0
+
+5. waited 300 ms for a program that runs about 5 seconds: finished = no
+   after Kill it has exited: yes

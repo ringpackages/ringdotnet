@@ -130,6 +130,9 @@ ring g01c_counter.ring --selftest   # the same program checks itself and closes
 <a class="card" href="tut-82-shared-memory.html"><div class="ic">82</div><b>Shared memory</b><span>Memory-mapped files shared by two programs, and a file edited in place.</span></a>
 <a class="card" href="tut-83-tasks-waiting.html"><div class="ic">83</div><b>Tasks that wait</b><span>Task.Delay, WhenAll, WhenAny, time limits and cancellation.</span></a>
 <a class="card" href="tut-84-http-client.html"><div class="ic">84</div><b>HttpClient in depth</b><span>Headers, status codes, EnsureSuccessStatusCode, cancelling and saving a download.</span></a>
+<a class="card" href="tut-85-feed-programs.html"><div class="ic">85</div><b>Working with other programs</b><span>Standard input, chaining, environment, exit codes, time limits and Kill.</span></a>
+<a class="card" href="tut-86-escaping.html"><div class="ic">86</div><b>Escaping</b><span>The right encoding for HTML, URLs, JavaScript, JSON, XML, regular expressions and SQL.</span></a>
+<a class="card" href="tut-87-expressions.html"><div class="ic">87</div><b>Expression trees</b><span>Code as data: build, print, compile and call functions at run time.</span></a>
 </div>
 
 ## Learning path
