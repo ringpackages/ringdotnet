@@ -371,7 +371,7 @@ def gallery(kind):
             if not os.path.exists(main) or d in ("WebApi",):
                 continue
             src = read(main)
-            if "dnUseDesktop" not in src:
+            if '"System.Windows' not in src and "dnUseDesktop" not in src:      # a window program: its using block names System.Windows.Forms or WPF
                 continue
             items.append((pretty(d), first_comment(src), "app-%s.png" % d, src, "cd samples/UsingDotNet/applications/%s  then  ring main.ring" % d))
     cards = []
@@ -472,8 +472,12 @@ def functions(rel):
 
 def stats():
     gen = os.path.join(ROOT, "libraries", "dotnetlib", "generated")
-    namespaces = [d for d in os.listdir(gen) if os.path.isdir(os.path.join(gen, d))]
-    classes = sum(len([f for f in os.listdir(os.path.join(gen, d)) if f.endswith(".ring")]) for d in namespaces)
+    # two files per namespace: <Namespace>.classes.ring has all its classes
+    namespaces = [f for f in os.listdir(gen) if f.endswith(".classes.ring")]
+    classes = 0
+    for f in namespaces:
+        with open(os.path.join(gen, f), encoding="utf-8") as fh:
+            classes += sum(1 for line in fh if line.startswith("Class "))
 
     def count(p, ext=".ring"):
         p = os.path.join(ROOT, p)
